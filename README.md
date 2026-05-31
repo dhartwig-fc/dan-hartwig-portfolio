@@ -30,7 +30,7 @@ GitHub:
 https://github.com/dhartwig-fc
 
 
-## Financial Crime AI Portfolio
+## Financial Crime Portfolio
 
 Building AI-enabled Financial Crime solutions across AML, Network Analytics, TBML and Banking Operations.
 
@@ -38,7 +38,7 @@ Building AI-enabled Financial Crime solutions across AML, Network Analytics, TBM
 
 ## Featured Projects
 
-### Financial Crime AI Toolkit
+### Financial Crime Toolkit
 
 Strategy, governance, architecture, analytics and transformation roadmap for AI-enabled Financial Crime Operations.
 
