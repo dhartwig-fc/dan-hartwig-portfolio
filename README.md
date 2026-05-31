@@ -1,5 +1,29 @@
 # Dan Hartwig
+
+## About
+
+Financial Crime professional with experience across Financial Crime Transformation, AML, Transaction Monitoring and Sanction screening.
+
+This portfolio demonstrates practical prototypes and strategic artefacts exploring how Artificial Intelligence, Network Analytics and Automation can enhance Financial Crime Operations.
+
+Current focus areas include:
+
+- AI Investigator Copilots
+- AML Alert Triage
+- Network Analytics & Entity Resolution
+- Quantexa + AI Integration
+- Trade Finance (TBML) Analytics
+- Capital Markets Surveilllance Analytics
+- Correspondent Banking Analytics
+- Financial Crime Target Operating Models
+- AI Governance & Controls
+
+LinkedIn:
+https://www.linkedin.com/in/dan-hartwig-financial-crime
+
+GitHub:
 https://github.com/dhartwig-fc
+
 
 ## Financial Crime AI Portfolio
 
