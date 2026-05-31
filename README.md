@@ -37,7 +37,21 @@ https://github.com/dhartwig-fc/financial-crime-ai-toolkit
 
 ## About
 
-Experienced Financial Crime professional exploring how AI, Network Analytics and Automation can transform AML investigations, Correspondent Banking monitoring, Trade Finance analytics and operational effectiveness.
+Financial Crime professional with experience across Financial Crime Transformation, AML, Transaction Monitoring and Sanction screening.
+
+This portfolio demonstrates practical prototypes and strategic artefacts exploring how Artificial Intelligence, Network Analytics and Automation can enhance Financial Crime Operations.
+
+Current focus areas include:
+
+- AI Investigator Copilots
+- AML Alert Triage
+- Network Analytics & Entity Resolution
+- Quantexa + AI Integration
+- Trade Finance (TBML) Analytics
+- Capital Markets Surveilllance Analytics
+- Correspondent Banking Analytics
+- Financial Crime Target Operating Models
+- AI Governance & Controls
 
 LinkedIn:
 https://www.linkedin.com/in/dan-hartwig-financial-crime
