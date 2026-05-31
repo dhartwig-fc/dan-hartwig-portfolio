@@ -1,9 +1,9 @@
 # Dan Hartwig
-LinkedIn:
-https://www.linkedin.com/in/dan-hartwig-financial-crime
+LinkedIn: https://www.linkedin.com/in/dan-hartwig-financial-crime
 
-GitHub:
-https://github.com/dhartwig-fc
+Portfolio: https://dhartwig-fc.github.io
+
+GitHub: https://github.com/dhartwig-fc
 
 ## About
 
