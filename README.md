@@ -9,7 +9,7 @@ https://github.com/dhartwig-fc
 
 Financial Crime professional with experience across Financial Crime Transformation, AML, Transaction Monitoring and Sanction screening.
 
-This portfolio demonstrates practical prototypes and strategic concepts exploring how Artificial Intelligence, Network Analytics and Automation can transform Financial Crime Operations.
+This portfolio demonstrates practical prototypes and strategic concepts exploring how Artificial Intelligence, Network Analytics and Automation can transform Financial Crime Operations.All examples are learning and demonstration projects built to explore Financial Crime analytics, workflow optimisation and Python development concepts.
 
 ## Technical Skills
 
@@ -67,7 +67,7 @@ https://github.com/dhartwig-fc/aml-alert-triage-prototype
 
 ### AI Investigator Copilot
 
-AI enrichment, investigator guidance, case narrative generation and operational dashboard concepts.
+Prototype demonstrating alert enrichment, investigator guidance and case narrative support for Financial Crime investigations.
 
 Repository:
 https://github.com/dhartwig-fc/fc-ai-investigator-copilot
