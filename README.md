@@ -50,7 +50,7 @@ Key focus areas include:
 Structured catalogue of financial crime typologies, risk indicators, detection logic and investigator guidance covering AML, TBML, Correspondent Banking, Capital Markets and Network Intelligence use cases.
 
 Repository:
-[Financial Crime Risk Typology Library](PASTE_EXACT_REPO_URL_HERE)
+[Financial Crime Risk Typology Library](dhartwig-fc/fc-05-risk-typology-library)
 
 ---
 
