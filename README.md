@@ -50,7 +50,7 @@ Key focus areas include:
 Structured catalogue of financial crime typologies, risk indicators, detection logic and investigator guidance covering AML, TBML, Correspondent Banking, Capital Markets and Network Intelligence use cases.
 
 Repository:
-[Financial Crime Risk Typology Library](https://github.com/dhartwig-fc/fc-05-risk-typology-library)
+[Financial Crime Risk Typology Library](PASTE_EXACT_REPO_URL_HERE)
 
 ---
 
@@ -96,6 +96,8 @@ Prototype demonstrating alert enrichment, investigator guidance and case narrati
 
 Repository:
 [AI Investigator Copilot](https://github.com/dhartwig-fc/fc-prot02-ai-investigator-copilot)
+
+
 
 ## Current Development Roadmap
 
