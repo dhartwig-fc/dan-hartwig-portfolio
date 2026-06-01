@@ -45,11 +45,39 @@ Key focus areas include:
 
 ---
 
-### Financial Crime Toolkit
+### Financial Crime Risk Typology Library
+
+Structured catalogue of financial crime typologies, risk indicators, detection logic and investigator guidance covering AML, TBML, Correspondent Banking, Capital Markets and Network Intelligence use cases.
+
+Repository:
+[Financial Crime Risk Typology Library](https://github.com/dhartwig-fc/fc-05-risk-typology-library)
+
+---
+
+### Financial Crime Transformation Toolkit
 
 Strategy, governance, architecture, analytics and transformation roadmap for AI-enabled Financial Crime Operations.
 
-Repository: [Financial Crime Toolkit](https://github.com/dhartwig-fc/financial-crime-ai-toolkit)
+Repository:
+[Financial Crime Transformation Toolkit](https://github.com/dhartwig-fc/fc-02-transformation-toolkit)
+
+---
+
+### Financial Crime Network Intelligence Library
+
+Entity resolution, beneficial ownership, relationship discovery and graph analytics patterns supporting financial crime investigations.
+
+Repository:
+[Financial Crime Network Intelligence Library](https://github.com/dhartwig-fc/fc-03-network-intelligence-library)
+
+---
+
+### Trade Finance & TBML Analytics Toolkit
+
+Trade-based money laundering typologies, scoring methodologies, detection scenarios and analytics frameworks.
+
+Repository:
+[Trade Finance & TBML Analytics Toolkit](https://github.com/dhartwig-fc/fc-04-tbml-analytics-toolkit)
 
 ---
 
@@ -57,16 +85,17 @@ Repository: [Financial Crime Toolkit](https://github.com/dhartwig-fc/financial-c
 
 Risk scoring, alert prioritisation and investigator workflow support.
 
-Repository: [AML Alert Triage Prototype](https://github.com/dhartwig-fc/aml-alert-triage-prototype)
+Repository:
+[AML Alert Triage Prototype](https://github.com/dhartwig-fc/fc-prot01-aml-alert-triage)
 
 ---
 
 ### AI Investigator Copilot
 
-Prototype demonstrating alert enrichment, investigator guidance and case narrative support for Financial Crime investigations.
+Prototype demonstrating alert enrichment, investigator guidance and case narrative support for Financial Crime Operations.
 
-Repository: [AI Investigator Copilot](https://github.com/dhartwig-fc/fc-ai-investigator-copilot)
-
+Repository:
+[AI Investigator Copilot](https://github.com/dhartwig-fc/fc-prot02-ai-investigator-copilot)
 
 ## Current Development Roadmap
 
