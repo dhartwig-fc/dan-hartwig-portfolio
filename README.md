@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/financial-crime-analytics.png" width="700">
+  <img src="images/financial-crime-analytics.png" width="280">
 </p>
 
 <h1 align="center">Dan Hartwig</h1>
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  Financial Crime Transformation | Network Intelligence | Advanced Analytics | Artificial Intelligence
+  Financial Crime Transformation • Network Intelligence • Advanced Analytics • Artificial Intelligence
 </p>
 
 <p align="center">
@@ -179,4 +179,3 @@ https://github.com/dhartwig-fc
 ---
 
 © 2026 Dan Hartwig | Financial Crime Transformation Portfolio
-``
