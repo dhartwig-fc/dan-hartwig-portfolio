@@ -48,7 +48,7 @@ The architecture reflects how modern Financial Crime programmes evolve from exte
 - AML Operations
 - Transaction Monitoring
 - Sanctions domain knowledge
-- Network Intelligence & Graph Analytics & Entity Resolution
+- Network Intelligence & Graph Analytics & Entity Resolution (Quantexa)
 - Trade Finance (TBML) Analytics
 - Capital Markets & Correspondent Banking Analytics
 - AI Use Case Design
