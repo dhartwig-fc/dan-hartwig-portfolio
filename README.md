@@ -24,13 +24,11 @@
   <a href="https://github.com/dhartwig-fc">
     <img src="https://img.shields.io/badge/GitHub-Repositories-black?style=for-the-badge&logo=github">
   </a>
-</p>
 
-<p align="center">
-  Explore transformation frameworks, analytics assets, AI prototypes and intelligence-led operating model designs.
+  <a href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/">
+    <img src="https://img.shields.io/badge/Portfolio-Website-green?style=for-the-badge&logo=githubpages">
+  </a>
 </p>
-
----
 
 # 🌍 Portfolio Repositories
 
