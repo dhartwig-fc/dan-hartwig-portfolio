@@ -56,7 +56,7 @@ The repositories within this portfolio are aligned to a Financial Crime Intellig
 The objective is to transform emerging financial crime threats into operational capabilities that deliver measurable risk reduction, regulatory compliance and investigative effectiveness.
 
 <p align="center">
-  <img src="images/financial-crime-intelligence-platform.png" width="900">
+  <img src="images/financial-crime-intelligence-platform.png" width="1100">
 </p>
 
 ### Platform Principles
