@@ -38,7 +38,7 @@ Explore the complete Financial Crime repository portfolio including analytics fr
 
 ### 👉 Explore the Showcase
 
-Explore the complete Financial Crime Analytics Showcase including Network Intelligence, Trade-Based Money Laundering (TBML), Correspondent Banking Analytics, Capital Markets Analytics, AI Investigator capabilities and end-to-end Financial Crime transformation patterns.
+Explore the complete Financial Crime Analytics Showcase including Network Intelligence, Trade-Based Money Laundering (TBML), Correspondent Banking Analytics, Capital Markets Analytics, Sanctions Screening Analytics, AI Investigator capabilities and end-to-end Financial Crime transformation patterns.
 
 ➡️ **[Launch Financial Crime Analytics Showcase](https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase)**
 
