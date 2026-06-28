@@ -251,52 +251,48 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 }
 </style>
 
-<style id='world-map-overlay'>
+
+
+
+
+
+
+
+
+
+<style id="map-final-visible">
 .hero{
-    position:relative;
-    overflow:hidden;
+  position:relative !important;
+  overflow:hidden !important;
 }
 
-.hero>*{
-    position:relative;
-    z-index:2;
+.hero-world-map-img{
+  position:absolute !important;
+  top:32px !important;
+  right:-20px !important;
+  width:720px !important;
+  max-width:64vw !important;
+  height:auto !important;
+  opacity:.95 !important;
+  z-index:4 !important;
+  pointer-events:none !important;
+  filter:drop-shadow(0 0 24px rgba(0,130,255,.35)) !important;
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    top:60px;
-    right:0;
-    width:52%;
-    height:420px;
-
-    background:url("assets/img/hero/world-map.svg") no-repeat center;
-    background-size:contain;
-
-    opacity:.22;
-    pointer-events:none;
-
-    animation:mapGlow 8s ease-in-out infinite;
+.hero-grid{
+  position:relative !important;
+  z-index:5 !important;
 }
-
-@keyframes mapGlow{
-    0%,100%{
-        opacity:.18;
-        transform:translateY(0);
-    }
-
-    50%{
-        opacity:.34;
-        transform:translateY(-6px);
-    }
-}
-
 </style>
+
 </head>
 
 <body>
 
 <header class="hero">
+  <img class="hero-world-map-img" src="assets/img/hero/world-map.png" alt="">
+  
+  
   <div class="wrap hero-grid">
     <a class="hero-brand-link" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase" aria-label="Open Financial Crime Intelligence Showcase">
         <img class="hero-brand-img" src="assets/img/hero/nexus-badge.png" alt="NEXUS Badge">
@@ -323,7 +319,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
       <div class="buttons">
         <a class="btn nexus" href="projects/nexus/index.html">Explore Platform</a>
         <a class="btn" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Financial Crime Showcase</a>
-        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span class="github-mini">GH</span><span>GitHub</span></a>
+        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span>GitHub</span></a>
         <a class="btn linkedin-badge" href="https://www.linkedin.com/in/dan-hartwig-financial-crime"><span class="linkedin-mark">in</span> LinkedIn</a>
       </div>
     </div>
