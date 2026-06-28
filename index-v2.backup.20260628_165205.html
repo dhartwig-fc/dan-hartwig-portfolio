@@ -251,47 +251,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 }
 </style>
 
-<style id='world-map-overlay'>
-.hero{
-    position:relative;
-    overflow:hidden;
-}
-
-.hero>*{
-    position:relative;
-    z-index:2;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    top:60px;
-    right:0;
-    width:52%;
-    height:420px;
-
-    background:url("assets/img/hero/world-map.svg") no-repeat center;
-    background-size:contain;
-
-    opacity:.22;
-    pointer-events:none;
-
-    animation:mapGlow 8s ease-in-out infinite;
-}
-
-@keyframes mapGlow{
-    0%,100%{
-        opacity:.18;
-        transform:translateY(0);
-    }
-
-    50%{
-        opacity:.34;
-        transform:translateY(-6px);
-    }
-}
-
-</style>
 </head>
 
 <body>

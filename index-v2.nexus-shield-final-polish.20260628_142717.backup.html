@@ -101,213 +101,20 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
   }
 </style>
 
-
-<style id="nexus-shield-final-polish">
-  .hero-grid {
-    grid-template-columns: 150px 1fr !important;
-    align-items: center !important;
-    gap: 56px !important;
-  }
-
-  .hero-image {
-    display: none !important;
-  }
-
-  .nexus-shield-badge {
-    width: 138px;
-    height: 158px;
-    border-radius: 34px 34px 46px 46px;
-    background:
-      radial-gradient(circle at 50% 28%, rgba(38,135,255,.35), transparent 34%),
-      linear-gradient(145deg, #101923, #03070c 62%, #13202c);
-    border: 3px solid #caa24a;
-    box-shadow:
-      0 24px 60px rgba(17, 34, 51, .22),
-      inset 0 0 0 5px rgba(255,255,255,.08),
-      inset 0 0 26px rgba(0,153,255,.24);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    clip-path: polygon(50% 0%, 92% 13%, 92% 65%, 50% 100%, 8% 65%, 8% 13%);
-  }
-
-  .nexus-shield-badge::before {
-    content: "";
-    position: absolute;
-    inset: 16px;
-    border: 1px solid rgba(79, 185, 255, .42);
-    clip-path: polygon(50% 0%, 92% 13%, 92% 65%, 50% 100%, 8% 65%, 8% 13%);
-  }
-
-  .nexus-shield-badge span {
-    font-size: 82px;
-    line-height: 1;
-    font-weight: 850;
-    letter-spacing: -0.08em;
-    color: #d7b764;
-    text-shadow: 0 0 22px rgba(60,169,255,.55);
-    transform: translateX(-2px);
-  }
-
-  .hero .subtitle {
-    font-weight: 650 !important;
-    letter-spacing: -0.02em !important;
-  }
-
-  .mantra {
-    font-weight: 420 !important;
-    line-height: .95 !important;
-    letter-spacing: -0.055em !important;
-  }
-
-  .mantra .mantra-strong {
-    font-weight: 760 !important;
-  }
-
-  .mantra .mantra-light {
-    font-weight: 410 !important;
-  }
-
-  .hero-copy {
-    max-width: 760px !important;
-    font-size: 1.05rem !important;
-    line-height: 1.55 !important;
-  }
-
-  @media (max-width: 760px) {
-    .hero-grid {
-      grid-template-columns: 1fr !important;
-      gap: 28px !important;
-    }
-
-    .nexus-shield-badge {
-      width: 96px;
-      height: 112px;
-    }
-
-    .nexus-shield-badge span {
-      font-size: 58px;
-    }
-  }
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style id="shield-css-window-fix">
-.hero-brand-link{
-  width:155px !important;
-  height:175px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  border-radius:26px !important;
-  background:transparent !important;
-  box-shadow:0 18px 38px rgba(15,23,42,.18) !important;
-}
-
-.hero-brand-img{
-  width:155px !important;
-  height:175px !important;
-  object-fit:cover !important;
-  object-position:left center !important;
-  display:block !important;
-  border:0 !important;
-  border-radius:26px !important;
-  filter:drop-shadow(0 18px 32px rgba(0,120,255,.22)) !important;
-}
-</style>
-
-<style id='world-map-overlay'>
-.hero{
-    position:relative;
-    overflow:hidden;
-}
-
-.hero>*{
-    position:relative;
-    z-index:2;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    top:60px;
-    right:0;
-    width:52%;
-    height:420px;
-
-    background:url("assets/img/hero/world-map.svg") no-repeat center;
-    background-size:contain;
-
-    opacity:.22;
-    pointer-events:none;
-
-    animation:mapGlow 8s ease-in-out infinite;
-}
-
-@keyframes mapGlow{
-    0%,100%{
-        opacity:.18;
-        transform:translateY(0);
-    }
-
-    50%{
-        opacity:.34;
-        transform:translateY(-6px);
-    }
-}
-
-</style>
 </head>
 
 <body>
 
 <header class="hero">
   <div class="wrap hero-grid">
-    <a class="hero-brand-link" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase" aria-label="Open Financial Crime Intelligence Showcase">
-        <img class="hero-brand-img" src="assets/img/hero/nexus-badge.png" alt="NEXUS Badge">
-      </a>
+    <img class="hero-image" src="images/financial-crime-ai-analytics.png" alt="Financial Crime AI Analytics">
 
     <div>
       <div class="eyebrow">Financial Crime Intelligence</div>
 
       <h1>Dan Hartwig</h1>
 
-      <div class="subtitle">Intelligence Platform Architect</div>
+      <div class="subtitle">Financial Crime Intelligence Platform Architect</div>
 
       <div class="mantra">
         <span class="mantra-strong">Intelligence.</span><br>
@@ -316,14 +123,14 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
       </div>
 
       <p class="hero-copy">
-        Turning intelligence into operational capability through architecture, analytics and delivery
-        of production-ready financial crime platforms.
+        Turning intelligence into operational capability through architecture, analytics and delivery.
       </p>
 
       <div class="buttons">
         <a class="btn nexus" href="projects/nexus/index.html">Explore Platform</a>
-        <a class="btn" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Financial Crime Showcase</a>
-        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span class="github-mini">GH</span><span>GitHub</span></a>
+        <a class="btn" href="#capability">Capability Statement</a>
+        <a class="btn" href="#architecture">Architecture</a>
+        <a class="btn" href="https://github.com/dhartwig-fc">GitHub</a>
         <a class="btn linkedin-badge" href="https://www.linkedin.com/in/dan-hartwig-financial-crime"><span class="linkedin-mark">in</span> LinkedIn</a>
       </div>
     </div>
@@ -618,6 +425,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
       <div class="buttons">
         <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS</a>
         <a class="btn" href="projects/nexus/pages/mission-status.html">Mission Status</a>
+        <a class="btn" href="projects/nexus/pages/architecture.html">Architecture</a>
       </div>
     </div>
 
@@ -666,25 +474,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
     </p>
   </div>
 </footer>
-
-
-<script id="scroll-reveal-motion">
-  (() => {
-    const items = document.querySelectorAll("section, .section, .card, .work-card, .proof-card");
-    items.forEach((el) => el.classList.add("reveal-ready"));
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-in");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    items.forEach((el) => observer.observe(el));
-  })();
-</script>
 
 </body>
 </html>

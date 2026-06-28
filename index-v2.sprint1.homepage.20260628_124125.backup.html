@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dan Hartwig | Financial Crime Intelligence Architect</title>
+
+<style>
+:root{
+  --bg:#f7f9fb;
+  --ink:#17212b;
+  --muted:#5b6670;
+  --line:#d9e0e7;
+  --blue:#0b66d8;
+  --green:#15803d;
+  --dark:#07131d;
+  --cyan:#00d9ff;
+  --gold:#f6a623;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.55;
+}
+
+.page{
+  max-width:1120px;
+  margin:0 auto;
+  padding:42px 24px 70px;
+}
+
+.hero{
+  text-align:center;
+  padding:28px 0 34px;
+}
+
+.hero img{
+  width:270px;
+  max-width:70%;
+  border-radius:50%;
+  margin-bottom:22px;
+}
+
+h1{
+  font-size:42px;
+  margin:0 0 8px;
+}
+
+.subtitle{
+  font-size:18px;
+  font-weight:700;
+  margin:0 0 14px;
+}
+
+.positioning{
+  max-width:820px;
+  margin:0 auto 22px;
+  color:var(--muted);
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:18px;
+}
+
+.btn{
+  display:inline-block;
+  padding:11px 16px;
+  border-radius:7px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+}
+
+.btn-blue{background:var(--blue);color:white}
+.btn-dark{background:#111827;color:white}
+.btn-green{background:var(--green);color:white}
+.btn-nexus{background:var(--dark);color:var(--cyan);border:1px solid var(--cyan)}
+
+.section{
+  border-top:1px solid var(--line);
+  padding:34px 0;
+}
+
+.section h2{
+  margin:0 0 18px;
+  font-size:26px;
+}
+
+.featured{
+  background:linear-gradient(135deg,#06111d,#0b2235);
+  color:white;
+  border:1px solid rgba(0,217,255,.35);
+  border-radius:18px;
+  padding:28px;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:24px;
+  align-items:center;
+  box-shadow:0 14px 35px rgba(7,19,29,.18);
+}
+
+.featured .eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:700;
+  font-size:12px;
+}
+
+.featured h2{
+  font-size:36px;
+  margin:6px 0 8px;
+}
+
+.featured p{
+  color:#dce8f2;
+  margin-bottom:18px;
+}
+
+.nexus-stat{
+  border:1px solid rgba(0,217,255,.25);
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  background:rgba(255,255,255,.04);
+}
+
+.nexus-stat strong{
+  display:block;
+  font-size:56px;
+  color:var(--cyan);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px;
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+
+.card p{
+  color:var(--muted);
+  margin:0;
+}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.metric{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+}
+
+.metric strong{
+  display:block;
+  font-size:30px;
+  color:#0f172a;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border:1px solid var(--line);
+}
+
+th,td{
+  text-align:left;
+  border:1px solid var(--line);
+  padding:12px;
+  vertical-align:top;
+}
+
+th{background:#edf2f7}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  padding-top:26px;
+  border-top:1px solid var(--line);
+}
+
+@media(max-width:850px){
+  .featured{grid-template-columns:1fr}
+  .grid,.metrics{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <header class="hero">
+    <img src="images/financial-crime-ai-analytics.png" alt="Financial Crime AI Analytics" />
+
+    <h1>Dan Hartwig</h1>
+    <p class="subtitle">Financial Crime Intelligence Architect</p>
+
+    <p class="positioning">
+      Building governed intelligence platforms that transform financial crime analytics,
+      network intelligence and AI into operational investigator decision support.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-blue" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">LinkedIn Profile</a>
+      <a class="btn btn-dark" href="https://github.com/dhartwig-fc">GitHub Repositories</a>
+      <a class="btn btn-green" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/">Portfolio Website</a>
+      <a class="btn btn-nexus" href="projects/nexus/index.html">🚀 Launch NEXUS Platform</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="featured">
+      <div>
+        <div class="eyebrow">Featured Platform</div>
+        <h2>NEXUS Executive Platform</h2>
+        <p>
+          A Financial Crime Intelligence Platform demonstrating how analytics,
+          metadata, evidence and governance become reusable intelligence products.
+        </p>
+        <a class="btn btn-nexus" href="projects/nexus/index.html">Enter NEXUS</a>
+      </div>
+
+      <div class="nexus-stat">
+        <strong>323</strong>
+        <span>Current Stage</span>
+        <p>Runtime Manufacturing Orchestrator</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Portfolio Highlights</h2>
+
+    <div class="metrics">
+      <div class="metric"><strong>18+</strong><span>Repositories</span></div>
+      <div class="metric"><strong>50</strong><span>Planned Analytics</span></div>
+      <div class="metric"><strong>11</strong><span>Built Analytics</span></div>
+      <div class="metric"><strong>3</strong><span>Engine-Tested</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Core Capability Areas</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Threat Intelligence</h3>
+        <p>Horizon scanning, emerging typologies, geopolitical risk and threat assessment.</p>
+      </div>
+
+      <div class="card">
+        <h3>Network Intelligence</h3>
+        <p>Entity resolution, beneficial ownership, relationship discovery and graph analytics.</p>
+      </div>
+
+      <div class="card">
+        <h3>Financial Crime Analytics</h3>
+        <p>AML, TBML, sanctions exposure, correspondent banking and capital markets analytics.</p>
+      </div>
+
+      <div class="card">
+        <h3>Investigation Intelligence</h3>
+        <p>Investigator-ready intelligence products, evidence packs and decision support.</p>
+      </div>
+
+      <div class="card">
+        <h3>AI Investigator Copilot</h3>
+        <p>AI-assisted investigation enrichment, risk explanation and alert triage support.</p>
+      </div>
+
+      <div class="card">
+        <h3>Governance & Transformation</h3>
+        <p>Operating models, controls, roadmap design, validation and executive delivery.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Featured Work</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>NEXUS Financial Crime Intelligence Platform</h3>
+        <p>Executive product portal, roadmap, mission status and stage catalogue.</p>
+        <p><a href="projects/nexus/index.html">Launch NEXUS →</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Financial Crime Analytics Showcase</h3>
+        <p>Connected analytics architecture across Network, TBML, Sanctions, Correspondent Banking and Capital Markets.</p>
+        <p><a href="financial-crime-showcase.html">View Showcase →</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Repository Portfolio</h3>
+        <p>Source repositories covering analytics, intelligence products, AI copilots and transformation assets.</p>
+        <p><a href="https://github.com/dhartwig-fc">View GitHub →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Platform Architecture</h2>
+
+    <table>
+      <tr>
+        <th>Layer</th>
+        <th>Purpose</th>
+      </tr>
+      <tr>
+        <td>Threat Intelligence</td>
+        <td>Identifies emerging financial crime risk and horizon-scanning signals.</td>
+      </tr>
+      <tr>
+        <td>Analytics</td>
+        <td>Transforms raw data into typology indicators, patterns and risk outputs.</td>
+      </tr>
+      <tr>
+        <td>Metadata Factory</td>
+        <td>Standardises analytics outputs into reusable intelligence product structures.</td>
+      </tr>
+      <tr>
+        <td>Intelligence Product</td>
+        <td>Generates investigator-ready outputs with evidence, reasoning and action guidance.</td>
+      </tr>
+      <tr>
+        <td>Investigation Workspace</td>
+        <td>Supports investigation, escalation, decisioning and operational execution.</td>
+      </tr>
+    </table>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Dan Hartwig | Financial Crime Intelligence Platform Portfolio</p>
+  </footer>
+
+</div>
+</body>
+</html>

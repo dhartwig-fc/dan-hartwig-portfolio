@@ -193,114 +193,243 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 </style>
 
 
+<style id="badge-showcase-final">
+  .hero-brand-link {
+    display: block;
+    width: 142px;
+    height: 142px;
+    border-radius: 36px;
+    text-decoration: none;
+  }
 
+  .hero-brand-img {
+    width: 142px;
+    height: 142px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 22px 34px rgba(15, 23, 42, .22));
+  }
 
+  .hero-brand-fallback {
+    width: 132px;
+    height: 152px;
+    border-radius: 34px 34px 46px 46px;
+    background: linear-gradient(145deg, #101923, #03070c 62%, #13202c);
+    border: 3px solid #caa24a;
+    color: #d7b764;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 78px;
+    font-weight: 850;
+    text-decoration: none;
+    clip-path: polygon(50% 0%, 92% 13%, 92% 65%, 50% 100%, 8% 65%, 8% 13%);
+    box-shadow: 0 22px 42px rgba(15, 23, 42, .22);
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style id="shield-css-window-fix">
-.hero-brand-link{
-  width:155px !important;
-  height:175px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  border-radius:26px !important;
-  background:transparent !important;
-  box-shadow:0 18px 38px rgba(15,23,42,.18) !important;
-}
-
-.hero-brand-img{
-  width:155px !important;
-  height:175px !important;
-  object-fit:cover !important;
-  object-position:left center !important;
-  display:block !important;
-  border:0 !important;
-  border-radius:26px !important;
-  filter:drop-shadow(0 18px 32px rgba(0,120,255,.22)) !important;
-}
+  .nexus-shield-badge {
+    display: none !important;
+  }
 </style>
 
-<style id='world-map-overlay'>
-.hero{
-    position:relative;
-    overflow:hidden;
-}
 
-.hero>*{
-    position:relative;
-    z-index:2;
-}
+<style id="sprint1-final-badge-showcase">
+  .hero-brand-link {
+    display: block;
+    width: 150px;
+    height: 150px;
+    text-decoration: none;
+  }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    top:60px;
-    right:0;
-    width:52%;
-    height:420px;
+  .hero-brand-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: 50% 18%;
+    border-radius: 34px;
+    box-shadow: 0 22px 42px rgba(15, 23, 42, .24);
+    display: block;
+  }
 
-    background:url("assets/img/hero/world-map.svg") no-repeat center;
-    background-size:contain;
+  .repo-card.github-showcase {
+    position: relative;
+    overflow: hidden;
+  }
 
-    opacity:.22;
-    pointer-events:none;
+  .repo-card.github-showcase::after {
+    content: "GitHub";
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #111827;
+    background: #fff;
+    border: 1px solid rgba(15,23,42,.12);
+    border-radius: 999px;
+    padding: 7px 11px;
+  }
 
-    animation:mapGlow 8s ease-in-out infinite;
-}
-
-@keyframes mapGlow{
-    0%,100%{
-        opacity:.18;
-        transform:translateY(0);
-    }
-
-    50%{
-        opacity:.34;
-        transform:translateY(-6px);
-    }
-}
-
+  .repo-card.github-showcase .github-thumb {
+    margin-top: 18px;
+    width: 100%;
+    height: 74px;
+    border-radius: 16px;
+    background:
+      linear-gradient(135deg, rgba(15,23,42,.96), rgba(17,24,39,.82)),
+      radial-gradient(circle at 20% 30%, rgba(10,102,194,.28), transparent 34%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 31px;
+    font-weight: 900;
+    letter-spacing: -.03em;
+  }
 </style>
+
+
+<style id="hero-badge-github-final">
+  .hero-brand-link {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 32px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 24px 44px rgba(15,23,42,.20);
+  }
+
+  .hero-brand-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 17% 35%;
+    transform: scale(1.55);
+  }
+
+  .btn.github-thumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .github-mini {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .nexus-shield-badge,
+  .hero-image {
+    display: none !important;
+  }
+</style>
+
+
+
+
+
+
+
+
+<style id="visible-badge-animation-fix">
+  .hero-brand-link {
+    width: 150px !important;
+    height: 150px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 38px !important;
+    background:
+      radial-gradient(circle at 50% 28%, rgba(6,182,212,.28), transparent 36%),
+      linear-gradient(145deg,#08131f,#02060b 65%,#11263a) !important;
+    border: 2px solid #d3ad5b !important;
+    box-shadow: 0 24px 52px rgba(15,23,42,.25) !important;
+    position: relative !important;
+    overflow: visible !important;
+    animation: heroBadgeFloat 4.8s ease-in-out infinite !important;
+  }
+
+  .hero-brand-link::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid rgba(6,182,212,.45);
+    border-radius: 28px;
+  }
+
+  .hero-brand-link::after {
+    content: "N";
+    font-size: 86px;
+    font-weight: 850;
+    line-height: 1;
+    color: #d8b763;
+    text-shadow: 0 0 24px rgba(6,182,212,.62);
+    letter-spacing: -0.08em;
+    transform: translateX(-3px);
+  }
+
+  .hero-brand-img {
+    display: none !important;
+  }
+
+  @keyframes heroBadgeFloat {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-7px) rotate(-1.5deg); }
+  }
+
+  .hero {
+    background-size: 130% 130% !important;
+    animation: heroGradientMove 14s ease-in-out infinite alternate !important;
+  }
+
+  @keyframes heroGradientMove {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+  }
+
+  .btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 14px 28px rgba(15,23,42,.16) !important;
+  }
+
+  .btn.github-thumb {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .github-mini {
+    width: 21px;
+    height: 21px;
+    border-radius: 999px;
+    background: #111827;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+  }
+</style>
+
 </head>
 
 <body>
 
 <header class="hero">
   <div class="wrap hero-grid">
-    <a class="hero-brand-link" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase" aria-label="Open Financial Crime Intelligence Showcase">
-        <img class="hero-brand-img" src="assets/img/hero/nexus-badge.png" alt="NEXUS Badge">
-      </a>
+    <a class="hero-brand-link" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase" aria-label="Open Financial Crime Intelligence Showcase"></a>
 
     <div>
       <div class="eyebrow">Financial Crime Intelligence</div>
@@ -323,7 +452,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
       <div class="buttons">
         <a class="btn nexus" href="projects/nexus/index.html">Explore Platform</a>
         <a class="btn" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Financial Crime Showcase</a>
-        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span class="github-mini">GH</span><span>GitHub</span></a>
+        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span class="github-mini">GH</span> GitHub</a>
         <a class="btn linkedin-badge" href="https://www.linkedin.com/in/dan-hartwig-financial-crime"><span class="linkedin-mark">in</span> LinkedIn</a>
       </div>
     </div>

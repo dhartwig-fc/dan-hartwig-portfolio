@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dan Hartwig | Financial Crime Intelligence Platform Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    h1, h2, h3 {
+      color: #1f2937;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    .badge {
+      display: inline-block;
+      margin: 4px;
+      padding: 8px 12px;
+      background: #1f2937;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .badge.blue { background: #2563eb; }
+    .badge.green { background: #16a34a; }
+
+    .hero-img {
+      width: 450px;
+      max-width: 90%;
+    }
+
+    .platform-img {
+      width: 100%;
+      max-width: 1250px;
+      cursor: zoom-in;
+      border: 1px solid #ccc;
+    }
+
+    .zoom-overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.94);
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    .zoom-overlay:target {
+      display: block;
+    }
+
+    .zoom-overlay img {
+      width: 2200px;
+      max-width: none;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid white;
+    }
+
+    .close-zoom {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 32px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 10000;
+    }
+
+    .zoom-note {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    pre {
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      padding: 16px;
+      overflow-x: auto;
+      line-height: 1.4;
+    }
+
+    hr {
+      margin: 35px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="center">
+  <img src="images/financial-crime-analytics.png" class="hero-img">
+
+  <h1>Dan Hartwig</h1>
+
+  <p><strong>Financial Crime Intelligence Platform Portfolio</strong></p>
+
+  <p>
+    Emerging Threat Intelligence • Network Intelligence • Financial Crime Analytics •
+    Investigation Intelligence • Artificial Intelligence
+  </p>
+
+  <p><em>
+    Building intelligence-led Financial Crime Investigation Platforms that transform
+    emerging threats into operational investigator decision support.
+  </em></p>
+
+  <p>
+    <a class="badge blue" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">LinkedIn Profile</a>
+    <a class="badge" href="https://github.com/dhartwig-fc">GitHub Repositories</a>
+    <a class="badge green" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/">Portfolio Website</a>
+  </p>
+</div>
+
+<hr>
+
+<h2>🌍 Repository Portfolio</h2>
+
+<h3>👉 <a href="https://github.com/dhartwig-fc">Explore Repository Portfolio</a></h3>
+
+<p>
+Explore the complete Financial Crime repository portfolio including analytics frameworks,
+network intelligence methodologies, emerging threat intelligence, AI-enabled operating models,
+prototype implementations and transformation assets.
+</p>
+
+<h3>
+👉 <a href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">
+Explore the Financial Crime Analytics Showcase
+</a>
+</h3>
+
+<p>
+Explore the complete Financial Crime Analytics Showcase including Network Intelligence,
+Trade-Based Money Laundering Analytics, Correspondent Banking Analytics, Capital Markets Analytics,
+Sanctions Exposure Analytics, AI Investigator Copilot capabilities and end-to-end Financial Crime
+transformation patterns.
+</p>
+
+<p>
+<a href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">
+➡ Launch Financial Crime Analytics Showcase
+</a>
+</p>
+
+<hr>
+
+<h2>📊 Portfolio Highlights</h2>
+
+<table>
+  <tr><th>Area</th><th>Coverage</th></tr>
+  <tr>
+    <td>Platform Architecture</td>
+    <td>Threat Intelligence → Network Intelligence → Analytics → Investigation Intelligence → Copilot</td>
+  </tr>
+  <tr>
+    <td>Capability Domains</td>
+    <td>Emerging Threat Intelligence, Detection Strategy, Network Intelligence, Financial Crime Analytics, Investigation Intelligence, Governance</td>
+  </tr>
+  <tr>
+    <td>Analytics Coverage</td>
+    <td>AML, TBML, Correspondent Banking, Sanctions Exposure, Capital Markets, Network Risk</td>
+  </tr>
+  <tr>
+    <td>AI Capabilities</td>
+    <td>Threat Intelligence Agents, Case Intelligence Agents, Orchestration Agents, Conversational Copilot, AI Investigator Copilot Prototype</td>
+  </tr>
+  <tr>
+    <td>Transformation Focus</td>
+    <td>Strategy, Governance, Operating Models, Architecture, Delivery</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>🏗️ Financial Crime Intelligence Platform</h2>
+
+<p>
+The repositories within this portfolio are aligned to a Financial Crime Intelligence Platform framework
+that connects emerging threat intelligence, analytics, network intelligence, investigations, governance
+and transformation into a single operating model.
+</p>
+
+<p>
+The objective is to transform emerging financial crime threats into operational capabilities that deliver
+measurable risk reduction, regulatory compliance and investigative effectiveness.
+</p>
+
+<div class="center">
+  <a href="#platform-zoom">
+    <img src="images/financial-crime-intelligence-platform.png" class="platform-img">
+  </a>
+</div>
+
+<p class="zoom-note">🔍 Click diagram to magnify. Press back or click X to return.</p>
+
+<div id="platform-zoom" class="zoom-overlay">
+  <a href="#" class="close-zoom">×</a>
+  <img src="images/financial-crime-intelligence-platform.png">
+</div>
+
+<h3>Featured Architecture</h3>
+
+<pre>
+Emerging Threat Intelligence
+        ↓
+Network Intelligence
+        ↓
+Financial Crime Analytics
+        ↓
+AI Investigator Copilot
+        ↓
+Investigation Intelligence Products
+        ↓
+Conversational Copilot
+        ↓
+Investigator Decision Support
+</pre>
+
+<p>
+This architecture demonstrates how emerging threats can be transformed into operational investigator
+intelligence through a connected ecosystem of threat intelligence, graph analytics, financial crime analytics,
+AI-driven intelligence generation and conversational investigation support.
+</p>
+
+<h3>Platform Principles</h3>
+
+<table>
+  <tr><th>Objective</th><th>Description</th></tr>
+  <tr><td>🛡️ Protect the Institution</td><td>Identify and mitigate financial crime risk through intelligence-led capabilities</td></tr>
+  <tr><td>⚖️ Meet Regulatory Obligations</td><td>Support AML, Sanctions, Fraud and Compliance requirements</td></tr>
+  <tr><td>📈 Drive Risk Intelligence</td><td>Convert data, analytics and threat intelligence into actionable investigative insight</td></tr>
+  <tr><td>🔍 Detect Financial Crime</td><td>Enable effective detection, investigation and disruption of criminal activity</td></tr>
+  <tr><td>🤖 Augment Investigators</td><td>Transform analytical findings into investigator-ready intelligence products and decision support</td></tr>
+</table>
+
+<h3>Capability Areas</h3>
+
+<table>
+  <tr><th>Capability</th><th>Coverage</th></tr>
+  <tr>
+    <td>🧠 Threat Intelligence</td>
+    <td>Horizon Scanning, Threat Assessment, Emerging Typologies, Geopolitical Intelligence</td>
+  </tr>
+  <tr>
+    <td>🕸️ Network Intelligence</td>
+    <td>Entity Resolution, Beneficial Ownership, Relationship Discovery, Graph Analytics</td>
+  </tr>
+  <tr>
+    <td>📊 Financial Crime Analytics</td>
+    <td>Transaction Monitoring, TBML, Correspondent Banking, Capital Markets, Sanctions Exposure Analytics</td>
+  </tr>
+  <tr>
+    <td>🤖 Investigation Intelligence Platform</td>
+    <td>Threat Intelligence Agents, Case Intelligence Agents, Orchestration Agents, Investigation Intelligence Generation, Conversational Copilot, AI Governance</td>
+  </tr>
+  <tr>
+    <td>🏛️ Governance</td>
+    <td>Explainability, Controls, Model Oversight and Risk Management</td>
+  </tr>
+  <tr>
+    <td>🚀 Transformation</td>
+    <td>Operating Models, Roadmaps, Architecture and Delivery</td>
+  </tr>
+</table>
+
+<p>
+This framework serves as the architectural foundation for the repositories, methodologies and analytics assets
+contained within this portfolio.
+</p>
+
+<hr>
+
+<h2>Executive Profile</h2>
+
+<p>
+I design intelligence-led Financial Crime Investigation Platforms that combine Emerging Threat Intelligence,
+Network Intelligence, Financial Crime Analytics and Artificial Intelligence to transform risk detection into
+operational investigator decision support.
+</p>
+
+<p>
+My experience spans Financial Crime Operations, Transaction Monitoring, Detection Strategy, Analytics,
+Network Intelligence, Operating Model Design, Artificial Intelligence and Enterprise Transformation.
+</p>
+
+<p>
+This portfolio demonstrates the design and implementation of a connected Financial Crime Intelligence Platform
+spanning threat intelligence, graph analytics, financial crime analytics, investigation intelligence,
+copilot architectures and transformation strategy.
+</p>
+
+<p>
+Rather than presenting isolated technologies or analytical solutions, the portfolio demonstrates how emerging
+threats can be translated into operational detection capabilities, investigation workflows and measurable
+transformation outcomes.
+</p>
+
+<hr>
+
+<h2>Core Capability Areas</h2>
+
+<table>
+  <tr><th>Domain</th><th>Focus Areas</th></tr>
+  <tr>
+    <td>🧠 Threat Intelligence</td>
+    <td>Horizon Scanning, Threat Assessment, Geopolitical Intelligence, Emerging Typologies</td>
+  </tr>
+  <tr>
+    <td>🎯 Detection Strategy</td>
+    <td>Threat-to-Detection Mapping, Scenario Engineering, Coverage Assessment</td>
+  </tr>
+  <tr>
+    <td>📊 Financial Crime Analytics</td>
+    <td>Transaction Monitoring, Trade Finance, Correspondent Banking, Capital Markets, Sanctions Exposure Analytics, Risk Scoring</td>
+  </tr>
+  <tr>
+    <td>🕸️ Network Intelligence</td>
+    <td>Entity Resolution, Relationship Discovery, Beneficial Ownership, Graph Analytics</td>
+  </tr>
+  <tr>
+    <td>🤖 Investigation Intelligence Platform</td>
+    <td>Threat Intelligence Agents, Case Intelligence Agents, Orchestration Agents, Investigation Intelligence Generation, Conversational Copilot, AI Governance</td>
+  </tr>
+  <tr>
+    <td>🏛️ Governance</td>
+    <td>Explainability, Controls, Model Oversight</td>
+  </tr>
+  <tr>
+    <td>🚀 Transformation</td>
+    <td>Operating Models, Business Cases, Roadmaps, Executive Strategy</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Featured Work</h2>
+
+<h3>🏛️ Financial Crime Analytics Showcase</h3>
+
+<p>
+A complete Financial Crime Intelligence Platform demonstrating how Emerging Threat Intelligence,
+Network Intelligence, Financial Crime Analytics and Investigation Intelligence can be connected into
+a single operational architecture.
+</p>
+
+<ul>
+  <li>Financial Crime Intelligence Platform</li>
+  <li>Network Intelligence Library</li>
+  <li>TBML Analytics Library</li>
+  <li>Correspondent Banking Analytics</li>
+  <li>Capital Markets Analytics</li>
+  <li>Sanctions Exposure Analytics</li>
+  <li>AI Investigator Copilot Architecture</li>
+</ul>
+
+<p>
+<a href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">
+➡ View Financial Crime Analytics Showcase
+</a>
+</p>
+
+<h3>🤖 AI Investigator Copilot Prototype</h3>
+
+<p>
+Working prototype demonstrating how analytical findings, risk indicators and investigation context can be
+transformed into AI-generated investigator intelligence products.
+</p>
+
+<ul>
+  <li>Alert Enrichment</li>
+  <li>Risk Explanation Generation</li>
+  <li>Investigator Narrative Generation</li>
+  <li>AI-Assisted Alert Analysis</li>
+  <li>Conversational Investigation Support</li>
+</ul>
+
+<p>
+<a href="https://github.com/dhartwig-fc/fc-prot02-ai-investigator-copilot">
+➡ View AI Investigator Copilot Prototype
+</a>
+</p>
+
+<h3>🧠 Emerging Threat Intelligence</h3>
+
+<p>
+Researching emerging financial crime threats, horizon scanning techniques and future capability requirements
+to support intelligence-led transformation.
+</p>
+
+<ul>
+  <li>Artificial Intelligence Abuse</li>
+  <li>Agentic AI</li>
+  <li>Digital Assets</li>
+  <li>Synthetic Identities</li>
+  <li>Trade-Based Sanctions Evasion</li>
+  <li>Geopolitical Risk Corridors</li>
+  <li>Shadow Fleet Networks</li>
+  <li>Professional Mule Networks</li>
+</ul>
+
+<p>
+<a href="https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence">
+➡ View Emerging Threat Intelligence
+</a>
+</p>
+
+<h3>🧪 Transformation AI Lab</h3>
+
+<p>
+Research and experimentation environment focused on Agentic AI, RAG architectures, MCP integration,
+prompt engineering and orchestration patterns.
+</p>
+
+<ul>
+  <li>Agentic AI</li>
+  <li>Retrieval-Augmented Generation</li>
+  <li>MCP Integration</li>
+  <li>Prompt Engineering</li>
+  <li>Orchestration Frameworks</li>
+  <li>AI Experimentation</li>
+</ul>
+
+<p>
+<a href="https://github.com/dhartwig-fc/fc-rm02-transformation-ai-lab">
+➡ View Transformation AI Lab
+</a>
+</p>
+
+<h3>🚀 Transformation Delivery Framework</h3>
+
+<p>
+Frameworks supporting strategy, governance, business cases, operating model design and Financial Crime
+transformation delivery.
+</p>
+
+<ul>
+  <li>Transformation Strategy</li>
+  <li>Operating Model Design</li>
+  <li>Governance Frameworks</li>
+  <li>Roadmaps</li>
+  <li>Executive Business Cases</li>
+</ul>
+
+<p>
+<a href="https://github.com/dhartwig-fc/fc-02-transformation-delivery-framework">
+➡ View Transformation Delivery Framework
+</a>
+</p>
+
+<hr>
+
+<h2>Portfolio Navigation</h2>
+
+<table>
+  <tr><th>Repository</th><th>Purpose</th></tr>
+  <tr>
+    <td><a href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Financial Crime Analytics Showcase</a></td>
+    <td>Visual showcase of analytics frameworks, typologies, network intelligence methodologies, sanctions exposure analytics and AI-enabled investigation intelligence architecture</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/dhartwig-fc/fc-prot02-ai-investigator-copilot">AI Investigator Copilot Prototype</a></td>
+    <td>Working AI-enabled investigation support prototype demonstrating alert enrichment, risk explanation and investigator narrative generation</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence">Emerging Threat Intelligence</a></td>
+    <td>Horizon scanning, threat assessment, emerging typology research and intelligence-led analytical enhancement</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/dhartwig-fc/fc-rm02-transformation-ai-lab">Transformation AI Lab</a></td>
+    <td>Research and experimentation environment for Agentic AI, RAG, MCP, prompt engineering and orchestration patterns</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/dhartwig-fc/fc-02-transformation-delivery-framework">Financial Crime Transformation Toolkit</a></td>
+    <td>Transformation, governance, architecture and delivery framework</td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com/dhartwig-fc/fc-rm01-ai-transformation-roadmap">AI Transformation Roadmap</a></td>
+    <td>Structured learning and transformation roadmap covering Python, RAG, Agentic AI, MCP and Financial Crime transformation capabilities</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Strategic Vision</h2>
+
+<p>
+Financial Crime organisations are increasingly challenged by rapidly evolving threat landscapes,
+growing regulatory expectations and the emergence of Artificial Intelligence.
+</p>
+
+<p>
+The future operating model is intelligence-led, analytics-enabled, AI-augmented and investigator-centric.
+</p>
+
+<p>
+This portfolio demonstrates how Emerging Threat Intelligence, Network Intelligence, Financial Crime Analytics
+and Investigation Intelligence can be integrated into a connected Financial Crime Investigation Platform.
+</p>
+
+<p>
+The objective is not simply better detection. The objective is transforming intelligence into operational
+investigator decision support that improves risk outcomes, investigative effectiveness and organisational resilience.
+</p>
+
+<hr>
+
+<h2>Disclaimer</h2>
+
+<p>
+This portfolio contains educational, conceptual and demonstration materials intended to illustrate Financial Crime
+transformation, analytics, network intelligence methodologies and AI-enabled operating models.
+</p>
+
+<p>
+It does not contain client information, proprietary methodologies, production systems or confidential data.
+</p>
+
+<hr>
+
+<h2>Contact</h2>
+
+<p>📧 dan_hartwig@hotmail.com</p>
+
+<p>🔗 LinkedIn<br>
+<a href="https://www.linkedin.com/in/dan-hartwig-financial-crime">https://www.linkedin.com/in/dan-hartwig-financial-crime</a></p>
+
+<p>💻 GitHub Repository Portfolio<br>
+<a href="https://github.com/dhartwig-fc">https://github.com/dhartwig-fc</a></p>
+
+<hr>
+
+<p class="center">© 2026 Dan Hartwig | Financial Crime Intelligence Platform Portfolio</p>
+
+<script
+    data-goatcounter="https://danhartwig.goatcounter.com/count"
+    async
+    src="https://gc.zgo.at/count.js">
+</script>
+
+</body>
+</html>

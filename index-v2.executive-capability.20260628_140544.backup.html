@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dan Hartwig | Financial Crime Intelligence Architect</title>
+<style>
+:root{
+  --ink:#071827;--muted:#5f6b7a;--soft:#f6f8fb;--card:#fff;--line:#e5e7eb;
+  --navy:#071827;--blue:#175cd3;--cyan:#06b6d4;--gold:#b8872b;
+  --shadow:0 24px 60px rgba(16,24,40,.10)
+}
+*{box-sizing:border-box}
+body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1120px,calc(100% - 34px));margin:0 auto}
+.hero{min-height:86vh;display:flex;align-items:center;padding:74px 0;background:radial-gradient(circle at 82% 16%,rgba(6,182,212,.14),transparent 31%),radial-gradient(circle at 18% 78%,rgba(184,135,43,.12),transparent 29%),linear-gradient(135deg,#fff 0%,#f7faff 58%,#eef8fb 100%);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:170px 1fr;gap:46px;align-items:center}
+.hero-image{width:152px;height:152px;border-radius:999px;object-fit:cover;border:6px solid #fff;box-shadow:0 22px 55px rgba(16,24,40,.16);background:#fff;filter:contrast(1.06) saturate(1.08)}
+.eyebrow{color:var(--blue);font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+h1{margin:0;font-size:clamp(3.2rem,6.4vw,6rem);line-height:.95;letter-spacing:-.06em;font-weight:850}
+.subtitle{margin:18px 0 20px;font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:650;color:#263244}
+.mantra{font-size:clamp(2.4rem,5vw,5.4rem);line-height:.95;letter-spacing:-.07em;font-weight:850;margin:28px 0 24px}
+.hero-copy{max-width:850px;margin:0 0 28px;color:var(--muted);font-size:1.12rem}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;box-shadow:none}
+.btn.dark,.btn.nexus{background:linear-gradient(135deg,#071827,#0b3552);border-color:#0b3552;color:#fff}
+section{padding:78px 0}
+.section-title{margin:0 0 14px;font-size:clamp(1.9rem,3vw,2.65rem);line-height:1.1;letter-spacing:-.045em;font-weight:800}
+.section-intro{max-width:880px;margin:0 0 28px;color:var(--muted);font-size:1.05rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card,.proof-card,.repo-card,.nexus-feature{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow)}
+.card h3,.proof-card h3,.repo-card h3{margin:0 0 10px;font-size:1.18rem;font-weight:750}
+.card p,.proof-card p,.repo-card p{margin:0;color:var(--muted)}
+.philosophy-card{min-height:260px}
+.philosophy-card h3{font-size:clamp(2rem,3vw,3rem);letter-spacing:-.06em;line-height:1;margin-bottom:16px}
+.icon{font-size:1.7rem;margin-bottom:10px}
+.why{background:linear-gradient(135deg,#071827,#0d263a);color:#fff;border-radius:34px;padding:42px;box-shadow:var(--shadow)}
+.why .section-intro{color:#bfd1dd;margin-bottom:0}
+.architecture-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:26px}
+.arch-step{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;text-align:center;box-shadow:var(--shadow)}
+.arch-step strong{display:block;font-size:.98rem;font-weight:750}
+.arch-step span{display:block;color:var(--muted);font-size:.86rem;margin-top:6px}
+.nexus-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center}
+.nexus-feature img{width:100%;border-radius:26px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(15,23,42,.20)}
+.repo-code{display:inline-flex;border-radius:999px;background:#eef6ff;color:#0f4b82;padding:6px 10px;font-size:.76rem;font-weight:850;margin-bottom:14px}
+.cta{background:linear-gradient(135deg,#071827,#0b3552);color:#fff;border-radius:34px;padding:46px;text-align:center;box-shadow:var(--shadow)}
+.cta h2{font-size:clamp(2.2rem,4.5vw,4.4rem);letter-spacing:-.055em;line-height:1;margin:0 0 14px;font-weight:800}
+.cta p{color:#bfd1dd;max-width:760px;margin:0 auto 26px;font-size:1.08rem}
+footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);font-size:.85rem}
+.footer-brand{font-weight:800;color:var(--ink);letter-spacing:-.03em}
+@media(max-width:980px){
+  .hero-grid,.nexus-feature{grid-template-columns:1fr}
+  .grid-3,.grid-4,.architecture-strip{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .hero-image{width:132px;height:132px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <img class="hero-image" src="images/financial-crime-ai-analytics.png" alt="Financial Crime AI Analytics">
+    <div>
+      <div class="eyebrow">Financial Crime Portfolio</div>
+      <h1>Dan Hartwig</h1>
+      <div class="subtitle">Financial Crime Intelligence Platform Architect</div>
+      <div class="mantra">
+        Intelligence.<br>
+        Architecture.<br>
+        Delivery.
+      </div>
+      <p class="hero-copy">
+        I build intelligence-led financial crime platforms that connect analytics, AI and investigation into operational capability.
+      </p>
+      <div class="buttons">
+        <a class="btn nexus" href="projects/nexus/index.html">Explore NEXUS</a>
+        <a class="btn" href="#architecture">Architecture</a>
+        <a class="btn" href="https://github.com/dhartwig-fc">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+
+  <h2 class="section-title">How I Think</h2>
+
+  <p class="section-intro">
+    My approach is built on a simple principle: intelligence only creates value when it becomes operational capability.
+    Everything in this portfolio is designed around that philosophy.
+  </p>
+
+  <div class="grid-3">
+
+    <div class="card philosophy-card">
+      <div class="icon">🧠</div>
+      <h3>Intelligence.</h3>
+      <p>
+        Transform fragmented financial crime information into meaningful intelligence products through
+        analytics, typology design, metadata and investigator-focused decision support.
+      </p>
+    </div>
+
+    <div class="card philosophy-card">
+      <div class="icon">🏛</div>
+      <h3>Architecture.</h3>
+      <p>
+        Create scalable operating models that connect analytics, governance, metadata,
+        AI and investigation workflows into one coherent enterprise capability.
+      </p>
+    </div>
+
+    <div class="card philosophy-card">
+      <div class="icon">⚙</div>
+      <h3>Delivery.</h3>
+      <p>
+        Convert architecture into working platforms through validation,
+        reusable repositories, intelligence products and production-ready implementation.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="why">
+
+    <div class="eyebrow">Why This Matters</div>
+
+    <h2 class="section-title">
+      Turning complexity into operational capability.
+    </h2>
+
+    <p class="section-intro">
+      Financial crime programmes often produce isolated analytics,
+      disconnected tooling and documentation that never reaches investigators.
+      My work focuses on connecting intelligence, architecture and delivery
+      into one operational capability that can scale across an institution.
+    </p>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2 class="section-title">Operational Capability</h2>
+
+  <p class="section-intro">
+    The repositories demonstrate capability across the disciplines required to
+    design, govern and operationalise intelligence-led financial crime platforms.
+  </p>
+
+  <div class="grid-3">
+
+    <div class="proof-card">
+      <div class="icon">🧭</div>
+      <h3>Transformation Architecture</h3>
+      <p>
+        Operating model design, requirements, governance,
+        delivery framework and enterprise architecture.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🕸</div>
+      <h3>Network Intelligence</h3>
+      <p>
+        Entity resolution, relationship analysis,
+        typology engineering and network-based financial crime detection.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">📊</div>
+      <h3>Financial Crime Analytics</h3>
+      <p>
+        TBML, sanctions, correspondent banking,
+        capital markets and reusable analytics libraries.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🧠</div>
+      <h3>Intelligence Products</h3>
+      <p>
+        Risk, confidence, rationale,
+        evidence and investigator-ready decision support.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🤖</div>
+      <h3>AI Investigation</h3>
+      <p>
+        AI-assisted investigation,
+        orchestration and intelligence manufacturing concepts.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🛡</div>
+      <h3>Governance & Validation</h3>
+      <p>
+        Metadata governance,
+        validation frameworks and controlled intelligence production.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+  <h2 class="section-title">Career-Backed Delivery</h2>
+  <p class="section-intro">
+    This portfolio is not a replacement for my CV. It is a demonstration of how my professional experience translates into platform thinking, architecture and working delivery.
+  </p>
+
+  <div class="grid-3">
+    <div class="proof-card">
+      <div class="icon">🏦</div>
+      <h3>Investment Banking Context</h3>
+      <p>Over 15 years working across investment banking environments, financial crime change and control-led delivery.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🔁</div>
+      <h3>Transformation Delivery</h3>
+      <p>Experience connecting business requirements, operating models, technology teams and investigation workflows.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🧩</div>
+      <h3>Platform Thinking</h3>
+      <p>Ability to translate fragmented analytics, governance and investigation needs into coherent platform capability.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="architecture">
+
+  <h2 class="section-title">Architecture Foundation</h2>
+
+  <p class="section-intro">
+    The portfolio is built around a single Financial Crime Intelligence Platform architecture:
+    one intelligence model, many analytics, repeatable metadata, governed outputs and investigator-ready delivery.
+  </p>
+
+  <div class="architecture-strip">
+
+    <div class="arch-step">
+      <strong>Threat Intelligence</strong>
+      <span>Typologies and scenarios</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Analytics</strong>
+      <span>Risk detection logic</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Metadata</strong>
+      <span>Reusable product structure</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Intelligence Product</strong>
+      <span>Risk, confidence, evidence</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Investigation</strong>
+      <span>Actions and decisions</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Decision Support</strong>
+      <span>Operational capability</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2 class="section-title">Technical Evidence</h2>
+
+  <p class="section-intro">
+    The repositories provide the implementation evidence behind the architecture:
+    analytics libraries, typology models, metadata structures, intelligence products,
+    governance logic and platform delivery assets.
+  </p>
+
+  <div class="grid-4">
+
+    <div class="repo-card">
+      <div class="repo-code">FC01</div>
+      <h3>Financial Crime Platform</h3>
+      <p>
+        Platform architecture, metadata rendering,
+        intelligence products and portfolio showcase.
+      </p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">FC03</div>
+      <h3>Network Intelligence</h3>
+      <p>
+        Ten network typologies covering shared-party,
+        shared-attribute and linked-entity risk.
+      </p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">FC04</div>
+      <h3>TBML Analytics</h3>
+      <p>
+        Trade-based money laundering analytics,
+        scoring logic and investigation outputs.
+      </p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">NEXUS</div>
+      <h3>Working Platform</h3>
+      <p>
+        Mission status, roadmap, architecture,
+        analytics library and intelligence products.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="nexus-feature">
+
+    <div>
+      <div class="eyebrow">Working Proof</div>
+
+      <h2 class="section-title">
+        NEXUS demonstrates the architecture in practice.
+      </h2>
+
+      <p class="section-intro">
+        NEXUS is the platform experience built from the portfolio architecture:
+        mission status, roadmap, architecture, analytics library, intelligence products
+        and repository catalogue operating as one integrated environment.
+      </p>
+
+      <div class="buttons">
+        <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS</a>
+        <a class="btn" href="projects/nexus/pages/mission-status.html">Mission Status</a>
+        <a class="btn" href="projects/nexus/pages/architecture.html">Architecture</a>
+      </div>
+    </div>
+
+    <a href="projects/nexus/index.html">
+      <img src="projects/nexus/assets/images/executive-pack/Mission%20Status_27_June.png" alt="NEXUS Mission Status">
+    </a>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="cta">
+
+    <div class="eyebrow">Professional Positioning</div>
+
+    <h2>Intelligence. Architecture. Delivery.</h2>
+
+    <p>
+      Turning financial crime complexity into operational capability through
+      intelligence-led platform design, technical evidence and working implementation.
+    </p>
+
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn nexus" href="projects/nexus/index.html">Explore NEXUS</a>
+      <a class="btn" href="https://github.com/dhartwig-fc">View GitHub Evidence</a>
+      <a class="btn" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">Connect on LinkedIn</a>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footer-brand">Intelligence. Architecture. Delivery.</p>
+    <p>
+      Personal professional showcase using synthetic examples only.
+      No confidential employer, client or customer information is included.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

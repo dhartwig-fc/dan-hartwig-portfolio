@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dan Hartwig | Financial Crime Intelligence Platform Architect</title>
+<style>
+:root{
+  --ink:#071827;--muted:#5f6b7a;--soft:#f6f8fb;--card:#fff;--line:#e5e7eb;
+  --navy:#061725;--blue:#175cd3;--cyan:#06b6d4;--gold:#b8872b;
+  --shadow:0 24px 60px rgba(16,24,40,.11)
+}
+*{box-sizing:border-box}
+body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1160px,calc(100% - 34px));margin:0 auto}
+.hero{min-height:82vh;display:flex;align-items:center;padding:70px 0;background:radial-gradient(circle at 82% 16%,rgba(6,182,212,.15),transparent 31%),radial-gradient(circle at 18% 78%,rgba(184,135,43,.12),transparent 29%),linear-gradient(135deg,#fff 0%,#f7faff 58%,#eef8fb 100%);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:180px 1fr;gap:42px;align-items:center}
+.hero-image{width:166px;height:166px;border-radius:999px;object-fit:cover;border:6px solid #fff;box-shadow:var(--shadow)}
+.eyebrow{color:var(--blue);font-size:.78rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+h1{margin:0;font-size:clamp(3.2rem,6.5vw,6.2rem);line-height:.94;letter-spacing:-.065em;font-weight:900}
+.subtitle{margin:18px 0 12px;font-size:clamp(1.25rem,2.4vw,2rem);font-weight:850;color:#263244}
+.hero-line{margin:26px 0;font-size:clamp(1.55rem,3vw,2.75rem);line-height:1.1;letter-spacing:-.05em;font-weight:900;max-width:940px}
+.hero-copy{max-width:880px;margin:0 0 28px;color:var(--muted);font-size:1.12rem}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:900;box-shadow:0 8px 22px rgba(15,23,42,.06)}
+.btn.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.nexus{background:linear-gradient(135deg,#071827,#0b3552);border-color:#0b3552;color:#fff}
+section{padding:54px 0}
+.section-title{margin:0 0 14px;font-size:clamp(1.9rem,3vw,2.65rem);line-height:1.1;letter-spacing:-.045em;font-weight:900}
+.section-intro{max-width:880px;margin:0 0 26px;color:var(--muted);font-size:1.05rem}
+.profile-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch}
+.profile-card,.nexus-card,.proof-card,.repo-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow)}
+.profile-card h3,.nexus-card h3,.proof-card h3,.repo-card h3{margin:0 0 10px;font-size:1.18rem}
+.profile-card p,.nexus-card p,.proof-card p,.repo-card p{margin:0;color:var(--muted)}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:22px}
+.metric{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center;box-shadow:0 10px 26px rgba(15,23,42,.045)}
+.metric strong{display:block;font-size:1.55rem;letter-spacing:-.04em}
+.metric span{display:block;color:var(--muted);font-size:.9rem;font-weight:850}
+.nexus-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:34px;padding:32px;box-shadow:var(--shadow)}
+.nexus-feature img{width:100%;border-radius:26px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(15,23,42,.2)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pill{display:inline-flex;border-radius:999px;background:#eef6ff;color:#0f4b82;padding:6px 10px;font-size:.76rem;font-weight:950;margin-bottom:14px}
+.icon{font-size:1.7rem;margin-bottom:10px}
+.proof-card{min-height:190px}
+.repo-code{display:inline-flex;border-radius:999px;background:#eef6ff;color:#0f4b82;padding:6px 10px;font-size:.76rem;font-weight:950;margin-bottom:14px}
+.cta{background:linear-gradient(135deg,#071827,#0d263a);color:#fff;border-radius:34px;padding:42px;text-align:center;box-shadow:var(--shadow)}
+.cta h2{font-size:clamp(2.2rem,4.5vw,4.4rem);letter-spacing:-.055em;line-height:1;margin:0 0 14px}
+.cta p{color:#bfd1dd;max-width:760px;margin:0 auto 26px;font-size:1.08rem}
+footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted);font-size:.82rem}
+@media(max-width:980px){
+  .hero-grid,.profile-grid,.nexus-feature{grid-template-columns:1fr}
+  .metrics,.grid-3,.grid-4{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .hero-image{width:132px;height:132px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <img class="hero-image" src="images/financial-crime-ai-analytics.png" alt="Financial Crime AI Analytics">
+    <div>
+      <div class="eyebrow">Financial Crime Portfolio</div>
+      <h1>Dan Hartwig</h1>
+      <div class="subtitle">Financial Crime Intelligence Platform Architect</div>
+      <div class="hero-line">
+        I design and build intelligence-led financial crime platforms that turn analytics into investigator-ready decision support.
+      </div>
+      <p class="hero-copy">
+        Financial crime transformation specialist with a portfolio spanning network intelligence, typology analytics,
+        metadata-driven intelligence products, AI investigation architecture and operating model design.
+      </p>
+      <div class="buttons">
+        <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS Platform</a>
+        <a class="btn dark" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">LinkedIn Profile</a>
+        <a class="btn" href="https://github.com/dhartwig-fc">GitHub Repositories</a>
+        <a class="btn" href="index.html">Original Portfolio</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <h2 class="section-title">Practitioner. Architect. Builder.</h2>
+  <p class="section-intro">
+    This portfolio is not a product brochure. It is the evidence layer behind my financial crime transformation,
+    analytics and intelligence-platform design capability.
+  </p>
+
+  <div class="profile-grid">
+    <div class="profile-card">
+      <div class="eyebrow">What I Do</div>
+      <h3>Translate financial crime complexity into working intelligence platforms.</h3>
+      <p>
+        I sit at the intersection of financial crime domain expertise, delivery architecture, analytics design,
+        investigation workflow and operating model change. The focus is practical: build systems that help investigators,
+        operations teams and leaders make better decisions.
+      </p>
+    </div>
+
+    <div class="profile-card">
+      <div class="eyebrow">How I Work</div>
+      <h3>From typology logic to operational intelligence.</h3>
+      <p>
+        My work connects requirements, risk logic, metadata, scoring, validation, intelligence products and user-facing
+        decision support. NEXUS is the working proof of that architecture, not the homepage itself.
+      </p>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><strong>15+</strong><span>Years Financial Crime</span></div>
+    <div class="metric"><strong>37</strong><span>Repositories Protected</span></div>
+    <div class="metric"><strong>50</strong><span>Analytics Roadmap</span></div>
+    <div class="metric"><strong>11</strong><span>Analytics Built</span></div>
+    <div class="metric"><strong>3</strong><span>Engine-Tested</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="nexus-feature">
+    <div>
+      <div class="eyebrow">Featured Build</div>
+      <h2 class="section-title">NEXUS is the working proof.</h2>
+      <p class="section-intro">
+        The homepage explains who I am and what I build. NEXUS demonstrates the platform layer:
+        mission status, roadmap, architecture, analytics library, intelligence products and repository catalogue.
+      </p>
+      <div class="buttons">
+        <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS</a>
+        <a class="btn" href="projects/nexus/pages/mission-status.html">Mission Status</a>
+        <a class="btn" href="projects/nexus/pages/architecture.html">Architecture</a>
+      </div>
+    </div>
+
+    <a href="projects/nexus/index.html">
+      <img src="projects/nexus/assets/images/executive-pack/Mission%20Status_27_June.png" alt="NEXUS Mission Status">
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Capability Evidence</h2>
+  <p class="section-intro">
+    The portfolio demonstrates delivery capability across the areas required to design, govern and operationalise
+    intelligence-led financial crime platforms.
+  </p>
+
+  <div class="grid-3">
+    <div class="proof-card">
+      <div class="icon">🧭</div>
+      <h3>Transformation Architecture</h3>
+      <p>Requirements, operating model, delivery governance, validation controls and product-level traceability.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🕸</div>
+      <h3>Network Intelligence</h3>
+      <p>Shared-director, ownership, address, contact and linked-party typologies converted into reusable intelligence assets.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">📊</div>
+      <h3>Financial Crime Analytics</h3>
+      <p>TBML, sanctions, correspondent banking and capital markets analytics structured for investigation use.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🧠</div>
+      <h3>Intelligence Products</h3>
+      <p>Risk, confidence, rationale, evidence, gaps, hypotheses, recommendations and investigator decision support.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🤖</div>
+      <h3>AI Investigation Architecture</h3>
+      <p>AI-assisted reasoning, orchestration and investigation support designed around controlled intelligence outputs.</p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🛡</div>
+      <h3>Governance & Validation</h3>
+      <p>Validation-first controls to prevent regression, contamination, unsupported outputs and weak handoffs.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Repository Portfolio</h2>
+  <p class="section-intro">
+    The repositories are the evidence base: each one supports the wider practitioner story rather than replacing it.
+  </p>
+
+  <div class="grid-4">
+    <div class="repo-card">
+      <div class="repo-code">FC01</div>
+      <h3>Financial Crime Analytics</h3>
+      <p>Public showcase for intelligence architecture, analytics patterns and platform design.</p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">FC03</div>
+      <h3>Network Intelligence</h3>
+      <p>Ten network typologies covering shared-party, shared-attribute and linked-entity risk.</p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">FC04</div>
+      <h3>TBML Analytics</h3>
+      <p>Trade-based money laundering analytics patterns, scoring logic and investigation outputs.</p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">NEXUS</div>
+      <h3>Platform Experience</h3>
+      <p>Executive platform shell for mission status, architecture, roadmap and intelligence products.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta">
+    <div class="eyebrow">Portfolio Principle</div>
+    <h2>Architect the system. Prove the build.</h2>
+    <p>
+      The portfolio establishes the practitioner capability. NEXUS demonstrates the working platform:
+      a financial crime intelligence ecosystem built around analytics, metadata, governance, validation
+      and investigator-ready decision support.
+    </p>
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS Platform</a>
+      <a class="btn" href="https://github.com/dhartwig-fc">View GitHub Evidence</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <strong>Disclaimer:</strong> Personal professional showcase using synthetic examples only.
+      No confidential employer, client or customer information is included.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
+
+<section>
+  <div class="cta">
+    <div class="eyebrow">Portfolio Principle</div>
+    <h2>Architect the system. Prove the build.</h2>
+    <p>
+      The portfolio establishes the practitioner capability. NEXUS demonstrates the working platform:
+      a financial crime intelligence ecosystem built around analytics, metadata, governance, validation
+      and investigator-ready decision support.
+    </p>
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS Platform</a>
+      <a class="btn" href="https://github.com/dhartwig-fc">View GitHub Evidence</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <strong>Disclaimer:</strong> Personal professional showcase using synthetic examples only.
+      No confidential employer, client or customer information is included.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -193,113 +193,53 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 </style>
 
 
+<style id="badge-showcase-final">
+  .hero-brand-link {
+    display: block;
+    width: 142px;
+    height: 142px;
+    border-radius: 36px;
+    text-decoration: none;
+  }
 
+  .hero-brand-img {
+    width: 142px;
+    height: 142px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 22px 34px rgba(15, 23, 42, .22));
+  }
 
+  .hero-brand-fallback {
+    width: 132px;
+    height: 152px;
+    border-radius: 34px 34px 46px 46px;
+    background: linear-gradient(145deg, #101923, #03070c 62%, #13202c);
+    border: 3px solid #caa24a;
+    color: #d7b764;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 78px;
+    font-weight: 850;
+    text-decoration: none;
+    clip-path: polygon(50% 0%, 92% 13%, 92% 65%, 50% 100%, 8% 65%, 8% 13%);
+    box-shadow: 0 22px 42px rgba(15, 23, 42, .22);
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style id="shield-css-window-fix">
-.hero-brand-link{
-  width:155px !important;
-  height:175px !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  overflow:hidden !important;
-  border-radius:26px !important;
-  background:transparent !important;
-  box-shadow:0 18px 38px rgba(15,23,42,.18) !important;
-}
-
-.hero-brand-img{
-  width:155px !important;
-  height:175px !important;
-  object-fit:cover !important;
-  object-position:left center !important;
-  display:block !important;
-  border:0 !important;
-  border-radius:26px !important;
-  filter:drop-shadow(0 18px 32px rgba(0,120,255,.22)) !important;
-}
+  .nexus-shield-badge {
+    display: none !important;
+  }
 </style>
 
-<style id='world-map-overlay'>
-.hero{
-    position:relative;
-    overflow:hidden;
-}
-
-.hero>*{
-    position:relative;
-    z-index:2;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    top:60px;
-    right:0;
-    width:52%;
-    height:420px;
-
-    background:url("assets/img/hero/world-map.svg") no-repeat center;
-    background-size:contain;
-
-    opacity:.22;
-    pointer-events:none;
-
-    animation:mapGlow 8s ease-in-out infinite;
-}
-
-@keyframes mapGlow{
-    0%,100%{
-        opacity:.18;
-        transform:translateY(0);
-    }
-
-    50%{
-        opacity:.34;
-        transform:translateY(-6px);
-    }
-}
-
-</style>
 </head>
 
 <body>
 
 <header class="hero">
   <div class="wrap hero-grid">
-    <a class="hero-brand-link" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase" aria-label="Open Financial Crime Intelligence Showcase">
-        <img class="hero-brand-img" src="assets/img/hero/nexus-badge.png" alt="NEXUS Badge">
+    <a class="hero-brand-link" href="index.html" aria-label="Open Financial Crime Intelligence showcase">
+        <img class="hero-brand-img" src="projects/nexus/assets/images/executive-pack/Mission%20Status_27_June.png" alt="Financial Crime Intelligence badge">
       </a>
 
     <div>
@@ -322,8 +262,10 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 
       <div class="buttons">
         <a class="btn nexus" href="projects/nexus/index.html">Explore Platform</a>
-        <a class="btn" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Financial Crime Showcase</a>
-        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span class="github-mini">GH</span><span>GitHub</span></a>
+        <a class="btn" href="index.html">Financial Crime Showcase</a>
+        <a class="btn" href="#capability">Capability Statement</a>
+        <a class="btn" href="#architecture">Architecture</a>
+        <a class="btn" href="https://github.com/dhartwig-fc">GitHub</a>
         <a class="btn linkedin-badge" href="https://www.linkedin.com/in/dan-hartwig-financial-crime"><span class="linkedin-mark">in</span> LinkedIn</a>
       </div>
     </div>
@@ -618,6 +560,7 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
       <div class="buttons">
         <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS</a>
         <a class="btn" href="projects/nexus/pages/mission-status.html">Mission Status</a>
+        <a class="btn" href="projects/nexus/pages/architecture.html">Architecture</a>
       </div>
     </div>
 
@@ -666,25 +609,6 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
     </p>
   </div>
 </footer>
-
-
-<script id="scroll-reveal-motion">
-  (() => {
-    const items = document.querySelectorAll("section, .section, .card, .work-card, .proof-card");
-    items.forEach((el) => el.classList.add("reveal-ready"));
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-in");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    items.forEach((el) => observer.observe(el));
-  })();
-</script>
 
 </body>
 </html>
