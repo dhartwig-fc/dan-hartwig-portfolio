@@ -23,8 +23,8 @@ h1{margin:0;font-size:clamp(3.2rem,6.4vw,6rem);line-height:.95;letter-spacing:-.
 .mantra{font-size:clamp(2.4rem,5vw,5.4rem);line-height:.95;letter-spacing:-.07em;font-weight:850;margin:28px 0 24px}
 .hero-copy{max-width:850px;margin:0 0 28px;color:var(--muted);font-size:1.12rem}
 .buttons{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;box-shadow:none}
-.btn.dark,.btn.nexus{background:linear-gradient(135deg,#071827,#0b3552);border-color:#0b3552;color:#fff}
+
+.btn.dark,
 section{padding:78px 0}
 .section-title{margin:0 0 14px;font-size:clamp(1.9rem,3vw,2.65rem);line-height:1.1;letter-spacing:-.045em;font-weight:800}
 .section-intro{max-width:880px;margin:0 0 28px;color:var(--muted);font-size:1.05rem}
@@ -56,6 +56,63 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
   .hero{min-height:auto}
   .hero-image{width:132px;height:132px}
 }
+
+/* ===== BUTTON POLISH ===== */
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+min-height:44px;
+padding:0 18px;
+border-radius:999px;
+border:1px solid var(--line);
+background:#fff;
+color:#111827;
+font-size:1rem;
+font-weight:700;
+letter-spacing:.02em;
+text-decoration:none;
+cursor:pointer;
+box-shadow:0 2px 8px rgba(15,23,42,.05);
+transition:background .25s ease,color .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+border-color:#2563eb;
+color:#2563eb;
+box-shadow:0 12px 24px rgba(37,99,235,.10);
+}
+
+.btn.dark,
+.btn.nexus{
+background:linear-gradient(135deg,#071827,#0b3552);
+border-color:#0b3552;
+color:#fff;
+box-shadow:0 8px 20px rgba(11,53,82,.20);
+}
+
+.btn.dark:hover,
+.btn.nexus:hover{
+transform:translateY(-2px);
+background:linear-gradient(135deg,#0b3552,#2563eb);
+border-color:#2563eb;
+color:#fff;
+box-shadow:0 14px 30px rgba(37,99,235,.24);
+}
+
+.btn:active{
+transform:translateY(0);
+box-shadow:0 2px 8px rgba(15,23,42,.08);
+}
+
+.btn:focus-visible{
+outline:none;
+box-shadow:0 0 0 4px rgba(37,99,235,.18);
+}
+
 </style>
 
 <style id="sprint1-hero-polish">
@@ -307,6 +364,60 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 }
 </style>
 
+
+<style id="OPERATING-PHILOSOPHY-POLISH">
+.operating-philosophy-section{
+  margin-top:92px !important;
+}
+
+.section-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#2563eb;
+}
+
+.philosophy-grid{
+  margin-top:34px !important;
+}
+
+.philosophy-card{
+  min-height:300px !important;
+  padding:34px 32px !important;
+  border:1px solid rgba(15,23,42,.08) !important;
+  background:rgba(255,255,255,.82) !important;
+  box-shadow:0 18px 48px rgba(15,23,42,.06) !important;
+}
+
+.philosophy-card .icon{
+  width:48px !important;
+  height:48px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin-bottom:22px !important;
+  border-radius:16px !important;
+  background:rgba(37,99,235,.08) !important;
+  font-size:26px !important;
+}
+
+.philosophy-card h3{
+  margin-bottom:14px !important;
+  font-size:22px !important;
+  letter-spacing:-.035em !important;
+}
+
+.philosophy-card p{
+  font-size:15px !important;
+  line-height:1.65 !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -344,47 +455,51 @@ footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);f
 
 <main class="wrap">
 
-<section>
 
-  <h2 class="section-title">Operating Philosophy</h2>
+<section class="operating-philosophy-section">
+
+  <div class="section-kicker">Operating Philosophy</div>
+
+  <h2 class="section-title">Intelligence becomes valuable when it becomes operational.</h2>
 
   <p class="section-intro">
-    Intelligence only creates value when it becomes operational capability.
-    Every platform, repository and architecture decision in this portfolio is built around that principle.
+    This portfolio is built around a single delivery principle: financial crime intelligence must move from insight,
+    to architecture, to governed operational capability.
   </p>
 
-  <div class="grid-3">
+  <div class="grid-3 philosophy-grid">
 
     <div class="card philosophy-card">
       <div class="icon">🧠</div>
-      <h3>Intelligence.</h3>
+      <h3>Intelligence</h3>
       <p>
-        Transform fragmented information into operational intelligence through threat context,
-        analytics, metadata, evidence and investigator-ready intelligence products.
+        Convert fragmented risk signals, typologies, data patterns and threat context into structured intelligence
+        that can be used by investigators, platforms and decision-makers.
       </p>
     </div>
 
     <div class="card philosophy-card">
       <div class="icon">🏛</div>
-      <h3>Architecture.</h3>
+      <h3>Architecture</h3>
       <p>
-        Build platforms, not isolated solutions, by connecting analytics, AI, governance,
-        metadata and investigation workflows into one scalable enterprise capability.
+        Design reusable operating capability by connecting analytics, metadata, AI, governance and investigation
+        workflows into a scalable financial crime platform model.
       </p>
     </div>
 
     <div class="card philosophy-card">
       <div class="icon">⚙</div>
-      <h3>Delivery.</h3>
+      <h3>Delivery</h3>
       <p>
-        Convert architecture into production capability through validated repositories,
-        governed intelligence products and working platform implementation.
+        Turn architecture into working artefacts through validated repositories, governed intelligence products,
+        implementation patterns and evidence-led delivery outputs.
       </p>
     </div>
 
   </div>
 
 </section>
+
 
 <section>
 
