@@ -345,6 +345,53 @@ a.button{
   color:#38d5ff !important;
 }
 
+
+/* HARD NEXUS BRAND RESET */
+.brand,
+.brand-mark,
+.brand-badge,
+.brand-lockup{
+  display:none !important;
+}
+
+.nexus-brand-lockup{
+  display:flex !important;
+  align-items:center !important;
+  gap:16px !important;
+  width:max-content !important;
+  text-decoration:none !important;
+  margin-bottom:56px !important;
+}
+
+.nexus-brand-lockup img{
+  width:74px !important;
+  height:74px !important;
+  object-fit:contain !important;
+  filter:drop-shadow(0 0 24px rgba(56,189,248,.55)) !important;
+}
+
+.nexus-brand-lockup div{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:6px !important;
+}
+
+.nexus-brand-lockup strong{
+  font-size:28px !important;
+  font-weight:950 !important;
+  letter-spacing:.18em !important;
+  line-height:1 !important;
+  color:#f8fafc !important;
+}
+
+.nexus-brand-lockup span{
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.22em !important;
+  color:#38d5ff !important;
+  white-space:nowrap !important;
+}
+
 </style>
 
 
@@ -744,10 +791,15 @@ a.button{
 <div class="nexus-shell">
 
   <div class="nexus-top">
-    <a class="brand" href="../../index.html">
-      <span class="brand-mark">N</span>
-      <span>NEXUS</span>
-    </a>
+    
+<a class="nexus-brand-lockup" href="index.html" aria-label="NEXUS home">
+  <img src="assets/images/nexus-badge.png" alt="NEXUS badge">
+  <div>
+    <strong>NEXUS</strong>
+    <span>INTEL + ANALYTICS + INVESTIGATE</span>
+  </div>
+</a>
+
     <a class="nav-link" href="../../index.html">← Portfolio</a>
   </div>
 
