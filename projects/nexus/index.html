@@ -237,7 +237,25 @@ h1{
 }
 
 
-/* REFERENCE-STYLE NEXUS BRAND LOCKUP */
+
+/* REAL NEXUS IMAGE LOCKUP */
+.nexus-real-logo{
+  position:absolute;
+  top:46px;
+  left:96px;
+  z-index:9999;
+  width:620px;
+  max-width:72vw;
+}
+
+.nexus-real-logo img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 24px rgba(56,189,248,.35));
+}
+
 .brand,
 .brand-mark,
 .brand-badge,
@@ -245,100 +263,23 @@ h1{
   display:none !important;
 }
 
-.nexus-reference-lockup{
-  position:absolute !important;
-  top:54px !important;
-  left:110px !important;
-  z-index:9999 !important;
-  display:flex !important;
-  align-items:center !important;
-  gap:26px !important;
-}
-
-.nexus-reference-badge{
-  width:112px !important;
-  height:112px !important;
-  object-fit:contain !important;
-  filter:
-    drop-shadow(0 0 18px rgba(56,189,248,.65))
-    drop-shadow(0 0 34px rgba(56,189,248,.25)) !important;
-}
-
-.nexus-reference-copy{
-  display:flex !important;
-  flex-direction:column !important;
-  line-height:1 !important;
-}
-
-.nexus-reference-wordmark{
-  font-size:58px !important;
-  font-weight:950 !important;
-  letter-spacing:.16em !important;
-  color:#f8fafc !important;
-  text-transform:uppercase !important;
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.55),
-    0 0 22px rgba(255,255,255,.18),
-    0 0 34px rgba(56,189,248,.18) !important;
-}
-
-.nexus-reference-subtitle{
-  margin-top:12px !important;
-  font-size:15px !important;
-  font-weight:850 !important;
-  letter-spacing:.22em !important;
-  color:#d9ad5f !important;
-  text-transform:uppercase !important;
-}
-
-.nexus-reference-strapline{
-  margin-top:16px !important;
-  font-size:18px !important;
-  font-weight:850 !important;
-  letter-spacing:.32em !important;
-  color:#38d5ff !important;
-  text-transform:uppercase !important;
-  text-shadow:0 0 16px rgba(56,213,255,.45) !important;
-}
-
-/* push hero content down so lockup owns the top */
 .hero,
 header,
 .main-hero{
-  padding-top:230px !important;
+  padding-top:250px !important;
 }
 
 @media(max-width:900px){
-  .nexus-reference-lockup{
-    top:34px !important;
-    left:28px !important;
-    gap:16px !important;
-  }
-
-  .nexus-reference-badge{
-    width:74px !important;
-    height:74px !important;
-  }
-
-  .nexus-reference-wordmark{
-    font-size:34px !important;
-    letter-spacing:.12em !important;
-  }
-
-  .nexus-reference-subtitle{
-    font-size:9px !important;
-    letter-spacing:.16em !important;
-  }
-
-  .nexus-reference-strapline{
-    font-size:10px !important;
-    letter-spacing:.2em !important;
+  .nexus-real-logo{
+    top:30px;
+    left:24px;
+    width:86vw;
   }
 
   .hero,
   header,
   .main-hero{
-    padding-top:170px !important;
+    padding-top:190px !important;
   }
 }
 
@@ -521,10 +462,12 @@ header,
 
 <body>
 
-<div class="nexus-reference-lockup">
-  <img class="nexus-reference-badge" src="../../assets/img/hero/nexus-badge.png" alt="NEXUS badge">
-  <div class="nexus-reference-copy">
-    <div class="nexus-reference-wordmark">NEXUS</div>
+<div class="nexus-real-logo">
+  <img src="assets/images/nexus-brand-lockup.png" alt="NEXUS Financial Crime Intelligence Platform">
+</div>
+
+
+
     <div class="nexus-reference-subtitle">FINANCIAL CRIME INTELLIGENCE FACTORY</div>
     <div class="nexus-reference-strapline">INTEL + ANALYTICS + INVESTIGATE</div>
   </div>
