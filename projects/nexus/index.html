@@ -238,24 +238,8 @@ h1{
 
 
 
-/* REAL NEXUS IMAGE LOCKUP */
-.nexus-real-logo{
-  position:absolute;
-  top:46px;
-  left:96px;
-  z-index:9999;
-  width:620px;
-  max-width:72vw;
-}
 
-.nexus-real-logo img{
-  display:block;
-  width:100%;
-  height:auto;
-  object-fit:contain;
-  filter:drop-shadow(0 0 24px rgba(56,189,248,.35));
-}
-
+/* CLEAN NEXUS TOP BRAND */
 .brand,
 .brand-mark,
 .brand-badge,
@@ -263,23 +247,40 @@ h1{
   display:none !important;
 }
 
+.nexus-top-brand{
+  position:absolute;
+  top:54px;
+  left:96px;
+  z-index:20;
+  width:520px;
+  max-width:68vw;
+}
+
+.nexus-top-brand img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 22px rgba(56,189,248,.35));
+}
+
 .hero,
 header,
 .main-hero{
-  padding-top:250px !important;
+  padding-top:190px !important;
 }
 
 @media(max-width:900px){
-  .nexus-real-logo{
-    top:30px;
+  .nexus-top-brand{
+    top:34px;
     left:24px;
-    width:86vw;
+    width:84vw;
   }
 
   .hero,
   header,
   .main-hero{
-    padding-top:190px !important;
+    padding-top:160px !important;
   }
 }
 
@@ -462,9 +463,12 @@ header,
 
 <body>
 
-<div class="nexus-real-logo">
-  <img src="assets/images/nexus-brand-lockup.png" alt="NEXUS Financial Crime Intelligence Platform">
+<div class="nexus-top-brand">
+  <img src="assets/images/nexus-top-brand.png" alt="NEXUS Financial Crime Intelligence Platform">
 </div>
+
+
+
 
 
 
