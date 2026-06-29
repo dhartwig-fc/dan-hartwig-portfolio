@@ -235,6 +235,42 @@ h1{
   .update-packs{grid-template-columns:1fr}
   .nexus-top{margin-bottom:48px}
 }
+
+/* CLEAN SIMPLE NEXUS HEADER */
+.brand{
+  position:absolute !important;
+  top:48px !important;
+  left:96px !important;
+  z-index:50 !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+
+.brand-mark{
+  width:38px !important;
+  height:38px !important;
+  border-radius:12px !important;
+  display:grid !important;
+  place-items:center !important;
+  background:linear-gradient(135deg,#0ea5e9,#0f172a) !important;
+  color:#e0f2fe !important;
+  font-weight:900 !important;
+}
+
+.brand span{
+  color:#38d5ff !important;
+  font-size:14px !important;
+  font-weight:900 !important;
+  letter-spacing:.22em !important;
+}
+
+.hero,
+header,
+.main-hero{
+  padding-top:120px !important;
+}
+
 </style>
 
 
@@ -411,6 +447,12 @@ h1{
 </head>
 
 <body>
+
+<div class="brand">
+  <div class="brand-mark">N</div>
+  <span>NEXUS</span>
+</div>
+
 <div class="nexus-shell">
 
   <div class="nexus-top">
