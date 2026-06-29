@@ -1,110 +1,568 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NEXUS | Financial Crime Intelligence Platform</title>
-<link rel="stylesheet" href="assets/css/nexus.css">
+
+<style>
+:root{
+  --bg:#050b14;
+  --panel:#081322;
+  --panel2:#0b182b;
+  --line:rgba(148,163,184,.22);
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --blue:#38bdf8;
+  --green:#22c55e;
+  --amber:#f59e0b;
+  --purple:#8b5cf6;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 70% 10%,rgba(56,189,248,.18),transparent 34%),
+    radial-gradient(circle at 10% 90%,rgba(139,92,246,.12),transparent 30%),
+    var(--bg);
+  color:var(--text);
+}
+
+a{color:inherit;text-decoration:none}
+
+.nexus-shell{
+  min-height:100vh;
+  padding:56px;
+}
+
+.nexus-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:72px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:13px;
+  color:var(--blue);
+}
+
+.brand-mark{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#0f172a,#0ea5e9);
+  display:grid;
+  place-items:center;
+  box-shadow:0 0 30px rgba(56,189,248,.28);
+}
+
+.nav-link{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.hero{
+  max-width:1180px;
+  margin:0 auto;
+}
+
+.kicker{
+  color:var(--blue);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+h1{
+  margin:0;
+  font-size:clamp(56px,8vw,112px);
+  line-height:.9;
+  letter-spacing:-.08em;
+}
+
+.subtitle{
+  margin-top:26px;
+  font-size:clamp(24px,3vw,42px);
+  line-height:1.08;
+  letter-spacing:-.045em;
+  color:#dbeafe;
+  max-width:880px;
+}
+
+.copy{
+  margin-top:24px;
+  max-width:760px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.65;
+}
+
+.actions{
+  display:flex;
+  gap:14px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 22px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  font-weight:800;
+  font-size:14px;
+  transition:.22s ease;
+}
+
+.btn.primary{
+  background:#f8fafc;
+  color:#071124;
+  border-color:#f8fafc;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(56,189,248,.18);
+}
+
+.update-packs{
+  margin-top:72px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.update-card{
+  background:linear-gradient(180deg,rgba(15,23,42,.92),rgba(8,19,34,.92));
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:28px;
+  min-height:240px;
+  box-shadow:0 28px 80px rgba(0,0,0,.28);
+}
+
+.update-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:26px;
+  color:var(--muted);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:800;
+}
+
+.status-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 18px rgba(34,197,94,.8);
+}
+
+.update-card h3{
+  margin:0 0 14px;
+  font-size:26px;
+  letter-spacing:-.045em;
+}
+
+.update-card p{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.6;
+}
+
+.metric{
+  margin-top:26px;
+  display:flex;
+  align-items:end;
+  gap:10px;
+}
+
+.metric strong{
+  font-size:44px;
+  line-height:1;
+  letter-spacing:-.06em;
+}
+
+.metric span{
+  color:var(--muted);
+  font-size:13px;
+  padding-bottom:6px;
+}
+
+.stage-list{
+  margin-top:24px;
+  display:grid;
+  gap:10px;
+}
+
+.stage-item{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:11px 13px;
+  border-radius:14px;
+  background:rgba(255,255,255,.045);
+  color:#dbeafe;
+  font-size:13px;
+}
+
+.stage-item span:last-child{
+  color:var(--green);
+  font-weight:800;
+}
+
+@media(max-width:900px){
+  .nexus-shell{padding:28px}
+  .update-packs{grid-template-columns:1fr}
+  .nexus-top{margin-bottom:48px}
+}
+</style>
+
+
+
+<style id="UPDATE-PACK-SLIDES-CSS">
+.briefing-section{
+  max-width:1180px;
+  margin:88px auto 0;
+}
+
+.briefing-header{
+  max-width:760px;
+  margin-bottom:34px;
+}
+
+.briefing-header h2{
+  margin:0;
+  font-size:clamp(34px,5vw,62px);
+  line-height:.96;
+  letter-spacing:-.07em;
+}
+
+.briefing-header p{
+  margin:18px 0 0;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.65;
+}
+
+.briefing-slides{
+  display:grid;
+  gap:26px;
+}
+
+.briefing-slide-card{
+  display:grid;
+  grid-template-columns:.78fr 1.22fr;
+  gap:28px;
+  align-items:center;
+  padding:28px;
+  border-radius:30px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(15,23,42,.92),rgba(8,19,34,.92));
+  box-shadow:0 32px 90px rgba(0,0,0,.30);
+  text-decoration:none;
+  color:inherit;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.briefing-slide-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(56,189,248,.45);
+  box-shadow:0 40px 110px rgba(56,189,248,.16);
+}
+
+.briefing-label{
+  margin-bottom:16px;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.briefing-slide-copy h3{
+  margin:0;
+  font-size:clamp(28px,4vw,46px);
+  line-height:.98;
+  letter-spacing:-.065em;
+}
+
+.briefing-slide-copy p{
+  margin:18px 0 0;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.65;
+}
+
+.briefing-link{
+  display:inline-flex;
+  margin-top:22px;
+  color:#7dd3fc;
+  font-weight:800;
+  font-size:14px;
+}
+
+.briefing-slide-image img{
+  width:100%;
+  display:block;
+  border-radius:22px;
+  border:1px solid rgba(148,163,184,.24);
+  box-shadow:0 22px 60px rgba(0,0,0,.36);
+}
+
+@media(max-width:900px){
+  .briefing-slide-card{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+
+<style id="NEXUS-DEMO-PLACEHOLDER-CSS">
+.btn.disabled{
+  opacity:.58;
+  cursor:not-allowed;
+  background:rgba(255,255,255,.06);
+  color:var(--muted);
+}
+
+.btn.disabled:hover{
+  transform:none;
+  box-shadow:none;
+}
+
+.coming-next{
+  max-width:1180px;
+  margin:28px auto 0;
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:22px;
+  align-items:center;
+  padding:28px;
+  border-radius:28px;
+  border:1px solid rgba(56,189,248,.24);
+  background:linear-gradient(135deg,rgba(8,19,34,.96),rgba(15,23,42,.86));
+  box-shadow:0 30px 80px rgba(0,0,0,.28);
+}
+
+.coming-next h3{
+  margin:0 0 12px;
+  font-size:34px;
+  letter-spacing:-.055em;
+}
+
+.coming-next p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:16px;
+}
+
+.coming-next-status{
+  border-radius:20px;
+  padding:22px;
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(148,163,184,.18);
+}
+
+.coming-next-status span{
+  display:block;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  margin-bottom:10px;
+}
+
+.coming-next-status strong{
+  display:block;
+  font-size:22px;
+  line-height:1.15;
+  letter-spacing:-.04em;
+}
+
+@media(max-width:900px){
+  .coming-next{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
 </head>
 
 <body>
+<div class="nexus-shell">
 
-<header class="nexus-hero">
-  <nav class="top-nav">
-    <a href="../../index.html">Portfolio</a>
-    <a href="pages/mission-status.html">Mission Status</a>
-    <a href="pages/roadmap.html">Roadmap</a>
-    <a href="pages/stage-catalogue.html">Stage Catalogue</a>
-  </nav>
+  <div class="nexus-top">
+    <a class="brand" href="../../index.html">
+      <span class="brand-mark">N</span>
+      <span>NEXUS</span>
+    </a>
+    <a class="nav-link" href="../../index.html">← Portfolio</a>
+  </div>
 
-  <div class="hero-grid">
-    <section>
-      <p class="eyebrow">Financial Crime Intelligence Platform</p>
-      <h1>NEXUS</h1>
-      <p class="strapline">INTEL + ANALYTICS + INVESTIGATE</p>
-      <p class="hero-copy">
-        A governed intelligence platform that transforms financial crime analytics,
-        metadata and evidence into reusable intelligence products for investigation,
-        decision support and operational execution.
-      </p>
+  <main class="hero">
 
-      <div class="hero-actions">
-        <a href="pages/mission-status.html">View Mission Status</a>
-        <a href="pages/roadmap.html" class="secondary">View Roadmap</a>
+    <div class="kicker">Financial Crime Intelligence Platform</div>
+
+    <h1>NEXUS</h1>
+
+    <div class="subtitle">
+      Runtime manufacturing orchestration for intelligence-led financial crime platforms.
+    </div>
+
+    <p class="copy">
+      NEXUS brings architecture, analytics, metadata, intelligence products and repository governance into one operating environment — turning financial crime complexity into reusable operational capability.
+    </p>
+
+    <div class="actions">
+      <a class="btn primary" href="#mission-status">Mission Status</a>
+      <a class="btn" href="platform-ecosystem.html">Platform Ecosystem</a>
+      <a class="btn" href="platform-roadmap.html">Platform Roadmap</a>
+      <span class="btn disabled">Investigation Layer Demo — Coming Next</span>
+    </div>
+
+    <section class="update-packs" id="mission-status">
+
+      <article class="update-card">
+        <div class="update-label">
+          <span>Mission Status</span>
+          <span class="status-dot"></span>
+        </div>
+        <h3>Current platform prototype established.</h3>
+        <p>
+          Portfolio front door is deployed as a public prototype. NEXUS now becomes the dedicated operational platform layer for architecture, runtime status, product evidence and roadmap control.
+        </p>
+        <div class="metric">
+          <strong>V1</strong>
+          <span>public portfolio live</span>
+        </div>
+      </article>
+
+      <article class="update-card">
+        <div class="update-label">
+          <span>Update Pack 01</span>
+          <span class="status-dot"></span>
+        </div>
+        <h3>Intelligence manufacturing layer.</h3>
+        <p>
+          The platform connects typologies, analytics libraries, metadata, pattern rendering and investigation outputs into a reusable intelligence production model.
+        </p>
+        <div class="stage-list">
+          <div class="stage-item"><span>Metadata model</span><span>Prototype</span></div>
+          <div class="stage-item"><span>Pattern Factory</span><span>Prototype</span></div>
+          <div class="stage-item"><span>FC01 output layer</span><span>Prototype</span></div>
+        </div>
+      </article>
+
+      <article class="update-card">
+        <div class="update-label">
+          <span>Update Pack 02</span>
+          <span class="status-dot"></span>
+        </div>
+        <h3>Repository ecosystem control.</h3>
+        <p>
+          NEXUS provides the command layer for the portfolio: platform architecture, network intelligence, analytics libraries, validation and future AI investigation capability.
+        </p>
+        <div class="stage-list">
+          <div class="stage-item"><span>FC01 Platform</span><span>Prototype</span></div>
+          <div class="stage-item"><span>FC03 Network</span><span>Complete</span></div>
+          <div class="stage-item"><span>FC04 Analytics</span><span>In Development</span></div>
+        </div>
+      </article>
+
+    </section>
+
+<!-- UPDATE PACK SLIDES START -->
+<section class="briefing-section" id="mission-update-packs">
+  <div class="briefing-header">
+    <div class="kicker">Mission Update Packs</div>
+    <h2>Executive platform briefings.</h2>
+    <p>
+      The update packs provide a visual briefing layer for NEXUS: mission status, runtime manufacturing and platform roadmap.
+    </p>
+  </div>
+
+  <div class="briefing-slides">
+
+      <a class="briefing-slide-card" id="platform-roadmap" href="platform-roadmap.html">
+        <div class="briefing-slide-copy">
+          <div class="briefing-label">Update Pack 01</div>
+          <h3>Platform Roadmap</h3>
+          <p>Forward view of the NEXUS programme roadmap, delivery phases, maturity path and future operating model.</p>
+          <span class="briefing-link">Open full briefing →</span>
+        </div>
+        <div class="briefing-slide-image">
+          <img src="../../projects/nexus/assets/images/executive-pack/Programme Roadmap_27_June.png" alt="Platform Roadmap briefing">
+        </div>
+      </a>
+
+      <a class="briefing-slide-card" id="mission-status" href="mission-status.html">
+        <div class="briefing-slide-copy">
+          <div class="briefing-label">Update Pack 02</div>
+          <h3>Mission Status</h3>
+          <p>Current development overview, platform readiness, delivery health and mission progress snapshot.</p>
+          <span class="briefing-link">Open full briefing →</span>
+        </div>
+        <div class="briefing-slide-image">
+          <img src="../../projects/nexus/assets/images/executive-pack/Mission Status_27_June.png" alt="Mission Status briefing">
+        </div>
+      </a>
+
+      <a class="briefing-slide-card" id="stage-catalogue" href="stage-catalogue.html">
+        <div class="briefing-slide-copy">
+          <div class="briefing-label">Update Pack 03</div>
+          <h3>Detailed Stage Catalogue</h3>
+          <p>Complete programme reference showing stage progression, delivery components, current state and completion evidence.</p>
+          <span class="briefing-link">Open full briefing →</span>
+        </div>
+        <div class="briefing-slide-image">
+          <img src="../../projects/nexus/assets/images/executive-pack/Stage Catalogue_27_June.png" alt="Detailed Stage Catalogue briefing">
+        </div>
+      </a>
+
+  </div>
+</section>
+
+    <section class="coming-next" id="investigation-layer-demo">
+      <div>
+        <div class="update-label">Coming Next</div>
+        <h3>Investigation Layer Demo</h3>
+        <p>
+          The finalised investigation layer will show the graph, intelligence boxes and investigation workspace output.
+          Once the runtime automation is built, TBML will be run end-to-end through the platform and linked here as the primary demo.
+        </p>
+      </div>
+      <div class="coming-next-status">
+        <span>TBML Runtime</span>
+        <strong>Pending automation build</strong>
       </div>
     </section>
 
-    <section class="hero-panel">
-      <span>Current Stage</span>
-      <strong>323</strong>
-      <p>Runtime Manufacturing Orchestrator</p>
-      <em>Executive Pack v1.0 · 27 June 2026</em>
-    </section>
-  </div>
-</header>
+<!-- UPDATE PACK SLIDES END -->
 
-<main>
+  </main>
 
-<section class="feature-image">
-  <img src="assets/images/executive-pack/Mission Status_27_June.png" alt="NEXUS Mission Status dashboard">
-</section>
-
-<section class="section-title">
-  <p>Executive Programme Pack</p>
-  <h2>Three views of the platform journey</h2>
-</section>
-
-<section class="cards">
-  <a href="pages/mission-status.html" class="card">
-    <span>01</span>
-    <h3>Mission Status</h3>
-    <p>Current execution dashboard for Stage 323.</p>
-  </a>
-
-  <a href="pages/roadmap.html" class="card">
-    <span>02</span>
-    <h3>Programme Roadmap</h3>
-    <p>Strategic roadmap from analytics to operational platform.</p>
-  </a>
-
-  <a href="pages/stage-catalogue.html" class="card">
-    <span>03</span>
-    <h3>Stage Catalogue</h3>
-    <p>Controlled reference catalogue for the full programme.</p>
-  </a>
-</section>
-
-<section class="section-title">
-  <p>Platform Capability</p>
-  <h2>From analytics to governed intelligence products</h2>
-</section>
-
-<section class="capability-grid">
-  <div>
-    <h3>Analytics Libraries</h3>
-    <p>Network Intelligence, TBML, Sanctions, Correspondent Banking and Capital Markets typologies.</p>
-  </div>
-  <div>
-    <h3>Metadata Factory</h3>
-    <p>Standardised metadata model for reusable intelligence product generation.</p>
-  </div>
-  <div>
-    <h3>Runtime Orchestrator</h3>
-    <p>Controlled manufacturing and execution pipeline for approved intelligence products.</p>
-  </div>
-  <div>
-    <h3>Investigation Workspace</h3>
-    <p>Investigator-facing products, evidence packs, reasoning and decision support.</p>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <span>NEXUS Financial Crime Intelligence Platform</span>
-  <span>INTEL + ANALYTICS + INVESTIGATE</span>
-  <span>Version 1.0</span>
-</footer>
-
+</div>
 </body>
 </html>
