@@ -1244,6 +1244,55 @@ a[class*="btn"]:hover {
 
 </style>
 
+<!-- VISIBLE PORTFOLIO POLISH -->
+
+<style>
+.platform-maturity{
+  margin:90px auto;
+  max-width:1100px;
+  padding:56px 32px;
+}
+.platform-maturity .eyebrow{
+  color:#2563eb;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:12px;
+}
+.platform-maturity h2{
+  font-size:clamp(36px,6vw,72px);
+  line-height:.92;
+  letter-spacing:-.06em;
+  margin:12px 0 30px;
+}
+.maturity-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.maturity-grid div{
+  background:white;
+  border:1px solid rgba(15,23,42,.12);
+  border-radius:22px;
+  padding:22px;
+  font-weight:800;
+  box-shadow:0 18px 45px rgba(15,23,42,.08);
+}
+.portfolio-footer{
+  margin-top:70px;
+  padding:56px 32px;
+  background:#0f172a;
+  color:white;
+  display:grid;
+  gap:8px;
+  text-align:center;
+}
+.portfolio-footer span{color:#cbd5e1}
+@media(max-width:800px){
+  .maturity-grid{grid-template-columns:1fr}
+}
+</style>
+
 </head>
 
 <body>
