@@ -894,5 +894,31 @@ a.button{
   </main>
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const briefingTargets = {
+    "platform-roadmap": "assets/images/executive-pack/Programme%20Roadmap_27_June.png",
+    "mission-status": "assets/images/executive-pack/Mission%20Status_27_June.png",
+    "stage-catalogue": "assets/images/executive-pack/Stage%20Catalogue_27_June.png"
+  };
+
+  Object.entries(briefingTargets).forEach(([id, url]) => {
+    const card = document.getElementById(id);
+    if (!card) return;
+
+    card.setAttribute("href", url);
+    card.setAttribute("target", "_blank");
+    card.setAttribute("rel", "noopener");
+
+    card.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      window.open(url, "_blank", "noopener");
+    });
+  });
+});
+</script>
+
 </body>
 </html>
