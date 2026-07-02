@@ -2037,6 +2037,78 @@ a[class*="btn"]:hover {
 
 </style>
 
+
+<style id="force-dark-manufacturing-final">
+#architecture.manufacturing-section,
+#architecture.manufacturing-premium{
+  max-width:1120px!important;
+  margin:110px auto 96px!important;
+  padding:0 24px!important;
+}
+
+#architecture .manufacturing-pipeline,
+#architecture .manufacturing-diagram{
+  margin-top:42px!important;
+  padding:34px!important;
+  border-radius:34px!important;
+  background:
+    radial-gradient(circle at top left, rgba(34,211,238,.18), transparent 35%),
+    linear-gradient(135deg,#0f172a,#111827 60%,#020617)!important;
+  box-shadow:0 30px 80px rgba(15,23,42,.26)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  display:grid!important;
+  grid-template-columns:repeat(6,1fr)!important;
+  gap:14px!important;
+}
+
+#architecture .pipeline-step,
+#architecture .flow-stage{
+  min-height:180px!important;
+  padding:24px 20px!important;
+  border-radius:24px!important;
+  background:rgba(255,255,255,.075)!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  box-shadow:none!important;
+  color:white!important;
+}
+
+#architecture .pipeline-step span,
+#architecture .flow-stage span,
+#architecture .step-num{
+  color:#22d3ee!important;
+  font-size:12px!important;
+  font-weight:900!important;
+  letter-spacing:.18em!important;
+}
+
+#architecture .pipeline-step strong,
+#architecture .flow-stage strong{
+  color:white!important;
+  font-size:21px!important;
+  line-height:1.02!important;
+}
+
+#architecture .pipeline-step em,
+#architecture .pipeline-step span:last-child,
+#architecture .flow-stage em{
+  color:#cbd5e1!important;
+  font-style:normal!important;
+  font-size:14px!important;
+}
+
+#architecture .pipeline-arrow,
+#architecture .flow-line{
+  display:none!important;
+}
+
+@media(max-width:1000px){
+  #architecture .manufacturing-pipeline,
+  #architecture .manufacturing-diagram{
+    grid-template-columns:1fr!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
