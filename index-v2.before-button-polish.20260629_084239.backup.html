@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dan Hartwig | Financial Crime Intelligence Architect</title>
+<style>
+:root{
+  --ink:#071827;--muted:#5f6b7a;--soft:#f6f8fb;--card:#fff;--line:#e5e7eb;
+  --navy:#071827;--blue:#175cd3;--cyan:#06b6d4;--gold:#b8872b;
+  --shadow:0 24px 60px rgba(16,24,40,.10)
+}
+*{box-sizing:border-box}
+body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1120px,calc(100% - 34px));margin:0 auto}
+.hero{min-height:86vh;display:flex;align-items:center;padding:74px 0;background:radial-gradient(circle at 82% 16%,rgba(6,182,212,.14),transparent 31%),radial-gradient(circle at 18% 78%,rgba(184,135,43,.12),transparent 29%),linear-gradient(135deg,#fff 0%,#f7faff 58%,#eef8fb 100%);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:170px 1fr;gap:46px;align-items:center}
+.hero-image{width:152px;height:152px;border-radius:999px;object-fit:cover;border:6px solid #fff;box-shadow:0 22px 55px rgba(16,24,40,.16);background:#fff;filter:contrast(1.06) saturate(1.08)}
+.eyebrow{color:var(--blue);font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+h1{margin:0;font-size:clamp(3.2rem,6.4vw,6rem);line-height:.95;letter-spacing:-.06em;font-weight:850}
+.subtitle{margin:18px 0 20px;font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:650;color:#263244}
+.mantra{font-size:clamp(2.4rem,5vw,5.4rem);line-height:.95;letter-spacing:-.07em;font-weight:850;margin:28px 0 24px}
+.hero-copy{max-width:850px;margin:0 0 28px;color:var(--muted);font-size:1.12rem}
+.buttons{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;box-shadow:none}
+.btn.dark,.btn.nexus{background:linear-gradient(135deg,#071827,#0b3552);border-color:#0b3552;color:#fff}
+section{padding:78px 0}
+.section-title{margin:0 0 14px;font-size:clamp(1.9rem,3vw,2.65rem);line-height:1.1;letter-spacing:-.045em;font-weight:800}
+.section-intro{max-width:880px;margin:0 0 28px;color:var(--muted);font-size:1.05rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card,.proof-card,.repo-card,.nexus-feature{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:var(--shadow)}
+.card h3,.proof-card h3,.repo-card h3{margin:0 0 10px;font-size:1.18rem;font-weight:750}
+.card p,.proof-card p,.repo-card p{margin:0;color:var(--muted)}
+.philosophy-card{min-height:260px}
+.philosophy-card h3{font-size:clamp(2rem,3vw,3rem);letter-spacing:-.06em;line-height:1;margin-bottom:16px}
+.icon{font-size:1.7rem;margin-bottom:10px}
+.why{background:linear-gradient(135deg,#071827,#0d263a);color:#fff;border-radius:34px;padding:42px;box-shadow:var(--shadow)}
+.why .section-intro{color:#bfd1dd;margin-bottom:0}
+.architecture-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:26px}
+.arch-step{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;text-align:center;box-shadow:var(--shadow)}
+.arch-step strong{display:block;font-size:.98rem;font-weight:750}
+.arch-step span{display:block;color:var(--muted);font-size:.86rem;margin-top:6px}
+.nexus-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center}
+.nexus-feature img{width:100%;border-radius:26px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(15,23,42,.20)}
+.repo-code{display:inline-flex;border-radius:999px;background:#eef6ff;color:#0f4b82;padding:6px 10px;font-size:.76rem;font-weight:850;margin-bottom:14px}
+.cta{background:linear-gradient(135deg,#071827,#0b3552);color:#fff;border-radius:34px;padding:46px;text-align:center;box-shadow:var(--shadow)}
+.cta h2{font-size:clamp(2.2rem,4.5vw,4.4rem);letter-spacing:-.055em;line-height:1;margin:0 0 14px;font-weight:800}
+.cta p{color:#bfd1dd;max-width:760px;margin:0 auto 26px;font-size:1.08rem}
+footer{border-top:1px solid var(--line);padding:28px 0 38px;color:var(--muted);font-size:.85rem}
+.footer-brand{font-weight:800;color:var(--ink);letter-spacing:-.03em}
+@media(max-width:980px){
+  .hero-grid,.nexus-feature{grid-template-columns:1fr}
+  .grid-3,.grid-4,.architecture-strip{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .hero-image{width:132px;height:132px}
+}
+</style>
+
+<style id="sprint1-hero-polish">
+  .mantra {
+    font-weight: 400 !important;
+    line-height: 0.96 !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  .mantra .mantra-strong {
+    font-weight: 760 !important;
+  }
+
+  .mantra .mantra-light {
+    font-weight: 430 !important;
+  }
+
+  .hero-copy {
+    max-width: 720px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .linkedin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .linkedin-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 5px;
+    background: #0A66C2;
+    color: #fff;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 1;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+</style>
+
+
+<style id="nexus-shield-final-polish">
+  .hero-grid {
+    grid-template-columns: 150px 1fr !important;
+    align-items: center !important;
+    gap: 56px !important;
+  }
+
+  .hero-image {
+    display: none !important;
+  }
+
+  .nexus-shield-badge {
+    width: 138px;
+    height: 158px;
+    border-radius: 34px 34px 46px 46px;
+    background:
+      radial-gradient(circle at 50% 28%, rgba(38,135,255,.35), transparent 34%),
+      linear-gradient(145deg, #101923, #03070c 62%, #13202c);
+    border: 3px solid #caa24a;
+    box-shadow:
+      0 24px 60px rgba(17, 34, 51, .22),
+      inset 0 0 0 5px rgba(255,255,255,.08),
+      inset 0 0 26px rgba(0,153,255,.24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    clip-path: polygon(50% 0%, 92% 13%, 92% 65%, 50% 100%, 8% 65%, 8% 13%);
+  }
+
+  .nexus-shield-badge::before {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(79, 185, 255, .42);
+    clip-path: polygon(50% 0%, 92% 13%, 92% 65%, 50% 100%, 8% 65%, 8% 13%);
+  }
+
+  .nexus-shield-badge span {
+    font-size: 82px;
+    line-height: 1;
+    font-weight: 850;
+    letter-spacing: -0.08em;
+    color: #d7b764;
+    text-shadow: 0 0 22px rgba(60,169,255,.55);
+    transform: translateX(-2px);
+  }
+
+  .hero .subtitle {
+    font-weight: 650 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .mantra {
+    font-weight: 420 !important;
+    line-height: .95 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .mantra .mantra-strong {
+    font-weight: 760 !important;
+  }
+
+  .mantra .mantra-light {
+    font-weight: 410 !important;
+  }
+
+  .hero-copy {
+    max-width: 760px !important;
+    font-size: 1.05rem !important;
+    line-height: 1.55 !important;
+  }
+
+  @media (max-width: 760px) {
+    .hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+
+    .nexus-shield-badge {
+      width: 96px;
+      height: 112px;
+    }
+
+    .nexus-shield-badge span {
+      font-size: 58px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="shield-css-window-fix">
+.hero-brand-link{
+  width:155px !important;
+  height:175px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  border-radius:26px !important;
+  background:transparent !important;
+  box-shadow:0 18px 38px rgba(15,23,42,.18) !important;
+}
+
+.hero-brand-img{
+  width:155px !important;
+  height:175px !important;
+  object-fit:cover !important;
+  object-position:left center !important;
+  display:block !important;
+  border:0 !important;
+  border-radius:26px !important;
+  filter:drop-shadow(0 18px 32px rgba(0,120,255,.22)) !important;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="FC-HERO-MAP-CLEAN">
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+}
+
+.fc-hero-map-lock{
+  position:absolute !important;
+  top:20px !important;
+  right:18px !important;
+  width:780px !important;
+  max-width:60vw !important;
+  height:auto !important;
+  opacity:.22 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+
+.hero-grid{
+  position:relative !important;
+  z-index:5 !important;
+}
+</style>
+
+
+<style id="REMOVE-HERO-BADGE-CLEAN">
+.hero-grid{
+  grid-template-columns:1fr !important;
+  max-width:760px !important;
+}
+
+.hero-brand-link,
+.hero-brand-img{
+  display:none !important;
+}
+</style>
+
+
+<style id="OPERATING-PHILOSOPHY-POLISH">
+.operating-philosophy-section{
+  margin-top:92px !important;
+}
+
+.section-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#2563eb;
+}
+
+.philosophy-grid{
+  margin-top:34px !important;
+}
+
+.philosophy-card{
+  min-height:300px !important;
+  padding:34px 32px !important;
+  border:1px solid rgba(15,23,42,.08) !important;
+  background:rgba(255,255,255,.82) !important;
+  box-shadow:0 18px 48px rgba(15,23,42,.06) !important;
+}
+
+.philosophy-card .icon{
+  width:48px !important;
+  height:48px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  margin-bottom:22px !important;
+  border-radius:16px !important;
+  background:rgba(37,99,235,.08) !important;
+  font-size:26px !important;
+}
+
+.philosophy-card h3{
+  margin-bottom:14px !important;
+  font-size:22px !important;
+  letter-spacing:-.035em !important;
+}
+
+.philosophy-card p{
+  font-size:15px !important;
+  line-height:1.65 !important;
+}
+</style>
+
+</head>
+
+<body>
+
+<header class="hero">
+  <img class="fc-hero-map-lock" src="assets/img/hero/world-map.png?v=1782683357" alt="">
+<div class="wrap hero-grid">
+<div>
+      <div class="eyebrow">Financial Crime Intelligence</div>
+
+      <h1>Dan Hartwig</h1>
+
+      <div class="subtitle">Intelligence Platform Architect</div>
+
+      <div class="mantra">
+        <span class="mantra-strong">Intelligence.</span><br>
+        <span class="mantra-light">Architecture.</span><br>
+        <span class="mantra-light">Delivery.</span>
+      </div>
+
+      <p class="hero-copy">
+        Turning intelligence into operational capability through architecture, analytics and delivery
+        of production-ready financial crime platforms.
+      </p>
+
+      <div class="buttons">
+        <a class="btn nexus" href="projects/nexus/index.html">Explore Platform</a>
+        <a class="btn" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Financial Crime Showcase</a>
+        <a class="btn github-thumb" href="https://github.com/dhartwig-fc"><span>GitHub</span></a>
+        <a class="btn linkedin-badge" href="https://www.linkedin.com/in/dan-hartwig-financial-crime"><span class="linkedin-mark">in</span> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+
+<section class="operating-philosophy-section">
+
+  <div class="section-kicker">Operating Philosophy</div>
+
+  <h2 class="section-title">Intelligence becomes valuable when it becomes operational.</h2>
+
+  <p class="section-intro">
+    This portfolio is built around a single delivery principle: financial crime intelligence must move from insight,
+    to architecture, to governed operational capability.
+  </p>
+
+  <div class="grid-3 philosophy-grid">
+
+    <div class="card philosophy-card">
+      <div class="icon">🧠</div>
+      <h3>Intelligence</h3>
+      <p>
+        Convert fragmented risk signals, typologies, data patterns and threat context into structured intelligence
+        that can be used by investigators, platforms and decision-makers.
+      </p>
+    </div>
+
+    <div class="card philosophy-card">
+      <div class="icon">🏛</div>
+      <h3>Architecture</h3>
+      <p>
+        Design reusable operating capability by connecting analytics, metadata, AI, governance and investigation
+        workflows into a scalable financial crime platform model.
+      </p>
+    </div>
+
+    <div class="card philosophy-card">
+      <div class="icon">⚙</div>
+      <h3>Delivery</h3>
+      <p>
+        Turn architecture into working artefacts through validated repositories, governed intelligence products,
+        implementation patterns and evidence-led delivery outputs.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <div class="why">
+
+    <div class="eyebrow">Why This Matters</div>
+
+    <h2 class="section-title">
+      Most financial crime programmes stop at analytics.
+    </h2>
+
+    <p class="section-intro">
+      Operational capability begins when intelligence, architecture and delivery work together.
+      Organisations invest heavily in analytics but often struggle to operationalise the outputs.
+      My work focuses on connecting intelligence generation, platform architecture and delivery
+      into one repeatable operating model.
+    </p>
+
+  </div>
+
+</section>
+
+<section id="capability">
+
+  <h2 class="section-title">Core Capability Areas</h2>
+
+  <p class="section-intro">
+    The portfolio demonstrates capability across the disciplines required to design, govern
+    and operationalise intelligence-led financial crime platforms.
+  </p>
+
+  <div class="grid-3">
+
+    <div class="proof-card">
+      <div class="icon">🧭</div>
+      <h3>Intelligence Strategy</h3>
+      <p>
+        Threat intelligence, emerging typologies, intelligence lifecycle design and risk prioritisation.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🏛</div>
+      <h3>Platform Architecture</h3>
+      <p>
+        Enterprise operating models, metadata architecture, platform design and reusable capability frameworks.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">📊</div>
+      <h3>Financial Crime Analytics</h3>
+      <p>
+        Network intelligence, TBML, sanctions, correspondent banking, capital markets and reusable analytics libraries.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🧠</div>
+      <h3>Operational Intelligence</h3>
+      <p>
+        Risk, confidence, rationale, evidence, investigation actions and executive decision support.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🤖</div>
+      <h3>AI Investigation</h3>
+      <p>
+        Investigator copilot concepts, intelligence orchestration, agent architecture and workflow automation.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🛡</div>
+      <h3>Governance & Validation</h3>
+      <p>
+        Metadata governance, validation frameworks, quality assurance and production-ready intelligence outputs.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2 class="section-title">Career-Backed Delivery</h2>
+
+  <p class="section-intro">
+    The portfolio demonstrates the capability. My career demonstrates the delivery.
+  </p>
+
+  <div class="grid-3">
+
+    <div class="proof-card">
+      <div class="icon">🏦</div>
+      <h3>Investment Banking Experience</h3>
+      <p>
+        15+ years delivering transformation across investment banking environments,
+        financial crime programmes and regulated change.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🔁</div>
+      <h3>Complex Programme Delivery</h3>
+      <p>
+        Experience connecting business stakeholders, operations, technology,
+        governance and investigation teams into successful delivery.
+      </p>
+    </div>
+
+    <div class="proof-card">
+      <div class="icon">🧩</div>
+      <h3>Intelligence Platform Design</h3>
+      <p>
+        Architecting reusable capability rather than isolated solutions,
+        with operating models that scale beyond individual programmes.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="architecture">
+
+  <h2 class="section-title">Intelligence Manufacturing Framework</h2>
+
+  <p class="section-intro">
+    The portfolio is built around a single methodology: convert financial crime complexity into
+    repeatable intelligence products that support investigation, operational decisions and business outcomes.
+  </p>
+
+  <div class="architecture-strip">
+
+    <div class="arch-step">
+      <strong>Threat Intelligence</strong>
+      <span>Emerging threats, typologies and scenarios</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Analytics</strong>
+      <span>Detect, score and explain risk</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Metadata</strong>
+      <span>Standardise reusable intelligence</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Intelligence Product</strong>
+      <span>Operational intelligence output</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Investigation</strong>
+      <span>Evidence-driven actions</span>
+    </div>
+
+    <div class="arch-step">
+      <strong>Operational Decision</strong>
+      <span>Business outcome</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2 class="section-title">Technical Evidence</h2>
+
+  <p class="section-intro">
+    Each repository demonstrates a production component of the operating model:
+    platform architecture, analytics libraries, typology models, metadata structures,
+    governance logic and implementation assets.
+  </p>
+
+  <div class="grid-4">
+
+    <div class="repo-card">
+      <div class="repo-code">FC01</div>
+      <h3>Platform Architecture</h3>
+      <p>
+        Metadata rendering, intelligence product structure, platform shell,
+        decision support and financial crime portfolio showcase.
+      </p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">FC03</div>
+      <h3>Network Intelligence</h3>
+      <p>
+        Shared-party, shared-attribute and linked-entity typologies
+        converted into reusable network intelligence capability.
+      </p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">FC04</div>
+      <h3>Financial Crime Analytics</h3>
+      <p>
+        TBML analytics, scoring logic, expected outputs,
+        investigation products and reusable analytics patterns.
+      </p>
+    </div>
+
+    <div class="repo-card">
+      <div class="repo-code">NEXUS</div>
+      <h3>Working Platform</h3>
+      <p>
+        Mission status, roadmap, architecture, analytics library,
+        intelligence products and repository catalogue in one environment.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="nexus-feature">
+
+    <div>
+      <div class="eyebrow">Working Platform</div>
+
+      <h2 class="section-title">
+        Architecture proven through implementation.
+      </h2>
+
+      <p class="section-intro">
+        NEXUS integrates architecture, analytics, metadata, intelligence products
+        and repository management into one working platform, demonstrating how
+        the operating model functions in practice.
+      </p>
+
+      <div class="buttons">
+        <a class="btn nexus" href="projects/nexus/index.html">Launch NEXUS</a>
+        <a class="btn" href="projects/nexus/pages/mission-status.html">Mission Status</a>
+      </div>
+    </div>
+
+    <a href="projects/nexus/index.html">
+      <img src="projects/nexus/assets/images/executive-pack/Mission%20Status_27_June.png" alt="NEXUS Mission Status">
+    </a>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="cta">
+
+    <div class="eyebrow">Executive Capability Statement</div>
+
+    <h2>
+      Intelligence.<br>
+      Architecture.<br>
+      Delivery.
+    </h2>
+
+    <p>
+      Three disciplines. One operating model. This portfolio demonstrates how intelligence-led
+      financial crime capability can be designed, governed and delivered through reusable architecture,
+      validated analytics and working software.
+    </p>
+
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn nexus" href="projects/nexus/index.html">Explore the Platform</a>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footer-brand">Intelligence. Architecture. Delivery.</p>
+    <p>
+      Personal professional showcase using synthetic examples only.
+      No confidential employer, client or customer information is included.
+    </p>
+  </div>
+</footer>
+
+
+<script id="scroll-reveal-motion">
+  (() => {
+    const items = document.querySelectorAll("section, .section, .card, .work-card, .proof-card");
+    items.forEach((el) => el.classList.add("reveal-ready"));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal-in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    items.forEach((el) => observer.observe(el));
+  })();
+</script>
+
+</body>
+</html>
