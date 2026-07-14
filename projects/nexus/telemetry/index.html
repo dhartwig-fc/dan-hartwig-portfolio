@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enterprise Manufacturing Telemetry</title>
+
+
+<style>
+/* STAGE427A.9 — STANDALONE STRUCTURAL BOUNDARY */
+html {
+    box-sizing: border-box;
+    min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+.stage427a9-standalone-telemetry-authority {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* STAGE427A.9 — INLINE SOURCE STYLE 1 */
+.nexus-telemetry-panel {
+  border: 1px solid rgba(97, 180, 255, 0.24);
+  border-radius: 18px;
+  padding: 24px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 31, 45, 0.96),
+      rgba(7, 20, 30, 0.96)
+    );
+}
+
+.nexus-telemetry-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.nexus-telemetry-heading h2 {
+  margin: 5px 0 0;
+}
+
+.nexus-telemetry-eyebrow {
+  color: #61b4ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nexus-telemetry-heading a {
+  color: #8dc9ff;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.nexus-telemetry-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.nexus-telemetry-grid article {
+  border: 1px solid rgba(137, 176, 203, 0.18);
+  border-radius: 12px;
+  padding: 15px;
+  background: rgba(14, 36, 50, 0.72);
+}
+
+.nexus-telemetry-grid span {
+  display: block;
+  color: #8ea4b1;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nexus-telemetry-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: #5ee1a4;
+  font-size: 17px;
+}
+
+.nexus-telemetry-updated {
+  margin-top: 16px;
+  color: #8ea4b1;
+  font-size: 11px;
+}
+
+/* STAGE427A.9 — INLINE SOURCE STYLE 2 */
+#stage427a6-enterprise-telemetry-dashboard {
+  margin: 32px auto;
+  padding: 28px;
+  max-width: 1440px;
+  border: 1px solid rgba(148, 163, 184, 0.30);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15, 23, 42, 0.98),
+      rgba(30, 41, 59, 0.96)
+    );
+  color: #e2e8f0;
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.35);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+#stage427a6-enterprise-telemetry-dashboard * {
+  box-sizing: border-box;
+}
+
+.stage427a6-eyebrow {
+  margin: 0 0 8px;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stage427a6-title {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.05;
+}
+
+.stage427a6-subtitle {
+  margin: 12px 0 0;
+  max-width: 820px;
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.stage427a6-read-only {
+  display: inline-flex;
+  margin-top: 18px;
+  padding: 7px 11px;
+  border: 1px solid rgba(96, 165, 250, 0.42);
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.14);
+  color: #bfdbfe;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stage427a6-status-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.stage427a6-status-card {
+  min-height: 146px;
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.20);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.62);
+}
+
+.stage427a6-card-label {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stage427a6-card-value {
+  margin-top: 16px;
+  font-size: 20px;
+  font-weight: 850;
+}
+
+.stage427a6-card-detail {
+  margin-top: 9px;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.stage427a6-card-value.is-good {
+  color: #86efac;
+}
+
+.stage427a6-card-value.is-alert {
+  color: #fda4af;
+}
+
+.stage427a6-card-value.is-neutral {
+  color: #cbd5e1;
+}
+
+.stage427a6-lower-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(260px, 0.65fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.stage427a6-panel {
+  padding: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.20);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.62);
+}
+
+.stage427a6-panel-title {
+  margin: 0 0 14px;
+  color: #f8fafc;
+  font-size: 16px;
+}
+
+.stage427a6-detail-row {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.stage427a6-detail-row:last-child {
+  border-bottom: 0;
+}
+
+.stage427a6-detail-label {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.stage427a6-detail-value {
+  overflow-wrap: anywhere;
+  color: #e2e8f0;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  font-size: 12px;
+}
+
+.stage427a6-metric {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.stage427a6-metric:last-child {
+  border-bottom: 0;
+}
+
+.stage427a6-metric-name {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.stage427a6-metric-value {
+  color: #f8fafc;
+  font-size: 20px;
+  font-weight: 850;
+}
+
+@media (max-width: 760px) {
+  #stage427a6-enterprise-telemetry-dashboard {
+    margin: 18px 10px;
+    padding: 20px;
+  }
+
+  .stage427a6-lower-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage427a6-detail-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}
+</style>
+</head>
+<body>
+<!--
+STAGE427A.9 STANDALONE ENTERPRISE TELEMETRY CANDIDATE
+SOURCE: /Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/tests/stage427a_6_enterprise_telemetry_dashboard/06_staging/canonical_nexus_website.stage427a_6_dashboard_staging.html
+CANDIDATE OUTPUT: /Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/tests/stage427a9_standalone_enterprise_telemetry_authority_recovery/02_standalone_candidate_construction/enterprise_manufacturing_telemetry_candidate.html
+SOURCE HEADING LEVEL: H2
+AUTHORITY STATUS: NOT REGISTERED
+PUBLICATION STATUS: NOT PUBLISHED
+PORTFOLIO MUTATION: FALSE
+-->
+<div
+    class="stage427a9-standalone-telemetry-authority"
+    data-stage427a9-candidate="true"
+    data-source-heading-level="h2"
+    data-authority-status="unregistered"
+    data-publication-status="not-published"
+>
+<section
+  id="stage427a6-enterprise-telemetry-dashboard"
+  aria-label="Enterprise Manufacturing Telemetry Dashboard"
+  data-stage="Stage427A.6"
+  data-read-only="true"
+  data-staging-only="true"
+>
+  <header>
+    <p class="stage427a6-eyebrow">
+      NEXUS Enterprise Governance
+    </p>
+
+    <h2 class="stage427a6-title">
+      Enterprise Manufacturing Telemetry
+    </h2>
+
+    <p class="stage427a6-subtitle">
+      Read-only governance, integrity and operational status
+    </p>
+
+    <span class="stage427a6-read-only">
+      Read-only governed telemetry
+    </span>
+  </header>
+
+  <div class="stage427a6-status-grid">
+    <article class="stage427a6-status-card"><div class="stage427a6-card-label">Repository Status</div><div class="stage427a6-card-value is-alert">ATTENTION</div><div class="stage427a6-card-detail">Governed repository identity available</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Manufacturing Status</div><div class="stage427a6-card-value is-neutral">NOT EXECUTED</div><div class="stage427a6-card-detail">Read-only dashboard stage</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Runtime Status</div><div class="stage427a6-card-value is-neutral">NOT EXECUTED</div><div class="stage427a6-card-detail">No runtime invocation permitted</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Validation Status</div><div class="stage427a6-card-value is-good">PASS</div><div class="stage427a6-card-detail">Approved telemetry projection validation</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Evidence Status</div><div class="stage427a6-card-value is-good">COMPLETE</div><div class="stage427a6-card-detail">Governed evidence manifest</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Promotion Status</div><div class="stage427a6-card-value is-neutral">NOT EXECUTED</div><div class="stage427a6-card-detail">Staging-only presentation</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Release Status</div><div class="stage427a6-card-value is-neutral">NOT REQUESTED</div><div class="stage427a6-card-detail">No release operation performed</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Authority Registry</div><div class="stage427a6-card-value is-good">LOCKED</div><div class="stage427a6-card-detail">Registered canonical authority preserved</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Repository Integrity</div><div class="stage427a6-card-value is-good">VERIFIED</div><div class="stage427a6-card-detail">Canonical source remains unchanged</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Contract Integrity</div><div class="stage427a6-card-value is-good">VERIFIED</div><div class="stage427a6-card-detail">Adapter payload identity verified</div></article>
+  </div>
+
+  <div class="stage427a6-lower-grid">
+    <section class="stage427a6-panel">
+      <h3 class="stage427a6-panel-title">
+        Operational Identity
+      </h3>
+
+      <div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Last Validation</span><span class="stage427a6-detail-value">2026-07-13T10:00:29+00:00</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Active Stage</span><span class="stage427a6-detail-value">Stage427A.6</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Current Branch</span><span class="stage427a6-detail-value">UNKNOWN</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Current Commit</span><span class="stage427a6-detail-value">UNKNOWN</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Build Fingerprint</span><span class="stage427a6-detail-value">9bc0125e86229b46b1570f1dbae5e149c88b8886a348ec622ffdc0c68f75e3ec</span></div>
+    </section>
+
+    <section class="stage427a6-panel">
+      <h3 class="stage427a6-panel-title">
+        Telemetry Summary
+      </h3>
+
+      <div class="stage427a6-metric">
+        <span class="stage427a6-metric-name">
+          Events
+        </span>
+        <strong class="stage427a6-metric-value">
+          5
+        </strong>
+      </div>
+
+      <div class="stage427a6-metric">
+        <span class="stage427a6-metric-name">
+          Failures
+        </span>
+        <strong class="stage427a6-metric-value">
+          0
+        </strong>
+      </div>
+
+      <div class="stage427a6-metric">
+        <span class="stage427a6-metric-name">
+          Connection
+        </span>
+        <strong class="stage427a6-metric-value">
+          VERIFIED
+        </strong>
+      </div>
+
+      <div class="stage427a6-metric">
+        <span class="stage427a6-metric-name">
+          Canonical source
+        </span>
+        <strong class="stage427a6-metric-value">
+          UNCHANGED
+        </strong>
+      </div>
+    </section>
+  </div>
+</section>
+</div>
+</body>
+</html>
