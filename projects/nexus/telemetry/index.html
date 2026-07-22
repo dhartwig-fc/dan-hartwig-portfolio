@@ -341,6 +341,399 @@ body {
         }
     </style>
 
+
+    <style id="stage429-programme-context-visual-fix">
+        /*
+         * Stage429 bounded presentation fix.
+         * Styles the existing programme-status section only.
+         */
+
+        #stage429-programme-status {
+            box-sizing: border-box;
+            width: min(1180px, calc(100% - 32px));
+            margin: 28px auto 42px;
+            padding: 28px;
+            color: #eaf4ff;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(24, 48, 67, 0.98),
+                    rgba(13, 31, 46, 0.98)
+                );
+            border: 1px solid rgba(121, 183, 222, 0.24);
+            border-radius: 18px;
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.24),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+        #stage429-programme-status *,
+        #stage429-programme-status *::before,
+        #stage429-programme-status *::after {
+            box-sizing: border-box;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header {
+            max-width: 900px;
+            margin-bottom: 24px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__eyebrow {
+            margin: 0 0 9px;
+            color: #66c9ff;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        #stage429-programme-status h2 {
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(1.45rem, 2.7vw, 2.2rem);
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header > p:last-child {
+            margin: 14px 0 0;
+            color: #b9cddd;
+            font-size: 0.96rem;
+            line-height: 1.65;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__summary {
+            display: grid;
+            grid-template-columns:
+                repeat(5, minmax(0, 1fr));
+            gap: 12px;
+            margin: 0 0 22px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__summary article {
+            min-width: 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(137, 195, 229, 0.18);
+            border-radius: 12px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__summary span {
+            display: block;
+            margin-bottom: 8px;
+            color: #8faabd;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__summary strong {
+            display: block;
+            max-width: 100%;
+            color: #73f0b1;
+            font-size: 0.96rem;
+            line-height: 1.3;
+            overflow-wrap: anywhere;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1.15fr)
+                minmax(0, 0.9fr);
+            gap: 14px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div {
+            min-width: 0;
+            padding: 20px;
+            background:
+                linear-gradient(
+                    150deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(255, 255, 255, 0.018)
+                );
+            border: 1px solid rgba(137, 195, 229, 0.16);
+            border-radius: 14px;
+        }
+
+        #stage429-programme-status h3 {
+            margin: 0 0 15px;
+            color: #ffffff;
+            font-size: 0.91rem;
+            letter-spacing: 0.01em;
+        }
+
+        #stage429-programme-status ul,
+        #stage429-programme-status ol {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #stage429-programme-status li {
+            position: relative;
+            margin: 0;
+            padding: 9px 0 9px 20px;
+            color: #c6d7e4;
+            font-size: 0.84rem;
+            line-height: 1.4;
+            border-top: 1px solid rgba(141, 183, 210, 0.11);
+        }
+
+        #stage429-programme-status li:first-child {
+            border-top: 0;
+        }
+
+        #stage429-programme-status ul li::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 2px;
+            width: 7px;
+            height: 7px;
+            background: #63e6a4;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(99, 230, 164, 0.1);
+        }
+
+        #stage429-programme-status ol {
+            counter-reset: stage429-sequence;
+        }
+
+        #stage429-programme-status ol li {
+            counter-increment: stage429-sequence;
+            padding-left: 40px;
+        }
+
+        #stage429-programme-status ol li::before {
+            content: counter(stage429-sequence);
+            position: absolute;
+            top: 7px;
+            left: 0;
+            display: grid;
+            place-items: center;
+            width: 27px;
+            height: 27px;
+            color: #071c29;
+            background: #69ccff;
+            border-radius: 8px;
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+
+        #stage429-programme-status ol strong {
+            display: block;
+            color: #ffffff;
+            font-size: 0.83rem;
+        }
+
+        #stage429-programme-status ol span {
+            display: block;
+            margin-top: 3px;
+            color: #9fb6c7;
+            font-size: 0.78rem;
+        }
+
+        @media (max-width: 1000px) {
+            #stage429-programme-status
+            .telemetry-programme-status__summary {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            #stage429-programme-status
+            .telemetry-programme-status__body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            #stage429-programme-status {
+                width: calc(100% - 20px);
+                margin: 18px auto 28px;
+                padding: 20px;
+                border-radius: 14px;
+            }
+
+            #stage429-programme-status
+            .telemetry-programme-status__summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+
+    <style id="stage429-programme-context-polish">
+        /*
+         * Stage429 bounded programme-context polish.
+         * Presentation only. Runtime state and loader remain unchanged.
+         */
+
+        #stage429-programme-status {
+            margin-top: 14px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header {
+            position: relative;
+            padding-right: 190px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header::after {
+            content: "ACTIVE  ·  Stage429A";
+            position: absolute;
+            top: 2px;
+            right: 0;
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 6px 11px;
+            color: #071c29;
+            background: linear-gradient(
+                135deg,
+                #6ff0b1,
+                #69ccff
+            );
+            border: 1px solid rgba(255, 255, 255, 0.42);
+            border-radius: 999px;
+            box-shadow:
+                0 8px 22px rgba(55, 194, 219, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.45);
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 0.07em;
+            line-height: 1;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li {
+            margin: 5px 0;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-radius: 9px;
+            transition:
+                background 160ms ease,
+                border-color 160ms ease;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li:first-child {
+            padding-right: 12px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(105, 204, 255, 0.15),
+                    rgba(99, 230, 164, 0.09)
+                );
+            border:
+                1px solid rgba(105, 204, 255, 0.38);
+            box-shadow:
+                inset 3px 0 0 #69ccff,
+                0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li:first-child::after {
+            content: "CURRENT";
+            position: absolute;
+            top: 10px;
+            right: 9px;
+            padding: 4px 7px;
+            color: #79efb4;
+            background: rgba(99, 230, 164, 0.1);
+            border: 1px solid rgba(99, 230, 164, 0.28);
+            border-radius: 999px;
+            font-size: 0.59rem;
+            font-weight: 900;
+            letter-spacing: 0.07em;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li:not(:first-child) {
+            opacity: 0.78;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:first-child
+        ul li::before {
+            content: "✓";
+            top: 10px;
+            left: 0;
+            display: grid;
+            place-items: center;
+            width: 15px;
+            height: 15px;
+            color: #062116;
+            background: #63e6a4;
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 4px rgba(99, 230, 164, 0.09);
+            font-size: 0.66rem;
+            font-weight: 1000;
+            line-height: 1;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:first-child
+        ul li {
+            padding-left: 27px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li::before {
+            content: "◆";
+            top: 12px;
+            width: auto;
+            height: auto;
+            color: #69ccff;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            font-size: 0.55rem;
+        }
+
+        @media (max-width: 800px) {
+            #stage429-programme-status
+            .telemetry-programme-status__header {
+                padding-right: 0;
+                padding-top: 45px;
+            }
+
+            #stage429-programme-status
+            .telemetry-programme-status__header::after {
+                top: 0;
+                right: auto;
+                left: 0;
+            }
+        }
+    </style>
+
 </head>
 <body>
 <!--
