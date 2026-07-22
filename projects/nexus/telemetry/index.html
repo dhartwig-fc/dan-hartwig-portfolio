@@ -734,6 +734,207 @@ body {
         }
     </style>
 
+
+    <style id="stage429-programme-context-final-polish">
+        /*
+         * Stage429 final bounded visual polish.
+         * Presentation only: runtime loader and state remain unchanged.
+         */
+
+        /*
+         * Match the programme panel to the governed dashboard width and
+         * reduce the visual break between the two sections.
+         */
+        #stage429-programme-status {
+            width: calc(100% - 32px);
+            max-width: none;
+            margin-top: 8px;
+            margin-bottom: 34px;
+        }
+
+        /*
+         * Keep the live programme badge aligned with the title rather than
+         * floating above or below its primary visual baseline.
+         */
+        #stage429-programme-status
+        .telemetry-programme-status__header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            column-gap: 22px;
+            align-items: start;
+            padding-right: 0;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header
+        .telemetry-programme-status__eyebrow {
+            grid-column: 1;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header h2 {
+            grid-column: 1;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header > p:last-child {
+            grid-column: 1 / -1;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__header::after {
+            grid-column: 2;
+            grid-row: 2;
+            position: static;
+            align-self: start;
+            margin-top: 2px;
+        }
+
+        /*
+         * Slightly increase completed-milestone row spacing for easier
+         * scanning without materially increasing the card height.
+         */
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:first-child
+        ul li {
+            padding-top: 11px;
+            padding-bottom: 11px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:first-child
+        ul li::before {
+            top: 12px;
+        }
+
+        /*
+         * Increase the Stage429A emphasis while keeping planned stages muted.
+         */
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li:first-child {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(105, 204, 255, 0.23),
+                    rgba(99, 230, 164, 0.15)
+                );
+            border-color: rgba(105, 204, 255, 0.58);
+            box-shadow:
+                inset 4px 0 0 #69ccff,
+                0 10px 24px rgba(21, 139, 176, 0.16),
+                0 0 0 1px rgba(99, 230, 164, 0.08);
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li:first-child strong {
+            color: #ffffff;
+            text-shadow: 0 0 14px rgba(105, 204, 255, 0.28);
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(2)
+        ol li:first-child::after {
+            color: #062318;
+            background: #73f0b1;
+            border-color: rgba(255, 255, 255, 0.48);
+            box-shadow: 0 5px 14px rgba(46, 209, 140, 0.2);
+        }
+
+        /*
+         * Give each canonical guardrail an explicit visual symbol while
+         * retaining the governed wording unchanged.
+         */
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li {
+            padding-left: 29px;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li::before {
+            top: 9px;
+            left: 0;
+            display: grid;
+            place-items: center;
+            width: 18px;
+            height: 18px;
+            color: #08202d;
+            background: #69ccff;
+            border-radius: 6px;
+            box-shadow: 0 0 0 3px rgba(105, 204, 255, 0.08);
+            font-size: 0.68rem;
+            font-weight: 900;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li:nth-child(1)::before {
+            content: "✓";
+            background: #73f0b1;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li:nth-child(2)::before {
+            content: "▣";
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li:nth-child(3)::before {
+            content: "⊘";
+            background: #9fdfff;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li:nth-child(4)::before {
+            content: "◆";
+            color: #062318;
+            background: #73f0b1;
+        }
+
+        #stage429-programme-status
+        .telemetry-programme-status__body > div:nth-child(3)
+        ul li:nth-child(5)::before {
+            content: "▰";
+            color: #062318;
+            background: #73f0b1;
+        }
+
+        @media (max-width: 1000px) {
+            #stage429-programme-status {
+                width: calc(100% - 24px);
+            }
+        }
+
+        @media (max-width: 800px) {
+            #stage429-programme-status
+            .telemetry-programme-status__header {
+                display: block;
+                padding-top: 45px;
+            }
+
+            #stage429-programme-status
+            .telemetry-programme-status__header::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 620px) {
+            #stage429-programme-status {
+                width: calc(100% - 20px);
+                margin-top: 6px;
+            }
+        }
+    </style>
+
 </head>
 <body>
 <!--
