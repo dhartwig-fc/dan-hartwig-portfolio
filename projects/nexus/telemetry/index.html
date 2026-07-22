@@ -313,6 +313,34 @@ body {
   }
 }
 </style>
+
+    <!-- stage429-status-value-wrapping-fix -->
+    <style id="stage429-status-value-wrapping-fix">
+        /*
+         * Stage429 bounded visual correction.
+         * Allows long governed telemetry statuses to wrap inside their cards.
+         * No runtime values or loader behaviour are changed.
+         */
+        #stage427a6-enterprise-telemetry-dashboard article strong,
+        #stage427a6-enterprise-telemetry-dashboard article dd,
+        #stage427a6-enterprise-telemetry-dashboard .status-value,
+        #stage427a6-enterprise-telemetry-dashboard .telemetry-value,
+        #stage427a6-enterprise-telemetry-dashboard [data-telemetry-value] {
+            display: block;
+            min-width: 0;
+            max-width: 100%;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            line-height: 1.2;
+        }
+
+        #stage427a6-enterprise-telemetry-dashboard article {
+            min-width: 0;
+            overflow: hidden;
+        }
+    </style>
+
 </head>
 <body>
 <!--
@@ -357,16 +385,16 @@ PORTFOLIO MUTATION: FALSE
   </header>
 
   <div class="stage427a6-status-grid">
-    <article class="stage427a6-status-card"><div class="stage427a6-card-label">Repository Status</div><div class="stage427a6-card-value is-alert">ATTENTION</div><div class="stage427a6-card-detail">Governed repository identity available</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Manufacturing Status</div><div class="stage427a6-card-value is-neutral">NOT EXECUTED</div><div class="stage427a6-card-detail">Read-only dashboard stage</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Runtime Status</div><div class="stage427a6-card-value is-neutral">NOT EXECUTED</div><div class="stage427a6-card-detail">No runtime invocation permitted</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Validation Status</div><div class="stage427a6-card-value is-good">PASS</div><div class="stage427a6-card-detail">Approved telemetry projection validation</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Evidence Status</div><div class="stage427a6-card-value is-good">COMPLETE</div><div class="stage427a6-card-detail">Governed evidence manifest</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Promotion Status</div><div class="stage427a6-card-value is-neutral">NOT EXECUTED</div><div class="stage427a6-card-detail">Staging-only presentation</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Release Status</div><div class="stage427a6-card-value is-neutral">NOT REQUESTED</div><div class="stage427a6-card-detail">No release operation performed</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Authority Registry</div><div class="stage427a6-card-value is-good">LOCKED</div><div class="stage427a6-card-detail">Registered canonical authority preserved</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Repository Integrity</div><div class="stage427a6-card-value is-good">VERIFIED</div><div class="stage427a6-card-detail">Canonical source remains unchanged</div></article>
-<article class="stage427a6-status-card"><div class="stage427a6-card-label">Contract Integrity</div><div class="stage427a6-card-value is-good">VERIFIED</div><div class="stage427a6-card-detail">Adapter payload identity verified</div></article>
+    <article class="stage427a6-status-card"><div class="stage427a6-card-label">Repository Status</div><div class="stage427a6-card-value is-alert" data-telemetry-field="repository_status">ATTENTION</div><div class="stage427a6-card-detail">Governed repository identity available</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Manufacturing Status</div><div class="stage427a6-card-value is-neutral" data-telemetry-field="manufacturing_status">NOT EXECUTED</div><div class="stage427a6-card-detail">Read-only dashboard stage</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Runtime Status</div><div class="stage427a6-card-value is-neutral" data-telemetry-field="runtime_status">NOT EXECUTED</div><div class="stage427a6-card-detail">No runtime invocation permitted</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Validation Status</div><div class="stage427a6-card-value is-good" data-telemetry-field="validation_status">PASS</div><div class="stage427a6-card-detail">Approved telemetry projection validation</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Evidence Status</div><div class="stage427a6-card-value is-good" data-telemetry-field="evidence_status">COMPLETE</div><div class="stage427a6-card-detail">Governed evidence manifest</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Promotion Status</div><div class="stage427a6-card-value is-neutral" data-telemetry-field="promotion_status">NOT EXECUTED</div><div class="stage427a6-card-detail">Staging-only presentation</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Release Status</div><div class="stage427a6-card-value is-neutral" data-telemetry-field="release_status">NOT REQUESTED</div><div class="stage427a6-card-detail">No release operation performed</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Authority Registry</div><div class="stage427a6-card-value is-good" data-telemetry-field="authority_registry">LOCKED</div><div class="stage427a6-card-detail">Registered canonical authority preserved</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Repository Integrity</div><div class="stage427a6-card-value is-good" data-telemetry-field="repository_integrity">VERIFIED</div><div class="stage427a6-card-detail">Canonical source remains unchanged</div></article>
+<article class="stage427a6-status-card"><div class="stage427a6-card-label">Contract Integrity</div><div class="stage427a6-card-value is-good" data-telemetry-field="contract_integrity">VERIFIED</div><div class="stage427a6-card-detail">Adapter payload identity verified</div></article>
   </div>
 
   <div class="stage427a6-lower-grid">
@@ -375,11 +403,11 @@ PORTFOLIO MUTATION: FALSE
         Operational Identity
       </h3>
 
-      <div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Last Validation</span><span class="stage427a6-detail-value">2026-07-13T10:00:29+00:00</span></div>
-<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Active Stage</span><span class="stage427a6-detail-value">Stage427A.6</span></div>
-<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Current Branch</span><span class="stage427a6-detail-value">UNKNOWN</span></div>
-<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Current Commit</span><span class="stage427a6-detail-value">UNKNOWN</span></div>
-<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Build Fingerprint</span><span class="stage427a6-detail-value">9bc0125e86229b46b1570f1dbae5e149c88b8886a348ec622ffdc0c68f75e3ec</span></div>
+      <div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Last Validation</span><span class="stage427a6-detail-value" data-telemetry-field="last_validation">2026-07-13T10:00:29+00:00</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Active Stage</span><span class="stage427a6-detail-value" data-telemetry-field="active_stage">Stage427A.6</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Current Branch</span><span class="stage427a6-detail-value" data-telemetry-field="current_branch">UNKNOWN</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Current Commit</span><span class="stage427a6-detail-value" data-telemetry-field="current_commit">UNKNOWN</span></div>
+<div class="stage427a6-detail-row"><span class="stage427a6-detail-label">Build Fingerprint</span><span class="stage427a6-detail-value" data-telemetry-field="build_fingerprint">9bc0125e86229b46b1570f1dbae5e149c88b8886a348ec622ffdc0c68f75e3ec</span></div>
     </section>
 
     <section class="stage427a6-panel">
@@ -391,7 +419,7 @@ PORTFOLIO MUTATION: FALSE
         <span class="stage427a6-metric-name">
           Events
         </span>
-        <strong class="stage427a6-metric-value">
+        <strong class="stage427a6-metric-value" data-telemetry-field="events">
           5
         </strong>
       </div>
@@ -400,7 +428,7 @@ PORTFOLIO MUTATION: FALSE
         <span class="stage427a6-metric-name">
           Failures
         </span>
-        <strong class="stage427a6-metric-value">
+        <strong class="stage427a6-metric-value" data-telemetry-field="failures">
           0
         </strong>
       </div>
@@ -409,7 +437,7 @@ PORTFOLIO MUTATION: FALSE
         <span class="stage427a6-metric-name">
           Connection
         </span>
-        <strong class="stage427a6-metric-value">
+        <strong class="stage427a6-metric-value" data-telemetry-field="connection">
           VERIFIED
         </strong>
       </div>
@@ -418,7 +446,7 @@ PORTFOLIO MUTATION: FALSE
         <span class="stage427a6-metric-name">
           Canonical source
         </span>
-        <strong class="stage427a6-metric-value">
+        <strong class="stage427a6-metric-value" data-telemetry-field="canonical_source">
           UNCHANGED
         </strong>
       </div>
@@ -426,5 +454,249 @@ PORTFOLIO MUTATION: FALSE
   </div>
 </section>
 </div>
+
+<section
+    id="stage429-programme-status"
+    class="telemetry-programme-status"
+    aria-labelledby="stage429-programme-status-heading"
+    data-programme="Stage429"
+    data-current-stage="Stage429A"
+    data-accepted-run-id="tbml001-ccf3770d8b"
+>
+    <header class="telemetry-programme-status__header">
+        <p class="telemetry-programme-status__eyebrow">
+            Enterprise Manufacturing Programme
+        </p>
+
+        <h2 id="stage429-programme-status-heading">
+            First Runtime Complete · Graph Improvement Sprint Active
+        </h2>
+
+        <p>
+            Stage327L completed the first governed runtime intelligence asset.
+            Stage429 is preparing the canonical Investigation Layer visual
+            language. The Investigation Layer is not yet published.
+        </p>
+    </header>
+
+    <div class="telemetry-programme-status__summary">
+        <article>
+            <span>First Runtime</span>
+            <strong>COMPLETE</strong>
+        </article>
+
+        <article>
+            <span>Accepted Run</span>
+            <strong>tbml001-ccf3770d8b</strong>
+        </article>
+
+        <article>
+            <span>Intelligence Asset</span>
+            <strong>ACCEPTED</strong>
+        </article>
+
+        <article>
+            <span>Active Programme</span>
+            <strong>Stage429</strong>
+        </article>
+
+        <article>
+            <span>Current Stage</span>
+            <strong>Stage429A</strong>
+        </article>
+    </div>
+
+    <div class="telemetry-programme-status__body">
+        <div>
+            <h3>Completed Programme Milestones</h3>
+            <ul>
+                <li>Stage327L complete</li>
+                <li>Deterministic Route Intelligence Binding complete</li>
+                <li>Clean Lineage complete</li>
+                <li>Runtime Intelligence Asset accepted</li>
+                <li>Enterprise Macro Save complete</li>
+                <li>Stage429 Sprint Plan complete</li>
+                <li>Investigation Layer improvement active</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Stage429 Governed Sequence</h3>
+            <ol>
+                <li>
+                    <strong>Stage429A</strong>
+                    <span>Visual Diagnosis and Acceptance Contract</span>
+                </li>
+                <li>
+                    <strong>Stage429B</strong>
+                    <span>Canonical Visual Grammar</span>
+                </li>
+                <li>
+                    <strong>Stage429C</strong>
+                    <span>Layout and Geometry Refinement</span>
+                </li>
+                <li>
+                    <strong>Stage429D</strong>
+                    <span>Governed Density Profiles</span>
+                </li>
+                <li>
+                    <strong>Stage429E</strong>
+                    <span>Cross-Typology Validation and Lock</span>
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <h3>Canonical Guardrails</h3>
+            <ul>
+                <li>One Canonical Renderer</li>
+                <li>No Generated HTML Patching</li>
+                <li>No Typology-Specific Renderer</li>
+                <li>Deterministic Graph Output</li>
+                <li>Runtime Evidence Preserved</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<script src="telemetry-runtime-loader.js" defer data-governed-telemetry-loader="stage326-3"></script>
+
+    <!-- stage429-robust-status-label-mapper -->
+    <script id="stage429-robust-status-label-mapper">
+        (function () {
+            "use strict";
+
+            var DISPLAY_LABELS = {
+                "INVESTIGATION_LAYER_PREPARATION":
+                    "Investigation Layer Preparation",
+                "RUNTIME_ACCEPTED":
+                    "Runtime Accepted"
+            };
+
+            var applying = false;
+
+            function clean(value) {
+                return String(value || "")
+                    .replace(/\u00a0/g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+            }
+
+            function replaceTextNode(node) {
+                var current;
+
+                if (!node || node.nodeType !== 3) {
+                    return false;
+                }
+
+                current = clean(node.nodeValue);
+
+                if (!Object.prototype.hasOwnProperty.call(
+                    DISPLAY_LABELS,
+                    current
+                )) {
+                    return false;
+                }
+
+                node.nodeValue = DISPLAY_LABELS[current];
+
+                if (node.parentElement) {
+                    node.parentElement.setAttribute(
+                        "data-governed-runtime-value",
+                        current
+                    );
+
+                    node.parentElement.setAttribute(
+                        "data-stage429-display-label",
+                        DISPLAY_LABELS[current]
+                    );
+
+                    node.parentElement.setAttribute(
+                        "title",
+                        DISPLAY_LABELS[current]
+                    );
+                }
+
+                return true;
+            }
+
+            function scanTextNodes() {
+                var root;
+                var walker;
+                var node;
+                var replacements = 0;
+
+                if (applying) {
+                    return;
+                }
+
+                applying = true;
+
+                try {
+                    root = document.body;
+
+                    if (!root) {
+                        return;
+                    }
+
+                    walker = document.createTreeWalker(
+                        root,
+                        NodeFilter.SHOW_TEXT,
+                        null
+                    );
+
+                    while ((node = walker.nextNode())) {
+                        if (replaceTextNode(node)) {
+                            replacements += 1;
+                        }
+                    }
+
+                    document.documentElement.setAttribute(
+                        "data-stage429-status-label-replacements",
+                        String(replacements)
+                    );
+                } finally {
+                    applying = false;
+                }
+            }
+
+            function scheduleScans() {
+                scanTextNodes();
+
+                window.setTimeout(scanTextNodes, 100);
+                window.setTimeout(scanTextNodes, 300);
+                window.setTimeout(scanTextNodes, 750);
+                window.setTimeout(scanTextNodes, 1500);
+                window.setTimeout(scanTextNodes, 3000);
+            }
+
+            var observer = new MutationObserver(function () {
+                window.requestAnimationFrame(scanTextNodes);
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+                characterData: true
+            });
+
+            if (document.readyState === "loading") {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    scheduleScans,
+                    { once: true }
+                );
+            } else {
+                scheduleScans();
+            }
+
+            window.addEventListener(
+                "load",
+                scheduleScans,
+                { once: true }
+            );
+        }());
+    </script>
+
 </body>
 </html>

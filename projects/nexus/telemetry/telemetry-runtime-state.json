@@ -1,0 +1,480 @@
+{
+  "active_stage": "Stage429A",
+  "analytic_state": {
+    "classification": {
+      "category": "Over Invoicing",
+      "exposure": "High",
+      "type": "Trade Based Money Laundering",
+      "typology": "TBML001"
+    },
+    "confidence_score": 91,
+    "risk_score": 86
+  },
+  "authority_state": {
+    "lock_status": "LOCKED",
+    "pointer_status": "BOUND",
+    "registry_status": "ACTIVE"
+  },
+  "build_fingerprint": "8094e9b525da0ee131827cb1be4876aa0b76b9c2754e977a50c2caf884cc5e83",
+  "contract": "FC10_ENTERPRISE_MANUFACTURING_TELEMETRY_STATE_V1",
+  "current_branch": "stage328a-canonical-graph-visual-refinement-clean-stage327l",
+  "current_commit": "35aded71bc23b66a3097bee0913947ef300fa60a",
+  "generated_at": "2026-07-16T08:05:18.485839+00:00",
+  "last_validation": "2026-07-15T17:14:40.613090Z",
+  "lineage": {
+    "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-d1eba5811d_end_to_end_report.json",
+    "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-d1eba5811d",
+    "fc01_product_path": "runtime/manufacturing/products/tbml001-d1eba5811d_TBML001_FC01_RUNTIME_PRODUCT.html",
+    "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-d1eba5811d_TBML001_metadata_packet.json",
+    "pipeline_report_path": "runtime/manufacturing/reports/tbml001-d1eba5811d_pipeline_report.json",
+    "release_record_path": "runtime/manufacturing/release_records/tbml001-d1eba5811d_release_record.json",
+    "runtime_log_path": "runtime/manufacturing/logs/tbml001-d1eba5811d.json",
+    "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-d1eba5811d_runtime_validation_report.json"
+  },
+  "live_manufacturing": {
+    "activity_feed": [
+      {
+        "sequence": 1,
+        "stage": "ORCHESTRATOR_INITIALISED",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.055254Z"
+      },
+      {
+        "sequence": 2,
+        "stage": "MANIFEST_LOADED",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.057821Z"
+      },
+      {
+        "sequence": 3,
+        "stage": "01_INITIALISE_RUNTIME",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.057914Z"
+      },
+      {
+        "sequence": 4,
+        "stage": "01_INITIALISE_RUNTIME",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.058573Z"
+      },
+      {
+        "sequence": 5,
+        "stage": "02_EXECUTE_ANALYTICS",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.058587Z"
+      },
+      {
+        "sequence": 6,
+        "stage": "02_EXECUTE_ANALYTICS",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.107367Z"
+      },
+      {
+        "sequence": 7,
+        "stage": "03_GENERATE_METADATA",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.107379Z"
+      },
+      {
+        "sequence": 8,
+        "stage": "03_GENERATE_METADATA",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.107401Z"
+      },
+      {
+        "sequence": 9,
+        "stage": "04_BUILD_PRODUCT",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.107408Z"
+      },
+      {
+        "sequence": 10,
+        "stage": "04_BUILD_PRODUCT",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.107428Z"
+      },
+      {
+        "sequence": 11,
+        "stage": "05_VALIDATE_RUNTIME",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.107435Z"
+      },
+      {
+        "sequence": 12,
+        "stage": "05_VALIDATE_RUNTIME",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.108463Z"
+      },
+      {
+        "sequence": 13,
+        "stage": "06_CAPTURE_EVIDENCE",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.108483Z"
+      },
+      {
+        "sequence": 14,
+        "stage": "06_CAPTURE_EVIDENCE",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.115066Z"
+      },
+      {
+        "sequence": 15,
+        "stage": "07_REGISTER_RELEASE",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.115076Z"
+      },
+      {
+        "sequence": 16,
+        "stage": "07_REGISTER_RELEASE",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.115729Z"
+      },
+      {
+        "sequence": 17,
+        "stage": "08_COMPLETE_EXECUTION",
+        "status": "RUNNING",
+        "timestamp": "2026-07-15T16:23:59.115739Z"
+      },
+      {
+        "sequence": 18,
+        "stage": "08_COMPLETE_EXECUTION",
+        "status": "SUCCESS",
+        "timestamp": "2026-07-15T16:23:59.116268Z"
+      }
+    ],
+    "contract": "FC10_LIVE_MANUFACTURING_TELEMETRY_V1",
+    "current_execution": {
+      "activity": "SUCCESS",
+      "runtime_event_count": 18,
+      "stage": "08_COMPLETE_EXECUTION"
+    },
+    "evidence": {
+      "items": [
+        "metadata_packet",
+        "fc01_product",
+        "canonical_graph_artifact",
+        "validation_report",
+        "artefact_index"
+      ],
+      "items_captured": 5
+    },
+    "generated_at": "2026-07-16T11:11:06.521110+00:00",
+    "pipeline": {
+      "completed_at": "2026-07-15T16:23:59.116278Z",
+      "duration_ms": 58,
+      "progress_percent": 100,
+      "started_at": "2026-07-15T16:23:59.057904Z",
+      "status": "SUCCESS",
+      "step_count": 8,
+      "steps_completed": 8,
+      "steps_failed": 0
+    },
+    "product_id": "TBML001",
+    "run_id": "tbml001-ccf3770d8b",
+    "source_stage": "Stage326.4",
+    "validation": {
+      "active_validator": "05_VALIDATE_RUNTIME",
+      "check_total": 29,
+      "checks_failed": 0,
+      "checks_passed": 29,
+      "progress_percent": 100
+    }
+  },
+  "live_manufacturing_ready": true,
+  "product_id": "TBML001",
+  "projection": {
+    "authority_registry": "LOCKED",
+    "canonical_source": "LOCKED",
+    "connection": "BOUND",
+    "contract_integrity": "VERIFIED",
+    "events": 18,
+    "evidence_status": "COMPLETE",
+    "failures": 0,
+    "manufacturing_status": "COMPLETE",
+    "promotion_status": "INVESTIGATION_LAYER_PREPARATION",
+    "release_status": "RUNTIME_ACCEPTED",
+    "repository_integrity": "VERIFIED",
+    "repository_status": "VERIFIED",
+    "runtime_status": "SUCCESS",
+    "validation_status": "PASS"
+  },
+  "projection_metadata": {
+    "candidate_block": "1B",
+    "candidate_generated_at": "2026-07-16T18:16:11.223848+00:00",
+    "candidate_only": true,
+    "candidate_stage": "327C",
+    "live_state_mutated": false,
+    "projection_fingerprint": "3d5c430db1d05be0c0dadb384be7ded6bd59c2839d8e2f9c31c8b352b6af9765",
+    "source_live_state_sha256": "9368adb8b10c1ffc52b6c259e6671ec459d83e81aa5813d5f6c9892b1dccca2e"
+  },
+  "run_id": "tbml001-ccf3770d8b",
+  "runtime_projection": {
+    "artefacts": {
+      "all_valid": true,
+      "category_counts": {
+        "end_to_end_report": 1,
+        "evidence_pack": 6,
+        "graph_artifact": 1,
+        "metadata_packet": 1,
+        "pipeline_report": 1,
+        "release_record": 1,
+        "runtime_log": 1,
+        "runtime_product": 1,
+        "validation_report": 1
+      },
+      "expected_count": 14,
+      "records": [
+        {
+          "actual_sha256": "6a3c1af6449e6708babf658316f29ea3585f853489af8078bf02355741805720",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/end_to_end_reports/tbml001-141516bf1b_end_to_end_report.json",
+          "present": true,
+          "recorded_sha256": "6a3c1af6449e6708babf658316f29ea3585f853489af8078bf02355741805720",
+          "repository_relative_path": "runtime/manufacturing/end_to_end_reports/tbml001-141516bf1b_end_to_end_report.json",
+          "sha256_matched": true,
+          "size_bytes": 1135
+        },
+        {
+          "actual_sha256": "e4f094d98da48556661c217d9966aaae84baa0a8946d92ce0d92ed6e4d824d3c",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-141516bf1b/artefact_index.json",
+          "present": true,
+          "recorded_sha256": "e4f094d98da48556661c217d9966aaae84baa0a8946d92ce0d92ed6e4d824d3c",
+          "repository_relative_path": "runtime/manufacturing/evidence_packs/tbml001-141516bf1b/artefact_index.json",
+          "sha256_matched": true,
+          "size_bytes": 1012
+        },
+        {
+          "actual_sha256": "85a25d54e9417b999916428692e387e36466224cba037385be323e67922ab742",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-141516bf1b/evidence_manifest.json",
+          "present": true,
+          "recorded_sha256": "85a25d54e9417b999916428692e387e36466224cba037385be323e67922ab742",
+          "repository_relative_path": "runtime/manufacturing/evidence_packs/tbml001-141516bf1b/evidence_manifest.json",
+          "sha256_matched": true,
+          "size_bytes": 1404
+        },
+        {
+          "actual_sha256": "b83a51ed0601a21d93775d15585bcc8acc5f66f383fd698036e10db881122c24",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_TBML001_CANONICAL_GRAPH.html",
+          "present": true,
+          "recorded_sha256": "b83a51ed0601a21d93775d15585bcc8acc5f66f383fd698036e10db881122c24",
+          "repository_relative_path": "runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_TBML001_CANONICAL_GRAPH.html",
+          "sha256_matched": true,
+          "size_bytes": 11623
+        },
+        {
+          "actual_sha256": "54fbf45e4b8dcc7638c9ee3d919f1012bf963acd4eeead6c4eb50ff881366ccc",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "present": true,
+          "recorded_sha256": "54fbf45e4b8dcc7638c9ee3d919f1012bf963acd4eeead6c4eb50ff881366ccc",
+          "repository_relative_path": "runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "sha256_matched": true,
+          "size_bytes": 41474
+        },
+        {
+          "actual_sha256": "6faf6d5fa06b8ab081dcc5c3f459b49eaa3ff2b16ce31beddb506a6bd9f52e1f",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_TBML001_metadata_packet.json",
+          "present": true,
+          "recorded_sha256": "6faf6d5fa06b8ab081dcc5c3f459b49eaa3ff2b16ce31beddb506a6bd9f52e1f",
+          "repository_relative_path": "runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_TBML001_metadata_packet.json",
+          "sha256_matched": true,
+          "size_bytes": 11691
+        },
+        {
+          "actual_sha256": "9ebe9e65124a6a7444160ff97329a67072708aed42330111aa71c825af4281b8",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_runtime_validation_report.json",
+          "present": true,
+          "recorded_sha256": "9ebe9e65124a6a7444160ff97329a67072708aed42330111aa71c825af4281b8",
+          "repository_relative_path": "runtime/manufacturing/evidence_packs/tbml001-141516bf1b/tbml001-141516bf1b_runtime_validation_report.json",
+          "sha256_matched": true,
+          "size_bytes": 4239
+        },
+        {
+          "actual_sha256": "b83a51ed0601a21d93775d15585bcc8acc5f66f383fd698036e10db881122c24",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/graph_artifacts/tbml001-141516bf1b_TBML001_CANONICAL_GRAPH.html",
+          "present": true,
+          "recorded_sha256": "b83a51ed0601a21d93775d15585bcc8acc5f66f383fd698036e10db881122c24",
+          "repository_relative_path": "runtime/manufacturing/graph_artifacts/tbml001-141516bf1b_TBML001_CANONICAL_GRAPH.html",
+          "sha256_matched": true,
+          "size_bytes": 11623
+        },
+        {
+          "actual_sha256": "b6265f3cadb1ba883a84428a2beadc324d8b0648b75ffe6b0d6c0ad4e30498fe",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/logs/tbml001-141516bf1b.json",
+          "present": true,
+          "recorded_sha256": "b6265f3cadb1ba883a84428a2beadc324d8b0648b75ffe6b0d6c0ad4e30498fe",
+          "repository_relative_path": "runtime/manufacturing/logs/tbml001-141516bf1b.json",
+          "sha256_matched": true,
+          "size_bytes": 44229
+        },
+        {
+          "actual_sha256": "6faf6d5fa06b8ab081dcc5c3f459b49eaa3ff2b16ce31beddb506a6bd9f52e1f",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/metadata_packets/tbml001-141516bf1b_TBML001_metadata_packet.json",
+          "present": true,
+          "recorded_sha256": "6faf6d5fa06b8ab081dcc5c3f459b49eaa3ff2b16ce31beddb506a6bd9f52e1f",
+          "repository_relative_path": "runtime/manufacturing/metadata_packets/tbml001-141516bf1b_TBML001_metadata_packet.json",
+          "sha256_matched": true,
+          "size_bytes": 11691
+        },
+        {
+          "actual_sha256": "54fbf45e4b8dcc7638c9ee3d919f1012bf963acd4eeead6c4eb50ff881366ccc",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/products/tbml001-141516bf1b_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "present": true,
+          "recorded_sha256": "54fbf45e4b8dcc7638c9ee3d919f1012bf963acd4eeead6c4eb50ff881366ccc",
+          "repository_relative_path": "runtime/manufacturing/products/tbml001-141516bf1b_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "sha256_matched": true,
+          "size_bytes": 41474
+        },
+        {
+          "actual_sha256": "35ac328a7d2c57b3558e2b062bd42a0db3cf72e68359440b6677ec95a4819872",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/release_records/tbml001-141516bf1b_release_record.json",
+          "present": true,
+          "recorded_sha256": "35ac328a7d2c57b3558e2b062bd42a0db3cf72e68359440b6677ec95a4819872",
+          "repository_relative_path": "runtime/manufacturing/release_records/tbml001-141516bf1b_release_record.json",
+          "sha256_matched": true,
+          "size_bytes": 1425
+        },
+        {
+          "actual_sha256": "6ee24dfca43a625dfd0375cb178c119cd21eca69c4fe8992db8e4a023f6b0360",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/reports/tbml001-141516bf1b_pipeline_report.json",
+          "present": true,
+          "recorded_sha256": "6ee24dfca43a625dfd0375cb178c119cd21eca69c4fe8992db8e4a023f6b0360",
+          "repository_relative_path": "runtime/manufacturing/reports/tbml001-141516bf1b_pipeline_report.json",
+          "sha256_matched": true,
+          "size_bytes": 15823
+        },
+        {
+          "actual_sha256": "9ebe9e65124a6a7444160ff97329a67072708aed42330111aa71c825af4281b8",
+          "path": "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/validation_reports/tbml001-141516bf1b_runtime_validation_report.json",
+          "present": true,
+          "recorded_sha256": "9ebe9e65124a6a7444160ff97329a67072708aed42330111aa71c825af4281b8",
+          "repository_relative_path": "runtime/manufacturing/validation_reports/tbml001-141516bf1b_runtime_validation_report.json",
+          "sha256_matched": true,
+          "size_bytes": 4239
+        }
+      ],
+      "validated_count": 14
+    },
+    "authority": {
+      "consumed": true,
+      "consumption_fingerprint": "9292d9d6ec8d5bcfddbcb0f62733f1c89c6319a313606167571924c95f344b42",
+      "new_runtime_run_validated": true,
+      "replay_permitted": false,
+      "status": "CONSUMED"
+    },
+    "execution": {
+      "completed_at": "2026-07-16T16:56:20.357116+00:00",
+      "duration_ms": 721,
+      "governed_execution": true,
+      "runtime_executed": true,
+      "runtime_executed_again": false,
+      "runtime_exit_code": 0,
+      "started_at": "2026-07-16T16:56:19.561049+00:00",
+      "status": "SUCCESS"
+    },
+    "generated_at": "2026-07-16T18:16:11.223848+00:00",
+    "governance": {
+      "commit_authorised": false,
+      "manual_approval_required": true,
+      "portfolio_publication_authorised": false,
+      "push_authorised": false,
+      "telemetry_publication_authorised": false
+    },
+    "projection_contract": "STAGE327C_CANONICAL_RUNTIME_TELEMETRY_V1",
+    "projection_fingerprint": "3d5c430db1d05be0c0dadb384be7ded6bd59c2839d8e2f9c31c8b352b6af9765",
+    "projection_status": "CANDIDATE",
+    "source": {
+      "authority_id": "runtime-authority-c819d1d5f494f122",
+      "execution_id": "runtime-execution-36c10d3d574d47583caf",
+      "fc10_branch": "stage328a-canonical-graph-visual-refinement",
+      "fc10_head": "d444f1c5e6347257bb215a59dee146200a3fd653",
+      "product_id": "TBML001",
+      "run_id": "tbml001-ccf3770d8b"
+    }
+  },
+  "programme": "Stage429",
+  "current_programme": "Stage429",
+  "current_objective": "Investigation Layer Graph Improvement Sprint",
+  "next_execution_stage": "Stage429A",
+  "accepted_runtime": "TBML001",
+  "accepted_run_id": "tbml001-ccf3770d8b",
+  "current_run": "tbml001-ccf3770d8b",
+  "first_runtime_complete": true,
+  "stage327l_complete": true,
+  "runtime_intelligence_asset_accepted": true,
+  "stage429_sprint_plan_complete": true,
+  "generated_html_patched": false,
+  "typology_specific_renderer": false,
+  "repository_status": "VERIFIED",
+  "manufacturing_status": "COMPLETE",
+  "runtime_status": "SUCCESS",
+  "validation_status": "PASS",
+  "evidence_status": "COMPLETE",
+  "promotion_status": "INVESTIGATION_LAYER_PREPARATION",
+  "release_status": "RUNTIME_ACCEPTED",
+  "release_readiness": "READY",
+  "repository_integrity": "VERIFIED",
+  "contract_integrity": "VERIFIED",
+  "programme_milestones": [
+    {
+      "name": "Stage327L",
+      "status": "COMPLETE"
+    },
+    {
+      "name": "Deterministic Route Intelligence Binding",
+      "status": "COMPLETE"
+    },
+    {
+      "name": "Clean Lineage",
+      "status": "COMPLETE"
+    },
+    {
+      "name": "Runtime Intelligence Asset",
+      "status": "ACCEPTED"
+    },
+    {
+      "name": "Enterprise Macro Save",
+      "status": "COMPLETE"
+    },
+    {
+      "name": "Stage429 Sprint Plan",
+      "status": "COMPLETE"
+    },
+    {
+      "name": "Investigation Layer Improvement",
+      "status": "ACTIVE"
+    }
+  ],
+  "stage429_sequence": [
+    {
+      "stage": "Stage429A",
+      "name": "Visual Diagnosis and Acceptance Contract",
+      "status": "ACTIVE"
+    },
+    {
+      "stage": "Stage429B",
+      "name": "Canonical Visual Grammar",
+      "status": "PLANNED"
+    },
+    {
+      "stage": "Stage429C",
+      "name": "Layout and Geometry Refinement",
+      "status": "PLANNED"
+    },
+    {
+      "stage": "Stage429D",
+      "name": "Governed Density Profiles",
+      "status": "PLANNED"
+    },
+    {
+      "stage": "Stage429E",
+      "name": "Cross-Typology Validation and Lock",
+      "status": "PLANNED"
+    }
+  ],
+  "graph_improvement_guardrails": [
+    "One Canonical Renderer",
+    "No Generated HTML Patching",
+    "No Typology-Specific Renderer",
+    "Deterministic Graph Output",
+    "Runtime Evidence Preserved"
+  ]
+}
