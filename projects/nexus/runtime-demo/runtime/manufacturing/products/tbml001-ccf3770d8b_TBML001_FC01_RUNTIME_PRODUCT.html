@@ -1,0 +1,859 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>FC01 Staging View - FC01 Runtime Product</title>
+<style>
+body { font-family:Arial,sans-serif; margin:24px; background:#f7f8fa; color:#111827; }
+h1 { margin:0 0 4px; }
+.page-note { margin:0 0 14px; color:#4b5563; }
+.shell { display:grid; grid-template-columns:240px 1fr; gap:14px; align-items:start; }
+.sources { background:white; border:1px solid #d7dde5; border-radius:14px; padding:14px; position:sticky; top:18px; }
+.source { border:1px solid #d7dde5; border-radius:10px; padding:10px; margin-bottom:10px; background:#f9fafb; font-size:13px; }
+.source strong { display:block; margin-bottom:4px; }
+.band { background:#111827; color:white; padding:10px; border-radius:8px; text-align:center; font-weight:700; margin:18px 0 12px; }
+.box { background:white; border:1px solid #d7dde5; border-radius:12px; padding:16px; margin-bottom:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.diagram-frame { width:100%; height:520px; border:1px solid #d7dde5; border-radius:12px; background:white; }
+.driver-row { display:grid; grid-template-columns:150px 1fr 40px; gap:8px; margin:8px 0; align-items:center; }
+.bar-track { height:10px; background:#d1d5db; border-radius:99px; overflow:hidden; }
+.bar-fill { height:10px; border-radius:99px; }
+.blue { background:#2563eb; }
+.orange { background:#f97316; }
+.executive-banner { background:#111827; color:white; border-radius:14px; padding:18px; margin:18px 0 12px; }
+.executive-banner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.executive-banner-card { border:1px solid rgba(255,255,255,.25); border-radius:12px; padding:14px; }
+.executive-banner-card h2 { margin:0 0 8px; font-size:15px; color:#dbeafe; }
+.executive-banner-card strong { display:block; font-size:22px; }
+.conclusion-card { border-left:5px solid #111827; }
+.conclusion-value { font-size:22px; font-weight:800; margin-top:6px; }
+.tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.tab { padding:8px 12px; border:1px solid #d7dde5; border-radius:8px; cursor:pointer; font-weight:700; }
+.tab.active { background:#111827; color:white; }
+.panel { display:none; }
+.panel.active { display:block; }
+.meta { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.meta div { border:1px solid #d7dde5; border-radius:10px; padding:10px; background:#f9fafb; }
+table { width:100%; border-collapse:collapse; }
+th,td { border:1px solid #d7dde5; padding:8px; text-align:left; }
+@media(max-width:900px){ .shell,.grid3,.grid2,.meta,.executive-banner-grid{grid-template-columns:1fr;} .sources{position:static;} }
+
+.scenario-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario-card{border:1px solid #cfd6dc;border-radius:12px;padding:14px;background:#fff}
+.scenario-card h3{margin:0 0 8px 0}
+.scenario-prob{display:inline-block;font-weight:700;border-radius:999px;padding:4px 10px;background:#e8f1ff;margin-bottom:10px}
+.scenario-meta{font-size:13px;line-height:1.45;margin:8px 0}
+.scenario-meta strong{display:inline-block;min-width:115px}
+
+.decision-support-stack{display:flex;flex-direction:column;gap:14px}
+.scenario-wide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.decision-simulation-full{width:100%}
+
+</style>
+</head>
+<body>
+
+<h1>FC01 Staging View - FC01 Runtime Product</h1>
+<p class="page-note">Safe staging layer for visual validation before promotion into production FC01.</p>
+
+<div class="shell">
+<aside class="sources">
+<h2>Data Sources</h2>
+<div class="source"><strong>Corporate Registry</strong>Director, company and ownership filings</div>
+<div class="source"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div>
+<div class="source"><strong>Transaction History</strong>Payments, relationship history and account activity</div>
+<div class="source"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div>
+<div class="source"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence</div>
+<div class="source"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+</aside>
+
+<main>
+<div class="band">VISUAL INTELLIGENCE MODEL</div>
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/graph_artifacts/tbml001-ccf3770d8b_TBML001_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Canonical Graph Engine Output&lt;/title&gt;
+&lt;style&gt;
+body {
+  margin: 0;
+  background: #ffffff;
+}
+.canonical-graph-engine {
+  border: 1px solid #d7dde5;
+  border-radius: 14px;
+  padding: 20px;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #111827;
+}
+.canonical-graph-title {
+  font-weight: 900;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.canonical-graph-badges {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.canonical-graph-badges span {
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #334155;
+}
+.canonical-graph-svg {
+  width: 100%;
+  height: var(--graph-svg-height, 620px);
+  display: block;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+.canonical-edge {
+  stroke: #111827;
+  stroke-width: 2.1;
+  marker-end: url(#canonical-arrow);
+}
+.edge-label-bg {
+  fill: rgba(255,255,255,0.95);
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+.edge-label {
+  font-size: 10px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+}
+.vl-card-shell {
+  fill: #ffffff;
+  stroke: var(--vl-stroke);
+  stroke-width: 1.7;
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.16));
+}
+.priority-primary .vl-card-shell {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.24));
+}
+.priority-reference .vl-card-shell {
+  opacity: .88;
+  stroke-dasharray: 4 3;
+}
+.vl-card-accent,
+.vl-card-accent-flat,
+.vl-status-dot {
+  fill: var(--vl-accent);
+}
+.vl-icon-well {
+  fill: #f8fafc;
+  stroke: #e2e8f0;
+  stroke-width: 1;
+}
+.vl-card-icon {
+  font-size: var(--icon-size);
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: #111827;
+}
+.vl-card-title {
+  font-size: var(--title-size);
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: start;
+}
+.vl-card-meta {
+  font-size: var(--meta-size);
+  font-weight: 800;
+  fill: #64748b;
+  text-anchor: start;
+}
+.vl-reference .vl-card-title,
+.vl-reference .vl-card-meta {
+  fill: #64748b;
+}
+.vl-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#canonical-arrow);
+}
+.vl-edge-label-bg {
+  fill: rgba(255,255,255,0.96);
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.12));
+}
+.vl-edge-label {
+  font-size: 8.4px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+  letter-spacing: .02em;
+}
+.edge-critical-label-bg {
+  stroke: #fecaca;
+}
+.edge-trade-label-bg {
+  stroke: #bfdbfe;
+}
+.edge-route-label-bg {
+  stroke: #bbf7d0;
+}
+.edge-evidence-label-bg {
+  stroke: #ddd6fe;
+}
+.edge-reference-label-bg {
+  stroke: #cbd5e1;
+}
+.canonical-graph-provenance {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #374151;
+  font-weight: 800;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div
+  class=&quot;canonical-graph-engine&quot;
+  data-graph-engine-id=&quot;CANONICAL_GRAPH_ENGINE&quot;
+  data-graph-engine-version=&quot;stage328a_5_visual_renderer_integrated&quot;
+  data-contract-id=&quot;CANONICAL_GRAPH_ENGINE_CONTRACT&quot;
+  data-graph-fingerprint=&quot;298f03584bb6172b80564fd2f7f4abee04d99d05cc2e49fa9134194d1e2707a0&quot;
+  data-renderer-id=&quot;CANONICAL_GRAPH_VISUAL_RENDERER&quot;
+  data-renderer-version=&quot;stage330_wp1_visual_language_interpreter&quot;
+  data-renderer-mode=&quot;VISUAL_LANGUAGE_INTERPRETER&quot;
+  data-visual-language-id=&quot;ENTERPRISE_INTELLIGENCE_VISUAL_LANGUAGE&quot;
+  data-visual-language-version=&quot;stage329b_wp1_investigation_relationship_language&quot;
+  data-display-scale=&quot;0.697&quot; data-safe-margin=&quot;true&quot; style=&quot;--graph-svg-height:540px&quot;
+&gt;
+  &lt;div class=&quot;canonical-graph-title&quot;&gt;Canonical Graph Engine Output&lt;/div&gt;
+  &lt;div class=&quot;canonical-graph-badges&quot;&gt;
+    &lt;span&gt;Topology: diamond&lt;/span&gt;
+    &lt;span&gt;Layout: stage307_topology_pipeline&lt;/span&gt;
+    &lt;span&gt;Renderer: CANONICAL_GRAPH_VISUAL_RENDERER&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;svg class=&quot;canonical-graph-svg&quot; viewBox=&quot;0 0 1120.0 540.0&quot; role=&quot;img&quot; aria-label=&quot;Canonical graph&quot;&gt;
+    &lt;defs&gt;
+      &lt;marker id=&quot;canonical-arrow&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;
+        &lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#111827&quot;&gt;&lt;/path&gt;
+      &lt;/marker&gt;
+    &lt;/defs&gt;
+    
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;560.0&quot; y1=&quot;84.0&quot; x2=&quot;330.0&quot; y2=&quot;226.9&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;373.0&quot; y=&quot;141.4&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;445.0&quot; y=&quot;158.4&quot;&gt;TRADES_WITH&lt;/text&gt;
+            
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;560.0&quot; y1=&quot;84.0&quot; x2=&quot;790.0&quot; y2=&quot;226.9&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;603.0&quot; y=&quot;141.4&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;675.0&quot; y=&quot;158.4&quot;&gt;ISSUED&lt;/text&gt;
+            
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;330.0&quot; y1=&quot;226.9&quot; x2=&quot;790.0&quot; y2=&quot;226.9&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;488.0&quot; y=&quot;212.9&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;560.0&quot; y=&quot;229.9&quot;&gt;RECEIVED&lt;/text&gt;
+            
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;790.0&quot; y1=&quot;226.9&quot; x2=&quot;560.0&quot; y2=&quot;341.9&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;603.0&quot; y=&quot;270.4&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;675.0&quot; y=&quot;287.4&quot;&gt;DESCRIBES&lt;/text&gt;
+            
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;790.0&quot; y1=&quot;226.9&quot; x2=&quot;748.2&quot; y2=&quot;477.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;697.1&quot; y=&quot;338.4&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;769.1&quot; y=&quot;355.4&quot;&gt;EXCEEDS_BENCHMARK&lt;/text&gt;
+            
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;560.0&quot; y1=&quot;84.0&quot; x2=&quot;371.8&quot; y2=&quot;477.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;393.9&quot; y=&quot;266.9&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;465.9&quot; y=&quot;283.9&quot;&gt;USES_ROUTE&lt;/text&gt;
+            
+        &lt;line class=&quot;canonical-edge&quot; x1=&quot;330.0&quot; y1=&quot;226.9&quot; x2=&quot;371.8&quot; y2=&quot;477.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;278.9&quot; y=&quot;338.4&quot; width=&quot;144&quot; height=&quot;24&quot; rx=&quot;8&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;350.9&quot; y=&quot;355.4&quot;&gt;USES_ROUTE&lt;/text&gt;
+            
+    
+        &lt;g class=&quot;canonical-node vl-subject priority-primary&quot; data-node-id=&quot;EXPORTER_CO&quot;
+           style=&quot;--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:15.18px;--meta-size:9.43px;--icon-size:18.40px;&quot;&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;433.5&quot; y=&quot;42.6&quot; width=&quot;253.0&quot; height=&quot;82.8&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;433.5&quot; y=&quot;42.6&quot; width=&quot;10.1&quot; height=&quot;82.8&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;441.6&quot; y=&quot;42.6&quot; width=&quot;4&quot; height=&quot;82.8&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;463.2&quot; cy=&quot;84.0&quot; r=&quot;12.6&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;463.2&quot; y=&quot;85.0&quot;&gt;▦&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;487.3&quot; y=&quot;78.2&quot;&gt;EXPORTER&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;487.3&quot; y=&quot;99.7&quot;&gt;Subject · EXPORTER_CO&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;671.5&quot; cy=&quot;56.6&quot; r=&quot;4.4&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-subject priority-primary&quot; data-node-id=&quot;IMPORTER_CO&quot;
+           style=&quot;--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:15.18px;--meta-size:9.43px;--icon-size:18.40px;&quot;&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;203.5&quot; y=&quot;185.5&quot; width=&quot;253.0&quot; height=&quot;82.8&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;203.5&quot; y=&quot;185.5&quot; width=&quot;10.1&quot; height=&quot;82.8&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;211.6&quot; y=&quot;185.5&quot; width=&quot;4&quot; height=&quot;82.8&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;233.2&quot; cy=&quot;226.9&quot; r=&quot;12.6&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;233.2&quot; y=&quot;227.9&quot;&gt;▦&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;257.3&quot; y=&quot;221.1&quot;&gt;IMPORTER&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;257.3&quot; y=&quot;242.6&quot;&gt;Subject · IMPORTER_CO&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;441.5&quot; cy=&quot;199.5&quot; r=&quot;4.4&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-transaction priority-transaction&quot; data-node-id=&quot;INVOICE_001&quot;
+           style=&quot;--vl-accent:#2563eb;--vl-stroke:#1d4ed8;--title-size:13.20px;--meta-size:8.20px;--icon-size:16.00px;&quot;&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;680.0&quot; y=&quot;190.9&quot; width=&quot;220.0&quot; height=&quot;72.0&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;680.0&quot; y=&quot;190.9&quot; width=&quot;8.8&quot; height=&quot;72.0&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;686.8&quot; y=&quot;190.9&quot; width=&quot;4&quot; height=&quot;72.0&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;705.8&quot; cy=&quot;226.9&quot; r=&quot;11.0&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;705.8&quot; y=&quot;227.9&quot;&gt;▤&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;726.8&quot; y=&quot;221.8&quot;&gt;INVOICE&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;726.8&quot; y=&quot;240.6&quot;&gt;Invoice · INVOICE_001&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;885.0&quot; cy=&quot;204.9&quot; r=&quot;3.8&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-transaction priority-transaction&quot; data-node-id=&quot;GOODS_001&quot;
+           style=&quot;--vl-accent:#7c3aed;--vl-stroke:#6d28d9;--title-size:12.67px;--meta-size:7.87px;--icon-size:15.36px;&quot;&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;454.4&quot; y=&quot;307.3&quot; width=&quot;211.2&quot; height=&quot;69.1&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;454.4&quot; y=&quot;307.3&quot; width=&quot;8.4&quot; height=&quot;69.1&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;460.8&quot; y=&quot;307.3&quot; width=&quot;4&quot; height=&quot;69.1&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;479.2&quot; cy=&quot;341.9&quot; r=&quot;10.6&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;479.2&quot; y=&quot;342.9&quot;&gt;■&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;499.3&quot; y=&quot;337.1&quot;&gt;GOODS&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;499.3&quot; y=&quot;355.0&quot;&gt;Goods · GOODS_001&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;650.6&quot; cy=&quot;321.3&quot; r=&quot;3.6&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-route priority-supporting&quot; data-node-id=&quot;ROUTE_001&quot;
+           style=&quot;--vl-accent:#16a34a;--vl-stroke:#15803d;--title-size:11.88px;--meta-size:7.38px;--icon-size:14.40px;&quot;&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;272.8&quot; y=&quot;445.4&quot; width=&quot;198.0&quot; height=&quot;64.8&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;272.8&quot; y=&quot;445.4&quot; width=&quot;7.9&quot; height=&quot;64.8&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;278.7&quot; y=&quot;445.4&quot; width=&quot;4&quot; height=&quot;64.8&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;296.0&quot; cy=&quot;477.8&quot; r=&quot;9.9&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;296.0&quot; y=&quot;478.8&quot;&gt;⇄&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;314.9&quot; y=&quot;473.3&quot;&gt;ROUTE&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;314.9&quot; y=&quot;490.1&quot;&gt;Route · ROUTE_001&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;455.8&quot; cy=&quot;459.4&quot; r=&quot;3.4&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-reference priority-reference&quot; data-node-id=&quot;BENCHMARK_001&quot;
+           style=&quot;--vl-accent:#f97316;--vl-stroke:#c2410c;--title-size:11.09px;--meta-size:6.89px;--icon-size:13.44px;&quot;&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;655.8&quot; y=&quot;447.6&quot; width=&quot;184.8&quot; height=&quot;60.5&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;655.8&quot; y=&quot;447.6&quot; width=&quot;7.4&quot; height=&quot;60.5&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;661.2&quot; y=&quot;447.6&quot; width=&quot;4&quot; height=&quot;60.5&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;677.5&quot; cy=&quot;477.8&quot; r=&quot;9.2&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;677.5&quot; y=&quot;478.8&quot;&gt;◇&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;695.1&quot; y=&quot;473.6&quot;&gt;BENCHMARK&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;695.1&quot; y=&quot;489.3&quot;&gt;Reference · BENCHMARK_001&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;825.6&quot; cy=&quot;461.6&quot; r=&quot;3.2&quot; /&gt;
+        &lt;/g&gt;
+    
+  &lt;/svg&gt;
+  &lt;div class=&quot;canonical-graph-provenance&quot;&gt;
+    CANONICAL_GRAPH_ENGINE | stage328a_5_visual_renderer_integrated | CANONICAL_GRAPH_ENGINE_CONTRACT | EXPORTER_CO IMPORTER_CO INVOICE_001 GOODS_001 ROUTE_001 BENCHMARK_001 | TRADES_WITH ISSUED RECEIVED DESCRIBES EXCEEDS_BENCHMARK USES_ROUTE USES_ROUTE
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Canonical Graph" style="width:100%;height:520px;border:1px solid #d7dde5;border-radius:12px;background:white;"></iframe>
+
+<div class="band">SCORING FRAMEWORK</div>
+
+<div class="grid3" data-runtime-section="scoring_framework" data-source="metadata_packet">
+  <div class="box">
+    <h2>Network Confidence</h2>
+    <p><strong>91%</strong></p>
+    <ul>
+      <li>Evidence quality</li>
+      <li>Relationship strength</li>
+      <li>Data completeness</li>
+      <li>Network coverage</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Risk Score</h2>
+    <p><strong>86 / 100</strong></p>
+    <ul>
+      <li>Valuation risk</li>
+      <li>Relationship risk</li>
+      <li>Route complexity</li>
+      <li>Exposure risk</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Exposure Score</h2>
+    <p><strong>76 / 100</strong></p>
+    <ul>
+      <li>Declared value opacity</li>
+      <li>Third-country routing</li>
+      <li>Repeated counterparty</li>
+      <li>Control indicators</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="band">DRIVER ANALYSIS</div>
+
+<div class="grid3" data-runtime-section="driver_analysis" data-source="metadata_packet">
+  <div class="box"><h2>Risk Confidence Drivers</h2>
+    <p>Evidence Quality <span class="metric">90</span></p>
+    <p>Relationship Strength <span class="metric">85</span></p>
+    <p>Data Completeness <span class="metric">75</span></p>
+    <p>Network Coverage <span class="metric">78</span></p>
+  </div>
+  <div class="box"><h2>Risk Score Drivers</h2>
+    <p>Valuation Risk <span class="metric">90</span></p>
+    <p>Counterparty Risk <span class="metric">84</span></p>
+    <p>Route Complexity <span class="metric">78</span></p>
+    <p>Exposure Risk <span class="metric">76</span></p>
+  </div>
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <p>Declared Value Opacity <span class="metric">88</span></p>
+    <p>Third-Country Routing <span class="metric">82</span></p>
+    <p>Repeated Counterparty <span class="metric">79</span></p>
+    <p>Control Indicators <span class="metric">74</span></p>
+  </div>
+</div>
+
+
+<div class="executive-banner">
+<div class="executive-banner-grid">
+<div class="executive-banner-card">
+<h2>Intelligence Judgement</h2>
+<strong>High Risk / High Confidence</strong>
+<p>The network pattern warrants investigation and validation.</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Dominant Typology</h2>
+<strong>TBML001 Over Invoicing</strong>
+<p>Indicators point to declared value variance, counterparty and route exposure and trade exposure.</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Recommended Action</h2>
+<strong>Investigate & Validate</strong>
+<p>Review ownership records, transaction and route links and exposure rationale.</p>
+</div>
+</div>
+</div>
+
+<div class="band">INTELLIGENCE ASSESSMENT</div>
+<div class="grid3">
+<div class="box"><h2>Key Indicators</h2><ul><li>Declared value variance/control indicators require validation.</li><li>Shared relationship attributes increase trade exposure.</li><li>Repeated related-entity indicators increase typology relevance.</li><li>Declared value opacity requires review.</li><li>Pattern is consistent with possible coordinated trade value exposure.</li></ul></div>
+<div class="box"><h2>Risk Rationale</h2><p>The transaction exhibits characteristics consistent with TBML over-invoicing. Declared values materially exceed expected market benchmarks, routing introduces an intermediary jurisdiction, and invoice and value indicators increase exposure.</p></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Ownership/control indicators</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+</div>
+
+<div class="band">INTELLIGENCE WORKSPACE</div>
+<div class="box">
+<div class="tabs">
+<button class="tab active" data-tab="assessment">Intelligence Assessment</button>
+<button class="tab" data-tab="actions">Investigation Actions</button>
+<button class="tab" data-tab="brief">Intelligence Brief</button>
+<button class="tab" data-tab="reasoning">Analytic Reasoning</button>
+<button class="tab" data-tab="decision">Decision Support</button>
+<button class="tab" data-tab="metadata">Intelligence Metadata</button>
+</div>
+
+<section class="panel active" id="tab-assessment">
+
+<div class="grid3"
+     data-runtime-section="intelligence_assessment"
+     data-source="fc01_runtime_content">
+  <div class="box" data-source="fc01_runtime_content" data-content-section="intelligence_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Assessment Summary</h2>
+    <p>TBML001 runtime execution identified over-invoicing indicators requiring investigation, evidence review and operational decision support. The deterministic trade is flagged as a high-risk corridor from United Arab Emirates → United Kingdom and follows the shipping route Jebel Ali → Rotterdam → Felixstowe.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="supporting_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Supporting Assessment</h2>
+    <ul><li>High-risk corridor United Arab Emirates → United Kingdom is routed via Jebel Ali → Rotterdam → Felixstowe.</li><li>Counterparty XYZ Trading LLC is rated High risk with score 81.</li><li>Shipping-document discrepancy flag is TRUE.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="confidence_narrative" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Confidence Narrative</h2>
+    <p>Confidence is supported by deterministic trade, shipping and counterparty records from the canonical FC04 TBML001 dataset.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <ul><li>Declared trade value exceeds expected benchmark</li><li>High-risk corridor United Arab Emirates → United Kingdom is routed via Jebel Ali → Rotterdam → Felixstowe</li><li>Transaction pattern requires enhanced investigation review</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="alternative_explanations" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Alternative Explanations</h2>
+    <ul><li>Legitimate pricing variance.</li><li>Commodity benchmark mismatch.</li><li>Documentation timing issue.</li><li>Commercial justification.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="investigation_hypothesis" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Investigation Hypothesis</h2>
+    <p>The transaction may represent trade-based money laundering through over-invoicing using the high-risk United Arab Emirates → United Kingdom corridor and the route Jebel Ali → Rotterdam → Felixstowe, requiring enhanced review.</p>
+  </div>
+</div>
+
+</section>
+
+<section class="panel" id="tab-actions">
+
+<div class="grid2">
+
+<div class="box"><h2>Investigation Strategy</h2><div data-runtime-content-shape="semantic">
+<ul><li>Validate invoice value against benchmark.</li><li>Validate shipment and customs evidence.</li><li>Validate payment trail.</li><li>Validate counterparties and ownership links.</li><li>Escalate if variance remains unexplained.</li></ul>
+</div></div>
+
+<div class="box"><h2>Recommended Actions</h2><div data-runtime-content-shape="semantic">
+<p><strong>Priority:</strong> HIGH</p>
+<ul><li>Review invoice and goods description</li><li>Compare declared value against benchmark evidence</li><li>Assess counterparties, route and ownership indicators</li><li>Prepare escalation pack where supporting evidence is sufficient</li></ul>
+</div></div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Key Investigation Questions</h2>
+<ul>
+<li>Does available evidence support the dominant hypothesis?</li>
+<li>Are there additional transaction counterparties or connected parties not currently visible?</li>
+<li>Can ownership, control and shared attributes be independently verified?</li>
+<li>Does historical activity support the observed network structure?</li>
+<li>Is escalation warranted given the high risk rating and high confidence rating?</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>Collection Plan</h2>
+<p>
+Prioritise evidence gathering activities that reduce intelligence gaps and increase assessment confidence.
+</p>
+<ul>
+<li><strong>P1</strong> - Obtain trade documentation records.</li>
+<li><strong>P2</strong> - Validate registered address history.</li>
+<li><strong>P3</strong> - Identify additional transaction counterparties.</li>
+<li><strong>P4</strong> - Review historical activity and prior investigations.</li>
+<li><strong>P5</strong> - Confirm relationship evidence through independent sources.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Investigation Priorities</h2>
+<ol>
+<li>
+<strong>Obtain trade documentation records</strong><br>
+Impact: Very High<br>
+Confidence Gain: +8<br>
+Directly validates the dominant hypothesis.
+</li>
+<li>
+<strong>Confirm relationship evidence</strong><br>
+Impact: High<br>
+Confidence Gain: +5<br>
+Corroborates key network relationships and ownership links.
+</li>
+<li>
+<strong>Review historical activity</strong><br>
+Impact: Medium<br>
+Confidence Gain: +4<br>
+Provides supporting behavioural evidence.
+</li>
+<li>
+<strong>Identify additional transaction counterparties</strong><br>
+Impact: Medium<br>
+Confidence Gain: +3<br>
+Expands network visibility and coverage.
+</li>
+<li>
+<strong>Validate registered address history</strong><br>
+Impact: Low<br>
+Confidence Gain: +2<br>
+Provides secondary corroborative evidence.
+</li>
+</ol>
+</div>
+
+</section>
+
+<section class="panel" id="tab-brief">
+<div class="grid3">
+<div class="box"><h2>Executive Intelligence Summary</h2><div data-runtime-content-shape="semantic">
+<p><strong>Headline:</strong> TBML001 requires enhanced investigation.</p>
+<p><strong>Summary:</strong> Runtime intelligence indicates a high-risk over-invoicing scenario requiring operational review before release, escalation or closure.</p>
+</div></div>
+<div class="box"><h2>Key Intelligence Findings</h2><ul><li>Transaction counterparties identified across the network.</li><li>Declared value variance or control indicators present.</li><li>Counterparty and route exposure increases trade exposure.</li><li>Source evidence supports enhanced relationship review.</li></ul></div>
+<div class="box"><h2>Why This Matters</h2><p>This is operationally important because investigators need to understand which relationship indicators drive the network risk, what evidence supports the judgement and what additional validation is required.</p></div>
+</div>
+</section>
+
+<section class="panel" id="tab-reasoning">
+
+<div class="grid2">
+
+<div class="box">
+<h2>Primary Hypothesis</h2>
+<p>
+The observed topology, invoice and value indicators, routing characteristics and exposure profile
+are most consistent with a TBML over-invoicing scenario involving over invoicing indicators.
+</p>
+<div class="conclusion-value">Confidence 82</div>
+</div>
+
+<div class="box">
+<h2>Alternative Hypotheses</h2>
+<table>
+<tr><th>Hypothesis</th><th>Confidence</th><th>Rationale</th></tr>
+<tr><td>Over Invoicing</td><td>82</td><td>Diamond topology, invoice and value indicators and repeated relationships support the hypothesis.</td></tr>
+<tr><td>Shared Service Provider</td><td>44</td><td>Shared attributes may reflect operational support rather than true control.</td></tr>
+<tr><td>Administrative Coincidence</td><td>18</td><td>Observed links may be coincidental if source evidence does not confirm operational linkage.</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Evidence Assessment</h2>
+<ul>
+<li>Diamond network topology present.</li>
+<li>Indirect routing indicators observed.</li>
+<li>Ownership relationships identified.</li>
+<li>Repeated counterparty activity observed.</li>
+<li>Exposure indicators partially validated.</li>
+</ul>
+<p>
+Current evidence partially supports the dominant hypothesis while additional validation remains outstanding.
+</p>
+</div>
+
+<div class="box">
+<h2>Confidence Forecast</h2>
+<p>Targeted collection activity is expected to materially improve assessment confidence.</p>
+<table>
+<tr><th>Collection Activity</th><th>Expected Confidence Gain</th></tr>
+<tr><td>Trade documentation validation</td><td>+8</td></tr>
+<tr><td>Independent source validation</td><td>+5</td></tr>
+<tr><td>Historical activity review</td><td>+4</td></tr>
+<tr><td>Additional trade evidence discovery</td><td>+3</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Decision Analysis</h2>
+<table>
+<tr><th>Option</th><th>Score</th><th>Assessment</th></tr>
+<tr><td>Enhanced Review</td><td>89.2</td><td>Preferred option. Addresses intelligence gaps before escalation.</td></tr>
+<tr><td>Escalate</td><td>85.6</td><td>Appropriate when risk and confidence are both high after validation.</td></tr>
+<tr><td>Monitor</td><td>23.6</td><td>Suitable only if exposure remains uncertain.</td></tr>
+<tr><td>Close</td><td>12.6</td><td>Not recommended given current risk profile.</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h2>Strategic Investigation Path</h2>
+<p>
+Path optimisation recommends <strong>Enhanced Review → Escalate</strong> as the preferred route.
+The pathway balances confidence gain, intelligence value, duration and risk reduction.
+</p>
+<table>
+<tr><th>Metric</th><th>Current</th><th>Projected</th></tr>
+<tr><td>Risk Score</td><td>82</td><td>74</td></tr>
+<tr><td>Confidence</td><td>82</td><td>100</td></tr>
+<tr><td>Cost</td><td>Medium</td><td>Medium</td></tr>
+<tr><td>Duration</td><td>-</td><td>5 Days</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box"><h2>Decision Recommendation</h2><div data-runtime-content-shape="semantic">
+<p><strong>Recommended decision:</strong> Enhanced investigation review</p>
+<p><strong>Rationale:</strong> Risk score and relationship indicators justify evidence-led escalation before release approval.</p>
+<p><strong>Priority:</strong> High</p>
+</div></div>
+
+<div class="box">
+<h2>Investigation Value</h2>
+<ul>
+<li>Improves ownership transparency.</li>
+<li>Validates routing rationale.</li>
+<li>Strengthens confidence assessment.</li>
+<li>Tests alternative hypotheses.</li>
+<li>Supports escalation decisions.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Alternative Explanations</h2>
+<p>
+Over-invoicing remains the leading explanation, but shared service arrangements,
+historical business relationships or administrative overlap remain plausible alternatives
+requiring further validation.
+</p>
+</div>
+
+<div class="box">
+<h2>Reasoning Summary</h2>
+<p>
+The platform selected TBML001 as the dominant typology because the observed network structure,
+routing characteristics, invoice and value indicators and exposure profile collectively produce the strongest
+overall explanatory model.
+</p>
+<p>
+Additional collection activity is expected to improve confidence and reduce residual uncertainty.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-decision">
+
+<div class="decision-support-stack">
+
+<div class="grid3">
+
+<div class="box"><h2>Investigator Playbook</h2><div data-runtime-content-shape="semantic">
+<ul><li>Review transaction evidence</li><li>Compare value to benchmark</li><li>Assess counterparty relationship</li><li>Document confidence gaps</li></ul>
+</div></div>
+
+<div class="box"><h2>Evidence Quality</h2><div data-runtime-content-shape="semantic">
+<p><strong>Basis:</strong> Runtime evidence quality assessed from metadata coverage.</p>
+<p><strong>Confidence score:</strong> 91</p>
+</div></div>
+
+<div class="box">
+<h2>Hypothesis Probabilities</h2>
+<p>Relative likelihood of each competing explanation.</p>
+<table>
+<tr><th>Hypothesis</th><th>Probability</th></tr>
+<tr><td>Over Invoicing</td><td>79%</td></tr><tr><td>Service Provider</td><td>16%</td></tr><tr><td>Administrative Coincidence</td><td>5%</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Scenario Analysis</h2>
+<p>Scenario analysis evaluates competing future explanations for the current assessment.</p>
+<div class="scenario-wide-grid">
+
+<div class="scenario-card">
+<h3>Over Invoicing Confirmed</h3>
+<div class="scenario-prob">72% probability</div>
+<div class="scenario-meta"><strong>Risk Impact:</strong> 82 → 91</div>
+<div class="scenario-meta"><strong>Recommended Action:</strong> Enhanced Investigation</div>
+<div class="scenario-meta"><strong>Business Impact:</strong> Potential hidden control structure identified</div>
+<ul><li>Trade documentation linkage</li><li>Trade relationship validated</li><li>Declared-value variance indicators</li></ul>
+</div>
+
+<div class="scenario-card">
+<h3>Shared Service Provider</h3>
+<div class="scenario-prob">22% probability</div>
+<div class="scenario-meta"><strong>Risk Impact:</strong> 82 → 55</div>
+<div class="scenario-meta"><strong>Recommended Action:</strong> Standard Review</div>
+<div class="scenario-meta"><strong>Business Impact:</strong> False positive reduced</div>
+<ul><li>Common registered office</li><li>Corporate service provider</li><li>No operational control</li></ul>
+</div>
+
+<div class="scenario-card">
+<h3>Administrative Coincidence</h3>
+<div class="scenario-prob">6% probability</div>
+<div class="scenario-meta"><strong>Risk Impact:</strong> 82 → 20</div>
+<div class="scenario-meta"><strong>Recommended Action:</strong> Close</div>
+<div class="scenario-meta"><strong>Business Impact:</strong> Investigation terminated</div>
+<ul><li>No material linkage</li><li>Historical relationship only</li><li>Stale records</li></ul>
+</div>
+
+</div>
+</div>
+
+<div class="box decision-simulation-full">
+<h2>Decision Simulation</h2>
+<p><strong>Recommended Future Path: Enhanced Review</strong></p>
+<table>
+<tr><th>Option</th><th>Utility</th><th>Risk Reduction</th><th>Confidence Gain</th><th>Projected Confidence</th></tr>
+<tr><td>Enhanced Review</td><td>81</td><td>5</td><td>18</td><td>100</td></tr><tr><td>Escalate</td><td>28</td><td>20</td><td>0</td><td>82</td></tr><tr><td>Monitor</td><td>8</td><td>0</td><td>2</td><td>84</td></tr><tr><td>Close</td><td>0</td><td>0</td><td>0</td><td>82</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h2>Outcome Projection</h2>
+<table>
+<tr><th>Option</th><th>Business Outcome</th><th>Investigation Outcome</th><th>Intelligence Outcome</th></tr>
+<tr><td>Enhanced Review</td><td>Improves decision quality before escalation.</td><td>Closes intelligence gaps and validates the primary hypothesis.</td><td>Increases confidence and improves evidence depth.</td></tr><tr><td>Escalate</td><td>Reduces confidence and improves exposure response speed.</td><td>Accelerates handling but may defer evidence development.</td><td>Limits additional intelligence generation.</td></tr><tr><td>Monitor</td><td>Maintains oversight with minimal operational cost.</td><td>Does not materially progress the investigation.</td><td>Produces limited additional intelligence.</td></tr><tr><td>Close</td><td>No immediate business intervention.</td><td>Investigation activity stops.</td><td>No further intelligence is generated.</td></tr>
+</table>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-metadata">
+<div class="box">
+<h2>Pattern Classification</h2>
+<div class="meta">
+<div><strong>Type</strong><br>Network Intelligence</div>
+<div><strong>Category</strong><br>Network Intelligence</div>
+<div><strong>Typology</strong><br>TBML001 Over Invoicing</div>
+<div><strong>Exposure</strong><br>Over Invoicing</div>
+</div>
+</div>
+
+<div class="box">
+<h2>Pattern Summary</h2>
+<p>No deterministic route intelligence was supplied.</p>
+</div>
+
+<div class="box"><h2>Expected Fusion Result</h2><div data-runtime-content-shape="semantic">
+<p><strong>Result:</strong> Fused transaction, graph, counterparty and evidence intelligence.</p>
+</div></div>
+
+<div class="box">
+<h2>Technical Metadata</h2>
+<div class="meta">
+<div><strong>Pattern ID</strong><br>STAGE287_TBML001</div>
+<div><strong>Entity Count</strong><br>4</div>
+<div><strong>Relationship Count</strong><br>4</div>
+<div><strong>Topology</strong><br>Diamond</div>
+<div><strong>Layout</strong><br>FC01 Staging</div>
+<div><strong>Renderer</strong><br>fc01_staging_renderer.py</div>
+<div><strong>Version</strong><br>Stage 287</div>
+<div><strong>Priority</strong><br>High</div>
+</div>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script>
+document.querySelectorAll(".tab").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+    document.querySelectorAll(".panel").forEach(function(x){x.classList.remove("active");});
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+</script>
+<!-- Stage374C product gate tokens: Visual Intelligence Model | Scoring Framework | Driver Analysis | Intelligence Workspace -->
+</body>
+</html>
