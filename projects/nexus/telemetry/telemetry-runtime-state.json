@@ -1,38 +1,38 @@
 {
   "active_stage": "Stage429A",
-  "build_fingerprint": "a668aabaf22326aa8391647c0e558b81355de72da2d6b614070c377bed14601c",
+  "build_fingerprint": "7ee2cee1b0b4b6a73a842b82a0079f6dd9e24959755a0bbcdf632be0da31c83b",
   "current_branch": "main",
-  "current_commit": "5b80d3ec0f4dc7c08c8a4e00a6030c90133a604a",
+  "current_commit": "ddce4139ba4db636ccf16f957f84fec75702942b",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
     "sources": {
       "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-07-28)",
       "authority_registry": "authority_lock.json:lock_status",
-      "build_fingerprint": "products/tbml001-e687981b62_telemetry_projection.json:projection_integrity.canonical_core_sha256",
+      "build_fingerprint": "telemetry_projections/tbml001-e9558ee3cd_telemetry_projection.json:projection_integrity.canonical_core_sha256",
       "canonical_source": "authority_lock.json:locked_sha256 (MISMATCH actual=43643755e35c2379\u2026)",
       "connection": "authority_pointer.json:pointer_status",
-      "contract_integrity": "products/tbml001-e687981b62_telemetry_projection.json:projection_integrity.deterministic+contract_id",
+      "contract_integrity": "telemetry_projections/tbml001-e9558ee3cd_telemetry_projection.json:projection_integrity.deterministic+contract_id",
       "current_branch": "git:rev-parse --abbrev-ref HEAD",
       "current_commit": "git:rev-parse HEAD",
       "events": "programme_state.json:events (DECLARED_PENDING_REAL_SOURCE \u2014 not derived, not verified)",
-      "evidence_status": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
+      "evidence_status": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
       "failures": "derived: count of non-PASS run statuses",
       "generated_at": "producer runtime clock",
-      "last_validation": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:created_at",
+      "last_validation": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:created_at",
       "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-07-28)",
-      "product_id": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:product_id",
+      "product_id": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:product_id",
       "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-07-28)",
-      "release_status": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
+      "release_status": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
       "repository_integrity": "authority_lock.json:locked_sha256 (MISMATCH actual=43643755e35c2379\u2026)",
       "repository_status": "authority_registry.json:status",
-      "run_id": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:run_id",
-      "runtime_status": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:runtime_status",
-      "validation_status": "end_to_end_reports/tbml001-e687981b62_end_to_end_report.json:validation_status"
+      "run_id": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:run_id",
+      "runtime_status": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:runtime_status",
+      "validation_status": "end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json:validation_status"
     }
   },
-  "generated_at": "2026-07-28T20:22:56.407343+00:00",
-  "last_validation": "2026-07-24T11:46:25.410954Z",
+  "generated_at": "2026-08-03T19:25:10.479767+00:00",
+  "last_validation": "2026-08-03T19:21:08.810724Z",
   "product_id": "TBML001",
   "projection": {
     "authority_registry": "LOCKED",
@@ -50,7 +50,7 @@
     "runtime_status": "SUCCESS",
     "validation_status": "PASS"
   },
-  "run_id": "tbml001-e687981b62",
+  "run_id": "tbml001-e9558ee3cd",
   "runtime_projection": {
     "evidence": {
       "artifacts": {
@@ -58,123 +58,188 @@
           "adaptive_intelligence_allocation": {
             "allocation": "Allocate further collection where runtime evidence gaps remain."
           },
+          "alternative_hypotheses": [],
+          "analytic_authority": {
+            "alert_type": "TBML001_OVER_INVOICING",
+            "benchmark_value": 1700000,
+            "branch": "main",
+            "callable": "evaluate_over_invoicing",
+            "commit": "81d86bf81d7b8cf2ec058bc23b8ca01773851b30",
+            "commodity_code": "851762",
+            "customer_id": "XYZ Trading LLC",
+            "declared_value": 2500000,
+            "delegation_count": 1,
+            "invoice_id": "INV001",
+            "price_variance_pct": 47.05882352941176,
+            "repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+            "risk_reason": "Invoice unit price materially exceeds market benchmark",
+            "risk_score": 71,
+            "scenario_path": "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+            "scenario_sha256": "45685c7b85bf845a076252e3493a691041cd7c49039e17c0ee46b564a6c04c1d",
+            "variance_amount": 800000,
+            "working_tree_state": "NOT_MEASURED"
+          },
           "analytic_name": "TBML001 Over Invoicing",
           "analytic_reasoning": {
             "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
             "reasoning_summary": "Runtime reasoning generated from metadata.",
             "section": "Analytic Reasoning",
             "supporting_factors": [
-              "Declared trade value exceeds expected benchmark",
-              "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-              "Transaction pattern requires enhanced investigation review"
+              "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+              "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "Invoice unit price materially exceeds market benchmark"
             ]
           },
           "case": {
+            "adverse_media_flag": false,
             "benchmark": {
               "benchmark_method": "Comparable commodity unit-price benchmark",
-              "benchmark_unit_price": 38.0,
-              "benchmark_value": 760000.0,
+              "benchmark_unit_price": 1700.0,
+              "benchmark_value": 1700000.0,
               "currency": "USD",
-              "entity_id": "BENCHMARK_001"
+              "entity_id": "BMK001"
             },
-            "benchmark_value": 760000.0,
+            "benchmark_value": 1700000.0,
             "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
-            "case_contract_version": "1.0",
-            "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-            "case_id": "TBML001-CASE-2026-001",
+            "case_contract_version": "1.1",
+            "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+            "case_id": "TBML001-CASE-2026-003",
+            "case_required_fields_count": 16,
+            "case_required_fields_declared": true,
             "case_status": "OPEN_FOR_INVESTIGATION",
-            "classification": "HIGH",
-            "client_identity": "Asteron Precision Exports Ltd",
-            "contract": "STAGE429C_GOVERNED_SYNTHETIC_TBML001_CASE_V1",
+            "classification": "High",
+            "client_identity": "ABC Imports Ltd",
+            "commodity_code": "851762",
+            "contract": "STAGE444_GOVERNED_FC04_TBML001_CASE_INV001_V1",
+            "counterparty_risk_band": "High",
             "currency": "USD",
             "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
-            "declared_value": 1240000.0,
-            "destination": "Netherlands",
+            "declared_value": 2500000.0,
+            "destination": "United Kingdom",
+            "document_discrepancy_flag": true,
             "exporter": {
-              "country_code": "SG",
-              "customer_id": "CUST-EXP-0042",
-              "customer_relationship": "CORPORATE_CUSTOMER",
-              "entity_id": "EXPORTER_CO",
-              "jurisdiction": "Singapore",
-              "legal_name": "Asteron Precision Exports Ltd"
-            },
-            "exporter_identity": "Asteron Precision Exports Ltd",
-            "fixture_purpose": "Case-complete TBML001 over-invoicing demonstration for the FC-10 canonical runtime and graph.",
-            "goods": {
-              "benchmark_unit_price": 38.0,
-              "declared_unit_price": 62.0,
-              "description": "Industrial ceramic bearings",
-              "entity_id": "GOODS_001",
-              "quantity": 20000,
-              "unit_of_measure": "UNITS"
-            },
-            "goods_description": "Industrial ceramic bearings",
-            "importer": {
-              "counterparty_id": "CP-IMP-0187",
-              "country_code": "NL",
+              "country_code": "AE",
+              "customer_id": "CP001",
               "customer_relationship": "EXTERNAL_COUNTERPARTY",
-              "entity_id": "IMPORTER_CO",
-              "jurisdiction": "Netherlands",
-              "legal_name": "Northbridge Industrial Imports BV"
+              "entity_id": "ENT002",
+              "jurisdiction": "United Arab Emirates",
+              "legal_name": "XYZ Trading LLC"
             },
-            "importer_identity": "Northbridge Industrial Imports BV",
-            "investigation_summary": "The declared invoice value of USD 1,240,000 exceeds the benchmark value of USD 760,000 by USD 480,000 (63.16%).",
+            "exporter_identity": "XYZ Trading LLC",
+            "fixture_purpose": "Governed TBML001 over-invoicing demonstration bound to FC-04 invoice INV001. Unlike TBML001-CASE-2026-001 this case is REPRODUCIBLE: every field is drawn from the FC-04 deterministic dataset, and evaluate_over_invoicing returns ALT001 for it.",
+            "goods": {
+              "benchmark_unit_price": 1700.0,
+              "declared_unit_price": 2500.0,
+              "description": "Network communications equipment",
+              "entity_id": "GOODS_001",
+              "quantity": 1000
+            },
+            "goods_description": "Network communications equipment",
+            "high_risk_corridor_flag": true,
+            "historical_tbml_alert_count": 0,
+            "importer": {
+              "counterparty_id": "CUST001",
+              "country_code": "GB",
+              "customer_relationship": "CORPORATE_CUSTOMER",
+              "entity_id": "ENT001",
+              "jurisdiction": "United Kingdom",
+              "legal_name": "ABC Imports Ltd"
+            },
+            "importer_identity": "ABC Imports Ltd",
+            "investigation_summary": "The declared invoice value of USD 2,500,000 exceeds the benchmark value of USD 1,700,000 by USD 800,000 (47.06%), above the governed 30% TBML001 alert threshold.",
             "invoice": {
               "currency": "USD",
-              "declared_value": 1240000.0,
+              "declared_value": 2500000.0,
               "entity_id": "INVOICE_001",
-              "invoice_date": "2026-06-12",
-              "invoice_number": "TBML-INV-2026-00481"
+              "invoice_date": "2026-02-14",
+              "invoice_number": "INV001"
             },
-            "invoice_date": "2026-06-12",
-            "invoice_identifier": "TBML-INV-2026-00481",
-            "origin": "Singapore",
+            "invoice_date": "2026-02-14",
+            "invoice_identifier": "INV001",
+            "origin": "United Arab Emirates",
             "product_id": "TBML001",
             "real_client_data": false,
-            "risk_rating": "HIGH",
-            "risk_score": 81,
+            "risk_rating": "High",
+            "risk_score": 71,
             "route": {
-              "destination_country": "Netherlands",
-              "destination_country_code": "NL",
-              "destination_port": "Port of Rotterdam",
+              "destination_country": "United Kingdom",
+              "destination_country_code": "GB",
+              "destination_port": "Port of Felixstowe",
               "entity_id": "ROUTE_001",
-              "origin_country": "Singapore",
-              "origin_country_code": "SG",
-              "origin_port": "Port of Singapore",
-              "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+              "origin_country": "United Arab Emirates",
+              "origin_country_code": "AE",
+              "origin_port": "Jebel Ali",
+              "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
             },
-            "route_description": "Port of Singapore \u2192 Port of Rotterdam",
+            "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+            "run_id": "tbml001-e9558ee3cd",
+            "sanctions_exposure_flag": false,
+            "shared_director_flag": true,
+            "shared_owner_flag": true,
+            "shell_company_indicator": true,
             "synthetic_data": true,
             "transaction": {
               "currency": "USD",
-              "declared_value": 1240000.0,
-              "payment_method": "CROSS_BORDER_WIRE",
-              "transaction_date": "2026-06-15",
-              "transaction_reference": "PAY-TBML-2026-00481"
+              "declared_value": 2500000.0,
+              "transaction_date": "2026-03-10",
+              "transaction_reference": "PAY001"
             },
-            "transaction_date": "2026-06-15",
-            "transaction_reference": "PAY-TBML-2026-00481",
+            "transaction_date": "2026-03-10",
+            "transaction_reference": "PAY001",
+            "transaction_value": 2500000.0,
             "typology_id": "TBML001",
             "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
             "valuation": {
-              "benchmark_value": 760000.0,
+              "benchmark_value": 1700000.0,
               "currency": "USD",
-              "declared_value": 1240000.0,
-              "valuation_result": "EXCEEDS_BENCHMARK",
-              "variance_amount": 480000.0,
-              "variance_percentage": 63.16
+              "declared_value": 2500000.0,
+              "valuation_result": "ABOVE_ALERT_THRESHOLD",
+              "variance_amount": 800000.0,
+              "variance_percentage": 47.06
             },
-            "variance_amount": 480000.0,
-            "variance_percentage": 63.16
+            "variance_amount": 800000.0,
+            "variance_percentage": 47.06
+          },
+          "case_identity": {
+            "case_id": "TBML001-CASE-2026-003",
+            "exporter_identity": "XYZ Trading LLC",
+            "fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+            "goods_description": "Network communications equipment",
+            "importer_identity": "ABC Imports Ltd",
+            "invoice_reference": "INV001",
+            "product_id": "TBML001",
+            "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+            "run_id": "tbml001-e9558ee3cd",
+            "transaction_reference": "PAY001",
+            "typology": "TBML001"
           },
           "classification": {
+            "alert_type": "TBML001_OVER_INVOICING",
             "category": "Over Invoicing",
             "exposure": "High",
             "type": "Trade Based Money Laundering",
             "typology": "TBML001"
           },
-          "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-001. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies Asteron Precision Exports Ltd trading with Northbridge Industrial Imports BV via Port of Singapore \u2192 Port of Rotterdam.",
-          "confidence_score": 91,
+          "confidence_components": {
+            "basis": "Confidence that the alert/no-alert classification is correct, not that laundering occurred. Distance of the measured variance from the governed alert threshold (weight 0.6), and the proportion of required evidence the case carries (weight 0.4), scaled to a ceiling of 95.0. Derived by FC-10; not published by FC-04.",
+            "ceiling": 95.0,
+            "coverage": {
+              "present": 15,
+              "ratio": 1.0,
+              "required": 15,
+              "weight": 0.4
+            },
+            "margin": {
+              "alert_threshold_pct": 30.0,
+              "distance_from_threshold_pct": 17.0588,
+              "ratio": 0.5686,
+              "variance_percentage": 47.0588,
+              "weight": 0.6
+            },
+            "score": 70.4
+          },
+          "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+          "confidence_score": 70.4,
           "decision_recommendation": {
             "priority": "Metadata-driven",
             "rationale": "Decision support generated from governed runtime metadata.",
@@ -188,22 +253,29 @@
           },
           "driver_analysis": {
             "risk_drivers": [
-              "Declared trade value exceeds expected benchmark",
-              "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-              "Transaction pattern requires enhanced investigation review"
+              "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+              "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "Invoice unit price materially exceeds market benchmark"
             ],
             "section": "Driver Analysis"
           },
+          "evidence_coverage": {
+            "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+            "missing": [],
+            "percentage": 100.0,
+            "present": 15,
+            "required": 15
+          },
           "evidence_quality": {
-            "confidence_score": 91,
+            "confidence_score": 70.4,
             "coverage": "Runtime metadata evidence coverage."
           },
-          "execution_mode": "runtime_adapter_327c",
+          "execution_mode": "governed_fc04_delegation_stage432",
           "execution_status": "SUCCESS",
           "expected_fusion_result": {
             "result": "Fused transaction, graph, counterparty and evidence intelligence."
           },
-          "intelligence_assessment": "TBML001 runtime execution identified over-invoicing indicators requiring investigation, evidence review and operational decision support. The deterministic trade is flagged as a high-risk corridor from Port of Singapore \u2192 Port of Rotterdam and follows the shipping route Port of Singapore \u2192 Port of Rotterdam.",
+          "intelligence_assessment": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
           "intelligence_brief": {
             "headline": "Runtime intelligence brief generated from metadata.",
             "section": "Intelligence Brief",
@@ -211,6 +283,7 @@
           },
           "intelligence_metadata": {
             "classification": {
+              "alert_type": "TBML001_OVER_INVOICING",
               "category": "Over Invoicing",
               "exposure": "High",
               "type": "Trade Based Money Laundering",
@@ -222,70 +295,84 @@
             "typology_id": "TBML001"
           },
           "investigation_actions": [
-            "Review invoice and goods description",
-            "Compare declared value against benchmark evidence",
-            "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-            "Prepare escalation pack where supporting evidence is sufficient"
+            "Review invoice and transaction evidence",
+            "Compare declared and benchmark values",
+            "Validate exporter and importer identities",
+            "Validate route and shipping documentation"
           ],
-          "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between Asteron Precision Exports Ltd and Northbridge Industrial Imports BV using Port of Singapore \u2192 Port of Rotterdam. Invoice TBML-INV-2026-00481 / transaction PAY-TBML-2026-00481 declares USD 1,240,000.00 against a benchmark of USD 760,000.00, producing a variance of USD 480,000.00 (63.16%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
+          "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali \u2192 Rotterdam \u2192 Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
           "operational_action_plan": {
             "actions": [
-              "Review invoice and goods description",
-              "Compare declared value against benchmark evidence",
-              "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-              "Prepare escalation pack where supporting evidence is sufficient"
+              "Review invoice and transaction evidence",
+              "Compare declared and benchmark values",
+              "Validate exporter and importer identities",
+              "Validate route and shipping documentation"
             ],
             "next_gate": "Evidence validation and decision review",
             "owner": "Financial Crime Operations",
             "section": "Investigation Actions"
           },
           "product_id": "TBML001",
+          "required_actions": [
+            "Review invoice and transaction evidence",
+            "Compare declared and benchmark values",
+            "Validate exporter and importer identities",
+            "Validate route and shipping documentation"
+          ],
           "resource_optimisation": {
             "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
           },
           "risk_drivers": [
-            "Declared trade value exceeds expected benchmark",
-            "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-            "Transaction pattern requires enhanced investigation review"
+            "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+            "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+            "Invoice unit price materially exceeds market benchmark"
           ],
           "risk_exposure_drivers": [
-            "High-risk corridor: Port of Singapore \u2192 Port of Rotterdam.",
-            "Shipping route: Port of Singapore \u2192 Port of Rotterdam.",
-            "High-risk counterparty exposure: Northbridge Industrial Imports BV."
+            "Valuation variance: 47.06%.",
+            "Trade corridor: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+            "Importer: ABC Imports Ltd."
           ],
-          "risk_score": 81,
+          "risk_score": 71,
           "route_intelligence": {
-            "counterparty_id": "Northbridge Industrial Imports BV",
-            "counterparty_name": "Northbridge Industrial Imports BV",
+            "counterparty_id": "ABC Imports Ltd",
+            "counterparty_name": "ABC Imports Ltd",
             "counterparty_risk_band": "High",
-            "counterparty_risk_score": 81,
-            "destination_country": "Port of Rotterdam",
-            "document_discrepancy_flag": null,
+            "counterparty_risk_score": 71,
+            "destination_country": "Rotterdam \u2192 Felixstowe",
+            "document_discrepancy_flag": true,
+            "exporter_identity": "XYZ Trading LLC",
             "high_risk_corridor_flag": true,
-            "origin_country": "Port of Singapore",
-            "shipping_route": "Port of Singapore \u2192 Port of Rotterdam",
+            "importer_identity": "ABC Imports Ltd",
+            "invoice_id": "INV001",
+            "origin_country": "Jebel Ali",
+            "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
             "source_records": [
-              "canonical_case_envelope"
+              "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+              "governed_case_envelope"
             ],
-            "source_repository": "CANONICAL_CASE_ENVELOPE",
-            "transaction_id": "PAY-TBML-2026-00481"
+            "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+            "transaction_id": "PAY001"
           },
+          "scenario": "TBML001-CASE-2026-003",
           "scoring_framework": {
             "classification": {
+              "alert_type": "TBML001_OVER_INVOICING",
               "category": "Over Invoicing",
               "exposure": "High",
               "type": "Trade Based Money Laundering",
               "typology": "TBML001"
             },
-            "confidence_score": 91,
-            "risk_score": 81,
+            "confidence_score": 70.4,
+            "risk_score": 71,
             "section": "Scoring Framework"
           },
           "supporting_assessment": [
-            "Asteron Precision Exports Ltd and Northbridge Industrial Imports BV are linked through the trade route Port of Singapore \u2192 Port of Rotterdam.",
-            "Invoice TBML-INV-2026-00481 and transaction PAY-TBML-2026-00481 declare USD 1,240,000.00 for Industrial ceramic bearings, compared with a benchmark value of USD 760,000.00.",
-            "The declared value exceeds the benchmark by USD 480,000.00 (63.16%). The current analytic risk score is 81."
+            "XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+            "Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.",
+            "The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71."
           ],
+          "trigger_status": "TBML001_OVER_INVOICING",
+          "typology": "TBML001",
           "visual_intelligence_model": {
             "graph_source": "CANONICAL_RUNTIME_GRAPH",
             "product_id": "TBML001",
@@ -294,122 +381,134 @@
           }
         },
         "canonical_case_envelope": {
+          "adverse_media_flag": false,
           "benchmark": {
             "benchmark_method": "Comparable commodity unit-price benchmark",
-            "benchmark_unit_price": 38.0,
-            "benchmark_value": 760000.0,
+            "benchmark_unit_price": 1700.0,
+            "benchmark_value": 1700000.0,
             "currency": "USD",
-            "entity_id": "BENCHMARK_001"
+            "entity_id": "BMK001"
           },
-          "benchmark_value": 760000.0,
+          "benchmark_value": 1700000.0,
           "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
-          "case_contract_version": "1.0",
-          "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-          "case_id": "TBML001-CASE-2026-001",
+          "case_contract_version": "1.1",
+          "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+          "case_id": "TBML001-CASE-2026-003",
+          "case_required_fields_count": 16,
+          "case_required_fields_declared": true,
           "case_status": "OPEN_FOR_INVESTIGATION",
-          "classification": "HIGH",
-          "client_identity": "Asteron Precision Exports Ltd",
-          "contract": "STAGE429C_GOVERNED_SYNTHETIC_TBML001_CASE_V1",
+          "classification": "High",
+          "client_identity": "ABC Imports Ltd",
+          "commodity_code": "851762",
+          "contract": "STAGE444_GOVERNED_FC04_TBML001_CASE_INV001_V1",
+          "counterparty_risk_band": "High",
           "currency": "USD",
           "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
-          "declared_value": 1240000.0,
-          "destination": "Netherlands",
+          "declared_value": 2500000.0,
+          "destination": "United Kingdom",
+          "document_discrepancy_flag": true,
           "exporter": {
-            "country_code": "SG",
-            "customer_id": "CUST-EXP-0042",
-            "customer_relationship": "CORPORATE_CUSTOMER",
-            "entity_id": "EXPORTER_CO",
-            "jurisdiction": "Singapore",
-            "legal_name": "Asteron Precision Exports Ltd"
-          },
-          "exporter_identity": "Asteron Precision Exports Ltd",
-          "fixture_purpose": "Case-complete TBML001 over-invoicing demonstration for the FC-10 canonical runtime and graph.",
-          "goods": {
-            "benchmark_unit_price": 38.0,
-            "declared_unit_price": 62.0,
-            "description": "Industrial ceramic bearings",
-            "entity_id": "GOODS_001",
-            "quantity": 20000,
-            "unit_of_measure": "UNITS"
-          },
-          "goods_description": "Industrial ceramic bearings",
-          "importer": {
-            "counterparty_id": "CP-IMP-0187",
-            "country_code": "NL",
+            "country_code": "AE",
+            "customer_id": "CP001",
             "customer_relationship": "EXTERNAL_COUNTERPARTY",
-            "entity_id": "IMPORTER_CO",
-            "jurisdiction": "Netherlands",
-            "legal_name": "Northbridge Industrial Imports BV"
+            "entity_id": "ENT002",
+            "jurisdiction": "United Arab Emirates",
+            "legal_name": "XYZ Trading LLC"
           },
-          "importer_identity": "Northbridge Industrial Imports BV",
-          "investigation_summary": "The declared invoice value of USD 1,240,000 exceeds the benchmark value of USD 760,000 by USD 480,000 (63.16%).",
+          "exporter_identity": "XYZ Trading LLC",
+          "fixture_purpose": "Governed TBML001 over-invoicing demonstration bound to FC-04 invoice INV001. Unlike TBML001-CASE-2026-001 this case is REPRODUCIBLE: every field is drawn from the FC-04 deterministic dataset, and evaluate_over_invoicing returns ALT001 for it.",
+          "goods": {
+            "benchmark_unit_price": 1700.0,
+            "declared_unit_price": 2500.0,
+            "description": "Network communications equipment",
+            "entity_id": "GOODS_001",
+            "quantity": 1000
+          },
+          "goods_description": "Network communications equipment",
+          "high_risk_corridor_flag": true,
+          "historical_tbml_alert_count": 0,
+          "importer": {
+            "counterparty_id": "CUST001",
+            "country_code": "GB",
+            "customer_relationship": "CORPORATE_CUSTOMER",
+            "entity_id": "ENT001",
+            "jurisdiction": "United Kingdom",
+            "legal_name": "ABC Imports Ltd"
+          },
+          "importer_identity": "ABC Imports Ltd",
+          "investigation_summary": "The declared invoice value of USD 2,500,000 exceeds the benchmark value of USD 1,700,000 by USD 800,000 (47.06%), above the governed 30% TBML001 alert threshold.",
           "invoice": {
             "currency": "USD",
-            "declared_value": 1240000.0,
+            "declared_value": 2500000.0,
             "entity_id": "INVOICE_001",
-            "invoice_date": "2026-06-12",
-            "invoice_number": "TBML-INV-2026-00481"
+            "invoice_date": "2026-02-14",
+            "invoice_number": "INV001"
           },
-          "invoice_date": "2026-06-12",
-          "invoice_identifier": "TBML-INV-2026-00481",
-          "origin": "Singapore",
+          "invoice_date": "2026-02-14",
+          "invoice_identifier": "INV001",
+          "origin": "United Arab Emirates",
           "product_id": "TBML001",
           "real_client_data": false,
-          "risk_rating": "HIGH",
-          "risk_score": 81,
+          "risk_rating": "High",
+          "risk_score": 71,
           "route": {
-            "destination_country": "Netherlands",
-            "destination_country_code": "NL",
-            "destination_port": "Port of Rotterdam",
+            "destination_country": "United Kingdom",
+            "destination_country_code": "GB",
+            "destination_port": "Port of Felixstowe",
             "entity_id": "ROUTE_001",
-            "origin_country": "Singapore",
-            "origin_country_code": "SG",
-            "origin_port": "Port of Singapore",
-            "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+            "origin_country": "United Arab Emirates",
+            "origin_country_code": "AE",
+            "origin_port": "Jebel Ali",
+            "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
           },
-          "route_description": "Port of Singapore \u2192 Port of Rotterdam",
+          "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+          "run_id": "tbml001-e9558ee3cd",
+          "sanctions_exposure_flag": false,
+          "shared_director_flag": true,
+          "shared_owner_flag": true,
+          "shell_company_indicator": true,
           "synthetic_data": true,
           "transaction": {
             "currency": "USD",
-            "declared_value": 1240000.0,
-            "payment_method": "CROSS_BORDER_WIRE",
-            "transaction_date": "2026-06-15",
-            "transaction_reference": "PAY-TBML-2026-00481"
+            "declared_value": 2500000.0,
+            "transaction_date": "2026-03-10",
+            "transaction_reference": "PAY001"
           },
-          "transaction_date": "2026-06-15",
-          "transaction_reference": "PAY-TBML-2026-00481",
+          "transaction_date": "2026-03-10",
+          "transaction_reference": "PAY001",
+          "transaction_value": 2500000.0,
           "typology_id": "TBML001",
           "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
           "valuation": {
-            "benchmark_value": 760000.0,
+            "benchmark_value": 1700000.0,
             "currency": "USD",
-            "declared_value": 1240000.0,
-            "valuation_result": "EXCEEDS_BENCHMARK",
-            "variance_amount": 480000.0,
-            "variance_percentage": 63.16
+            "declared_value": 2500000.0,
+            "valuation_result": "ABOVE_ALERT_THRESHOLD",
+            "variance_amount": 800000.0,
+            "variance_percentage": 47.06
           },
-          "variance_amount": 480000.0,
-          "variance_percentage": 63.16
+          "variance_amount": 800000.0,
+          "variance_percentage": 47.06
         },
         "end_to_end_report": {
-          "created_at": "2026-07-24T11:46:25.410954Z",
-          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-e687981b62_end_to_end_report.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62",
+          "created_at": "2026-08-03T19:21:08.810724Z",
+          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd",
           "evidence_status": "CAPTURED",
-          "fc01_product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e687981b62_TBML001_metadata_packet.json",
+          "fc01_product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e9558ee3cd_TBML001_metadata_packet.json",
           "operational_status": "OPERATIONAL_READY",
           "pipeline_report_path": null,
           "product_id": "TBML001",
           "proof_statement": "TBML001 was executed through the runtime manufacturing pipeline, producing metadata, FC01 product, validation evidence, evidence pack and release approval.",
-          "release_record_path": "runtime/manufacturing/release_records/tbml001-e687981b62_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/tbml001-e9558ee3cd_release_record.json",
           "release_status": "APPROVED_FOR_RELEASE",
-          "run_id": "tbml001-e687981b62",
+          "run_id": "tbml001-e9558ee3cd",
           "runtime_log_path": null,
           "runtime_status": "SUCCESS",
           "stage": "323G",
           "stage_name": "End-to-End Execution Proof",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e687981b62_runtime_validation_report.json",
+          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e9558ee3cd_runtime_validation_report.json",
           "validation_status": "PASS"
         },
         "evidence_pack": {
@@ -421,36 +520,36 @@
             "artefact_index"
           ],
           "checksums": {
-            "artefact_index": "1684f061cc5926c8e857d4192671d807eec802ddf5fdc6ce90d9b95f9ad39847",
-            "canonical_graph_artifact": "31f1d4e949b8500d09dd1fed47894dea511c324a678dacdfcb9c994e10684950",
-            "fc01_product": "0ae595cc1612d222cdd40acac3ef3ec69b60a60e0944be93548b422c7e468873",
-            "metadata_packet": "2e2335ef73c14de9802e798fec39b58b173664f7d084cfacc934f7749722a4f6",
-            "validation_report": "541de8daf22015865b91199acd46974a4152ea4f7c6cacfeac12d9f0fc24977c"
+            "artefact_index": "4bc766a5c8d0f95970a90bf1e1c23e36c18a0c808ef20a0b002a3aca83960578",
+            "canonical_graph_artifact": "69b26f343d27f5ad2cde532dc1fd88060309d703f49b631509807ddfbcbb86aa",
+            "fc01_product": "9fc5e8398c01bd66c7a67fbf1ecb5300ee0dbf3faf2ceb4b7bcb5eb2844d39b4",
+            "metadata_packet": "e0b3dbe2439d33f3460a83954e27fc9371ab5ade95ebc8e6c7d442ab529d252c",
+            "validation_report": "61214ead7033f4fa56a8a10d58f72c2e1ee19b25641cd91c99b849182df2c7c8"
           },
-          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62/evidence_manifest.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62",
+          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/evidence_manifest.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd",
           "status": "CAPTURED"
         },
         "intelligence_product": {
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
-          "fc01_html_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "output_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
+          "fc01_html_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "output_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
           "product_id": "TBML001",
-          "product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "rendered_html_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "run_id": "tbml001-e687981b62",
-          "runtime_product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "rendered_html_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "run_id": "tbml001-e9558ee3cd",
+          "runtime_product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
           "semantic_release_gate": {
-            "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-            "case_id": "TBML001-CASE-2026-001",
-            "classification": "HIGH",
+            "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+            "case_id": "TBML001-CASE-2026-003",
+            "classification": "High",
             "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-            "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
+            "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
             "graph_semantic_value_count": 10,
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "product_semantic_value_count": 12,
-            "risk_score": 81,
+            "product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_semantic_value_count": 11,
+            "risk_score": 71,
             "stale_hits": [],
             "status": "PASS",
             "typology_id": "TBML001",
@@ -463,135 +562,145 @@
           },
           "alternative_explanations": {
             "items": [
-              "Legitimate pricing variance.",
-              "Commodity benchmark mismatch.",
-              "Documentation timing issue.",
-              "Commercial justification."
+              "Alternative explanations have not been supplied by the analytic.",
+              "This section is scaffolding and should not be read as an assessment."
             ],
             "title": "Alternative Explanations"
           },
-          "alternative_hypotheses": {},
+          "alternative_hypotheses": [],
           "alternative_hypotheses_expanded": {
             "items": [
-              "Legitimate pricing variance.",
-              "Commodity benchmark mismatch.",
-              "Documentation timing issue.",
-              "Commercial justification."
+              "Alternative explanations have not been supplied by the analytic.",
+              "This section is scaffolding and should not be read as an assessment."
             ],
             "title": "Alternative Explanations"
           },
+          "analytic_name": "TBML001 Over Invoicing",
           "analytic_reasoning": {
             "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
             "reasoning_summary": "Runtime reasoning generated from metadata.",
             "section": "Analytic Reasoning",
             "supporting_factors": [
-              "Declared trade value exceeds expected benchmark",
-              "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-              "Transaction pattern requires enhanced investigation review"
+              "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+              "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "Invoice unit price materially exceeds market benchmark"
             ]
           },
-          "assessment_summary": "TBML001 assessment identifies a high-risk over-invoicing pattern requiring enhanced investigation because declared value, counterparty exposure, routing and supporting evidence remain inconsistent.",
+          "assessment_summary": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
           "case": {
+            "adverse_media_flag": false,
             "benchmark": {
               "benchmark_method": "Comparable commodity unit-price benchmark",
-              "benchmark_unit_price": 38.0,
-              "benchmark_value": 760000.0,
+              "benchmark_unit_price": 1700.0,
+              "benchmark_value": 1700000.0,
               "currency": "USD",
-              "entity_id": "BENCHMARK_001"
+              "entity_id": "BMK001"
             },
-            "benchmark_value": 760000.0,
+            "benchmark_value": 1700000.0,
             "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
-            "case_contract_version": "1.0",
-            "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-            "case_id": "TBML001-CASE-2026-001",
+            "case_contract_version": "1.1",
+            "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+            "case_id": "TBML001-CASE-2026-003",
+            "case_required_fields_count": 16,
+            "case_required_fields_declared": true,
             "case_status": "OPEN_FOR_INVESTIGATION",
-            "classification": "HIGH",
-            "client_identity": "Asteron Precision Exports Ltd",
-            "contract": "STAGE429C_GOVERNED_SYNTHETIC_TBML001_CASE_V1",
+            "classification": "High",
+            "client_identity": "ABC Imports Ltd",
+            "commodity_code": "851762",
+            "contract": "STAGE444_GOVERNED_FC04_TBML001_CASE_INV001_V1",
+            "counterparty_risk_band": "High",
             "currency": "USD",
             "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
-            "declared_value": 1240000.0,
-            "destination": "Netherlands",
+            "declared_value": 2500000.0,
+            "destination": "United Kingdom",
+            "document_discrepancy_flag": true,
             "exporter": {
-              "country_code": "SG",
-              "customer_id": "CUST-EXP-0042",
-              "customer_relationship": "CORPORATE_CUSTOMER",
-              "entity_id": "EXPORTER_CO",
-              "jurisdiction": "Singapore",
-              "legal_name": "Asteron Precision Exports Ltd"
-            },
-            "exporter_identity": "Asteron Precision Exports Ltd",
-            "fixture_purpose": "Case-complete TBML001 over-invoicing demonstration for the FC-10 canonical runtime and graph.",
-            "goods": {
-              "benchmark_unit_price": 38.0,
-              "declared_unit_price": 62.0,
-              "description": "Industrial ceramic bearings",
-              "entity_id": "GOODS_001",
-              "quantity": 20000,
-              "unit_of_measure": "UNITS"
-            },
-            "goods_description": "Industrial ceramic bearings",
-            "importer": {
-              "counterparty_id": "CP-IMP-0187",
-              "country_code": "NL",
+              "country_code": "AE",
+              "customer_id": "CP001",
               "customer_relationship": "EXTERNAL_COUNTERPARTY",
-              "entity_id": "IMPORTER_CO",
-              "jurisdiction": "Netherlands",
-              "legal_name": "Northbridge Industrial Imports BV"
+              "entity_id": "ENT002",
+              "jurisdiction": "United Arab Emirates",
+              "legal_name": "XYZ Trading LLC"
             },
-            "importer_identity": "Northbridge Industrial Imports BV",
-            "investigation_summary": "The declared invoice value of USD 1,240,000 exceeds the benchmark value of USD 760,000 by USD 480,000 (63.16%).",
+            "exporter_identity": "XYZ Trading LLC",
+            "fixture_purpose": "Governed TBML001 over-invoicing demonstration bound to FC-04 invoice INV001. Unlike TBML001-CASE-2026-001 this case is REPRODUCIBLE: every field is drawn from the FC-04 deterministic dataset, and evaluate_over_invoicing returns ALT001 for it.",
+            "goods": {
+              "benchmark_unit_price": 1700.0,
+              "declared_unit_price": 2500.0,
+              "description": "Network communications equipment",
+              "entity_id": "GOODS_001",
+              "quantity": 1000
+            },
+            "goods_description": "Network communications equipment",
+            "high_risk_corridor_flag": true,
+            "historical_tbml_alert_count": 0,
+            "importer": {
+              "counterparty_id": "CUST001",
+              "country_code": "GB",
+              "customer_relationship": "CORPORATE_CUSTOMER",
+              "entity_id": "ENT001",
+              "jurisdiction": "United Kingdom",
+              "legal_name": "ABC Imports Ltd"
+            },
+            "importer_identity": "ABC Imports Ltd",
+            "investigation_summary": "The declared invoice value of USD 2,500,000 exceeds the benchmark value of USD 1,700,000 by USD 800,000 (47.06%), above the governed 30% TBML001 alert threshold.",
             "invoice": {
               "currency": "USD",
-              "declared_value": 1240000.0,
+              "declared_value": 2500000.0,
               "entity_id": "INVOICE_001",
-              "invoice_date": "2026-06-12",
-              "invoice_number": "TBML-INV-2026-00481"
+              "invoice_date": "2026-02-14",
+              "invoice_number": "INV001"
             },
-            "invoice_date": "2026-06-12",
-            "invoice_identifier": "TBML-INV-2026-00481",
-            "origin": "Singapore",
+            "invoice_date": "2026-02-14",
+            "invoice_identifier": "INV001",
+            "origin": "United Arab Emirates",
             "product_id": "TBML001",
             "real_client_data": false,
-            "risk_rating": "HIGH",
-            "risk_score": 81,
+            "risk_rating": "High",
+            "risk_score": 71,
             "route": {
-              "destination_country": "Netherlands",
-              "destination_country_code": "NL",
-              "destination_port": "Port of Rotterdam",
+              "destination_country": "United Kingdom",
+              "destination_country_code": "GB",
+              "destination_port": "Port of Felixstowe",
               "entity_id": "ROUTE_001",
-              "origin_country": "Singapore",
-              "origin_country_code": "SG",
-              "origin_port": "Port of Singapore",
-              "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+              "origin_country": "United Arab Emirates",
+              "origin_country_code": "AE",
+              "origin_port": "Jebel Ali",
+              "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
             },
-            "route_description": "Port of Singapore \u2192 Port of Rotterdam",
+            "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+            "run_id": "tbml001-e9558ee3cd",
+            "sanctions_exposure_flag": false,
+            "shared_director_flag": true,
+            "shared_owner_flag": true,
+            "shell_company_indicator": true,
             "synthetic_data": true,
             "transaction": {
               "currency": "USD",
-              "declared_value": 1240000.0,
-              "payment_method": "CROSS_BORDER_WIRE",
-              "transaction_date": "2026-06-15",
-              "transaction_reference": "PAY-TBML-2026-00481"
+              "declared_value": 2500000.0,
+              "transaction_date": "2026-03-10",
+              "transaction_reference": "PAY001"
             },
-            "transaction_date": "2026-06-15",
-            "transaction_reference": "PAY-TBML-2026-00481",
+            "transaction_date": "2026-03-10",
+            "transaction_reference": "PAY001",
+            "transaction_value": 2500000.0,
             "typology_id": "TBML001",
             "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
             "valuation": {
-              "benchmark_value": 760000.0,
+              "benchmark_value": 1700000.0,
               "currency": "USD",
-              "declared_value": 1240000.0,
-              "valuation_result": "EXCEEDS_BENCHMARK",
-              "variance_amount": 480000.0,
-              "variance_percentage": 63.16
+              "declared_value": 2500000.0,
+              "valuation_result": "ABOVE_ALERT_THRESHOLD",
+              "variance_amount": 800000.0,
+              "variance_percentage": 47.06
             },
-            "variance_amount": 480000.0,
-            "variance_percentage": 63.16
+            "variance_amount": 800000.0,
+            "variance_percentage": 47.06
           },
-          "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-          "case_id": "TBML001-CASE-2026-001",
+          "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+          "case_id": "TBML001-CASE-2026-003",
           "classification": {
+            "alert_type": "TBML001_OVER_INVOICING",
             "category": "Over Invoicing",
             "exposure": "High",
             "type": "Trade Based Money Laundering",
@@ -599,13 +708,32 @@
           },
           "collection_plan": {},
           "confidence_assessment": {
-            "confidence_score": 91,
-            "summary": "Confidence is supported by graph intelligence, metadata completeness, scoring output and runtime evidence, but remains conditional until external documents are validated.",
+            "confidence_score": 70.4,
+            "summary": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
             "title": "Confidence Assessment"
           },
-          "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-001. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies Asteron Precision Exports Ltd trading with Northbridge Industrial Imports BV via Port of Singapore \u2192 Port of Rotterdam.",
-          "confidence_score": 91,
-          "created_at": "2026-07-24T11:46:25.373343Z",
+          "confidence_components": {
+            "basis": "Confidence that the alert/no-alert classification is correct, not that laundering occurred. Distance of the measured variance from the governed alert threshold (weight 0.6), and the proportion of required evidence the case carries (weight 0.4), scaled to a ceiling of 95.0. Derived by FC-10; not published by FC-04.",
+            "ceiling": 95.0,
+            "coverage": {
+              "present": 15,
+              "ratio": 1.0,
+              "required": 15,
+              "weight": 0.4
+            },
+            "margin": {
+              "alert_threshold_pct": 30.0,
+              "distance_from_threshold_pct": 17.0588,
+              "ratio": 0.5686,
+              "variance_percentage": 47.0588,
+              "weight": 0.6
+            },
+            "score": 70.4
+          },
+          "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+          "confidence_score": 70.4,
+          "created_at": "2026-08-03T19:21:08.750779Z",
+          "decision_rationale": "",
           "decision_recommendation": {
             "priority": "Metadata-driven",
             "rationale": "Decision support generated from governed runtime metadata.",
@@ -613,12 +741,12 @@
             "section": "Decision Support"
           },
           "decision_simulation": {},
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
           "driver_analysis": {
             "risk_drivers": [
-              "Declared trade value exceeds expected benchmark",
-              "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-              "Transaction pattern requires enhanced investigation review"
+              "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+              "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "Invoice unit price materially exceeds market benchmark"
             ],
             "section": "Driver Analysis"
           },
@@ -626,86 +754,94 @@
             {
               "case_details": {
                 "classification": "SYNTHETIC_DEMONSTRATION_DATA",
-                "client_identity": "Asteron Precision Exports Ltd"
+                "client_identity": "XYZ Trading LLC"
               },
-              "case_id": "TBML001-CASE-2026-001",
+              "case_id": "TBML001-CASE-2026-003",
               "entity_type": "company",
               "id": "EXPORTER_CO",
-              "label": "Asteron Precision Exports Ltd",
+              "label": "XYZ Trading LLC",
               "role": "exporter"
             },
             {
               "case_details": {
                 "classification": "SYNTHETIC_DEMONSTRATION_DATA",
-                "client_identity": "Northbridge Industrial Imports BV"
+                "client_identity": "ABC Imports Ltd"
               },
-              "case_id": "TBML001-CASE-2026-001",
+              "case_id": "TBML001-CASE-2026-003",
               "entity_type": "company",
               "id": "IMPORTER_CO",
-              "label": "Northbridge Industrial Imports BV",
+              "label": "ABC Imports Ltd",
               "role": "importer"
             },
             {
               "case_details": {
-                "declared_value": "USD 1,240,000.00",
-                "invoice_identifier": "TBML-INV-2026-00481",
-                "transaction_reference": "PAY-TBML-2026-00481"
+                "declared_value": "USD 2,500,000.00",
+                "invoice_identifier": "INV001",
+                "transaction_reference": "PAY001"
               },
-              "case_id": "TBML001-CASE-2026-001",
+              "case_id": "TBML001-CASE-2026-003",
               "entity_type": "trade_document",
               "id": "INVOICE_001",
-              "label": "TBML-INV-2026-00481 \u00b7 PAY-TBML-2026-00481 \u00b7 USD 1,240,000.00",
+              "label": "INV001 \u00b7 PAY001 \u00b7 USD 2,500,000.00",
+              "risk_band": "High",
+              "risk_score": 71,
               "role": "invoice"
             },
             {
               "case_details": {
-                "goods_description": "Industrial ceramic bearings"
+                "goods_description": "Network communications equipment"
               },
-              "case_id": "TBML001-CASE-2026-001",
+              "case_id": "TBML001-CASE-2026-003",
               "entity_type": "goods",
               "id": "GOODS_001",
-              "label": "Industrial ceramic bearings",
+              "label": "Network communications equipment",
               "role": "goods"
             },
             {
               "case_details": {
-                "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+                "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
               },
-              "case_id": "TBML001-CASE-2026-001",
+              "case_id": "TBML001-CASE-2026-003",
               "entity_type": "route",
               "id": "ROUTE_001",
-              "label": "Port of Singapore \u2192 Port of Rotterdam",
+              "label": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
               "role": "route"
             },
             {
               "case_details": {
-                "benchmark_value": "USD 760,000.00",
-                "variance_amount": "USD 480,000.00",
-                "variance_percentage": "63.16%"
+                "benchmark_value": "USD 1,700,000.00",
+                "variance_amount": "USD 800,000.00",
+                "variance_percentage": "47.06%"
               },
-              "case_id": "TBML001-CASE-2026-001",
+              "case_id": "TBML001-CASE-2026-003",
               "entity_type": "valuation_reference",
               "id": "BENCHMARK_001",
-              "label": "Benchmark USD 760,000.00 \u00b7 Variance USD 480,000.00 \u00b7 (63.16%)",
+              "label": "Benchmark USD 1,700,000.00 \u00b7 Variance USD 800,000.00 \u00b7 (47.06%)",
               "role": "benchmark"
             }
           ],
+          "evidence_coverage": {
+            "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+            "missing": [],
+            "percentage": 100.0,
+            "present": 15,
+            "required": 15
+          },
           "evidence_quality": {
-            "confidence_score": 91,
+            "confidence_score": 70.4,
             "coverage": "Runtime metadata evidence coverage."
           },
           "evidence_supporting_assessment": {
             "items": [
-              "Declared invoice value exceeds expected benchmark tolerance.",
-              "Counterparty exposure is present.",
-              "Canonical graph relationships support a connected trade pattern.",
-              "Invoice, shipment, customs and payment validation remain outstanding."
+              "XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.",
+              "The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71."
             ],
             "title": "Evidence Supporting Assessment"
           },
           "executive_intelligence_summary": {
-            "headline": "TBML001 requires enhanced investigation.",
-            "summary": "Runtime intelligence indicates a high-risk over-invoicing scenario requiring operational review before release, escalation or closure."
+            "headline": "TBML001 requires review.",
+            "summary": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%)."
           },
           "expected_fusion_result": {
             "result": "Fused transaction, graph, counterparty and evidence intelligence."
@@ -726,43 +862,41 @@
             "sections": {
               "alternative_explanations": {
                 "items": [
-                  "Legitimate pricing variance.",
-                  "Commodity benchmark mismatch.",
-                  "Documentation timing issue.",
-                  "Commercial justification."
+                  "Alternative explanations have not been supplied by the analytic.",
+                  "This section is scaffolding and should not be read as an assessment."
                 ],
                 "section_id": "alternative_explanations",
                 "status": "PROVIDED"
               },
               "confidence_narrative": {
-                "narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-001. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies Asteron Precision Exports Ltd trading with Northbridge Industrial Imports BV via Port of Singapore \u2192 Port of Rotterdam.",
+                "narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
                 "section_id": "confidence_narrative",
                 "status": "PROVIDED"
               },
               "intelligence_assessment": {
-                "narrative": "TBML001 runtime execution identified over-invoicing indicators requiring investigation, evidence review and operational decision support. The deterministic trade is flagged as a high-risk corridor from Port of Singapore \u2192 Port of Rotterdam and follows the shipping route Port of Singapore \u2192 Port of Rotterdam.",
+                "narrative": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
                 "section_id": "intelligence_assessment",
                 "status": "PROVIDED"
               },
               "investigation_hypothesis": {
-                "narrative": "The transaction may represent trade-based money laundering through over-invoicing between Asteron Precision Exports Ltd and Northbridge Industrial Imports BV using Port of Singapore \u2192 Port of Rotterdam. Invoice TBML-INV-2026-00481 / transaction PAY-TBML-2026-00481 declares USD 1,240,000.00 against a benchmark of USD 760,000.00, producing a variance of USD 480,000.00 (63.16%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
+                "narrative": "The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali \u2192 Rotterdam \u2192 Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
                 "section_id": "investigation_hypothesis",
                 "status": "PROVIDED"
               },
               "risk_exposure_drivers": {
                 "items": [
-                  "Declared trade value exceeds expected benchmark",
-                  "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                  "Transaction pattern requires enhanced investigation review"
+                  "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                  "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                  "Invoice unit price materially exceeds market benchmark"
                 ],
                 "section_id": "risk_exposure_drivers",
                 "status": "PROVIDED"
               },
               "supporting_assessment": {
                 "items": [
-                  "Asteron Precision Exports Ltd and Northbridge Industrial Imports BV are linked through the trade route Port of Singapore \u2192 Port of Rotterdam.",
-                  "Invoice TBML-INV-2026-00481 and transaction PAY-TBML-2026-00481 declare USD 1,240,000.00 for Industrial ceramic bearings, compared with a benchmark value of USD 760,000.00.",
-                  "The declared value exceeds the benchmark by USD 480,000.00 (63.16%). The current analytic risk score is 81."
+                  "XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                  "Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.",
+                  "The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71."
                 ],
                 "section_id": "supporting_assessment",
                 "status": "PROVIDED"
@@ -797,57 +931,60 @@
           "graph_pipeline_contract": "CANONICAL_GRAPH_PIPELINE_CONTRACT",
           "graph_purpose": "entity_resolution_and_relationship_intelligence",
           "graph_source": "CANONICAL_INTELLIGENCE_GRAPH",
+          "headline": "",
           "hypothesis_probabilities": {},
-          "intelligence_assessment": "TBML001 runtime execution identified over-invoicing indicators requiring investigation, evidence review and operational decision support. The deterministic trade is flagged as a high-risk corridor from Port of Singapore \u2192 Port of Rotterdam and follows the shipping route Port of Singapore \u2192 Port of Rotterdam.",
+          "intelligence_assessment": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
           "intelligence_brief": {
             "headline": "Runtime intelligence brief generated from metadata.",
             "section": "Intelligence Brief",
             "summary": ""
           },
           "investigation_actions": [
-            "Review invoice and goods description",
-            "Compare declared value against benchmark evidence",
-            "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-            "Prepare escalation pack where supporting evidence is sufficient"
+            "Review invoice and transaction evidence",
+            "Compare declared and benchmark values",
+            "Validate exporter and importer identities",
+            "Validate route and shipping documentation"
           ],
-          "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between Asteron Precision Exports Ltd and Northbridge Industrial Imports BV using Port of Singapore \u2192 Port of Rotterdam. Invoice TBML-INV-2026-00481 / transaction PAY-TBML-2026-00481 declares USD 1,240,000.00 against a benchmark of USD 760,000.00, producing a variance of USD 480,000.00 (63.16%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
+          "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali \u2192 Rotterdam \u2192 Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
           "investigation_priorities": {},
           "investigation_strategy": {
             "steps": [
-              "Validate invoice value against benchmark.",
-              "Validate shipment and customs evidence.",
-              "Validate payment trail.",
-              "Validate counterparties and ownership links.",
-              "Escalate if variance remains unexplained."
+              "Review invoice and transaction evidence",
+              "Compare declared and benchmark values",
+              "Validate exporter and importer identities",
+              "Validate route and shipping documentation"
             ],
             "title": "Investigation Strategy"
           },
           "investigator_playbook": {},
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e687981b62_TBML001_metadata_packet.json",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e9558ee3cd_TBML001_metadata_packet.json",
           "metadata_version": "327-hard-active-entity-graph-v1",
           "operational_action_plan": {
             "actions": [
-              "Review invoice and goods description",
-              "Compare declared value against benchmark evidence",
-              "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-              "Prepare escalation pack where supporting evidence is sufficient"
+              "Review invoice and transaction evidence",
+              "Compare declared and benchmark values",
+              "Validate exporter and importer identities",
+              "Validate route and shipping documentation"
             ],
             "next_gate": "Evidence validation and decision review",
             "owner": "Financial Crime Operations",
             "section": "Investigation Actions"
           },
+          "priority": "",
           "probability_assessment": {},
           "product_id": "TBML001",
           "product_name": "TBML001 Over Invoicing Intelligence Product",
+          "reasoning_summary": "",
           "recommended_actions": {
             "items": [
-              "Review invoice and goods description",
-              "Compare declared value against benchmark evidence",
-              "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-              "Prepare escalation pack where supporting evidence is sufficient"
+              "Review invoice and transaction evidence",
+              "Compare declared and benchmark values",
+              "Validate exporter and importer identities",
+              "Validate route and shipping documentation"
             ],
-            "priority": "HIGH"
+            "priority": "UNSET"
           },
+          "recommended_decision": "",
           "relationships": [
             {
               "label": "TRADES_WITH",
@@ -889,57 +1026,78 @@
             "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
           },
           "risk_drivers": [
-            "Declared trade value exceeds expected benchmark",
-            "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-            "Transaction pattern requires enhanced investigation review"
+            "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+            "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+            "Invoice unit price materially exceeds market benchmark"
           ],
           "risk_drivers_expanded": {
             "items": [
-              "Declared trade value exceeds expected benchmark",
-              "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-              "Transaction pattern requires enhanced investigation review"
+              "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+              "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "Invoice unit price materially exceeds market benchmark"
             ],
             "title": "Risk Drivers"
           },
           "risk_exposure_drivers": [
-            "Declared trade value exceeds expected benchmark",
-            "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-            "Transaction pattern requires enhanced investigation review"
+            "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+            "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+            "Invoice unit price materially exceeds market benchmark"
           ],
-          "risk_score": 81,
+          "risk_score": 71,
+          "route_intelligence": {
+            "counterparty_id": "ABC Imports Ltd",
+            "counterparty_name": "ABC Imports Ltd",
+            "counterparty_risk_band": "High",
+            "counterparty_risk_score": 71,
+            "destination_country": "Rotterdam \u2192 Felixstowe",
+            "document_discrepancy_flag": true,
+            "exporter_identity": "XYZ Trading LLC",
+            "high_risk_corridor_flag": true,
+            "importer_identity": "ABC Imports Ltd",
+            "invoice_id": "INV001",
+            "origin_country": "Jebel Ali",
+            "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+            "source_records": [
+              "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+              "governed_case_envelope"
+            ],
+            "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+            "transaction_id": "PAY001"
+          },
           "runtime_metadata": {
             "contract_version": "FC01_METADATA_CONTRACT_V1_STAGE362",
-            "created_utc": "2026-07-24T11:46:25.373365+00:00",
+            "created_utc": "2026-08-03T19:21:08.750861+00:00",
             "pipeline_version": "stage361_runtime_pipeline_governance",
             "product_id": "TBML001",
             "renderer_version": "fc01_runtime_product_builder.py",
-            "run_id": "tbml001-e687981b62"
+            "run_id": "tbml001-e9558ee3cd"
           },
           "runtime_ready": true,
           "scenario_analysis": {},
           "scoring_framework": {
             "classification": {
+              "alert_type": "TBML001_OVER_INVOICING",
               "category": "Over Invoicing",
               "exposure": "High",
               "type": "Trade Based Money Laundering",
               "typology": "TBML001"
             },
-            "confidence_score": 91,
-            "risk_score": 81,
+            "confidence_score": 70.4,
+            "risk_score": 71,
             "section": "Scoring Framework"
           },
           "source": "runtime_product_execution_327_hard_active_fix",
           "supporting_assessment": [
-            "Asteron Precision Exports Ltd and Northbridge Industrial Imports BV are linked through the trade route Port of Singapore \u2192 Port of Rotterdam.",
-            "Invoice TBML-INV-2026-00481 and transaction PAY-TBML-2026-00481 declare USD 1,240,000.00 for Industrial ceramic bearings, compared with a benchmark value of USD 760,000.00.",
-            "The declared value exceeds the benchmark by USD 480,000.00 (63.16%). The current analytic risk score is 81."
+            "XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+            "Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.",
+            "The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71."
           ],
           "technical_metadata": {
-            "entity_count": 0,
+            "entity_count": 6,
             "layout": "FC01 Runtime",
             "pattern_id": "TBML001",
             "priority": "High",
-            "relationship_count": 0,
+            "relationship_count": 7,
             "renderer": "fc01_runtime_product_builder.py",
             "topology": "diamond",
             "version": "stage361_runtime_pipeline_governance"
@@ -953,18 +1111,18 @@
             "status": "EMITTED_BY_RUNTIME"
           }
         },
-        "pipeline_report": "runtime/manufacturing/reports/tbml001-e687981b62_pipeline_report.json",
+        "pipeline_report": "runtime/manufacturing/reports/tbml001-e9558ee3cd_pipeline_report.json",
         "pipeline_status": "SUCCESS",
         "product_execution_status": "SUCCESS",
         "release_status": {
           "checks_failed": 0,
           "checks_passed": 6,
           "release_gate": "323F_RUNTIME_RELEASE_GATE",
-          "release_record_path": "runtime/manufacturing/release_records/tbml001-e687981b62_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/tbml001-e9558ee3cd_release_record.json",
           "status": "APPROVED_FOR_RELEASE"
         },
         "runtime_initialised": true,
-        "runtime_log": "runtime/manufacturing/logs/tbml001-e687981b62.json",
+        "runtime_log": "runtime/manufacturing/logs/tbml001-e9558ee3cd.json",
         "validation_result": {
           "metadata_validation": {
             "checks": [
@@ -1040,20 +1198,20 @@
               },
               {
                 "check": "risk_score_range",
-                "message": "81",
+                "message": "71",
                 "passed": true
               },
               {
                 "check": "confidence_score_range",
-                "message": "91",
+                "message": "70.4",
                 "passed": true
               }
             ],
             "checks_failed": 0,
             "checks_passed": 16,
-            "created_at": "2026-07-24T11:46:25.404662Z",
+            "created_at": "2026-08-03T19:21:08.803605Z",
             "product_id": "TBML001",
-            "run_id": "tbml001-e687981b62",
+            "run_id": "tbml001-e9558ee3cd",
             "status": "PASS",
             "validation_type": "metadata_validation"
           },
@@ -1062,7 +1220,7 @@
             "checks": [
               {
                 "check": "html_file_exists",
-                "message": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+                "message": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
                 "passed": true
               },
               {
@@ -1128,25 +1286,25 @@
             ],
             "checks_failed": 0,
             "checks_passed": 13,
-            "created_at": "2026-07-24T11:46:25.404903Z",
+            "created_at": "2026-08-03T19:21:08.804228Z",
             "product_id": "TBML001",
-            "run_id": "tbml001-e687981b62",
+            "run_id": "tbml001-e9558ee3cd",
             "status": "PASS",
             "validation_type": "renderer_validation"
           },
-          "run_id": "tbml001-e687981b62",
+          "run_id": "tbml001-e9558ee3cd",
           "status": "PASS",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e687981b62_runtime_validation_report.json"
+          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e9558ee3cd_runtime_validation_report.json"
         }
       },
       "evidence_files": [
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e687981b62/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e687981b62/tbml001-e687981b62_TBML001_metadata_packet.json",
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e687981b62/evidence_manifest.json",
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e687981b62/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e687981b62/tbml001-e687981b62_runtime_validation_report.json",
-        "/Users/danhartwig/fc-10-repo/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e687981b62/artefact_index.json"
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/tbml001-e9558ee3cd_runtime_validation_report.json",
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/tbml001-e9558ee3cd_TBML001_metadata_packet.json",
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/evidence_manifest.json",
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/artefact_index.json"
       ]
     },
     "evidence_files": [],
@@ -1157,7 +1315,7 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.363131Z"
+          "timestamp": "2026-08-03T19:21:05.413731Z"
         },
         {
           "message": "Runtime manifest loaded",
@@ -1166,14 +1324,14 @@
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.371399Z"
+          "timestamp": "2026-08-03T19:21:05.432097Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.371499Z"
+          "timestamp": "2026-08-03T19:21:05.432197Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -1182,14 +1340,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.372425Z"
+          "timestamp": "2026-08-03T19:21:05.432276Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.372446Z"
+          "timestamp": "2026-08-03T19:21:05.432284Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -1198,123 +1356,188 @@
               "adaptive_intelligence_allocation": {
                 "allocation": "Allocate further collection where runtime evidence gaps remain."
               },
+              "alternative_hypotheses": [],
+              "analytic_authority": {
+                "alert_type": "TBML001_OVER_INVOICING",
+                "benchmark_value": 1700000,
+                "branch": "main",
+                "callable": "evaluate_over_invoicing",
+                "commit": "81d86bf81d7b8cf2ec058bc23b8ca01773851b30",
+                "commodity_code": "851762",
+                "customer_id": "XYZ Trading LLC",
+                "declared_value": 2500000,
+                "delegation_count": 1,
+                "invoice_id": "INV001",
+                "price_variance_pct": 47.05882352941176,
+                "repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "risk_reason": "Invoice unit price materially exceeds market benchmark",
+                "risk_score": 71,
+                "scenario_path": "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                "scenario_sha256": "45685c7b85bf845a076252e3493a691041cd7c49039e17c0ee46b564a6c04c1d",
+                "variance_amount": 800000,
+                "working_tree_state": "NOT_MEASURED"
+              },
               "analytic_name": "TBML001 Over Invoicing",
               "analytic_reasoning": {
                 "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
                 "reasoning_summary": "Runtime reasoning generated from metadata.",
                 "section": "Analytic Reasoning",
                 "supporting_factors": [
-                  "Declared trade value exceeds expected benchmark",
-                  "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                  "Transaction pattern requires enhanced investigation review"
+                  "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                  "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                  "Invoice unit price materially exceeds market benchmark"
                 ]
               },
               "case": {
+                "adverse_media_flag": false,
                 "benchmark": {
                   "benchmark_method": "Comparable commodity unit-price benchmark",
-                  "benchmark_unit_price": 38.0,
-                  "benchmark_value": 760000.0,
+                  "benchmark_unit_price": 1700.0,
+                  "benchmark_value": 1700000.0,
                   "currency": "USD",
-                  "entity_id": "BENCHMARK_001"
+                  "entity_id": "BMK001"
                 },
-                "benchmark_value": 760000.0,
+                "benchmark_value": 1700000.0,
                 "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
-                "case_contract_version": "1.0",
-                "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-                "case_id": "TBML001-CASE-2026-001",
+                "case_contract_version": "1.1",
+                "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+                "case_id": "TBML001-CASE-2026-003",
+                "case_required_fields_count": 16,
+                "case_required_fields_declared": true,
                 "case_status": "OPEN_FOR_INVESTIGATION",
-                "classification": "HIGH",
-                "client_identity": "Asteron Precision Exports Ltd",
-                "contract": "STAGE429C_GOVERNED_SYNTHETIC_TBML001_CASE_V1",
+                "classification": "High",
+                "client_identity": "ABC Imports Ltd",
+                "commodity_code": "851762",
+                "contract": "STAGE444_GOVERNED_FC04_TBML001_CASE_INV001_V1",
+                "counterparty_risk_band": "High",
                 "currency": "USD",
                 "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
-                "declared_value": 1240000.0,
-                "destination": "Netherlands",
+                "declared_value": 2500000.0,
+                "destination": "United Kingdom",
+                "document_discrepancy_flag": true,
                 "exporter": {
-                  "country_code": "SG",
-                  "customer_id": "CUST-EXP-0042",
-                  "customer_relationship": "CORPORATE_CUSTOMER",
-                  "entity_id": "EXPORTER_CO",
-                  "jurisdiction": "Singapore",
-                  "legal_name": "Asteron Precision Exports Ltd"
-                },
-                "exporter_identity": "Asteron Precision Exports Ltd",
-                "fixture_purpose": "Case-complete TBML001 over-invoicing demonstration for the FC-10 canonical runtime and graph.",
-                "goods": {
-                  "benchmark_unit_price": 38.0,
-                  "declared_unit_price": 62.0,
-                  "description": "Industrial ceramic bearings",
-                  "entity_id": "GOODS_001",
-                  "quantity": 20000,
-                  "unit_of_measure": "UNITS"
-                },
-                "goods_description": "Industrial ceramic bearings",
-                "importer": {
-                  "counterparty_id": "CP-IMP-0187",
-                  "country_code": "NL",
+                  "country_code": "AE",
+                  "customer_id": "CP001",
                   "customer_relationship": "EXTERNAL_COUNTERPARTY",
-                  "entity_id": "IMPORTER_CO",
-                  "jurisdiction": "Netherlands",
-                  "legal_name": "Northbridge Industrial Imports BV"
+                  "entity_id": "ENT002",
+                  "jurisdiction": "United Arab Emirates",
+                  "legal_name": "XYZ Trading LLC"
                 },
-                "importer_identity": "Northbridge Industrial Imports BV",
-                "investigation_summary": "The declared invoice value of USD 1,240,000 exceeds the benchmark value of USD 760,000 by USD 480,000 (63.16%).",
+                "exporter_identity": "XYZ Trading LLC",
+                "fixture_purpose": "Governed TBML001 over-invoicing demonstration bound to FC-04 invoice INV001. Unlike TBML001-CASE-2026-001 this case is REPRODUCIBLE: every field is drawn from the FC-04 deterministic dataset, and evaluate_over_invoicing returns ALT001 for it.",
+                "goods": {
+                  "benchmark_unit_price": 1700.0,
+                  "declared_unit_price": 2500.0,
+                  "description": "Network communications equipment",
+                  "entity_id": "GOODS_001",
+                  "quantity": 1000
+                },
+                "goods_description": "Network communications equipment",
+                "high_risk_corridor_flag": true,
+                "historical_tbml_alert_count": 0,
+                "importer": {
+                  "counterparty_id": "CUST001",
+                  "country_code": "GB",
+                  "customer_relationship": "CORPORATE_CUSTOMER",
+                  "entity_id": "ENT001",
+                  "jurisdiction": "United Kingdom",
+                  "legal_name": "ABC Imports Ltd"
+                },
+                "importer_identity": "ABC Imports Ltd",
+                "investigation_summary": "The declared invoice value of USD 2,500,000 exceeds the benchmark value of USD 1,700,000 by USD 800,000 (47.06%), above the governed 30% TBML001 alert threshold.",
                 "invoice": {
                   "currency": "USD",
-                  "declared_value": 1240000.0,
+                  "declared_value": 2500000.0,
                   "entity_id": "INVOICE_001",
-                  "invoice_date": "2026-06-12",
-                  "invoice_number": "TBML-INV-2026-00481"
+                  "invoice_date": "2026-02-14",
+                  "invoice_number": "INV001"
                 },
-                "invoice_date": "2026-06-12",
-                "invoice_identifier": "TBML-INV-2026-00481",
-                "origin": "Singapore",
+                "invoice_date": "2026-02-14",
+                "invoice_identifier": "INV001",
+                "origin": "United Arab Emirates",
                 "product_id": "TBML001",
                 "real_client_data": false,
-                "risk_rating": "HIGH",
-                "risk_score": 81,
+                "risk_rating": "High",
+                "risk_score": 71,
                 "route": {
-                  "destination_country": "Netherlands",
-                  "destination_country_code": "NL",
-                  "destination_port": "Port of Rotterdam",
+                  "destination_country": "United Kingdom",
+                  "destination_country_code": "GB",
+                  "destination_port": "Port of Felixstowe",
                   "entity_id": "ROUTE_001",
-                  "origin_country": "Singapore",
-                  "origin_country_code": "SG",
-                  "origin_port": "Port of Singapore",
-                  "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+                  "origin_country": "United Arab Emirates",
+                  "origin_country_code": "AE",
+                  "origin_port": "Jebel Ali",
+                  "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
                 },
-                "route_description": "Port of Singapore \u2192 Port of Rotterdam",
+                "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+                "run_id": "tbml001-e9558ee3cd",
+                "sanctions_exposure_flag": false,
+                "shared_director_flag": true,
+                "shared_owner_flag": true,
+                "shell_company_indicator": true,
                 "synthetic_data": true,
                 "transaction": {
                   "currency": "USD",
-                  "declared_value": 1240000.0,
-                  "payment_method": "CROSS_BORDER_WIRE",
-                  "transaction_date": "2026-06-15",
-                  "transaction_reference": "PAY-TBML-2026-00481"
+                  "declared_value": 2500000.0,
+                  "transaction_date": "2026-03-10",
+                  "transaction_reference": "PAY001"
                 },
-                "transaction_date": "2026-06-15",
-                "transaction_reference": "PAY-TBML-2026-00481",
+                "transaction_date": "2026-03-10",
+                "transaction_reference": "PAY001",
+                "transaction_value": 2500000.0,
                 "typology_id": "TBML001",
                 "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
                 "valuation": {
-                  "benchmark_value": 760000.0,
+                  "benchmark_value": 1700000.0,
                   "currency": "USD",
-                  "declared_value": 1240000.0,
-                  "valuation_result": "EXCEEDS_BENCHMARK",
-                  "variance_amount": 480000.0,
-                  "variance_percentage": 63.16
+                  "declared_value": 2500000.0,
+                  "valuation_result": "ABOVE_ALERT_THRESHOLD",
+                  "variance_amount": 800000.0,
+                  "variance_percentage": 47.06
                 },
-                "variance_amount": 480000.0,
-                "variance_percentage": 63.16
+                "variance_amount": 800000.0,
+                "variance_percentage": 47.06
+              },
+              "case_identity": {
+                "case_id": "TBML001-CASE-2026-003",
+                "exporter_identity": "XYZ Trading LLC",
+                "fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+                "goods_description": "Network communications equipment",
+                "importer_identity": "ABC Imports Ltd",
+                "invoice_reference": "INV001",
+                "product_id": "TBML001",
+                "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+                "run_id": "tbml001-e9558ee3cd",
+                "transaction_reference": "PAY001",
+                "typology": "TBML001"
               },
               "classification": {
+                "alert_type": "TBML001_OVER_INVOICING",
                 "category": "Over Invoicing",
                 "exposure": "High",
                 "type": "Trade Based Money Laundering",
                 "typology": "TBML001"
               },
-              "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-001. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies Asteron Precision Exports Ltd trading with Northbridge Industrial Imports BV via Port of Singapore \u2192 Port of Rotterdam.",
-              "confidence_score": 91,
+              "confidence_components": {
+                "basis": "Confidence that the alert/no-alert classification is correct, not that laundering occurred. Distance of the measured variance from the governed alert threshold (weight 0.6), and the proportion of required evidence the case carries (weight 0.4), scaled to a ceiling of 95.0. Derived by FC-10; not published by FC-04.",
+                "ceiling": 95.0,
+                "coverage": {
+                  "present": 15,
+                  "ratio": 1.0,
+                  "required": 15,
+                  "weight": 0.4
+                },
+                "margin": {
+                  "alert_threshold_pct": 30.0,
+                  "distance_from_threshold_pct": 17.0588,
+                  "ratio": 0.5686,
+                  "variance_percentage": 47.0588,
+                  "weight": 0.6
+                },
+                "score": 70.4
+              },
+              "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "confidence_score": 70.4,
               "decision_recommendation": {
                 "priority": "Metadata-driven",
                 "rationale": "Decision support generated from governed runtime metadata.",
@@ -1328,22 +1551,29 @@
               },
               "driver_analysis": {
                 "risk_drivers": [
-                  "Declared trade value exceeds expected benchmark",
-                  "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                  "Transaction pattern requires enhanced investigation review"
+                  "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                  "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                  "Invoice unit price materially exceeds market benchmark"
                 ],
                 "section": "Driver Analysis"
               },
+              "evidence_coverage": {
+                "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+                "missing": [],
+                "percentage": 100.0,
+                "present": 15,
+                "required": 15
+              },
               "evidence_quality": {
-                "confidence_score": 91,
+                "confidence_score": 70.4,
                 "coverage": "Runtime metadata evidence coverage."
               },
-              "execution_mode": "runtime_adapter_327c",
+              "execution_mode": "governed_fc04_delegation_stage432",
               "execution_status": "SUCCESS",
               "expected_fusion_result": {
                 "result": "Fused transaction, graph, counterparty and evidence intelligence."
               },
-              "intelligence_assessment": "TBML001 runtime execution identified over-invoicing indicators requiring investigation, evidence review and operational decision support. The deterministic trade is flagged as a high-risk corridor from Port of Singapore \u2192 Port of Rotterdam and follows the shipping route Port of Singapore \u2192 Port of Rotterdam.",
+              "intelligence_assessment": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
               "intelligence_brief": {
                 "headline": "Runtime intelligence brief generated from metadata.",
                 "section": "Intelligence Brief",
@@ -1351,6 +1581,7 @@
               },
               "intelligence_metadata": {
                 "classification": {
+                  "alert_type": "TBML001_OVER_INVOICING",
                   "category": "Over Invoicing",
                   "exposure": "High",
                   "type": "Trade Based Money Laundering",
@@ -1362,70 +1593,84 @@
                 "typology_id": "TBML001"
               },
               "investigation_actions": [
-                "Review invoice and goods description",
-                "Compare declared value against benchmark evidence",
-                "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-                "Prepare escalation pack where supporting evidence is sufficient"
+                "Review invoice and transaction evidence",
+                "Compare declared and benchmark values",
+                "Validate exporter and importer identities",
+                "Validate route and shipping documentation"
               ],
-              "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between Asteron Precision Exports Ltd and Northbridge Industrial Imports BV using Port of Singapore \u2192 Port of Rotterdam. Invoice TBML-INV-2026-00481 / transaction PAY-TBML-2026-00481 declares USD 1,240,000.00 against a benchmark of USD 760,000.00, producing a variance of USD 480,000.00 (63.16%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
+              "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali \u2192 Rotterdam \u2192 Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
               "operational_action_plan": {
                 "actions": [
-                  "Review invoice and goods description",
-                  "Compare declared value against benchmark evidence",
-                  "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-                  "Prepare escalation pack where supporting evidence is sufficient"
+                  "Review invoice and transaction evidence",
+                  "Compare declared and benchmark values",
+                  "Validate exporter and importer identities",
+                  "Validate route and shipping documentation"
                 ],
                 "next_gate": "Evidence validation and decision review",
                 "owner": "Financial Crime Operations",
                 "section": "Investigation Actions"
               },
               "product_id": "TBML001",
+              "required_actions": [
+                "Review invoice and transaction evidence",
+                "Compare declared and benchmark values",
+                "Validate exporter and importer identities",
+                "Validate route and shipping documentation"
+              ],
               "resource_optimisation": {
                 "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
               },
               "risk_drivers": [
-                "Declared trade value exceeds expected benchmark",
-                "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                "Transaction pattern requires enhanced investigation review"
+                "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                "Invoice unit price materially exceeds market benchmark"
               ],
               "risk_exposure_drivers": [
-                "High-risk corridor: Port of Singapore \u2192 Port of Rotterdam.",
-                "Shipping route: Port of Singapore \u2192 Port of Rotterdam.",
-                "High-risk counterparty exposure: Northbridge Industrial Imports BV."
+                "Valuation variance: 47.06%.",
+                "Trade corridor: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                "Importer: ABC Imports Ltd."
               ],
-              "risk_score": 81,
+              "risk_score": 71,
               "route_intelligence": {
-                "counterparty_id": "Northbridge Industrial Imports BV",
-                "counterparty_name": "Northbridge Industrial Imports BV",
+                "counterparty_id": "ABC Imports Ltd",
+                "counterparty_name": "ABC Imports Ltd",
                 "counterparty_risk_band": "High",
-                "counterparty_risk_score": 81,
-                "destination_country": "Port of Rotterdam",
-                "document_discrepancy_flag": null,
+                "counterparty_risk_score": 71,
+                "destination_country": "Rotterdam \u2192 Felixstowe",
+                "document_discrepancy_flag": true,
+                "exporter_identity": "XYZ Trading LLC",
                 "high_risk_corridor_flag": true,
-                "origin_country": "Port of Singapore",
-                "shipping_route": "Port of Singapore \u2192 Port of Rotterdam",
+                "importer_identity": "ABC Imports Ltd",
+                "invoice_id": "INV001",
+                "origin_country": "Jebel Ali",
+                "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
                 "source_records": [
-                  "canonical_case_envelope"
+                  "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                  "governed_case_envelope"
                 ],
-                "source_repository": "CANONICAL_CASE_ENVELOPE",
-                "transaction_id": "PAY-TBML-2026-00481"
+                "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "transaction_id": "PAY001"
               },
+              "scenario": "TBML001-CASE-2026-003",
               "scoring_framework": {
                 "classification": {
+                  "alert_type": "TBML001_OVER_INVOICING",
                   "category": "Over Invoicing",
                   "exposure": "High",
                   "type": "Trade Based Money Laundering",
                   "typology": "TBML001"
                 },
-                "confidence_score": 91,
-                "risk_score": 81,
+                "confidence_score": 70.4,
+                "risk_score": 71,
                 "section": "Scoring Framework"
               },
               "supporting_assessment": [
-                "Asteron Precision Exports Ltd and Northbridge Industrial Imports BV are linked through the trade route Port of Singapore \u2192 Port of Rotterdam.",
-                "Invoice TBML-INV-2026-00481 and transaction PAY-TBML-2026-00481 declare USD 1,240,000.00 for Industrial ceramic bearings, compared with a benchmark value of USD 760,000.00.",
-                "The declared value exceeds the benchmark by USD 480,000.00 (63.16%). The current analytic risk score is 81."
+                "XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                "Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.",
+                "The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71."
               ],
+              "trigger_status": "TBML001_OVER_INVOICING",
+              "typology": "TBML001",
               "visual_intelligence_model": {
                 "graph_source": "CANONICAL_RUNTIME_GRAPH",
                 "product_id": "TBML001",
@@ -1437,55 +1682,55 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.404541Z"
+          "timestamp": "2026-08-03T19:21:08.803431Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.404550Z"
+          "timestamp": "2026-08-03T19:21:08.803444Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e687981b62_TBML001_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e9558ee3cd_TBML001_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.404564Z"
+          "timestamp": "2026-08-03T19:21:08.803464Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.404568Z"
+          "timestamp": "2026-08-03T19:21:08.803469Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml001-e687981b62",
-            "runtime_product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "tbml001-e9558ee3cd",
+            "runtime_product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
-              "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-              "case_id": "TBML001-CASE-2026-001",
-              "classification": "HIGH",
+              "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+              "case_id": "TBML001-CASE-2026-003",
+              "classification": "High",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 10,
               "product_id": "TBML001",
-              "product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-              "product_semantic_value_count": 12,
-              "risk_score": 81,
+              "product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+              "product_semantic_value_count": 11,
+              "risk_score": 71,
               "stale_hits": [],
               "status": "PASS",
               "typology_id": "TBML001",
@@ -1494,14 +1739,14 @@
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.404579Z"
+          "timestamp": "2026-08-03T19:21:08.803482Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.404587Z"
+          "timestamp": "2026-08-03T19:21:08.803487Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -1580,20 +1825,20 @@
                 },
                 {
                   "check": "risk_score_range",
-                  "message": "81",
+                  "message": "71",
                   "passed": true
                 },
                 {
                   "check": "confidence_score_range",
-                  "message": "91",
+                  "message": "70.4",
                   "passed": true
                 }
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-07-24T11:46:25.404662Z",
+              "created_at": "2026-08-03T19:21:08.803605Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-e687981b62",
+              "run_id": "tbml001-e9558ee3cd",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
@@ -1602,7 +1847,7 @@
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -1668,26 +1913,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-07-24T11:46:25.404903Z",
+              "created_at": "2026-08-03T19:21:08.804228Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-e687981b62",
+              "run_id": "tbml001-e9558ee3cd",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml001-e687981b62",
+            "run_id": "tbml001-e9558ee3cd",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e687981b62_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e9558ee3cd_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.405238Z"
+          "timestamp": "2026-08-03T19:21:08.805489Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.405245Z"
+          "timestamp": "2026-08-03T19:21:08.805504Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -1700,26 +1945,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "1684f061cc5926c8e857d4192671d807eec802ddf5fdc6ce90d9b95f9ad39847",
-              "canonical_graph_artifact": "31f1d4e949b8500d09dd1fed47894dea511c324a678dacdfcb9c994e10684950",
-              "fc01_product": "0ae595cc1612d222cdd40acac3ef3ec69b60a60e0944be93548b422c7e468873",
-              "metadata_packet": "2e2335ef73c14de9802e798fec39b58b173664f7d084cfacc934f7749722a4f6",
-              "validation_report": "541de8daf22015865b91199acd46974a4152ea4f7c6cacfeac12d9f0fc24977c"
+              "artefact_index": "4bc766a5c8d0f95970a90bf1e1c23e36c18a0c808ef20a0b002a3aca83960578",
+              "canonical_graph_artifact": "69b26f343d27f5ad2cde532dc1fd88060309d703f49b631509807ddfbcbb86aa",
+              "fc01_product": "9fc5e8398c01bd66c7a67fbf1ecb5300ee0dbf3faf2ceb4b7bcb5eb2844d39b4",
+              "metadata_packet": "e0b3dbe2439d33f3460a83954e27fc9371ab5ade95ebc8e6c7d442ab529d252c",
+              "validation_report": "61214ead7033f4fa56a8a10d58f72c2e1ee19b25641cd91c99b849182df2c7c8"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.410387Z"
+          "timestamp": "2026-08-03T19:21:08.810132Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.410395Z"
+          "timestamp": "2026-08-03T19:21:08.810139Z"
         },
         {
           "message": "Register release completed successfully",
@@ -1727,35 +1972,35 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml001-e687981b62_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/tbml001-e9558ee3cd_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.410895Z"
+          "timestamp": "2026-08-03T19:21:08.810660Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.410902Z"
+          "timestamp": "2026-08-03T19:21:08.810668Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-e687981b62_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json",
             "execution_complete": true,
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.411186Z"
+          "timestamp": "2026-08-03T19:21:08.811035Z"
         }
       ],
       "product_id": "TBML001",
-      "run_id": "tbml001-e687981b62",
-      "started_at": "2026-07-24T11:46:25.362808Z",
+      "run_id": "tbml001-e9558ee3cd",
+      "started_at": "2026-08-03T19:21:05.413143Z",
       "status": "SUCCESS"
     },
     "governance": {
@@ -1770,18 +2015,40 @@
     "projection_identity": {
       "contract_id": "FC10_TELEMETRY_PROJECTION_PRODUCER_V1",
       "contract_version": "1.0.0",
-      "execution_id": "tbml001-e687981b62",
+      "execution_id": "tbml001-e9558ee3cd",
       "following_step": "08_REGISTER_RELEASE",
       "pipeline_step": "07_BUILD_TELEMETRY_PROJECTION",
       "preceding_step": "06_CAPTURE_EVIDENCE",
       "projection_type": "ENTERPRISE_MANUFACTURING_TELEMETRY"
     },
     "projection_integrity": {
-      "canonical_core_sha256": "a668aabaf22326aa8391647c0e558b81355de72da2d6b614070c377bed14601c",
+      "canonical_core_sha256": "7ee2cee1b0b4b6a73a842b82a0079f6dd9e24959755a0bbcdf632be0da31c83b",
       "canonicalisation": "JSON_SORT_KEYS_INDENT_2_UTF8_LF",
       "deterministic": true
     },
     "repository": {
+      "analytic_inputs": {
+        "case_id": {
+          "binding": "runtime",
+          "source": "adapter.case_id"
+        },
+        "classification": {
+          "binding": "runtime",
+          "source": "adapter.classification"
+        },
+        "execution_id": {
+          "binding": "runtime",
+          "source": "orchestrator.execution_id"
+        },
+        "invoice_id": {
+          "binding": "manifest",
+          "source": "sample_case.invoice.invoice_number"
+        },
+        "transaction_id": {
+          "binding": "runtime",
+          "source": "adapter.transaction_id"
+        }
+      },
       "analytics": {
         "execution_mode": "stubbed_for_323A",
         "product": "TBML001",
@@ -1805,100 +2072,238 @@
         "execution_mode": "stubbed_for_323A",
         "target": "FC01"
       },
+      "required_case_fields": [
+        "exporter_identity",
+        "importer_identity",
+        "invoice_identifier",
+        "declared_value",
+        "benchmark_value",
+        "commodity_code",
+        "route_description",
+        "transaction_value",
+        "high_risk_corridor_flag",
+        "counterparty_risk_band",
+        "shell_company_indicator",
+        "shared_director_flag",
+        "shared_owner_flag",
+        "sanctions_exposure_flag",
+        "adverse_media_flag",
+        "historical_tbml_alert_count"
+      ],
+      "retained_cases": {
+        "TBML001-CASE-2026-002": {
+          "adverse_media_flag": false,
+          "benchmark": {
+            "benchmark_method": "Comparable commodity unit-price benchmark",
+            "benchmark_unit_price": 11500.0,
+            "benchmark_value": 1150000.0,
+            "currency": "USD",
+            "entity_id": "BMK002"
+          },
+          "benchmark_value": 1150000.0,
+          "case_id": "TBML001-CASE-2026-002",
+          "case_status": "CLEARED_NO_ALERT",
+          "client_identity": "Standard Imports Ltd",
+          "commodity_code": "842890",
+          "contract": "STAGE433_GOVERNED_STATIC_TBML001_CASE_INV002_V1",
+          "counterparty_risk_band": "Low",
+          "currency": "USD",
+          "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
+          "declared_value": 1180000.0,
+          "destination": "United Kingdom",
+          "document_discrepancy_flag": false,
+          "exporter": {
+            "country_code": "DE",
+            "customer_id": "CP002",
+            "customer_relationship": "EXTERNAL_COUNTERPARTY",
+            "entity_id": "ENT004",
+            "jurisdiction": "Germany",
+            "legal_name": "Normal Machinery GmbH"
+          },
+          "exporter_identity": "Normal Machinery GmbH",
+          "fixture_purpose": "Governed static TBML001 non-alert demonstration for the FC-10 canonical runtime and graph.",
+          "goods": {
+            "benchmark_unit_price": 11500.0,
+            "declared_unit_price": 11800.0,
+            "description": "Industrial machinery",
+            "entity_id": "GOODS_002",
+            "quantity": 100,
+            "unit_of_measure": "UNITS"
+          },
+          "goods_description": "Industrial machinery",
+          "high_risk_corridor_flag": false,
+          "historical_tbml_alert_count": 0,
+          "importer": {
+            "counterparty_id": "CUST002",
+            "country_code": "GB",
+            "customer_relationship": "CORPORATE_CUSTOMER",
+            "entity_id": "ENT005",
+            "jurisdiction": "United Kingdom",
+            "legal_name": "Standard Imports Ltd"
+          },
+          "importer_identity": "Standard Imports Ltd",
+          "investigation_summary": "The declared invoice value of USD 1,180,000 exceeds the benchmark value of USD 1,150,000 by USD 30,000 (2.61%), below the governed 30% TBML001 alert threshold.",
+          "invoice": {
+            "currency": "USD",
+            "declared_value": 1180000.0,
+            "entity_id": "INVOICE_002",
+            "invoice_date": "2026-02-18",
+            "invoice_number": "INV002"
+          },
+          "invoice_date": "2026-02-18",
+          "invoice_identifier": "INV002",
+          "origin": "Germany",
+          "real_client_data": false,
+          "risk_rating": "LOW",
+          "risk_score": 0,
+          "route": {
+            "destination_country": "United Kingdom",
+            "destination_country_code": "GB",
+            "destination_port": "Port of Felixstowe",
+            "entity_id": "ROUTE_002",
+            "origin_country": "Germany",
+            "origin_country_code": "DE",
+            "origin_port": "Port of Hamburg",
+            "route_description": "Hamburg \u2192 Felixstowe"
+          },
+          "route_description": "Hamburg \u2192 Felixstowe",
+          "sanctions_exposure_flag": false,
+          "shared_director_flag": false,
+          "shared_owner_flag": false,
+          "shell_company_indicator": false,
+          "synthetic_data": true,
+          "transaction": {
+            "currency": "USD",
+            "declared_value": 1180000.0,
+            "payment_method": "CROSS_BORDER_WIRE",
+            "transaction_date": "2026-03-12",
+            "transaction_reference": "PAY002"
+          },
+          "transaction_date": "2026-03-12",
+          "transaction_reference": "PAY002",
+          "transaction_value": 1180000.0,
+          "typology_id": "TBML001",
+          "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
+          "valuation": {
+            "benchmark_value": 1150000.0,
+            "currency": "USD",
+            "declared_value": 1180000.0,
+            "valuation_result": "BELOW_ALERT_THRESHOLD",
+            "variance_amount": 30000.0,
+            "variance_percentage": 2.61
+          },
+          "variance_amount": 30000.0,
+          "variance_percentage": 2.61
+        }
+      },
       "sample_case": {
+        "adverse_media_flag": false,
         "benchmark": {
           "benchmark_method": "Comparable commodity unit-price benchmark",
-          "benchmark_unit_price": 38.0,
-          "benchmark_value": 760000.0,
+          "benchmark_unit_price": 1700.0,
+          "benchmark_value": 1700000.0,
           "currency": "USD",
-          "entity_id": "BENCHMARK_001"
+          "entity_id": "BMK001"
         },
-        "benchmark_value": 760000.0,
-        "case_id": "TBML001-CASE-2026-001",
+        "benchmark_value": 1700000.0,
+        "case_id": "TBML001-CASE-2026-003",
         "case_status": "OPEN_FOR_INVESTIGATION",
-        "client_identity": "Asteron Precision Exports Ltd",
-        "contract": "STAGE429C_GOVERNED_SYNTHETIC_TBML001_CASE_V1",
+        "client_identity": "ABC Imports Ltd",
+        "commodity_code": "851762",
+        "contract": "STAGE444_GOVERNED_FC04_TBML001_CASE_INV001_V1",
+        "counterparty_risk_band": "High",
         "currency": "USD",
         "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
-        "declared_value": 1240000.0,
-        "destination": "Netherlands",
+        "declared_value": 2500000.0,
+        "destination": "United Kingdom",
+        "document_discrepancy_flag": true,
         "exporter": {
-          "country_code": "SG",
-          "customer_id": "CUST-EXP-0042",
-          "customer_relationship": "CORPORATE_CUSTOMER",
-          "entity_id": "EXPORTER_CO",
-          "jurisdiction": "Singapore",
-          "legal_name": "Asteron Precision Exports Ltd"
-        },
-        "exporter_identity": "Asteron Precision Exports Ltd",
-        "fixture_purpose": "Case-complete TBML001 over-invoicing demonstration for the FC-10 canonical runtime and graph.",
-        "goods": {
-          "benchmark_unit_price": 38.0,
-          "declared_unit_price": 62.0,
-          "description": "Industrial ceramic bearings",
-          "entity_id": "GOODS_001",
-          "quantity": 20000,
-          "unit_of_measure": "UNITS"
-        },
-        "goods_description": "Industrial ceramic bearings",
-        "importer": {
-          "counterparty_id": "CP-IMP-0187",
-          "country_code": "NL",
+          "country_code": "AE",
+          "customer_id": "CP001",
           "customer_relationship": "EXTERNAL_COUNTERPARTY",
-          "entity_id": "IMPORTER_CO",
-          "jurisdiction": "Netherlands",
-          "legal_name": "Northbridge Industrial Imports BV"
+          "entity_id": "ENT002",
+          "jurisdiction": "United Arab Emirates",
+          "legal_name": "XYZ Trading LLC"
         },
-        "importer_identity": "Northbridge Industrial Imports BV",
-        "investigation_summary": "The declared invoice value of USD 1,240,000 exceeds the benchmark value of USD 760,000 by USD 480,000 (63.16%).",
+        "exporter_identity": "XYZ Trading LLC",
+        "fixture_purpose": "Governed TBML001 over-invoicing demonstration bound to FC-04 invoice INV001. Unlike TBML001-CASE-2026-001 this case is REPRODUCIBLE: every field is drawn from the FC-04 deterministic dataset, and evaluate_over_invoicing returns ALT001 for it.",
+        "goods": {
+          "benchmark_unit_price": 1700.0,
+          "declared_unit_price": 2500.0,
+          "description": "Network communications equipment",
+          "entity_id": "GOODS_001",
+          "quantity": 1000
+        },
+        "goods_description": "Network communications equipment",
+        "high_risk_corridor_flag": true,
+        "historical_tbml_alert_count": 0,
+        "importer": {
+          "counterparty_id": "CUST001",
+          "country_code": "GB",
+          "customer_relationship": "CORPORATE_CUSTOMER",
+          "entity_id": "ENT001",
+          "jurisdiction": "United Kingdom",
+          "legal_name": "ABC Imports Ltd"
+        },
+        "importer_identity": "ABC Imports Ltd",
+        "investigation_summary": "The declared invoice value of USD 2,500,000 exceeds the benchmark value of USD 1,700,000 by USD 800,000 (47.06%), above the governed 30% TBML001 alert threshold.",
         "invoice": {
           "currency": "USD",
-          "declared_value": 1240000.0,
+          "declared_value": 2500000.0,
           "entity_id": "INVOICE_001",
-          "invoice_date": "2026-06-12",
-          "invoice_number": "TBML-INV-2026-00481"
+          "invoice_date": "2026-02-14",
+          "invoice_number": "INV001"
         },
-        "invoice_date": "2026-06-12",
-        "invoice_identifier": "TBML-INV-2026-00481",
-        "origin": "Singapore",
+        "invoice_date": "2026-02-14",
+        "invoice_identifier": "INV001",
+        "origin": "United Arab Emirates",
         "real_client_data": false,
-        "risk_rating": "HIGH",
-        "risk_score": 81,
+        "risk_rating": "High",
+        "risk_score": 71,
         "route": {
-          "destination_country": "Netherlands",
-          "destination_country_code": "NL",
-          "destination_port": "Port of Rotterdam",
+          "destination_country": "United Kingdom",
+          "destination_country_code": "GB",
+          "destination_port": "Port of Felixstowe",
           "entity_id": "ROUTE_001",
-          "origin_country": "Singapore",
-          "origin_country_code": "SG",
-          "origin_port": "Port of Singapore",
-          "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+          "origin_country": "United Arab Emirates",
+          "origin_country_code": "AE",
+          "origin_port": "Jebel Ali",
+          "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
         },
-        "route_description": "Port of Singapore \u2192 Port of Rotterdam",
+        "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+        "sanctions_exposure_flag": false,
+        "shared_director_flag": true,
+        "shared_owner_flag": true,
+        "shell_company_indicator": true,
         "synthetic_data": true,
         "transaction": {
           "currency": "USD",
-          "declared_value": 1240000.0,
-          "payment_method": "CROSS_BORDER_WIRE",
-          "transaction_date": "2026-06-15",
-          "transaction_reference": "PAY-TBML-2026-00481"
+          "declared_value": 2500000.0,
+          "transaction_date": "2026-03-10",
+          "transaction_reference": "PAY001"
         },
-        "transaction_date": "2026-06-15",
-        "transaction_reference": "PAY-TBML-2026-00481",
+        "transaction_date": "2026-03-10",
+        "transaction_reference": "PAY001",
+        "transaction_value": 2500000.0,
         "typology_id": "TBML001",
         "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
         "valuation": {
-          "benchmark_value": 760000.0,
+          "benchmark_value": 1700000.0,
           "currency": "USD",
-          "declared_value": 1240000.0,
-          "valuation_result": "EXCEEDS_BENCHMARK",
-          "variance_amount": 480000.0,
-          "variance_percentage": 63.16
+          "declared_value": 2500000.0,
+          "valuation_result": "ABOVE_ALERT_THRESHOLD",
+          "variance_amount": 800000.0,
+          "variance_percentage": 47.06
         },
-        "variance_amount": 480000.0,
-        "variance_percentage": 63.16
+        "variance_amount": 800000.0,
+        "variance_percentage": 47.06
       },
       "stage": "323A",
+      "stage432_governed_runtime_inputs": {
+        "classification": "LOW",
+        "commodity_code": "842890",
+        "invoice_reference": "INV002"
+      },
       "status": "APPROVED_FOR_RUNTIME_SKELETON",
       "validation": {
         "execution_mode": "stubbed_for_323A",
@@ -1912,7 +2317,7 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.363131Z"
+          "timestamp": "2026-08-03T19:21:05.413731Z"
         },
         {
           "message": "Runtime manifest loaded",
@@ -1921,14 +2326,14 @@
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.371399Z"
+          "timestamp": "2026-08-03T19:21:05.432097Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.371499Z"
+          "timestamp": "2026-08-03T19:21:05.432197Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -1937,14 +2342,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.372425Z"
+          "timestamp": "2026-08-03T19:21:05.432276Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.372446Z"
+          "timestamp": "2026-08-03T19:21:05.432284Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -1953,123 +2358,188 @@
               "adaptive_intelligence_allocation": {
                 "allocation": "Allocate further collection where runtime evidence gaps remain."
               },
+              "alternative_hypotheses": [],
+              "analytic_authority": {
+                "alert_type": "TBML001_OVER_INVOICING",
+                "benchmark_value": 1700000,
+                "branch": "main",
+                "callable": "evaluate_over_invoicing",
+                "commit": "81d86bf81d7b8cf2ec058bc23b8ca01773851b30",
+                "commodity_code": "851762",
+                "customer_id": "XYZ Trading LLC",
+                "declared_value": 2500000,
+                "delegation_count": 1,
+                "invoice_id": "INV001",
+                "price_variance_pct": 47.05882352941176,
+                "repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "risk_reason": "Invoice unit price materially exceeds market benchmark",
+                "risk_score": 71,
+                "scenario_path": "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                "scenario_sha256": "45685c7b85bf845a076252e3493a691041cd7c49039e17c0ee46b564a6c04c1d",
+                "variance_amount": 800000,
+                "working_tree_state": "NOT_MEASURED"
+              },
               "analytic_name": "TBML001 Over Invoicing",
               "analytic_reasoning": {
                 "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
                 "reasoning_summary": "Runtime reasoning generated from metadata.",
                 "section": "Analytic Reasoning",
                 "supporting_factors": [
-                  "Declared trade value exceeds expected benchmark",
-                  "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                  "Transaction pattern requires enhanced investigation review"
+                  "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                  "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                  "Invoice unit price materially exceeds market benchmark"
                 ]
               },
               "case": {
+                "adverse_media_flag": false,
                 "benchmark": {
                   "benchmark_method": "Comparable commodity unit-price benchmark",
-                  "benchmark_unit_price": 38.0,
-                  "benchmark_value": 760000.0,
+                  "benchmark_unit_price": 1700.0,
+                  "benchmark_value": 1700000.0,
                   "currency": "USD",
-                  "entity_id": "BENCHMARK_001"
+                  "entity_id": "BMK001"
                 },
-                "benchmark_value": 760000.0,
+                "benchmark_value": 1700000.0,
                 "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
-                "case_contract_version": "1.0",
-                "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-                "case_id": "TBML001-CASE-2026-001",
+                "case_contract_version": "1.1",
+                "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+                "case_id": "TBML001-CASE-2026-003",
+                "case_required_fields_count": 16,
+                "case_required_fields_declared": true,
                 "case_status": "OPEN_FOR_INVESTIGATION",
-                "classification": "HIGH",
-                "client_identity": "Asteron Precision Exports Ltd",
-                "contract": "STAGE429C_GOVERNED_SYNTHETIC_TBML001_CASE_V1",
+                "classification": "High",
+                "client_identity": "ABC Imports Ltd",
+                "commodity_code": "851762",
+                "contract": "STAGE444_GOVERNED_FC04_TBML001_CASE_INV001_V1",
+                "counterparty_risk_band": "High",
                 "currency": "USD",
                 "data_classification": "SYNTHETIC_DEMONSTRATION_DATA",
-                "declared_value": 1240000.0,
-                "destination": "Netherlands",
+                "declared_value": 2500000.0,
+                "destination": "United Kingdom",
+                "document_discrepancy_flag": true,
                 "exporter": {
-                  "country_code": "SG",
-                  "customer_id": "CUST-EXP-0042",
-                  "customer_relationship": "CORPORATE_CUSTOMER",
-                  "entity_id": "EXPORTER_CO",
-                  "jurisdiction": "Singapore",
-                  "legal_name": "Asteron Precision Exports Ltd"
-                },
-                "exporter_identity": "Asteron Precision Exports Ltd",
-                "fixture_purpose": "Case-complete TBML001 over-invoicing demonstration for the FC-10 canonical runtime and graph.",
-                "goods": {
-                  "benchmark_unit_price": 38.0,
-                  "declared_unit_price": 62.0,
-                  "description": "Industrial ceramic bearings",
-                  "entity_id": "GOODS_001",
-                  "quantity": 20000,
-                  "unit_of_measure": "UNITS"
-                },
-                "goods_description": "Industrial ceramic bearings",
-                "importer": {
-                  "counterparty_id": "CP-IMP-0187",
-                  "country_code": "NL",
+                  "country_code": "AE",
+                  "customer_id": "CP001",
                   "customer_relationship": "EXTERNAL_COUNTERPARTY",
-                  "entity_id": "IMPORTER_CO",
-                  "jurisdiction": "Netherlands",
-                  "legal_name": "Northbridge Industrial Imports BV"
+                  "entity_id": "ENT002",
+                  "jurisdiction": "United Arab Emirates",
+                  "legal_name": "XYZ Trading LLC"
                 },
-                "importer_identity": "Northbridge Industrial Imports BV",
-                "investigation_summary": "The declared invoice value of USD 1,240,000 exceeds the benchmark value of USD 760,000 by USD 480,000 (63.16%).",
+                "exporter_identity": "XYZ Trading LLC",
+                "fixture_purpose": "Governed TBML001 over-invoicing demonstration bound to FC-04 invoice INV001. Unlike TBML001-CASE-2026-001 this case is REPRODUCIBLE: every field is drawn from the FC-04 deterministic dataset, and evaluate_over_invoicing returns ALT001 for it.",
+                "goods": {
+                  "benchmark_unit_price": 1700.0,
+                  "declared_unit_price": 2500.0,
+                  "description": "Network communications equipment",
+                  "entity_id": "GOODS_001",
+                  "quantity": 1000
+                },
+                "goods_description": "Network communications equipment",
+                "high_risk_corridor_flag": true,
+                "historical_tbml_alert_count": 0,
+                "importer": {
+                  "counterparty_id": "CUST001",
+                  "country_code": "GB",
+                  "customer_relationship": "CORPORATE_CUSTOMER",
+                  "entity_id": "ENT001",
+                  "jurisdiction": "United Kingdom",
+                  "legal_name": "ABC Imports Ltd"
+                },
+                "importer_identity": "ABC Imports Ltd",
+                "investigation_summary": "The declared invoice value of USD 2,500,000 exceeds the benchmark value of USD 1,700,000 by USD 800,000 (47.06%), above the governed 30% TBML001 alert threshold.",
                 "invoice": {
                   "currency": "USD",
-                  "declared_value": 1240000.0,
+                  "declared_value": 2500000.0,
                   "entity_id": "INVOICE_001",
-                  "invoice_date": "2026-06-12",
-                  "invoice_number": "TBML-INV-2026-00481"
+                  "invoice_date": "2026-02-14",
+                  "invoice_number": "INV001"
                 },
-                "invoice_date": "2026-06-12",
-                "invoice_identifier": "TBML-INV-2026-00481",
-                "origin": "Singapore",
+                "invoice_date": "2026-02-14",
+                "invoice_identifier": "INV001",
+                "origin": "United Arab Emirates",
                 "product_id": "TBML001",
                 "real_client_data": false,
-                "risk_rating": "HIGH",
-                "risk_score": 81,
+                "risk_rating": "High",
+                "risk_score": 71,
                 "route": {
-                  "destination_country": "Netherlands",
-                  "destination_country_code": "NL",
-                  "destination_port": "Port of Rotterdam",
+                  "destination_country": "United Kingdom",
+                  "destination_country_code": "GB",
+                  "destination_port": "Port of Felixstowe",
                   "entity_id": "ROUTE_001",
-                  "origin_country": "Singapore",
-                  "origin_country_code": "SG",
-                  "origin_port": "Port of Singapore",
-                  "route_description": "Port of Singapore \u2192 Port of Rotterdam"
+                  "origin_country": "United Arab Emirates",
+                  "origin_country_code": "AE",
+                  "origin_port": "Jebel Ali",
+                  "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
                 },
-                "route_description": "Port of Singapore \u2192 Port of Rotterdam",
+                "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+                "run_id": "tbml001-e9558ee3cd",
+                "sanctions_exposure_flag": false,
+                "shared_director_flag": true,
+                "shared_owner_flag": true,
+                "shell_company_indicator": true,
                 "synthetic_data": true,
                 "transaction": {
                   "currency": "USD",
-                  "declared_value": 1240000.0,
-                  "payment_method": "CROSS_BORDER_WIRE",
-                  "transaction_date": "2026-06-15",
-                  "transaction_reference": "PAY-TBML-2026-00481"
+                  "declared_value": 2500000.0,
+                  "transaction_date": "2026-03-10",
+                  "transaction_reference": "PAY001"
                 },
-                "transaction_date": "2026-06-15",
-                "transaction_reference": "PAY-TBML-2026-00481",
+                "transaction_date": "2026-03-10",
+                "transaction_reference": "PAY001",
+                "transaction_value": 2500000.0,
                 "typology_id": "TBML001",
                 "typology_name": "Trade-Based Money Laundering \u2014 Over-Invoicing",
                 "valuation": {
-                  "benchmark_value": 760000.0,
+                  "benchmark_value": 1700000.0,
                   "currency": "USD",
-                  "declared_value": 1240000.0,
-                  "valuation_result": "EXCEEDS_BENCHMARK",
-                  "variance_amount": 480000.0,
-                  "variance_percentage": 63.16
+                  "declared_value": 2500000.0,
+                  "valuation_result": "ABOVE_ALERT_THRESHOLD",
+                  "variance_amount": 800000.0,
+                  "variance_percentage": 47.06
                 },
-                "variance_amount": 480000.0,
-                "variance_percentage": 63.16
+                "variance_amount": 800000.0,
+                "variance_percentage": 47.06
+              },
+              "case_identity": {
+                "case_id": "TBML001-CASE-2026-003",
+                "exporter_identity": "XYZ Trading LLC",
+                "fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+                "goods_description": "Network communications equipment",
+                "importer_identity": "ABC Imports Ltd",
+                "invoice_reference": "INV001",
+                "product_id": "TBML001",
+                "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
+                "run_id": "tbml001-e9558ee3cd",
+                "transaction_reference": "PAY001",
+                "typology": "TBML001"
               },
               "classification": {
+                "alert_type": "TBML001_OVER_INVOICING",
                 "category": "Over Invoicing",
                 "exposure": "High",
                 "type": "Trade Based Money Laundering",
                 "typology": "TBML001"
               },
-              "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-001. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies Asteron Precision Exports Ltd trading with Northbridge Industrial Imports BV via Port of Singapore \u2192 Port of Rotterdam.",
-              "confidence_score": 91,
+              "confidence_components": {
+                "basis": "Confidence that the alert/no-alert classification is correct, not that laundering occurred. Distance of the measured variance from the governed alert threshold (weight 0.6), and the proportion of required evidence the case carries (weight 0.4), scaled to a ceiling of 95.0. Derived by FC-10; not published by FC-04.",
+                "ceiling": 95.0,
+                "coverage": {
+                  "present": 15,
+                  "ratio": 1.0,
+                  "required": 15,
+                  "weight": 0.4
+                },
+                "margin": {
+                  "alert_threshold_pct": 30.0,
+                  "distance_from_threshold_pct": 17.0588,
+                  "ratio": 0.5686,
+                  "variance_percentage": 47.0588,
+                  "weight": 0.6
+                },
+                "score": 70.4
+              },
+              "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+              "confidence_score": 70.4,
               "decision_recommendation": {
                 "priority": "Metadata-driven",
                 "rationale": "Decision support generated from governed runtime metadata.",
@@ -2083,22 +2553,29 @@
               },
               "driver_analysis": {
                 "risk_drivers": [
-                  "Declared trade value exceeds expected benchmark",
-                  "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                  "Transaction pattern requires enhanced investigation review"
+                  "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                  "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                  "Invoice unit price materially exceeds market benchmark"
                 ],
                 "section": "Driver Analysis"
               },
+              "evidence_coverage": {
+                "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+                "missing": [],
+                "percentage": 100.0,
+                "present": 15,
+                "required": 15
+              },
               "evidence_quality": {
-                "confidence_score": 91,
+                "confidence_score": 70.4,
                 "coverage": "Runtime metadata evidence coverage."
               },
-              "execution_mode": "runtime_adapter_327c",
+              "execution_mode": "governed_fc04_delegation_stage432",
               "execution_status": "SUCCESS",
               "expected_fusion_result": {
                 "result": "Fused transaction, graph, counterparty and evidence intelligence."
               },
-              "intelligence_assessment": "TBML001 runtime execution identified over-invoicing indicators requiring investigation, evidence review and operational decision support. The deterministic trade is flagged as a high-risk corridor from Port of Singapore \u2192 Port of Rotterdam and follows the shipping route Port of Singapore \u2192 Port of Rotterdam.",
+              "intelligence_assessment": "The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
               "intelligence_brief": {
                 "headline": "Runtime intelligence brief generated from metadata.",
                 "section": "Intelligence Brief",
@@ -2106,6 +2583,7 @@
               },
               "intelligence_metadata": {
                 "classification": {
+                  "alert_type": "TBML001_OVER_INVOICING",
                   "category": "Over Invoicing",
                   "exposure": "High",
                   "type": "Trade Based Money Laundering",
@@ -2117,70 +2595,84 @@
                 "typology_id": "TBML001"
               },
               "investigation_actions": [
-                "Review invoice and goods description",
-                "Compare declared value against benchmark evidence",
-                "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-                "Prepare escalation pack where supporting evidence is sufficient"
+                "Review invoice and transaction evidence",
+                "Compare declared and benchmark values",
+                "Validate exporter and importer identities",
+                "Validate route and shipping documentation"
               ],
-              "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between Asteron Precision Exports Ltd and Northbridge Industrial Imports BV using Port of Singapore \u2192 Port of Rotterdam. Invoice TBML-INV-2026-00481 / transaction PAY-TBML-2026-00481 declares USD 1,240,000.00 against a benchmark of USD 760,000.00, producing a variance of USD 480,000.00 (63.16%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
+              "investigation_hypothesis": "The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali \u2192 Rotterdam \u2192 Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.",
               "operational_action_plan": {
                 "actions": [
-                  "Review invoice and goods description",
-                  "Compare declared value against benchmark evidence",
-                  "Validate the Port of Singapore \u2192 Port of Rotterdam corridor and shipping route Port of Singapore \u2192 Port of Rotterdam",
-                  "Prepare escalation pack where supporting evidence is sufficient"
+                  "Review invoice and transaction evidence",
+                  "Compare declared and benchmark values",
+                  "Validate exporter and importer identities",
+                  "Validate route and shipping documentation"
                 ],
                 "next_gate": "Evidence validation and decision review",
                 "owner": "Financial Crime Operations",
                 "section": "Investigation Actions"
               },
               "product_id": "TBML001",
+              "required_actions": [
+                "Review invoice and transaction evidence",
+                "Compare declared and benchmark values",
+                "Validate exporter and importer identities",
+                "Validate route and shipping documentation"
+              ],
               "resource_optimisation": {
                 "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
               },
               "risk_drivers": [
-                "Declared trade value exceeds expected benchmark",
-                "High-risk corridor Port of Singapore \u2192 Port of Rotterdam is routed via Port of Singapore \u2192 Port of Rotterdam",
-                "Transaction pattern requires enhanced investigation review"
+                "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
+                "Trade route: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                "Invoice unit price materially exceeds market benchmark"
               ],
               "risk_exposure_drivers": [
-                "High-risk corridor: Port of Singapore \u2192 Port of Rotterdam.",
-                "Shipping route: Port of Singapore \u2192 Port of Rotterdam.",
-                "High-risk counterparty exposure: Northbridge Industrial Imports BV."
+                "Valuation variance: 47.06%.",
+                "Trade corridor: Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                "Importer: ABC Imports Ltd."
               ],
-              "risk_score": 81,
+              "risk_score": 71,
               "route_intelligence": {
-                "counterparty_id": "Northbridge Industrial Imports BV",
-                "counterparty_name": "Northbridge Industrial Imports BV",
+                "counterparty_id": "ABC Imports Ltd",
+                "counterparty_name": "ABC Imports Ltd",
                 "counterparty_risk_band": "High",
-                "counterparty_risk_score": 81,
-                "destination_country": "Port of Rotterdam",
-                "document_discrepancy_flag": null,
+                "counterparty_risk_score": 71,
+                "destination_country": "Rotterdam \u2192 Felixstowe",
+                "document_discrepancy_flag": true,
+                "exporter_identity": "XYZ Trading LLC",
                 "high_risk_corridor_flag": true,
-                "origin_country": "Port of Singapore",
-                "shipping_route": "Port of Singapore \u2192 Port of Rotterdam",
+                "importer_identity": "ABC Imports Ltd",
+                "invoice_id": "INV001",
+                "origin_country": "Jebel Ali",
+                "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
                 "source_records": [
-                  "canonical_case_envelope"
+                  "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                  "governed_case_envelope"
                 ],
-                "source_repository": "CANONICAL_CASE_ENVELOPE",
-                "transaction_id": "PAY-TBML-2026-00481"
+                "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "transaction_id": "PAY001"
               },
+              "scenario": "TBML001-CASE-2026-003",
               "scoring_framework": {
                 "classification": {
+                  "alert_type": "TBML001_OVER_INVOICING",
                   "category": "Over Invoicing",
                   "exposure": "High",
                   "type": "Trade Based Money Laundering",
                   "typology": "TBML001"
                 },
-                "confidence_score": 91,
-                "risk_score": 81,
+                "confidence_score": 70.4,
+                "risk_score": 71,
                 "section": "Scoring Framework"
               },
               "supporting_assessment": [
-                "Asteron Precision Exports Ltd and Northbridge Industrial Imports BV are linked through the trade route Port of Singapore \u2192 Port of Rotterdam.",
-                "Invoice TBML-INV-2026-00481 and transaction PAY-TBML-2026-00481 declare USD 1,240,000.00 for Industrial ceramic bearings, compared with a benchmark value of USD 760,000.00.",
-                "The declared value exceeds the benchmark by USD 480,000.00 (63.16%). The current analytic risk score is 81."
+                "XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
+                "Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.",
+                "The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71."
               ],
+              "trigger_status": "TBML001_OVER_INVOICING",
+              "typology": "TBML001",
               "visual_intelligence_model": {
                 "graph_source": "CANONICAL_RUNTIME_GRAPH",
                 "product_id": "TBML001",
@@ -2192,55 +2684,55 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.404541Z"
+          "timestamp": "2026-08-03T19:21:08.803431Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.404550Z"
+          "timestamp": "2026-08-03T19:21:08.803444Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e687981b62_TBML001_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-e9558ee3cd_TBML001_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.404564Z"
+          "timestamp": "2026-08-03T19:21:08.803464Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.404568Z"
+          "timestamp": "2026-08-03T19:21:08.803469Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml001-e687981b62",
-            "runtime_product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "tbml001-e9558ee3cd",
+            "runtime_product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
-              "case_fingerprint": "0182ea6b373cd2e1cbad458f234774bec3fdce8a3bb74c10d3580d91df8fa068",
-              "case_id": "TBML001-CASE-2026-001",
-              "classification": "HIGH",
+              "case_fingerprint": "4120366e1d12f12666db2a2c050dc9a6ee0712d2ec8f1906d1953ebf54a8e86a",
+              "case_id": "TBML001-CASE-2026-003",
+              "classification": "High",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-e687981b62_TBML001_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-e9558ee3cd_TBML001_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 10,
               "product_id": "TBML001",
-              "product_path": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
-              "product_semantic_value_count": 12,
-              "risk_score": 81,
+              "product_path": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
+              "product_semantic_value_count": 11,
+              "risk_score": 71,
               "stale_hits": [],
               "status": "PASS",
               "typology_id": "TBML001",
@@ -2249,14 +2741,14 @@
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.404579Z"
+          "timestamp": "2026-08-03T19:21:08.803482Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.404587Z"
+          "timestamp": "2026-08-03T19:21:08.803487Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -2335,20 +2827,20 @@
                 },
                 {
                   "check": "risk_score_range",
-                  "message": "81",
+                  "message": "71",
                   "passed": true
                 },
                 {
                   "check": "confidence_score_range",
-                  "message": "91",
+                  "message": "70.4",
                   "passed": true
                 }
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-07-24T11:46:25.404662Z",
+              "created_at": "2026-08-03T19:21:08.803605Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-e687981b62",
+              "run_id": "tbml001-e9558ee3cd",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
@@ -2357,7 +2849,7 @@
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml001-e687981b62_TBML001_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/tbml001-e9558ee3cd_TBML001_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -2423,26 +2915,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-07-24T11:46:25.404903Z",
+              "created_at": "2026-08-03T19:21:08.804228Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-e687981b62",
+              "run_id": "tbml001-e9558ee3cd",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml001-e687981b62",
+            "run_id": "tbml001-e9558ee3cd",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e687981b62_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-e9558ee3cd_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.405238Z"
+          "timestamp": "2026-08-03T19:21:08.805489Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.405245Z"
+          "timestamp": "2026-08-03T19:21:08.805504Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -2455,26 +2947,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "1684f061cc5926c8e857d4192671d807eec802ddf5fdc6ce90d9b95f9ad39847",
-              "canonical_graph_artifact": "31f1d4e949b8500d09dd1fed47894dea511c324a678dacdfcb9c994e10684950",
-              "fc01_product": "0ae595cc1612d222cdd40acac3ef3ec69b60a60e0944be93548b422c7e468873",
-              "metadata_packet": "2e2335ef73c14de9802e798fec39b58b173664f7d084cfacc934f7749722a4f6",
-              "validation_report": "541de8daf22015865b91199acd46974a4152ea4f7c6cacfeac12d9f0fc24977c"
+              "artefact_index": "4bc766a5c8d0f95970a90bf1e1c23e36c18a0c808ef20a0b002a3aca83960578",
+              "canonical_graph_artifact": "69b26f343d27f5ad2cde532dc1fd88060309d703f49b631509807ddfbcbb86aa",
+              "fc01_product": "9fc5e8398c01bd66c7a67fbf1ecb5300ee0dbf3faf2ceb4b7bcb5eb2844d39b4",
+              "metadata_packet": "e0b3dbe2439d33f3460a83954e27fc9371ab5ade95ebc8e6c7d442ab529d252c",
+              "validation_report": "61214ead7033f4fa56a8a10d58f72c2e1ee19b25641cd91c99b849182df2c7c8"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e687981b62",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-e9558ee3cd",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.410387Z"
+          "timestamp": "2026-08-03T19:21:08.810132Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.410395Z"
+          "timestamp": "2026-08-03T19:21:08.810139Z"
         },
         {
           "message": "Register release completed successfully",
@@ -2482,30 +2974,30 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml001-e687981b62_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/tbml001-e9558ee3cd_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.410895Z"
+          "timestamp": "2026-08-03T19:21:08.810660Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-07-24T11:46:25.410902Z"
+          "timestamp": "2026-08-03T19:21:08.810668Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-e687981b62_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-e9558ee3cd_end_to_end_report.json",
             "execution_complete": true,
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-07-24T11:46:25.411186Z"
+          "timestamp": "2026-08-03T19:21:08.811035Z"
         }
       ],
       "status": "SUCCESS"
