@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Canonical Graph Engine Output</title>
+<style>
+body {
+  margin: 0;
+  background: #ffffff;
+}
+.canonical-graph-engine {
+  border: 1px solid #d7dde5;
+  border-radius: 14px;
+  padding: 20px;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #111827;
+}
+.canonical-graph-title {
+  font-weight: 900;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.canonical-graph-badges {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.canonical-graph-badges span {
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #334155;
+}
+.canonical-graph-svg {
+  width: 100%;
+  /* Aspect-locked to the canvas rather than pinned to a fixed height.
+     The viewBox is now the full 1260x840 contract canvas; a hard 540px height
+     against a 1.5 aspect ratio letterboxes it, so the browser scales the whole
+     graph down to fit the shorter axis and the extra card height is given back.
+     `height` remains as the fallback for engines without `aspect-ratio`. */
+  aspect-ratio: var(--graph-aspect, 3 / 2);
+  height: auto;
+  max-height: var(--graph-svg-height, 840px);
+  display: block;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+/* Edge appearance is now PER RELATIONSHIP and arrives as presentation attributes
+   on the path. Nothing here may set stroke, stroke-width, dasharray or marker-end.
+
+   This is not a style preference, it is a specificity trap. In SVG a presentation
+   attribute has LOWER priority than any CSS declaration, so a `stroke: #111827`
+   rule on this class silently beats `stroke="#dc2626"` on the element — the
+   semantics would be emitted, visible in the DOM, and have no effect on screen.
+   `test_edge_css_does_not_override_the_semantics` guards it. */
+.canonical-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Relationship key. Added 2026-08-03 -- five classes had been rendered in five
+   colours with nothing anywhere saying what they meant. */
+.legend-swatch {
+  fill: none;
+  stroke-linecap: round;
+}
+.legend-label {
+  font-size: 15px;
+  font-weight: 600;
+  fill: #475569;
+  letter-spacing: 0.01em;
+}
+.edge-label-bg {
+  fill: rgba(255,255,255,0.95);
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+/* Third card line. Attribute detail — jurisdiction, unit price, corridor —
+   deliberately quieter than the title and the type/id line. */
+.vl-card-attr {
+  font-size: calc(var(--meta-size) * 0.94);
+  font-weight: 600;
+  fill: #64748b;
+  letter-spacing: 0.01em;
+}
+/* Severity emphasis. Only a critical finding gets this. */
+.vl-finding-halo {
+  fill: none;
+  stroke: var(--vl-accent);
+  stroke-width: 2;
+  opacity: 0.28;
+}
+.vl-finding .vl-card-shell {
+  stroke: var(--vl-stroke);
+  stroke-width: 2;
+}
+.vl-finding .vl-card-title {
+  font-weight: 900;
+}
+.edge-label {
+  font-size: 10px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+}
+.vl-card-shell {
+  fill: #ffffff;
+  stroke: var(--vl-stroke);
+  stroke-width: 1.7;
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.16));
+}
+.priority-primary .vl-card-shell {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.24));
+}
+.priority-reference .vl-card-shell {
+  opacity: .88;
+  stroke-dasharray: 4 3;
+}
+.vl-card-accent,
+.vl-card-accent-flat,
+.vl-status-dot {
+  fill: var(--vl-accent);
+}
+.vl-icon-well {
+  fill: #f8fafc;
+  stroke: #e2e8f0;
+  stroke-width: 1;
+}
+.vl-card-icon {
+  font-size: var(--icon-size);
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: #111827;
+}
+.vl-card-title {
+  font-size: var(--title-size);
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: start;
+}
+.vl-card-meta {
+  font-size: var(--meta-size);
+  font-weight: 800;
+  fill: #64748b;
+  text-anchor: start;
+}
+.vl-reference .vl-card-title,
+.vl-reference .vl-card-meta {
+  fill: #64748b;
+}
+.vl-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#canonical-arrow);
+}
+.vl-edge-label-bg {
+  fill: rgba(255,255,255,0.96);
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.12));
+}
+.vl-edge-label {
+  font-size: 8.4px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+  letter-spacing: .02em;
+}
+.edge-critical-label-bg {
+  stroke: #fecaca;
+}
+.edge-trade-label-bg {
+  stroke: #bfdbfe;
+}
+.edge-route-label-bg {
+  stroke: #bbf7d0;
+}
+.edge-evidence-label-bg {
+  stroke: #ddd6fe;
+}
+.edge-reference-label-bg {
+  stroke: #cbd5e1;
+}
+.canonical-graph-provenance {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #374151;
+  font-weight: 800;
+}
+</style>
+</head>
+<body>
+<div
+  class="canonical-graph-engine"
+  data-graph-engine-id="CANONICAL_GRAPH_ENGINE"
+  data-graph-engine-version="stage328a_5_visual_renderer_integrated"
+  data-contract-id="CANONICAL_GRAPH_ENGINE_CONTRACT"
+  data-graph-fingerprint="419f6f4643ce9fd0ebaf7c1f4d89ff7668671ab797525031a18d3a689d328146"
+  data-case-id="TBML001-CASE-2026-003"
+  data-case-fingerprint="c73077d374c9320cec70ea7aa37910d477b641d82c36f21305eac53e0bd7e15a"
+  data-renderer-id="CANONICAL_GRAPH_VISUAL_RENDERER"
+  data-renderer-version="stage330_wp1_visual_language_interpreter"
+  data-renderer-mode="VISUAL_LANGUAGE_INTERPRETER"
+  data-visual-language-id="ENTERPRISE_INTELLIGENCE_VISUAL_LANGUAGE"
+  data-visual-language-version="stage329b_wp1_investigation_relationship_language"
+  data-display-scale="1.000" data-safe-margin="true"
+  data-card-size="320x188" data-canvas-size="1260x840"
+  data-frame-fits="true" data-frame-at-floor="false"
+  style="--graph-svg-height:840px;--graph-aspect:1260 / 840"
+>
+  <div class="canonical-graph-title">Canonical Graph Engine Output</div>
+  <div class="canonical-graph-badges">
+    <span>Case: TBML001-CASE-2026-003</span>
+    <span>Topology: diamond</span>
+    <span>Layout: stage307_topology_pipeline</span>
+    <span>Renderer: CANONICAL_GRAPH_VISUAL_RENDERER</span>
+  </div>
+  <svg class="canonical-graph-svg" viewBox="0 0 1260.0 840.0" role="img" aria-label="Canonical graph">
+    <defs>
+      <!-- Retained as the fallback for any path that names no relationship class.
+           The per-class markers that follow are the ones edges actually use. -->
+      <marker id="canonical-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#111827"></path>
+      </marker>
+      <marker id="arrow-critical" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"></path></marker>
+      <marker id="arrow-document" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"></path></marker>
+      <marker id="arrow-evidence" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6d28d9"></path></marker>
+      <marker id="arrow-route" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#15803d"></path></marker>
+      <marker id="arrow-trade" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1d4ed8"></path></marker>
+      <!-- Card elevation. Cards previously sat flat in the same visual plane as
+           the edge layer, so an edge passing near a card read as part of it. -->
+      <filter id="vl-card-lift" x="-20%" y="-20%" width="140%" height="150%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.18"></feDropShadow>
+      </filter>
+    </defs>
+    
+        <path class="canonical-edge rel-trade" data-edge-clear="true" data-source="EXPORTER_CO" data-target="IMPORTER_CO" data-relationship-class="trade" data-relationship-label="Commercial Trading Link" stroke="#1d4ed8" stroke-width="3.00" stroke-opacity="0.92" marker-end="url(#arrow-trade)" d="M 223.0 314.2 L 223.0 296.2 Q 223.0 288.2 231.0 288.2 L 1007.0 288.2 Q 1015.0 288.2 1015.0 296.2 L 1015.0 314.2" />
+        <rect class="edge-label-bg" x="571.5" y="277.2" width="95.0" height="22.0" rx="7" />
+        <text class="edge-label" x="619.0" y="291.7" style="font-size:9.50px">TRADES_WITH</text>
+            
+        <path class="canonical-edge rel-document" data-edge-clear="true" data-source="EXPORTER_CO" data-target="INVOICE_001" data-relationship-class="document" data-relationship-label="Instrument Movement" stroke="#334155" stroke-width="2.40" stroke-opacity="0.86" marker-end="url(#arrow-document)" d="M 234.0 530.5 L 234.0 548.5 Q 234.0 556.5 242.0 556.5 L 430.1 556.5 Q 432.0 556.5 432.0 558.4 L 432.0 558.4 Q 432.0 560.4 430.1 560.4 L 407.0 560.4 Q 399.0 560.4 399.0 568.4 L 399.0 586.4" />
+        <rect class="edge-label-bg" x="303.0" y="545.5" width="60.0" height="22.0" rx="7" />
+        <text class="edge-label" x="333.0" y="559.9" style="font-size:9.50px">ISSUED</text>
+            
+        <path class="canonical-edge rel-document" data-edge-clear="true" data-source="IMPORTER_CO" data-target="INVOICE_001" data-relationship-class="document" data-relationship-label="Instrument Movement" stroke="#334155" stroke-width="2.40" stroke-opacity="0.86" marker-end="url(#arrow-document)" d="M 1037.0 314.2 L 1037.0 296.2 Q 1037.0 288.2 1029.0 288.2 L 440.0 288.2 Q 432.0 288.2 432.0 296.2 L 432.0 554.9 Q 432.0 560.4 426.5 560.4 L 426.5 560.4 Q 421.0 560.4 421.0 565.9 L 421.0 586.4" />
+        <rect class="edge-label-bg" x="697.5" y="277.2" width="74.0" height="22.0" rx="7" />
+        <text class="edge-label" x="734.5" y="291.7" style="font-size:9.50px">RECEIVED</text>
+            
+        <path class="canonical-edge rel-evidence" data-edge-clear="true" data-source="INVOICE_001" data-target="GOODS_001" data-relationship-class="evidence" data-relationship-label="Declared Goods" stroke="#6d28d9" stroke-width="2.40" stroke-opacity="0.84" marker-end="url(#arrow-evidence)" d="M 443.0 586.4 L 443.0 568.4 Q 443.0 560.4 451.0 560.4 L 622.0 560.4 Q 630.0 560.4 630.0 552.4 L 630.0 546.6 Q 630.0 538.6 630.0 530.6 L 630.0 512.6" />
+        <rect class="edge-label-bg" x="496.0" y="549.4" width="81.0" height="22.0" rx="7" />
+        <text class="edge-label" x="536.5" y="563.8" style="font-size:9.50px">DESCRIBES</text>
+            
+        <path class="canonical-edge rel-critical" data-edge-clear="true" data-source="INVOICE_001" data-target="BENCHMARK_001" data-relationship-class="critical" data-relationship-label="Benchmark Breach" stroke="#dc2626" stroke-width="4.40" stroke-opacity="0.98" marker-end="url(#arrow-critical)" d="M 465.0 586.4 L 465.0 568.4 Q 465.0 560.4 457.0 560.4 L 440.0 560.4 Q 432.0 560.4 432.0 552.4 L 432.0 297.1 Q 432.0 289.1 440.0 289.1 L 622.0 289.1 Q 630.0 289.1 630.0 281.1 L 630.0 263.1" />
+        <rect class="edge-label-bg" x="363.5" y="281.7" width="137.0" height="22.0" rx="7" />
+        <text class="edge-label" x="432.0" y="296.1" style="font-size:9.50px">EXCEEDS_BENCHMARK</text>
+            
+        <path class="canonical-edge rel-route" data-edge-clear="true" data-source="EXPORTER_CO" data-target="ROUTE_001" data-relationship-class="route" data-relationship-label="Route Dependency" stroke="#15803d" stroke-width="2.20" stroke-opacity="0.80" stroke-dasharray="7 5" marker-end="url(#arrow-route)" d="M 245.0 314.2 L 245.0 296.2 Q 245.0 288.2 253.0 288.2 L 820.0 288.2 Q 828.0 288.2 828.0 296.2 L 828.0 564.2 Q 828.0 569.8 822.5 569.8 L 822.5 569.8 Q 817.0 569.8 817.0 575.2 L 817.0 595.8" />
+        <rect class="edge-label-bg" x="268.1" y="277.2" width="88.0" height="22.0" rx="7" />
+        <text class="edge-label" x="312.1" y="291.7" style="font-size:9.50px">USES_ROUTE</text>
+            
+        <path class="canonical-edge rel-route" data-edge-clear="true" data-source="IMPORTER_CO" data-target="ROUTE_001" data-relationship-class="route" data-relationship-label="Route Dependency" stroke="#15803d" stroke-width="2.20" stroke-opacity="0.80" stroke-dasharray="7 5" marker-end="url(#arrow-route)" d="M 1026.0 530.5 L 1026.0 548.5 Q 1026.0 556.5 1018.0 556.5 L 834.6 556.5 Q 828.0 556.5 828.0 563.1 L 828.0 564.2 Q 828.0 569.8 833.5 569.8 L 833.5 569.8 Q 839.0 569.8 839.0 575.2 L 839.0 595.8" />
+        <rect class="edge-label-bg" x="883.0" y="545.5" width="88.0" height="22.0" rx="7" />
+        <text class="edge-label" x="927.0" y="559.9" style="font-size:9.50px">USES_ROUTE</text>
+            
+    
+        <g class="canonical-node vl-subject priority-primary"
+           data-node-id="EXPORTER_CO" data-severity="elevated"
+           data-visual-class="subject"
+           data-label="XYZ Trading LLC"
+           style="--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;">
+          <title>XYZ Trading LLC
+PARTY · EXPORTER_CO</title>
+          <rect class="vl-card-shell" x="50.0" y="314.2" width="368.0" height="216.2" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="50.0" y="314.2" width="14.7" height="216.2" rx="10" />
+          <rect class="vl-card-accent-flat" x="62.7" y="314.2" width="4" height="216.2" />
+          <circle class="vl-icon-well" cx="100.8" cy="422.4" r="23.8" />
+          <text class="vl-card-icon" x="100.8" y="431.0">▦</text>
+
+          <text class="vl-card-title" x="147.5" y="407.2" style="font-size:22.48px">XYZ Trading LLC</text>
+          <text class="vl-card-meta" x="147.5" y="463.4">PARTY</text>
+          <circle class="vl-status-dot" cx="397.8" cy="333.7" r="5.8" />
+        </g>
+    
+        <g class="canonical-node vl-subject priority-primary"
+           data-node-id="IMPORTER_CO" data-severity="elevated"
+           data-visual-class="subject"
+           data-label="ABC Imports Ltd"
+           style="--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;">
+          <title>ABC Imports Ltd
+PARTY · IMPORTER_CO</title>
+          <rect class="vl-card-shell" x="842.0" y="314.2" width="368.0" height="216.2" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="842.0" y="314.2" width="14.7" height="216.2" rx="10" />
+          <rect class="vl-card-accent-flat" x="854.7" y="314.2" width="4" height="216.2" />
+          <circle class="vl-icon-well" cx="892.8" cy="422.4" r="23.8" />
+          <text class="vl-card-icon" x="892.8" y="431.0">▦</text>
+
+          <text class="vl-card-title" x="939.5" y="407.2" style="font-size:22.48px">ABC Imports Ltd</text>
+          <text class="vl-card-meta" x="939.5" y="463.4">PARTY</text>
+          <circle class="vl-status-dot" cx="1189.8" cy="333.7" r="5.8" />
+        </g>
+    
+        <g class="canonical-node vl-transaction priority-transaction vl-finding"
+           data-node-id="INVOICE_001" data-severity="critical"
+           data-visual-class="transaction"
+           data-label="INV001 · PAY001 · USD 2,500,000.00"
+           data-risk-score="71"
+           data-risk-band="High"
+           style="--vl-accent:#2563eb;--vl-stroke:#1d4ed8;--title-size:19.55px;--meta-size:12.78px;--icon-size:22.18px;">
+          <title>INV001 · PAY001 · USD 2,500,000.00
+INSTRUMENT · INVOICE_001</title>
+          <rect class="vl-finding-halo" x="268.0" y="582.4" width="328.0" height="196.0" rx="13" />
+          <rect class="vl-card-shell" x="272.0" y="586.4" width="320.0" height="188.0" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="272.0" y="586.4" width="12.8" height="188.0" rx="10" />
+          <rect class="vl-card-accent-flat" x="282.8" y="586.4" width="4" height="188.0" />
+          <circle class="vl-icon-well" cx="316.2" cy="680.4" r="20.7" />
+          <text class="vl-card-icon" x="316.2" y="687.9">▤</text>
+
+          <text class="vl-card-title" x="356.8" y="657.7" style="font-size:19.55px">INV001 · PAY001</text>
+          <text class="vl-card-title" x="356.8" y="680.2" style="font-size:19.55px">USD 2,500,000.00</text>
+          <text class="vl-card-meta" x="356.8" y="716.1">INSTRUMENT</text>
+          <circle class="vl-status-dot" cx="574.4" cy="603.3" r="5.1" />
+        </g>
+    
+        <g class="canonical-node vl-transaction priority-transaction"
+           data-node-id="GOODS_001" data-severity="normal"
+           data-visual-class="transaction"
+           data-label="Network communications equipment"
+           style="--vl-accent:#7c3aed;--vl-stroke:#6d28d9;--title-size:18.77px;--meta-size:12.27px;--icon-size:21.30px;">
+          <title>Network communications equipment
+GOODS · GOODS_001</title>
+          <rect class="vl-card-shell" x="476.4" y="332.1" width="307.2" height="180.5" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="476.4" y="332.1" width="12.3" height="180.5" rx="10" />
+          <rect class="vl-card-accent-flat" x="486.7" y="332.1" width="4" height="180.5" />
+          <circle class="vl-icon-well" cx="518.8" cy="422.4" r="19.9" />
+          <text class="vl-card-icon" x="518.8" y="429.6">■</text>
+
+          <text class="vl-card-title" x="557.8" y="402.6" style="font-size:14.64px">Network communications</text>
+          <text class="vl-card-title" x="557.8" y="419.5" style="font-size:14.64px">equipment</text>
+          <text class="vl-card-meta" x="557.8" y="456.6">GOODS</text>
+          <circle class="vl-status-dot" cx="766.7" cy="348.4" r="4.9" />
+        </g>
+    
+        <g class="canonical-node vl-route priority-supporting"
+           data-node-id="ROUTE_001" data-severity="normal"
+           data-visual-class="route"
+           data-label="Jebel Ali → Rotterdam → Felixstowe"
+           style="--vl-accent:#16a34a;--vl-stroke:#15803d;--title-size:17.60px;--meta-size:11.51px;--icon-size:19.97px;">
+          <title>Jebel Ali → Rotterdam → Felixstowe
+ROUTE · ROUTE_001</title>
+          <rect class="vl-card-shell" x="684.0" y="595.8" width="288.0" height="169.2" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="684.0" y="595.8" width="11.5" height="169.2" rx="10" />
+          <rect class="vl-card-accent-flat" x="693.5" y="595.8" width="4" height="169.2" />
+          <circle class="vl-icon-well" cx="723.7" cy="680.4" r="18.6" />
+          <text class="vl-card-icon" x="723.7" y="687.1">⇄</text>
+
+          <text class="vl-card-title" x="760.3" y="661.9" style="font-size:13.73px">Jebel Ali → Rotterdam →</text>
+          <text class="vl-card-title" x="760.3" y="677.7" style="font-size:13.73px">Felixstowe</text>
+          <text class="vl-card-meta" x="760.3" y="712.5">ROUTE</text>
+          <circle class="vl-status-dot" cx="956.2" cy="611.0" r="4.6" />
+        </g>
+    
+        <g class="canonical-node vl-reference priority-reference"
+           data-node-id="BENCHMARK_001" data-severity="elevated"
+           data-visual-class="reference"
+           data-label="Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)"
+           style="--vl-accent:#f59e0b;--vl-stroke:#a16207;--title-size:20.53px;--meta-size:13.42px;--icon-size:23.29px;">
+          <title>Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)
+FINDING · BENCHMARK_001</title>
+          <rect class="vl-card-shell" x="462.0" y="65.7" width="336.0" height="197.4" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="462.0" y="65.7" width="13.4" height="197.4" rx="10" />
+          <rect class="vl-card-accent-flat" x="473.4" y="65.7" width="4" height="197.4" />
+          <circle class="vl-icon-well" cx="508.4" cy="164.4" r="21.7" />
+          <text class="vl-card-icon" x="508.4" y="172.3">△</text>
+
+          <text class="vl-card-title" x="551.0" y="142.8" style="font-size:16.01px">Variance USD 800,000.00</text>
+          <text class="vl-card-title" x="551.0" y="161.2" style="font-size:16.01px">(47.06%)…</text>
+          <text class="vl-card-meta" x="551.0" y="201.9">FINDING</text>
+          <circle class="vl-status-dot" cx="779.5" cy="83.4" r="5.3" />
+        </g>
+    
+    <g class="canonical-legend" role="list" aria-label="Relationship types">
+      <line class="legend-swatch" x1="50.0" y1="812.4" x2="80.0" y2="812.4" stroke="#dc2626" stroke-width="4.40" />
+      <text class="legend-label" x="89.0" y="817.6">Benchmark Breach</text>
+      <line class="legend-swatch" x1="243.8" y1="812.4" x2="273.8" y2="812.4" stroke="#1d4ed8" stroke-width="3.00" />
+      <text class="legend-label" x="282.8" y="817.6">Commercial Trading Link</text>
+      <line class="legend-swatch" x1="492.2" y1="812.4" x2="522.2" y2="812.4" stroke="#334155" stroke-width="2.40" />
+      <text class="legend-label" x="531.2" y="817.6">Instrument Movement</text>
+      <line class="legend-swatch" x1="709.4" y1="812.4" x2="739.4" y2="812.4" stroke="#6d28d9" stroke-width="2.40" />
+      <text class="legend-label" x="748.4" y="817.6">Declared Goods</text>
+      <line class="legend-swatch" x1="887.6" y1="812.4" x2="917.6" y2="812.4" stroke="#15803d" stroke-width="2.20" stroke-dasharray="7 5" />
+      <text class="legend-label" x="926.6" y="817.6">Route Dependency</text>
+    </g>
+  </svg>
+  <div class="canonical-graph-provenance">
+    CANONICAL_GRAPH_ENGINE | stage328a_5_visual_renderer_integrated | CANONICAL_GRAPH_ENGINE_CONTRACT | Case: TBML001-CASE-2026-003 | Case fingerprint: c73077d374c9320cec70ea7aa37910d477b641d82c36f21305eac53e0bd7e15a | EXPORTER_CO IMPORTER_CO INVOICE_001 GOODS_001 ROUTE_001 BENCHMARK_001 | TRADES_WITH ISSUED RECEIVED DESCRIBES EXCEEDS_BENCHMARK USES_ROUTE USES_ROUTE
+  </div>
+</div>
+</body>
+</html>
