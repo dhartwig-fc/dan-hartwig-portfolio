@@ -1,8 +1,8 @@
 {
   "active_stage": "Stage459",
-  "build_fingerprint": "50226c54ce83fee196476016b5eaa6ad001b68c09502b276c8c189837c2bc608",
+  "build_fingerprint": "f685afb1b147b9b23bdff2ded02c797ef451554d11bbff0f04f69ce290889cfc",
   "current_branch": "main",
-  "current_commit": "1b4b9819b559fc7ab95d18cd68785f5c775c8e64",
+  "current_commit": "cbb7a70b36f4a96f4f47ecf677f7520b72f59034",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
@@ -10,37 +10,37 @@
       "accepted_run_id": "derived: the run_id of this envelope",
       "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-08-04)",
       "authority_registry": "derived: authority_lock+pointer+registry (status ACTIVE, records agree, artefact matches)",
-      "build_fingerprint": "telemetry_projections/tbml001-ec87771e41_telemetry_projection.json:projection_integrity.canonical_core_sha256",
-      "canonical_source": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT=/Users/danhartwig/dan-hartwig-portfolio; matches)",
+      "build_fingerprint": "telemetry_projections/tbml001-32a4a894ee_telemetry_projection.json:projection_integrity.canonical_core_sha256",
+      "canonical_source": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); matches)",
       "connection": "derived: authority_pointer.json:canonical_relative_path+canonical_sha256+lock_relative_path+registry_relative_path (pointer digest matches the artefact)",
-      "contract_integrity": "telemetry_projections/tbml001-ec87771e41_telemetry_projection.json:projection_integrity.deterministic+contract_id",
+      "contract_integrity": "telemetry_projections/tbml001-32a4a894ee_telemetry_projection.json:projection_integrity.deterministic+contract_id",
       "current_branch": "git:rev-parse --abbrev-ref HEAD",
       "current_commit": "git:rev-parse HEAD",
-      "events": "derived: logs/tbml001-ec87771e41.json:events (runtime stage events for this run)",
-      "evidence_status": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
+      "events": "derived: logs/tbml001-32a4a894ee.json:events (runtime stage events for this run)",
+      "evidence_status": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
       "failures": "derived: count of non-PASS run statuses",
       "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-08-04)",
       "generated_at": "producer runtime clock",
-      "intelligence_asset_status": "derived: end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
-      "last_validation": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:created_at",
+      "intelligence_asset_status": "derived: end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
+      "last_validation": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:created_at",
       "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-08-04)",
-      "product_id": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:product_id",
+      "product_id": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:product_id",
       "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-08-04)",
-      "release_status": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
-      "repository_integrity": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT=/Users/danhartwig/dan-hartwig-portfolio; matches)",
+      "release_status": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
+      "repository_integrity": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); matches)",
       "repository_status": "authority_registry.json:status",
-      "run_id": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:run_id",
-      "runtime_status": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:runtime_status",
+      "run_id": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:run_id",
+      "runtime_status": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:runtime_status",
       "state_reviewed": "programme_state.json:last_reviewed",
-      "validation_status": "end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json:validation_status",
-      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 145 runtime-output paths excluded)"
+      "validation_status": "end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json:validation_status",
+      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 161 runtime-output paths excluded)"
     }
   },
-  "generated_at": "2026-08-04T15:23:56.605749+00:00",
-  "last_validation": "2026-08-04T15:12:28.633524Z",
+  "generated_at": "2026-08-04T16:17:32.089728+00:00",
+  "last_validation": "2026-08-04T15:59:22.563049Z",
   "product_id": "TBML001",
   "projection": {
-    "accepted_run_id": "tbml001-ec87771e41",
+    "accepted_run_id": "tbml001-32a4a894ee",
     "active_stage": "Stage459",
     "authority_registry": "LOCKED",
     "canonical_source": "LOCKED",
@@ -60,7 +60,7 @@
     "state_reviewed": "2026-08-04",
     "validation_status": "PASS"
   },
-  "run_id": "tbml001-ec87771e41",
+  "run_id": "tbml001-32a4a894ee",
   "runtime_projection": {
     "evidence": {
       "artifacts": {
@@ -81,10 +81,10 @@
             "delegation_count": 1,
             "invoice_id": "INV001",
             "price_variance_pct": 47.05882352941176,
-            "repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+            "repository": "$FC04_TBML_REPOSITORY",
             "risk_reason": "Invoice unit price materially exceeds market benchmark",
             "risk_score": 71,
-            "scenario_path": "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+            "scenario_path": "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
             "scenario_sha256": "ac757331e6bf18fe42f32e1e0531497516859e76256359b71707d88723958f1e",
             "variance_amount": 800000,
             "working_tree_state": "NOT_MEASURED"
@@ -185,7 +185,7 @@
               "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
             },
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "sanctions_exposure_flag": false,
             "shared_director_flag": true,
             "shared_owner_flag": true,
@@ -222,7 +222,7 @@
             "invoice_reference": "INV001",
             "product_id": "TBML001",
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "transaction_reference": "PAY001",
             "typology": "TBML001"
           },
@@ -405,10 +405,10 @@
             "origin_country": "Jebel Ali",
             "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
             "source_records": [
-              "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+              "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
               "governed_case_envelope"
             ],
-            "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+            "source_repository": "$FC04_TBML_REPOSITORY",
             "transaction_id": "PAY001"
           },
           "scenario": "TBML001-CASE-2026-003",
@@ -523,7 +523,7 @@
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
           },
           "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-          "run_id": "tbml001-ec87771e41",
+          "run_id": "tbml001-32a4a894ee",
           "sanctions_exposure_flag": false,
           "shared_director_flag": true,
           "shared_owner_flag": true,
@@ -552,24 +552,24 @@
           "variance_percentage": 47.06
         },
         "end_to_end_report": {
-          "created_at": "2026-08-04T15:12:28.633524Z",
-          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41",
+          "created_at": "2026-08-04T15:59:22.563049Z",
+          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee",
           "evidence_status": "CAPTURED",
-          "fc01_product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-ec87771e41_TBML001_metadata_packet.json",
+          "fc01_product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-32a4a894ee_TBML001_metadata_packet.json",
           "operational_status": "OPERATIONAL_READY",
           "pipeline_report_path": null,
           "product_id": "TBML001",
           "proof_statement": "TBML001 was executed through the runtime manufacturing pipeline, producing metadata, FC01 product, validation evidence, evidence pack and release approval.",
-          "release_record_path": "runtime/manufacturing/release_records/tbml001-ec87771e41_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/tbml001-32a4a894ee_release_record.json",
           "release_status": "APPROVED_FOR_RELEASE",
-          "run_id": "tbml001-ec87771e41",
+          "run_id": "tbml001-32a4a894ee",
           "runtime_log_path": null,
           "runtime_status": "SUCCESS",
           "stage": "323G",
           "stage_name": "End-to-End Execution Proof",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-ec87771e41_runtime_validation_report.json",
+          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-32a4a894ee_runtime_validation_report.json",
           "validation_status": "PASS"
         },
         "evidence_pack": {
@@ -581,34 +581,34 @@
             "artefact_index"
           ],
           "checksums": {
-            "artefact_index": "fbac0a9a8a9344eabda8701b0e2d4b580aeae6c3a5a1657351732a54aa22f714",
+            "artefact_index": "8f59ae4bda4a732d32e58f245aff3c7ed21d7f99176a015f34736739d942b465",
             "canonical_graph_artifact": "9aba71159d135673d3018dd86370f0d9c7a8b6db558b0b98d433828f37c347b3",
-            "fc01_product": "64dfa89e758addaa750c8909c40da6ed576e200c5d3d92de7042aafc839b6663",
-            "metadata_packet": "1524ab4a809a8b55b0770ee8323ae767639c8f3a296c1223c423beec819df2bb",
-            "validation_report": "109e76d2795a99a1a9a052a60d892dc372bb73c68c91fdf747b6f14a9e2b8a35"
+            "fc01_product": "52b09244ff9878dde55bdcf73d54ed5c8a152732f367748f3a8c23d4a4b732ba",
+            "metadata_packet": "a69c7fe8ff6004a6c5028e727fec819325ed330251cdce5facdabed4f681fe7d",
+            "validation_report": "67276d348bcc925c01d99ca4130dd05a45a1d4044282988cc47e50eed557c573"
           },
-          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41/evidence_manifest.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41",
+          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/evidence_manifest.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee",
           "status": "CAPTURED"
         },
         "intelligence_product": {
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
-          "fc01_html_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "output_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
+          "fc01_html_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "output_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
           "product_id": "TBML001",
-          "product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "rendered_html_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "run_id": "tbml001-ec87771e41",
-          "runtime_product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "rendered_html_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "run_id": "tbml001-32a4a894ee",
+          "runtime_product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
           "semantic_release_gate": {
             "case_fingerprint": "e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423",
             "case_id": "TBML001-CASE-2026-003",
             "classification": "High",
             "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-            "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
+            "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
             "graph_semantic_value_count": 10,
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_semantic_value_count": 11,
             "risk_score": 71,
             "stale_hits": [],
@@ -733,7 +733,7 @@
               "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
             },
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "sanctions_exposure_flag": false,
             "shared_director_flag": true,
             "shared_owner_flag": true,
@@ -801,7 +801,7 @@
           },
           "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
           "confidence_score": 70.4,
-          "created_at": "2026-08-04T15:12:28.523033Z",
+          "created_at": "2026-08-04T15:59:22.476411Z",
           "decision_rationale": "",
           "decision_recommendation": {
             "priority": "Metadata-driven",
@@ -810,7 +810,7 @@
             "section": "Decision Support"
           },
           "decision_simulation": {},
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
           "driver_analysis": {
             "risk_drivers": [
               "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
@@ -1026,7 +1026,7 @@
             "title": "Investigation Strategy"
           },
           "investigator_playbook": {},
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-ec87771e41_TBML001_metadata_packet.json",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-32a4a894ee_TBML001_metadata_packet.json",
           "metadata_version": "327-hard-active-entity-graph-v1",
           "operational_action_plan": {
             "actions": [
@@ -1172,19 +1172,19 @@
             "origin_country": "Jebel Ali",
             "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
             "source_records": [
-              "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+              "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
               "governed_case_envelope"
             ],
-            "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+            "source_repository": "$FC04_TBML_REPOSITORY",
             "transaction_id": "PAY001"
           },
           "runtime_metadata": {
             "contract_version": "FC01_METADATA_CONTRACT_V1_STAGE362",
-            "created_utc": "2026-08-04T15:12:28.523091+00:00",
+            "created_utc": "2026-08-04T15:59:22.476447+00:00",
             "pipeline_version": "stage361_runtime_pipeline_governance",
             "product_id": "TBML001",
             "renderer_version": "fc01_runtime_product_builder.py",
-            "run_id": "tbml001-ec87771e41"
+            "run_id": "tbml001-32a4a894ee"
           },
           "runtime_ready": true,
           "scenario_analysis": {},
@@ -1225,18 +1225,18 @@
             "status": "EMITTED_BY_RUNTIME"
           }
         },
-        "pipeline_report": "runtime/manufacturing/reports/tbml001-ec87771e41_pipeline_report.json",
+        "pipeline_report": "runtime/manufacturing/reports/tbml001-32a4a894ee_pipeline_report.json",
         "pipeline_status": "SUCCESS",
         "product_execution_status": "SUCCESS",
         "release_status": {
           "checks_failed": 0,
           "checks_passed": 6,
           "release_gate": "323F_RUNTIME_RELEASE_GATE",
-          "release_record_path": "runtime/manufacturing/release_records/tbml001-ec87771e41_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/tbml001-32a4a894ee_release_record.json",
           "status": "APPROVED_FOR_RELEASE"
         },
         "runtime_initialised": true,
-        "runtime_log": "runtime/manufacturing/logs/tbml001-ec87771e41.json",
+        "runtime_log": "runtime/manufacturing/logs/tbml001-32a4a894ee.json",
         "validation_result": {
           "metadata_validation": {
             "checks": [
@@ -1323,9 +1323,9 @@
             ],
             "checks_failed": 0,
             "checks_passed": 16,
-            "created_at": "2026-08-04T15:12:28.624156Z",
+            "created_at": "2026-08-04T15:59:22.556793Z",
             "product_id": "TBML001",
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "status": "PASS",
             "validation_type": "metadata_validation"
           },
@@ -1334,7 +1334,7 @@
             "checks": [
               {
                 "check": "html_file_exists",
-                "message": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+                "message": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
                 "passed": true
               },
               {
@@ -1400,25 +1400,25 @@
             ],
             "checks_failed": 0,
             "checks_passed": 13,
-            "created_at": "2026-08-04T15:12:28.624677Z",
+            "created_at": "2026-08-04T15:59:22.557085Z",
             "product_id": "TBML001",
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "status": "PASS",
             "validation_type": "renderer_validation"
           },
-          "run_id": "tbml001-ec87771e41",
+          "run_id": "tbml001-32a4a894ee",
           "status": "PASS",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-ec87771e41_runtime_validation_report.json"
+          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-32a4a894ee_runtime_validation_report.json"
         }
       },
       "evidence_files": [
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-ec87771e41/tbml001-ec87771e41_TBML001_metadata_packet.json",
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-ec87771e41/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-ec87771e41/evidence_manifest.json",
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-ec87771e41/tbml001-ec87771e41_runtime_validation_report.json",
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-ec87771e41/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-        "/Users/danhartwig/fc-10-work/fc-10-intelligence-repository-layer/runtime/manufacturing/evidence_packs/tbml001-ec87771e41/artefact_index.json"
+        "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+        "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/tbml001-32a4a894ee_TBML001_metadata_packet.json",
+        "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
+        "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/evidence_manifest.json",
+        "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+        "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/tbml001-32a4a894ee_runtime_validation_report.json",
+        "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/artefact_index.json"
       ]
     },
     "evidence_files": [],
@@ -1429,7 +1429,7 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:27.277224Z"
+          "timestamp": "2026-08-04T15:59:21.857665Z"
         },
         {
           "message": "Runtime manifest loaded",
@@ -1438,14 +1438,14 @@
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:27.294900Z"
+          "timestamp": "2026-08-04T15:59:21.880033Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:27.294978Z"
+          "timestamp": "2026-08-04T15:59:21.880137Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -1454,14 +1454,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:27.295009Z"
+          "timestamp": "2026-08-04T15:59:21.880170Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:27.295016Z"
+          "timestamp": "2026-08-04T15:59:21.880178Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -1483,10 +1483,10 @@
                 "delegation_count": 1,
                 "invoice_id": "INV001",
                 "price_variance_pct": 47.05882352941176,
-                "repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "repository": "$FC04_TBML_REPOSITORY",
                 "risk_reason": "Invoice unit price materially exceeds market benchmark",
                 "risk_score": 71,
-                "scenario_path": "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                "scenario_path": "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
                 "scenario_sha256": "ac757331e6bf18fe42f32e1e0531497516859e76256359b71707d88723958f1e",
                 "variance_amount": 800000,
                 "working_tree_state": "NOT_MEASURED"
@@ -1587,7 +1587,7 @@
                   "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
                 },
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-ec87771e41",
+                "run_id": "tbml001-32a4a894ee",
                 "sanctions_exposure_flag": false,
                 "shared_director_flag": true,
                 "shared_owner_flag": true,
@@ -1624,7 +1624,7 @@
                 "invoice_reference": "INV001",
                 "product_id": "TBML001",
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-ec87771e41",
+                "run_id": "tbml001-32a4a894ee",
                 "transaction_reference": "PAY001",
                 "typology": "TBML001"
               },
@@ -1807,10 +1807,10 @@
                 "origin_country": "Jebel Ali",
                 "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
                 "source_records": [
-                  "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                  "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
                   "governed_case_envelope"
                 ],
-                "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "source_repository": "$FC04_TBML_REPOSITORY",
                 "transaction_id": "PAY001"
               },
               "scenario": "TBML001-CASE-2026-003",
@@ -1844,53 +1844,53 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.623948Z"
+          "timestamp": "2026-08-04T15:59:22.556641Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.623965Z"
+          "timestamp": "2026-08-04T15:59:22.556657Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-ec87771e41_TBML001_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-32a4a894ee_TBML001_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.623995Z"
+          "timestamp": "2026-08-04T15:59:22.556675Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.624002Z"
+          "timestamp": "2026-08-04T15:59:22.556681Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml001-ec87771e41",
-            "runtime_product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "tbml001-32a4a894ee",
+            "runtime_product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
               "case_fingerprint": "e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423",
               "case_id": "TBML001-CASE-2026-003",
               "classification": "High",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 10,
               "product_id": "TBML001",
-              "product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+              "product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
               "product_semantic_value_count": 11,
               "risk_score": 71,
               "stale_hits": [],
@@ -1901,14 +1901,14 @@
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.624019Z"
+          "timestamp": "2026-08-04T15:59:22.556694Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.624025Z"
+          "timestamp": "2026-08-04T15:59:22.556699Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -1998,9 +1998,9 @@
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-08-04T15:12:28.624156Z",
+              "created_at": "2026-08-04T15:59:22.556793Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-ec87771e41",
+              "run_id": "tbml001-32a4a894ee",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
@@ -2009,7 +2009,7 @@
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -2075,26 +2075,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-08-04T15:12:28.624677Z",
+              "created_at": "2026-08-04T15:59:22.557085Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-ec87771e41",
+              "run_id": "tbml001-32a4a894ee",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-ec87771e41_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-32a4a894ee_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.625291Z"
+          "timestamp": "2026-08-04T15:59:22.557975Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.625301Z"
+          "timestamp": "2026-08-04T15:59:22.557985Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -2107,26 +2107,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "fbac0a9a8a9344eabda8701b0e2d4b580aeae6c3a5a1657351732a54aa22f714",
+              "artefact_index": "8f59ae4bda4a732d32e58f245aff3c7ed21d7f99176a015f34736739d942b465",
               "canonical_graph_artifact": "9aba71159d135673d3018dd86370f0d9c7a8b6db558b0b98d433828f37c347b3",
-              "fc01_product": "64dfa89e758addaa750c8909c40da6ed576e200c5d3d92de7042aafc839b6663",
-              "metadata_packet": "1524ab4a809a8b55b0770ee8323ae767639c8f3a296c1223c423beec819df2bb",
-              "validation_report": "109e76d2795a99a1a9a052a60d892dc372bb73c68c91fdf747b6f14a9e2b8a35"
+              "fc01_product": "52b09244ff9878dde55bdcf73d54ed5c8a152732f367748f3a8c23d4a4b732ba",
+              "metadata_packet": "a69c7fe8ff6004a6c5028e727fec819325ed330251cdce5facdabed4f681fe7d",
+              "validation_report": "67276d348bcc925c01d99ca4130dd05a45a1d4044282988cc47e50eed557c573"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.632385Z"
+          "timestamp": "2026-08-04T15:59:22.561940Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.632393Z"
+          "timestamp": "2026-08-04T15:59:22.561948Z"
         },
         {
           "message": "Register release completed successfully",
@@ -2134,35 +2134,35 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml001-ec87771e41_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/tbml001-32a4a894ee_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.633396Z"
+          "timestamp": "2026-08-04T15:59:22.562925Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.633416Z"
+          "timestamp": "2026-08-04T15:59:22.562935Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json",
             "execution_complete": true,
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.634067Z"
+          "timestamp": "2026-08-04T15:59:22.563903Z"
         }
       ],
       "product_id": "TBML001",
-      "run_id": "tbml001-ec87771e41",
-      "started_at": "2026-08-04T15:12:27.276825Z",
+      "run_id": "tbml001-32a4a894ee",
+      "started_at": "2026-08-04T15:59:21.857070Z",
       "status": "SUCCESS"
     },
     "governance": {
@@ -2177,14 +2177,14 @@
     "projection_identity": {
       "contract_id": "FC10_TELEMETRY_PROJECTION_PRODUCER_V1",
       "contract_version": "1.0.0",
-      "execution_id": "tbml001-ec87771e41",
+      "execution_id": "tbml001-32a4a894ee",
       "following_step": "08_REGISTER_RELEASE",
       "pipeline_step": "07_BUILD_TELEMETRY_PROJECTION",
       "preceding_step": "06_CAPTURE_EVIDENCE",
       "projection_type": "ENTERPRISE_MANUFACTURING_TELEMETRY"
     },
     "projection_integrity": {
-      "canonical_core_sha256": "50226c54ce83fee196476016b5eaa6ad001b68c09502b276c8c189837c2bc608",
+      "canonical_core_sha256": "f685afb1b147b9b23bdff2ded02c797ef451554d11bbff0f04f69ce290889cfc",
       "canonicalisation": "JSON_SORT_KEYS_INDENT_2_UTF8_LF",
       "deterministic": true
     },
@@ -2479,7 +2479,7 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:27.277224Z"
+          "timestamp": "2026-08-04T15:59:21.857665Z"
         },
         {
           "message": "Runtime manifest loaded",
@@ -2488,14 +2488,14 @@
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:27.294900Z"
+          "timestamp": "2026-08-04T15:59:21.880033Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:27.294978Z"
+          "timestamp": "2026-08-04T15:59:21.880137Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -2504,14 +2504,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:27.295009Z"
+          "timestamp": "2026-08-04T15:59:21.880170Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:27.295016Z"
+          "timestamp": "2026-08-04T15:59:21.880178Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -2533,10 +2533,10 @@
                 "delegation_count": 1,
                 "invoice_id": "INV001",
                 "price_variance_pct": 47.05882352941176,
-                "repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "repository": "$FC04_TBML_REPOSITORY",
                 "risk_reason": "Invoice unit price materially exceeds market benchmark",
                 "risk_score": 71,
-                "scenario_path": "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                "scenario_path": "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
                 "scenario_sha256": "ac757331e6bf18fe42f32e1e0531497516859e76256359b71707d88723958f1e",
                 "variance_amount": 800000,
                 "working_tree_state": "NOT_MEASURED"
@@ -2637,7 +2637,7 @@
                   "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
                 },
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-ec87771e41",
+                "run_id": "tbml001-32a4a894ee",
                 "sanctions_exposure_flag": false,
                 "shared_director_flag": true,
                 "shared_owner_flag": true,
@@ -2674,7 +2674,7 @@
                 "invoice_reference": "INV001",
                 "product_id": "TBML001",
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-ec87771e41",
+                "run_id": "tbml001-32a4a894ee",
                 "transaction_reference": "PAY001",
                 "typology": "TBML001"
               },
@@ -2857,10 +2857,10 @@
                 "origin_country": "Jebel Ali",
                 "shipping_route": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
                 "source_records": [
-                  "/Users/danhartwig/fc-04-tbml-analytics-toolkit/python/specific/TBML001/scenarios/over_invoicing.py",
+                  "$FC04_TBML_REPOSITORY/python/specific/TBML001/scenarios/over_invoicing.py",
                   "governed_case_envelope"
                 ],
-                "source_repository": "/Users/danhartwig/fc-04-tbml-analytics-toolkit",
+                "source_repository": "$FC04_TBML_REPOSITORY",
                 "transaction_id": "PAY001"
               },
               "scenario": "TBML001-CASE-2026-003",
@@ -2894,53 +2894,53 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.623948Z"
+          "timestamp": "2026-08-04T15:59:22.556641Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.623965Z"
+          "timestamp": "2026-08-04T15:59:22.556657Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-ec87771e41_TBML001_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-32a4a894ee_TBML001_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.623995Z"
+          "timestamp": "2026-08-04T15:59:22.556675Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.624002Z"
+          "timestamp": "2026-08-04T15:59:22.556681Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml001-ec87771e41",
-            "runtime_product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "tbml001-32a4a894ee",
+            "runtime_product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
               "case_fingerprint": "e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423",
               "case_id": "TBML001-CASE-2026-003",
               "classification": "High",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-ec87771e41_TBML001_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-32a4a894ee_TBML001_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 10,
               "product_id": "TBML001",
-              "product_path": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+              "product_path": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
               "product_semantic_value_count": 11,
               "risk_score": 71,
               "stale_hits": [],
@@ -2951,14 +2951,14 @@
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.624019Z"
+          "timestamp": "2026-08-04T15:59:22.556694Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.624025Z"
+          "timestamp": "2026-08-04T15:59:22.556699Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -3048,9 +3048,9 @@
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-08-04T15:12:28.624156Z",
+              "created_at": "2026-08-04T15:59:22.556793Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-ec87771e41",
+              "run_id": "tbml001-32a4a894ee",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
@@ -3059,7 +3059,7 @@
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml001-ec87771e41_TBML001_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/tbml001-32a4a894ee_TBML001_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -3125,26 +3125,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-08-04T15:12:28.624677Z",
+              "created_at": "2026-08-04T15:59:22.557085Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-ec87771e41",
+              "run_id": "tbml001-32a4a894ee",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml001-ec87771e41",
+            "run_id": "tbml001-32a4a894ee",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-ec87771e41_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-32a4a894ee_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.625291Z"
+          "timestamp": "2026-08-04T15:59:22.557975Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.625301Z"
+          "timestamp": "2026-08-04T15:59:22.557985Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -3157,26 +3157,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "fbac0a9a8a9344eabda8701b0e2d4b580aeae6c3a5a1657351732a54aa22f714",
+              "artefact_index": "8f59ae4bda4a732d32e58f245aff3c7ed21d7f99176a015f34736739d942b465",
               "canonical_graph_artifact": "9aba71159d135673d3018dd86370f0d9c7a8b6db558b0b98d433828f37c347b3",
-              "fc01_product": "64dfa89e758addaa750c8909c40da6ed576e200c5d3d92de7042aafc839b6663",
-              "metadata_packet": "1524ab4a809a8b55b0770ee8323ae767639c8f3a296c1223c423beec819df2bb",
-              "validation_report": "109e76d2795a99a1a9a052a60d892dc372bb73c68c91fdf747b6f14a9e2b8a35"
+              "fc01_product": "52b09244ff9878dde55bdcf73d54ed5c8a152732f367748f3a8c23d4a4b732ba",
+              "metadata_packet": "a69c7fe8ff6004a6c5028e727fec819325ed330251cdce5facdabed4f681fe7d",
+              "validation_report": "67276d348bcc925c01d99ca4130dd05a45a1d4044282988cc47e50eed557c573"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-ec87771e41",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-32a4a894ee",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.632385Z"
+          "timestamp": "2026-08-04T15:59:22.561940Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.632393Z"
+          "timestamp": "2026-08-04T15:59:22.561948Z"
         },
         {
           "message": "Register release completed successfully",
@@ -3184,30 +3184,30 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml001-ec87771e41_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/tbml001-32a4a894ee_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.633396Z"
+          "timestamp": "2026-08-04T15:59:22.562925Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T15:12:28.633416Z"
+          "timestamp": "2026-08-04T15:59:22.562935Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-ec87771e41_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-32a4a894ee_end_to_end_report.json",
             "execution_complete": true,
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T15:12:28.634067Z"
+          "timestamp": "2026-08-04T15:59:22.563903Z"
         }
       ],
       "status": "SUCCESS"
