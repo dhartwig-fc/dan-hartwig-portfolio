@@ -2,7 +2,7 @@
   "active_stage": "Stage459",
   "build_fingerprint": "637b1662e5784f83742309492eef78bc4dd466d7992cb765d26c6997a7a55dfc",
   "current_branch": "main",
-  "current_commit": "0408260c2d48c05dec6eda0c25f622f755ae7fc7",
+  "current_commit": "548954ab6727376b818eb82b03cf93754a20f7d2",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
@@ -16,7 +16,7 @@
       "contract_integrity": "telemetry_projections/tbml001-d1061230dc_telemetry_projection.json:projection_integrity.deterministic+contract_id",
       "current_branch": "git:rev-parse --abbrev-ref HEAD",
       "current_commit": "git:rev-parse HEAD",
-      "events": "programme_state.json:events (DECLARED_PENDING_REAL_SOURCE \u2014 not derived, not verified)",
+      "events": "derived: logs/tbml001-d1061230dc.json:events (runtime stage events for this run)",
       "evidence_status": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
       "failures": "derived: count of non-PASS run statuses",
       "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-08-04)",
@@ -36,7 +36,7 @@
       "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 105 runtime-output paths excluded)"
     }
   },
-  "generated_at": "2026-08-04T11:32:36.699450+00:00",
+  "generated_at": "2026-08-04T11:56:24.986637+00:00",
   "last_validation": "2026-08-04T08:22:16.870757Z",
   "product_id": "TBML001",
   "projection": {
