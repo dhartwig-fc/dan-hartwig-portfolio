@@ -655,10 +655,17 @@ body {
                 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* REMOVED 2026-08-04: this rule put a "CURRENT" badge on
+           li:first-child, so whichever stage happened to be listed first was
+           labelled current no matter what the programme was doing. POSITION
+           STOOD IN FOR STATE — a claim nothing could falsify, and it went on
+           asserting Stage429A was current for five days after Stage429 closed.
+           The stage that is actually current is bound from the governed
+           envelope in the summary above. */
         #stage429-programme-status
         .telemetry-programme-status__body > div:nth-child(2)
         ol li:first-child::after {
-            content: "CURRENT";
+            content: none;
             position: absolute;
             top: 10px;
             right: 9px;
@@ -1053,9 +1060,6 @@ PORTFOLIO MUTATION: FALSE
     id="stage429-programme-status"
     class="telemetry-programme-status"
     aria-labelledby="stage429-programme-status-heading"
-    data-programme="Stage429"
-    data-current-stage="Stage429A"
-    data-accepted-run-id="tbml001-ccf3770d8b"
 >
     <header class="telemetry-programme-status__header">
         <p class="telemetry-programme-status__eyebrow">
@@ -1063,40 +1067,40 @@ PORTFOLIO MUTATION: FALSE
         </p>
 
         <h2 id="stage429-programme-status-heading">
-            First Runtime Complete · Graph Improvement Sprint Active
+            Governed Runtime Manufacturing
         </h2>
 
         <p>
             Stage327L completed the first governed runtime intelligence asset.
-            Stage429 is preparing the canonical Investigation Layer visual
-            language. The Investigation Layer is not yet published.
+            Every value in this section is read from the governed telemetry
+            envelope; none of it is written into this page.
         </p>
     </header>
 
     <div class="telemetry-programme-status__summary">
         <article>
             <span>First Runtime</span>
-            <strong>COMPLETE</strong>
+            <strong data-telemetry-field="first_runtime_status">—</strong>
         </article>
 
         <article>
             <span>Accepted Run</span>
-            <strong>tbml001-ccf3770d8b</strong>
+            <strong data-telemetry-field="accepted_run_id">—</strong>
         </article>
 
         <article>
             <span>Intelligence Asset</span>
-            <strong>ACCEPTED</strong>
-        </article>
-
-        <article>
-            <span>Active Programme</span>
-            <strong>Stage429</strong>
+            <strong data-telemetry-field="intelligence_asset_status">—</strong>
         </article>
 
         <article>
             <span>Current Stage</span>
-            <strong>Stage429A</strong>
+            <strong data-telemetry-field="active_stage">—</strong>
+        </article>
+
+        <article>
+            <span>State Reviewed</span>
+            <strong data-telemetry-field="state_reviewed">—</strong>
         </article>
     </div>
 
@@ -1115,27 +1119,27 @@ PORTFOLIO MUTATION: FALSE
         </div>
 
         <div>
-            <h3>Stage429 Governed Sequence</h3>
+            <h3>Stage429 Sequence — closed</h3>
             <ol>
                 <li>
                     <strong>Stage429A</strong>
-                    <span>Visual Diagnosis and Acceptance Contract</span>
+                    <span>Visual Diagnosis and Acceptance Contract — closed</span>
                 </li>
                 <li>
                     <strong>Stage429B</strong>
-                    <span>Canonical Visual Grammar</span>
+                    <span>Canonical Visual Grammar — closed</span>
                 </li>
                 <li>
                     <strong>Stage429C</strong>
-                    <span>Layout and Geometry Refinement</span>
+                    <span>Layout and Geometry Refinement — closed</span>
                 </li>
                 <li>
                     <strong>Stage429D</strong>
-                    <span>Governed Density Profiles</span>
+                    <span>Governed Density Profiles — deferred</span>
                 </li>
                 <li>
                     <strong>Stage429E</strong>
-                    <span>Cross-Typology Validation and Lock</span>
+                    <span>Cross-Typology Validation and Lock — closed</span>
                 </li>
             </ol>
         </div>
