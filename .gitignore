@@ -1,0 +1,20 @@
+# The public site. Nothing here is a scratch space - every tracked file is served.
+#
+# Added 2026-08-04 after `git add -A projects/nexus` committed six backup files
+# to the live site in commit 0fd2040. This repository had no .gitignore, so the
+# sweep took every working copy lying in the tree.
+
+# Editor / OS
+.DS_Store
+*.swp
+
+# Backups and pre-change copies - these are working artefacts, never published
+*.bak
+*.bak.*
+*.orig
+*.before_*
+*.before-*
+*_before_*
+*.stage*.bak
+backups/
+**/backups/
