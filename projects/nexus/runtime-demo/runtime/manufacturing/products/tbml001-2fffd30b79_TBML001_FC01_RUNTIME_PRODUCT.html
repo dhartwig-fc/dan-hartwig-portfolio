@@ -1,0 +1,867 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Trade Based Money Laundering · Over Invoicing — Case TBML001-CASE-2026-003</title>
+<style>
+body { font-family:Arial,sans-serif; margin:24px; background:#f7f8fa; color:#111827; }
+h1 { margin:0 0 4px; }
+.page-note { margin:0 0 14px; color:#4b5563; }
+.shell { display:grid; grid-template-columns:240px 1fr; gap:14px; align-items:start; }
+.sources { background:white; border:1px solid #d7dde5; border-radius:14px; padding:14px; position:sticky; top:18px; }
+.source { border:1px solid #d7dde5; border-radius:10px; padding:10px; margin-bottom:10px; background:#f9fafb; font-size:13px; }
+.source strong { display:block; margin-bottom:4px; }
+.band { background:#111827; color:white; padding:10px; border-radius:8px; text-align:center; font-weight:700; margin:18px 0 12px; }
+.box { background:white; border:1px solid #d7dde5; border-radius:12px; padding:16px; margin-bottom:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+.diagram-frame { width:100%; height:520px; border:1px solid #d7dde5; border-radius:12px; background:white; }
+.driver-row { display:grid; grid-template-columns:150px 1fr 40px; gap:8px; margin:8px 0; align-items:center; }
+.bar-track { height:10px; background:#d1d5db; border-radius:99px; overflow:hidden; }
+.bar-fill { height:10px; border-radius:99px; }
+.blue { background:#2563eb; }
+.orange { background:#f97316; }
+.executive-banner { background:#111827; color:white; border-radius:14px; padding:18px; margin:18px 0 12px; }
+.executive-banner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.executive-banner-card { border:1px solid rgba(255,255,255,.25); border-radius:12px; padding:14px; }
+.executive-banner-card h2 { margin:0 0 8px; font-size:15px; color:#dbeafe; }
+.executive-banner-card strong { display:block; font-size:22px; }
+.conclusion-card { border-left:5px solid #111827; }
+.conclusion-value { font-size:22px; font-weight:800; margin-top:6px; }
+.tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.tab { padding:8px 12px; border:1px solid #d7dde5; border-radius:8px; cursor:pointer; font-weight:700; }
+.tab.active { background:#111827; color:white; }
+.panel { display:none; }
+.panel.active { display:block; }
+.meta { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.meta div { border:1px solid #d7dde5; border-radius:10px; padding:10px; background:#f9fafb; }
+table { width:100%; border-collapse:collapse; }
+th,td { border:1px solid #d7dde5; padding:8px; text-align:left; }
+@media(max-width:900px){ .shell,.grid3,.grid2,.meta,.executive-banner-grid{grid-template-columns:1fr;} .sources{position:static;} }
+
+.scenario-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario-card{border:1px solid #cfd6dc;border-radius:12px;padding:14px;background:#fff}
+.scenario-card h3{margin:0 0 8px 0}
+.scenario-prob{display:inline-block;font-weight:700;border-radius:999px;padding:4px 10px;background:#e8f1ff;margin-bottom:10px}
+.scenario-meta{font-size:13px;line-height:1.45;margin:8px 0}
+.scenario-meta strong{display:inline-block;min-width:115px}
+
+.decision-support-stack{display:flex;flex-direction:column;gap:14px}
+.scenario-wide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.decision-simulation-full{width:100%}
+
+</style>
+</head>
+<body>
+
+<h1>Trade Based Money Laundering · Over Invoicing — Case TBML001-CASE-2026-003</h1>
+<p class="page-note">Safe staging layer for visual validation before promotion into production FC01.</p>
+
+<div class="shell">
+<aside class="sources">
+<h2>Data Sources</h2>
+<div class="source"><strong>Corporate Registry</strong>Director, company and ownership filings</div>
+<div class="source"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div>
+<div class="source"><strong>Transaction History</strong>Payments, relationship history and account activity</div>
+<div class="source"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div>
+<div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence <em>(trade typologies)</em></div>
+<div class="source"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+</aside>
+
+<main>
+<div class="band">VISUAL INTELLIGENCE MODEL</div>
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/tbml001-2fffd30b79_TBML001_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Canonical Graph Engine Output&lt;/title&gt;
+&lt;style&gt;
+body {
+  margin: 0;
+  background: #ffffff;
+}
+.canonical-graph-engine {
+  border: 1px solid #d7dde5;
+  border-radius: 14px;
+  padding: 20px;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #111827;
+}
+.canonical-graph-title {
+  font-weight: 900;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.canonical-graph-badges {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.canonical-graph-badges span {
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #334155;
+}
+.canonical-graph-svg {
+  width: 100%;
+  /* Aspect-locked to the canvas rather than pinned to a fixed height.
+     The viewBox is now the full 1260x840 contract canvas; a hard 540px height
+     against a 1.5 aspect ratio letterboxes it, so the browser scales the whole
+     graph down to fit the shorter axis and the extra card height is given back.
+     `height` remains as the fallback for engines without `aspect-ratio`. */
+  aspect-ratio: var(--graph-aspect, 3 / 2);
+  height: auto;
+  max-height: var(--graph-svg-height, 840px);
+  display: block;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+/* Edge appearance is now PER RELATIONSHIP and arrives as presentation attributes
+   on the path. Nothing here may set stroke, stroke-width, dasharray or marker-end.
+
+   This is not a style preference, it is a specificity trap. In SVG a presentation
+   attribute has LOWER priority than any CSS declaration, so a `stroke: #111827`
+   rule on this class silently beats `stroke=&quot;#dc2626&quot;` on the element — the
+   semantics would be emitted, visible in the DOM, and have no effect on screen.
+   `test_edge_css_does_not_override_the_semantics` guards it. */
+.canonical-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Relationship key. Added 2026-08-03 -- five classes had been rendered in five
+   colours with nothing anywhere saying what they meant. */
+.legend-swatch {
+  fill: none;
+  stroke-linecap: round;
+}
+.legend-label {
+  font-size: 15px;
+  font-weight: 600;
+  fill: #475569;
+  letter-spacing: 0.01em;
+}
+.edge-label-bg {
+  fill: rgba(255,255,255,0.95);
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+/* Third card line. Attribute detail — jurisdiction, unit price, corridor —
+   deliberately quieter than the title and the type/id line. */
+.vl-card-attr {
+  font-size: calc(var(--meta-size) * 0.94);
+  font-weight: 600;
+  fill: #64748b;
+  letter-spacing: 0.01em;
+}
+/* Severity emphasis. Only a critical finding gets this. */
+.vl-finding-halo {
+  fill: none;
+  stroke: var(--vl-accent);
+  stroke-width: 2;
+  opacity: 0.28;
+}
+.vl-finding .vl-card-shell {
+  stroke: var(--vl-stroke);
+  stroke-width: 2;
+}
+.vl-finding .vl-card-title {
+  font-weight: 900;
+}
+.edge-label {
+  font-size: 10px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+}
+.vl-card-shell {
+  fill: #ffffff;
+  stroke: var(--vl-stroke);
+  stroke-width: 1.7;
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.16));
+}
+.priority-primary .vl-card-shell {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.24));
+}
+.priority-reference .vl-card-shell {
+  opacity: .88;
+  stroke-dasharray: 4 3;
+}
+.vl-card-accent,
+.vl-card-accent-flat,
+.vl-status-dot {
+  fill: var(--vl-accent);
+}
+.vl-icon-well {
+  fill: #f8fafc;
+  stroke: #e2e8f0;
+  stroke-width: 1;
+}
+.vl-card-icon {
+  font-size: var(--icon-size);
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: #111827;
+}
+.vl-card-title {
+  font-size: var(--title-size);
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: start;
+}
+.vl-card-meta {
+  font-size: var(--meta-size);
+  font-weight: 800;
+  fill: #64748b;
+  text-anchor: start;
+}
+.vl-reference .vl-card-title,
+.vl-reference .vl-card-meta {
+  fill: #64748b;
+}
+.vl-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#canonical-arrow);
+}
+.vl-edge-label-bg {
+  fill: rgba(255,255,255,0.96);
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.12));
+}
+.vl-edge-label {
+  font-size: 8.4px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+  letter-spacing: .02em;
+}
+.edge-critical-label-bg {
+  stroke: #fecaca;
+}
+.edge-trade-label-bg {
+  stroke: #bfdbfe;
+}
+.edge-route-label-bg {
+  stroke: #bbf7d0;
+}
+.edge-evidence-label-bg {
+  stroke: #ddd6fe;
+}
+.edge-reference-label-bg {
+  stroke: #cbd5e1;
+}
+.canonical-graph-provenance {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #374151;
+  font-weight: 800;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div
+  class=&quot;canonical-graph-engine&quot;
+  data-graph-engine-id=&quot;CANONICAL_GRAPH_ENGINE&quot;
+  data-graph-engine-version=&quot;stage328a_5_visual_renderer_integrated&quot;
+  data-contract-id=&quot;CANONICAL_GRAPH_ENGINE_CONTRACT&quot;
+  data-graph-fingerprint=&quot;419f6f4643ce9fd0ebaf7c1f4d89ff7668671ab797525031a18d3a689d328146&quot;
+  data-case-id=&quot;TBML001-CASE-2026-003&quot;
+  data-case-fingerprint=&quot;e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423&quot;
+  data-renderer-id=&quot;CANONICAL_GRAPH_VISUAL_RENDERER&quot;
+  data-renderer-version=&quot;stage330_wp1_visual_language_interpreter&quot;
+  data-renderer-mode=&quot;VISUAL_LANGUAGE_INTERPRETER&quot;
+  data-visual-language-id=&quot;ENTERPRISE_INTELLIGENCE_VISUAL_LANGUAGE&quot;
+  data-visual-language-version=&quot;stage329b_wp1_investigation_relationship_language&quot;
+  data-display-scale=&quot;1.000&quot; data-safe-margin=&quot;true&quot;
+  data-card-size=&quot;320x188&quot; data-canvas-size=&quot;1260x840&quot;
+  data-frame-fits=&quot;true&quot; data-frame-at-floor=&quot;false&quot;
+  style=&quot;--graph-svg-height:840px;--graph-aspect:1260 / 840&quot;
+&gt;
+  &lt;div class=&quot;canonical-graph-title&quot;&gt;Canonical Graph Engine Output&lt;/div&gt;
+  &lt;div class=&quot;canonical-graph-badges&quot;&gt;
+    &lt;span&gt;Case: TBML001-CASE-2026-003&lt;/span&gt;
+    &lt;span&gt;Topology: diamond&lt;/span&gt;
+    &lt;span&gt;Layout: stage307_topology_pipeline&lt;/span&gt;
+    &lt;span&gt;Renderer: CANONICAL_GRAPH_VISUAL_RENDERER&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;svg class=&quot;canonical-graph-svg&quot; viewBox=&quot;0 0 1260.0 840.0&quot; role=&quot;img&quot; aria-label=&quot;Canonical graph&quot;&gt;
+    &lt;defs&gt;
+      &lt;!-- Retained as the fallback for any path that names no relationship class.
+           The per-class markers that follow are the ones edges actually use. --&gt;
+      &lt;marker id=&quot;canonical-arrow&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;
+        &lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#111827&quot;&gt;&lt;/path&gt;
+      &lt;/marker&gt;
+      &lt;marker id=&quot;arrow-critical&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#dc2626&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-document&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#334155&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-evidence&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#6d28d9&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-route&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#15803d&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-trade&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#1d4ed8&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;!-- Card elevation. Cards previously sat flat in the same visual plane as
+           the edge layer, so an edge passing near a card read as part of it. --&gt;
+      &lt;filter id=&quot;vl-card-lift&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;150%&quot;&gt;
+        &lt;feDropShadow dx=&quot;0&quot; dy=&quot;2&quot; stdDeviation=&quot;3&quot; flood-color=&quot;#0f172a&quot; flood-opacity=&quot;0.18&quot;&gt;&lt;/feDropShadow&gt;
+      &lt;/filter&gt;
+    &lt;/defs&gt;
+    
+        &lt;path class=&quot;canonical-edge rel-trade&quot; data-edge-clear=&quot;true&quot; data-source=&quot;EXPORTER_CO&quot; data-target=&quot;IMPORTER_CO&quot; data-relationship-class=&quot;trade&quot; data-relationship-label=&quot;Commercial Trading Link&quot; stroke=&quot;#1d4ed8&quot; stroke-width=&quot;3.00&quot; stroke-opacity=&quot;0.92&quot; marker-end=&quot;url(#arrow-trade)&quot; d=&quot;M 223.0 314.2 L 223.0 272.4 Q 223.0 264.4 231.0 264.4 L 1007.0 264.4 Q 1015.0 264.4 1015.0 272.4 L 1015.0 314.2&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;360.3&quot; y=&quot;253.4&quot; width=&quot;95.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;407.8&quot; y=&quot;267.9&quot; style=&quot;font-size:9.50px&quot;&gt;TRADES_WITH&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-document&quot; data-edge-clear=&quot;true&quot; data-source=&quot;EXPORTER_CO&quot; data-target=&quot;INVOICE_001&quot; data-relationship-class=&quot;document&quot; data-relationship-label=&quot;Instrument Movement&quot; stroke=&quot;#334155&quot; stroke-width=&quot;2.40&quot; stroke-opacity=&quot;0.86&quot; marker-end=&quot;url(#arrow-document)&quot; d=&quot;M 234.0 530.5 L 234.0 548.5 Q 234.0 556.5 242.0 556.5 L 397.1 556.5 Q 399.0 556.5 399.0 558.4 L 399.0 558.4 Q 399.0 560.4 399.0 562.3 L 399.0 586.4&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;286.5&quot; y=&quot;545.5&quot; width=&quot;60.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;316.5&quot; y=&quot;559.9&quot; style=&quot;font-size:9.50px&quot;&gt;ISSUED&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-document&quot; data-edge-clear=&quot;true&quot; data-source=&quot;IMPORTER_CO&quot; data-target=&quot;INVOICE_001&quot; data-relationship-class=&quot;document&quot; data-relationship-label=&quot;Instrument Movement&quot; stroke=&quot;#334155&quot; stroke-width=&quot;2.40&quot; stroke-opacity=&quot;0.86&quot; marker-end=&quot;url(#arrow-document)&quot; d=&quot;M 1037.0 314.2 L 1037.0 288.4 Q 1037.0 280.4 1029.0 280.4 L 429.0 280.4 Q 421.0 280.4 421.0 288.4 L 421.0 552.4 Q 421.0 560.4 421.0 568.4 L 421.0 586.4&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;692.0&quot; y=&quot;269.4&quot; width=&quot;74.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;729.0&quot; y=&quot;283.9&quot; style=&quot;font-size:9.50px&quot;&gt;RECEIVED&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-evidence&quot; data-edge-clear=&quot;true&quot; data-source=&quot;INVOICE_001&quot; data-target=&quot;GOODS_001&quot; data-relationship-class=&quot;evidence&quot; data-relationship-label=&quot;Declared Goods&quot; stroke=&quot;#6d28d9&quot; stroke-width=&quot;2.40&quot; stroke-opacity=&quot;0.84&quot; marker-end=&quot;url(#arrow-evidence)&quot; d=&quot;M 443.0 586.4 L 443.0 568.4 Q 443.0 560.4 451.0 560.4 L 622.0 560.4 Q 630.0 560.4 630.0 552.4 L 630.0 546.6 Q 630.0 538.6 630.0 530.6 L 630.0 512.6&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;496.0&quot; y=&quot;549.4&quot; width=&quot;81.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;536.5&quot; y=&quot;563.8&quot; style=&quot;font-size:9.50px&quot;&gt;DESCRIBES&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-critical&quot; data-edge-clear=&quot;true&quot; data-source=&quot;INVOICE_001&quot; data-target=&quot;BENCHMARK_001&quot; data-relationship-class=&quot;critical&quot; data-relationship-label=&quot;Benchmark Breach&quot; stroke=&quot;#dc2626&quot; stroke-width=&quot;4.40&quot; stroke-opacity=&quot;0.98&quot; marker-end=&quot;url(#arrow-critical)&quot; d=&quot;M 465.0 586.4 L 465.0 568.4 Q 465.0 560.4 465.0 552.4 L 465.0 304.4 Q 465.0 296.4 473.0 296.4 L 622.0 296.4 Q 630.0 296.4 630.0 288.4 L 630.0 263.1&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;396.5&quot; y=&quot;285.4&quot; width=&quot;137.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;465.0&quot; y=&quot;299.8&quot; style=&quot;font-size:9.50px&quot;&gt;EXCEEDS_BENCHMARK&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-route&quot; data-edge-clear=&quot;true&quot; data-source=&quot;EXPORTER_CO&quot; data-target=&quot;ROUTE_001&quot; data-relationship-class=&quot;route&quot; data-relationship-label=&quot;Route Dependency&quot; stroke=&quot;#15803d&quot; stroke-width=&quot;2.20&quot; stroke-opacity=&quot;0.80&quot; stroke-dasharray=&quot;7 5&quot; marker-end=&quot;url(#arrow-route)&quot; d=&quot;M 245.0 314.2 L 245.0 313.4 Q 245.0 312.4 245.9 312.4 L 809.0 312.4 Q 817.0 312.4 817.0 320.4 L 817.0 561.8 Q 817.0 569.8 817.0 577.8 L 817.0 595.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;658.6&quot; y=&quot;301.4&quot; width=&quot;88.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;702.6&quot; y=&quot;315.9&quot; style=&quot;font-size:9.50px&quot;&gt;USES_ROUTE&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-route&quot; data-edge-clear=&quot;true&quot; data-source=&quot;IMPORTER_CO&quot; data-target=&quot;ROUTE_001&quot; data-relationship-class=&quot;route&quot; data-relationship-label=&quot;Route Dependency&quot; stroke=&quot;#15803d&quot; stroke-width=&quot;2.20&quot; stroke-opacity=&quot;0.80&quot; stroke-dasharray=&quot;7 5&quot; marker-end=&quot;url(#arrow-route)&quot; d=&quot;M 1026.0 530.5 L 1026.0 548.5 Q 1026.0 556.5 1018.0 556.5 L 845.6 556.5 Q 839.0 556.5 839.0 563.1 L 839.0 563.1 Q 839.0 569.8 839.0 576.4 L 839.0 595.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;888.5&quot; y=&quot;545.5&quot; width=&quot;88.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;932.5&quot; y=&quot;559.9&quot; style=&quot;font-size:9.50px&quot;&gt;USES_ROUTE&lt;/text&gt;
+            
+    
+        &lt;g class=&quot;canonical-node vl-subject priority-primary&quot;
+           data-node-id=&quot;EXPORTER_CO&quot; data-severity=&quot;elevated&quot;
+           data-visual-class=&quot;subject&quot;
+           data-label=&quot;XYZ Trading LLC&quot;
+           style=&quot;--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;&quot;&gt;
+          &lt;title&gt;XYZ Trading LLC
+PARTY · EXPORTER_CO&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;50.0&quot; y=&quot;314.2&quot; width=&quot;368.0&quot; height=&quot;216.2&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;50.0&quot; y=&quot;314.2&quot; width=&quot;14.7&quot; height=&quot;216.2&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;62.7&quot; y=&quot;314.2&quot; width=&quot;4&quot; height=&quot;216.2&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;100.8&quot; cy=&quot;422.4&quot; r=&quot;23.8&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;100.8&quot; y=&quot;431.0&quot;&gt;▦&lt;/text&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;147.5&quot; y=&quot;407.2&quot; style=&quot;font-size:22.48px&quot;&gt;XYZ Trading LLC&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;147.5&quot; y=&quot;463.4&quot;&gt;PARTY&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;397.8&quot; cy=&quot;333.7&quot; r=&quot;5.8&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-subject priority-primary&quot;
+           data-node-id=&quot;IMPORTER_CO&quot; data-severity=&quot;elevated&quot;
+           data-visual-class=&quot;subject&quot;
+           data-label=&quot;ABC Imports Ltd&quot;
+           style=&quot;--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;&quot;&gt;
+          &lt;title&gt;ABC Imports Ltd
+PARTY · IMPORTER_CO&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;842.0&quot; y=&quot;314.2&quot; width=&quot;368.0&quot; height=&quot;216.2&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;842.0&quot; y=&quot;314.2&quot; width=&quot;14.7&quot; height=&quot;216.2&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;854.7&quot; y=&quot;314.2&quot; width=&quot;4&quot; height=&quot;216.2&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;892.8&quot; cy=&quot;422.4&quot; r=&quot;23.8&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;892.8&quot; y=&quot;431.0&quot;&gt;▦&lt;/text&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;939.5&quot; y=&quot;407.2&quot; style=&quot;font-size:22.48px&quot;&gt;ABC Imports Ltd&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;939.5&quot; y=&quot;463.4&quot;&gt;PARTY&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;1189.8&quot; cy=&quot;333.7&quot; r=&quot;5.8&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-transaction priority-transaction vl-finding&quot;
+           data-node-id=&quot;INVOICE_001&quot; data-severity=&quot;critical&quot;
+           data-visual-class=&quot;transaction&quot;
+           data-label=&quot;INV001 · PAY001 · USD 2,500,000.00&quot;
+           data-risk-score=&quot;71&quot;
+           data-risk-band=&quot;High&quot;
+           style=&quot;--vl-accent:#2563eb;--vl-stroke:#1d4ed8;--title-size:19.55px;--meta-size:12.78px;--icon-size:22.18px;&quot;&gt;
+          &lt;title&gt;INV001 · PAY001 · USD 2,500,000.00
+INSTRUMENT · INVOICE_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-finding-halo&quot; x=&quot;268.0&quot; y=&quot;582.4&quot; width=&quot;328.0&quot; height=&quot;196.0&quot; rx=&quot;13&quot; /&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;272.0&quot; y=&quot;586.4&quot; width=&quot;320.0&quot; height=&quot;188.0&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;272.0&quot; y=&quot;586.4&quot; width=&quot;12.8&quot; height=&quot;188.0&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;282.8&quot; y=&quot;586.4&quot; width=&quot;4&quot; height=&quot;188.0&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;316.2&quot; cy=&quot;680.4&quot; r=&quot;20.7&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;316.2&quot; y=&quot;687.9&quot;&gt;▤&lt;/text&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;356.8&quot; y=&quot;657.7&quot; style=&quot;font-size:19.55px&quot;&gt;INV001 · PAY001&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;356.8&quot; y=&quot;680.2&quot; style=&quot;font-size:19.55px&quot;&gt;USD 2,500,000.00&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;356.8&quot; y=&quot;716.1&quot;&gt;INSTRUMENT&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;574.4&quot; cy=&quot;603.3&quot; r=&quot;5.1&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-transaction priority-transaction&quot;
+           data-node-id=&quot;GOODS_001&quot; data-severity=&quot;normal&quot;
+           data-visual-class=&quot;transaction&quot;
+           data-label=&quot;Network communications equipment&quot;
+           style=&quot;--vl-accent:#7c3aed;--vl-stroke:#6d28d9;--title-size:18.77px;--meta-size:12.27px;--icon-size:21.30px;&quot;&gt;
+          &lt;title&gt;Network communications equipment
+GOODS · GOODS_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;476.4&quot; y=&quot;332.1&quot; width=&quot;307.2&quot; height=&quot;180.5&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;476.4&quot; y=&quot;332.1&quot; width=&quot;12.3&quot; height=&quot;180.5&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;486.7&quot; y=&quot;332.1&quot; width=&quot;4&quot; height=&quot;180.5&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;518.8&quot; cy=&quot;422.4&quot; r=&quot;19.9&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;518.8&quot; y=&quot;429.6&quot;&gt;■&lt;/text&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;557.8&quot; y=&quot;402.6&quot; style=&quot;font-size:14.64px&quot;&gt;Network communications&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;557.8&quot; y=&quot;419.5&quot; style=&quot;font-size:14.64px&quot;&gt;equipment&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;557.8&quot; y=&quot;456.6&quot;&gt;GOODS&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;766.7&quot; cy=&quot;348.4&quot; r=&quot;4.9&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-route priority-supporting&quot;
+           data-node-id=&quot;ROUTE_001&quot; data-severity=&quot;normal&quot;
+           data-visual-class=&quot;route&quot;
+           data-label=&quot;Jebel Ali → Rotterdam → Felixstowe&quot;
+           style=&quot;--vl-accent:#16a34a;--vl-stroke:#15803d;--title-size:17.60px;--meta-size:11.51px;--icon-size:19.97px;&quot;&gt;
+          &lt;title&gt;Jebel Ali → Rotterdam → Felixstowe
+ROUTE · ROUTE_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;684.0&quot; y=&quot;595.8&quot; width=&quot;288.0&quot; height=&quot;169.2&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;684.0&quot; y=&quot;595.8&quot; width=&quot;11.5&quot; height=&quot;169.2&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;693.5&quot; y=&quot;595.8&quot; width=&quot;4&quot; height=&quot;169.2&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;723.7&quot; cy=&quot;680.4&quot; r=&quot;18.6&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;723.7&quot; y=&quot;687.1&quot;&gt;⇄&lt;/text&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;760.3&quot; y=&quot;661.9&quot; style=&quot;font-size:13.73px&quot;&gt;Jebel Ali → Rotterdam →&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;760.3&quot; y=&quot;677.7&quot; style=&quot;font-size:13.73px&quot;&gt;Felixstowe&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;760.3&quot; y=&quot;712.5&quot;&gt;ROUTE&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;956.2&quot; cy=&quot;611.0&quot; r=&quot;4.6&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-reference priority-reference&quot;
+           data-node-id=&quot;BENCHMARK_001&quot; data-severity=&quot;elevated&quot;
+           data-visual-class=&quot;reference&quot;
+           data-label=&quot;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)&quot;
+           style=&quot;--vl-accent:#f59e0b;--vl-stroke:#a16207;--title-size:20.53px;--meta-size:13.42px;--icon-size:23.29px;&quot;&gt;
+          &lt;title&gt;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)
+FINDING · BENCHMARK_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;462.0&quot; y=&quot;65.7&quot; width=&quot;336.0&quot; height=&quot;197.4&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;462.0&quot; y=&quot;65.7&quot; width=&quot;13.4&quot; height=&quot;197.4&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;473.4&quot; y=&quot;65.7&quot; width=&quot;4&quot; height=&quot;197.4&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;508.4&quot; cy=&quot;164.4&quot; r=&quot;21.7&quot; /&gt;
+          &lt;text class=&quot;vl-card-icon&quot; x=&quot;508.4&quot; y=&quot;172.3&quot;&gt;△&lt;/text&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;551.0&quot; y=&quot;142.8&quot; style=&quot;font-size:16.01px&quot;&gt;Variance USD 800,000.00&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;551.0&quot; y=&quot;161.2&quot; style=&quot;font-size:16.01px&quot;&gt;(47.06%)…&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;551.0&quot; y=&quot;201.9&quot;&gt;FINDING&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;779.5&quot; cy=&quot;83.4&quot; r=&quot;5.3&quot; /&gt;
+        &lt;/g&gt;
+    
+    &lt;g class=&quot;canonical-legend&quot; role=&quot;list&quot; aria-label=&quot;Relationship types&quot;&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;50.0&quot; y1=&quot;812.4&quot; x2=&quot;80.0&quot; y2=&quot;812.4&quot; stroke=&quot;#dc2626&quot; stroke-width=&quot;4.40&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;89.0&quot; y=&quot;817.6&quot;&gt;Benchmark Breach&lt;/text&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;243.8&quot; y1=&quot;812.4&quot; x2=&quot;273.8&quot; y2=&quot;812.4&quot; stroke=&quot;#1d4ed8&quot; stroke-width=&quot;3.00&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;282.8&quot; y=&quot;817.6&quot;&gt;Commercial Trading Link&lt;/text&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;492.2&quot; y1=&quot;812.4&quot; x2=&quot;522.2&quot; y2=&quot;812.4&quot; stroke=&quot;#334155&quot; stroke-width=&quot;2.40&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;531.2&quot; y=&quot;817.6&quot;&gt;Instrument Movement&lt;/text&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;709.4&quot; y1=&quot;812.4&quot; x2=&quot;739.4&quot; y2=&quot;812.4&quot; stroke=&quot;#6d28d9&quot; stroke-width=&quot;2.40&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;748.4&quot; y=&quot;817.6&quot;&gt;Declared Goods&lt;/text&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;887.6&quot; y1=&quot;812.4&quot; x2=&quot;917.6&quot; y2=&quot;812.4&quot; stroke=&quot;#15803d&quot; stroke-width=&quot;2.20&quot; stroke-dasharray=&quot;7 5&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;926.6&quot; y=&quot;817.6&quot;&gt;Route Dependency&lt;/text&gt;
+    &lt;/g&gt;
+  &lt;/svg&gt;
+  &lt;div class=&quot;canonical-graph-provenance&quot;&gt;
+    CANONICAL_GRAPH_ENGINE | stage328a_5_visual_renderer_integrated | CANONICAL_GRAPH_ENGINE_CONTRACT | Case: TBML001-CASE-2026-003 | Case fingerprint: e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423 | EXPORTER_CO IMPORTER_CO INVOICE_001 GOODS_001 ROUTE_001 BENCHMARK_001 | TRADES_WITH ISSUED RECEIVED DESCRIBES EXCEEDS_BENCHMARK USES_ROUTE USES_ROUTE
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Canonical Graph" style="width:100%;height:520px;border:1px solid #d7dde5;border-radius:12px;background:white;"></iframe>
+
+<div class="band">SCORING FRAMEWORK</div>
+
+<div class="grid3"
+     data-runtime-section="governed_case_summary"
+     data-source="metadata_packet"
+     data-case-family="trade"
+     data-case-id="TBML001-CASE-2026-003"
+     data-case-fingerprint="e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423"
+     data-product-id="TBML001"
+     data-typology-id="TBML001"
+     data-classification="High"
+     data-risk-score="71">
+  <div class="box">
+    <h2>Governed Case Identity</h2>
+    <p><strong>Case:</strong> TBML001-CASE-2026-003</p>
+    <p><strong>Fingerprint:</strong> <code>e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423</code></p>
+    <p><strong>Product / Typology:</strong> TBML001 / TBML001</p>
+    <p><strong>Classification:</strong> High</p>
+    <p><strong>Governed Risk Score:</strong> 71 / 100</p>
+  </div>
+  <div class="box">
+    <h2>Parties and Transaction</h2>
+    <p><strong>Exporter:</strong> XYZ Trading LLC</p>
+    <p><strong>Importer:</strong> ABC Imports Ltd</p>
+    <p><strong>Invoice:</strong> INV001</p>
+    <p><strong>Transaction:</strong> PAY001</p>
+  </div>
+  <div class="box">
+    <h2>Trade and Valuation</h2>
+    <p><strong>Goods:</strong> Network communications equipment</p>
+    <p><strong>Route:</strong> Jebel Ali → Rotterdam → Felixstowe</p>
+    <p><strong>Declared:</strong> USD 2,500,000</p>
+    <p><strong>Benchmark:</strong> USD 1,700,000</p>
+    <p><strong>Variance:</strong> USD 800,000</p>
+  </div>
+</div>
+
+<div class="grid3" data-runtime-section="scoring_framework" data-source="metadata_packet">
+  <div class="box">
+    <h2>Evidence Coverage</h2>
+    <p><strong>100.0%</strong></p>
+    <p>15 of 15 evidence items present</p>
+    <p>No evidence gaps.</p>
+  </div>
+  <div class="box">
+    <h2>Risk Score</h2>
+    <p><strong>71 / 100</strong></p><ul><li>Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</li><li>Trade route: Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice unit price materially exceeds market benchmark</li></ul>
+  </div>
+  <div class="box">
+    <h2>Exposure Score</h2>
+    <p><strong>Not computed</strong></p><p>No value was supplied for this score.</p>
+  </div>
+</div>
+
+
+<div class="band">DRIVER ANALYSIS</div>
+
+<div class="grid3" data-runtime-section="driver_analysis" data-source="metadata_packet">
+  <div class="box" data-source="confidence_components"><h2>Risk Confidence Drivers</h2>
+    <p>Distance From Decision Boundary <span class="metric">56.9</span><span class="muted"> 47.0588% vs 30% threshold &middot; weight 0.6</span></p><p>Evidence Coverage <span class="metric">100.0</span><span class="muted"> 15 of 15 items &middot; weight 0.4</span></p><p class="muted">Capped at 95 &mdash; an automated triage step does not publish certainty.</p>
+  </div>
+  <div class="box" data-source="risk_components"><h2>Risk Score Drivers</h2>
+    <p>Inflation <span class="metric">21.00</span><span class="muted"> High &middot; weight 0.3</span></p><p>Network <span class="metric">13.50</span><span class="muted"> Critical &middot; weight 0.15</span></p><p>Trade Value <span class="metric">13.50</span><span class="muted"> Critical &middot; weight 0.15</span></p><p>Counterparty <span class="metric">10.50</span><span class="muted"> High &middot; weight 0.15</span></p><p>Jurisdiction <span class="metric">10.50</span><span class="muted"> High &middot; weight 0.15</span></p><p>Historical <span class="metric">1.50</span><span class="muted"> Low &middot; weight 0.1</span></p>
+  </div>
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <p>Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</p><p>Trade route: Jebel Ali → Rotterdam → Felixstowe.</p><p>Invoice unit price materially exceeds market benchmark</p>
+  </div>
+</div>
+
+
+<div class="executive-banner">
+<div class="executive-banner-grid">
+<div class="executive-banner-card">
+<h2>Intelligence Judgement</h2>
+<strong>High Risk &middot; confidence 70.4 of 95</strong><p>The governed analytic scored this case 71 of 100 and it classified as High.</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Dominant Typology</h2>
+<strong>TBML001 Over Invoicing</strong><p>Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Recommended Action</h2>
+<strong>Evidence validation and decision review</strong><p>Owner: Financial Crime Operations. 4 investigation actions listed below.</p>
+</div>
+</div>
+</div>
+
+<div class="band">INTELLIGENCE ASSESSMENT</div>
+<div class="grid3">
+<div class="box"><h2>Key Indicators</h2><ul><li>Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</li><li>Trade route: Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice unit price materially exceeds market benchmark</li></ul></div>
+<div class="box"><h2>Risk Rationale</h2><p>The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</p></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Ownership/control indicators</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+</div>
+
+<div class="band">INTELLIGENCE WORKSPACE</div>
+<div class="box">
+<div class="tabs">
+<button class="tab active" data-tab="assessment">Intelligence Assessment</button>
+<button class="tab" data-tab="actions">Investigation Actions</button>
+<button class="tab" data-tab="brief">Intelligence Brief</button>
+<button class="tab" data-tab="reasoning">Analytic Reasoning</button>
+<button class="tab" data-tab="decision">Decision Support</button>
+<button class="tab" data-tab="metadata">Intelligence Metadata</button>
+</div>
+
+<section class="panel active" id="tab-assessment">
+
+<div class="grid3"
+     data-runtime-section="intelligence_assessment"
+     data-source="fc01_runtime_content">
+  <div class="box" data-source="fc01_runtime_content" data-content-section="intelligence_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Assessment Summary</h2>
+    <p>The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="supporting_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Supporting Assessment</h2>
+    <ul><li>XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.</li><li>The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="confidence_narrative" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Confidence Narrative</h2>
+    <p>Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali → Rotterdam → Felixstowe.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <ul><li>Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</li><li>Trade route: Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice unit price materially exceeds market benchmark</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="alternative_explanations" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Alternative Explanations</h2>
+    <ul><li>Alternative explanations have not been supplied by the analytic.</li><li>This section is scaffolding and should not be read as an assessment.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="investigation_hypothesis" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Investigation Hypothesis</h2>
+    <p>The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali → Rotterdam → Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.</p>
+  </div>
+</div>
+
+</section>
+
+<section class="panel" id="tab-actions">
+
+<div class="grid2">
+
+<div class="box"><h2>Investigation Strategy</h2><div data-runtime-content-shape="semantic">
+<ul><li>Review invoice and transaction evidence</li><li>Compare declared and benchmark values</li><li>Validate exporter and importer identities</li><li>Validate route and shipping documentation</li></ul>
+</div></div>
+
+<div class="box"><h2>Recommended Actions</h2><div data-runtime-content-shape="semantic">
+<p><strong>Priority:</strong> UNSET</p><ul><li>Review invoice and transaction evidence</li><li>Compare declared and benchmark values</li><li>Validate exporter and importer identities</li><li>Validate route and shipping documentation</li></ul>
+</div></div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Key Investigation Questions</h2>
+<ul>
+<li>Does available evidence support the dominant hypothesis?</li>
+<li>Are there additional transaction counterparties or connected parties not currently visible?</li>
+<li>Can ownership, control and shared attributes be independently verified?</li>
+<li>Does historical activity support the observed network structure?</li>
+<li>Is escalation warranted given the high risk rating and high confidence rating?</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>Collection Plan</h2>
+<p>
+Prioritise evidence gathering activities that reduce intelligence gaps and increase assessment confidence.
+</p>
+<ul>
+<li><strong>P1</strong> - Obtain trade documentation records.</li>
+<li><strong>P2</strong> - Validate registered address history.</li>
+<li><strong>P3</strong> - Identify additional transaction counterparties.</li>
+<li><strong>P4</strong> - Review historical activity and prior investigations.</li>
+<li><strong>P5</strong> - Confirm relationship evidence through independent sources.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Investigation Priorities</h2>
+<p class="not-supplied">No investigation priorities have been supplied by the analytic. The confidence gains previously shown here were fixed values, not a forecast.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab-brief">
+<div class="grid3">
+<div class="box"><h2>Executive Intelligence Summary</h2><div data-runtime-content-shape="semantic">
+<p><strong>Headline:</strong> TBML001 requires review.</p><p><strong>Summary:</strong> The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and ABC Imports Ltd. Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).</p>
+</div></div>
+<div class="box"><h2>Key Intelligence Findings</h2><ul><li>XYZ Trading LLC and ABC Imports Ltd are linked through the trade route Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.</li><li>The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71.</li></ul></div>
+<div class="box"><h2>Why This Matters</h2><p>This is operationally important because investigators need to understand which relationship indicators drive the network risk, what evidence supports the judgement and what additional validation is required.</p></div>
+</div>
+</section>
+
+<section class="panel" id="tab-reasoning">
+
+<div class="grid2">
+
+<div class="box">
+<h2>Primary Hypothesis</h2>
+<p>The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali → Rotterdam → Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.</p><div class="conclusion-value">Confidence 70.4</div>
+</div>
+
+<div class="box">
+<h2>Alternative Hypotheses</h2>
+<table>
+<tr><th>Hypothesis</th><th>Confidence</th><th>Rationale</th></tr>
+<tr><td>TBML001 Over Invoicing</td><td>70.4</td><td>The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and ABC Imports Ltd using Jebel Ali → Rotterdam → Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.</td></tr>
+<tr><td colspan="3" class="not-supplied">No competing hypotheses have been supplied by the analytic. This section is scaffolding and should not be read as an assessment.</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Evidence Assessment</h2>
+<ul>
+<li>Diamond network topology present.</li>
+<li>Indirect routing indicators observed.</li>
+<li>Ownership relationships identified.</li>
+<li>Repeated counterparty activity observed.</li>
+<li>Exposure indicators partially validated.</li>
+</ul>
+<p>
+Current evidence partially supports the dominant hypothesis while additional validation remains outstanding.
+</p>
+</div>
+
+<div class="box">
+<h2>Confidence Forecast</h2>
+<p class="not-supplied">No confidence forecast has been supplied by the analytic.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Decision Analysis</h2>
+<p class="not-supplied">No decision analysis has been supplied by the analytic.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+<div class="box">
+<h2>Strategic Investigation Path</h2>
+<p class="not-supplied">No path optimisation has been supplied by the analytic. Projected values require a model this typology does not carry.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box"><h2>Decision Recommendation</h2><div data-runtime-content-shape="semantic">
+<p><strong>Recommended decision:</strong> Enhanced investigation review</p>
+<p><strong>Rationale:</strong> Risk score and relationship indicators justify evidence-led escalation before release approval.</p>
+<p><strong>Priority:</strong> High</p>
+</div></div>
+
+<div class="box">
+<h2>Investigation Value</h2>
+<ul>
+<li>Improves ownership transparency.</li>
+<li>Validates routing rationale.</li>
+<li>Strengthens confidence assessment.</li>
+<li>Tests alternative hypotheses.</li>
+<li>Supports escalation decisions.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Alternative Explanations</h2>
+<ul><li>Alternative explanations have not been supplied by the analytic.</li><li>This section is scaffolding and should not be read as an assessment.</li></ul>
+</div>
+
+<div class="box">
+<h2>Reasoning Summary</h2>
+<p>TBML001 Over Invoicing was selected as the dominant typology from the governed analytic&#x27;s own output.</p>
+<p>
+Additional collection activity is expected to improve confidence and reduce residual uncertainty.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-decision">
+
+<div class="decision-support-stack">
+
+<div class="grid3">
+
+<div class="box"><h2>Investigator Playbook</h2><div data-runtime-content-shape="semantic">
+<ul><li>Review invoice and transaction evidence</li><li>Compare declared and benchmark values</li><li>Validate exporter and importer identities</li><li>Validate route and shipping documentation</li></ul>
+</div></div>
+
+<div class="box"><h2>Evidence Quality</h2><div data-runtime-content-shape="semantic">
+<p><strong>Basis:</strong> Runtime evidence quality assessed from metadata coverage.</p>
+<p><strong>Confidence score:</strong> 70.4</p>
+</div></div>
+
+<div class="box">
+<h2>Hypothesis Probabilities</h2>
+<p class="not-supplied">No hypothesis probabilities have been supplied by the analytic.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Scenario Analysis</h2>
+<p class="not-supplied">No scenario analysis has been supplied by the analytic. The scenarios previously shown here carried fixed probabilities and risk impacts that nothing computed.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+<div class="box decision-simulation-full">
+<h2>Decision Simulation</h2>
+<p class="not-supplied">No decision simulation has been supplied by the analytic.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+<div class="box">
+<h2>Outcome Projection</h2>
+<table>
+<tr><th>Option</th><th>Business Outcome</th><th>Investigation Outcome</th><th>Intelligence Outcome</th></tr>
+<tr><td>Enhanced Review</td><td>Improves decision quality before escalation.</td><td>Closes intelligence gaps and validates the primary hypothesis.</td><td>Increases confidence and improves evidence depth.</td></tr><tr><td>Escalate</td><td>Reduces confidence and improves exposure response speed.</td><td>Accelerates handling but may defer evidence development.</td><td>Limits additional intelligence generation.</td></tr><tr><td>Monitor</td><td>Maintains oversight with minimal operational cost.</td><td>Does not materially progress the investigation.</td><td>Produces limited additional intelligence.</td></tr><tr><td>Close</td><td>No immediate business intervention.</td><td>Investigation activity stops.</td><td>No further intelligence is generated.</td></tr>
+</table>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-metadata">
+<div class="box">
+<h2>Pattern Classification</h2>
+<div class="meta"><div><strong>Type</strong><br>Trade Based Money Laundering</div><div><strong>Category</strong><br>Over Invoicing</div><div><strong>Typology</strong><br>TBML001</div><div><strong>Exposure</strong><br>High</div></div>
+</div>
+
+<div class="box">
+<h2>Pattern Summary</h2>
+<p>TBML001 identifies route intelligence involving ABC Imports Ltd across the Jebel Ali → Rotterdam → Felixstowe corridor. The corridor is flagged as a high-risk corridor, increasing jurisdiction and routing exposure.</p>
+</div>
+
+<div class="box"><h2>Expected Fusion Result</h2><div data-runtime-content-shape="semantic">
+<p><strong>Result:</strong> Fused transaction, graph, counterparty and evidence intelligence.</p>
+</div></div>
+
+<div class="box">
+<h2>Technical Metadata</h2>
+<div class="meta"><div><strong>Pattern ID</strong><br>TBML001</div><div><strong>Entity Count</strong><br>6</div><div><strong>Relationship Count</strong><br>7</div><div><strong>Topology</strong><br>diamond</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div><div><strong>Priority</strong><br>High</div></div>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script>
+document.querySelectorAll(".tab").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+    document.querySelectorAll(".panel").forEach(function(x){x.classList.remove("active");});
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+</script>
+<!-- Stage374C product gate tokens: Visual Intelligence Model | Scoring Framework | Driver Analysis | Intelligence Workspace -->
+</body>
+</html>
