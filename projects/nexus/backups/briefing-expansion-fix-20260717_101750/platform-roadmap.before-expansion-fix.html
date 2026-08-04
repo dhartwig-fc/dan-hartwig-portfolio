@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Platform Roadmap | NEXUS</title>
+
+<style>
+
+:root{
+--bg:#050b14;
+--panel:#081322;
+--line:rgba(148,163,184,.22);
+--text:#f8fafc;
+--muted:#94a3b8;
+--blue:#38bdf8;
+--green:#22c55e;
+}
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+background:
+radial-gradient(circle at 70% 10%,rgba(56,189,248,.18),transparent 35%),
+var(--bg);
+color:var(--text);
+}
+
+.wrap{
+max-width:1180px;
+margin:auto;
+padding:60px 32px 100px;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+margin-bottom:70px;
+}
+
+.back{
+font-weight:800;
+color:var(--muted);
+}
+
+.kicker{
+color:var(--blue);
+font-size:12px;
+font-weight:900;
+letter-spacing:.18em;
+text-transform:uppercase;
+margin-bottom:18px;
+}
+
+h1{
+font-size:clamp(48px,7vw,86px);
+line-height:.92;
+letter-spacing:-.07em;
+margin:0 0 24px;
+}
+
+.lead{
+max-width:820px;
+font-size:19px;
+line-height:1.65;
+color:var(--muted);
+}
+
+.section{
+margin-top:72px;
+}
+
+.section h2{
+font-size:36px;
+letter-spacing:-.05em;
+margin-bottom:26px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.card{
+padding:28px;
+border-radius:28px;
+border:1px solid var(--line);
+background:linear-gradient(180deg,rgba(15,23,42,.92),rgba(8,19,34,.92));
+}
+
+.card h3{
+margin:0 0 16px;
+font-size:26px;
+letter-spacing:-.05em;
+}
+
+.card p{
+margin:0;
+color:var(--muted);
+line-height:1.6;
+font-size:15px;
+}
+
+.label{
+margin-top:18px;
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(56,189,248,.12);
+color:var(--blue);
+font-size:12px;
+font-weight:800;
+}
+
+@media(max-width:960px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="top">
+<a class="back" href="index.html">← NEXUS</a>
+<a class="back" href="../../index.html">Portfolio</a>
+</div>
+
+<div class="kicker">
+Platform Roadmap
+</div>
+
+<h1>
+From prototype to enterprise intelligence platform.
+</h1>
+
+<p class="lead">
+NEXUS is evolving from a public capability demonstration into a reusable financial crime intelligence operating platform. The roadmap below shows the planned progression while protecting proprietary implementation.
+</p>
+
+
+<section class="section">
+
+  <h2>Current position</h2>
+
+  <div class="card" style="max-width:100%;">
+
+    <div class="kicker">Current development state</div>
+
+    <h3>Platform prototype established. Runtime manufacturing next.</h3>
+
+    <p>
+      The public portfolio and NEXUS mission layer are now established. The architecture and capability model are proven at prototype level. The next priority is to complete runtime manufacturing automation and use TBML as the end-to-end investigation layer demonstration.
+    </p>
+
+    <div class="label">Stage: Prototype</div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <h2>Next milestones</h2>
+
+  <div class="grid">
+
+    <article class="card">
+      <div class="kicker">Milestone 01</div>
+      <h3>Investigation Layer</h3>
+      <p>
+        Finalise the graph, intelligence boxes, evidence panels, investigation actions and operational decision support workspace.
+      </p>
+      <div class="label">Coming Next</div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Milestone 02</div>
+      <h3>Runtime Automation</h3>
+      <p>
+        Connect analytics outputs, metadata, validation controls and Pattern Factory rendering into a repeatable manufacturing process.
+      </p>
+      <div class="label">In Progress</div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Milestone 03</div>
+      <h3>AI Investigation</h3>
+      <p>
+        Extend the platform with investigator copilot concepts, orchestration agents, workflow support and assisted intelligence production.
+      </p>
+      <div class="label">Roadmap</div>
+    </article>
+
+    <article class="card">
+      <div class="kicker">Milestone 04</div>
+      <h3>Enterprise Platform</h3>
+      <p>
+        Evolve NEXUS into a multi-domain financial crime intelligence operating platform with reusable governance and deployment patterns.
+      </p>
+      <div class="label">Future</div>
+    </article>
+
+  </div>
+
+</section>
+
+
+<style>
+.timeline{
+  display:grid;
+  gap:14px;
+}
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:18px;
+  align-items:start;
+  padding:22px 24px;
+  border-radius:24px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(15,23,42,.86),rgba(8,19,34,.86));
+}
+
+.timeline-stage{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.timeline-item h3{
+  margin:0 0 8px;
+  font-size:24px;
+  letter-spacing:-.045em;
+}
+
+.timeline-item p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.principle{
+  padding:24px;
+  border-radius:24px;
+  border:1px solid var(--line);
+  background:rgba(15,23,42,.72);
+}
+
+.principle strong{
+  display:block;
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+.principle span{
+  color:var(--muted);
+  line-height:1.55;
+  font-size:15px;
+}
+
+@media(max-width:900px){
+  .timeline-item{
+    grid-template-columns:1fr;
+  }
+
+  .principles{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+<section class="section">
+
+  <h2>Strategic timeline</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-stage">Today</div>
+      <div>
+        <h3>Public prototype established</h3>
+        <p>Portfolio and NEXUS public entry point created to demonstrate the platform vision, operating model and capability architecture.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-stage">Next</div>
+      <div>
+        <h3>Runtime manufacturing automation</h3>
+        <p>Automate the movement from analytics outputs into metadata, validation, Pattern Factory rendering and intelligence product generation.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-stage">Demo milestone</div>
+      <div>
+        <h3>TBML investigation layer</h3>
+        <p>Run TBML end-to-end through the platform into the finalised investigation layer with graph, intelligence boxes and operational action outputs.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-stage">Future</div>
+      <div>
+        <h3>AI-assisted investigation</h3>
+        <p>Introduce investigator copilot concepts, orchestration agents, workflow support and decision assistance across the intelligence lifecycle.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-stage">Destination</div>
+      <div>
+        <h3>Enterprise intelligence operating platform</h3>
+        <p>Evolve NEXUS into a reusable operating platform for financial crime intelligence, analytics, investigation and governance.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <h2>Guiding principles</h2>
+
+  <div class="principles">
+
+    <div class="principle">
+      <strong>Metadata first</strong>
+      <span>Analytics outputs are standardised into reusable metadata before they become intelligence products.</span>
+    </div>
+
+    <div class="principle">
+      <strong>Intelligence manufacturing</strong>
+      <span>The platform converts financial crime complexity into repeatable, operational intelligence outputs.</span>
+    </div>
+
+    <div class="principle">
+      <strong>Validation by design</strong>
+      <span>Governance, portability and regression controls are built into the production pathway.</span>
+    </div>
+
+    <div class="principle">
+      <strong>Evidence led</strong>
+      <span>Outputs are structured around evidence, risk, confidence, rationale and investigation actions.</span>
+    </div>
+
+    <div class="principle">
+      <strong>Enterprise scale</strong>
+      <span>The architecture is designed for multiple financial crime domains rather than isolated point solutions.</span>
+    </div>
+
+    <div class="principle">
+      <strong>Private IP protected</strong>
+      <span>Public pages show capability and architecture while proprietary analytics and implementation remain private.</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="footer-box">
+    <h3>NEXUS is moving from prototype into operating platform.</h3>
+    <p>
+      The immediate delivery focus is runtime manufacturing and the TBML investigation layer demo. The long-term destination is a reusable financial crime intelligence operating platform that connects analytics, metadata, intelligence products, investigation workflows and decision support.
+    </p>
+  </div>
+
+</section>
+
+</div>
+</body>
+</html>
