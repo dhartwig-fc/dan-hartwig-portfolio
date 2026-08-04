@@ -2,7 +2,7 @@
   "active_stage": "Stage459",
   "build_fingerprint": "637b1662e5784f83742309492eef78bc4dd466d7992cb765d26c6997a7a55dfc",
   "current_branch": "main",
-  "current_commit": "80c3a57d862bddf76607f1cd16ce0a333f5bba09",
+  "current_commit": "f64addc46aa2366769ee204ad7fffb78898eb406",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
@@ -11,8 +11,8 @@
       "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-08-04)",
       "authority_registry": "derived: authority_lock+pointer+registry (records agree on aa80fa085340c31c\u2026 but the artefact is e1cf366f6308bf31\u2026)",
       "build_fingerprint": "telemetry_projections/tbml001-d1061230dc_telemetry_projection.json:projection_integrity.canonical_core_sha256",
-      "canonical_source": "authority_lock.json:locked_sha256 (MISMATCH actual=e1cf366f6308bf31\u2026)",
-      "connection": "derived: authority_pointer.json:canonical_path+canonical_sha256 (pointer claims aa80fa085340c31c\u2026, artefact is e1cf366f6308bf31\u2026)",
+      "canonical_source": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via default /Users/danhartwig/dan-hartwig-portfolio; MISMATCH actual=e1cf366f6308bf31\u2026)",
+      "connection": "derived: authority_pointer.json:canonical_relative_path+canonical_sha256+lock_relative_path+registry_relative_path (pointer claims aa80fa085340c31c\u2026, artefact is e1cf366f6308bf31\u2026)",
       "contract_integrity": "telemetry_projections/tbml001-d1061230dc_telemetry_projection.json:projection_integrity.deterministic+contract_id",
       "current_branch": "git:rev-parse --abbrev-ref HEAD",
       "current_commit": "git:rev-parse HEAD",
@@ -27,15 +27,16 @@
       "product_id": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:product_id",
       "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-08-04)",
       "release_status": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
-      "repository_integrity": "authority_lock.json:locked_sha256 (MISMATCH actual=e1cf366f6308bf31\u2026)",
+      "repository_integrity": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via default /Users/danhartwig/dan-hartwig-portfolio; MISMATCH actual=e1cf366f6308bf31\u2026)",
       "repository_status": "authority_registry.json:status",
       "run_id": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:run_id",
       "runtime_status": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:runtime_status",
       "state_reviewed": "programme_state.json:last_reviewed",
-      "validation_status": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:validation_status"
+      "validation_status": "end_to_end_reports/tbml001-d1061230dc_end_to_end_report.json:validation_status",
+      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 105 runtime-output paths excluded)"
     }
   },
-  "generated_at": "2026-08-04T09:56:24.452938+00:00",
+  "generated_at": "2026-08-04T11:21:09.276248+00:00",
   "last_validation": "2026-08-04T08:22:16.870757Z",
   "product_id": "TBML001",
   "projection": {
@@ -3211,5 +3212,6 @@
       ],
       "status": "SUCCESS"
     }
-  }
+  },
+  "working_tree_state": "CLEAN"
 }
