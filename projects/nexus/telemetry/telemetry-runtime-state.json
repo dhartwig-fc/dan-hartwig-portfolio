@@ -1,47 +1,47 @@
 {
-  "active_stage": "Stage474",
-  "build_fingerprint": "948869b647d137b6841ae74a4fd8185382204ada316af4af4684cd3857d06df1",
+  "active_stage": "Stage486",
+  "build_fingerprint": "ea9d4cb81e42f7cc5e65605aac19274c8458c276568c9ff0f7d3ce25417afd97",
   "current_branch": "main",
-  "current_commit": "71a240b519c5777aaa3f25ee2b36359bb5fbc981",
+  "current_commit": "6f44a769c5f92dc4e9cbab215beb5c93158a606e",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
     "sources": {
       "accepted_run_id": "derived: the run_id of this envelope",
-      "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-08-04)",
+      "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-08-05)",
       "authority_registry": "derived: authority_lock+pointer+registry (status ACTIVE, records agree, artefact matches)",
-      "build_fingerprint": "telemetry_projections/tbml001-796fe89eb8_telemetry_projection.json:projection_integrity.canonical_core_sha256",
+      "build_fingerprint": "telemetry_projections/tbml001-f306861d8e_telemetry_projection.json:projection_integrity.canonical_core_sha256",
       "canonical_source": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); matches)",
       "connection": "derived: authority_pointer.json:canonical_relative_path+canonical_sha256+lock_relative_path+registry_relative_path (pointer digest matches the artefact)",
-      "contract_integrity": "telemetry_projections/tbml001-796fe89eb8_telemetry_projection.json:projection_integrity.deterministic+contract_id",
+      "contract_integrity": "telemetry_projections/tbml001-f306861d8e_telemetry_projection.json:projection_integrity.deterministic+contract_id",
       "current_branch": "git:rev-parse --abbrev-ref HEAD",
       "current_commit": "git:rev-parse HEAD",
-      "events": "derived: logs/tbml001-796fe89eb8.json:events (runtime stage events for this run)",
-      "evidence_status": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
+      "events": "derived: logs/tbml001-f306861d8e.json:events (runtime stage events for this run)",
+      "evidence_status": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
       "failures": "derived: count of non-PASS run statuses",
-      "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-08-04)",
+      "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-08-05)",
       "generated_at": "producer runtime clock",
-      "intelligence_asset_status": "derived: end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
-      "last_validation": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:created_at",
-      "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-08-04)",
-      "product_id": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:product_id",
-      "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-08-04)",
-      "release_status": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
+      "intelligence_asset_status": "derived: end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
+      "last_validation": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:created_at",
+      "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-08-05)",
+      "product_id": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:product_id",
+      "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-08-05)",
+      "release_status": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
       "repository_integrity": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); matches)",
       "repository_status": "authority_registry.json:status",
-      "run_id": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:run_id",
-      "runtime_status": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:runtime_status",
+      "run_id": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:run_id",
+      "runtime_status": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:runtime_status",
       "state_reviewed": "programme_state.json:last_reviewed",
-      "validation_status": "end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json:validation_status",
-      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 225 runtime-output paths excluded)"
+      "validation_status": "end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json:validation_status",
+      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 265 runtime-output paths excluded)"
     }
   },
-  "generated_at": "2026-08-04T19:33:01.747020+00:00",
-  "last_validation": "2026-08-04T19:22:14.677102Z",
+  "generated_at": "2026-08-05T10:13:07.953098+00:00",
+  "last_validation": "2026-08-05T10:01:28.664529Z",
   "product_id": "TBML001",
   "projection": {
-    "accepted_run_id": "tbml001-796fe89eb8",
-    "active_stage": "Stage474",
+    "accepted_run_id": "tbml001-f306861d8e",
+    "active_stage": "Stage486",
     "authority_registry": "LOCKED",
     "canonical_source": "LOCKED",
     "connection": "BOUND",
@@ -57,16 +57,60 @@
     "repository_integrity": "VERIFIED",
     "repository_status": "VERIFIED",
     "runtime_status": "SUCCESS",
-    "state_reviewed": "2026-08-04",
+    "state_reviewed": "2026-08-05",
     "validation_status": "PASS"
   },
-  "run_id": "tbml001-796fe89eb8",
+  "run_id": "tbml001-f306861d8e",
   "runtime_projection": {
     "evidence": {
       "artifacts": {
         "analytics_output": {
           "adaptive_intelligence_allocation": {
             "allocation": "Allocate further collection where runtime evidence gaps remain."
+          },
+          "alternative_explanations": {
+            "basis": "One reviewable entry per weighted component of the governed risk model that this case banded above Low -- the benign reading of that indicator, and the evidence that would distinguish it from the adverse one. Prose only: no probability, no score, no ordering that implies one.",
+            "detail": [
+              {
+                "band": "HIGH",
+                "benign": "A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it.",
+                "indicator": "counterparty",
+                "settled_by": "the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere"
+              },
+              {
+                "band": "HIGH",
+                "benign": "The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing.",
+                "indicator": "inflation",
+                "settled_by": "the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on"
+              },
+              {
+                "band": "HIGH",
+                "benign": "A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper.",
+                "indicator": "jurisdiction",
+                "settled_by": "whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume"
+              },
+              {
+                "band": "CRITICAL",
+                "benign": "Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside.",
+                "indicator": "network",
+                "settled_by": "the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities"
+              },
+              {
+                "band": "CRITICAL",
+                "benign": "Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment.",
+                "indicator": "trade_value",
+                "settled_by": "the framework or purchase agreement, and the shipment history drawn against it"
+              }
+            ],
+            "items": [
+              "Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.",
+              "Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.",
+              "Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.",
+              "Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.",
+              "Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it."
+            ],
+            "ordering": "the scored components in their own alphabetical order. NOT a ranking: nothing in this estate makes one alternative explanation more likely than another, and assigning a probability without a likelihood model is the confidence-91 failure in a new section.",
+            "title": "Alternative Explanations"
           },
           "alternative_hypotheses": [],
           "analytic_authority": {
@@ -185,7 +229,7 @@
               "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
             },
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "sanctions_exposure_flag": false,
             "shared_director_flag": true,
             "shared_owner_flag": true,
@@ -222,7 +266,7 @@
             "invoice_reference": "INV001",
             "product_id": "TBML001",
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "transaction_reference": "PAY001",
             "typology": "TBML001"
           },
@@ -253,9 +297,70 @@
           },
           "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
           "confidence_score": 70.4,
+          "decision_rationale": {
+            "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+            "clauses": [
+              {
+                "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+              },
+              {
+                "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                "source": "confidence_components.margin"
+              },
+              {
+                "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                "source": "confidence_score; confidence_components.ceiling"
+              },
+              {
+                "clause": "The case carries 15 of 15 required evidence items.",
+                "source": "evidence_coverage"
+              },
+              {
+                "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                "source": "confidence_forecast.headroom_points"
+              },
+              {
+                "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+              }
+            ],
+            "states_disposition": false,
+            "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+          },
           "decision_recommendation": {
             "priority": "Metadata-driven",
-            "rationale": "Decision support generated from governed runtime metadata.",
+            "rationale": {
+              "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+              "clauses": [
+                {
+                  "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                  "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+                },
+                {
+                  "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                  "source": "confidence_components.margin"
+                },
+                {
+                  "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                  "source": "confidence_score; confidence_components.ceiling"
+                },
+                {
+                  "clause": "The case carries 15 of 15 required evidence items.",
+                  "source": "evidence_coverage"
+                },
+                {
+                  "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                  "source": "confidence_forecast.headroom_points"
+                },
+                {
+                  "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                  "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+                }
+              ],
+              "states_disposition": false,
+              "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+            },
             "recommended_decision": "Review according to runtime risk and confidence indicators.",
             "section": "Decision Support"
           },
@@ -274,6 +379,68 @@
           },
           "evidence_coverage": {
             "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+            "detail": [
+              {
+                "field": "exporter_identity",
+                "present": true
+              },
+              {
+                "field": "importer_identity",
+                "present": true
+              },
+              {
+                "field": "invoice_identifier",
+                "present": true
+              },
+              {
+                "field": "transaction_reference",
+                "present": true
+              },
+              {
+                "field": "invoice_date",
+                "present": true
+              },
+              {
+                "field": "transaction_date",
+                "present": true
+              },
+              {
+                "field": "goods_description",
+                "present": true
+              },
+              {
+                "field": "commodity_code",
+                "present": true
+              },
+              {
+                "field": "route_description",
+                "present": true
+              },
+              {
+                "field": "declared_value",
+                "present": true
+              },
+              {
+                "field": "benchmark_value",
+                "present": true
+              },
+              {
+                "field": "variance_amount",
+                "present": true
+              },
+              {
+                "field": "variance_percentage",
+                "present": true
+              },
+              {
+                "field": "currency",
+                "present": true
+              },
+              {
+                "field": "document_discrepancy_flag",
+                "present": true
+              }
+            ],
             "missing": [],
             "percentage": 100.0,
             "present": 15,
@@ -523,7 +690,7 @@
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
           },
           "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-          "run_id": "tbml001-796fe89eb8",
+          "run_id": "tbml001-f306861d8e",
           "sanctions_exposure_flag": false,
           "shared_director_flag": true,
           "shared_owner_flag": true,
@@ -552,24 +719,24 @@
           "variance_percentage": 47.06
         },
         "end_to_end_report": {
-          "created_at": "2026-08-04T19:22:14.677102Z",
-          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8",
+          "created_at": "2026-08-05T10:01:28.664529Z",
+          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e",
           "evidence_status": "CAPTURED",
-          "fc01_product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-796fe89eb8_TBML001_metadata_packet.json",
+          "fc01_product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-f306861d8e_TBML001_metadata_packet.json",
           "operational_status": "OPERATIONAL_READY",
           "pipeline_report_path": null,
           "product_id": "TBML001",
           "proof_statement": "TBML001 was executed through the runtime manufacturing pipeline, producing metadata, FC01 product, validation evidence, evidence pack and release approval.",
-          "release_record_path": "runtime/manufacturing/release_records/tbml001-796fe89eb8_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/tbml001-f306861d8e_release_record.json",
           "release_status": "APPROVED_FOR_RELEASE",
-          "run_id": "tbml001-796fe89eb8",
+          "run_id": "tbml001-f306861d8e",
           "runtime_log_path": null,
           "runtime_status": "SUCCESS",
           "stage": "323G",
           "stage_name": "End-to-End Execution Proof",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-796fe89eb8_runtime_validation_report.json",
+          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-f306861d8e_runtime_validation_report.json",
           "validation_status": "PASS"
         },
         "evidence_pack": {
@@ -581,34 +748,34 @@
             "artefact_index"
           ],
           "checksums": {
-            "artefact_index": "041ec25f6a2c9e671f72fb929ae8a44c38624008950a6afed74667f292084a4f",
-            "canonical_graph_artifact": "42d8c3e578bf6d89773cff2620163f96ebdd8a27208931831a2ab63e56d51a17",
-            "fc01_product": "c0cc48761bedbddd5b2bcde9b701dd819e8aeacc3af213616abd4bc70bb4aa50",
-            "metadata_packet": "823150e4348684870dbc49a79ef74f8c663e09eeb80481529d7f2a7b688a0728",
-            "validation_report": "a1568454865a29763d7d55af3a1a968065802555bfc65895823354705c5efdcb"
+            "artefact_index": "54e718d4b5b4636ccfad0a0565b8425585e41004cdbd9083b74c5fa5ab45f63a",
+            "canonical_graph_artifact": "543129e14e5594e77123665d32218f990c1894afcbbf6a45889549823b5943e9",
+            "fc01_product": "9500068edb37dea8e9159c7903c98055461cbc2f6af35cb6cdbc089a3c3491f4",
+            "metadata_packet": "8282f4400e3f8c967580272addea50996fb8397ee9079fe46b3900eda7159d72",
+            "validation_report": "d9d2154e1b851749dd7214b4be1c8ff64ad11e6df1a6eb3e7393a333f4956736"
           },
-          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/evidence_manifest.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8",
+          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/evidence_manifest.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e",
           "status": "CAPTURED"
         },
         "intelligence_product": {
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
-          "fc01_html_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "output_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
+          "fc01_html_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "output_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
           "product_id": "TBML001",
-          "product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "rendered_html_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-          "run_id": "tbml001-796fe89eb8",
-          "runtime_product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "rendered_html_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+          "run_id": "tbml001-f306861d8e",
+          "runtime_product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
           "semantic_release_gate": {
             "case_fingerprint": "e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423",
             "case_id": "TBML001-CASE-2026-003",
             "classification": "High",
             "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-            "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
+            "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
             "graph_semantic_value_count": 10,
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_semantic_value_count": 11,
             "risk_score": 71,
             "stale_hits": [],
@@ -622,17 +789,57 @@
             "allocation": "Allocate further collection where runtime evidence gaps remain."
           },
           "alternative_explanations": {
-            "items": [
-              "Alternative explanations have not been supplied by the analytic.",
-              "This section is scaffolding and should not be read as an assessment."
+            "basis": "One reviewable entry per weighted component of the governed risk model that this case banded above Low -- the benign reading of that indicator, and the evidence that would distinguish it from the adverse one. Prose only: no probability, no score, no ordering that implies one.",
+            "detail": [
+              {
+                "band": "HIGH",
+                "benign": "A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it.",
+                "indicator": "counterparty",
+                "settled_by": "the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere"
+              },
+              {
+                "band": "HIGH",
+                "benign": "The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing.",
+                "indicator": "inflation",
+                "settled_by": "the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on"
+              },
+              {
+                "band": "HIGH",
+                "benign": "A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper.",
+                "indicator": "jurisdiction",
+                "settled_by": "whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume"
+              },
+              {
+                "band": "CRITICAL",
+                "benign": "Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside.",
+                "indicator": "network",
+                "settled_by": "the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities"
+              },
+              {
+                "band": "CRITICAL",
+                "benign": "Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment.",
+                "indicator": "trade_value",
+                "settled_by": "the framework or purchase agreement, and the shipment history drawn against it"
+              }
             ],
+            "items": [
+              "Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.",
+              "Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.",
+              "Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.",
+              "Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.",
+              "Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it."
+            ],
+            "ordering": "the scored components in their own alphabetical order. NOT a ranking: nothing in this estate makes one alternative explanation more likely than another, and assigning a probability without a likelihood model is the confidence-91 failure in a new section.",
             "title": "Alternative Explanations"
           },
           "alternative_hypotheses": [],
           "alternative_hypotheses_expanded": {
             "items": [
-              "Alternative explanations have not been supplied by the analytic.",
-              "This section is scaffolding and should not be read as an assessment."
+              "Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.",
+              "Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.",
+              "Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.",
+              "Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.",
+              "Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it."
             ],
             "title": "Alternative Explanations"
           },
@@ -733,7 +940,7 @@
               "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
             },
             "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "sanctions_exposure_flag": false,
             "shared_director_flag": true,
             "shared_owner_flag": true,
@@ -801,16 +1008,76 @@
           },
           "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
           "confidence_score": 70.4,
-          "created_at": "2026-08-04T19:22:14.533984Z",
-          "decision_rationale": "",
+          "created_at": "2026-08-05T10:01:28.516807Z",
+          "decision_rationale": {
+            "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+            "clauses": [
+              {
+                "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+              },
+              {
+                "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                "source": "confidence_components.margin"
+              },
+              {
+                "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                "source": "confidence_score; confidence_components.ceiling"
+              },
+              {
+                "clause": "The case carries 15 of 15 required evidence items.",
+                "source": "evidence_coverage"
+              },
+              {
+                "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                "source": "confidence_forecast.headroom_points"
+              },
+              {
+                "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+              }
+            ],
+            "states_disposition": false,
+            "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+          },
           "decision_recommendation": {
             "priority": "Metadata-driven",
-            "rationale": "Decision support generated from governed runtime metadata.",
+            "rationale": {
+              "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+              "clauses": [
+                {
+                  "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                  "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+                },
+                {
+                  "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                  "source": "confidence_components.margin"
+                },
+                {
+                  "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                  "source": "confidence_score; confidence_components.ceiling"
+                },
+                {
+                  "clause": "The case carries 15 of 15 required evidence items.",
+                  "source": "evidence_coverage"
+                },
+                {
+                  "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                  "source": "confidence_forecast.headroom_points"
+                },
+                {
+                  "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                  "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+                }
+              ],
+              "states_disposition": false,
+              "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+            },
             "recommended_decision": "Review according to runtime risk and confidence indicators.",
             "section": "Decision Support"
           },
           "decision_simulation": {},
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
           "driver_analysis": {
             "risk_drivers": [
               "Declared value USD 2,500,000.00 exceeds benchmark USD 1,700,000.00 by USD 800,000.00 (47.06%).",
@@ -891,6 +1158,68 @@
           ],
           "evidence_coverage": {
             "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+            "detail": [
+              {
+                "field": "exporter_identity",
+                "present": true
+              },
+              {
+                "field": "importer_identity",
+                "present": true
+              },
+              {
+                "field": "invoice_identifier",
+                "present": true
+              },
+              {
+                "field": "transaction_reference",
+                "present": true
+              },
+              {
+                "field": "invoice_date",
+                "present": true
+              },
+              {
+                "field": "transaction_date",
+                "present": true
+              },
+              {
+                "field": "goods_description",
+                "present": true
+              },
+              {
+                "field": "commodity_code",
+                "present": true
+              },
+              {
+                "field": "route_description",
+                "present": true
+              },
+              {
+                "field": "declared_value",
+                "present": true
+              },
+              {
+                "field": "benchmark_value",
+                "present": true
+              },
+              {
+                "field": "variance_amount",
+                "present": true
+              },
+              {
+                "field": "variance_percentage",
+                "present": true
+              },
+              {
+                "field": "currency",
+                "present": true
+              },
+              {
+                "field": "document_discrepancy_flag",
+                "present": true
+              }
+            ],
             "missing": [],
             "percentage": 100.0,
             "present": 15,
@@ -931,8 +1260,11 @@
             "sections": {
               "alternative_explanations": {
                 "items": [
-                  "Alternative explanations have not been supplied by the analytic.",
-                  "This section is scaffolding and should not be read as an assessment."
+                  "Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.",
+                  "Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.",
+                  "Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.",
+                  "Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.",
+                  "Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it."
                 ],
                 "section_id": "alternative_explanations",
                 "status": "PROVIDED"
@@ -979,15 +1311,14 @@
               "intelligence_assessment",
               "supporting_assessment",
               "risk_exposure_drivers",
+              "alternative_explanations",
               "investigation_hypothesis",
               "confidence_narrative"
             ],
-            "migrated_fields": [
-              "alternative_explanations"
-            ],
+            "migrated_fields": [],
             "missing_fields": [],
             "provenance": {
-              "alternative_explanations": "metadata_packet.alternative_hypotheses_expanded",
+              "alternative_explanations": "metadata_packet.alternative_explanations",
               "confidence_narrative": "metadata_packet.confidence_narrative",
               "intelligence_assessment": "metadata_packet.intelligence_assessment",
               "investigation_hypothesis": "metadata_packet.investigation_hypothesis",
@@ -1026,7 +1357,7 @@
             "title": "Investigation Strategy"
           },
           "investigator_playbook": {},
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-796fe89eb8_TBML001_metadata_packet.json",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-f306861d8e_TBML001_metadata_packet.json",
           "metadata_version": "327-hard-active-entity-graph-v1",
           "operational_action_plan": {
             "actions": [
@@ -1180,11 +1511,11 @@
           },
           "runtime_metadata": {
             "contract_version": "FC01_METADATA_CONTRACT_V1_STAGE362",
-            "created_utc": "2026-08-04T19:22:14.534067+00:00",
+            "created_utc": "2026-08-05T10:01:28.517845+00:00",
             "pipeline_version": "stage361_runtime_pipeline_governance",
             "product_id": "TBML001",
             "renderer_version": "fc01_runtime_product_builder.py",
-            "run_id": "tbml001-796fe89eb8"
+            "run_id": "tbml001-f306861d8e"
           },
           "runtime_ready": true,
           "scenario_analysis": {},
@@ -1225,18 +1556,18 @@
             "status": "EMITTED_BY_RUNTIME"
           }
         },
-        "pipeline_report": "runtime/manufacturing/reports/tbml001-796fe89eb8_pipeline_report.json",
+        "pipeline_report": "runtime/manufacturing/reports/tbml001-f306861d8e_pipeline_report.json",
         "pipeline_status": "SUCCESS",
         "product_execution_status": "SUCCESS",
         "release_status": {
           "checks_failed": 0,
           "checks_passed": 6,
           "release_gate": "323F_RUNTIME_RELEASE_GATE",
-          "release_record_path": "runtime/manufacturing/release_records/tbml001-796fe89eb8_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/tbml001-f306861d8e_release_record.json",
           "status": "APPROVED_FOR_RELEASE"
         },
         "runtime_initialised": true,
-        "runtime_log": "runtime/manufacturing/logs/tbml001-796fe89eb8.json",
+        "runtime_log": "runtime/manufacturing/logs/tbml001-f306861d8e.json",
         "validation_result": {
           "metadata_validation": {
             "checks": [
@@ -1323,9 +1654,9 @@
             ],
             "checks_failed": 0,
             "checks_passed": 16,
-            "created_at": "2026-08-04T19:22:14.668526Z",
+            "created_at": "2026-08-05T10:01:28.659156Z",
             "product_id": "TBML001",
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "status": "PASS",
             "validation_type": "metadata_validation"
           },
@@ -1334,7 +1665,7 @@
             "checks": [
               {
                 "check": "html_file_exists",
-                "message": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+                "message": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
                 "passed": true
               },
               {
@@ -1400,25 +1731,25 @@
             ],
             "checks_failed": 0,
             "checks_passed": 13,
-            "created_at": "2026-08-04T19:22:14.669007Z",
+            "created_at": "2026-08-05T10:01:28.659557Z",
             "product_id": "TBML001",
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "status": "PASS",
             "validation_type": "renderer_validation"
           },
-          "run_id": "tbml001-796fe89eb8",
+          "run_id": "tbml001-f306861d8e",
           "status": "PASS",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-796fe89eb8_runtime_validation_report.json"
+          "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-f306861d8e_runtime_validation_report.json"
         }
       },
       "evidence_files": [
-        "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-        "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
-        "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/tbml001-796fe89eb8_TBML001_metadata_packet.json",
-        "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/evidence_manifest.json",
-        "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/tbml001-796fe89eb8_runtime_validation_report.json",
-        "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/artefact_index.json",
-        "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html"
+        "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+        "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
+        "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/tbml001-f306861d8e_TBML001_metadata_packet.json",
+        "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/evidence_manifest.json",
+        "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+        "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/tbml001-f306861d8e_runtime_validation_report.json",
+        "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/artefact_index.json"
       ]
     },
     "evidence_files": [],
@@ -1429,7 +1760,7 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:11.106367Z"
+          "timestamp": "2026-08-05T10:01:26.304219Z"
         },
         {
           "message": "Runtime manifest loaded",
@@ -1438,14 +1769,14 @@
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:11.133644Z"
+          "timestamp": "2026-08-05T10:01:26.397974Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:11.133757Z"
+          "timestamp": "2026-08-05T10:01:26.398114Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -1454,14 +1785,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:11.133835Z"
+          "timestamp": "2026-08-05T10:01:26.398224Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:11.133843Z"
+          "timestamp": "2026-08-05T10:01:26.398438Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -1469,6 +1800,50 @@
             "analytics_output": {
               "adaptive_intelligence_allocation": {
                 "allocation": "Allocate further collection where runtime evidence gaps remain."
+              },
+              "alternative_explanations": {
+                "basis": "One reviewable entry per weighted component of the governed risk model that this case banded above Low -- the benign reading of that indicator, and the evidence that would distinguish it from the adverse one. Prose only: no probability, no score, no ordering that implies one.",
+                "detail": [
+                  {
+                    "band": "HIGH",
+                    "benign": "A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it.",
+                    "indicator": "counterparty",
+                    "settled_by": "the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere"
+                  },
+                  {
+                    "band": "HIGH",
+                    "benign": "The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing.",
+                    "indicator": "inflation",
+                    "settled_by": "the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on"
+                  },
+                  {
+                    "band": "HIGH",
+                    "benign": "A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper.",
+                    "indicator": "jurisdiction",
+                    "settled_by": "whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume"
+                  },
+                  {
+                    "band": "CRITICAL",
+                    "benign": "Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside.",
+                    "indicator": "network",
+                    "settled_by": "the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities"
+                  },
+                  {
+                    "band": "CRITICAL",
+                    "benign": "Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment.",
+                    "indicator": "trade_value",
+                    "settled_by": "the framework or purchase agreement, and the shipment history drawn against it"
+                  }
+                ],
+                "items": [
+                  "Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.",
+                  "Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.",
+                  "Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.",
+                  "Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.",
+                  "Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it."
+                ],
+                "ordering": "the scored components in their own alphabetical order. NOT a ranking: nothing in this estate makes one alternative explanation more likely than another, and assigning a probability without a likelihood model is the confidence-91 failure in a new section.",
+                "title": "Alternative Explanations"
               },
               "alternative_hypotheses": [],
               "analytic_authority": {
@@ -1587,7 +1962,7 @@
                   "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
                 },
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-796fe89eb8",
+                "run_id": "tbml001-f306861d8e",
                 "sanctions_exposure_flag": false,
                 "shared_director_flag": true,
                 "shared_owner_flag": true,
@@ -1624,7 +1999,7 @@
                 "invoice_reference": "INV001",
                 "product_id": "TBML001",
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-796fe89eb8",
+                "run_id": "tbml001-f306861d8e",
                 "transaction_reference": "PAY001",
                 "typology": "TBML001"
               },
@@ -1655,9 +2030,70 @@
               },
               "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
               "confidence_score": 70.4,
+              "decision_rationale": {
+                "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+                "clauses": [
+                  {
+                    "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                    "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+                  },
+                  {
+                    "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                    "source": "confidence_components.margin"
+                  },
+                  {
+                    "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                    "source": "confidence_score; confidence_components.ceiling"
+                  },
+                  {
+                    "clause": "The case carries 15 of 15 required evidence items.",
+                    "source": "evidence_coverage"
+                  },
+                  {
+                    "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                    "source": "confidence_forecast.headroom_points"
+                  },
+                  {
+                    "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                    "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+                  }
+                ],
+                "states_disposition": false,
+                "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+              },
               "decision_recommendation": {
                 "priority": "Metadata-driven",
-                "rationale": "Decision support generated from governed runtime metadata.",
+                "rationale": {
+                  "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+                  "clauses": [
+                    {
+                      "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                      "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+                    },
+                    {
+                      "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                      "source": "confidence_components.margin"
+                    },
+                    {
+                      "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                      "source": "confidence_score; confidence_components.ceiling"
+                    },
+                    {
+                      "clause": "The case carries 15 of 15 required evidence items.",
+                      "source": "evidence_coverage"
+                    },
+                    {
+                      "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                      "source": "confidence_forecast.headroom_points"
+                    },
+                    {
+                      "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                      "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+                    }
+                  ],
+                  "states_disposition": false,
+                  "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+                },
                 "recommended_decision": "Review according to runtime risk and confidence indicators.",
                 "section": "Decision Support"
               },
@@ -1676,6 +2112,68 @@
               },
               "evidence_coverage": {
                 "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+                "detail": [
+                  {
+                    "field": "exporter_identity",
+                    "present": true
+                  },
+                  {
+                    "field": "importer_identity",
+                    "present": true
+                  },
+                  {
+                    "field": "invoice_identifier",
+                    "present": true
+                  },
+                  {
+                    "field": "transaction_reference",
+                    "present": true
+                  },
+                  {
+                    "field": "invoice_date",
+                    "present": true
+                  },
+                  {
+                    "field": "transaction_date",
+                    "present": true
+                  },
+                  {
+                    "field": "goods_description",
+                    "present": true
+                  },
+                  {
+                    "field": "commodity_code",
+                    "present": true
+                  },
+                  {
+                    "field": "route_description",
+                    "present": true
+                  },
+                  {
+                    "field": "declared_value",
+                    "present": true
+                  },
+                  {
+                    "field": "benchmark_value",
+                    "present": true
+                  },
+                  {
+                    "field": "variance_amount",
+                    "present": true
+                  },
+                  {
+                    "field": "variance_percentage",
+                    "present": true
+                  },
+                  {
+                    "field": "currency",
+                    "present": true
+                  },
+                  {
+                    "field": "document_discrepancy_flag",
+                    "present": true
+                  }
+                ],
                 "missing": [],
                 "percentage": 100.0,
                 "present": 15,
@@ -1844,53 +2342,53 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.668319Z"
+          "timestamp": "2026-08-05T10:01:28.659014Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.668336Z"
+          "timestamp": "2026-08-05T10:01:28.659026Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-796fe89eb8_TBML001_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-f306861d8e_TBML001_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.668365Z"
+          "timestamp": "2026-08-05T10:01:28.659049Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.668374Z"
+          "timestamp": "2026-08-05T10:01:28.659055Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml001-796fe89eb8",
-            "runtime_product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "tbml001-f306861d8e",
+            "runtime_product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
               "case_fingerprint": "e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423",
               "case_id": "TBML001-CASE-2026-003",
               "classification": "High",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 10,
               "product_id": "TBML001",
-              "product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+              "product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
               "product_semantic_value_count": 11,
               "risk_score": 71,
               "stale_hits": [],
@@ -1901,14 +2399,14 @@
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.668396Z"
+          "timestamp": "2026-08-05T10:01:28.659069Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.668405Z"
+          "timestamp": "2026-08-05T10:01:28.659074Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -1998,9 +2496,9 @@
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-08-04T19:22:14.668526Z",
+              "created_at": "2026-08-05T10:01:28.659156Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-796fe89eb8",
+              "run_id": "tbml001-f306861d8e",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
@@ -2009,7 +2507,7 @@
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -2075,26 +2573,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-08-04T19:22:14.669007Z",
+              "created_at": "2026-08-05T10:01:28.659557Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-796fe89eb8",
+              "run_id": "tbml001-f306861d8e",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-796fe89eb8_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-f306861d8e_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.670176Z"
+          "timestamp": "2026-08-05T10:01:28.659949Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.670188Z"
+          "timestamp": "2026-08-05T10:01:28.659957Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -2107,26 +2605,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "041ec25f6a2c9e671f72fb929ae8a44c38624008950a6afed74667f292084a4f",
-              "canonical_graph_artifact": "42d8c3e578bf6d89773cff2620163f96ebdd8a27208931831a2ab63e56d51a17",
-              "fc01_product": "c0cc48761bedbddd5b2bcde9b701dd819e8aeacc3af213616abd4bc70bb4aa50",
-              "metadata_packet": "823150e4348684870dbc49a79ef74f8c663e09eeb80481529d7f2a7b688a0728",
-              "validation_report": "a1568454865a29763d7d55af3a1a968065802555bfc65895823354705c5efdcb"
+              "artefact_index": "54e718d4b5b4636ccfad0a0565b8425585e41004cdbd9083b74c5fa5ab45f63a",
+              "canonical_graph_artifact": "543129e14e5594e77123665d32218f990c1894afcbbf6a45889549823b5943e9",
+              "fc01_product": "9500068edb37dea8e9159c7903c98055461cbc2f6af35cb6cdbc089a3c3491f4",
+              "metadata_packet": "8282f4400e3f8c967580272addea50996fb8397ee9079fe46b3900eda7159d72",
+              "validation_report": "d9d2154e1b851749dd7214b4be1c8ff64ad11e6df1a6eb3e7393a333f4956736"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.675742Z"
+          "timestamp": "2026-08-05T10:01:28.663755Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.675754Z"
+          "timestamp": "2026-08-05T10:01:28.663763Z"
         },
         {
           "message": "Register release completed successfully",
@@ -2134,35 +2632,35 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml001-796fe89eb8_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/tbml001-f306861d8e_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.676980Z"
+          "timestamp": "2026-08-05T10:01:28.664455Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.676992Z"
+          "timestamp": "2026-08-05T10:01:28.664463Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json",
             "execution_complete": true,
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.677954Z"
+          "timestamp": "2026-08-05T10:01:28.664809Z"
         }
       ],
       "product_id": "TBML001",
-      "run_id": "tbml001-796fe89eb8",
-      "started_at": "2026-08-04T19:22:11.105762Z",
+      "run_id": "tbml001-f306861d8e",
+      "started_at": "2026-08-05T10:01:26.302741Z",
       "status": "SUCCESS"
     },
     "governance": {
@@ -2177,14 +2675,14 @@
     "projection_identity": {
       "contract_id": "FC10_TELEMETRY_PROJECTION_PRODUCER_V1",
       "contract_version": "1.0.0",
-      "execution_id": "tbml001-796fe89eb8",
+      "execution_id": "tbml001-f306861d8e",
       "following_step": "08_REGISTER_RELEASE",
       "pipeline_step": "07_BUILD_TELEMETRY_PROJECTION",
       "preceding_step": "06_CAPTURE_EVIDENCE",
       "projection_type": "ENTERPRISE_MANUFACTURING_TELEMETRY"
     },
     "projection_integrity": {
-      "canonical_core_sha256": "948869b647d137b6841ae74a4fd8185382204ada316af4af4684cd3857d06df1",
+      "canonical_core_sha256": "ea9d4cb81e42f7cc5e65605aac19274c8458c276568c9ff0f7d3ce25417afd97",
       "canonicalisation": "JSON_SORT_KEYS_INDENT_2_UTF8_LF",
       "deterministic": true
     },
@@ -2479,7 +2977,7 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:11.106367Z"
+          "timestamp": "2026-08-05T10:01:26.304219Z"
         },
         {
           "message": "Runtime manifest loaded",
@@ -2488,14 +2986,14 @@
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:11.133644Z"
+          "timestamp": "2026-08-05T10:01:26.397974Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:11.133757Z"
+          "timestamp": "2026-08-05T10:01:26.398114Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -2504,14 +3002,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:11.133835Z"
+          "timestamp": "2026-08-05T10:01:26.398224Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:11.133843Z"
+          "timestamp": "2026-08-05T10:01:26.398438Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -2519,6 +3017,50 @@
             "analytics_output": {
               "adaptive_intelligence_allocation": {
                 "allocation": "Allocate further collection where runtime evidence gaps remain."
+              },
+              "alternative_explanations": {
+                "basis": "One reviewable entry per weighted component of the governed risk model that this case banded above Low -- the benign reading of that indicator, and the evidence that would distinguish it from the adverse one. Prose only: no probability, no score, no ordering that implies one.",
+                "detail": [
+                  {
+                    "band": "HIGH",
+                    "benign": "A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it.",
+                    "indicator": "counterparty",
+                    "settled_by": "the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere"
+                  },
+                  {
+                    "band": "HIGH",
+                    "benign": "The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing.",
+                    "indicator": "inflation",
+                    "settled_by": "the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on"
+                  },
+                  {
+                    "band": "HIGH",
+                    "benign": "A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper.",
+                    "indicator": "jurisdiction",
+                    "settled_by": "whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume"
+                  },
+                  {
+                    "band": "CRITICAL",
+                    "benign": "Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside.",
+                    "indicator": "network",
+                    "settled_by": "the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities"
+                  },
+                  {
+                    "band": "CRITICAL",
+                    "benign": "Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment.",
+                    "indicator": "trade_value",
+                    "settled_by": "the framework or purchase agreement, and the shipment history drawn against it"
+                  }
+                ],
+                "items": [
+                  "Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.",
+                  "Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.",
+                  "Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.",
+                  "Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.",
+                  "Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it."
+                ],
+                "ordering": "the scored components in their own alphabetical order. NOT a ranking: nothing in this estate makes one alternative explanation more likely than another, and assigning a probability without a likelihood model is the confidence-91 failure in a new section.",
+                "title": "Alternative Explanations"
               },
               "alternative_hypotheses": [],
               "analytic_authority": {
@@ -2637,7 +3179,7 @@
                   "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe"
                 },
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-796fe89eb8",
+                "run_id": "tbml001-f306861d8e",
                 "sanctions_exposure_flag": false,
                 "shared_director_flag": true,
                 "shared_owner_flag": true,
@@ -2674,7 +3216,7 @@
                 "invoice_reference": "INV001",
                 "product_id": "TBML001",
                 "route_description": "Jebel Ali \u2192 Rotterdam \u2192 Felixstowe",
-                "run_id": "tbml001-796fe89eb8",
+                "run_id": "tbml001-f306861d8e",
                 "transaction_reference": "PAY001",
                 "typology": "TBML001"
               },
@@ -2705,9 +3247,70 @@
               },
               "confidence_narrative": "Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML001-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with ABC Imports Ltd via Jebel Ali \u2192 Rotterdam \u2192 Felixstowe.",
               "confidence_score": 70.4,
+              "decision_rationale": {
+                "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+                "clauses": [
+                  {
+                    "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                    "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+                  },
+                  {
+                    "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                    "source": "confidence_components.margin"
+                  },
+                  {
+                    "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                    "source": "confidence_score; confidence_components.ceiling"
+                  },
+                  {
+                    "clause": "The case carries 15 of 15 required evidence items.",
+                    "source": "evidence_coverage"
+                  },
+                  {
+                    "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                    "source": "confidence_forecast.headroom_points"
+                  },
+                  {
+                    "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                    "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+                  }
+                ],
+                "states_disposition": false,
+                "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+              },
               "decision_recommendation": {
                 "priority": "Metadata-driven",
-                "rationale": "Decision support generated from governed runtime metadata.",
+                "rationale": {
+                  "basis": "Assembled from values the governed run already computed: the risk score and band, the variance against the governed alert threshold, the confidence score against its ceiling, evidence coverage, and which term limits the confidence. Every clause names its source and every figure appears elsewhere on the same product. Nothing here is a new judgement.",
+                  "clauses": [
+                    {
+                      "clause": "The governed analytic scored this case 71 of 100 and classified it High.",
+                      "source": "risk_score; case.classification (RISK_BANDS via the governed envelope)"
+                    },
+                    {
+                      "clause": "The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert.",
+                      "source": "confidence_components.margin"
+                    },
+                    {
+                      "clause": "Confidence in that classification is 70.4 of a ceiling of 95.",
+                      "source": "confidence_score; confidence_components.ceiling"
+                    },
+                    {
+                      "clause": "The case carries 15 of 15 required evidence items.",
+                      "source": "evidence_coverage"
+                    },
+                    {
+                      "clause": "All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure.",
+                      "source": "confidence_forecast.headroom_points"
+                    },
+                    {
+                      "clause": "This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.",
+                      "source": "measured 2026-08-05 -- recommended_disposition is unset by every adapter and next_gate is an orchestrator literal"
+                    }
+                  ],
+                  "states_disposition": false,
+                  "text": "The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic's governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none."
+                },
                 "recommended_decision": "Review according to runtime risk and confidence indicators.",
                 "section": "Decision Support"
               },
@@ -2726,6 +3329,68 @@
               },
               "evidence_coverage": {
                 "basis": "proportion of TBML001_REQUIRED_EVIDENCE present in the governed case",
+                "detail": [
+                  {
+                    "field": "exporter_identity",
+                    "present": true
+                  },
+                  {
+                    "field": "importer_identity",
+                    "present": true
+                  },
+                  {
+                    "field": "invoice_identifier",
+                    "present": true
+                  },
+                  {
+                    "field": "transaction_reference",
+                    "present": true
+                  },
+                  {
+                    "field": "invoice_date",
+                    "present": true
+                  },
+                  {
+                    "field": "transaction_date",
+                    "present": true
+                  },
+                  {
+                    "field": "goods_description",
+                    "present": true
+                  },
+                  {
+                    "field": "commodity_code",
+                    "present": true
+                  },
+                  {
+                    "field": "route_description",
+                    "present": true
+                  },
+                  {
+                    "field": "declared_value",
+                    "present": true
+                  },
+                  {
+                    "field": "benchmark_value",
+                    "present": true
+                  },
+                  {
+                    "field": "variance_amount",
+                    "present": true
+                  },
+                  {
+                    "field": "variance_percentage",
+                    "present": true
+                  },
+                  {
+                    "field": "currency",
+                    "present": true
+                  },
+                  {
+                    "field": "document_discrepancy_flag",
+                    "present": true
+                  }
+                ],
                 "missing": [],
                 "percentage": 100.0,
                 "present": 15,
@@ -2894,53 +3559,53 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.668319Z"
+          "timestamp": "2026-08-05T10:01:28.659014Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.668336Z"
+          "timestamp": "2026-08-05T10:01:28.659026Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-796fe89eb8_TBML001_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml001-f306861d8e_TBML001_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.668365Z"
+          "timestamp": "2026-08-05T10:01:28.659049Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.668374Z"
+          "timestamp": "2026-08-05T10:01:28.659055Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
             "product_id": "TBML001",
-            "product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml001-796fe89eb8",
-            "runtime_product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "tbml001-f306861d8e",
+            "runtime_product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
               "case_fingerprint": "e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423",
               "case_id": "TBML001-CASE-2026-003",
               "classification": "High",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-796fe89eb8_TBML001_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/tbml001-f306861d8e_TBML001_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 10,
               "product_id": "TBML001",
-              "product_path": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+              "product_path": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
               "product_semantic_value_count": 11,
               "risk_score": 71,
               "stale_hits": [],
@@ -2951,14 +3616,14 @@
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.668396Z"
+          "timestamp": "2026-08-05T10:01:28.659069Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.668405Z"
+          "timestamp": "2026-08-05T10:01:28.659074Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -3048,9 +3713,9 @@
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-08-04T19:22:14.668526Z",
+              "created_at": "2026-08-05T10:01:28.659156Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-796fe89eb8",
+              "run_id": "tbml001-f306861d8e",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
@@ -3059,7 +3724,7 @@
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml001-796fe89eb8_TBML001_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/tbml001-f306861d8e_TBML001_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -3125,26 +3790,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-08-04T19:22:14.669007Z",
+              "created_at": "2026-08-05T10:01:28.659557Z",
               "product_id": "TBML001",
-              "run_id": "tbml001-796fe89eb8",
+              "run_id": "tbml001-f306861d8e",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml001-796fe89eb8",
+            "run_id": "tbml001-f306861d8e",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-796fe89eb8_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/tbml001-f306861d8e_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.670176Z"
+          "timestamp": "2026-08-05T10:01:28.659949Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.670188Z"
+          "timestamp": "2026-08-05T10:01:28.659957Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -3157,26 +3822,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "041ec25f6a2c9e671f72fb929ae8a44c38624008950a6afed74667f292084a4f",
-              "canonical_graph_artifact": "42d8c3e578bf6d89773cff2620163f96ebdd8a27208931831a2ab63e56d51a17",
-              "fc01_product": "c0cc48761bedbddd5b2bcde9b701dd819e8aeacc3af213616abd4bc70bb4aa50",
-              "metadata_packet": "823150e4348684870dbc49a79ef74f8c663e09eeb80481529d7f2a7b688a0728",
-              "validation_report": "a1568454865a29763d7d55af3a1a968065802555bfc65895823354705c5efdcb"
+              "artefact_index": "54e718d4b5b4636ccfad0a0565b8425585e41004cdbd9083b74c5fa5ab45f63a",
+              "canonical_graph_artifact": "543129e14e5594e77123665d32218f990c1894afcbbf6a45889549823b5943e9",
+              "fc01_product": "9500068edb37dea8e9159c7903c98055461cbc2f6af35cb6cdbc089a3c3491f4",
+              "metadata_packet": "8282f4400e3f8c967580272addea50996fb8397ee9079fe46b3900eda7159d72",
+              "validation_report": "d9d2154e1b851749dd7214b4be1c8ff64ad11e6df1a6eb3e7393a333f4956736"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-796fe89eb8",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml001-f306861d8e",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.675742Z"
+          "timestamp": "2026-08-05T10:01:28.663755Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.675754Z"
+          "timestamp": "2026-08-05T10:01:28.663763Z"
         },
         {
           "message": "Register release completed successfully",
@@ -3184,30 +3849,30 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml001-796fe89eb8_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/tbml001-f306861d8e_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.676980Z"
+          "timestamp": "2026-08-05T10:01:28.664455Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-08-04T19:22:14.676992Z"
+          "timestamp": "2026-08-05T10:01:28.664463Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-796fe89eb8_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml001-f306861d8e_end_to_end_report.json",
             "execution_complete": true,
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-08-04T19:22:14.677954Z"
+          "timestamp": "2026-08-05T10:01:28.664809Z"
         }
       ],
       "status": "SUCCESS"
