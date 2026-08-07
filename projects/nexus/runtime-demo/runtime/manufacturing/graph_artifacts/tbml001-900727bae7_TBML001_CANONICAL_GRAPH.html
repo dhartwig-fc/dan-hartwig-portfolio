@@ -1,0 +1,1023 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Canonical Graph Engine Output</title>
+<style>
+body {
+  margin: 0;
+  background: #ffffff;
+}
+.canonical-graph-engine {
+  border: 1px solid #d7dde5;
+  border-radius: 14px;
+  padding: 20px;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #111827;
+
+  /* A2. The first three tokens in this stylesheet, and the point of them is
+     that C can move the whole icon treatment from one place instead of hunting
+     literals. Values are exactly what was hard-coded before, so this item
+     changes no pixel — it changes where the pixel is decided. */
+  --vl-icon-ink: #111827;
+  --vl-icon-ground: #f8fafc;
+  --vl-icon-edge: #e2e8f0;
+}
+.canonical-graph-title {
+  font-weight: 900;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.canonical-graph-badges {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.canonical-graph-badges span {
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #334155;
+}
+.canonical-graph-svg {
+  width: 100%;
+  /* Aspect-locked to the canvas rather than pinned to a fixed height.
+     The viewBox is now the full 1260x840 contract canvas; a hard 540px height
+     against a 1.5 aspect ratio letterboxes it, so the browser scales the whole
+     graph down to fit the shorter axis and the extra card height is given back.
+     `height` remains as the fallback for engines without `aspect-ratio`. */
+  aspect-ratio: var(--graph-aspect, 3 / 2);
+  height: auto;
+  max-height: var(--graph-svg-height, 840px);
+  display: block;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+/* Edge appearance is now PER RELATIONSHIP and arrives as presentation attributes
+   on the path. Nothing here may set stroke, stroke-width, dasharray or marker-end.
+
+   This is not a style preference, it is a specificity trap. In SVG a presentation
+   attribute has LOWER priority than any CSS declaration, so a `stroke: #111827`
+   rule on this class silently beats `stroke="#dc2626"` on the element — the
+   semantics would be emitted, visible in the DOM, and have no effect on screen.
+   `test_edge_css_does_not_override_the_semantics` guards it. */
+.canonical-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Relationship key. Added 2026-08-03 -- five classes had been rendered in five
+   colours with nothing anywhere saying what they meant. */
+.legend-swatch {
+  fill: none;
+  stroke-linecap: round;
+}
+.legend-label {
+  font-size: 15px;
+  font-weight: 600;
+  fill: #475569;
+  letter-spacing: 0.01em;
+}
+.edge-label-bg {
+  fill: rgba(255,255,255,0.95);
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+/* Third card line. Attribute detail — jurisdiction, unit price, corridor —
+   deliberately quieter than the title and the type/id line. */
+.vl-card-attr {
+  font-size: calc(var(--meta-size) * 0.94);
+  font-weight: 600;
+  fill: #64748b;
+  letter-spacing: 0.01em;
+}
+/* Severity emphasis. Only a critical finding gets this. */
+.vl-finding-halo {
+  fill: none;
+  stroke: var(--vl-accent);
+  stroke-width: 2;
+  opacity: 0.28;
+}
+.vl-finding .vl-card-shell {
+  stroke: var(--vl-stroke);
+  stroke-width: 2;
+}
+.vl-finding .vl-card-title {
+  font-weight: 900;
+}
+.edge-label {
+  font-size: 10px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+}
+.vl-card-shell {
+  fill: #ffffff;
+  stroke: var(--vl-stroke);
+  stroke-width: 1.7;
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.16));
+}
+.priority-primary .vl-card-shell {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.24));
+}
+.priority-reference .vl-card-shell {
+  opacity: .88;
+  stroke-dasharray: 4 3;
+}
+.vl-card-accent,
+.vl-card-accent-flat,
+.vl-status-dot {
+  fill: var(--vl-accent);
+}
+/* A2. THE ICON AND ITS GROUND ARE ONE TOKEN PAIR.
+   The well is included with the ink deliberately: an icon whose colour follows
+   the reader's colour scheme, sitting on a ground that does not, is worse than
+   neither adapting. They are meaningless apart, so they move together. */
+.vl-icon-well {
+  fill: var(--vl-icon-ground);
+  stroke: var(--vl-icon-edge);
+  stroke-width: 1;
+}
+/* A1: a path, not a glyph. The text-only properties that used to sit here
+   (font-size, dominant-baseline, text-anchor) were inert the moment the mark
+   stopped being a <text>, and an inert declaration is a claim about how
+   something is drawn that stopped being true. Size and centring are now in the
+   transform, which is where SVG geometry belongs.
+
+   A2: ONE NEUTRAL INK, NOT THE CLASS ACCENT, AND THAT WAS MEASURED.
+
+   Colouring each icon with its own `--vl-accent` was the obvious idea and it
+   fails. Against the icon well, seven of the eight accents clear the 3:1 that
+   WCAG 1.4.11 asks of a graphical object — and `finding` (#f59e0b) measures
+   **2.05**. That is the benchmark breach: the one card whose mark most needs to
+   be seen would have been the only one a reader could not.
+
+   It also had no work to do. The accent bar down the card's left edge already
+   carries the class colour, so a coloured icon repeats a channel rather than
+   adding one — and the package's own "what NOT to build" refuses a fourth
+   channel saying what three already say.
+
+   So: one ink, 16.96 against the well, and a variable so the colour key can
+   move it rather than a literal that cannot. */
+.vl-card-icon {
+  fill: var(--vl-icon-ink);
+}
+.vl-card-title {
+  font-size: var(--title-size);
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: start;
+}
+.vl-card-meta {
+  font-size: var(--meta-size);
+  font-weight: 800;
+  fill: #64748b;
+  text-anchor: start;
+}
+.vl-reference .vl-card-title,
+.vl-reference .vl-card-meta {
+  fill: #64748b;
+}
+.vl-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#canonical-arrow);
+}
+.vl-edge-label-bg {
+  fill: rgba(255,255,255,0.96);
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.12));
+}
+.vl-edge-label {
+  font-size: 8.4px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+  letter-spacing: .02em;
+}
+.edge-critical-label-bg {
+  stroke: #fecaca;
+}
+.edge-trade-label-bg {
+  stroke: #bfdbfe;
+}
+.edge-route-label-bg {
+  stroke: #bbf7d0;
+}
+.edge-evidence-label-bg {
+  stroke: #ddd6fe;
+}
+.edge-reference-label-bg {
+  stroke: #cbd5e1;
+}
+.canonical-graph-provenance {
+  margin-top: 10px;
+  font-size: 10px;
+  color: #374151;
+  font-weight: 800;
+}
+
+/* I1 — FOCUS ON HOVER. Every numeric value in this feature lives HERE.
+   The script toggles classes and contains no numeral at all, which keeps
+   the open question about numbers in generated JavaScript closed by
+   construction rather than by anyone remembering to check.
+   Nothing below moves geometry: opacity only, no transform, no re-layout.
+   graph_fingerprint() hashes node id/label/role/x/y and edge
+   source/target/label - verified by reading it, not its docstring - so
+   none of this can move the fingerprint. */
+.canonical-graph-engine.graph-focused .canonical-node,
+.canonical-graph-engine.graph-focused .canonical-edge {
+  opacity: 0.16;
+  transition: opacity 120ms ease-out;
+}
+.canonical-graph-engine.graph-focused .canonical-node.is-focus,
+.canonical-graph-engine.graph-focused .canonical-node.is-adjacent,
+.canonical-graph-engine.graph-focused .canonical-edge.is-focus {
+  opacity: 1;
+}
+/* I2 - PIN ON CLICK. The pinned state uses the same dimming as hover, so
+   there is one visual language and one set of numbers, not two.
+   `is-pinned` is what survives mouse-out; `graph-pinned` on the root stops
+   hover from stealing the focus while a pin is held. */
+.canonical-graph-engine.graph-pinned .canonical-node.is-pinned {
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+.canonical-graph-engine .canonical-node {
+  cursor: pointer;
+}
+
+/* I4 - SEVERITY KEY AND FILTER. Static first: with JavaScript off this is a
+   KEY, telling a reader what the card severities are and how many of each the
+   graph holds - information the artefact did not carry before. With script it
+   also filters. A control that is inert without script would be a dead
+   affordance; a key that also filters is neither. */
+.canonical-severity-key {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.severity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  color: #334155;
+  cursor: pointer;
+}
+.severity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #94a3b8;
+}
+.severity-chip.sev-critical .severity-dot { background: #b91c1c; }
+.severity-chip.sev-elevated .severity-dot { background: #b45309; }
+.severity-chip.sev-normal .severity-dot { background: #64748b; }
+.severity-count {
+  color: #64748b;
+  font-weight: 700;
+}
+.severity-chip.is-active {
+  border-color: #1d4ed8;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+/* Filtering dims by the same amount focus does, so there is one visual
+   language for "not what you are looking at" rather than two. */
+.canonical-graph-engine.graph-filtered .canonical-node,
+.canonical-graph-engine.graph-filtered .canonical-edge {
+  opacity: 0.16;
+}
+.canonical-graph-engine.graph-filtered .canonical-node.sev-match {
+  opacity: 1;
+}
+
+/* I3 FILTER HALF - isolate one relationship class.
+   Same dim value as focus and severity, so "not what you are looking at" has
+   one appearance across all three. The legend entry itself gets a cursor and
+   an active state; the swatch and label are untouched, because the key must
+   read identically whether or not it is also a control. */
+.canonical-graph-engine .legend-entry {
+  cursor: pointer;
+}
+.canonical-graph-engine.graph-rel-filtered .canonical-edge,
+.canonical-graph-engine.graph-rel-filtered .canonical-node {
+  opacity: 0.16;
+}
+.canonical-graph-engine.graph-rel-filtered .canonical-edge.rel-match,
+.canonical-graph-engine.graph-rel-filtered .canonical-node.rel-touched {
+  opacity: 1;
+}
+.canonical-graph-engine .legend-entry.is-active .legend-label {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+/* I6 - FOCUS SUMMARY PANEL.
+   Anchored to the CANVAS, not to the container, because the chrome above the
+   SVG is a variable height - the severity key appears only when the graph
+   carries more than one level - so a `top` measured from the container would be
+   right on one graph and wrong on the next. Position stood in for state once
+   already in this estate; it is not going to stand in for layout here.
+
+   ABSOLUTE, so nothing in normal flow moves when the panel appears. The rule
+   this package is built on is about SVG geometry, which an HTML overlay cannot
+   touch - but a panel that pushed the canvas down would move the card the
+   reader had just clicked, and the reason not to move things is the reader,
+   not only the fingerprint.
+
+   It overlays the top-right of the canvas. Everything under it is at 0.16
+   opacity whenever it is visible, because it is visible only while a pin is
+   held. */
+.canonical-graph-canvas {
+  position: relative;
+}
+.focus-summary {
+  display: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  max-width: 340px;
+  background: rgba(255,255,255,0.97);
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 10px rgba(15,23,42,0.14);
+  font-size: 12px;
+  line-height: 1.45;
+  color: #111827;
+}
+/* Both classes required. The root state and the block state have to agree, so
+   a block cannot be left displayed by a class nobody cleared. */
+.canonical-graph-engine.graph-summarised .focus-summary.is-shown {
+  display: block;
+}
+.focus-summary-label {
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+.focus-summary-meta {
+  color: #64748b;
+  font-weight: 700;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+.focus-summary-severity.sev-critical { color: #b91c1c; }
+.focus-summary-severity.sev-elevated { color: #b45309; }
+.focus-summary-severity.sev-normal { color: #64748b; }
+.focus-summary-rels {
+  margin: 0;
+  padding-left: 16px;
+}
+.focus-summary-rels li {
+  margin-bottom: 3px;
+}
+.focus-rel-name {
+  font-weight: 700;
+}
+.focus-rel-party {
+  color: #334155;
+}
+.focus-rel-none {
+  list-style: none;
+  margin-left: -16px;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* I5 - THE FOCUS RING. `:focus-visible` rather than `:focus`, so a mouse click
+   does not leave a ring behind while a keyboard tab does.
+   Outline only. It is painted outside the box and participates in no layout, so
+   it cannot move an SVG coordinate. */
+.canonical-graph-engine .canonical-node:focus-visible,
+.canonical-graph-engine .legend-entry:focus-visible,
+.canonical-graph-engine .severity-chip:focus-visible,
+.canonical-graph-engine .focus-summary:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+}
+.canonical-graph-engine .legend-entry,
+.canonical-graph-engine .severity-chip,
+.canonical-graph-engine .canonical-node {
+  /* Chrome and Safari draw no ring on a focused SVG <g> without this. */
+  outline-color: #1d4ed8;
+}
+
+/* I1's coarse-pointer escape hatch is RETIRED by I2, as planned.
+   It existed because `mouseenter` with no reachable `mouseleave` strands a
+   dim a finger cannot clear. Click now both sets and clears the focus, so
+   touch has a way out and the dimming can stay on. */
+</style>
+</head>
+<body>
+<div
+  class="canonical-graph-engine"
+  data-graph-engine-id="CANONICAL_GRAPH_ENGINE"
+  data-graph-engine-version="stage328a_5_visual_renderer_integrated"
+  data-contract-id="CANONICAL_GRAPH_ENGINE_CONTRACT"
+  data-graph-fingerprint="419f6f4643ce9fd0ebaf7c1f4d89ff7668671ab797525031a18d3a689d328146"
+  data-case-id="TBML001-CASE-2026-003"
+  data-case-fingerprint="e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423"
+  data-renderer-id="CANONICAL_GRAPH_VISUAL_RENDERER"
+  data-renderer-version="stage330_wp1_visual_language_interpreter"
+  data-renderer-mode="VISUAL_LANGUAGE_INTERPRETER"
+  data-visual-language-id="ENTERPRISE_INTELLIGENCE_VISUAL_LANGUAGE"
+  data-visual-language-version="stage329b_wp1_investigation_relationship_language"
+  data-display-scale="1.000" data-safe-margin="true"
+  data-card-size="320x188" data-canvas-size="1260x840"
+  data-frame-fits="true" data-frame-at-floor="false"
+  style="--graph-svg-height:840px;--graph-aspect:1260 / 840"
+>
+  <div class="canonical-graph-title">Canonical Graph Engine Output</div>
+  <div class="canonical-graph-badges">
+    <span>Case: TBML001-CASE-2026-003</span>
+    <span>Topology: diamond</span>
+    <span>Layout: stage307_topology_pipeline</span>
+    <span>Renderer: CANONICAL_GRAPH_VISUAL_RENDERER</span>
+  </div>
+  <div class="canonical-severity-key" aria-label="Severity key"><span class="severity-chip sev-critical" data-severity-filter="critical" role="button" tabindex="0" aria-pressed="false" aria-label="Show only 1 critical entity"><span class="severity-dot" aria-hidden="true"></span>Critical<span class="severity-count">1</span></span><span class="severity-chip sev-elevated" data-severity-filter="elevated" role="button" tabindex="0" aria-pressed="false" aria-label="Show only 3 elevated entities"><span class="severity-dot" aria-hidden="true"></span>Elevated<span class="severity-count">3</span></span><span class="severity-chip sev-normal" data-severity-filter="normal" role="button" tabindex="0" aria-pressed="false" aria-label="Show only 2 normal entities"><span class="severity-dot" aria-hidden="true"></span>Normal<span class="severity-count">2</span></span></div>
+  <div class="canonical-graph-canvas">
+      <div class="focus-summary" data-summary-for="EXPORTER_CO">
+        <div class="focus-summary-label">XYZ Trading LLC</div>
+        <div class="focus-summary-meta">PARTY · <span class="focus-summary-severity sev-elevated">Elevated</span></div>
+        <ul class="focus-summary-rels">
+          <li><span class="focus-rel-name">Commercial Trading Link</span> to <span class="focus-rel-party">ABC Imports Ltd</span></li>
+          <li><span class="focus-rel-name">Instrument Movement</span> to <span class="focus-rel-party">INV001 · PAY001 · USD 2,500,000.00</span></li>
+          <li><span class="focus-rel-name">Route Dependency</span> to <span class="focus-rel-party">Jebel Ali → Rotterdam → Felixstowe</span></li>
+        </ul>
+      </div>
+      <div class="focus-summary" data-summary-for="IMPORTER_CO">
+        <div class="focus-summary-label">ABC Imports Ltd</div>
+        <div class="focus-summary-meta">PARTY · <span class="focus-summary-severity sev-elevated">Elevated</span></div>
+        <ul class="focus-summary-rels">
+          <li><span class="focus-rel-name">Commercial Trading Link</span> from <span class="focus-rel-party">XYZ Trading LLC</span></li>
+          <li><span class="focus-rel-name">Instrument Movement</span> to <span class="focus-rel-party">INV001 · PAY001 · USD 2,500,000.00</span></li>
+          <li><span class="focus-rel-name">Route Dependency</span> to <span class="focus-rel-party">Jebel Ali → Rotterdam → Felixstowe</span></li>
+        </ul>
+      </div>
+      <div class="focus-summary" data-summary-for="INVOICE_001">
+        <div class="focus-summary-label">INV001 · PAY001 · USD 2,500,000.00</div>
+        <div class="focus-summary-meta">INSTRUMENT · <span class="focus-summary-severity sev-critical">Critical</span></div>
+        <ul class="focus-summary-rels">
+          <li><span class="focus-rel-name">Instrument Movement</span> from <span class="focus-rel-party">XYZ Trading LLC</span></li>
+          <li><span class="focus-rel-name">Instrument Movement</span> from <span class="focus-rel-party">ABC Imports Ltd</span></li>
+          <li><span class="focus-rel-name">Declared Goods</span> to <span class="focus-rel-party">Network communications equipment</span></li>
+          <li><span class="focus-rel-name">Benchmark Breach</span> to <span class="focus-rel-party">Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)</span></li>
+        </ul>
+      </div>
+      <div class="focus-summary" data-summary-for="GOODS_001">
+        <div class="focus-summary-label">Network communications equipment</div>
+        <div class="focus-summary-meta">GOODS · <span class="focus-summary-severity sev-normal">Normal</span></div>
+        <ul class="focus-summary-rels">
+          <li><span class="focus-rel-name">Declared Goods</span> from <span class="focus-rel-party">INV001 · PAY001 · USD 2,500,000.00</span></li>
+        </ul>
+      </div>
+      <div class="focus-summary" data-summary-for="ROUTE_001">
+        <div class="focus-summary-label">Jebel Ali → Rotterdam → Felixstowe</div>
+        <div class="focus-summary-meta">ROUTE · <span class="focus-summary-severity sev-normal">Normal</span></div>
+        <ul class="focus-summary-rels">
+          <li><span class="focus-rel-name">Route Dependency</span> from <span class="focus-rel-party">XYZ Trading LLC</span></li>
+          <li><span class="focus-rel-name">Route Dependency</span> from <span class="focus-rel-party">ABC Imports Ltd</span></li>
+        </ul>
+      </div>
+      <div class="focus-summary" data-summary-for="BENCHMARK_001">
+        <div class="focus-summary-label">Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)</div>
+        <div class="focus-summary-meta">FINDING · <span class="focus-summary-severity sev-elevated">Elevated</span></div>
+        <ul class="focus-summary-rels">
+          <li><span class="focus-rel-name">Benchmark Breach</span> from <span class="focus-rel-party">INV001 · PAY001 · USD 2,500,000.00</span></li>
+        </ul>
+      </div>
+  <!-- role="group", NOT role="img". Changed 2026-08-04, and it is the largest
+       accessibility change this artefact has had.
+
+       `img` is one of the ARIA roles whose children are PRESENTATIONAL: every
+       descendant is dropped from the accessibility tree. So `role="img"` meant
+       the eight <title> elements, all six entity cards and the relationship
+       legend were invisible to assistive technology, and a screen reader got
+       four words -- "Canonical graph" -- for the whole network.
+
+       It also made the keyboard work impossible to add safely. Focusable
+       content inside a presentational-children role is a documented WCAG 4.1.2
+       Level A failure (W3C ACT rule 307n5z), so `role="img"` plus the
+       `tabindex="0"` this package specified would have shipped a conformance
+       failure that ten independent scanners detect automatically. -->
+  <svg class="canonical-graph-svg" viewBox="0 0 1260.0 840.0" role="group" aria-label="Canonical graph: 6 entities, 7 relationships">
+    <defs>
+      <!-- Retained as the fallback for any path that names no relationship class.
+           The per-class markers that follow are the ones edges actually use. -->
+      <marker id="canonical-arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L9,3 z" fill="#111827"></path>
+      </marker>
+      <marker id="arrow-critical" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"></path></marker>
+      <marker id="arrow-document" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"></path></marker>
+      <marker id="arrow-evidence" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6d28d9"></path></marker>
+      <marker id="arrow-route" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#15803d"></path></marker>
+      <marker id="arrow-trade" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1d4ed8"></path></marker>
+      <!-- Card elevation. Cards previously sat flat in the same visual plane as
+           the edge layer, so an edge passing near a card read as part of it. -->
+      <filter id="vl-card-lift" x="-20%" y="-20%" width="140%" height="150%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.18"></feDropShadow>
+      </filter>
+    </defs>
+    
+        <path class="canonical-edge rel-trade" data-edge-clear="true" data-source="EXPORTER_CO" data-target="IMPORTER_CO" data-relationship-class="trade" data-relationship-label="Commercial Trading Link" stroke="#1d4ed8" stroke-width="3.00" stroke-opacity="0.92" marker-end="url(#arrow-trade)" d="M 223.0 314.2 L 223.0 272.4 Q 223.0 264.4 231.0 264.4 L 1007.0 264.4 Q 1015.0 264.4 1015.0 272.4 L 1015.0 314.2" />
+        <rect class="edge-label-bg" x="360.3" y="253.4" width="95.0" height="22.0" rx="7" />
+        <text class="edge-label" x="407.8" y="267.9" style="font-size:9.50px">TRADES_WITH</text>
+            
+        <path class="canonical-edge rel-document" data-edge-clear="true" data-source="EXPORTER_CO" data-target="INVOICE_001" data-relationship-class="document" data-relationship-label="Instrument Movement" stroke="#334155" stroke-width="2.40" stroke-opacity="0.86" marker-end="url(#arrow-document)" d="M 234.0 530.5 L 234.0 548.5 Q 234.0 556.5 242.0 556.5 L 397.1 556.5 Q 399.0 556.5 399.0 558.4 L 399.0 558.4 Q 399.0 560.4 399.0 562.3 L 399.0 586.4" />
+        <rect class="edge-label-bg" x="286.5" y="545.5" width="60.0" height="22.0" rx="7" />
+        <text class="edge-label" x="316.5" y="559.9" style="font-size:9.50px">ISSUED</text>
+            
+        <path class="canonical-edge rel-document" data-edge-clear="true" data-source="IMPORTER_CO" data-target="INVOICE_001" data-relationship-class="document" data-relationship-label="Instrument Movement" stroke="#334155" stroke-width="2.40" stroke-opacity="0.86" marker-end="url(#arrow-document)" d="M 1037.0 314.2 L 1037.0 288.4 Q 1037.0 280.4 1029.0 280.4 L 429.0 280.4 Q 421.0 280.4 421.0 288.4 L 421.0 552.4 Q 421.0 560.4 421.0 568.4 L 421.0 586.4" />
+        <rect class="edge-label-bg" x="692.0" y="269.4" width="74.0" height="22.0" rx="7" />
+        <text class="edge-label" x="729.0" y="283.9" style="font-size:9.50px">RECEIVED</text>
+            
+        <path class="canonical-edge rel-evidence" data-edge-clear="true" data-source="INVOICE_001" data-target="GOODS_001" data-relationship-class="evidence" data-relationship-label="Declared Goods" stroke="#6d28d9" stroke-width="2.40" stroke-opacity="0.84" marker-end="url(#arrow-evidence)" d="M 443.0 586.4 L 443.0 568.4 Q 443.0 560.4 451.0 560.4 L 622.0 560.4 Q 630.0 560.4 630.0 552.4 L 630.0 546.6 Q 630.0 538.6 630.0 530.6 L 630.0 512.6" />
+        <rect class="edge-label-bg" x="496.0" y="549.4" width="81.0" height="22.0" rx="7" />
+        <text class="edge-label" x="536.5" y="563.8" style="font-size:9.50px">DESCRIBES</text>
+            
+        <path class="canonical-edge rel-critical" data-edge-clear="true" data-source="INVOICE_001" data-target="BENCHMARK_001" data-relationship-class="critical" data-relationship-label="Benchmark Breach" stroke="#dc2626" stroke-width="4.40" stroke-opacity="0.98" marker-end="url(#arrow-critical)" d="M 465.0 586.4 L 465.0 568.4 Q 465.0 560.4 465.0 552.4 L 465.0 304.4 Q 465.0 296.4 473.0 296.4 L 622.0 296.4 Q 630.0 296.4 630.0 288.4 L 630.0 263.1" />
+        <rect class="edge-label-bg" x="396.5" y="285.4" width="137.0" height="22.0" rx="7" />
+        <text class="edge-label" x="465.0" y="299.8" style="font-size:9.50px">EXCEEDS_BENCHMARK</text>
+            
+        <path class="canonical-edge rel-route" data-edge-clear="true" data-source="EXPORTER_CO" data-target="ROUTE_001" data-relationship-class="route" data-relationship-label="Route Dependency" stroke="#15803d" stroke-width="2.20" stroke-opacity="0.80" stroke-dasharray="7 5" marker-end="url(#arrow-route)" d="M 245.0 314.2 L 245.0 313.4 Q 245.0 312.4 245.9 312.4 L 809.0 312.4 Q 817.0 312.4 817.0 320.4 L 817.0 561.8 Q 817.0 569.8 817.0 577.8 L 817.0 595.8" />
+        <rect class="edge-label-bg" x="658.6" y="301.4" width="88.0" height="22.0" rx="7" />
+        <text class="edge-label" x="702.6" y="315.9" style="font-size:9.50px">USES_ROUTE</text>
+            
+        <path class="canonical-edge rel-route" data-edge-clear="true" data-source="IMPORTER_CO" data-target="ROUTE_001" data-relationship-class="route" data-relationship-label="Route Dependency" stroke="#15803d" stroke-width="2.20" stroke-opacity="0.80" stroke-dasharray="7 5" marker-end="url(#arrow-route)" d="M 1026.0 530.5 L 1026.0 548.5 Q 1026.0 556.5 1018.0 556.5 L 845.6 556.5 Q 839.0 556.5 839.0 563.1 L 839.0 563.1 Q 839.0 569.8 839.0 576.4 L 839.0 595.8" />
+        <rect class="edge-label-bg" x="888.5" y="545.5" width="88.0" height="22.0" rx="7" />
+        <text class="edge-label" x="932.5" y="559.9" style="font-size:9.50px">USES_ROUTE</text>
+            
+    
+        <g class="canonical-node vl-subject priority-primary"
+           data-node-id="EXPORTER_CO" data-severity="elevated"
+           data-visual-class="subject"
+           data-label="XYZ Trading LLC"
+           role="button" tabindex="0" aria-pressed="false"
+           aria-label="XYZ Trading LLC. PARTY, elevated. Commercial Trading Link to ABC Imports Ltd; Instrument Movement to INV001 · PAY001 · USD 2,500,000.00; Route Dependency to Jebel Ali → Rotterdam → Felixstowe"
+           style="--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;">
+          <title>XYZ Trading LLC
+PARTY · EXPORTER_CO</title>
+          <rect class="vl-card-shell" x="50.0" y="314.2" width="368.0" height="216.2" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="50.0" y="314.2" width="14.7" height="216.2" rx="10" />
+          <rect class="vl-card-accent-flat" x="62.7" y="314.2" width="4" height="216.2" />
+          <circle class="vl-icon-well" cx="100.8" cy="422.4" r="23.8" aria-hidden="true" />
+          <path class="vl-card-icon" d="M3 21V6.2l6.4-2.4V21H3Zm7.8 0V9.4L21 6.2V21h-10.2Z" transform="translate(88.03 409.59) scale(1.06298)" aria-hidden="true" />
+
+          <text class="vl-card-title" x="147.5" y="407.2" style="font-size:22.48px">XYZ Trading LLC</text>
+          <text class="vl-card-meta" x="147.5" y="463.4">PARTY</text>
+          <circle class="vl-status-dot" cx="397.8" cy="333.7" r="5.8" />
+        </g>
+    
+        <g class="canonical-node vl-subject priority-primary"
+           data-node-id="IMPORTER_CO" data-severity="elevated"
+           data-visual-class="subject"
+           data-label="ABC Imports Ltd"
+           role="button" tabindex="0" aria-pressed="false"
+           aria-label="ABC Imports Ltd. PARTY, elevated. Commercial Trading Link from XYZ Trading LLC; Instrument Movement to INV001 · PAY001 · USD 2,500,000.00; Route Dependency to Jebel Ali → Rotterdam → Felixstowe"
+           style="--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;">
+          <title>ABC Imports Ltd
+PARTY · IMPORTER_CO</title>
+          <rect class="vl-card-shell" x="842.0" y="314.2" width="368.0" height="216.2" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="842.0" y="314.2" width="14.7" height="216.2" rx="10" />
+          <rect class="vl-card-accent-flat" x="854.7" y="314.2" width="4" height="216.2" />
+          <circle class="vl-icon-well" cx="892.8" cy="422.4" r="23.8" aria-hidden="true" />
+          <path class="vl-card-icon" d="M3 21V6.2l6.4-2.4V21H3Zm7.8 0V9.4L21 6.2V21h-10.2Z" transform="translate(880.03 409.59) scale(1.06298)" aria-hidden="true" />
+
+          <text class="vl-card-title" x="939.5" y="407.2" style="font-size:22.48px">ABC Imports Ltd</text>
+          <text class="vl-card-meta" x="939.5" y="463.4">PARTY</text>
+          <circle class="vl-status-dot" cx="1189.8" cy="333.7" r="5.8" />
+        </g>
+    
+        <g class="canonical-node vl-transaction priority-transaction vl-finding"
+           data-node-id="INVOICE_001" data-severity="critical"
+           data-visual-class="transaction"
+           data-label="INV001 · PAY001 · USD 2,500,000.00"
+           data-risk-score="71"
+           data-risk-band="High"
+           role="button" tabindex="0" aria-pressed="false"
+           aria-label="INV001 · PAY001 · USD 2,500,000.00. INSTRUMENT, critical. Instrument Movement from XYZ Trading LLC; Instrument Movement from ABC Imports Ltd; Declared Goods to Network communications equipment; Benchmark Breach to Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)"
+           style="--vl-accent:#2563eb;--vl-stroke:#1d4ed8;--title-size:19.55px;--meta-size:12.78px;--icon-size:22.18px;">
+          <title>INV001 · PAY001 · USD 2,500,000.00
+INSTRUMENT · INVOICE_001</title>
+          <rect class="vl-finding-halo" x="268.0" y="582.4" width="328.0" height="196.0" rx="13" />
+          <rect class="vl-card-shell" x="272.0" y="586.4" width="320.0" height="188.0" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="272.0" y="586.4" width="12.8" height="188.0" rx="10" />
+          <rect class="vl-card-accent-flat" x="282.8" y="586.4" width="4" height="188.0" />
+          <circle class="vl-icon-well" cx="316.2" cy="680.4" r="20.7" aria-hidden="true" />
+          <path class="vl-card-icon" d="M6 2h7.6L18.6 7v15H6V2Zm7.6 1.9v3.6h3.6l-3.6-3.6Z" transform="translate(305.07 669.26) scale(0.92433)" aria-hidden="true" />
+
+          <text class="vl-card-title" x="356.8" y="657.7" style="font-size:19.55px">INV001 · PAY001</text>
+          <text class="vl-card-title" x="356.8" y="680.2" style="font-size:19.55px">USD 2,500,000.00</text>
+          <text class="vl-card-meta" x="356.8" y="716.1">INSTRUMENT</text>
+          <circle class="vl-status-dot" cx="574.4" cy="603.3" r="5.1" />
+        </g>
+    
+        <g class="canonical-node vl-transaction priority-transaction"
+           data-node-id="GOODS_001" data-severity="normal"
+           data-visual-class="transaction"
+           data-label="Network communications equipment"
+           role="button" tabindex="0" aria-pressed="false"
+           aria-label="Network communications equipment. GOODS, normal. Declared Goods from INV001 · PAY001 · USD 2,500,000.00"
+           style="--vl-accent:#7c3aed;--vl-stroke:#6d28d9;--title-size:18.77px;--meta-size:12.27px;--icon-size:21.30px;">
+          <title>Network communications equipment
+GOODS · GOODS_001</title>
+          <rect class="vl-card-shell" x="476.4" y="332.1" width="307.2" height="180.5" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="476.4" y="332.1" width="12.3" height="180.5" rx="10" />
+          <rect class="vl-card-accent-flat" x="486.7" y="332.1" width="4" height="180.5" />
+          <circle class="vl-icon-well" cx="518.8" cy="422.4" r="19.9" aria-hidden="true" />
+          <path class="vl-card-icon" d="M12 2.2 21 7.1v9.8L12 21.8 3 16.9V7.1l9-4.9Zm0 2.4L6.3 7.7 12 10.8l5.7-3.1L12 4.6Z" transform="translate(508.15 411.70) scale(0.88736)" aria-hidden="true" />
+
+          <text class="vl-card-title" x="557.8" y="402.6" style="font-size:14.64px">Network communications</text>
+          <text class="vl-card-title" x="557.8" y="419.5" style="font-size:14.64px">equipment</text>
+          <text class="vl-card-meta" x="557.8" y="456.6">GOODS</text>
+          <circle class="vl-status-dot" cx="766.7" cy="348.4" r="4.9" />
+        </g>
+    
+        <g class="canonical-node vl-route priority-supporting"
+           data-node-id="ROUTE_001" data-severity="normal"
+           data-visual-class="route"
+           data-label="Jebel Ali → Rotterdam → Felixstowe"
+           role="button" tabindex="0" aria-pressed="false"
+           aria-label="Jebel Ali → Rotterdam → Felixstowe. ROUTE, normal. Route Dependency from XYZ Trading LLC; Route Dependency from ABC Imports Ltd"
+           style="--vl-accent:#16a34a;--vl-stroke:#15803d;--title-size:17.60px;--meta-size:11.51px;--icon-size:19.97px;">
+          <title>Jebel Ali → Rotterdam → Felixstowe
+ROUTE · ROUTE_001</title>
+          <rect class="vl-card-shell" x="684.0" y="595.8" width="288.0" height="169.2" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="684.0" y="595.8" width="11.5" height="169.2" rx="10" />
+          <rect class="vl-card-accent-flat" x="693.5" y="595.8" width="4" height="169.2" />
+          <circle class="vl-icon-well" cx="723.7" cy="680.4" r="18.6" aria-hidden="true" />
+          <path class="vl-card-icon" d="M3.4 10.2h9.4V6.4L20.6 12l-7.8 5.6v-3.8H3.4v-3.6Z" transform="translate(713.76 670.37) scale(0.83190)" aria-hidden="true" />
+
+          <text class="vl-card-title" x="760.3" y="661.9" style="font-size:13.73px">Jebel Ali → Rotterdam →</text>
+          <text class="vl-card-title" x="760.3" y="677.7" style="font-size:13.73px">Felixstowe</text>
+          <text class="vl-card-meta" x="760.3" y="712.5">ROUTE</text>
+          <circle class="vl-status-dot" cx="956.2" cy="611.0" r="4.6" />
+        </g>
+    
+        <g class="canonical-node vl-reference priority-reference"
+           data-node-id="BENCHMARK_001" data-severity="elevated"
+           data-visual-class="reference"
+           data-label="Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)"
+           role="button" tabindex="0" aria-pressed="false"
+           aria-label="Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%). FINDING, elevated. Benchmark Breach from INV001 · PAY001 · USD 2,500,000.00"
+           style="--vl-accent:#f59e0b;--vl-stroke:#a16207;--title-size:20.53px;--meta-size:13.42px;--icon-size:23.29px;">
+          <title>Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)
+FINDING · BENCHMARK_001</title>
+          <rect class="vl-card-shell" x="462.0" y="65.7" width="336.0" height="197.4" rx="10" filter="url(#vl-card-lift)" />
+          <rect class="vl-card-accent" x="462.0" y="65.7" width="13.4" height="197.4" rx="10" />
+          <rect class="vl-card-accent-flat" x="473.4" y="65.7" width="4" height="197.4" />
+          <circle class="vl-icon-well" cx="508.4" cy="164.4" r="21.7" aria-hidden="true" />
+          <path class="vl-card-icon" d="M12 2.4 22.6 21H1.4L12 2.4Zm0 5.8a1.35 1.35 0 0 0-1.35 1.45l.42 5.4a.94.94 0 0 0 1.86 0l.42-5.4A1.35 1.35 0 0 0 12 8.2Zm0 9.1a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9Z" transform="translate(496.72 152.70) scale(0.97055)" aria-hidden="true" />
+
+          <text class="vl-card-title" x="551.0" y="143.0" style="font-size:15.67px">Benchmark USD 1,700,000.00</text>
+          <text class="vl-card-title" x="551.0" y="161.0" style="font-size:15.67px">Variance USD 800,000.00…</text>
+          <text class="vl-card-meta" x="551.0" y="201.9">FINDING</text>
+          <circle class="vl-status-dot" cx="779.5" cy="83.4" r="5.3" />
+        </g>
+    
+    <g class="canonical-legend" role="group" aria-label="Filter by relationship type">
+      <g class="legend-entry" data-relationship-filter="critical" role="button" tabindex="0" aria-pressed="false" aria-label="Show only Benchmark Breach relationships">
+      <line class="legend-swatch" x1="50.0" y1="812.4" x2="80.0" y2="812.4" stroke="#dc2626" stroke-width="4.40" />
+      <text class="legend-label" x="89.0" y="817.6">Benchmark Breach</text>
+      </g>
+      <g class="legend-entry" data-relationship-filter="trade" role="button" tabindex="0" aria-pressed="false" aria-label="Show only Commercial Trading Link relationships">
+      <line class="legend-swatch" x1="243.8" y1="812.4" x2="273.8" y2="812.4" stroke="#1d4ed8" stroke-width="3.00" />
+      <text class="legend-label" x="282.8" y="817.6">Commercial Trading Link</text>
+      </g>
+      <g class="legend-entry" data-relationship-filter="document" role="button" tabindex="0" aria-pressed="false" aria-label="Show only Instrument Movement relationships">
+      <line class="legend-swatch" x1="492.2" y1="812.4" x2="522.2" y2="812.4" stroke="#334155" stroke-width="2.40" />
+      <text class="legend-label" x="531.2" y="817.6">Instrument Movement</text>
+      </g>
+      <g class="legend-entry" data-relationship-filter="evidence" role="button" tabindex="0" aria-pressed="false" aria-label="Show only Declared Goods relationships">
+      <line class="legend-swatch" x1="709.4" y1="812.4" x2="739.4" y2="812.4" stroke="#6d28d9" stroke-width="2.40" />
+      <text class="legend-label" x="748.4" y="817.6">Declared Goods</text>
+      </g>
+      <g class="legend-entry" data-relationship-filter="route" role="button" tabindex="0" aria-pressed="false" aria-label="Show only Route Dependency relationships">
+      <line class="legend-swatch" x1="887.6" y1="812.4" x2="917.6" y2="812.4" stroke="#15803d" stroke-width="2.20" stroke-dasharray="7 5" />
+      <text class="legend-label" x="926.6" y="817.6">Route Dependency</text>
+      </g>
+    </g>
+  </svg>
+  </div>
+  <div class="canonical-graph-provenance">
+    CANONICAL_GRAPH_ENGINE | stage328a_5_visual_renderer_integrated | CANONICAL_GRAPH_ENGINE_CONTRACT | Case: TBML001-CASE-2026-003 | Case fingerprint: e76535b933d86994d3cf71e0cee01fac2d5d0591c916ed01b5cdb24e42532423 | EXPORTER_CO IMPORTER_CO INVOICE_001 GOODS_001 ROUTE_001 BENCHMARK_001 | TRADES_WITH ISSUED RECEIVED DESCRIBES EXCEEDS_BENCHMARK USES_ROUTE USES_ROUTE
+  </div>
+</div>
+<script>
+/* I1 hover, I2 pin, I3 relationship filter, I4 severity filter, I6 summary
+   panel, I5 keyboard and ARIA. Every number is in the stylesheet above; this
+   file contains no numeral at all.
+
+   NO CONTENT IS CREATED. The one attribute written is `aria-pressed`, which
+   carries no information -- it describes a state that does not exist when the
+   script is absent. That allowance was AUTHORISED on 2026-08-04 and replaced a
+   blanket ban on setAttribute, which was a proxy for the real requirement:
+   nothing reachable only by interaction may be the only copy of a fact.
+
+   The ban was deliberately NOT relaxed in I2, when it first got in the way,
+   because the guard was hours old and mine and the feature was mine. Being
+   blocked by your own guard is the point of having one. */
+(function () {
+  var root = document.querySelector(".canonical-graph-engine");
+  if (!root) { return; }
+  var nodes = root.querySelectorAll(".canonical-node[data-node-id]");
+  var edges = root.querySelectorAll(".canonical-edge[data-source]");
+  var summaries = root.querySelectorAll("[data-summary-for]");
+  var pinned = null;
+
+  /* I5 - THE ONE ATTRIBUTE THIS SCRIPT IS ALLOWED TO WRITE.
+     Authorised 2026-08-04. Every other guard in this layer refuses
+     setAttribute, and that ban was a PROXY: the requirement is that no script
+     may put INFORMATION into the document, and `aria-pressed` carries none --
+     it describes a state that does not exist when the script is absent.
+     The allowlist is one attribute and two literal values, asserted by
+     Stage473 against the emitted source, so it cannot be widened by passing a
+     variable. */
+  function setPressed(element, on) {
+    if (on) { element.setAttribute("aria-pressed", "true"); }
+    else { element.setAttribute("aria-pressed", "false"); }
+  }
+
+  function clearPressed(collection) {
+    Array.prototype.forEach.call(collection, function (item) {
+      setPressed(item, false);
+    });
+  }
+
+  /* Enter and Space activate; Escape returns the graph to its published state.
+     "Spacebar" is legacy Edge. Space must preventDefault or the page scrolls
+     under the reader instead of pinning what they selected. */
+  function isActivation(event) {
+    return event.key === "Enter" || event.key === " " || event.key === "Spacebar";
+  }
+
+  function strip() {
+    root.classList.remove("graph-focused");
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove("is-focus");
+      n.classList.remove("is-adjacent");
+    });
+    Array.prototype.forEach.call(edges, function (e) {
+      e.classList.remove("is-focus");
+    });
+  }
+
+  function paint(id) {
+    strip();
+    root.classList.add("graph-focused");
+    var adjacent = Object.create(null);
+    Array.prototype.forEach.call(edges, function (e) {
+      var s = e.getAttribute("data-source");
+      var t = e.getAttribute("data-target");
+      if (s === id || t === id) {
+        e.classList.add("is-focus");
+        adjacent[s] = true;
+        adjacent[t] = true;
+      }
+    });
+    Array.prototype.forEach.call(nodes, function (n) {
+      var nid = n.getAttribute("data-node-id");
+      if (nid === id) { n.classList.add("is-focus"); }
+      else if (adjacent[nid]) { n.classList.add("is-adjacent"); }
+    });
+  }
+
+  /* I6 - focus summary. Every block is rendered statically above; this only
+     chooses which one is displayed. No text is created and no attribute is
+     written, so a reader whose client strips script loses nothing: the same
+     words are in the markup, and the full labels are also in <title> and
+     data-label as they have been since 2026-07-31. */
+  function clearSummary() {
+    root.classList.remove("graph-summarised");
+    Array.prototype.forEach.call(summaries, function (s) {
+      s.classList.remove("is-shown");
+    });
+  }
+
+  function showSummary(id) {
+    clearSummary();
+    root.classList.add("graph-summarised");
+    Array.prototype.forEach.call(summaries, function (s) {
+      if (s.getAttribute("data-summary-for") === id) {
+        s.classList.add("is-shown");
+      }
+    });
+  }
+
+  function unpin() {
+    pinned = null;
+    root.classList.remove("graph-pinned");
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove("is-pinned");
+    });
+    clearPressed(nodes);
+    clearSummary();
+    strip();
+  }
+
+  function pin(id, element) {
+    /* One pin at a time; clicking another moves it. */
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove("is-pinned");
+    });
+    clearPressed(nodes);
+    pinned = id;
+    root.classList.add("graph-pinned");
+    element.classList.add("is-pinned");
+    setPressed(element, true);
+    paint(id);
+    /* The panel follows the PIN, not hover. A summary that appeared under a
+       moving cursor would be unreadable by the time it was read. */
+    showSummary(id);
+  }
+
+  Array.prototype.forEach.call(nodes, function (n) {
+    var id = n.getAttribute("data-node-id");
+
+    n.addEventListener("mouseenter", function () {
+      /* A held pin outranks hover, or moving the mouse away from the pinned
+         node would silently repaint around whatever it passed over. */
+      if (pinned === null) { paint(id); }
+    });
+    n.addEventListener("mouseleave", function () {
+      if (pinned === null) { strip(); }
+    });
+    n.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (pinned === id) { unpin(); } else { pin(id, n); }
+    });
+
+    /* I5. Focus behaves as hover does, so a keyboard reader gets the same
+       adjacency highlight a mouse reader gets rather than a bare focus ring. */
+    n.addEventListener("focus", function () {
+      if (pinned === null) { paint(id); }
+    });
+    n.addEventListener("blur", function () {
+      if (pinned === null) { strip(); }
+    });
+    n.addEventListener("keydown", function (event) {
+      if (isActivation(event)) {
+        event.preventDefault();
+        if (pinned === id) { unpin(); } else { pin(id, n); }
+      }
+    });
+  });
+
+  /* Click anywhere that is not a node clears the pin. Without this the pin
+     is a state with no exit on touch, which is the defect I1's coarse-pointer
+     guard was standing in for. */
+  root.addEventListener("click", unpin);
+
+  /* I4 - filter by severity. Chips are rendered statically above; this only
+     toggles classes on them and on the cards. Selecting a severity CLEARS any
+     pin, and pinning clears any filter: two dimming systems layered on one
+     element produce a state nobody can read, so there is one mode at a time. */
+  var chips = document.querySelectorAll("[data-severity-filter]");
+  var active = null;
+
+  function clearFilter() {
+    active = null;
+    root.classList.remove("graph-filtered");
+    clearPressed(chips);
+    Array.prototype.forEach.call(chips, function (c) {
+      c.classList.remove("is-active");
+    });
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove("sev-match");
+    });
+  }
+
+  Array.prototype.forEach.call(chips, function (chip) {
+    function activate(event) {
+      event.stopPropagation();
+      var level = chip.getAttribute("data-severity-filter");
+      if (active === level) { clearFilter(); return; }
+      unpin();
+      clearFilter();
+      clearRelFilter();
+      active = level;
+      root.classList.add("graph-filtered");
+      chip.classList.add("is-active");
+      setPressed(chip, true);
+      Array.prototype.forEach.call(nodes, function (n) {
+        if (n.getAttribute("data-severity") === level) {
+          n.classList.add("sev-match");
+        }
+      });
+    }
+    chip.addEventListener("click", activate);
+    chip.addEventListener("keydown", function (event) {
+      if (isActivation(event)) { event.preventDefault(); activate(event); }
+    });
+  });
+
+  /* I3 filter half - isolate one relationship class from the legend.
+     SINGLE SELECT, like the severity chips, though the package specified
+     multi-select. Three filter systems already share one canvas; asymmetric
+     selection rules across two sibling filters would be harder to explain than
+     multi-select is worth on a graph this size. Recorded as a deviation, not
+     an oversight. */
+  var entries = root.querySelectorAll("[data-relationship-filter]");
+  var activeRel = null;
+
+  function clearRelFilter() {
+    activeRel = null;
+    root.classList.remove("graph-rel-filtered");
+    clearPressed(entries);
+    Array.prototype.forEach.call(entries, function (e) {
+      e.classList.remove("is-active");
+    });
+    Array.prototype.forEach.call(edges, function (e) {
+      e.classList.remove("rel-match");
+    });
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove("rel-touched");
+    });
+  }
+
+  Array.prototype.forEach.call(entries, function (entry) {
+    function activate(event) {
+      event.stopPropagation();
+      var cls = entry.getAttribute("data-relationship-filter");
+      if (activeRel === cls) { clearRelFilter(); return; }
+      unpin();
+      clearFilter();
+      clearRelFilter();
+      activeRel = cls;
+      root.classList.add("graph-rel-filtered");
+      entry.classList.add("is-active");
+      setPressed(entry, true);
+      var touched = Object.create(null);
+      Array.prototype.forEach.call(edges, function (e) {
+        if (e.getAttribute("data-relationship-class") === cls) {
+          e.classList.add("rel-match");
+          touched[e.getAttribute("data-source")] = true;
+          touched[e.getAttribute("data-target")] = true;
+        }
+      });
+      /* The nodes an isolated edge touches stay lit. An edge floating between
+         two dimmed cards names a relationship without naming its parties. */
+      Array.prototype.forEach.call(nodes, function (n) {
+        if (touched[n.getAttribute("data-node-id")]) {
+          n.classList.add("rel-touched");
+        }
+      });
+    }
+    entry.addEventListener("click", activate);
+    entry.addEventListener("keydown", function (event) {
+      if (isActivation(event)) { event.preventDefault(); activate(event); }
+    });
+  });
+
+  /* The panel sits inside the canvas, so without this a click on it bubbles to
+     the canvas handler and closes the thing being read. Selecting the invoice
+     reference to copy it would dismiss the panel holding it. */
+  Array.prototype.forEach.call(summaries, function (s) {
+    s.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  });
+
+  /* Clicking the canvas clears everything, so there is always one gesture that
+     returns the graph to its published state. */
+  root.addEventListener("click", clearFilter);
+  root.addEventListener("click", clearRelFilter);
+
+  /* I5 - Escape is the keyboard equivalent of clicking the canvas, and it is
+     bound on the ROOT rather than per control: a reader who has tabbed away
+     from the chip that set a filter must still be able to clear it. keydown
+     bubbles, so one listener on the root catches all three kinds of control
+     without having to know which one holds focus. */
+  root.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" || event.key === "Esc") {
+      unpin();
+      clearFilter();
+      clearRelFilter();
+    }
+  });
+})();
+</script>
+</body>
+</html>
