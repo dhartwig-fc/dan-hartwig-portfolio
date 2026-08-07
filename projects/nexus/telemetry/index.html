@@ -599,7 +599,7 @@ body {
 
         #stage429-programme-status
         .telemetry-programme-status__header::after {
-            content: "ACTIVE  ·  Stage429A";
+            content: "ACTIVE  ·  " attr(data-programme-stage);
             position: absolute;
             top: 2px;
             right: 0;
@@ -1052,7 +1052,7 @@ body {
     class="telemetry-programme-status"
     aria-labelledby="stage429-programme-status-heading"
 >
-    <header class="telemetry-programme-status__header">
+    <header class="telemetry-programme-status__header" data-programme-stage="Stage516">
         <p class="telemetry-programme-status__eyebrow">
             Enterprise Manufacturing Programme
         </p>
@@ -1284,6 +1284,74 @@ body {
                 scheduleScans,
                 { once: true }
             );
+        }());
+    </script>
+
+    <script id="stage429-programme-stage-badge-sync">
+        (function () {
+            "use strict";
+
+            function clean(value) {
+                return String(value || "")
+                    .replace(/ /g, " ")
+                    .replace(/\s+/g, " ")
+                    .trim();
+            }
+
+            // The "ACTIVE · StageNNN" badge used to hard-code its stage, which is
+            // the exact unbacked-literal defect programme_state.json exists to
+            // retire -- it sat at Stage429A for weeks. It now mirrors the governed
+            // active_stage the loader writes into the telemetry field, so the
+            // badge and the CURRENT STAGE field cannot disagree or go stale apart.
+            function sync() {
+                var field = document.querySelector(
+                    '[data-telemetry-field="active_stage"]'
+                );
+                var header = document.querySelector(
+                    "#stage429-programme-status .telemetry-programme-status__header"
+                );
+
+                if (!field || !header) {
+                    return;
+                }
+
+                var value = clean(field.textContent);
+
+                if (value && value !== "—" && value !== "-") {
+                    header.setAttribute("data-programme-stage", value);
+                }
+            }
+
+            function schedule() {
+                sync();
+                window.setTimeout(sync, 100);
+                window.setTimeout(sync, 300);
+                window.setTimeout(sync, 750);
+                window.setTimeout(sync, 1500);
+                window.setTimeout(sync, 3000);
+            }
+
+            var observer = new MutationObserver(function () {
+                window.requestAnimationFrame(sync);
+            });
+
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true,
+                characterData: true
+            });
+
+            if (document.readyState === "loading") {
+                document.addEventListener(
+                    "DOMContentLoaded",
+                    schedule,
+                    { once: true }
+                );
+            } else {
+                schedule();
+            }
+
+            window.addEventListener("load", schedule, { once: true });
         }());
     </script>
 
