@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entity Dossier · Zeta Commodities Ltd</title><style>
+:root{--sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+--mono:'SF Mono',ui-monospace,'Roboto Mono',Menlo,monospace;--navy:#0b1a2e;--ink:#101828;
+--slate:#475467;--line:#e5e7eb;--sky:#175cd3;--amber:#b45309;--red:#b42318;--bg:#f7f9fb;}
+*{box-sizing:border-box}body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--bg);
+line-height:1.5}.wrap{max-width:1040px;margin:0 auto;padding:0 24px 64px}
+header.case{background:linear-gradient(135deg,#050b14,#0b1a2e 60%,#12325b);color:#eaf1fb;
+padding:34px 24px;margin-bottom:28px}header.case .inner{max-width:1040px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7fb0e8;font-weight:600}
+h1{font-size:26px;margin:6px 0 4px}h2{font-size:17px;margin:34px 0 14px;padding-bottom:8px;
+border-bottom:1px solid var(--line);color:var(--navy)}.sub{color:#9db8dc;font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;
+padding:12px 16px;min-width:120px}.stat .n{font-size:22px;font-weight:700}
+.stat .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9db8dc}
+.badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.b-critical{background:#fee4e2;color:#b42318}.b-high{background:#fef0c7;color:#b45309}
+.b-medium{background:#fef0c7;color:#a15c07}.b-low{background:#d1fadf;color:#027a48}
+.spot{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;background:#fff;border:1px solid var(--line);
+border-left:5px solid var(--red);border-radius:12px;padding:22px;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+@media(max-width:760px){.spot{grid-template-columns:1fr}.svg-card{order:-1}}
+.spot h3{margin:0 0 4px;font-size:20px}.spot .canon{font-family:var(--mono);font-size:12px;color:var(--slate)}
+.chips{margin-top:14px}.chip{display:inline-block;background:#eff4fb;color:var(--sky);border:1px solid #d6e3f7;
+border-radius:7px;padding:4px 10px;margin:3px 6px 3px 0;font-size:12px;font-weight:600}
+.chip.res{background:#fdf3ec;color:var(--amber);border-color:#f2dcc9;font-family:var(--mono)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 12px;
+border-bottom:1px solid var(--line)}th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+color:var(--slate)}tbody tr:hover{background:#fbfdff}td.mono{font-family:var(--mono);font-size:12px;color:var(--slate)}
+.flags span{display:inline-block;background:var(--navy);color:#fff;border-radius:5px;padding:2px 7px;
+margin:1px 3px 1px 0;font-size:11px;font-weight:600}
+.svg-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
+.svg-card svg{width:100%;height:auto}.legend{font-size:12px;color:var(--slate);margin-top:6px}
+.legend b{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin:0 4px 0 12px}
+.prod{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;background:#fff}
+.prod .pid{font-family:var(--mono);font-size:12px;color:var(--sky);font-weight:700}
+.prod .hl{margin-top:4px;color:var(--ink)}.foot{margin-top:40px;color:var(--slate);font-size:12px;
+border-top:1px solid var(--line);padding-top:16px}
+
+
+.crumb{color:#9db8dc;font-size:13px}
+.dossier-badge{display:inline-block;background:#b42318;color:#fff;font-size:12px;font-weight:800;
+letter-spacing:.05em;padding:4px 12px;border-radius:999px;margin-top:10px}
+.chips{margin-top:14px}.chip{display:inline-block;background:#eff4fb;color:var(--sky);border:1px solid #d6e3f7;
+border-radius:7px;padding:4px 10px;margin:3px 6px 3px 0;font-size:12px;font-weight:600}
+.chip.res{background:#fdf3ec;color:var(--amber);border-color:#f2dcc9;font-family:var(--mono)}
+.exp-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:22px 0 6px}
+.exp-cell{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.exp-cell .n{font-size:24px;font-weight:800;color:var(--ink)}
+.exp-cell .l{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);margin-top:3px}
+.exp-cell.warn{border-left:4px solid #b42318}
+.alerts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:8px}
+.alert-card{display:block;background:#fff;border:1px solid var(--line);border-left:4px solid #175cd3;
+border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:.18s ease;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.alert-card:hover{transform:translateY(-2px);border-color:var(--sky);box-shadow:0 14px 34px rgba(23,92,211,.14)}
+.ac-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ac-pid{font-family:var(--mono);font-size:12px;color:var(--sky);font-weight:700}
+.ac-name{font-size:18px;font-weight:700;margin-bottom:6px}
+.ac-find{font-size:14px;color:var(--slate);line-height:1.5;margin-bottom:14px}
+.ac-foot{display:flex;justify-content:space-between;align-items:center}
+.scope{font-size:10px;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:6px;font-weight:700;background:#eff4fb;color:#175cd3}
+.ac-open{font-size:12px;font-weight:700;color:var(--sky)}
+.cap-tag{display:inline-block;background:#eff4fb;color:#175cd3;border:1px solid #d6e3f7;border-radius:7px;padding:3px 9px;font-size:12px;font-weight:600}
+.exposure-panel{background:#fef3f2;border:1px solid #fdd6d3;border-radius:14px;padding:20px 22px;margin-top:8px}
+.exposure-panel h3{margin:0 0 4px;font-size:16px;color:#7a271a}
+.exposure-panel .lead{margin:0 0 14px;font-size:14px;color:#7a271a}
+.assoc{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #fdd6d3;border-radius:10px;
+padding:12px 14px;margin-bottom:8px;text-decoration:none;color:inherit;transition:.16s}
+.assoc:hover{transform:translateX(2px);border-color:#f2a99f}
+.assoc-dot{width:11px;height:11px;border-radius:50%;flex:none}.assoc-body{flex:1}
+.assoc-name{font-weight:700;color:var(--ink)}.assoc-meta{font-size:12px;color:var(--slate);margin-top:2px}
+.assoc-tag{border:1px solid;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:700}
+.foot{margin-top:34px;color:var(--slate);font-size:12px;border-top:1px solid var(--line);padding-top:16px}
+</style></head><body>
+<header class="case"><div class="inner">
+<div class="crumb"><a href="../index.html" style="color:#9db8dc">Case Intelligence · INV004</a> &nbsp;›&nbsp; Entity Dossier</div>
+<h1>Zeta Commodities Ltd</h1>
+<div class="sub">canonical · CE-be112f32</div>
+<span class="dossier-badge">2 direct alerts · indirect sanctions / PEP exposure</span>
+</div></header>
+<div class="wrap">
+
+<h2>Identity</h2>
+<div class="chips"><div class="l" style="font-size:11px;text-transform:uppercase;color:var(--slate);letter-spacing:.06em">Resolved from</div><span class='chip res'>C006</span></div>
+
+<h2>Exposure</h2>
+<div class="exp-strip">
+  <div class="exp-cell warn"><div class="n">49.5</div><div class="l">Total exposure</div></div>
+  <div class="exp-cell"><div class="n">20.0</div><div class="l">Direct risk (own record)</div></div>
+  <div class="exp-cell"><div class="n">John Smith</div><div class="l">Nearest high-risk connection</div></div>
+  <div class="exp-cell"><div class="n">1</div><div class="l">Hops to it</div></div>
+</div>
+
+<h2>Direct alerts on this entity</h2>
+<p style="color:var(--slate);margin-top:-4px">The typologies that flag Zeta Commodities Ltd directly — network risk first, each scoped to this entity and routing to its full page.</p>
+<div class="alerts-grid"><a class='alert-card' href="../products/NI004.html"><div class='ac-top'><span class='ac-pid'>NI004</span><span class='badge b-low'>Low · 17</span></div><div class='ac-name'>NI004 Network Risk Assessment Intelligence Product</div><div class='ac-find'>Network risk 17/100 (Low) across 20 entities. This entity appears as a node — 2 direct connections in the fused case.</div><div class='ac-foot'><span class='scope'>entity-scoped</span><span class='ac-open'>Open full page →</span></div></a><a class='alert-card' href="../products/PAT010.html"><div class='ac-top'><span class='ac-pid'>PAT010</span><span class='badge b-low'>Low · 20</span></div><div class='ac-name'>Hidden Controller Applied Pattern</div><div class='ac-find'>Hidden Controller: C003 across 3 controlled entities</div><div class='ac-foot'><span class='scope'>entity-scoped</span><span class='ac-open'>Open full page →</span></div></a></div>
+
+<h2>Indirect exposure — sanctions &amp; PEP in the network</h2><div class='exposure-panel'><h3>Zeta Commodities Ltd is not itself flagged by screening — its network is.</h3><p class='lead'>Screening flagged these entities in Zeta Commodities Ltd's network. Proximity to them is what carries its exposure.</p><a class='assoc' href="CE-7dddb5f9.html"><span class='assoc-dot' style='background:#b42318'></span><div class='assoc-body'><div class='assoc-name'>Gamma Imports Ltd</div><div class='assoc-meta'><span class='assoc-tag' style='color:#b42318;border-color:#b42318'>Sanctions</span> · 1 hop from Zeta Commodities Ltd</div></div><span class='ac-open'>Open →</span></a><a class='assoc' href="CE-45358dd8.html"><span class='assoc-dot' style='background:#b45309'></span><div class='assoc-body'><div class='assoc-name'>John Smith</div><div class='assoc-meta'><span class='assoc-tag' style='color:#b45309;border-color:#b45309'>PEP</span> · 1 hop from Zeta Commodities Ltd</div></div><span class='ac-open'>Open →</span></a><a class='assoc' href="CE-ff5e20d7.html"><span class='assoc-dot' style='background:#b42318'></span><div class='assoc-body'><div class='assoc-name'>Epsilon Commodities Ltd</div><div class='assoc-meta'><span class='assoc-tag' style='color:#b42318;border-color:#b42318'>Sanctions</span> · 2 hops from Zeta Commodities Ltd</div></div><span class='ac-open'>Open →</span></a></div>
+
+<div class="foot">Governed synthetic data · derived from the fused master case · Case INV004.</div>
+</div></body></html>

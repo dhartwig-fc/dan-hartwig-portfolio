@@ -1,0 +1,1592 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trade Based Money Laundering · Over Invoicing — Case TBML002-CASE-2026-003</title>
+<style>
+/* ==========================================================================
+   Track C — the product adopts the NEXUS site's design tokens, in two keys.
+   The site is dark (#050b14) with light panels' dark twins; a visitor moving
+   from it to this product used to land on a light-grey, Arial page from a
+   different decade. Both keys are published; prefers-color-scheme picks one.
+   DISCIPLINE (C5): the two keys differ ONLY in colour — never content, never
+   layout — so the published facts are identical whichever a reader sees.
+   ========================================================================== */
+:root {
+  --bg:#f7f9fb; --panel:#ffffff; --panel-2:#f9fafb; --ink:#101828; --muted:#5f6b7a;
+  --line:#e5e7eb; --line-strong:#d9e0e7;
+  --blue:#175cd3; --green:#15803d; --amber:#b45309;
+  --strong:#101828; --strong-ink:#ffffff;   /* bands, banner, active tab */
+  --focus:#175cd3;                            /* keyboard focus ring, light ground */
+  --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  /* risk palette — dark enough for white text on any ground, so it needs no
+     per-key variant; matches the graph severity colours. */
+  --risk-low:#64748b; --risk-medium:#b45309; --risk-high:#b91c1c; --risk-critical:#7f1d1d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#050b14; --panel:#081322; --panel-2:#0b1a2e; --ink:#f8fafc; --muted:#94a3b8;
+    --line:rgba(148,163,184,.22); --line-strong:rgba(148,163,184,.34);
+    --blue:#38bdf8; --green:#22c55e; --amber:#f59e0b;
+    --strong:#0b1a2e; --strong-ink:#f8fafc;
+    --focus:#38bdf8;                           /* 8.70 on the dark panel (C3) */
+  }
+}
+/* Manual override. A toggle sets data-theme on <html>; the attribute selectors
+   win over the OS default by specificity, so a reader can choose a key without
+   changing their OS. The values are IDENTICAL to the auto keys above — the
+   manual and automatic appearances are the same one — and Stage516 pins that
+   they match, so the two can never drift apart. Colour tokens only; --sans,
+   --mono and the risk palette are theme-invariant and inherit from :root. */
+:root[data-theme="dark"] {
+  --bg:#050b14; --panel:#081322; --panel-2:#0b1a2e; --ink:#f8fafc; --muted:#94a3b8;
+  --line:rgba(148,163,184,.22); --line-strong:rgba(148,163,184,.34);
+  --blue:#38bdf8; --green:#22c55e; --amber:#f59e0b;
+  --strong:#0b1a2e; --strong-ink:#f8fafc;
+  --focus:#38bdf8;
+}
+:root[data-theme="light"] {
+  --bg:#f7f9fb; --panel:#ffffff; --panel-2:#f9fafb; --ink:#101828; --muted:#5f6b7a;
+  --line:#e5e7eb; --line-strong:#d9e0e7;
+  --blue:#175cd3; --green:#15803d; --amber:#b45309;
+  --strong:#101828; --strong-ink:#ffffff;
+  --focus:#175cd3;
+}
+.theme-toggle {
+  position:fixed; top:16px; right:16px; z-index:20;
+  padding:8px 14px; border:1px solid var(--line); border-radius:999px;
+  background:var(--panel); color:var(--ink); font:inherit; font-weight:700; font-size:13px;
+  cursor:pointer; box-shadow:0 1px 6px rgba(15,23,42,.18);
+}
+.theme-toggle:hover { border-color:var(--line-strong); }
+
+body { font-family:var(--sans); margin:24px; background:var(--bg); color:var(--ink); overflow-wrap:anywhere; word-break:break-word; }
+h1 { margin:0 0 4px; }
+.page-note { margin:0 0 14px; color:var(--muted); }
+/* C3 — one focus ring, keyed per ground; both clear WCAG 1.4.11 3.0. */
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+.shell { display:grid; grid-template-columns:240px 1fr; gap:14px; align-items:start; }
+.sources { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px; position:sticky; top:18px; }
+.source { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; background:var(--panel-2); font-size:13px; }
+.source strong { display:block; margin-bottom:4px; }
+/* Look-Like-The-Platform B: the case's own evidence leads; the platform
+   catalogue is honestly labelled beneath it. */
+.case-evidence { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:12px; background:var(--panel-2); font-size:13px; }
+.case-evidence-head { font-weight:700; margin-bottom:8px; }
+.evidence-list { list-style:none; margin:0; padding:0; }
+.evi { display:flex; align-items:flex-start; gap:8px; padding:3px 0; line-height:1.35; }
+.evi-mark { flex:0 0 auto; width:9px; height:9px; border-radius:999px; margin-top:5px; background:var(--line-strong); }
+.evi-present .evi-mark { background:var(--green); }
+.evi-absent { color:var(--muted); }
+.evi-absent .evi-mark { background:transparent; border:1px solid var(--line-strong); }
+.evi-absent em { font-style:normal; color:var(--muted); }
+.source-scope-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin:4px 0 8px; }
+.band { background:var(--strong); color:var(--strong-ink); padding:10px; border-radius:8px; text-align:center; font-weight:700; margin:18px 0 12px; }
+html { scroll-behavior:smooth; }
+.contents { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 12px; font-size:13px; }
+.contents a { padding:6px 12px; border:1px solid var(--line); border-radius:8px; background:var(--panel-2); color:var(--ink); text-decoration:none; font-weight:700; }
+.contents a:hover { border-color:var(--line-strong); }
+.box { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+/* C4 — the graph fills its frame at its own 3:2 aspect (viewBox 1260x840) so
+   the relationship legend is never below a fixed-height fold. */
+.diagram-frame { width:100%; aspect-ratio:3/2; height:auto; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+.driver-row { display:grid; grid-template-columns:150px 1fr 40px; gap:8px; margin:8px 0; align-items:center; }
+.bar-track { height:10px; background:var(--line-strong); border-radius:99px; overflow:hidden; }
+.bar-fill { height:10px; border-radius:99px; }
+.blue { background:var(--blue); }
+.orange { background:var(--amber); }
+.executive-banner { background:var(--strong); color:var(--strong-ink); border-radius:14px; padding:18px; margin:18px 0 12px; }
+.executive-banner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.executive-banner-card { border:1px solid rgba(148,163,184,.30); border-radius:12px; padding:14px; }
+.executive-banner-card h2 { margin:0 0 8px; font-size:15px; color:var(--muted); }
+.executive-banner-card strong { display:block; font-size:22px; }
+/* D5 — risk band carried as colour, matching the graph severity palette. The
+   pill sits in the Intelligence Judgement card; the banner border picks up the
+   same band via :has(), so chrome and verdict cannot disagree. */
+.risk-pill { display:inline-block; font-size:12px; font-weight:800; letter-spacing:.6px; padding:3px 10px; border-radius:999px; color:#fff; margin:0 0 8px; background:var(--risk-low); }
+.risk-pill.risk-low { background:var(--risk-low); }
+.risk-pill.risk-medium { background:var(--risk-medium); }
+.risk-pill.risk-high { background:var(--risk-high); }
+.risk-pill.risk-critical { background:var(--risk-critical); }
+.executive-banner:has(.risk-pill.risk-low) { border-left:8px solid var(--risk-low); }
+.executive-banner:has(.risk-pill.risk-medium) { border-left:8px solid var(--risk-medium); }
+.executive-banner:has(.risk-pill.risk-high) { border-left:8px solid var(--risk-high); }
+.executive-banner:has(.risk-pill.risk-critical) { border-left:8px solid var(--risk-critical); }
+/* D2 — topology (and other source-cased labels) capitalised for display only;
+   the DOM text stays byte-identical to the packet for provenance. */
+.mv-cap { text-transform:capitalize; }
+.conclusion-card { border-left:5px solid var(--strong); }
+.conclusion-value { font-size:22px; font-weight:800; margin-top:6px; }
+.tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.tab { padding:8px 12px; border:1px solid var(--line); border-radius:8px; cursor:pointer; font-weight:700; background:var(--panel); color:var(--ink); }
+.tab.active { background:var(--strong); color:var(--strong-ink); border-color:var(--strong); }
+.panel { display:none; }
+.panel.active { display:block; }
+.meta { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.meta div { border:1px solid var(--line); border-radius:10px; padding:10px; background:var(--panel-2); font-family:var(--mono); font-size:12px; }
+.meta strong { font-family:var(--sans); }
+table { width:100%; border-collapse:collapse; }
+th,td { border:1px solid var(--line); padding:8px; text-align:left; }
+@media(max-width:900px){ .shell,.grid3,.grid2,.meta,.executive-banner-grid,.scenario-card-grid,.scenario-wide-grid{grid-template-columns:1fr;} .sources{position:static;} }
+
+/* Responsive hardening. Grid/flex items default to min-width:auto and refuse to
+   shrink below their content's min-content, so a single unbreakable token (the
+   64-char case fingerprint) or a wide grid child forced the whole page past the
+   viewport even after the columns collapsed. min-width:0 lets them shrink; body
+   overflow-wrap lets the long tokens wrap. Measured: without this the page held
+   a 561px horizontal scroll at a 356px viewport. */
+.shell,.grid3,.grid2,.meta,.executive-banner-grid,.scenario-card-grid,.scenario-wide-grid,.decision-support-stack{min-width:0;}
+.shell>*,.grid3>*,.grid2>*,.meta>*,.executive-banner-grid>*,.scenario-card-grid>*,.scenario-wide-grid>*,.box,main,aside{min-width:0;}
+
+.scenario-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel)}
+.scenario-card h3{margin:0 0 8px 0}
+.scenario-prob{display:inline-block;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--panel-2);border:1px solid var(--line);margin-bottom:10px}
+.scenario-meta{font-size:13px;line-height:1.45;margin:8px 0}
+.scenario-meta strong{display:inline-block;min-width:115px}
+
+.decision-support-stack{display:flex;flex-direction:column;gap:14px}
+.scenario-wide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.decision-simulation-full{width:100%}
+
+</style>
+</head>
+<body>
+
+<h1>Trade Based Money Laundering · Over Invoicing — Case TBML002-CASE-2026-003</h1>
+
+<div class="shell">
+<aside class="sources">
+<h2>Data Sources</h2>
+<div class="case-evidence" data-source-scope="case"><div class="case-evidence-head">This case &middot; 15 of 15 evidence items present</div><ul class="evidence-list"><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Exporter identity</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Importer identity</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Invoice identifier</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Transaction reference</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Invoice date</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Transaction date</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Goods description</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Commodity code</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Route description</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Declared value</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Benchmark value</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Variance amount</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Variance percentage</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Currency</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Document discrepancy flag</li></ul></div>
+<div class="source-scope-label">Platform data sources · all typologies</div>
+<div class="source" data-source-scope="catalogue"><strong>Corporate Registry</strong>Director, company and ownership filings</div>
+<div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div>
+<div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div>
+<div class="source" data-source-scope="catalogue"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div>
+<div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence <em>(trade typologies)</em></div>
+<div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+</aside>
+
+<main>
+<div class="executive-banner">
+<div class="executive-banner-grid">
+<div class="executive-banner-card">
+<h2>Intelligence Judgement</h2>
+<span class="risk-pill risk-high">HIGH</span><strong>High Risk &middot; confidence 70.4 of 95</strong><p>The governed analytic scored this case 71 of 100 and it classified as High.</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Dominant Typology</h2>
+<strong>TBML001 Over Invoicing</strong><p>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Recommended Action</h2>
+<strong>Evidence validation and decision review</strong><p>Owner: Financial Crime Operations. 4 investigation actions listed below.</p>
+</div>
+</div>
+</div>
+
+<nav class="contents" aria-label="Contents">
+<a href="#scoring">Scoring</a>
+<a href="#graph">Graph</a>
+<a href="#drivers">Drivers</a>
+<a href="#assessment">Assessment</a>
+<a href="#workspace">Workspace</a>
+</nav>
+
+<div class="band" id="scoring">SCORING FRAMEWORK</div>
+
+<div class="grid3"
+     data-runtime-section="governed_case_summary"
+     data-source="metadata_packet"
+     data-case-family="trade"
+     data-case-id="TBML002-CASE-2026-003"
+     data-case-fingerprint="f68ba79c00eb17bef8cb7f964ed573184fe600d17195e6ca9a95086c79450e4b"
+     data-product-id="TBML002"
+     data-typology-id="TBML002"
+     data-classification="High"
+     data-risk-score="71">
+  <div class="box">
+    <h2>Governed Case Identity</h2>
+    <p><strong>Case:</strong> TBML002-CASE-2026-003</p>
+    <p><strong>Fingerprint:</strong> <code>f68ba79c00eb17bef8cb7f964ed573184fe600d17195e6ca9a95086c79450e4b</code></p>
+    <p><strong>Product / Typology:</strong> TBML002 / TBML002</p>
+    <p><strong>Classification:</strong> High</p>
+    <p><strong>Governed Risk Score:</strong> 71 / 100</p>
+  </div>
+  <div class="box">
+    <h2>Parties and Transaction</h2>
+    <p><strong>Exporter:</strong> XYZ Trading LLC</p>
+    <p><strong>Importer:</strong> Alpha Trading Ltd</p>
+    <p><strong>Invoice:</strong> INV001</p>
+    <p><strong>Transaction:</strong> PAY001</p>
+  </div>
+  <div class="box">
+    <h2>Trade and Valuation</h2>
+    <p><strong>Goods:</strong> Network communications equipment</p>
+    <p><strong>Route:</strong> Jebel Ali → Rotterdam → Felixstowe</p>
+    <p><strong>Declared:</strong> USD 2,500,000</p>
+    <p><strong>Benchmark:</strong> USD 1,700,000</p>
+    <p><strong>Variance:</strong> USD 800,000</p>
+  </div>
+</div>
+
+<div class="grid3" data-runtime-section="scoring_framework" data-source="metadata_packet">
+  <div class="box">
+    <h2>Evidence Coverage</h2>
+    <p><strong>100.0%</strong></p>
+    <p>15 of 15 evidence items present</p>
+    <p>No evidence gaps.</p>
+  </div>
+  <div class="box">
+    <h2>Risk Score</h2>
+    <p><strong>71 / 100</strong></p><ul><li>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</li><li>Trade route: Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice unit price materially exceeds market benchmark</li></ul>
+  </div>
+  <div class="box">
+    <h2>Exposure</h2>
+    <p><strong>USD 800,000.00</strong></p><p>Amount at risk — the excess over benchmark this alert questions. Not a score.</p><ul><li>Declared USD 2,500,000.00</li><li>Benchmark USD 1,700,000.00</li><li>47.06% over benchmark</li></ul>
+  </div>
+</div>
+
+
+<div class="band" id="graph">VISUAL INTELLIGENCE MODEL</div>
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/tbml002-405b245d98_TBML002_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Canonical Graph Engine Output&lt;/title&gt;
+&lt;style&gt;
+/* Track C2 — the graph is a separate document embedded via srcdoc; it inherits
+   nothing from the product page, so a white graph on a dark page looked broken.
+   It now carries the same two keys (prefers-color-scheme is honoured inside the
+   iframe). The CARDS stay light on a darkened canvas — light cards on a dark
+   ground is legible and keeps every card-internal contrast the A2 work measured
+   (dark ink on a white shell). Only the document chrome, the canvas ground, the
+   on-canvas text and the focus/active rings move with the key. Colour only — no
+   geometry, so data-graph-fingerprint is untouched. */
+:root {
+  --g-bg:#ffffff; --g-panel:#ffffff; --g-panel-2:#f8fafc; --g-canvas:#f8fafc;
+  --g-ink:#111827; --g-muted:#475569; --g-line:#d7dde5; --g-focus:#1d4ed8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --g-bg:#050b14; --g-panel:#081322; --g-panel-2:#0b1a2e; --g-canvas:#0e1c30;
+    --g-ink:#f8fafc; --g-muted:#94a3b8; --g-line:rgba(148,163,184,.28); --g-focus:#38bdf8;
+  }
+}
+body {
+  margin: 0;
+  background: var(--g-bg);
+}
+.canonical-graph-engine {
+  border: 1px solid var(--g-line);
+  border-radius: 14px;
+  padding: 20px;
+  background: var(--g-panel);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--g-ink);
+
+  /* A2. The first three tokens in this stylesheet, and the point of them is
+     that C can move the whole icon treatment from one place instead of hunting
+     literals. Values are exactly what was hard-coded before, so this item
+     changes no pixel — it changes where the pixel is decided. */
+  --vl-icon-ink: #111827;
+  --vl-icon-ground: #f8fafc;
+  --vl-icon-edge: #e2e8f0;
+}
+.canonical-graph-title {
+  font-weight: 900;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.canonical-graph-badges {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.canonical-graph-badges span {
+  border: 1px solid var(--g-line);
+  background: var(--g-panel-2);
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--g-muted);
+}
+.canonical-graph-svg {
+  width: 100%;
+  /* Aspect-locked to the canvas rather than pinned to a fixed height.
+     The viewBox is now the full 1260x840 contract canvas; a hard 540px height
+     against a 1.5 aspect ratio letterboxes it, so the browser scales the whole
+     graph down to fit the shorter axis and the extra card height is given back.
+     `height` remains as the fallback for engines without `aspect-ratio`. */
+  aspect-ratio: var(--graph-aspect, 3 / 2);
+  height: auto;
+  max-height: var(--graph-svg-height, 840px);
+  display: block;
+  background: var(--g-canvas);
+  border: 1px solid var(--g-line);
+  border-radius: 14px;
+}
+/* Edge appearance is now PER RELATIONSHIP and arrives as presentation attributes
+   on the path. Nothing here may set stroke, stroke-width, dasharray or marker-end.
+
+   This is not a style preference, it is a specificity trap. In SVG a presentation
+   attribute has LOWER priority than any CSS declaration, so a `stroke: #111827`
+   rule on this class silently beats `stroke=&quot;#dc2626&quot;` on the element — the
+   semantics would be emitted, visible in the DOM, and have no effect on screen.
+   `test_edge_css_does_not_override_the_semantics` guards it. */
+.canonical-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Relationship key. Added 2026-08-03 -- five classes had been rendered in five
+   colours with nothing anywhere saying what they meant. */
+.legend-swatch {
+  fill: none;
+  stroke-linecap: round;
+}
+.legend-label {
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--g-muted);
+  letter-spacing: 0.01em;
+}
+.edge-label-bg {
+  fill: rgba(255,255,255,0.95);
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+/* Third card line. Attribute detail — jurisdiction, unit price, corridor —
+   deliberately quieter than the title and the type/id line. */
+.vl-card-attr {
+  font-size: calc(var(--meta-size) * 0.94);
+  font-weight: 600;
+  fill: #64748b;
+  letter-spacing: 0.01em;
+}
+/* Severity emphasis. Only a critical finding gets this. */
+.vl-finding-halo {
+  fill: none;
+  stroke: var(--vl-accent);
+  stroke-width: 2;
+  opacity: 0.28;
+}
+.vl-finding .vl-card-shell {
+  stroke: var(--vl-stroke);
+  stroke-width: 2;
+}
+.vl-finding .vl-card-title {
+  font-weight: 900;
+}
+.edge-label {
+  font-size: 10px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+}
+.vl-card-shell {
+  fill: #ffffff;
+  stroke: var(--vl-stroke);
+  stroke-width: 1.7;
+  filter: drop-shadow(0 3px 5px rgba(15, 23, 42, 0.16));
+}
+.priority-primary .vl-card-shell {
+  stroke-width: 2.2;
+  filter: drop-shadow(0 5px 8px rgba(15, 23, 42, 0.24));
+}
+.priority-reference .vl-card-shell {
+  opacity: .88;
+  stroke-dasharray: 4 3;
+}
+.vl-card-accent,
+.vl-card-accent-flat,
+.vl-status-dot {
+  fill: var(--vl-accent);
+}
+/* A2. THE ICON AND ITS GROUND ARE ONE TOKEN PAIR.
+   The well is included with the ink deliberately: an icon whose colour follows
+   the reader&#x27;s colour scheme, sitting on a ground that does not, is worse than
+   neither adapting. They are meaningless apart, so they move together. */
+.vl-icon-well {
+  fill: var(--vl-icon-ground);
+  stroke: var(--vl-icon-edge);
+  stroke-width: 1;
+}
+/* A1: a path, not a glyph. The text-only properties that used to sit here
+   (font-size, dominant-baseline, text-anchor) were inert the moment the mark
+   stopped being a &lt;text&gt;, and an inert declaration is a claim about how
+   something is drawn that stopped being true. Size and centring are now in the
+   transform, which is where SVG geometry belongs.
+
+   A2: ONE NEUTRAL INK, NOT THE CLASS ACCENT, AND THAT WAS MEASURED.
+
+   Colouring each icon with its own `--vl-accent` was the obvious idea and it
+   fails. Against the icon well, seven of the eight accents clear the 3:1 that
+   WCAG 1.4.11 asks of a graphical object — and `finding` (#f59e0b) measures
+   **2.05**. That is the benchmark breach: the one card whose mark most needs to
+   be seen would have been the only one a reader could not.
+
+   It also had no work to do. The accent bar down the card&#x27;s left edge already
+   carries the class colour, so a coloured icon repeats a channel rather than
+   adding one — and the package&#x27;s own &quot;what NOT to build&quot; refuses a fourth
+   channel saying what three already say.
+
+   So: one ink, 16.96 against the well, and a variable so the colour key can
+   move it rather than a literal that cannot. */
+.vl-card-icon {
+  fill: var(--vl-icon-ink);
+}
+.vl-card-title {
+  font-size: var(--title-size);
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: start;
+}
+.vl-card-meta {
+  font-size: var(--meta-size);
+  font-weight: 800;
+  fill: #64748b;
+  text-anchor: start;
+}
+.vl-reference .vl-card-title,
+.vl-reference .vl-card-meta {
+  fill: #64748b;
+}
+.vl-edge {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  marker-end: url(#canonical-arrow);
+}
+.vl-edge-label-bg {
+  fill: rgba(255,255,255,0.96);
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(15, 23, 42, 0.12));
+}
+.vl-edge-label {
+  font-size: 8.4px;
+  font-weight: 900;
+  fill: #111827;
+  text-anchor: middle;
+  letter-spacing: .02em;
+}
+.edge-critical-label-bg {
+  stroke: #fecaca;
+}
+.edge-trade-label-bg {
+  stroke: #bfdbfe;
+}
+.edge-route-label-bg {
+  stroke: #bbf7d0;
+}
+.edge-evidence-label-bg {
+  stroke: #ddd6fe;
+}
+.edge-reference-label-bg {
+  stroke: #cbd5e1;
+}
+.canonical-graph-provenance {
+  margin-top: 10px;
+  font-size: 10px;
+  color: var(--g-muted);
+  font-weight: 800;
+}
+
+/* I1 — FOCUS ON HOVER. Every numeric value in this feature lives HERE.
+   The script toggles classes and contains no numeral at all, which keeps
+   the open question about numbers in generated JavaScript closed by
+   construction rather than by anyone remembering to check.
+   Nothing below moves geometry: opacity only, no transform, no re-layout.
+   graph_fingerprint() hashes node id/label/role/x/y and edge
+   source/target/label - verified by reading it, not its docstring - so
+   none of this can move the fingerprint. */
+.canonical-graph-engine.graph-focused .canonical-node,
+.canonical-graph-engine.graph-focused .canonical-edge {
+  opacity: 0.16;
+  transition: opacity 120ms ease-out;
+}
+.canonical-graph-engine.graph-focused .canonical-node.is-focus,
+.canonical-graph-engine.graph-focused .canonical-node.is-adjacent,
+.canonical-graph-engine.graph-focused .canonical-edge.is-focus {
+  opacity: 1;
+}
+/* I2 - PIN ON CLICK. The pinned state uses the same dimming as hover, so
+   there is one visual language and one set of numbers, not two.
+   `is-pinned` is what survives mouse-out; `graph-pinned` on the root stops
+   hover from stealing the focus while a pin is held. */
+.canonical-graph-engine.graph-pinned .canonical-node.is-pinned {
+  outline: 2px solid var(--g-focus);
+  outline-offset: 2px;
+}
+.canonical-graph-engine .canonical-node {
+  cursor: pointer;
+}
+
+/* I4 - SEVERITY KEY AND FILTER. Static first: with JavaScript off this is a
+   KEY, telling a reader what the card severities are and how many of each the
+   graph holds - information the artefact did not carry before. With script it
+   also filters. A control that is inert without script would be a dead
+   affordance; a key that also filters is neither. */
+.canonical-severity-key {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.severity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--g-line);
+  background: var(--g-panel);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--g-muted);
+  cursor: pointer;
+}
+.severity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #94a3b8;
+}
+.severity-chip.sev-critical .severity-dot { background: #b91c1c; }
+.severity-chip.sev-elevated .severity-dot { background: #b45309; }
+.severity-chip.sev-normal .severity-dot { background: #64748b; }
+.severity-count {
+  color: #64748b;
+  font-weight: 700;
+}
+.severity-chip.is-active {
+  border-color: var(--g-focus);
+  background: var(--g-panel-2);
+  color: var(--g-focus);
+}
+
+/* Filtering dims by the same amount focus does, so there is one visual
+   language for &quot;not what you are looking at&quot; rather than two. */
+.canonical-graph-engine.graph-filtered .canonical-node,
+.canonical-graph-engine.graph-filtered .canonical-edge {
+  opacity: 0.16;
+}
+.canonical-graph-engine.graph-filtered .canonical-node.sev-match {
+  opacity: 1;
+}
+
+/* I3 FILTER HALF - isolate one relationship class.
+   Same dim value as focus and severity, so &quot;not what you are looking at&quot; has
+   one appearance across all three. The legend entry itself gets a cursor and
+   an active state; the swatch and label are untouched, because the key must
+   read identically whether or not it is also a control. */
+.canonical-graph-engine .legend-entry {
+  cursor: pointer;
+}
+.canonical-graph-engine.graph-rel-filtered .canonical-edge,
+.canonical-graph-engine.graph-rel-filtered .canonical-node {
+  opacity: 0.16;
+}
+.canonical-graph-engine.graph-rel-filtered .canonical-edge.rel-match,
+.canonical-graph-engine.graph-rel-filtered .canonical-node.rel-touched {
+  opacity: 1;
+}
+.canonical-graph-engine .legend-entry.is-active .legend-label {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+/* I6 - FOCUS SUMMARY PANEL.
+   Anchored to the CANVAS, not to the container, because the chrome above the
+   SVG is a variable height - the severity key appears only when the graph
+   carries more than one level - so a `top` measured from the container would be
+   right on one graph and wrong on the next. Position stood in for state once
+   already in this estate; it is not going to stand in for layout here.
+
+   ABSOLUTE, so nothing in normal flow moves when the panel appears. The rule
+   this package is built on is about SVG geometry, which an HTML overlay cannot
+   touch - but a panel that pushed the canvas down would move the card the
+   reader had just clicked, and the reason not to move things is the reader,
+   not only the fingerprint.
+
+   It overlays the top-right of the canvas. Everything under it is at 0.16
+   opacity whenever it is visible, because it is visible only while a pin is
+   held. */
+.canonical-graph-canvas {
+  position: relative;
+}
+.focus-summary {
+  display: none;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  max-width: 340px;
+  background: rgba(255,255,255,0.97);
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 2px 10px rgba(15,23,42,0.14);
+  font-size: 12px;
+  line-height: 1.45;
+  color: #111827;
+}
+/* Both classes required. The root state and the block state have to agree, so
+   a block cannot be left displayed by a class nobody cleared. */
+.canonical-graph-engine.graph-summarised .focus-summary.is-shown {
+  display: block;
+}
+.focus-summary-label {
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+.focus-summary-meta {
+  color: #64748b;
+  font-weight: 700;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+.focus-summary-severity.sev-critical { color: #b91c1c; }
+.focus-summary-severity.sev-elevated { color: #b45309; }
+.focus-summary-severity.sev-normal { color: #64748b; }
+.focus-summary-rels {
+  margin: 0;
+  padding-left: 16px;
+}
+.focus-summary-rels li {
+  margin-bottom: 3px;
+}
+.focus-rel-name {
+  font-weight: 700;
+}
+.focus-rel-party {
+  color: #334155;
+}
+.focus-rel-none {
+  list-style: none;
+  margin-left: -16px;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* I5 - THE FOCUS RING. `:focus-visible` rather than `:focus`, so a mouse click
+   does not leave a ring behind while a keyboard tab does.
+   Outline only. It is painted outside the box and participates in no layout, so
+   it cannot move an SVG coordinate. */
+.canonical-graph-engine .canonical-node:focus-visible,
+.canonical-graph-engine .legend-entry:focus-visible,
+.canonical-graph-engine .severity-chip:focus-visible,
+.canonical-graph-engine .focus-summary:focus-visible {
+  outline: 3px solid var(--g-focus);
+  outline-offset: 3px;
+}
+.canonical-graph-engine .legend-entry,
+.canonical-graph-engine .severity-chip,
+.canonical-graph-engine .canonical-node {
+  /* Chrome and Safari draw no ring on a focused SVG &lt;g&gt; without this. */
+  outline-color: var(--g-focus);
+}
+
+/* I1&#x27;s coarse-pointer escape hatch is RETIRED by I2, as planned.
+   It existed because `mouseenter` with no reachable `mouseleave` strands a
+   dim a finger cannot clear. Click now both sets and clears the focus, so
+   touch has a way out and the dimming can stay on. */
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div
+  class=&quot;canonical-graph-engine&quot;
+  data-graph-engine-id=&quot;CANONICAL_GRAPH_ENGINE&quot;
+  data-graph-engine-version=&quot;stage328a_5_visual_renderer_integrated&quot;
+  data-contract-id=&quot;CANONICAL_GRAPH_ENGINE_CONTRACT&quot;
+  data-graph-fingerprint=&quot;8fd883f720a53341c33809b76914907c8964bb3927bcf9663ee880908db586b6&quot;
+  data-case-id=&quot;TBML002-CASE-2026-003&quot;
+  data-case-fingerprint=&quot;f68ba79c00eb17bef8cb7f964ed573184fe600d17195e6ca9a95086c79450e4b&quot;
+  data-renderer-id=&quot;CANONICAL_GRAPH_VISUAL_RENDERER&quot;
+  data-renderer-version=&quot;stage330_wp1_visual_language_interpreter&quot;
+  data-renderer-mode=&quot;VISUAL_LANGUAGE_INTERPRETER&quot;
+  data-visual-language-id=&quot;ENTERPRISE_INTELLIGENCE_VISUAL_LANGUAGE&quot;
+  data-visual-language-version=&quot;stage329b_wp1_investigation_relationship_language&quot;
+  data-display-scale=&quot;1.000&quot; data-safe-margin=&quot;true&quot;
+  data-card-size=&quot;320x188&quot; data-canvas-size=&quot;1260x840&quot;
+  data-frame-fits=&quot;true&quot; data-frame-at-floor=&quot;false&quot;
+  style=&quot;--graph-svg-height:840px;--graph-aspect:1260 / 840&quot;
+&gt;
+  &lt;div class=&quot;canonical-graph-title&quot;&gt;Canonical Graph Engine Output&lt;/div&gt;
+  &lt;div class=&quot;canonical-graph-badges&quot;&gt;
+    &lt;span&gt;Case: TBML002-CASE-2026-003&lt;/span&gt;
+    &lt;span&gt;Topology: diamond&lt;/span&gt;
+    &lt;span&gt;Layout: stage307_topology_pipeline&lt;/span&gt;
+    &lt;span&gt;Renderer: CANONICAL_GRAPH_VISUAL_RENDERER&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;canonical-severity-key&quot; aria-label=&quot;Severity key&quot;&gt;&lt;span class=&quot;severity-chip sev-critical&quot; data-severity-filter=&quot;critical&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only 1 critical entity&quot;&gt;&lt;span class=&quot;severity-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Critical&lt;span class=&quot;severity-count&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;severity-chip sev-elevated&quot; data-severity-filter=&quot;elevated&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only 3 elevated entities&quot;&gt;&lt;span class=&quot;severity-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Elevated&lt;span class=&quot;severity-count&quot;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;severity-chip sev-normal&quot; data-severity-filter=&quot;normal&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only 2 normal entities&quot;&gt;&lt;span class=&quot;severity-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Normal&lt;span class=&quot;severity-count&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;canonical-graph-canvas&quot;&gt;
+      &lt;div class=&quot;focus-summary&quot; data-summary-for=&quot;EXPORTER_CO&quot;&gt;
+        &lt;div class=&quot;focus-summary-label&quot;&gt;XYZ Trading LLC&lt;/div&gt;
+        &lt;div class=&quot;focus-summary-meta&quot;&gt;PARTY · &lt;span class=&quot;focus-summary-severity sev-elevated&quot;&gt;Elevated&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class=&quot;focus-summary-rels&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Commercial Trading Link&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;Alpha Trading Ltd&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Instrument Movement&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;INV001 · PAY001 · USD 2,500,000.00&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Route Dependency&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;Jebel Ali → Rotterdam → Felixstowe&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;focus-summary&quot; data-summary-for=&quot;IMPORTER_CO&quot;&gt;
+        &lt;div class=&quot;focus-summary-label&quot;&gt;Alpha Trading Ltd&lt;/div&gt;
+        &lt;div class=&quot;focus-summary-meta&quot;&gt;PARTY · &lt;span class=&quot;focus-summary-severity sev-elevated&quot;&gt;Elevated&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class=&quot;focus-summary-rels&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Commercial Trading Link&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;XYZ Trading LLC&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Instrument Movement&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;INV001 · PAY001 · USD 2,500,000.00&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Route Dependency&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;Jebel Ali → Rotterdam → Felixstowe&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;focus-summary&quot; data-summary-for=&quot;INVOICE_001&quot;&gt;
+        &lt;div class=&quot;focus-summary-label&quot;&gt;INV001 · PAY001 · USD 2,500,000.00&lt;/div&gt;
+        &lt;div class=&quot;focus-summary-meta&quot;&gt;INSTRUMENT · &lt;span class=&quot;focus-summary-severity sev-critical&quot;&gt;Critical&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class=&quot;focus-summary-rels&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Instrument Movement&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;XYZ Trading LLC&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Instrument Movement&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;Alpha Trading Ltd&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Declared Goods&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;Network communications equipment&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Benchmark Breach&lt;/span&gt; to &lt;span class=&quot;focus-rel-party&quot;&gt;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;focus-summary&quot; data-summary-for=&quot;GOODS_001&quot;&gt;
+        &lt;div class=&quot;focus-summary-label&quot;&gt;Network communications equipment&lt;/div&gt;
+        &lt;div class=&quot;focus-summary-meta&quot;&gt;GOODS · &lt;span class=&quot;focus-summary-severity sev-normal&quot;&gt;Normal&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class=&quot;focus-summary-rels&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Declared Goods&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;INV001 · PAY001 · USD 2,500,000.00&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;focus-summary&quot; data-summary-for=&quot;ROUTE_001&quot;&gt;
+        &lt;div class=&quot;focus-summary-label&quot;&gt;Jebel Ali → Rotterdam → Felixstowe&lt;/div&gt;
+        &lt;div class=&quot;focus-summary-meta&quot;&gt;ROUTE · &lt;span class=&quot;focus-summary-severity sev-normal&quot;&gt;Normal&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class=&quot;focus-summary-rels&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Route Dependency&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;XYZ Trading LLC&lt;/span&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Route Dependency&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;Alpha Trading Ltd&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;focus-summary&quot; data-summary-for=&quot;BENCHMARK_001&quot;&gt;
+        &lt;div class=&quot;focus-summary-label&quot;&gt;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)&lt;/div&gt;
+        &lt;div class=&quot;focus-summary-meta&quot;&gt;FINDING · &lt;span class=&quot;focus-summary-severity sev-elevated&quot;&gt;Elevated&lt;/span&gt;&lt;/div&gt;
+        &lt;ul class=&quot;focus-summary-rels&quot;&gt;
+          &lt;li&gt;&lt;span class=&quot;focus-rel-name&quot;&gt;Benchmark Breach&lt;/span&gt; from &lt;span class=&quot;focus-rel-party&quot;&gt;INV001 · PAY001 · USD 2,500,000.00&lt;/span&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+  &lt;!-- role=&quot;group&quot;, NOT role=&quot;img&quot;. Changed 2026-08-04, and it is the largest
+       accessibility change this artefact has had.
+
+       `img` is one of the ARIA roles whose children are PRESENTATIONAL: every
+       descendant is dropped from the accessibility tree. So `role=&quot;img&quot;` meant
+       the eight &lt;title&gt; elements, all six entity cards and the relationship
+       legend were invisible to assistive technology, and a screen reader got
+       four words -- &quot;Canonical graph&quot; -- for the whole network.
+
+       It also made the keyboard work impossible to add safely. Focusable
+       content inside a presentational-children role is a documented WCAG 4.1.2
+       Level A failure (W3C ACT rule 307n5z), so `role=&quot;img&quot;` plus the
+       `tabindex=&quot;0&quot;` this package specified would have shipped a conformance
+       failure that ten independent scanners detect automatically. --&gt;
+  &lt;svg class=&quot;canonical-graph-svg&quot; viewBox=&quot;0 0 1260.0 840.0&quot; role=&quot;group&quot; aria-label=&quot;Canonical graph: 6 entities, 7 relationships&quot;&gt;
+    &lt;defs&gt;
+      &lt;!-- Retained as the fallback for any path that names no relationship class.
+           The per-class markers that follow are the ones edges actually use. --&gt;
+      &lt;marker id=&quot;canonical-arrow&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;
+        &lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#111827&quot;&gt;&lt;/path&gt;
+      &lt;/marker&gt;
+      &lt;marker id=&quot;arrow-critical&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#dc2626&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-document&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#334155&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-evidence&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#6d28d9&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-route&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#15803d&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;marker id=&quot;arrow-trade&quot; markerWidth=&quot;10&quot; markerHeight=&quot;10&quot; refX=&quot;8&quot; refY=&quot;3&quot; orient=&quot;auto&quot; markerUnits=&quot;strokeWidth&quot;&gt;&lt;path d=&quot;M0,0 L0,6 L9,3 z&quot; fill=&quot;#1d4ed8&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+      &lt;!-- Card elevation. Cards previously sat flat in the same visual plane as
+           the edge layer, so an edge passing near a card read as part of it. --&gt;
+      &lt;filter id=&quot;vl-card-lift&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;150%&quot;&gt;
+        &lt;feDropShadow dx=&quot;0&quot; dy=&quot;2&quot; stdDeviation=&quot;3&quot; flood-color=&quot;#0f172a&quot; flood-opacity=&quot;0.18&quot;&gt;&lt;/feDropShadow&gt;
+      &lt;/filter&gt;
+    &lt;/defs&gt;
+    
+        &lt;path class=&quot;canonical-edge rel-trade&quot; data-edge-clear=&quot;true&quot; data-source=&quot;EXPORTER_CO&quot; data-target=&quot;IMPORTER_CO&quot; data-relationship-class=&quot;trade&quot; data-relationship-label=&quot;Commercial Trading Link&quot; stroke=&quot;#1d4ed8&quot; stroke-width=&quot;3.00&quot; stroke-opacity=&quot;0.92&quot; marker-end=&quot;url(#arrow-trade)&quot; d=&quot;M 223.0 314.2 L 223.0 272.4 Q 223.0 264.4 231.0 264.4 L 1007.0 264.4 Q 1015.0 264.4 1015.0 272.4 L 1015.0 314.2&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;360.3&quot; y=&quot;253.4&quot; width=&quot;95.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;407.8&quot; y=&quot;267.9&quot; style=&quot;font-size:9.50px&quot;&gt;TRADES_WITH&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-document&quot; data-edge-clear=&quot;true&quot; data-source=&quot;EXPORTER_CO&quot; data-target=&quot;INVOICE_001&quot; data-relationship-class=&quot;document&quot; data-relationship-label=&quot;Instrument Movement&quot; stroke=&quot;#334155&quot; stroke-width=&quot;2.40&quot; stroke-opacity=&quot;0.86&quot; marker-end=&quot;url(#arrow-document)&quot; d=&quot;M 234.0 530.5 L 234.0 548.5 Q 234.0 556.5 242.0 556.5 L 397.1 556.5 Q 399.0 556.5 399.0 558.4 L 399.0 558.4 Q 399.0 560.4 399.0 562.3 L 399.0 586.4&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;286.5&quot; y=&quot;545.5&quot; width=&quot;60.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;316.5&quot; y=&quot;559.9&quot; style=&quot;font-size:9.50px&quot;&gt;ISSUED&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-document&quot; data-edge-clear=&quot;true&quot; data-source=&quot;IMPORTER_CO&quot; data-target=&quot;INVOICE_001&quot; data-relationship-class=&quot;document&quot; data-relationship-label=&quot;Instrument Movement&quot; stroke=&quot;#334155&quot; stroke-width=&quot;2.40&quot; stroke-opacity=&quot;0.86&quot; marker-end=&quot;url(#arrow-document)&quot; d=&quot;M 1037.0 314.2 L 1037.0 288.4 Q 1037.0 280.4 1029.0 280.4 L 429.0 280.4 Q 421.0 280.4 421.0 288.4 L 421.0 552.4 Q 421.0 560.4 421.0 568.4 L 421.0 586.4&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;692.0&quot; y=&quot;269.4&quot; width=&quot;74.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;729.0&quot; y=&quot;283.9&quot; style=&quot;font-size:9.50px&quot;&gt;RECEIVED&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-evidence&quot; data-edge-clear=&quot;true&quot; data-source=&quot;INVOICE_001&quot; data-target=&quot;GOODS_001&quot; data-relationship-class=&quot;evidence&quot; data-relationship-label=&quot;Declared Goods&quot; stroke=&quot;#6d28d9&quot; stroke-width=&quot;2.40&quot; stroke-opacity=&quot;0.84&quot; marker-end=&quot;url(#arrow-evidence)&quot; d=&quot;M 443.0 586.4 L 443.0 568.4 Q 443.0 560.4 451.0 560.4 L 622.0 560.4 Q 630.0 560.4 630.0 552.4 L 630.0 546.6 Q 630.0 538.6 630.0 530.6 L 630.0 512.6&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;496.0&quot; y=&quot;549.4&quot; width=&quot;81.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;536.5&quot; y=&quot;563.8&quot; style=&quot;font-size:9.50px&quot;&gt;DESCRIBES&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-critical&quot; data-edge-clear=&quot;true&quot; data-source=&quot;INVOICE_001&quot; data-target=&quot;BENCHMARK_001&quot; data-relationship-class=&quot;critical&quot; data-relationship-label=&quot;Benchmark Breach&quot; stroke=&quot;#dc2626&quot; stroke-width=&quot;4.40&quot; stroke-opacity=&quot;0.98&quot; marker-end=&quot;url(#arrow-critical)&quot; d=&quot;M 465.0 586.4 L 465.0 568.4 Q 465.0 560.4 465.0 552.4 L 465.0 304.4 Q 465.0 296.4 473.0 296.4 L 622.0 296.4 Q 630.0 296.4 630.0 288.4 L 630.0 263.1&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;396.5&quot; y=&quot;285.4&quot; width=&quot;137.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;465.0&quot; y=&quot;299.8&quot; style=&quot;font-size:9.50px&quot;&gt;EXCEEDS_BENCHMARK&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-route&quot; data-edge-clear=&quot;true&quot; data-source=&quot;EXPORTER_CO&quot; data-target=&quot;ROUTE_001&quot; data-relationship-class=&quot;route&quot; data-relationship-label=&quot;Route Dependency&quot; stroke=&quot;#15803d&quot; stroke-width=&quot;2.20&quot; stroke-opacity=&quot;0.80&quot; stroke-dasharray=&quot;7 5&quot; marker-end=&quot;url(#arrow-route)&quot; d=&quot;M 245.0 314.2 L 245.0 313.4 Q 245.0 312.4 245.9 312.4 L 809.0 312.4 Q 817.0 312.4 817.0 320.4 L 817.0 561.8 Q 817.0 569.8 817.0 577.8 L 817.0 595.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;658.6&quot; y=&quot;301.4&quot; width=&quot;88.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;702.6&quot; y=&quot;315.9&quot; style=&quot;font-size:9.50px&quot;&gt;USES_ROUTE&lt;/text&gt;
+            
+        &lt;path class=&quot;canonical-edge rel-route&quot; data-edge-clear=&quot;true&quot; data-source=&quot;IMPORTER_CO&quot; data-target=&quot;ROUTE_001&quot; data-relationship-class=&quot;route&quot; data-relationship-label=&quot;Route Dependency&quot; stroke=&quot;#15803d&quot; stroke-width=&quot;2.20&quot; stroke-opacity=&quot;0.80&quot; stroke-dasharray=&quot;7 5&quot; marker-end=&quot;url(#arrow-route)&quot; d=&quot;M 1026.0 530.5 L 1026.0 548.5 Q 1026.0 556.5 1018.0 556.5 L 845.6 556.5 Q 839.0 556.5 839.0 563.1 L 839.0 563.1 Q 839.0 569.8 839.0 576.4 L 839.0 595.8&quot; /&gt;
+        &lt;rect class=&quot;edge-label-bg&quot; x=&quot;888.5&quot; y=&quot;545.5&quot; width=&quot;88.0&quot; height=&quot;22.0&quot; rx=&quot;7&quot; /&gt;
+        &lt;text class=&quot;edge-label&quot; x=&quot;932.5&quot; y=&quot;559.9&quot; style=&quot;font-size:9.50px&quot;&gt;USES_ROUTE&lt;/text&gt;
+            
+    
+        &lt;g class=&quot;canonical-node vl-subject priority-primary&quot;
+           data-node-id=&quot;EXPORTER_CO&quot; data-severity=&quot;elevated&quot;
+           data-visual-class=&quot;subject&quot;
+           data-label=&quot;XYZ Trading LLC&quot;
+           role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot;
+           aria-label=&quot;XYZ Trading LLC. PARTY, elevated. Commercial Trading Link to Alpha Trading Ltd; Instrument Movement to INV001 · PAY001 · USD 2,500,000.00; Route Dependency to Jebel Ali → Rotterdam → Felixstowe&quot;
+           style=&quot;--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;&quot;&gt;
+          &lt;title&gt;XYZ Trading LLC
+PARTY · EXPORTER_CO&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;50.0&quot; y=&quot;314.2&quot; width=&quot;368.0&quot; height=&quot;216.2&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;50.0&quot; y=&quot;314.2&quot; width=&quot;14.7&quot; height=&quot;216.2&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;62.7&quot; y=&quot;314.2&quot; width=&quot;4&quot; height=&quot;216.2&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;100.8&quot; cy=&quot;422.4&quot; r=&quot;23.8&quot; aria-hidden=&quot;true&quot; /&gt;
+          &lt;path class=&quot;vl-card-icon&quot; d=&quot;M3 21V6.2l6.4-2.4V21H3Zm7.8 0V9.4L21 6.2V21h-10.2Z&quot; transform=&quot;translate(88.03 409.59) scale(1.06298)&quot; aria-hidden=&quot;true&quot; /&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;147.5&quot; y=&quot;407.2&quot; style=&quot;font-size:22.48px&quot;&gt;XYZ Trading LLC&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;147.5&quot; y=&quot;463.4&quot;&gt;PARTY&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;397.8&quot; cy=&quot;333.7&quot; r=&quot;5.8&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-subject priority-primary&quot;
+           data-node-id=&quot;IMPORTER_CO&quot; data-severity=&quot;elevated&quot;
+           data-visual-class=&quot;subject&quot;
+           data-label=&quot;Alpha Trading Ltd&quot;
+           role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot;
+           aria-label=&quot;Alpha Trading Ltd. PARTY, elevated. Commercial Trading Link from XYZ Trading LLC; Instrument Movement to INV001 · PAY001 · USD 2,500,000.00; Route Dependency to Jebel Ali → Rotterdam → Felixstowe&quot;
+           style=&quot;--vl-accent:#dc2626;--vl-stroke:#991b1b;--title-size:22.48px;--meta-size:14.70px;--icon-size:25.51px;&quot;&gt;
+          &lt;title&gt;Alpha Trading Ltd
+PARTY · IMPORTER_CO&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;842.0&quot; y=&quot;314.2&quot; width=&quot;368.0&quot; height=&quot;216.2&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;842.0&quot; y=&quot;314.2&quot; width=&quot;14.7&quot; height=&quot;216.2&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;854.7&quot; y=&quot;314.2&quot; width=&quot;4&quot; height=&quot;216.2&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;892.8&quot; cy=&quot;422.4&quot; r=&quot;23.8&quot; aria-hidden=&quot;true&quot; /&gt;
+          &lt;path class=&quot;vl-card-icon&quot; d=&quot;M3 21V6.2l6.4-2.4V21H3Zm7.8 0V9.4L21 6.2V21h-10.2Z&quot; transform=&quot;translate(880.03 409.59) scale(1.06298)&quot; aria-hidden=&quot;true&quot; /&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;939.5&quot; y=&quot;407.2&quot; style=&quot;font-size:22.48px&quot;&gt;Alpha Trading Ltd&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;939.5&quot; y=&quot;463.4&quot;&gt;PARTY&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;1189.8&quot; cy=&quot;333.7&quot; r=&quot;5.8&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-transaction priority-transaction vl-finding&quot;
+           data-node-id=&quot;INVOICE_001&quot; data-severity=&quot;critical&quot;
+           data-visual-class=&quot;transaction&quot;
+           data-label=&quot;INV001 · PAY001 · USD 2,500,000.00&quot;
+           data-risk-score=&quot;71&quot;
+           data-risk-band=&quot;High&quot;
+           role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot;
+           aria-label=&quot;INV001 · PAY001 · USD 2,500,000.00. INSTRUMENT, critical. Instrument Movement from XYZ Trading LLC; Instrument Movement from Alpha Trading Ltd; Declared Goods to Network communications equipment; Benchmark Breach to Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)&quot;
+           style=&quot;--vl-accent:#2563eb;--vl-stroke:#1d4ed8;--title-size:19.55px;--meta-size:12.78px;--icon-size:22.18px;&quot;&gt;
+          &lt;title&gt;INV001 · PAY001 · USD 2,500,000.00
+INSTRUMENT · INVOICE_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-finding-halo&quot; x=&quot;268.0&quot; y=&quot;582.4&quot; width=&quot;328.0&quot; height=&quot;196.0&quot; rx=&quot;13&quot; /&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;272.0&quot; y=&quot;586.4&quot; width=&quot;320.0&quot; height=&quot;188.0&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;272.0&quot; y=&quot;586.4&quot; width=&quot;12.8&quot; height=&quot;188.0&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;282.8&quot; y=&quot;586.4&quot; width=&quot;4&quot; height=&quot;188.0&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;316.2&quot; cy=&quot;680.4&quot; r=&quot;20.7&quot; aria-hidden=&quot;true&quot; /&gt;
+          &lt;path class=&quot;vl-card-icon&quot; d=&quot;M6 2h7.6L18.6 7v15H6V2Zm7.6 1.9v3.6h3.6l-3.6-3.6Z&quot; transform=&quot;translate(305.07 669.26) scale(0.92433)&quot; aria-hidden=&quot;true&quot; /&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;356.8&quot; y=&quot;657.7&quot; style=&quot;font-size:19.55px&quot;&gt;INV001 · PAY001&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;356.8&quot; y=&quot;680.2&quot; style=&quot;font-size:19.55px&quot;&gt;USD 2,500,000.00&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;356.8&quot; y=&quot;716.1&quot;&gt;INSTRUMENT&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;574.4&quot; cy=&quot;603.3&quot; r=&quot;5.1&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-transaction priority-transaction&quot;
+           data-node-id=&quot;GOODS_001&quot; data-severity=&quot;normal&quot;
+           data-visual-class=&quot;transaction&quot;
+           data-label=&quot;Network communications equipment&quot;
+           role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot;
+           aria-label=&quot;Network communications equipment. GOODS, normal. Declared Goods from INV001 · PAY001 · USD 2,500,000.00&quot;
+           style=&quot;--vl-accent:#7c3aed;--vl-stroke:#6d28d9;--title-size:18.77px;--meta-size:12.27px;--icon-size:21.30px;&quot;&gt;
+          &lt;title&gt;Network communications equipment
+GOODS · GOODS_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;476.4&quot; y=&quot;332.1&quot; width=&quot;307.2&quot; height=&quot;180.5&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;476.4&quot; y=&quot;332.1&quot; width=&quot;12.3&quot; height=&quot;180.5&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;486.7&quot; y=&quot;332.1&quot; width=&quot;4&quot; height=&quot;180.5&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;518.8&quot; cy=&quot;422.4&quot; r=&quot;19.9&quot; aria-hidden=&quot;true&quot; /&gt;
+          &lt;path class=&quot;vl-card-icon&quot; d=&quot;M12 2.2 21 7.1v9.8L12 21.8 3 16.9V7.1l9-4.9Zm0 2.4L6.3 7.7 12 10.8l5.7-3.1L12 4.6Z&quot; transform=&quot;translate(508.15 411.70) scale(0.88736)&quot; aria-hidden=&quot;true&quot; /&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;557.8&quot; y=&quot;402.6&quot; style=&quot;font-size:14.64px&quot;&gt;Network communications&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;557.8&quot; y=&quot;419.5&quot; style=&quot;font-size:14.64px&quot;&gt;equipment&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;557.8&quot; y=&quot;456.6&quot;&gt;GOODS&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;766.7&quot; cy=&quot;348.4&quot; r=&quot;4.9&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-route priority-supporting&quot;
+           data-node-id=&quot;ROUTE_001&quot; data-severity=&quot;normal&quot;
+           data-visual-class=&quot;route&quot;
+           data-label=&quot;Jebel Ali → Rotterdam → Felixstowe&quot;
+           role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot;
+           aria-label=&quot;Jebel Ali → Rotterdam → Felixstowe. ROUTE, normal. Route Dependency from XYZ Trading LLC; Route Dependency from Alpha Trading Ltd&quot;
+           style=&quot;--vl-accent:#16a34a;--vl-stroke:#15803d;--title-size:17.60px;--meta-size:11.51px;--icon-size:19.97px;&quot;&gt;
+          &lt;title&gt;Jebel Ali → Rotterdam → Felixstowe
+ROUTE · ROUTE_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;684.0&quot; y=&quot;595.8&quot; width=&quot;288.0&quot; height=&quot;169.2&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;684.0&quot; y=&quot;595.8&quot; width=&quot;11.5&quot; height=&quot;169.2&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;693.5&quot; y=&quot;595.8&quot; width=&quot;4&quot; height=&quot;169.2&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;723.7&quot; cy=&quot;680.4&quot; r=&quot;18.6&quot; aria-hidden=&quot;true&quot; /&gt;
+          &lt;path class=&quot;vl-card-icon&quot; d=&quot;M3.4 10.2h9.4V6.4L20.6 12l-7.8 5.6v-3.8H3.4v-3.6Z&quot; transform=&quot;translate(713.76 670.37) scale(0.83190)&quot; aria-hidden=&quot;true&quot; /&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;760.3&quot; y=&quot;661.9&quot; style=&quot;font-size:13.73px&quot;&gt;Jebel Ali → Rotterdam →&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;760.3&quot; y=&quot;677.7&quot; style=&quot;font-size:13.73px&quot;&gt;Felixstowe&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;760.3&quot; y=&quot;712.5&quot;&gt;ROUTE&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;956.2&quot; cy=&quot;611.0&quot; r=&quot;4.6&quot; /&gt;
+        &lt;/g&gt;
+    
+        &lt;g class=&quot;canonical-node vl-reference priority-reference&quot;
+           data-node-id=&quot;BENCHMARK_001&quot; data-severity=&quot;elevated&quot;
+           data-visual-class=&quot;reference&quot;
+           data-label=&quot;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)&quot;
+           role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot;
+           aria-label=&quot;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%). FINDING, elevated. Benchmark Breach from INV001 · PAY001 · USD 2,500,000.00&quot;
+           style=&quot;--vl-accent:#f59e0b;--vl-stroke:#a16207;--title-size:20.53px;--meta-size:13.42px;--icon-size:23.29px;&quot;&gt;
+          &lt;title&gt;Benchmark USD 1,700,000.00 · Variance USD 800,000.00 · (47.06%)
+FINDING · BENCHMARK_001&lt;/title&gt;
+          &lt;rect class=&quot;vl-card-shell&quot; x=&quot;462.0&quot; y=&quot;65.7&quot; width=&quot;336.0&quot; height=&quot;197.4&quot; rx=&quot;10&quot; filter=&quot;url(#vl-card-lift)&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent&quot; x=&quot;462.0&quot; y=&quot;65.7&quot; width=&quot;13.4&quot; height=&quot;197.4&quot; rx=&quot;10&quot; /&gt;
+          &lt;rect class=&quot;vl-card-accent-flat&quot; x=&quot;473.4&quot; y=&quot;65.7&quot; width=&quot;4&quot; height=&quot;197.4&quot; /&gt;
+          &lt;circle class=&quot;vl-icon-well&quot; cx=&quot;508.4&quot; cy=&quot;164.4&quot; r=&quot;21.7&quot; aria-hidden=&quot;true&quot; /&gt;
+          &lt;path class=&quot;vl-card-icon&quot; d=&quot;M12 2.4 22.6 21H1.4L12 2.4Zm0 5.8a1.35 1.35 0 0 0-1.35 1.45l.42 5.4a.94.94 0 0 0 1.86 0l.42-5.4A1.35 1.35 0 0 0 12 8.2Zm0 9.1a1.45 1.45 0 1 0 0 2.9 1.45 1.45 0 0 0 0-2.9Z&quot; transform=&quot;translate(496.72 152.70) scale(0.97055)&quot; aria-hidden=&quot;true&quot; /&gt;
+
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;551.0&quot; y=&quot;143.0&quot; style=&quot;font-size:15.67px&quot;&gt;Benchmark USD 1,700,000.00&lt;/text&gt;
+          &lt;text class=&quot;vl-card-title&quot; x=&quot;551.0&quot; y=&quot;161.0&quot; style=&quot;font-size:15.67px&quot;&gt;Variance USD 800,000.00…&lt;/text&gt;
+          &lt;text class=&quot;vl-card-meta&quot; x=&quot;551.0&quot; y=&quot;201.9&quot;&gt;FINDING&lt;/text&gt;
+          &lt;circle class=&quot;vl-status-dot&quot; cx=&quot;779.5&quot; cy=&quot;83.4&quot; r=&quot;5.3&quot; /&gt;
+        &lt;/g&gt;
+    
+    &lt;g class=&quot;canonical-legend&quot; role=&quot;group&quot; aria-label=&quot;Filter by relationship type&quot;&gt;
+      &lt;g class=&quot;legend-entry&quot; data-relationship-filter=&quot;critical&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only Benchmark Breach relationships&quot;&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;50.0&quot; y1=&quot;812.4&quot; x2=&quot;80.0&quot; y2=&quot;812.4&quot; stroke=&quot;#dc2626&quot; stroke-width=&quot;4.40&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;89.0&quot; y=&quot;817.6&quot;&gt;Benchmark Breach&lt;/text&gt;
+      &lt;/g&gt;
+      &lt;g class=&quot;legend-entry&quot; data-relationship-filter=&quot;trade&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only Commercial Trading Link relationships&quot;&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;243.8&quot; y1=&quot;812.4&quot; x2=&quot;273.8&quot; y2=&quot;812.4&quot; stroke=&quot;#1d4ed8&quot; stroke-width=&quot;3.00&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;282.8&quot; y=&quot;817.6&quot;&gt;Commercial Trading Link&lt;/text&gt;
+      &lt;/g&gt;
+      &lt;g class=&quot;legend-entry&quot; data-relationship-filter=&quot;document&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only Instrument Movement relationships&quot;&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;492.2&quot; y1=&quot;812.4&quot; x2=&quot;522.2&quot; y2=&quot;812.4&quot; stroke=&quot;#334155&quot; stroke-width=&quot;2.40&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;531.2&quot; y=&quot;817.6&quot;&gt;Instrument Movement&lt;/text&gt;
+      &lt;/g&gt;
+      &lt;g class=&quot;legend-entry&quot; data-relationship-filter=&quot;evidence&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only Declared Goods relationships&quot;&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;709.4&quot; y1=&quot;812.4&quot; x2=&quot;739.4&quot; y2=&quot;812.4&quot; stroke=&quot;#6d28d9&quot; stroke-width=&quot;2.40&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;748.4&quot; y=&quot;817.6&quot;&gt;Declared Goods&lt;/text&gt;
+      &lt;/g&gt;
+      &lt;g class=&quot;legend-entry&quot; data-relationship-filter=&quot;route&quot; role=&quot;button&quot; tabindex=&quot;0&quot; aria-pressed=&quot;false&quot; aria-label=&quot;Show only Route Dependency relationships&quot;&gt;
+      &lt;line class=&quot;legend-swatch&quot; x1=&quot;887.6&quot; y1=&quot;812.4&quot; x2=&quot;917.6&quot; y2=&quot;812.4&quot; stroke=&quot;#15803d&quot; stroke-width=&quot;2.20&quot; stroke-dasharray=&quot;7 5&quot; /&gt;
+      &lt;text class=&quot;legend-label&quot; x=&quot;926.6&quot; y=&quot;817.6&quot;&gt;Route Dependency&lt;/text&gt;
+      &lt;/g&gt;
+    &lt;/g&gt;
+  &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;canonical-graph-provenance&quot;&gt;
+    CANONICAL_GRAPH_ENGINE | stage328a_5_visual_renderer_integrated | CANONICAL_GRAPH_ENGINE_CONTRACT | Case: TBML002-CASE-2026-003 | Case fingerprint: f68ba79c00eb17bef8cb7f964ed573184fe600d17195e6ca9a95086c79450e4b | EXPORTER_CO IMPORTER_CO INVOICE_001 GOODS_001 ROUTE_001 BENCHMARK_001 | TRADES_WITH ISSUED RECEIVED DESCRIBES EXCEEDS_BENCHMARK USES_ROUTE USES_ROUTE
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+/* I1 hover, I2 pin, I3 relationship filter, I4 severity filter, I6 summary
+   panel, I5 keyboard and ARIA. Every number is in the stylesheet above; this
+   file contains no numeral at all.
+
+   NO CONTENT IS CREATED. The one attribute written is `aria-pressed`, which
+   carries no information -- it describes a state that does not exist when the
+   script is absent. That allowance was AUTHORISED on 2026-08-04 and replaced a
+   blanket ban on setAttribute, which was a proxy for the real requirement:
+   nothing reachable only by interaction may be the only copy of a fact.
+
+   The ban was deliberately NOT relaxed in I2, when it first got in the way,
+   because the guard was hours old and mine and the feature was mine. Being
+   blocked by your own guard is the point of having one. */
+(function () {
+  var root = document.querySelector(&quot;.canonical-graph-engine&quot;);
+  if (!root) { return; }
+  var nodes = root.querySelectorAll(&quot;.canonical-node[data-node-id]&quot;);
+  var edges = root.querySelectorAll(&quot;.canonical-edge[data-source]&quot;);
+  var summaries = root.querySelectorAll(&quot;[data-summary-for]&quot;);
+  var pinned = null;
+
+  /* I5 - THE ONE ATTRIBUTE THIS SCRIPT IS ALLOWED TO WRITE.
+     Authorised 2026-08-04. Every other guard in this layer refuses
+     setAttribute, and that ban was a PROXY: the requirement is that no script
+     may put INFORMATION into the document, and `aria-pressed` carries none --
+     it describes a state that does not exist when the script is absent.
+     The allowlist is one attribute and two literal values, asserted by
+     Stage473 against the emitted source, so it cannot be widened by passing a
+     variable. */
+  function setPressed(element, on) {
+    if (on) { element.setAttribute(&quot;aria-pressed&quot;, &quot;true&quot;); }
+    else { element.setAttribute(&quot;aria-pressed&quot;, &quot;false&quot;); }
+  }
+
+  function clearPressed(collection) {
+    Array.prototype.forEach.call(collection, function (item) {
+      setPressed(item, false);
+    });
+  }
+
+  /* Enter and Space activate; Escape returns the graph to its published state.
+     &quot;Spacebar&quot; is legacy Edge. Space must preventDefault or the page scrolls
+     under the reader instead of pinning what they selected. */
+  function isActivation(event) {
+    return event.key === &quot;Enter&quot; || event.key === &quot; &quot; || event.key === &quot;Spacebar&quot;;
+  }
+
+  function strip() {
+    root.classList.remove(&quot;graph-focused&quot;);
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove(&quot;is-focus&quot;);
+      n.classList.remove(&quot;is-adjacent&quot;);
+    });
+    Array.prototype.forEach.call(edges, function (e) {
+      e.classList.remove(&quot;is-focus&quot;);
+    });
+  }
+
+  function paint(id) {
+    strip();
+    root.classList.add(&quot;graph-focused&quot;);
+    var adjacent = Object.create(null);
+    Array.prototype.forEach.call(edges, function (e) {
+      var s = e.getAttribute(&quot;data-source&quot;);
+      var t = e.getAttribute(&quot;data-target&quot;);
+      if (s === id || t === id) {
+        e.classList.add(&quot;is-focus&quot;);
+        adjacent[s] = true;
+        adjacent[t] = true;
+      }
+    });
+    Array.prototype.forEach.call(nodes, function (n) {
+      var nid = n.getAttribute(&quot;data-node-id&quot;);
+      if (nid === id) { n.classList.add(&quot;is-focus&quot;); }
+      else if (adjacent[nid]) { n.classList.add(&quot;is-adjacent&quot;); }
+    });
+  }
+
+  /* I6 - focus summary. Every block is rendered statically above; this only
+     chooses which one is displayed. No text is created and no attribute is
+     written, so a reader whose client strips script loses nothing: the same
+     words are in the markup, and the full labels are also in &lt;title&gt; and
+     data-label as they have been since 2026-07-31. */
+  function clearSummary() {
+    root.classList.remove(&quot;graph-summarised&quot;);
+    Array.prototype.forEach.call(summaries, function (s) {
+      s.classList.remove(&quot;is-shown&quot;);
+    });
+  }
+
+  function showSummary(id) {
+    clearSummary();
+    root.classList.add(&quot;graph-summarised&quot;);
+    Array.prototype.forEach.call(summaries, function (s) {
+      if (s.getAttribute(&quot;data-summary-for&quot;) === id) {
+        s.classList.add(&quot;is-shown&quot;);
+      }
+    });
+  }
+
+  function unpin() {
+    pinned = null;
+    root.classList.remove(&quot;graph-pinned&quot;);
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove(&quot;is-pinned&quot;);
+    });
+    clearPressed(nodes);
+    clearSummary();
+    strip();
+  }
+
+  function pin(id, element) {
+    /* One pin at a time; clicking another moves it. */
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove(&quot;is-pinned&quot;);
+    });
+    clearPressed(nodes);
+    pinned = id;
+    root.classList.add(&quot;graph-pinned&quot;);
+    element.classList.add(&quot;is-pinned&quot;);
+    setPressed(element, true);
+    paint(id);
+    /* The panel follows the PIN, not hover. A summary that appeared under a
+       moving cursor would be unreadable by the time it was read. */
+    showSummary(id);
+  }
+
+  Array.prototype.forEach.call(nodes, function (n) {
+    var id = n.getAttribute(&quot;data-node-id&quot;);
+
+    n.addEventListener(&quot;mouseenter&quot;, function () {
+      /* A held pin outranks hover, or moving the mouse away from the pinned
+         node would silently repaint around whatever it passed over. */
+      if (pinned === null) { paint(id); }
+    });
+    n.addEventListener(&quot;mouseleave&quot;, function () {
+      if (pinned === null) { strip(); }
+    });
+    n.addEventListener(&quot;click&quot;, function (event) {
+      event.stopPropagation();
+      if (pinned === id) { unpin(); } else { pin(id, n); }
+    });
+
+    /* I5. Focus behaves as hover does, so a keyboard reader gets the same
+       adjacency highlight a mouse reader gets rather than a bare focus ring. */
+    n.addEventListener(&quot;focus&quot;, function () {
+      if (pinned === null) { paint(id); }
+    });
+    n.addEventListener(&quot;blur&quot;, function () {
+      if (pinned === null) { strip(); }
+    });
+    n.addEventListener(&quot;keydown&quot;, function (event) {
+      if (isActivation(event)) {
+        event.preventDefault();
+        if (pinned === id) { unpin(); } else { pin(id, n); }
+      }
+    });
+  });
+
+  /* Click anywhere that is not a node clears the pin. Without this the pin
+     is a state with no exit on touch, which is the defect I1&#x27;s coarse-pointer
+     guard was standing in for. */
+  root.addEventListener(&quot;click&quot;, unpin);
+
+  /* I4 - filter by severity. Chips are rendered statically above; this only
+     toggles classes on them and on the cards. Selecting a severity CLEARS any
+     pin, and pinning clears any filter: two dimming systems layered on one
+     element produce a state nobody can read, so there is one mode at a time. */
+  var chips = document.querySelectorAll(&quot;[data-severity-filter]&quot;);
+  var active = null;
+
+  function clearFilter() {
+    active = null;
+    root.classList.remove(&quot;graph-filtered&quot;);
+    clearPressed(chips);
+    Array.prototype.forEach.call(chips, function (c) {
+      c.classList.remove(&quot;is-active&quot;);
+    });
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove(&quot;sev-match&quot;);
+    });
+  }
+
+  Array.prototype.forEach.call(chips, function (chip) {
+    function activate(event) {
+      event.stopPropagation();
+      var level = chip.getAttribute(&quot;data-severity-filter&quot;);
+      if (active === level) { clearFilter(); return; }
+      unpin();
+      clearFilter();
+      clearRelFilter();
+      active = level;
+      root.classList.add(&quot;graph-filtered&quot;);
+      chip.classList.add(&quot;is-active&quot;);
+      setPressed(chip, true);
+      Array.prototype.forEach.call(nodes, function (n) {
+        if (n.getAttribute(&quot;data-severity&quot;) === level) {
+          n.classList.add(&quot;sev-match&quot;);
+        }
+      });
+    }
+    chip.addEventListener(&quot;click&quot;, activate);
+    chip.addEventListener(&quot;keydown&quot;, function (event) {
+      if (isActivation(event)) { event.preventDefault(); activate(event); }
+    });
+  });
+
+  /* I3 filter half - isolate one relationship class from the legend.
+     SINGLE SELECT, like the severity chips, though the package specified
+     multi-select. Three filter systems already share one canvas; asymmetric
+     selection rules across two sibling filters would be harder to explain than
+     multi-select is worth on a graph this size. Recorded as a deviation, not
+     an oversight. */
+  var entries = root.querySelectorAll(&quot;[data-relationship-filter]&quot;);
+  var activeRel = null;
+
+  function clearRelFilter() {
+    activeRel = null;
+    root.classList.remove(&quot;graph-rel-filtered&quot;);
+    clearPressed(entries);
+    Array.prototype.forEach.call(entries, function (e) {
+      e.classList.remove(&quot;is-active&quot;);
+    });
+    Array.prototype.forEach.call(edges, function (e) {
+      e.classList.remove(&quot;rel-match&quot;);
+    });
+    Array.prototype.forEach.call(nodes, function (n) {
+      n.classList.remove(&quot;rel-touched&quot;);
+    });
+  }
+
+  Array.prototype.forEach.call(entries, function (entry) {
+    function activate(event) {
+      event.stopPropagation();
+      var cls = entry.getAttribute(&quot;data-relationship-filter&quot;);
+      if (activeRel === cls) { clearRelFilter(); return; }
+      unpin();
+      clearFilter();
+      clearRelFilter();
+      activeRel = cls;
+      root.classList.add(&quot;graph-rel-filtered&quot;);
+      entry.classList.add(&quot;is-active&quot;);
+      setPressed(entry, true);
+      var touched = Object.create(null);
+      Array.prototype.forEach.call(edges, function (e) {
+        if (e.getAttribute(&quot;data-relationship-class&quot;) === cls) {
+          e.classList.add(&quot;rel-match&quot;);
+          touched[e.getAttribute(&quot;data-source&quot;)] = true;
+          touched[e.getAttribute(&quot;data-target&quot;)] = true;
+        }
+      });
+      /* The nodes an isolated edge touches stay lit. An edge floating between
+         two dimmed cards names a relationship without naming its parties. */
+      Array.prototype.forEach.call(nodes, function (n) {
+        if (touched[n.getAttribute(&quot;data-node-id&quot;)]) {
+          n.classList.add(&quot;rel-touched&quot;);
+        }
+      });
+    }
+    entry.addEventListener(&quot;click&quot;, activate);
+    entry.addEventListener(&quot;keydown&quot;, function (event) {
+      if (isActivation(event)) { event.preventDefault(); activate(event); }
+    });
+  });
+
+  /* The panel sits inside the canvas, so without this a click on it bubbles to
+     the canvas handler and closes the thing being read. Selecting the invoice
+     reference to copy it would dismiss the panel holding it. */
+  Array.prototype.forEach.call(summaries, function (s) {
+    s.addEventListener(&quot;click&quot;, function (event) {
+      event.stopPropagation();
+    });
+  });
+
+  /* Clicking the canvas clears everything, so there is always one gesture that
+     returns the graph to its published state. */
+  root.addEventListener(&quot;click&quot;, clearFilter);
+  root.addEventListener(&quot;click&quot;, clearRelFilter);
+
+  /* I5 - Escape is the keyboard equivalent of clicking the canvas, and it is
+     bound on the ROOT rather than per control: a reader who has tabbed away
+     from the chip that set a filter must still be able to clear it. keydown
+     bubbles, so one listener on the root catches all three kinds of control
+     without having to know which one holds focus. */
+  root.addEventListener(&quot;keydown&quot;, function (event) {
+    if (event.key === &quot;Escape&quot; || event.key === &quot;Esc&quot;) {
+      unpin();
+      clearFilter();
+      clearRelFilter();
+    }
+  });
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" title="Canonical Graph"></iframe>
+
+<div class="band" id="drivers">DRIVER ANALYSIS</div>
+
+<div class="grid3" data-runtime-section="driver_analysis" data-source="metadata_packet">
+  <div class="box" data-source="confidence_components"><h2>Risk Confidence Drivers</h2>
+    <p>Distance From Decision Boundary <span class="metric">56.9</span><span class="muted"> 47.06% vs 30% threshold &middot; weight 0.6</span></p><p>Evidence Coverage <span class="metric">100.0</span><span class="muted"> 15 of 15 items &middot; weight 0.4</span></p><p class="muted">Capped at 95 &mdash; an automated triage step does not publish certainty.</p>
+  </div>
+  <div class="box" data-source="risk_components"><h2>Risk Score Drivers</h2>
+    <p>Inflation <span class="metric">21.00</span><span class="muted"> High &middot; weight 0.3</span></p><p>Network <span class="metric">13.50</span><span class="muted"> Critical &middot; weight 0.15</span></p><p>Trade Value <span class="metric">13.50</span><span class="muted"> Critical &middot; weight 0.15</span></p><p>Counterparty <span class="metric">10.50</span><span class="muted"> High &middot; weight 0.15</span></p><p>Jurisdiction <span class="metric">10.50</span><span class="muted"> High &middot; weight 0.15</span></p><p>Historical <span class="metric">1.50</span><span class="muted"> Low &middot; weight 0.1</span></p>
+  </div>
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <p>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</p><p>Trade route: Jebel Ali → Rotterdam → Felixstowe.</p><p>Invoice unit price materially exceeds market benchmark</p>
+  </div>
+</div>
+
+
+<div class="band" id="assessment">INTELLIGENCE ASSESSMENT</div>
+<div class="grid3">
+<div class="box"><h2>Key Indicators</h2><ul><li>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</li></ul></div>
+<div class="box"><h2>Risk Rationale</h2><p>The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and Alpha Trading Ltd.</p></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Ownership/control indicators</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+</div>
+
+<div class="band" id="workspace">INTELLIGENCE WORKSPACE</div>
+<div class="box">
+<div class="tabs">
+<button class="tab active" data-tab="assessment">Intelligence Assessment</button>
+<button class="tab" data-tab="actions">Investigation Actions</button>
+<button class="tab" data-tab="brief">Intelligence Brief</button>
+<button class="tab" data-tab="reasoning">Analytic Reasoning</button>
+<button class="tab" data-tab="decision">Decision Support</button>
+<button class="tab" data-tab="metadata">Intelligence Metadata</button>
+</div>
+
+<section class="panel active" id="tab-assessment">
+
+<div class="grid3"
+     data-runtime-section="intelligence_assessment"
+     data-source="fc01_runtime_content">
+  <div class="box" data-source="fc01_runtime_content" data-content-section="intelligence_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Assessment Summary</h2>
+    <p>The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and Alpha Trading Ltd. The declared value stands USD 800,000.00 (47.06%) above benchmark.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="supporting_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Supporting Assessment</h2>
+    <ul><li>XYZ Trading LLC and Alpha Trading Ltd are linked through the trade route Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.</li><li>The declared value exceeds the benchmark by USD 800,000.00 (47.06%). The current analytic risk score is 71.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="confidence_narrative" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Confidence Narrative</h2>
+    <p>Confidence is supported by aligned counterparty, invoice, transaction, goods, route and valuation evidence for case TBML002-CASE-2026-003. The governed case is classified SYNTHETIC_DEMONSTRATION_DATA and consistently identifies XYZ Trading LLC trading with Alpha Trading Ltd via Jebel Ali → Rotterdam → Felixstowe.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="alternative_explanations" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Alternative Explanations</h2>
+    <ul><li>Counterparty indicator (High): A counterparty scores high when the file on it is thin, not only when its behaviour is adverse. A newly onboarded but entirely legitimate supplier presents the same way as one being avoided: short history, few corroborating records, limited independent confirmation of who controls it. Settled by the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere.</li><li>Inflation indicator (High): The benchmark is a comparable commodity unit price and does not adjust for specification, grade, warranty or bundled services, so a higher-specification variant sharing a commodity code will sit above it legitimately. Delivery terms do the same thing: a price quoted inclusive of freight and insurance is not comparable with a benchmark struck at the factory gate. A benchmark struck on a different date or in a different currency moves the variance without anything about the goods changing. Settled by the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on.</li><li>Jurisdiction indicator (High): A corridor can be high risk in aggregate and ordinary for this trade. Routing through a major transhipment hub is a normal logistics decision for containerised freight and is chosen by the carrier as often as by the shipper. Settled by whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume.</li><li>Network indicator (Critical): Common directors and common ownership across entities is the ordinary shape of a corporate group, not evidence of a constructed one. Where two parties to a trade are related, transfer pricing conducted within an agreed policy will look like related-party mispricing from the outside. Settled by the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities.</li><li>Trade value indicator (Critical): Transaction size is a function of quantity and contract shape. A single large shipment drawn down against a framework agreement is unremarkable for a corporate customer and will score the same as an isolated large payment. Settled by the framework or purchase agreement, and the shipment history drawn against it.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="investigation_hypothesis" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Investigation Hypothesis</h2>
+    <p>The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and Alpha Trading Ltd using Jebel Ali → Rotterdam → Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.</p>
+  </div>
+</div>
+
+</section>
+
+<section class="panel" id="tab-actions">
+
+<div class="grid2">
+
+<div class="box"><h2>Recommended Actions</h2><div data-runtime-content-shape="semantic">
+<ul><li>Review invoice and transaction evidence</li><li>Compare declared and benchmark values</li><li>Validate exporter and importer identities</li><li>Validate route and shipping documentation</li></ul>
+</div></div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Key Investigation Questions</h2>
+<ul>
+<li>Does available evidence support the dominant hypothesis?</li>
+<li>Are there additional transaction counterparties or connected parties not currently visible?</li>
+<li>Can ownership, control and shared attributes be independently verified?</li>
+<li>Does historical activity support the observed network structure?</li>
+<li>Is escalation warranted given the published risk rating and confidence score?</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>Collection Plan</h2>
+<ul><li>No collection activity is warranted: all 15 required evidence items are present.</li><li>Confidence is 70.4 of a 95.0 ceiling and cannot be raised by collecting evidence -- 24.6 of the 24.6 remaining points are held by the margin term, which measures the case and not the file.</li><li>Collection would only become the binding constraint below 5 of 15 items present -- this case is not near that boundary.</li></ul>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Investigation Priorities</h2>
+<ul><li>No required evidence is outstanding: the case carries all 15 items.</li></ul>
+</div>
+
+</section>
+
+<section class="panel" id="tab-brief">
+<div class="grid3">
+<div class="box"><h2>Executive Intelligence Summary</h2><div data-runtime-content-shape="semantic">
+<p><strong>Headline:</strong> TBML002 requires review.</p><p><strong>Summary:</strong> The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and Alpha Trading Ltd. The declared value stands USD 800,000.00 (47.06%) above benchmark.</p>
+</div></div>
+<div class="box"><h2>Key Intelligence Findings</h2><ul><li>XYZ Trading LLC and Alpha Trading Ltd are linked through the trade route Jebel Ali → Rotterdam → Felixstowe.</li><li>Invoice INV001 and transaction PAY001 declare USD 2,500,000.00 for Network communications equipment, compared with a benchmark value of USD 1,700,000.00.</li></ul></div>
+<div class="box"><h2>Why This Matters</h2><p>The declared value sits USD 800,000.00 (47.06%) above an independent benchmark on a single trade corridor — an excess large enough to act on, and one that legitimate pricing evidence would resolve either way. That gap, not a network, is what makes this case worth an investigator&#x27;s time.</p></div>
+</div>
+</section>
+
+<section class="panel" id="tab-reasoning">
+
+<div class="grid2">
+
+<div class="box">
+<h2>Primary Hypothesis</h2>
+<p>The transaction may represent trade-based money laundering through over-invoicing between XYZ Trading LLC and Alpha Trading Ltd using Jebel Ali → Rotterdam → Felixstowe. Invoice INV001 / transaction PAY001 declares USD 2,500,000.00 against a benchmark of USD 1,700,000.00, producing a variance of USD 800,000.00 (47.06%). Enhanced review should test the commercial rationale, pricing evidence, shipping documents and counterparty relationship.</p><div class="conclusion-value">Confidence 70.4</div>
+</div>
+
+<div class="box">
+<h2>Alternative Hypotheses</h2>
+<table>
+<tr><th>Hypothesis</th><th>Supported by</th><th>Weakened by</th></tr>
+<tr><td>TBML001 Over Invoicing</td><td>counterparty (High); inflation (High); jurisdiction (High); network (Critical); trade value (Critical)</td><td>historical (Low)</td></tr><tr><td>Each indicator that fired has an innocent explanation</td><td>counterparty (High); inflation (High); jurisdiction (High); network (Critical); trade value (Critical)</td><td>—</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Evidence Assessment</h2>
+<p>
+The case carries 15 of 15 required evidence items. The governed case envelope declares 16 required fields and validated every one of them before this analytic ran, so the case reaching this assessment is complete by contract as well as by count. Some of these items are also guaranteed by the case envelope and cannot be absent. The case does not record which, so the figure covers both.
+</p>
+</div>
+
+<div class="box">
+<h2>Confidence Forecast</h2>
+<p>Confidence is 70.4 and cannot be raised by collecting evidence. The evidence is complete, so all 24.6 points of headroom below the ceiling are held by the margin term -- the distance of the measured variance from the governed threshold, which is a property of the case and not of the file.</p><p class="muted">The confidence model evaluated at a different evidence coverage. Collecting evidence moves the coverage term only; the margin term is the distance of the measured variance from the governed alert threshold and is a property of the case. Every required item is weighted equally, so each is worth 2.53 points and the outstanding items are named without individual scores.</p>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Decision Analysis</h2>
+<p class="planned-capability">Not planned. This section would score investigative options against one another. This platform governs intelligence and does not govern dispositions — it states what the evidence supports and leaves the decision to the institution that owns it. Option scores are therefore deliberately absent rather than pending. No assessment is made here.</p>
+</div>
+
+<div class="box">
+<h2>Analyses Not Produced</h2>
+<p>Two analyses are not produced for this product: Decision Simulation and Strategic Investigation Path. Each requires a projection model that this estate does not carry.</p><p class="muted">They are named rather than omitted so their absence is a recorded decision and not an oversight. Building them needs the model first; a probability without one is a number that would read the same on every case.</p>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box"><h2>Decision Support</h2><div data-runtime-content-shape="semantic">
+<p><strong>Rationale:</strong> The governed analytic scored this case 71 of 100 and classified it High. The measured variance of 47.06% is 17.06 points above the analytic&#x27;s governed alert threshold of 30%, which is what raised the alert. Confidence in that classification is 70.4 of a ceiling of 95. The case carries 15 of 15 required evidence items. All 24.6 points of headroom below the ceiling are held by the margin term: the evidence is complete, so collecting further evidence cannot raise this figure. This is the path the analytic took, not a recommendation: no disposition is derived here, because this estate governs none.</p>
+</div></div>
+
+<div class="box">
+<h2>Investigation Value</h2>
+<ul><li>Establishes whether the USD 800,000.00 variance is legitimate pricing or disguised value transfer.</li><li>Verifies the XYZ Trading LLC / Alpha Trading Ltd relationship behind the trade.</li><li>Tests the declared Jebel Ali → Rotterdam → Felixstowe route against a commercial rationale.</li></ul>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Reasoning Summary</h2>
+<p>TBML001 Over Invoicing was selected as the dominant typology from the governed analytic&#x27;s own output.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-decision">
+
+<div class="decision-support-stack">
+
+<div class="grid3">
+
+<div class="box"><h2>Investigator Playbook</h2><div data-runtime-content-shape="semantic">
+<p class="planned-capability">Planned capability. Investigation playbooks are delivered by the Investigation Workspace, which is not yet implemented. This product states what the evidence supports; turning that into a sequence of investigator steps belongs to that workspace, not to the intelligence product. No assessment is made here.</p>
+</div></div>
+
+<div class="box"><h2>Evidence Quality</h2><div data-runtime-content-shape="semantic">
+<p><strong>Basis:</strong> Runtime evidence quality assessed from metadata coverage.</p>
+<p><strong>Confidence score:</strong> 70.4</p>
+</div></div>
+
+<div class="box">
+<h2>Hypothesis Probabilities</h2>
+<p>The indicators that fired support every competing explanation equally, so they do not separate them. All five support both.</p><p>No probability is stated for any explanation. A likelihood over competing hypotheses requires governed prior probabilities, and none are held in this estate.</p><p>What would separate them:</p><ul><li>the KYC file, incorporation and beneficial-ownership records, and any trading history the group holds for the same entity elsewhere</li><li>the sales contract, the goods specification, the delivery term on the invoice, and the date and currency the benchmark was struck on</li><li>whether the physical goods movement matches the payment flow, and whether the route is commercially sensible for this commodity and volume</li><li>the group structure, and the transfer-pricing policy or advance pricing agreement covering transactions between these entities</li><li>the framework or purchase agreement, and the shipment history drawn against it</li></ul>
+</div>
+
+<div class="box">
+<h2>Scenario Analysis</h2>
+<ul><li>The case scores 71 and bands High. Critical begins at 80, so 9 further points would change the assessment.</li><li>If counterparty rose from High to Critical, the governed model would score 74 and band High -- unchanged.</li><li>If historical rose from Low to Critical, the governed model would score 78 and band High -- unchanged.</li><li>If inflation rose from High to Critical, the governed model would score 77 and band High -- unchanged.</li><li>If jurisdiction rose from High to Critical, the governed model would score 74 and band High -- unchanged.</li><li>Network is already at Critical, the model&#x27;s highest band, and cannot contribute further.</li><li>Trade value is already at Critical, the model&#x27;s highest band, and cannot contribute further.</li><li>No single component reaching its highest band would move this case to Critical. The assessment is therefore not sensitive to any one indicator, and a change of band would require two or more conditions to hold together.</li></ul>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-metadata">
+<div class="box">
+<h2>Pattern Classification</h2>
+<div class="meta"><div><strong>Type</strong><br>Trade Based Money Laundering</div><div><strong>Category</strong><br>Over Invoicing</div><div><strong>Typology</strong><br>TBML002</div><div><strong>Exposure</strong><br>High</div></div>
+</div>
+
+<div class="box">
+<h2>Pattern Summary</h2>
+<p>TBML002 identifies route intelligence involving Alpha Trading Ltd across the Jebel Ali → Rotterdam → Felixstowe corridor. The corridor is flagged as a high-risk corridor, increasing jurisdiction and routing exposure.</p>
+</div>
+
+<div class="box"><h2>Expected Fusion Result</h2><div data-runtime-content-shape="semantic">
+<p><strong>Result:</strong> Fused transaction, graph, counterparty and evidence intelligence.</p>
+</div></div>
+
+<div class="box">
+<h2>Technical Metadata</h2>
+<div class="meta"><div><strong>Run ID</strong><br>tbml002-405b245d98</div><div><strong>Built</strong><br>2026-08-08T12:35:25.750508Z</div><div><strong>Pattern ID</strong><br>TBML002</div><div><strong>Entity Count</strong><br>6</div><div><strong>Relationship Count</strong><br>7</div><div class="mv-cap"><strong>Topology</strong><br>diamond</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script>
+document.querySelectorAll(".tab").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+    document.querySelectorAll(".panel").forEach(function(x){x.classList.remove("active");});
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+/* Manual light/dark toggle. The page follows the OS by default (prefers-color-
+   scheme); this lets a reader override that and remembers the choice. The button
+   is created here rather than in the markup so a no-script reader keeps the
+   working automatic default instead of an inert control. No numeral appears in
+   this script, so the template script numeric gate stays satisfied by
+   construction. */
+(function(){
+  var KEY = "nexus-runtime-theme";
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === "dark" || saved === "light") { root.setAttribute("data-theme", saved); }
+  function isDark(){
+    var chosen = root.getAttribute("data-theme");
+    if (chosen) { return chosen === "dark"; }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "theme-toggle";
+  function relabel(){
+    var dark = isDark();
+    toggle.textContent = dark ? "Light mode" : "Dark mode";
+    toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  }
+  toggle.addEventListener("click", function(){
+    var next = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    relabel();
+  });
+  relabel();
+  document.body.appendChild(toggle);
+})();
+</script>
+<!-- Stage374C product gate tokens: Visual Intelligence Model | Scoring Framework | Driver Analysis | Intelligence Workspace -->
+</body>
+</html>

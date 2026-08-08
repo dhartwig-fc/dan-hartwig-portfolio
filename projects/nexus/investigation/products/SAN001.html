@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Network Intelligence · Sanctions & PEP Screening — Case SAN001-C005</title>
+<style>
+/* ==========================================================================
+   Track C — the product adopts the NEXUS site's design tokens, in two keys.
+   The site is dark (#050b14) with light panels' dark twins; a visitor moving
+   from it to this product used to land on a light-grey, Arial page from a
+   different decade. Both keys are published; prefers-color-scheme picks one.
+   DISCIPLINE (C5): the two keys differ ONLY in colour — never content, never
+   layout — so the published facts are identical whichever a reader sees.
+   ========================================================================== */
+:root {
+  --bg:#f7f9fb; --panel:#ffffff; --panel-2:#f9fafb; --ink:#101828; --muted:#5f6b7a;
+  --line:#e5e7eb; --line-strong:#d9e0e7;
+  --blue:#175cd3; --green:#15803d; --amber:#b45309;
+  --strong:#101828; --strong-ink:#ffffff;   /* bands, banner, active tab */
+  --focus:#175cd3;                            /* keyboard focus ring, light ground */
+  --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  /* risk palette — dark enough for white text on any ground, so it needs no
+     per-key variant; matches the graph severity colours. */
+  --risk-low:#64748b; --risk-medium:#b45309; --risk-high:#b91c1c; --risk-critical:#7f1d1d;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#050b14; --panel:#081322; --panel-2:#0b1a2e; --ink:#f8fafc; --muted:#94a3b8;
+    --line:rgba(148,163,184,.22); --line-strong:rgba(148,163,184,.34);
+    --blue:#38bdf8; --green:#22c55e; --amber:#f59e0b;
+    --strong:#0b1a2e; --strong-ink:#f8fafc;
+    --focus:#38bdf8;                           /* 8.70 on the dark panel (C3) */
+  }
+}
+/* Manual override. A toggle sets data-theme on <html>; the attribute selectors
+   win over the OS default by specificity, so a reader can choose a key without
+   changing their OS. The values are IDENTICAL to the auto keys above — the
+   manual and automatic appearances are the same one — and Stage516 pins that
+   they match, so the two can never drift apart. Colour tokens only; --sans,
+   --mono and the risk palette are theme-invariant and inherit from :root. */
+:root[data-theme="dark"] {
+  --bg:#050b14; --panel:#081322; --panel-2:#0b1a2e; --ink:#f8fafc; --muted:#94a3b8;
+  --line:rgba(148,163,184,.22); --line-strong:rgba(148,163,184,.34);
+  --blue:#38bdf8; --green:#22c55e; --amber:#f59e0b;
+  --strong:#0b1a2e; --strong-ink:#f8fafc;
+  --focus:#38bdf8;
+}
+:root[data-theme="light"] {
+  --bg:#f7f9fb; --panel:#ffffff; --panel-2:#f9fafb; --ink:#101828; --muted:#5f6b7a;
+  --line:#e5e7eb; --line-strong:#d9e0e7;
+  --blue:#175cd3; --green:#15803d; --amber:#b45309;
+  --strong:#101828; --strong-ink:#ffffff;
+  --focus:#175cd3;
+}
+.theme-toggle {
+  position:fixed; top:16px; right:16px; z-index:20;
+  padding:8px 14px; border:1px solid var(--line); border-radius:999px;
+  background:var(--panel); color:var(--ink); font:inherit; font-weight:700; font-size:13px;
+  cursor:pointer; box-shadow:0 1px 6px rgba(15,23,42,.18);
+}
+.theme-toggle:hover { border-color:var(--line-strong); }
+
+body { font-family:var(--sans); margin:24px; background:var(--bg); color:var(--ink); overflow-wrap:anywhere; word-break:break-word; }
+h1 { margin:0 0 4px; }
+.page-note { margin:0 0 14px; color:var(--muted); }
+/* C3 — one focus ring, keyed per ground; both clear WCAG 1.4.11 3.0. */
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+.shell { display:grid; grid-template-columns:240px 1fr; gap:14px; align-items:start; }
+.sources { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px; position:sticky; top:18px; }
+.source { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:10px; background:var(--panel-2); font-size:13px; }
+.source strong { display:block; margin-bottom:4px; }
+/* Look-Like-The-Platform B: the case's own evidence leads; the platform
+   catalogue is honestly labelled beneath it. */
+.case-evidence { border:1px solid var(--line); border-radius:10px; padding:10px; margin-bottom:12px; background:var(--panel-2); font-size:13px; }
+.case-evidence-head { font-weight:700; margin-bottom:8px; }
+.evidence-list { list-style:none; margin:0; padding:0; }
+.evi { display:flex; align-items:flex-start; gap:8px; padding:3px 0; line-height:1.35; }
+.evi-mark { flex:0 0 auto; width:9px; height:9px; border-radius:999px; margin-top:5px; background:var(--line-strong); }
+.evi-present .evi-mark { background:var(--green); }
+.evi-absent { color:var(--muted); }
+.evi-absent .evi-mark { background:transparent; border:1px solid var(--line-strong); }
+.evi-absent em { font-style:normal; color:var(--muted); }
+.source-scope-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin:4px 0 8px; }
+.band { background:var(--strong); color:var(--strong-ink); padding:10px; border-radius:8px; text-align:center; font-weight:700; margin:18px 0 12px; }
+html { scroll-behavior:smooth; }
+.contents { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 12px; font-size:13px; }
+.contents a { padding:6px 12px; border:1px solid var(--line); border-radius:8px; background:var(--panel-2); color:var(--ink); text-decoration:none; font-weight:700; }
+.contents a:hover { border-color:var(--line-strong); }
+.box { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:12px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.grid2 { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+/* C4 — the graph fills its frame at its own 3:2 aspect (viewBox 1260x840) so
+   the relationship legend is never below a fixed-height fold. */
+.diagram-frame { width:100%; aspect-ratio:3/2; height:auto; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+.driver-row { display:grid; grid-template-columns:150px 1fr 40px; gap:8px; margin:8px 0; align-items:center; }
+.bar-track { height:10px; background:var(--line-strong); border-radius:99px; overflow:hidden; }
+.bar-fill { height:10px; border-radius:99px; }
+.blue { background:var(--blue); }
+.orange { background:var(--amber); }
+.executive-banner { background:var(--strong); color:var(--strong-ink); border-radius:14px; padding:18px; margin:18px 0 12px; }
+.executive-banner-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.executive-banner-card { border:1px solid rgba(148,163,184,.30); border-radius:12px; padding:14px; }
+.executive-banner-card h2 { margin:0 0 8px; font-size:15px; color:var(--muted); }
+.executive-banner-card strong { display:block; font-size:22px; }
+/* D5 — risk band carried as colour, matching the graph severity palette. The
+   pill sits in the Intelligence Judgement card; the banner border picks up the
+   same band via :has(), so chrome and verdict cannot disagree. */
+.risk-pill { display:inline-block; font-size:12px; font-weight:800; letter-spacing:.6px; padding:3px 10px; border-radius:999px; color:#fff; margin:0 0 8px; background:var(--risk-low); }
+.risk-pill.risk-low { background:var(--risk-low); }
+.risk-pill.risk-medium { background:var(--risk-medium); }
+.risk-pill.risk-high { background:var(--risk-high); }
+.risk-pill.risk-critical { background:var(--risk-critical); }
+.executive-banner:has(.risk-pill.risk-low) { border-left:8px solid var(--risk-low); }
+.executive-banner:has(.risk-pill.risk-medium) { border-left:8px solid var(--risk-medium); }
+.executive-banner:has(.risk-pill.risk-high) { border-left:8px solid var(--risk-high); }
+.executive-banner:has(.risk-pill.risk-critical) { border-left:8px solid var(--risk-critical); }
+/* D2 — topology (and other source-cased labels) capitalised for display only;
+   the DOM text stays byte-identical to the packet for provenance. */
+.mv-cap { text-transform:capitalize; }
+.conclusion-card { border-left:5px solid var(--strong); }
+.conclusion-value { font-size:22px; font-weight:800; margin-top:6px; }
+.tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.tab { padding:8px 12px; border:1px solid var(--line); border-radius:8px; cursor:pointer; font-weight:700; background:var(--panel); color:var(--ink); }
+.tab.active { background:var(--strong); color:var(--strong-ink); border-color:var(--strong); }
+.panel { display:none; }
+.panel.active { display:block; }
+.meta { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.meta div { border:1px solid var(--line); border-radius:10px; padding:10px; background:var(--panel-2); font-family:var(--mono); font-size:12px; }
+.meta strong { font-family:var(--sans); }
+table { width:100%; border-collapse:collapse; }
+th,td { border:1px solid var(--line); padding:8px; text-align:left; }
+@media(max-width:900px){ .shell,.grid3,.grid2,.meta,.executive-banner-grid,.scenario-card-grid,.scenario-wide-grid{grid-template-columns:1fr;} .sources{position:static;} }
+
+/* Responsive hardening. Grid/flex items default to min-width:auto and refuse to
+   shrink below their content's min-content, so a single unbreakable token (the
+   64-char case fingerprint) or a wide grid child forced the whole page past the
+   viewport even after the columns collapsed. min-width:0 lets them shrink; body
+   overflow-wrap lets the long tokens wrap. Measured: without this the page held
+   a 561px horizontal scroll at a 356px viewport. */
+.shell,.grid3,.grid2,.meta,.executive-banner-grid,.scenario-card-grid,.scenario-wide-grid,.decision-support-stack{min-width:0;}
+.shell>*,.grid3>*,.grid2>*,.meta>*,.executive-banner-grid>*,.scenario-card-grid>*,.scenario-wide-grid>*,.box,main,aside{min-width:0;}
+
+.scenario-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scenario-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel)}
+.scenario-card h3{margin:0 0 8px 0}
+.scenario-prob{display:inline-block;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--panel-2);border:1px solid var(--line);margin-bottom:10px}
+.scenario-meta{font-size:13px;line-height:1.45;margin:8px 0}
+.scenario-meta strong{display:inline-block;min-width:115px}
+
+.decision-support-stack{display:flex;flex-direction:column;gap:14px}
+.scenario-wide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.decision-simulation-full{width:100%}
+
+</style>
+</head>
+<body>
+
+<h1>Network Intelligence · Sanctions & PEP Screening — Case SAN001-C005</h1>
+
+<div class="shell">
+<aside class="sources">
+<h2>Data Sources</h2>
+
+<div class="source-scope-label">Platform data sources · all typologies</div>
+<div class="source" data-source-scope="catalogue"><strong>Corporate Registry</strong>Director, company and ownership filings</div>
+<div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div>
+<div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div>
+<div class="source" data-source-scope="catalogue"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div>
+<div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence <em>(trade typologies)</em></div>
+<div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+</aside>
+
+<main>
+<div class="executive-banner">
+<div class="executive-banner-grid">
+<div class="executive-banner-card">
+<h2>Intelligence Judgement</h2>
+<span class="risk-pill risk-critical">CRITICAL</span><strong>CRITICAL Risk &middot; confidence 0.9899</strong><p>The governed analytic scored this case 90 of 100 and it classified as CRITICAL.</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Dominant Typology</h2>
+<strong>SAN001 Sanctions &amp; PEP Screening</strong><p>Epsilon Logistics Ltd (C005): Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; [EU Consolidated List] via EU 2023/1214, exact match 1.00</p>
+</div>
+
+<div class="executive-banner-card">
+<h2>Recommended Action</h2>
+<strong>Evidence validation and decision review</strong><p>Owner: Financial Crime Operations. 3 investigation actions listed below.</p>
+</div>
+</div>
+</div>
+
+<nav class="contents" aria-label="Contents">
+<a href="#scoring">Scoring</a>
+<a href="#graph">Graph</a>
+<a href="#drivers">Drivers</a>
+<a href="#assessment">Assessment</a>
+<a href="#workspace">Workspace</a>
+</nav>
+
+<div class="band" id="scoring">SCORING FRAMEWORK</div>
+
+<div class="grid3"
+     data-runtime-section="governed_case_summary"
+     data-source="metadata_packet"
+     data-case-family="network"
+     data-case-id="SAN001-C005"
+     data-case-fingerprint="ab9a8dbc92769f1212bd9d36c9df9a54e95cfcfd76992415943de27f3c1f6209"
+     data-product-id="SAN001"
+     data-typology-id="SAN001"
+     data-classification="CRITICAL"
+     data-risk-score="90">
+  <div class="box">
+    <h2>Governed Case Identity</h2>
+    <p><strong>Case:</strong> SAN001-C005</p>
+    <p><strong>Fingerprint:</strong> <code>ab9a8dbc92769f1212bd9d36c9df9a54e95cfcfd76992415943de27f3c1f6209</code></p>
+    <p><strong>Product / Typology:</strong> SAN001 / SAN001</p>
+    <p><strong>Classification:</strong> CRITICAL</p>
+    <p><strong>Governed Risk Score:</strong> 90 / 100</p>
+  </div>
+  <div class="box">
+    <h2>Subject and Network</h2>
+    <p><strong>Subject:</strong> Epsilon Logistics Ltd</p>
+    <p><strong>Subject Entity:</strong> C005</p>
+    <p><strong>Connected Entities:</strong> 2</p>
+    <p><strong>Findings:</strong> 0</p>
+  </div>
+  <div class="box">
+    <h2>Network Composition</h2>
+    <p><strong>Connected:</strong> C003, P001</p>
+  </div>
+</div>
+
+<div class="grid3" data-runtime-section="scoring_framework" data-source="metadata_packet">
+  <div class="box">
+    <h2>Evidence Coverage</h2>
+    <p><strong>Not computed</strong></p>
+    
+    <p>This product did not report evidence coverage.</p>
+  </div>
+  <div class="box">
+    <h2>Risk Score</h2>
+    <p><strong>90 / 100</strong></p><ul><li>Epsilon Logistics Ltd (C005): Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; [EU Consolidated List] via EU 2023/1214, exact match 1.00</li><li>Gamma Imports Ltd (C003): Sanctions hit on &#x27;Gamma Imports Limited&#x27; [OFAC SDN List] via EO 13224, strong match 0.97</li><li>John Smith (P001): PEP hit on &#x27;John Smith&#x27; [National PEP Register] via Domestic PEP, exact match 1.00</li></ul>
+  </div>
+  <div class="box">
+    <h2>Exposure</h2>
+    <p><strong>Not carried</strong></p><p>This case reports no measured variance, so there is no exposure amount to publish. No score is substituted.</p>
+  </div>
+</div>
+
+
+<div class="band" id="graph">VISUAL INTELLIGENCE MODEL</div>
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/san001-72ccdbda7e_SAN001_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Canonical Graph Engine Output&lt;/title&gt;
+&lt;style&gt;
+:root {
+  --g-bg:#ffffff; --g-canvas:#f8fafc; --g-ink:#111827; --g-muted:#475569;
+  --g-line:#cbd5e1; --g-hub:#2f7ed8; --g-hub-ink:#ffffff; --g-leaf:#ffffff;
+  --g-chip:#ffffff; --g-chip-border:#e5e7eb; --g-chip-ink:#1e293b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --g-bg:#050b14; --g-canvas:#0e1c30; --g-ink:#f8fafc; --g-muted:#94a3b8;
+    --g-line:rgba(148,163,184,.45); --g-hub:#2f7ed8; --g-hub-ink:#ffffff;
+    --g-leaf:#0b1a2e; --g-chip:#0b1a2e; --g-chip-border:rgba(148,163,184,.4);
+    --g-chip-ink:#e2e8f0;
+  }
+}
+body { margin:0; background:var(--g-bg); }
+.network-star-engine {
+  border:1px solid var(--g-line); border-radius:14px; padding:20px;
+  background:var(--g-canvas); font-family:&#x27;Inter&#x27;,system-ui,-apple-system,sans-serif;
+}
+.network-star-svg { width:100%; height:auto; display:block; }
+.spoke { stroke:var(--g-line); stroke-width:1.6; }
+.edge-label-bg { fill:var(--g-chip); stroke:var(--g-chip-border); stroke-width:1; }
+.edge-label { fill:var(--g-chip-ink); font-size:10px; font-weight:700; letter-spacing:.2px; }
+.leaf-dot { fill:var(--g-leaf); stroke:var(--g-line); stroke-width:1.4; }
+.leaf-text { fill:var(--g-ink); font-size:11px; font-family:&#x27;SF Mono&#x27;,ui-monospace,monospace; }
+.leaf-name { fill:var(--g-ink); font-size:13px; font-weight:600; }
+.hub-dot { fill:var(--g-hub); }
+.hub-text { fill:var(--g-hub-ink); font-size:14px; font-weight:600; font-family:&#x27;SF Mono&#x27;,ui-monospace,monospace; }
+.subject-name { fill:var(--g-ink); font-size:15px; font-weight:600; }
+.graph-caption { color:var(--g-muted); font-size:12px; margin-top:12px; line-height:1.5; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;network-star-engine&quot;
+  data-renderer-id=&quot;NETWORK_STAR_VISUAL_RENDERER&quot;
+  data-graph-topology=&quot;star&quot;
+  data-graph-contract=&quot;CANONICAL_GRAPH_ENGINE_CONTRACT&quot;
+  data-graph-fingerprint=&quot;24ade1d113e5cf3dd993bd0d09c8d1f8c59b088d4752cbaef995af7dee23c968&quot;
+  data-case-id=&quot;SAN001-C005&quot;
+  data-case-fingerprint=&quot;ab9a8dbc92769f1212bd9d36c9df9a54e95cfcfd76992415943de27f3c1f6209&quot;
+  data-subject-entity-id=&quot;C005&quot;
+  data-summary-for=&quot;C005&quot;&gt;
+  &lt;svg class=&quot;network-star-svg&quot; viewBox=&quot;0 0 960.0 720.0&quot; role=&quot;img&quot; aria-label=&quot;Network star: Epsilon Logistics Ltd connected to 2 entities&quot;&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;480.0&quot; y2=&quot;144.0&quot; class=&quot;spoke&quot; data-source=&quot;C005&quot; data-target=&quot;C003&quot; /&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;480.0&quot; y2=&quot;556.0&quot; class=&quot;spoke&quot; data-source=&quot;C005&quot; data-target=&quot;P001&quot; /&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;co screened&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;440.1&quot; y=&quot;203.5&quot; width=&quot;79.8&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;480.0&quot; y=&quot;217.5&quot; text-anchor=&quot;middle&quot;&gt;co screened&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;co screened&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;440.1&quot; y=&quot;475.5&quot; width=&quot;79.8&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;480.0&quot; y=&quot;489.5&quot; text-anchor=&quot;middle&quot;&gt;co screened&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;C003&quot; data-label=&quot;Gamma Imports Ltd · Sanctions&quot;&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;144.0&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;147.5&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;C003&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;P001&quot; data-label=&quot;John Smith · PEP&quot;&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;556.0&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;559.5&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;P001&lt;/text&gt;&lt;/g&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;480.0&quot; y=&quot;107.0&quot; text-anchor=&quot;middle&quot;&gt;Gamma Imports Ltd · Sanctions&lt;/text&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;480.0&quot; y=&quot;602.0&quot; text-anchor=&quot;middle&quot;&gt;John Smith · PEP&lt;/text&gt;&lt;g class=&quot;hub&quot; data-node-id=&quot;C005&quot; data-label=&quot;Epsilon Logistics Ltd&quot;&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;350.0&quot; r=&quot;48.0&quot; class=&quot;hub-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;354.0&quot; class=&quot;hub-text&quot; text-anchor=&quot;middle&quot;&gt;C005&lt;/text&gt;&lt;text x=&quot;480.0&quot; y=&quot;420.0&quot; class=&quot;subject-name&quot; text-anchor=&quot;middle&quot;&gt;Epsilon Logistics Ltd&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;div class=&quot;graph-caption&quot;&gt;
+    CANONICAL_GRAPH_ENGINE &amp;middot; CANONICAL_GRAPH_ENGINE_CONTRACT&lt;br&gt;
+    Case SAN001-C005 &amp;middot; Epsilon Logistics Ltd (C005) &amp;middot;
+    2 connected entities&lt;br&gt;
+    fingerprint ab9a8dbc92769f1212bd9d36c9df9a54e95cfcfd76992415943de27f3c1f6209
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;" title="Canonical Graph"></iframe>
+
+<div class="band" id="drivers">DRIVER ANALYSIS</div>
+
+<div class="grid3" data-runtime-section="driver_analysis" data-source="metadata_packet">
+  <div class="box" data-source="confidence_components"><h2>Risk Confidence Drivers</h2>
+    <p class="muted">Not computed &mdash; the analytic supplied no confidence breakdown.</p>
+  </div>
+  <div class="box" data-source="risk_components"><h2>Risk Score Drivers</h2>
+    <p class="muted">Not computed &mdash; the analytic supplied no component breakdown for this score.</p>
+  </div>
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <p>Epsilon Logistics Ltd (C005): Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; [EU Consolidated List] via EU 2023/1214, exact match 1.00</p><p>Gamma Imports Ltd (C003): Sanctions hit on &#x27;Gamma Imports Limited&#x27; [OFAC SDN List] via EO 13224, strong match 0.97</p><p>John Smith (P001): PEP hit on &#x27;John Smith&#x27; [National PEP Register] via Domestic PEP, exact match 1.00</p>
+  </div>
+</div>
+
+
+<div class="band" id="assessment">INTELLIGENCE ASSESSMENT</div>
+<div class="grid3">
+<div class="box"><h2>Key Indicators</h2><ul><li>Epsilon Logistics Ltd (C005): Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; [EU Consolidated List] via EU 2023/1214, exact match 1.00</li></ul></div>
+<div class="box"><h2>Risk Rationale</h2><p>Sanctions &amp; PEP screening (fc-03 SanctionsScreeningEngine, fuzzy name match) matched 3 of 20 network entities to the watchlist: Epsilon Logistics Ltd [Sanctions]; Gamma Imports Ltd [Sanctions]; John Smith [PEP].</p></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Ownership/control indicators</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+</div>
+
+<div class="band" id="workspace">INTELLIGENCE WORKSPACE</div>
+<div class="box">
+<div class="tabs">
+<button class="tab active" data-tab="assessment">Intelligence Assessment</button>
+<button class="tab" data-tab="actions">Investigation Actions</button>
+<button class="tab" data-tab="brief">Intelligence Brief</button>
+<button class="tab" data-tab="reasoning">Analytic Reasoning</button>
+<button class="tab" data-tab="decision">Decision Support</button>
+<button class="tab" data-tab="metadata">Intelligence Metadata</button>
+</div>
+
+<section class="panel active" id="tab-assessment">
+
+<div class="grid3"
+     data-runtime-section="intelligence_assessment"
+     data-source="fc01_runtime_content">
+  <div class="box" data-source="fc01_runtime_content" data-content-section="intelligence_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Assessment Summary</h2>
+    <p>Sanctions &amp; PEP screening (fc-03 SanctionsScreeningEngine, fuzzy name match) matched 3 of 20 network entities to the watchlist: Epsilon Logistics Ltd [Sanctions]; Gamma Imports Ltd [Sanctions]; John Smith [PEP]. The most severe is Epsilon Logistics Ltd (C005), a Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; (EU Consolidated List). Where these entities appear in a customer&#x27;s network, they are the indirect sanctions / PEP exposure that escalates a review.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="supporting_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Supporting Assessment</h2>
+    <ul><li>Sanctions &amp; PEP screening (fc-03 SanctionsScreeningEngine, fuzzy name match) matched 3 of 20 network entities to the watchlist: Epsilon Logistics Ltd [Sanctions]; Gamma Imports Ltd [Sanctions]; John Smith [PEP]. The most severe is Epsilon Logistics Ltd (C005), a Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; (EU Consolidated List). Where these entities appear in a customer&#x27;s network, they are the indirect sanctions / PEP exposure that escalates a review.</li><li>Screening is a fusion overlay: the governed engine lands watchlist status onto the network&#x27;s own entities so exposure surfaces where the customer is.</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="confidence_narrative" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Confidence Narrative</h2>
+    <p>Screening confidence 0.99, the mean match score across the 3 hits.</p>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="alternative_explanations" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Alternative Explanations</h2>
+    <ul><li>{&#x27;section_id&#x27;: &#x27;alternative_explanations&#x27;, &#x27;status&#x27;: &#x27;NOT_PROVIDED&#x27;, &#x27;items&#x27;: []}</li></ul>
+  </div>
+
+  <div class="box" data-source="fc01_runtime_content" data-content-section="investigation_hypothesis" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Investigation Hypothesis</h2>
+    <p>A customer connected to Epsilon Logistics Ltd and 2 other screened entities carries indirect sanctions / PEP exposure warranting escalation.</p>
+  </div>
+</div>
+
+</section>
+
+<section class="panel" id="tab-actions">
+
+<div class="grid2">
+
+<div class="box"><h2>Recommended Actions</h2><div data-runtime-content-shape="semantic">
+<ul><li>Confirm each screening hit against the source list</li><li>Map the customer&#x27;s path to each sanctioned / PEP entity</li><li>Escalate per sanctions policy if exposure is confirmed</li></ul>
+</div></div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Key Investigation Questions</h2>
+<ul>
+<li>Does available evidence support the dominant hypothesis?</li>
+<li>Are there additional transaction counterparties or connected parties not currently visible?</li>
+<li>Can ownership, control and shared attributes be independently verified?</li>
+<li>Does historical activity support the observed network structure?</li>
+<li>Is escalation warranted given the published risk rating and confidence score?</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>Collection Plan</h2>
+<p class="not-supplied">No collection plan has been supplied by the analytic. The five numbered items previously shown here were fixed text, not an assessment of this case.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+</div>
+
+<div class="box">
+<h2>Investigation Priorities</h2>
+<p class="not-supplied">No investigation priorities have been supplied by the analytic. The confidence gains previously shown here were fixed values, not a forecast.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</div>
+
+</section>
+
+<section class="panel" id="tab-brief">
+<div class="grid3">
+<div class="box"><h2>Executive Intelligence Summary</h2><div data-runtime-content-shape="semantic">
+<p><strong>Headline:</strong> 3 network entities matched screening: 2 sanctioned, 1 PEP, 0 adverse media</p><p><strong>Summary:</strong> Sanctions &amp; PEP screening (fc-03 SanctionsScreeningEngine, fuzzy name match) matched 3 of 20 network entities to the watchlist: Epsilon Logistics Ltd [Sanctions]; Gamma Imports Ltd [Sanctions]; John Smith [PEP]. The most severe is Epsilon Logistics Ltd (C005), a Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; (EU Consolidated List). Where these entities appear in a customer&#x27;s network, they are the indirect sanctions / PEP exposure that escalates a review.</p>
+</div></div>
+<div class="box"><h2>Key Intelligence Findings</h2><ul><li>Sanctions &amp; PEP screening (fc-03 SanctionsScreeningEngine, fuzzy name match) matched 3 of 20 network entities to the watchlist: Epsilon Logistics Ltd [Sanctions]; Gamma Imports Ltd [Sanctions]; John Smith [PEP]. The most severe is Epsilon Logistics Ltd (C005), a Sanctions hit on &#x27;Epsilon Logistics Ltd&#x27; (EU Consolidated List). Where these entities appear in a customer&#x27;s network, they are the indirect sanctions / PEP exposure that escalates a review.</li><li>Screening is a fusion overlay: the governed engine lands watchlist status onto the network&#x27;s own entities so exposure surfaces where the customer is.</li></ul></div>
+<div class="box"><h2>Why This Matters</h2><p>Why this case matters has not been supplied by the analytic.</p></div>
+</div>
+</section>
+
+<section class="panel" id="tab-reasoning">
+
+<div class="grid2">
+
+<div class="box">
+<h2>Primary Hypothesis</h2>
+<p>A customer connected to Epsilon Logistics Ltd and 2 other screened entities carries indirect sanctions / PEP exposure warranting escalation.</p><div class="conclusion-value">Confidence 0.9899</div>
+</div>
+
+<div class="box">
+<h2>Alternative Hypotheses</h2>
+<table>
+<tr><th>Hypothesis</th><th>Supported by</th><th>Weakened by</th></tr>
+<tr><td colspan="3" class="planned-capability">No competing hypotheses are derived: this case carries no scored risk components, so there is nothing to weigh against the classification.</td></tr>
+</table>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Evidence Assessment</h2>
+<p>
+<p class="not-supplied">No evidence assessment has been supplied by the analytic.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
+</p>
+</div>
+
+<div class="box">
+<h2>Confidence Forecast</h2>
+<p>Confidence is None. There is no headroom below the ceiling on either the evidence or the margin term.</p><p class="muted"></p>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Decision Analysis</h2>
+<p class="planned-capability">Not planned. This section would score investigative options against one another. This platform governs intelligence and does not govern dispositions — it states what the evidence supports and leaves the decision to the institution that owns it. Option scores are therefore deliberately absent rather than pending. No assessment is made here.</p>
+</div>
+
+<div class="box">
+<h2>Analyses Not Produced</h2>
+<p>Two analyses are not produced for this product: Decision Simulation and Strategic Investigation Path. Each requires a projection model that this estate does not carry.</p><p class="muted">They are named rather than omitted so their absence is a recorded decision and not an oversight. Building them needs the model first; a probability without one is a number that would read the same on every case.</p>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box"><h2>Decision Support</h2><div data-runtime-content-shape="semantic">
+<p><strong>Rationale:</strong> Sanctioned or politically exposed entities in a customer&#x27;s network are a regulatory escalation trigger regardless of the customer&#x27;s own record.</p>
+</div></div>
+
+<div class="box">
+<h2>Investigation Value</h2>
+<ul><li>Investigation value has not been supplied by the analytic.</li></ul>
+</div>
+
+</div>
+
+<div class="grid2">
+
+<div class="box">
+<h2>Reasoning Summary</h2>
+<p>SAN001 Sanctions &amp;amp; PEP Screening was selected as the dominant typology from the governed analytic&#x27;s own output.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-decision">
+
+<div class="decision-support-stack">
+
+<div class="grid3">
+
+<div class="box"><h2>Investigator Playbook</h2><div data-runtime-content-shape="semantic">
+<p class="planned-capability">Planned capability. Investigation playbooks are delivered by the Investigation Workspace, which is not yet implemented. This product states what the evidence supports; turning that into a sequence of investigator steps belongs to that workspace, not to the intelligence product. No assessment is made here.</p>
+</div></div>
+
+<div class="box"><h2>Evidence Quality</h2><div data-runtime-content-shape="semantic">
+<p><strong>Basis:</strong> Runtime evidence quality assessed from metadata coverage.</p>
+<p><strong>Confidence score:</strong> 0.9899</p>
+</div></div>
+
+<div class="box">
+<h2>Hypothesis Probabilities</h2>
+<p class="planned-capability">Planned capability. This section will state the relative likelihood of each competing explanation. It is not produced today, and the obstacle is not arithmetic: a likelihood requires governed prior probabilities, and this estate holds none. A probability published without a named prior would be a figure nothing produced. No assessment is made here.</p>
+</div>
+
+<div class="box">
+<h2>Scenario Analysis</h2>
+<p class="planned-capability">No projection is stated for this case, because it carries no scored risk components to project from. Where a case is scored, this section states what would have to change for the assessment to move band, derived from the governed model&#x27;s own weights, band boundaries and rounding rule.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" id="tab-metadata">
+<div class="box">
+<h2>Pattern Classification</h2>
+<div class="meta"><div><strong>Type</strong><br>Network Intelligence</div><div><strong>Category</strong><br>Sanctions &amp; PEP Screening</div><div><strong>Typology</strong><br>SAN001</div><div><strong>Exposure</strong><br>Critical</div></div>
+</div>
+
+<div class="box">
+<h2>Pattern Summary</h2>
+<p>SAN001 identifies a star topology across 3 entities and 2 relationships.</p>
+</div>
+
+<div class="box"><h2>Expected Fusion Result</h2><div data-runtime-content-shape="semantic">
+<p><strong>Result:</strong> Fused transaction, graph, counterparty and evidence intelligence.</p>
+</div></div>
+
+<div class="box">
+<h2>Technical Metadata</h2>
+<div class="meta"><div><strong>Run ID</strong><br>san001-72ccdbda7e</div><div><strong>Built</strong><br>2026-08-08T14:11:00.546454Z</div><div><strong>Pattern ID</strong><br>SAN001</div><div><strong>Entity Count</strong><br>3</div><div><strong>Relationship Count</strong><br>2</div><div class="mv-cap"><strong>Topology</strong><br>star</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script>
+document.querySelectorAll(".tab").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+    document.querySelectorAll(".panel").forEach(function(x){x.classList.remove("active");});
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+/* Manual light/dark toggle. The page follows the OS by default (prefers-color-
+   scheme); this lets a reader override that and remembers the choice. The button
+   is created here rather than in the markup so a no-script reader keeps the
+   working automatic default instead of an inert control. No numeral appears in
+   this script, so the template script numeric gate stays satisfied by
+   construction. */
+(function(){
+  var KEY = "nexus-runtime-theme";
+  var root = document.documentElement;
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === "dark" || saved === "light") { root.setAttribute("data-theme", saved); }
+  function isDark(){
+    var chosen = root.getAttribute("data-theme");
+    if (chosen) { return chosen === "dark"; }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "theme-toggle";
+  function relabel(){
+    var dark = isDark();
+    toggle.textContent = dark ? "Light mode" : "Dark mode";
+    toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  }
+  toggle.addEventListener("click", function(){
+    var next = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    relabel();
+  });
+  relabel();
+  document.body.appendChild(toggle);
+})();
+</script>
+<!-- Stage374C product gate tokens: Visual Intelligence Model | Scoring Framework | Driver Analysis | Intelligence Workspace -->
+</body>
+</html>
