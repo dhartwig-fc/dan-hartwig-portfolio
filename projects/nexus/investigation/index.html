@@ -18,7 +18,18 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#0b1a2e;d
 .framewrap{flex:1;min-width:0;background:#f7f9fb}
 iframe{width:100%;height:100%;border:0;background:#fff}
 @media(max-width:720px){.side{width:168px}}
-</style></head><body>
+</style></head><body><!-- CASE-TABS --><style>
+.case-tabs{display:flex;flex:none;background:#050b14;border-bottom:1px solid rgba(255,255,255,.08)}
+.case-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;
+  text-decoration:none;color:#9db8dc;font-weight:600;font-size:13.5px;border-bottom:3px solid transparent;
+  border-right:1px solid rgba(255,255,255,.05);transition:background .15s,color .15s}
+.case-tab:last-child{border-right:0}
+.case-tab .ct-k{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;opacity:.65}
+.case-tab:hover{color:#eaf1fb;background:rgba(255,255,255,.05)}
+.t-journey{border-bottom-color:#1f7a5c}.t-cross{border-bottom-color:#c98a10}.t-desig{border-bottom-color:#b3261e}
+.t-journey.active{color:#fff;background:#1f7a5c}.t-cross.active{color:#fff;background:#c98a10}.t-desig.active{color:#fff;background:#b3261e}
+@media(max-width:620px){.case-tab{font-size:11.5px;padding:11px 6px;gap:5px}}
+</style><div class="case-tabs"><a class="case-tab t-journey active" href="index.html"><span class="ct-k">01</span><span class="ct-l">Full Journey</span></a><a class="case-tab t-cross" href="../investigation-cross-domain/index.html"><span class="ct-k">02</span><span class="ct-l">Cross-Domain Sanctions</span></a><a class="case-tab t-desig" href="../investigation-designated-party/index.html"><span class="ct-k">03</span><span class="ct-l">Designated-Party Proximity</span></a></div><!-- /CASE-TABS -->
 <div class="top"><h1>INV004 — Fused Case</h1><span class="agg">Aggregate 90 · High</span>
 <span class="crumb" id="crumb">Case intelligence</span></div>
 <div class="main">
