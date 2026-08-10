@@ -1,0 +1,23 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content='width=device-width,initial-scale=1'>
+<title>NEXUS · Entity Intelligence</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:'Inter',-apple-system,system-ui,sans-serif;background:#0b1a2e;color:#eaf1fb}
+header{padding:20px 26px;background:linear-gradient(135deg,#050b14,#12325b)}
+h1{margin:0;font-size:20px} .sub{color:#9fc0ea;font-size:13px;margin-top:4px}
+main{padding:22px 26px;display:grid;gap:26px}
+.explorer{display:inline-block;background:#c98a10;color:#0b1a2e;font-weight:700;padding:12px 18px;border-radius:10px;text-decoration:none}
+.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.case{display:block;background:#12233b;border:1px solid rgba(148,163,184,.18);border-radius:12px;padding:14px;text-decoration:none;color:#eaf1fb}
+.case:hover{border-color:rgba(201,138,16,.5)} .cid{font-weight:700} .cscn{color:#9fc0ea;font-size:13px;margin:4px 0}
+.cagg{font-size:12px} .cent{font-size:12px;color:#8fb0d8} .empty{color:#8fb0d8}
+.xwrap h2{font-size:14px;color:#7fa8d8;text-transform:uppercase;letter-spacing:.08em}
+.xrow{padding:6px 0;border-bottom:1px solid rgba(148,163,184,.12);font-size:13px}
+.xent{font-weight:600;margin-right:8px} .xcase{color:#f0b84a;text-decoration:none;margin-right:6px}
+</style></head><body>
+<header><h1>NEXUS · Entity Intelligence</h1><div class=sub>Explore the resolved network, then drill into managed cases.</div></header>
+<main>
+  <div><a class="explorer" href="entity_explorer.html">Open the global Entity Explorer &rarr;</a></div>
+  <section><h2 style="color:#7fa8d8;font-size:14px;text-transform:uppercase;letter-spacing:.08em">Cases</h2>
+    <div class="cases"><a class="case" href="../investigation/index.html"><div class="cid">INV004</div><div class="cscn">A resolved customer whose network carries sanctions exposure and a cross-domain over-invoicing risk</div><div class="cagg">Aggregate 90 · High</div><div class="cent">6 cross-product entities</div></a><a class="case" href="../investigation-cross-domain/index.html"><div class="cid">INV006</div><div class="cscn">A trade customer whose counterparty is the sanctions node behind six exposure typologies</div><div class="cagg">Aggregate 90 · High</div><div class="cent">5 cross-product entities</div></a><a class="case" href="../investigation-designated-party/index.html"><div class="cid">INV007</div><div class="cscn">A customer one hop from a designated party — a screening hit corroborated by exposure models</div><div class="cagg">Aggregate 90 · High</div><div class="cent">3 cross-product entities</div></a></div></section>
+  <section class="xwrap"><h2>Entity &rarr; cases</h2><div class="xrow"><span class="xent">Alpha Trading Limited</span> <a class="xcase" href="../investigation/index.html">INV004</a> <a class="xcase" href="../investigation-designated-party/index.html">INV007</a></div><div class="xrow"><span class="xent">Anchor Commodities Ltd</span> <a class="xcase" href="../investigation-cross-domain/index.html">INV006</a></div><div class="xrow"><span class="xent">Delta Shipping Ltd</span> <a class="xcase" href="../investigation/index.html">INV004</a></div><div class="xrow"><span class="xent">Epsilon Commodities Ltd</span> <a class="xcase" href="../investigation/index.html">INV004</a></div><div class="xrow"><span class="xent">Gamma Imports Ltd</span> <a class="xcase" href="../investigation/index.html">INV004</a> <a class="xcase" href="../investigation-designated-party/index.html">INV007</a></div><div class="xrow"><span class="xent">John Smith</span> <a class="xcase" href="../investigation/index.html">INV004</a> <a class="xcase" href="../investigation-designated-party/index.html">INV007</a></div><div class="xrow"><span class="xent">Nordwind Trading AG</span> <a class="xcase" href="../investigation-cross-domain/index.html">INV006</a></div><div class="xrow"><span class="xent">Orkun Nominees Ltd</span> <a class="xcase" href="../investigation-cross-domain/index.html">INV006</a></div><div class="xrow"><span class="xent">Ruslan Orlov</span> <a class="xcase" href="../investigation-cross-domain/index.html">INV006</a></div><div class="xrow"><span class="xent">Transcaspian Trading Ltd</span> <a class="xcase" href="../investigation-cross-domain/index.html">INV006</a></div><div class="xrow"><span class="xent">Zeta Commodities Ltd</span> <a class="xcase" href="../investigation/index.html">INV004</a></div></section>
+</main></body></html>
