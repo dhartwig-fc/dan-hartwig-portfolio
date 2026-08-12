@@ -66,9 +66,9 @@
   .kind.anchor{color:#9fd8bd;background:rgba(79,220,160,.1);border:1px solid rgba(79,220,160,.35)}
   .kind.pk{color:var(--ink);background:rgba(255,255,255,.06);border:1px solid var(--edge2)}
   .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0 2px}
-  .legend .li{display:flex;gap:9px;align-items:baseline;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .legend .li{display:flex;gap:9px;align-items:baseline;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0}
   .legend .li .kind{flex:none;margin-top:1px}
-  .legend .li .d{font-size:12.5px;color:var(--ink2);line-height:1.4}
+  .legend .li .d{font-size:12.5px;color:var(--ink2);line-height:1.4;min-width:0;overflow-wrap:anywhere}
   .legend .li .d b{color:var(--ink);font-weight:600}
   .foot{margin-top:34px;color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
   a{color:var(--acc)}
@@ -98,7 +98,7 @@
   <h2>Estate map — tables &amp; connections</h2>
   <figure class="diagram">
     <pre class="mermaid">
-%%{init: {'theme':'dark','themeVariables':{'fontSize':'13px','fontFamily':'ui-monospace, Menlo, monospace'}}}%%
+%%{init: {'theme':'dark','themeVariables':{'fontSize':'13px'}}}%%
 flowchart LR
   ENT["entities<br/>(entity_key)"]:::hub
 
@@ -298,6 +298,6 @@ document.getElementById("connbody").innerHTML = CONNS.map(([f,t,on,kind])=>
   `<tr><td class="m">${f}</td><td><span class="arw">→</span></td><td class="m">${t}</td><td>${on}</td><td><span class="kind ${kind}">${kind.toUpperCase()}</span></td></tr>`).join("");
 </script>
 
-<script>try{mermaid.initialize({startOnLoad:true,theme:"dark",securityLevel:"loose"});}catch(e){}</script>
+<script>try{mermaid.initialize({startOnLoad:true,theme:"dark",securityLevel:"loose",flowchart:{htmlLabels:false,useMaxWidth:true}});}catch(e){}</script>
 </body>
 </html>
