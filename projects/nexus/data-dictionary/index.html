@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS · Data Dictionary — Functional Specification</title>
+<style>
+  :root{
+    --bg0:#070b12;--panel:rgba(255,255,255,.045);--panel2:rgba(255,255,255,.03);--edge:rgba(255,255,255,.10);--edge2:rgba(255,255,255,.06);
+    --ink:#eaf1f9;--ink2:#d3dfee;--ink3:#aebdd2;--line:rgba(255,255,255,.07);
+    --acc:#79c4ff;--accdim:rgba(121,196,255,.42);--gold:#e9c877;--golddim:rgba(233,200,119,.4);
+    --ok:#4fdca0;--pend:#ffb454;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--mono:'SF Mono',ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1000px 560px at 15% -8%,#0d3a6355,transparent 60%),radial-gradient(900px 560px at 95% 4%,#14307a44,transparent 60%),var(--bg0);
+    color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:1040px;margin:0 auto;padding:30px 24px 80px}
+  header.top{display:flex;align-items:center;gap:14px;margin-bottom:4px}
+  .brandmark{width:42px;height:49px;filter:drop-shadow(0 0 10px rgba(121,196,255,.45))}
+  .wm{font-weight:800;font-size:15px;letter-spacing:.2em;background:linear-gradient(180deg,#f4f8ff,#aec0d7 60%,#7688a4);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wm .xa{color:var(--acc);-webkit-text-fill-color:var(--acc)}
+  h1{font-size:27px;margin:16px 0 4px;letter-spacing:-.01em}
+  .lead{color:var(--ink2);font-size:15px;max-width:80ch;margin:0}
+  .lead b{color:var(--ink)}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
+  .stat{background:var(--panel);border:1px solid var(--edge);border-radius:11px;padding:10px 15px}
+  .stat .n{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--acc)}
+  .stat .l{font-size:11px;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;margin-top:1px}
+  h2{font-size:13px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb2dd;margin:42px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h2 .cnt{color:var(--ink3);font-weight:400}
+  .pdesc{color:var(--ink3);font-size:13px;margin:6px 0 16px}
+  .diagram{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:14px;margin:18px 0;overflow:auto}
+  .diagram pre.mermaid{background:transparent;margin:0;min-width:640px}
+  figcaption{color:var(--ink3);font-size:12px;text-align:center;margin-top:8px}
+  .spine{background:linear-gradient(180deg,rgba(121,196,255,.09),rgba(121,196,255,.03));border:1px solid var(--accdim);border-radius:13px;padding:15px 18px;margin:14px 0}
+  .spine b{color:var(--acc)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:13px}
+  .tbl{background:var(--panel);border:1px solid var(--edge);border-radius:13px;padding:14px 15px}
+  .tbl .h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:3px}
+  .tbl .nm{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ink)}
+  .badge{font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:6px}
+  .badge.active{color:var(--ok);background:rgba(79,220,160,.13);border:1px solid rgba(79,220,160,.4)}
+  .badge.pending{color:var(--pend);background:rgba(255,180,84,.12);border:1px solid rgba(255,180,84,.4)}
+  .tbl .grain{font-size:12.5px;color:var(--ink2);margin:2px 0 9px}
+  .meta{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+  .chip{font-family:var(--mono);font-size:10px;color:var(--ink2);background:rgba(255,255,255,.04);border:1px solid var(--edge2);border-radius:6px;padding:3px 7px}
+  .chip b{color:var(--acc)}
+  .els{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+  .el{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:3px 0;border-top:1px solid var(--line)}
+  .el .en{font-family:var(--mono);color:var(--ink);min-width:0}
+  .el .et{font-family:var(--mono);font-size:10.5px;color:var(--ink3)}
+  .el .tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;margin-left:auto;white-space:nowrap}
+  .tag.pk{color:var(--gold);background:rgba(233,200,119,.13);border:1px solid var(--golddim)}
+  .tag.fk{color:var(--acc);background:rgba(121,196,255,.1);border:1px solid var(--accdim)}
+  .tag.anchor{color:#9fd8bd;background:rgba(79,220,160,.1);border:1px solid rgba(79,220,160,.35)}
+  .enumline{font-family:var(--mono);font-size:10px;color:var(--ink3);padding-left:0;margin-top:1px}
+  .conns{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+  .conns th{text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:600;padding:8px 12px;border-bottom:1px solid var(--line)}
+  .conns td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--ink2)}
+  .conns td.m{font-family:var(--mono);color:var(--ink)}
+  .conns td .arw{color:var(--acc)}
+  .kind{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:5px}
+  .kind.fk{color:var(--acc);background:rgba(121,196,255,.1);border:1px solid var(--accdim)}
+  .kind.ref{color:var(--gold);background:rgba(233,200,119,.1);border:1px solid var(--golddim)}
+  .kind.anchor{color:#9fd8bd;background:rgba(79,220,160,.1);border:1px solid rgba(79,220,160,.35)}
+  .foot{margin-top:34px;color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+  a{color:var(--acc)}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <svg class="brandmark" viewBox="0 0 120 140"><use href="#nexus-shield"/></svg>
+    <div><div class="wm">NE<span class="xa">X</span>US</div></div>
+  </header>
+  <h1>Data Dictionary — Functional Specification</h1>
+  <p class="lead">The canonical pillar data model for the NEXUS financial-crime platform. Every table anchors to one resolved party via a shared <b>entity_key</b> — the spine that lets sanctions, transaction monitoring, trade, ownership, intelligence, and case management be <b>views on one truth rather than systems to reconcile</b>. This spec is generated from <b>data_dictionary.yaml</b> (the governed source of truth).</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">19</div><div class="l">Governed tables</div></div>
+    <div class="stat"><div class="n">9</div><div class="l">Pillars</div></div>
+    <div class="stat"><div class="n">16</div><div class="l">Active</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">Pending / reserved</div></div>
+    <div class="stat"><div class="n">9</div><div class="l">FK links</div></div>
+    <div class="stat"><div class="n">entity_key</div><div class="l">The join spine</div></div>
+  </div>
+
+  <h2>Estate map — tables &amp; connections</h2>
+  <figure class="diagram">
+    <pre class="mermaid">
+%%{init: {'theme':'dark','themeVariables':{'fontSize':'13px','fontFamily':'ui-monospace, Menlo, monospace'}}}%%
+flowchart LR
+  ENT["entities<br/>(entity_key)"]:::hub
+
+  subgraph ACC["Accounts / Transactions"]
+    A[accounts]
+    T[transactions]
+  end
+  subgraph KYC["KYC / Reference"]
+    K[kyc_profile]
+    O[ownership]
+  end
+  subgraph SANC["Sanctions / Watchlists"]
+    SL[sanctions_list]
+    SR[screening_results]
+    CR[country_risk]
+    CUR[currency_risk]
+    IR[industry_risk]
+  end
+  subgraph SHIP["Shipping / Trade"]
+    V[vessels]
+    SE[shipping_events]
+    TD[trade_documents]
+    SH[shipments]
+  end
+  subgraph OPS["Investigation &amp; Ops"]
+    TL[task_list]
+    TA[task_audit]
+  end
+  subgraph INT["Intel / Markets (pending)"]
+    IE[intel_events]
+    IRg[intel_register]
+    MK[markets]
+  end
+
+  A -->|entity_key| ENT
+  T -->|from/to_account| A
+  T -.->|from/to_entity_key| ENT
+  K -.->|entity_key| ENT
+  O -->|owner/owned| ENT
+  V -->|owner_entity_key| ENT
+  SE -->|vessel_id| V
+  SE -.->|entity_key| ENT
+  TD -.->|entity_key| ENT
+  SH -.->|entity_key| ENT
+  SR -->|designation_id| SL
+  SR -.->|entity_key| ENT
+  TL -.->|entity_key| ENT
+  TA -->|task_id| TL
+  IE -.->|entity_key| ENT
+  IRg -.->|entity_key| ENT
+  K -. industry_code .-> IR
+  K -. country .-> CR
+  K -. currency .-> CUR
+
+  classDef hub fill:#1c3a5e,stroke:#79c4ff,stroke-width:2px,color:#eaf1f9;
+    </pre>
+    <figcaption>Solid = foreign key · dashed = <code>entity_key</code> anchor / reference-code link. Every operational table resolves back to <code>entities</code>.</figcaption>
+  </figure>
+
+  <div class="spine">
+    <b>The entity_key spine.</b> `entities` is the one resolved-party table; ~13 tables carry <code>entity_key</code> as an anchor (transactions, kyc_profile, ownership, screening, shipping, trade, intel, tasks…). Resolution (SP1–SP3) guarantees one <code>entity_key</code> per real-world party across every source, so a transaction, a sanctions hit, an ownership edge and a case task about the same party all line up without reconciliation.
+  </div>
+
+  <!-- PILLAR SECTIONS injected by JS from DATA below -->
+  <div id="pillars"></div>
+
+  <h2>Connections reference <span class="cnt">— foreign keys, anchors &amp; reference links</span></h2>
+  <table class="conns">
+    <thead><tr><th>From</th><th></th><th>To</th><th>On</th><th>Kind</th></tr></thead>
+    <tbody id="connbody"></tbody>
+  </table>
+
+  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-12 · 19 tables / 9 pillars</div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="nexus-shield" viewBox="0 0 120 140">
+    <defs>
+      <linearGradient id="nsg" x1=".15" y1="0" x2=".78" y2="1"><stop offset="0" stop-color="#fff6d4"/><stop offset=".25" stop-color="#f0cf72"/><stop offset=".5" stop-color="#c69433"/><stop offset=".72" stop-color="#875f1f"/><stop offset="1" stop-color="#e7c877"/></linearGradient>
+      <radialGradient id="nsb" cx="50%" cy="32%" r="85%"><stop offset="0" stop-color="#1c3a5e"/><stop offset=".5" stop-color="#0a172a"/><stop offset="1" stop-color="#03060d"/></radialGradient>
+      <radialGradient id="nsc" cx="50%" cy="44%" r="46%"><stop offset="0" stop-color="#48a8ff" stop-opacity=".9"/><stop offset="1" stop-color="#2b74d0" stop-opacity="0"/></radialGradient>
+      <linearGradient id="nsn" x1="0" y1="0" x2=".3" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#a6d4ff"/><stop offset="1" stop-color="#2f74c8"/></linearGradient>
+      <linearGradient id="nsns" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fa8d8"/><stop offset="1" stop-color="#1f4f8c"/></linearGradient>
+      <filter id="nsgb" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.3" result="b"/><feSpecularLighting in="b" surfaceScale="4.6" specularConstant="1.1" specularExponent="15" lighting-color="#fff4cc" result="s"><feDistantLight azimuth="228" elevation="56"/></feSpecularLighting><feComposite in="s" in2="SourceAlpha" operator="in" result="sc"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="sc"/></feMerge></filter>
+      <filter id="nscr" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur in="SourceAlpha" stdDeviation="1" result="b"/><feSpecularLighting in="b" surfaceScale="2.6" specularConstant="1.25" specularExponent="24" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="63"/></feSpecularLighting><feComposite in="s" in2="SourceAlpha" operator="in" result="sc"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="sc"/></feMerge></filter>
+      <filter id="nsng" x="-160%" y="-160%" width="420%" height="420%"><feGaussianBlur stdDeviation="1.5"/></filter>
+      <filter id="nsbl" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+      <clipPath id="nsin"><path d="M60 20 C74 20 89 24 99 30 L99 64 C99 92 83 113 60 124 C37 113 21 92 21 64 L21 30 C31 24 46 20 60 20 Z"/></clipPath>
+    </defs>
+    <path d="M60 8 C76 8 94 12 108 19 L108 66 C108 99 89 122 60 136 C31 122 12 99 12 66 L12 19 C26 12 44 8 60 8 Z" fill="#3aa0ff" opacity=".55" filter="url(#nsbl)"/>
+    <path d="M60 8 C76 8 94 12 108 19 L108 66 C108 99 89 122 60 136 C31 122 12 99 12 66 L12 19 C26 12 44 8 60 8 Z" fill="url(#nsb)"/>
+    <g clip-path="url(#nsin)">
+      <ellipse cx="60" cy="66" rx="34" ry="38" fill="url(#nsc)"/>
+      <g stroke="#5ab0ea" stroke-opacity=".45" stroke-width=".9" fill="none"><path d="M34 44 L60 32 L86 44 L86 82 L60 96 L34 82 Z M34 44 L86 82 M86 44 L34 82 M60 32 L60 96"/></g>
+      <g fill="#c8ebff" filter="url(#nsng)"><circle cx="60" cy="32" r="2.3"/><circle cx="34" cy="44" r="2.3"/><circle cx="86" cy="44" r="2.3"/><circle cx="34" cy="82" r="2.3"/><circle cx="86" cy="82" r="2.3"/><circle cx="60" cy="96" r="2.3"/></g>
+      <g filter="url(#nscr)"><rect x="42" y="44" width="10" height="54" rx="1.5" fill="url(#nsn)"/><rect x="68" y="44" width="10" height="54" rx="1.5" fill="url(#nsns)"/><path d="M50 44 L60 44 L78 98 L68 98 Z" fill="url(#nsn)"/></g>
+    </g>
+    <path fill-rule="evenodd" d="M60 8 C76 8 94 12 108 19 L108 66 C108 99 89 122 60 136 C31 122 12 99 12 66 L12 19 C26 12 44 8 60 8 Z M60 20 C74 20 89 24 99 30 L99 64 C99 92 83 113 60 124 C37 113 21 92 21 64 L21 30 C31 24 46 20 60 20 Z" fill="url(#nsg)" filter="url(#nsgb)"/>
+  </symbol>
+</defs></svg>
+
+<script>
+const PILLARS = [
+  ["Entities / Parties","The resolved-party spine — one row per real-world person, company, account, or merchant.",[
+    {n:"entities",st:"active",ct:"SCD",pk:"entity_key",grain:"one resolved party (person, company, account, or merchant)",
+     els:[["entity_key","entity_key","anchor"],["label","string",""],["entity_type","enum · company|person|account|merchant|bank",""],["country","country_code",""]]},
+  ]],
+  ["Accounts","Accounts / processor records, owned by an entity — the bridge between parties and transactions.",[
+    {n:"accounts",st:"active",ct:"SCD",pk:"account_id",grain:"one account or processor record owned by an entity",
+     els:[["account_id","string","pk"],["entity_key","entity_key → entities","fk"],["account_type","enum · checking|savings|correspondent|custody|merchant|current",""]]},
+  ]],
+  ["Transactions","The money-movement event stream — the driver of transaction monitoring.",[
+    {n:"transactions",st:"active",ct:"event stream",pk:"txn_id",grain:"one payment/settlement event between two accounts",
+     els:[["txn_id","string","pk"],["value_date","date",""],["from_account","string → accounts","fk"],["from_entity_key","entity_key","anchor"],["to_account","string → accounts","fk"],["to_entity_key","entity_key","anchor"],["amount","amount",""],["currency","currency_code",""],["direction","enum · inbound|outbound",""],["corridor","string",""],["swift_ref","string",""]]},
+  ]],
+  ["KYC / Reference","The expected-profile + ownership reference layer (KYC/CLM) — one baseline for behavioural scoring + the UBO graph.",[
+    {n:"kyc_profile",st:"active",ct:"SCD",pk:"entity_key + valid_from",grain:"the expected/reference profile for an entity, effective-dated",
+     els:[["entity_key","entity_key","anchor"],["country_of_incorporation","country_code",""],["industry_code","string (UK SIC)",""],["expected_currency","currency_code",""],["legal_entity_type","enum · ltd|plc|sole_trader|trust|fi|charity|sovereign",""],["cdd_risk_rating","enum · low|medium|high",""]]},
+    {n:"ownership",st:"active",ct:"SCD",pk:"owner + owned (+ valid_from)",grain:"one governed ownership/control edge (owner → owned)",
+     els:[["owner_entity_key","entity_key → entities","fk"],["owned_entity_key","entity_key → entities","fk"],["percent","decimal",""],["nature","enum · shareholding|control|nominee|trust",""]]},
+  ]],
+  ["Sanctions / Watchlists","Designations, screening hits, and the governed risk-tier reference tables (country/currency/industry).",[
+    {n:"sanctions_list",st:"active",ct:"periodic ref",pk:"designation_id",grain:"one sanctions/PEP/adverse-media designation record",
+     els:[["designation_id","string","pk"],["listed_name","string",""],["list_type","enum · sanctions|pep|adverse_media",""],["programme","string",""]]},
+    {n:"screening_results",st:"active",ct:"event stream",pk:"screening_id",grain:"one screening hit of an entity against a designation",
+     els:[["screening_id","string","pk"],["entity_key","entity_key","anchor"],["designation_id","string → sanctions_list","fk"],["match_score","decimal",""]]},
+    {n:"country_risk",st:"active",ct:"periodic ref",pk:"country_code",grain:"one governed risk tier per jurisdiction",
+     els:[["country_code","country_code","pk"],["tier","enum · low|medium|high|restricted",""]]},
+    {n:"currency_risk",st:"active",ct:"periodic ref",pk:"currency_code",grain:"one governed risk tier per currency",
+     els:[["currency_code","currency_code","pk"],["tier","enum · low|medium|high|restricted",""]]},
+    {n:"industry_risk",st:"active",ct:"periodic ref",pk:"industry_code",grain:"one governed risk tier per industry (UK SIC 2007, keyed to kyc_profile.industry_code)",
+     els:[["industry_code","string","pk"],["tier","enum · low|medium|high|restricted",""],["descriptor","string",""]]},
+  ]],
+  ["Shipping / Trade","Vessels, movements, trade documents and shipments — the substrate for TBML + shadow-fleet typologies.",[
+    {n:"vessels",st:"active",ct:"SCD",pk:"vessel_id",grain:"one vessel registry record: flag, owner, type",
+     els:[["vessel_id","string","pk"],["flag","country_code",""],["owner_entity_key","entity_key → entities","fk"],["vessel_type","enum · cargo|tanker|container|bulk_carrier|fishing",""]]},
+    {n:"shipping_events",st:"active",ct:"event stream",pk:"event_id",grain:"one shipping/vessel movement event (AIS ping, port call, cargo)",
+     els:[["entity_key","entity_key","anchor"],["event_id","string","pk"],["vessel_id","string → vessels","fk"],["event_type","enum · ais_ping|port_call|movement",""],["location","string",""],["event_ts","datetime",""]]},
+    {n:"trade_documents",st:"active",ct:"event stream",pk:"doc_id",grain:"one trade document (invoice, B/L) evidencing a shipment",
+     els:[["doc_id","string","pk"],["entity_key","entity_key","anchor"],["doc_type","enum · invoice|bill_of_lading|trade",""],["value","amount",""],["currency","currency_code",""]]},
+    {n:"shipments",st:"active",ct:"SCD",pk:"shipment_id",grain:"one shipment/consignment record and its status",
+     els:[["shipment_id","string","pk"],["entity_key","entity_key","anchor"],["status","enum · booked|in_transit|delivered|delayed|cancelled",""],["origin_port","string",""],["dest_port","string",""]]},
+  ]],
+  ["Investigation &amp; Operations","The case-management workflow — worklist + append-only audit log (L6).",[
+    {n:"task_list",st:"active",ct:"periodic ref",pk:"task_id",grain:"one case task per scored entity — current-state investigation snapshot",
+     els:[["task_id","string","pk"],["entity_key","entity_key","anchor"],["label","string",""],["band","enum · Critical|High|Medium|Low",""],["score","int",""],["priority_rank","int",""],["state","enum · New|Assigned|InProgress|PendingQA|Cleared|SARFiled|Escalated",""],["assignee","string",""],["disposition","enum · Pending|Cleared|SARFiled|Escalated",""],["sar_ref","string",""]]},
+    {n:"task_audit",st:"active",ct:"event stream",pk:"task_id + seq",grain:"one row per applied workflow action — append-only transition log",
+     els:[["task_id","string → task_list","fk"],["seq","int",""],["from_state","enum",""],["to_state","enum",""],["action","enum · assign|start|reassign|submit_qa|return_to_investigator|clear|file_sar|escalate",""],["actor","string",""],["note","string",""]]},
+  ]],
+  ["Intel / Markets","Intelligence arrivals + the reserved capital-markets pillar — governed skeletons ahead of build.",[
+    {n:"intel_events",st:"pending",ct:"event stream",pk:"intel_id",grain:"one intel arrival (adverse media, SAR, exit) for an entity",
+     els:[["intel_id","string","pk"],["entity_key","entity_key","anchor"],["intel_type","enum · adverse_media|sar|exit",""],["summary","string",""]]},
+    {n:"intel_register",st:"pending",ct:"periodic ref",pk:"register_id",grain:"the as-of SAR/exit register entry for an entity",
+     els:[["register_id","string","pk"],["entity_key","entity_key","anchor"],["register_type","enum · sar|exit",""],["status","enum · open|closed|escalated",""]]},
+    {n:"markets",st:"pending",ct:"event stream",pk:"instrument_id",grain:"RESERVED — Capital Markets (fc-07) unbuilt; no rows in v1",
+     els:[["instrument_id","string","pk"]]},
+  ]],
+];
+const CONNS = [
+  ["accounts.entity_key","entities.entity_key","entity ownership of account","fk"],
+  ["transactions.from_account / to_account","accounts.account_id","which accounts moved money","fk"],
+  ["transactions.from_entity_key / to_entity_key","entities.entity_key","payer / payee party","anchor"],
+  ["ownership.owner_entity_key / owned_entity_key","entities.entity_key","the UBO ownership graph","fk"],
+  ["kyc_profile.entity_key","entities.entity_key","expected profile per party","anchor"],
+  ["screening_results.entity_key","entities.entity_key","who was screened","anchor"],
+  ["screening_results.designation_id","sanctions_list.designation_id","which designation was hit","fk"],
+  ["vessels.owner_entity_key","entities.entity_key","vessel beneficial owner","fk"],
+  ["shipping_events.vessel_id","vessels.vessel_id","movement → vessel","fk"],
+  ["task_audit.task_id","task_list.task_id","audit trail → case task","fk"],
+  ["kyc_profile.industry_code","industry_risk.industry_code","industry → risk tier","ref"],
+  ["kyc_profile.country_of_incorporation / txn corridor","country_risk.country_code","jurisdiction → risk tier","ref"],
+  ["kyc_profile.expected_currency / txn currency","currency_risk.currency_code","currency → risk tier","ref"],
+];
+
+function tagHtml(t){ if(!t) return ""; const m={pk:"PK",fk:"FK",anchor:"entity_key"}; return `<span class="tag ${t}">${m[t]}</span>`; }
+function elHtml(e){ const [n,ty,tag]=e; return `<li class="el"><span class="en">${n}</span><span class="et">${ty}</span>${tagHtml(tag)}</li>`; }
+function tblHtml(t){
+  const badge = t.st==="active"?`<span class="badge active">Active</span>`:`<span class="badge pending">Pending</span>`;
+  return `<div class="tbl"><div class="h"><span class="nm">${t.n}</span>${badge}</div>
+    <div class="grain">${t.grain}</div>
+    <div class="meta"><span class="chip"><b>PK</b> ${t.pk}</span><span class="chip">${t.ct}</span></div>
+    <ul class="els">${t.els.map(elHtml).join("")}</ul></div>`;
+}
+document.getElementById("pillars").innerHTML = PILLARS.map(([name,desc,tbls])=>
+  `<h2>${name} <span class="cnt">— ${tbls.length} table${tbls.length>1?"s":""}</span></h2>
+   <div class="pdesc">${desc}</div>
+   <div class="grid">${tbls.map(tblHtml).join("")}</div>`).join("");
+document.getElementById("connbody").innerHTML = CONNS.map(([f,t,on,kind])=>
+  `<tr><td class="m">${f}</td><td><span class="arw">→</span></td><td class="m">${t}</td><td>${on}</td><td><span class="kind ${kind}">${kind.toUpperCase()}</span></td></tr>`).join("");
+</script>
+
+<script>try{mermaid.initialize({startOnLoad:true,theme:"dark",securityLevel:"loose"});}catch(e){}</script>
+</body>
+</html>
