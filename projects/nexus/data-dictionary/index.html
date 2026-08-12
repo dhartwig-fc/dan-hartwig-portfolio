@@ -87,11 +87,11 @@
   <p class="lead">The canonical pillar data model for the NEXUS financial-crime platform. Every table anchors to one resolved party via a shared <b>entity_key</b> — the spine that lets sanctions, transaction monitoring, trade, ownership, intelligence, and case management be <b>views on one truth rather than systems to reconcile</b>. This spec is generated from <b>data_dictionary.yaml</b> (the governed source of truth).</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">19</div><div class="l">Governed tables</div></div>
+    <div class="stat"><div class="n">21</div><div class="l">Governed tables</div></div>
     <div class="stat"><div class="n">9</div><div class="l">Pillars</div></div>
-    <div class="stat"><div class="n">16</div><div class="l">Active</div></div>
+    <div class="stat"><div class="n">18</div><div class="l">Active</div></div>
     <div class="stat"><div class="n">3</div><div class="l">Pending / reserved</div></div>
-    <div class="stat"><div class="n">9</div><div class="l">FK links</div></div>
+    <div class="stat"><div class="n">12</div><div class="l">FK links</div></div>
     <div class="stat"><div class="n">entity_key</div><div class="l">The join spine</div></div>
   </div>
 
@@ -119,8 +119,10 @@ flowchart LR
   end
   subgraph SHIP["Shipping / Trade"]
     V[vessels]
+    VIH[vessel_identity_history]
     SE[shipping_events]
     TD[trade_documents]
+    MB[market_benchmark]
     SH[shipments]
   end
   subgraph OPS["Investigation &amp; Ops"]
@@ -140,7 +142,10 @@ flowchart LR
   O -->|owner/owned| ENT
   V -->|owner_entity_key| ENT
   SE -->|vessel_id| V
+  SE -.->|counterparty| V
+  VIH -->|vessel_id| V
   SE -.->|entity_key| ENT
+  TD -->|hs_code| MB
   TD -.->|entity_key| ENT
   SH -.->|entity_key| ENT
   SR -->|designation_id| SL
@@ -179,7 +184,7 @@ flowchart LR
     <tbody id="connbody"></tbody>
   </table>
 
-  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-12 · 19 tables / 9 pillars</div>
+  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-12 · 21 tables / 9 pillars</div>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -240,13 +245,17 @@ const PILLARS = [
     {n:"industry_risk",st:"active",ct:"periodic ref",pk:"industry_code",grain:"one governed risk tier per industry (UK SIC 2007, keyed to kyc_profile.industry_code)",
      els:[["industry_code","string","pk"],["tier","enum · low|medium|high|restricted",""],["descriptor","string",""]]},
   ]],
-  ["Shipping / Trade","Vessels, movements, trade documents and shipments — the substrate for TBML + shadow-fleet typologies.",[
-    {n:"vessels",st:"active",ct:"SCD",pk:"vessel_id",grain:"one vessel registry record: flag, owner, type",
-     els:[["vessel_id","string","pk"],["flag","country_code",""],["owner_entity_key","entity_key → entities","fk"],["vessel_type","enum · cargo|tanker|container|bulk_carrier|fishing",""]]},
-    {n:"shipping_events",st:"active",ct:"event stream",pk:"event_id",grain:"one shipping/vessel movement event (AIS ping, port call, cargo)",
-     els:[["entity_key","entity_key","anchor"],["event_id","string","pk"],["vessel_id","string → vessels","fk"],["event_type","enum · ais_ping|port_call|movement",""],["location","string",""],["event_ts","datetime",""]]},
-    {n:"trade_documents",st:"active",ct:"event stream",pk:"doc_id",grain:"one trade document (invoice, B/L) evidencing a shipment",
-     els:[["doc_id","string","pk"],["entity_key","entity_key","anchor"],["doc_type","enum · invoice|bill_of_lading|trade",""],["value","amount",""],["currency","currency_code",""]]},
+  ["Shipping / Trade","Vessels + identity/flag history, AIS movements (incl. dark gaps + ship-to-ship transfers), HS-coded trade docs + market benchmarks, and shipments — the substrate for TBML, transshipment + shadow-fleet typologies.",[
+    {n:"vessels",st:"active",ct:"SCD",pk:"vessel_id",grain:"one vessel registry record: IMO/name identity, flag, owner, type, P&I insurer",
+     els:[["vessel_id","string","pk"],["flag","country_code",""],["owner_entity_key","entity_key → entities","fk"],["vessel_type","enum · cargo|tanker|container|bulk_carrier|fishing",""],["imo","string",""],["name","string",""],["built_year","int",""],["pi_insurer_status","enum · western|non_western|none",""]]},
+    {n:"vessel_identity_history",st:"active",ct:"SCD",pk:"hist_id",grain:"one effective-dated vessel identity state (name + flag) — one row per rename / reflag (flag-hopping trail)",
+     els:[["hist_id","string","pk"],["vessel_id","string → vessels","fk"],["name","string",""],["flag","country_code",""],["change_type","enum · initial|rename|reflag|both",""]]},
+    {n:"shipping_events",st:"active",ct:"event stream",pk:"event_id",grain:"one shipping/vessel event — AIS ping/gap, port call, movement, ship-to-ship transfer (with position + kinematics)",
+     els:[["entity_key","entity_key","anchor"],["event_id","string","pk"],["vessel_id","string → vessels","fk"],["event_type","enum · ais_ping|port_call|movement|ais_gap|sts_transfer",""],["location","string",""],["event_ts","datetime",""],["lat","decimal",""],["lon","decimal",""],["speed_knots","decimal",""],["counterparty_vessel_id","string → vessels","fk"],["gap_hours","decimal",""]]},
+    {n:"trade_documents",st:"active",ct:"event stream",pk:"doc_id",grain:"one trade document (invoice, B/L) evidencing a shipment, with HS commodity + declared origin",
+     els:[["doc_id","string","pk"],["entity_key","entity_key","anchor"],["doc_type","enum · invoice|bill_of_lading|trade",""],["value","amount",""],["currency","currency_code",""],["hs_code","string → market_benchmark","fk"],["commodity","string",""],["declared_origin","country_code",""]]},
+    {n:"market_benchmark",st:"active",ct:"periodic ref",pk:"hs_code",grain:"one governed benchmark unit price per HS commodity code — the reference for over/under-invoicing",
+     els:[["hs_code","string","pk"],["commodity","string",""],["benchmark_unit_price","amount",""],["unit","string",""],["currency","currency_code",""]]},
     {n:"shipments",st:"active",ct:"SCD",pk:"shipment_id",grain:"one shipment/consignment record and its status",
      els:[["shipment_id","string","pk"],["entity_key","entity_key","anchor"],["status","enum · booked|in_transit|delivered|delayed|cancelled",""],["origin_port","string",""],["dest_port","string",""]]},
   ]],
@@ -275,6 +284,9 @@ const CONNS = [
   ["screening_results.designation_id","sanctions_list.designation_id","which designation was hit","fk"],
   ["vessels.owner_entity_key","entities.entity_key","vessel beneficial owner","fk"],
   ["shipping_events.vessel_id","vessels.vessel_id","movement → vessel","fk"],
+  ["shipping_events.counterparty_vessel_id","vessels.vessel_id","ship-to-ship transfer counterparty","fk"],
+  ["vessel_identity_history.vessel_id","vessels.vessel_id","identity / flag history → vessel","fk"],
+  ["trade_documents.hs_code","market_benchmark.hs_code","declared commodity → benchmark price","ref"],
   ["task_audit.task_id","task_list.task_id","audit trail → case task","fk"],
   ["kyc_profile.industry_code","industry_risk.industry_code","industry → risk tier","ref"],
   ["kyc_profile.country_of_incorporation / txn corridor","country_risk.country_code","jurisdiction → risk tier","ref"],
