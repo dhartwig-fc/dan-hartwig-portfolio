@@ -47,9 +47,9 @@
   .chip{font-family:var(--mono);font-size:10px;color:var(--ink2);background:rgba(255,255,255,.04);border:1px solid var(--edge2);border-radius:6px;padding:3px 7px}
   .chip b{color:var(--acc)}
   .els{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
-  .el{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:3px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+  .el{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:3px 0;border-top:1px solid var(--line);flex-wrap:wrap;min-width:0}
   .el .en{font-family:var(--mono);color:var(--ink);white-space:nowrap;flex:0 0 auto}
-  .el .et{font-family:var(--mono);font-size:10.5px;color:var(--ink3)}
+  .el .et{font-family:var(--mono);font-size:10.5px;color:var(--ink3);min-width:0;overflow-wrap:anywhere;word-break:break-word}
   .el .tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;margin-left:auto;white-space:nowrap}
   .tag.pk{color:var(--gold);background:rgba(233,200,119,.13);border:1px solid var(--golddim)}
   .tag.fk{color:var(--acc);background:rgba(121,196,255,.1);border:1px solid var(--accdim)}
