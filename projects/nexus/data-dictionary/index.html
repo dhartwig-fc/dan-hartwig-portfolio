@@ -47,8 +47,8 @@
   .chip{font-family:var(--mono);font-size:10px;color:var(--ink2);background:rgba(255,255,255,.04);border:1px solid var(--edge2);border-radius:6px;padding:3px 7px}
   .chip b{color:var(--acc)}
   .els{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
-  .el{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:3px 0;border-top:1px solid var(--line)}
-  .el .en{font-family:var(--mono);color:var(--ink);min-width:0}
+  .el{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:3px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+  .el .en{font-family:var(--mono);color:var(--ink);white-space:nowrap;flex:0 0 auto}
   .el .et{font-family:var(--mono);font-size:10.5px;color:var(--ink3)}
   .el .tag{font-size:9px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:5px;margin-left:auto;white-space:nowrap}
   .tag.pk{color:var(--gold);background:rgba(233,200,119,.13);border:1px solid var(--golddim)}
@@ -64,10 +64,16 @@
   .kind.fk{color:var(--acc);background:rgba(121,196,255,.1);border:1px solid var(--accdim)}
   .kind.ref{color:var(--gold);background:rgba(233,200,119,.1);border:1px solid var(--golddim)}
   .kind.anchor{color:#9fd8bd;background:rgba(79,220,160,.1);border:1px solid rgba(79,220,160,.35)}
+  .kind.pk{color:var(--ink);background:rgba(255,255,255,.06);border:1px solid var(--edge2)}
+  .legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:14px 0 2px}
+  .legend .li{display:flex;gap:9px;align-items:baseline;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .legend .li .kind{flex:none;margin-top:1px}
+  .legend .li .d{font-size:12.5px;color:var(--ink2);line-height:1.4}
+  .legend .li .d b{color:var(--ink);font-weight:600}
   .foot{margin-top:34px;color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.04em}
   a{color:var(--acc)}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script src="../assets/vendor/mermaid.min.js"></script>
 </head>
 <body>
 
@@ -154,6 +160,14 @@ flowchart LR
 
   <div class="spine">
     <b>The entity_key spine.</b> `entities` is the one resolved-party table; ~13 tables carry <code>entity_key</code> as an anchor (transactions, kyc_profile, ownership, screening, shipping, trade, intel, tasks…). Resolution (SP1–SP3) guarantees one <code>entity_key</code> per real-world party across every source, so a transaction, a sanctions hit, an ownership edge and a case task about the same party all line up without reconciliation.
+  </div>
+
+  <h2>Reading the keys <span class="cnt">— key &amp; relationship roles</span></h2>
+  <div class="legend">
+    <div class="li"><span class="kind pk">PK</span><span class="d"><b>Primary key</b> — uniquely identifies each row in its own table (one per table, e.g. <code>designation_id</code>, <code>account_id</code>).</span></div>
+    <div class="li"><span class="kind fk">FK</span><span class="d"><b>Foreign key</b> — points to another table's primary key, forming the join (e.g. <code>screening_results.designation_id</code> → <code>sanctions_list</code>).</span></div>
+    <div class="li"><span class="kind anchor">ANCHOR</span><span class="d"><b>entity_key anchor</b> — the special FK that resolves the row back to the one canonical party in <code>entities</code>; the cross-pillar spine.</span></div>
+    <div class="li"><span class="kind ref">REF</span><span class="d"><b>Reference link</b> — join into a governed lookup table (country, currency, industry, designation) that is periodically refreshed.</span></div>
   </div>
 
   <!-- PILLAR SECTIONS injected by JS from DATA below -->
