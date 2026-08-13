@@ -87,10 +87,10 @@
   <p class="lead">The canonical pillar data model for the NEXUS financial-crime platform. Every table anchors to one resolved party via a shared <b>entity_key</b> — the spine that lets sanctions, transaction monitoring, trade, ownership, intelligence, and case management be <b>views on one truth rather than systems to reconcile</b>. This spec is generated from <b>data_dictionary.yaml</b> (the governed source of truth).</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">21</div><div class="l">Governed tables</div></div>
+    <div class="stat"><div class="n">25</div><div class="l">Governed tables</div></div>
     <div class="stat"><div class="n">9</div><div class="l">Pillars</div></div>
     <div class="stat"><div class="n">18</div><div class="l">Active</div></div>
-    <div class="stat"><div class="n">3</div><div class="l">Pending / reserved</div></div>
+    <div class="stat"><div class="n">7</div><div class="l">Pending / reserved</div></div>
     <div class="stat"><div class="n">12</div><div class="l">FK links</div></div>
     <div class="stat"><div class="n">entity_key</div><div class="l">The join spine</div></div>
   </div>
@@ -184,7 +184,7 @@ flowchart LR
     <tbody id="connbody"></tbody>
   </table>
 
-  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-12 · 21 tables / 9 pillars</div>
+  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-13 · 25 tables / 9 pillars</div>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -270,8 +270,16 @@ const PILLARS = [
      els:[["intel_id","string","pk"],["entity_key","entity_key","anchor"],["intel_type","enum · adverse_media|sar|exit",""],["summary","string",""]]},
     {n:"intel_register",st:"pending",ct:"periodic ref",pk:"register_id",grain:"the as-of SAR/exit register entry for an entity",
      els:[["register_id","string","pk"],["entity_key","entity_key","anchor"],["register_type","enum · sar|exit",""],["status","enum · open|closed|escalated",""]]},
-    {n:"markets",st:"pending",ct:"event stream",pk:"instrument_id",grain:"RESERVED — Capital Markets (fc-07) unbuilt; no rows in v1",
-     els:[["instrument_id","string","pk"]]},
+    {n:"instruments",st:"pending",ct:"SCD",pk:"instrument_id",grain:"one tradable instrument (equity/bond/derivative/commodity) — the Capital Markets (fc-07) join spine",
+     els:[["instrument_id","string","pk"],["symbol","string",""],["issuer_entity_key","entity_key","fk"],["instrument_type","enum · equity|bond|derivative|fx|commodity",""],["venue","string",""],["currency","currency_code",""]]},
+    {n:"orders",st:"pending",ct:"event stream",pk:"order_id",grain:"one order lifecycle event — feeds CM003/CM004 spoofing & layering cancel-speed",
+     els:[["order_id","string","pk"],["instrument_id","string → instruments","fk"],["entity_key","entity_key","anchor"],["account_id","string → accounts","fk"],["side","enum · buy|sell",""],["order_type","enum · limit|market|stop|iceberg",""],["price","amount",""],["quantity","decimal",""],["status","enum · new|amended|cancelled|filled|…",""],["placed_ts","datetime",""],["cancelled_ts","datetime",""]]},
+    {n:"executions",st:"pending",ct:"event stream",pk:"execution_id",grain:"one trade execution; self-match detection for CM005 wash trading",
+     els:[["execution_id","string","pk"],["order_id","string → orders","fk"],["instrument_id","string → instruments","fk"],["entity_key","entity_key","anchor"],["counterparty_entity_key","entity_key","fk"],["quantity","decimal",""],["price","amount",""],["executed_ts","datetime",""]]},
+    {n:"market_data",st:"pending",ct:"event stream",pk:"market_data_id",grain:"one market observation (tick/quote/fixing/close) — CM009 benchmark manipulation",
+     els:[["market_data_id","string","pk"],["instrument_id","string → instruments","fk"],["observed_ts","datetime",""],["price","amount",""],["volume","decimal",""],["data_type","enum · trade_tick|quote|fixing|close",""],["benchmark_name","string",""]]},
+    {n:"positions",st:"pending",ct:"periodic ref",pk:"entity_key + instrument_id",grain:"as-of holding of an instrument by an entity",
+     els:[["entity_key","entity_key","anchor"],["instrument_id","string → instruments","fk"],["quantity","decimal",""],["market_value","amount",""],["currency","currency_code",""]]},
   ]],
 ];
 const CONNS = [
