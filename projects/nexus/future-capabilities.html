@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Future Capabilities | NEXUS</title>
+<style>
+:root{
+  --bg:#050b14; --panel:#081322; --panel2:#0b182b; --line:rgba(148,163,184,.22);
+  --text:#f8fafc; --muted:#94a3b8;
+  --blue:#38bdf8; --green:#22c55e; --gold:#e9c877; --purple:#a78bfa;
+  --mono:ui-monospace,Menlo,"SF Mono",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  background:radial-gradient(circle at 74% 8%,rgba(167,139,250,.16),transparent 32%),
+             radial-gradient(circle at 10% 90%,rgba(56,189,248,.12),transparent 30%),var(--bg);color:var(--text)}
+.wrap{max-width:1080px;margin:auto;padding:60px 32px 100px}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;margin-bottom:60px}
+.back{font-weight:800;color:var(--muted)}
+.kicker{color:var(--purple);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.06em;margin:0 0 22px}
+.lead{max-width:840px;font-size:18px;line-height:1.62;color:var(--muted)}
+.lead b{color:var(--text);font-weight:600}
+.note{margin-top:14px;font-size:13px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+.note b{color:var(--green)}
+
+.track{margin-top:66px;border:1px solid var(--line);border-radius:28px;padding:34px 34px 30px;
+  background:linear-gradient(180deg,rgba(15,23,42,.7),rgba(8,19,34,.7));position:relative;overflow:hidden}
+.track::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
+.track.copilot::before{background:var(--blue)}
+.track.threat::before{background:var(--purple)}
+.track .tk{font-family:var(--mono);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.track.copilot .tk{color:var(--blue)} .track.threat .tk{color:var(--purple)}
+.track h2{font-size:32px;letter-spacing:-.05em;margin:0 0 12px}
+.track .intro{color:var(--muted);font-size:16px;line-height:1.62;max-width:76ch;margin:0}
+.track .intro b{color:var(--text);font-weight:600}
+.track code{background:#0c1a2e;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;color:#bcd3ef;font-family:var(--mono)}
+
+.pill{font-family:var(--mono);font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;white-space:nowrap;flex:none}
+.pill.built{background:rgba(34,197,94,.13);color:var(--green);border:1px solid rgba(34,197,94,.42)}
+.pill.later{background:rgba(148,163,184,.1);color:var(--muted);border:1px solid var(--line)}
+
+.subh{font-size:12px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#7fa8d8;margin:28px 0 14px}
+
+/* copilot slice ladder */
+.slices{display:flex;flex-direction:column;gap:10px}
+.slice{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
+  padding:14px 18px;border-radius:15px;border:1px solid var(--line);background:rgba(15,23,42,.55)}
+.slice .st{font-size:15px;font-weight:650}
+.slice .st small{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:3px;line-height:1.5}
+
+/* callout */
+.callout{margin-top:22px;border:1px dashed rgba(56,189,248,.4);background:rgba(56,189,248,.06);border-radius:16px;padding:18px 20px}
+.callout.p{border-color:rgba(167,139,250,.4);background:rgba(167,139,250,.06)}
+.callout .ct{font-weight:700;font-size:15px;margin-bottom:6px}
+.callout p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6}
+.callout p b{color:var(--text)}
+
+/* threat pieces */
+.pieces{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+@media(max-width:720px){.pieces{grid-template-columns:1fr}}
+.piece{padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:rgba(15,23,42,.55)}
+.piece .pn{font-family:var(--mono);font-size:11px;color:var(--purple);font-weight:800;margin-bottom:6px}
+.piece h4{margin:0 0 6px;font-size:16px;letter-spacing:-.02em}
+.piece p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.piece p b{color:var(--text)}
+.piece .seam{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:10.5px;font-weight:700;color:#c4b5fd;
+  background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.34);border-radius:999px;padding:4px 10px}
+
+/* loop diagram */
+figure{margin:30px 0 4px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{color:var(--muted);font-size:13px;margin-top:12px;text-align:center;max-width:72ch;margin-left:auto;margin-right:auto}
+figcaption b{color:var(--purple)}
+
+.foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-family:var(--mono)}
+.foot a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="back" href="index.html">← NEXUS</a>
+    <a class="back" href="platform-roadmap.html">Roadmap</a>
+  </div>
+
+  <div class="kicker">Future Capabilities</div>
+  <h1>Where the AI plugs in.</h1>
+  <p class="lead">
+    The chain is built. The next layer makes it <b>learn and assist</b> — two tracks that sit on the same
+    resolved-entity substrate: an <b>AI copilot</b> that plugs applications onto grounded context, and a
+    <b>threat-intelligence layer</b> that keeps the platform current. Both are <b>grounded and governed</b> —
+    AI acting on the platform's own evidence, never a free-floating model.
+  </p>
+  <div class="note">Direction &amp; architecture · not yet built · SAR drafter is copilot slice 1 (<b>live</b>)</div>
+
+  <!-- TRACK 1 -->
+  <div class="track copilot">
+    <div class="tk">Track 1 · AI Copilot</div>
+    <h2>Plugging AI applications onto grounded context.</h2>
+    <p class="intro">
+      The copilot isn't one model — it's a <b>plug</b>. For each task, an engine assembles a governed
+      <b>context package</b> from the substrate (the case, the graph, the scores, the typology doctrine); an
+      AI application acts on that package; the output comes back <b>provenance-cited</b>. The apps are
+      swappable; the grounding stays constant. The <b>SAR drafter</b> proves the pattern end to end.
+    </p>
+
+    <div class="subh">The capability slices</div>
+    <div class="slices">
+      <div class="slice"><div class="st">SAR drafter<small>An explainable, provenance-linked suspicious-activity report, section by section from the evidence.</small></div><span class="pill built">Built · slice 1</span></div>
+      <div class="slice"><div class="st">Natural-language case Q&amp;A<small>Ask the case questions in plain language — answers grounded in the resolved graph and the score components.</small></div><span class="pill later">Direction</span></div>
+      <div class="slice"><div class="st">EDD memo drafting<small>Enhanced-due-diligence write-ups assembled from KYC, ownership, screening and network context.</small></div><span class="pill later">Direction</span></div>
+      <div class="slice"><div class="st">Hypothesis generation<small>The copilot proposes investigative lines from the pattern and the typology doctrine, for the investigator to test.</small></div><span class="pill later">Direction</span></div>
+      <div class="slice"><div class="st">Disposition support<small>Recommend and justify the decision — close, escalate or file — against the governed workflow.</small></div><span class="pill later">Direction</span></div>
+    </div>
+
+    <div class="callout">
+      <div class="ct">The principle — swappable apps, constant grounding</div>
+      <p>The <b>context service is the plug</b>; the AI applications are interchangeable behind it. That's what keeps the copilot <b>governed and auditable</b>: every answer traces to the same substrate, so a better model is an upgrade, not a rebuild — and nothing the copilot says is ungrounded.</p>
+    </div>
+  </div>
+
+  <!-- TRACK 2 -->
+  <div class="track threat">
+    <div class="tk">Track 2 · Threat Intelligence</div>
+    <h2>Keeping the platform current — curated core, live feeds.</h2>
+    <p class="intro">
+      Detection knows the <b>methods</b>; threat intelligence knows <b>what's happening now</b>. This layer pins
+      live intelligence to the typology library and feeds new indicators back into detection — a closed loop.
+      Its architecture is the point: a <b>curated, governed core</b> that's deterministic today, with
+      <b>live-ready ingestion seams</b> for the feeds (the "scraping") that run as runtime operations, outside
+      the hermetic core.
+    </p>
+
+    <div class="subh">Four pieces</div>
+    <div class="pieces">
+      <div class="piece"><div class="pn">01 · anchored on the library</div><h4>Advisory overlay</h4><p>Curated advisories pinned to typologies; new indicators flow <b>downstream into detection</b>.</p><span class="seam">Seam · FATF / OFAC / FinCEN bulletins</span></div>
+      <div class="piece"><div class="pn">02 · anchored on the substrate</div><h4>Threat-actor &amp; entity intel</h4><p>Bad-actor, sanctioned-vessel and adverse-media intel attached to the <code>entity_key</code>, typology-tagged.</p><span class="seam">Seam · watchlist &amp; adverse-media feeds</span></div>
+      <div class="piece"><div class="pn">03 · anchored detection ↔ doctrine</div><h4>Emergent-typology loop</h4><p>The platform surfaces <b>candidate typologies from its own clusters</b> — detection feeding living doctrine.</p><span class="seam">Internal · no feed required</span></div>
+      <div class="piece"><div class="pn">04 · anchored on the queues</div><h4>Intel digest</h4><p>A <b>specialism-routed briefing</b> into the desks — the sanctions desk gets shadow-fleet advisories, the trade desk gets TBML updates.</p><span class="seam">Routed · per specialist queue</span></div>
+    </div>
+
+    <div class="callout p">
+      <div class="ct">The architecture — "curated core, live-ready seams"</div>
+      <p>The governed content is <b>committed and byte-identical to rebuild, now</b>. The feed adapters — bulletins, watchlists, adverse media — are <b>runtime ops, lazy-imported</b>, exactly like the live Neo4j service: the platform demonstrates the whole capability deterministically, and the real feeds bolt on at the seam without touching the core.</p>
+    </div>
+
+    <figure>
+      <svg viewBox="0 0 820 220" role="img" aria-label="A closed loop: detection surfaces patterns into doctrine; threat intelligence and live feeds enrich doctrine; new indicators flow from doctrine back into detection.">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c88a8"/></marker></defs>
+        <!-- nodes -->
+        <rect x="40" y="86" width="170" height="52" rx="12" fill="rgba(56,189,248,.12)" stroke="#38bdf8" stroke-width="1.5"/>
+        <text x="125" y="110" text-anchor="middle" fill="#eaf1fb" font-size="14.5" font-weight="700">Detection</text>
+        <text x="125" y="127" text-anchor="middle" fill="#9db0c9" font-size="10.5">the methods, running</text>
+
+        <rect x="325" y="86" width="170" height="52" rx="12" fill="rgba(233,200,119,.1)" stroke="#e9c877" stroke-width="1.5"/>
+        <text x="410" y="110" text-anchor="middle" fill="#eaf1fb" font-size="14.5" font-weight="700">Typology doctrine</text>
+        <text x="410" y="127" text-anchor="middle" fill="#9db0c9" font-size="10.5">the library / taxonomy</text>
+
+        <rect x="610" y="86" width="170" height="52" rx="12" fill="rgba(167,139,250,.12)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="695" y="110" text-anchor="middle" fill="#eaf1fb" font-size="14.5" font-weight="700">Threat intel</text>
+        <text x="695" y="127" text-anchor="middle" fill="#9db0c9" font-size="10.5">what's happening now</text>
+
+        <!-- live feeds -->
+        <rect x="610" y="14" width="170" height="34" rx="9" fill="#0f2036" stroke="#5b8fd6" stroke-width="1.2" stroke-dasharray="3 3"/>
+        <text x="695" y="35" text-anchor="middle" fill="#9cc0f0" font-size="11" font-family="ui-monospace,Menlo,monospace">live feeds (scraping)</text>
+        <path d="M695 48 L695 84" stroke="#7c88a8" stroke-width="1.4" marker-end="url(#ar)"/>
+
+        <!-- loop arrows -->
+        <path d="M610 104 L497 104" stroke="#7c88a8" stroke-width="1.5" marker-end="url(#ar)"/>
+        <text x="553" y="97" text-anchor="middle" fill="#c4b5fd" font-size="10" font-family="ui-monospace,Menlo,monospace">enriches</text>
+        <path d="M325 120 L212 120" stroke="#7c88a8" stroke-width="1.5" marker-end="url(#ar)"/>
+        <text x="268" y="137" text-anchor="middle" fill="#8fd6ad" font-size="10" font-family="ui-monospace,Menlo,monospace">new indicators</text>
+        <path d="M210 100 Q267 64 324 100" stroke="#7c88a8" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
+        <text x="268" y="66" text-anchor="middle" fill="#7fbfe6" font-size="10" font-family="ui-monospace,Menlo,monospace">surfaces patterns</text>
+      </svg>
+      <figcaption>The closed loop: detection surfaces candidate patterns into doctrine; <b>threat intel and live feeds enrich doctrine</b>; new indicators flow back into detection. The typology taxonomy is the spine every piece pins to.</figcaption>
+    </figure>
+  </div>
+
+  <div class="foot">
+    NEXUS · Future capabilities · direction &amp; architecture · updated 2026-08-14 —
+    <a href="platform-roadmap.html">roadmap →</a> · <a href="mission-status.html">status →</a>
+  </div>
+
+</div>
+</body>
+</html>
