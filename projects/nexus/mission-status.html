@@ -2,10 +2,163 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=index.html">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mission Status | NEXUS</title>
+<style>
+:root{
+  --bg:#050b14; --panel:#081322; --panel2:#0b182b; --line:rgba(148,163,184,.22);
+  --text:#f8fafc; --muted:#94a3b8;
+  --blue:#38bdf8; --green:#22c55e; --gold:#e9c877;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  background:radial-gradient(circle at 70% 8%,rgba(56,189,248,.18),transparent 34%),var(--bg);color:var(--text)}
+.wrap{max-width:1120px;margin:auto;padding:60px 32px 100px}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;margin-bottom:64px}
+.back{font-weight:800;color:var(--muted)}
+.kicker{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin:0 0 22px}
+.lead{max-width:820px;font-size:19px;line-height:1.6;color:var(--muted)}
+.lead b{color:var(--text);font-weight:600}
+.updated{margin-top:14px;font-size:13px;color:var(--muted);font-family:ui-monospace,Menlo,monospace;letter-spacing:.04em}
+.updated b{color:var(--green)}
+
+.section{margin-top:66px}
+.section h2{font-size:32px;letter-spacing:-.05em;margin:0 0 22px}
+.section .sub{color:var(--muted);font-size:15px;margin:-12px 0 22px;max-width:70ch}
+
+/* position banner */
+.banner{border:1px solid var(--line);border-radius:28px;padding:34px 34px 30px;
+  background:linear-gradient(180deg,rgba(56,189,248,.10),rgba(8,19,34,.9));position:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--blue)}
+.banner .pk{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.banner h3{font-size:30px;letter-spacing:-.045em;margin:0 0 12px}
+.banner p{margin:0;color:var(--muted);font-size:16px;line-height:1.6;max-width:74ch}
+.banner p b{color:var(--text);font-weight:600}
+.bmeta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.bchip{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:800;padding:8px 14px;border-radius:999px;
+  background:rgba(34,197,94,.12);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.bchip.blue{background:rgba(56,189,248,.12);color:var(--blue);border-color:rgba(56,189,248,.4)}
+
+/* pills */
+.pill{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;white-space:nowrap}
+.pill.built{background:rgba(34,197,94,.13);color:var(--green);border:1px solid rgba(34,197,94,.42)}
+.pill.integrated{background:rgba(56,189,248,.13);color:var(--blue);border:1px solid rgba(56,189,248,.42)}
+.pill.next{background:rgba(56,189,248,.13);color:var(--blue);border:1px solid rgba(56,189,248,.5)}
+.pill.later{background:rgba(148,163,184,.1);color:var(--muted);border:1px solid var(--line)}
+
+/* coverage grid */
+.cov{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.covcard{padding:20px 18px;border-radius:22px;border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;gap:14px}
+.covcard .nm{font-size:16px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.covcard .ds{font-size:12.5px;color:var(--muted);line-height:1.5;margin:0}
+@media(max-width:860px){.cov{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.cov{grid-template-columns:1fr}}
+
+/* chain rows */
+.chain{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
+  padding:18px 22px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(15,23,42,.7),rgba(8,19,34,.7))}
+.row .rt{font-size:17px;font-weight:650;letter-spacing:-.02em}
+.row .rt small{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:3px}
+.row.dim{opacity:.9}
+
+/* posture */
+.posture{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.post{padding:20px;border-radius:20px;border:1px solid var(--line);background:rgba(15,23,42,.6)}
+.post strong{display:block;font-size:15px;margin-bottom:6px}
+.post span{color:var(--muted);font-size:13.5px;line-height:1.5}
+@media(max-width:860px){.posture{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.posture{grid-template-columns:1fr}}
+
+.foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-family:ui-monospace,Menlo,monospace}
+.foot a{color:var(--blue)}
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="index.html">NEXUS Mission Status</a>...</p>
+<div class="wrap">
+
+  <div class="top">
+    <a class="back" href="index.html">← NEXUS</a>
+    <a class="back" href="../../index.html">Portfolio</a>
+  </div>
+
+  <div class="kicker">Mission Status</div>
+  <h1>Where NEXUS stands today.</h1>
+  <p class="lead">
+    A living snapshot of the platform — what's built, what's in flight, and what's next.
+    For the destination and the phase arc, see the <a href="platform-roadmap.html" style="color:var(--blue)">roadmap</a>.
+  </p>
+  <div class="updated">Updated <b>14 August 2026</b> · Beta v1.0</div>
+
+  <section class="section">
+    <div class="banner">
+      <div class="pk">Current position</div>
+      <h3>The whole chain is built. The operational surface is next.</h3>
+      <p>
+        The substrate, detection and scoring across every crime family, and the <b>fused investigator console</b>
+        are built and merged — <b>governed, deterministic, and tested end to end</b>. The work now turns to the
+        operational surface: a replicable investigator workspace, one object per typology.
+      </p>
+      <div class="bmeta">
+        <span class="bchip">Console live · Beta v1.0</span>
+        <span class="bchip">Whole chain built &amp; merged</span>
+        <span class="bchip blue">Operational surface — next</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Coverage by crime family</h2>
+    <p class="sub">The detection families running on the shared resolved-entity substrate.</p>
+    <div class="cov">
+      <div class="covcard"><span class="pill built">Built</span><div class="nm">Network intelligence</div><p class="ds">Entity resolution and the resolved graph — the substrate under every typology.</p></div>
+      <div class="covcard"><span class="pill built">Built</span><div class="nm">Trade-based ML</div><p class="ds">Trade-based money-laundering typologies, incl. circular funds flow and settlement mismatch.</p></div>
+      <div class="covcard"><span class="pill built">Built</span><div class="nm">Sanctions</div><p class="ds">Screening and exposure analytics; sanctions matches escalate the alert band.</p></div>
+      <div class="covcard"><span class="pill built">Built</span><div class="nm">Correspondent banking</div><p class="ds">Nested-relationship and pass-through typologies across the banking family.</p></div>
+      <div class="covcard"><span class="pill integrated">Integrated</span><div class="nm">Capital markets</div><p class="ds">Pillar active; the first detector (spoofing / layering) wired live into the console.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>The chain — layer by layer</h2>
+    <p class="sub">The operating model, base to top. Layers built and merged; deferred pieces noted honestly.</p>
+    <div class="chain">
+      <div class="row"><div class="rt">Data &amp; typology foundation<small>Canonical pillar model + daily-delta runtime + typology library</small></div><span class="pill built">Built</span></div>
+      <div class="row"><div class="rt">Entity resolution<small>One shared entity key + the resolved global graph + Neo4j store</small></div><span class="pill built">Built</span></div>
+      <div class="row"><div class="rt">Analytics &amp; detection<small>Network · TBML · sanctions · correspondent banking · capital markets</small></div><span class="pill built">Built</span></div>
+      <div class="row"><div class="rt">Risk scoring<small>Per-typology weighted components + KYC deviation → ranked alert table &middot; behavioural/temporal deferred</small></div><span class="pill built">Built</span></div>
+      <div class="row"><div class="rt">Investigation &amp; operations<small>Case-lifecycle state machine + task queue + audit &middot; SAR drafter live</small></div><span class="pill built">Built</span></div>
+      <div class="row"><div class="rt">Fused investigator console<small>Investigate + manage on one screen, over the whole substrate</small></div><span class="pill built">Built</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>In flight &amp; next</h2>
+    <div class="chain">
+      <div class="row"><div class="rt">Operational surface — Investigator Workspace<small>One alert = one three-panel object (pattern · tunable score · governed decision), replicable per typology</small></div><span class="pill next">Next</span></div>
+      <div class="row dim"><div class="rt">Operations management<small>MI &amp; KPIs · SAR lifecycle manager · workflow &amp; SLA · quality assurance</small></div><span class="pill later">Planned</span></div>
+      <div class="row dim"><div class="rt">Threat intelligence<small>Advisories, threat-actor intel and emergent typologies feeding the substrate — its own project</small></div><span class="pill later">Future</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Engineering posture</h2>
+    <div class="posture">
+      <div class="post"><strong>Governed</strong><span>Every build versioned, validated, reviewed and merged behind a gate.</span></div>
+      <div class="post"><strong>Deterministic</strong><span>Outputs are byte-identical to rebuild — no hidden randomness.</span></div>
+      <div class="post"><strong>Tested</strong><span>Five-layer functional matrix per typology — positive and negative, on full data.</span></div>
+      <div class="post"><strong>Evidence-led</strong><span>Every alert traces to the data, the score components and the action to take.</span></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    NEXUS · Mission Status · living snapshot · updated 2026-08-14 —
+    <a href="platform-roadmap.html">see the roadmap →</a>
+  </div>
+
+</div>
 </body>
 </html>
