@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS Console Walkthrough</title>
+<style>
+  :root{
+    --bg0:#060910; --bg1:#0b1120; --panel:rgba(255,255,255,.035); --panel2:rgba(255,255,255,.02);
+    --edge:rgba(255,255,255,.10); --edge2:rgba(255,255,255,.06);
+    --ink:#eaf1f9; --ink2:#a7b7cd; --ink3:#71839a;
+    --acc:#79c4ff; --accdim:rgba(121,196,255,.42); --accsoft:rgba(121,196,255,.09);
+    --gold:#e9c877; --golddim:rgba(233,200,119,.42); --goldsoft:rgba(233,200,119,.08);
+    --crit:#ff5d6c; --good:#4fdca0;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,monospace;
+    --maxw:820px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg0);color:var(--ink);font-family:var(--sans);line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 12% -8%, rgba(13,87,152,.28), transparent 60%),
+      radial-gradient(760px 520px at 100% 4%, rgba(20,48,127,.26), transparent 62%),
+      var(--bg0);
+    background-attachment:fixed;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:40px 22px 80px}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---- brand header ---- */
+  .brand{display:flex;align-items:center;gap:13px;margin-bottom:6px}
+  .shield{width:38px;height:44px;flex:none;filter:drop-shadow(0 0 10px rgba(121,196,255,.35))}
+  .wm{font-weight:800;letter-spacing:.2em;font-size:19px;
+    background:linear-gradient(180deg,#f4f8ff,#aec0d7 58%,#7f92ac);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wm .x{color:var(--acc);-webkit-text-fill-color:var(--acc)}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
+  .verpill{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);
+    border:1px solid var(--golddim);border-radius:999px;padding:4px 11px;background:var(--goldsoft)}
+
+  h1{font-size:29px;line-height:1.2;font-weight:800;letter-spacing:-.015em;margin:26px 0 10px;text-wrap:balance}
+  h1 .g{background:linear-gradient(90deg,var(--acc),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:16px;color:var(--ink2);max-width:66ch;margin:0 0 8px}
+
+  .cta{display:inline-flex;align-items:center;gap:9px;margin:20px 0 6px;font-weight:700;font-size:14px;
+    color:#06192e;background:linear-gradient(180deg,#9ed3ff,var(--acc));border:1px solid var(--accdim);
+    border-radius:11px;padding:11px 18px;box-shadow:0 12px 30px -12px rgba(121,196,255,.6)}
+  .cta:hover{text-decoration:none;filter:brightness(1.06)}
+  .ctanote{font-size:12px;color:var(--ink3);margin:4px 0 0}
+
+  section{margin-top:38px}
+  h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:700;
+    margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--edge2);display:flex;align-items:center;gap:9px}
+  h2 .n{font-family:var(--mono);color:var(--ink3);font-size:11px}
+  p{margin:0 0 13px;color:var(--ink2)}
+  p strong,li strong{color:var(--ink);font-weight:650}
+  .em{color:var(--acc);font-weight:600}
+  .emg{color:var(--gold);font-weight:600}
+
+  /* ---- three-column mini map ---- */
+  .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px}
+  .colc{background:var(--panel);border:1px solid var(--edge2);border-radius:13px;padding:14px 14px 15px}
+  .colc .ct{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
+  .colc .ch{font-weight:700;font-size:14px;margin-bottom:5px;color:var(--ink)}
+  .colc p{font-size:12.5px;margin:0;color:var(--ink2);line-height:1.5}
+  @media(max-width:640px){.cols{grid-template-columns:1fr}}
+
+  /* ---- narrated steps ---- */
+  .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+  .step{position:relative;padding:14px 16px 15px 54px;background:var(--panel);border:1px solid var(--edge2);border-radius:13px}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:26px;height:26px;
+    border-radius:8px;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:13px;
+    color:var(--acc);background:var(--accsoft);border:1px solid var(--accdim)}
+  .step .cue{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:5px}
+  .step .say{color:var(--ink);font-size:14.5px;line-height:1.55}
+  .step .say .q{color:var(--ink2)}
+
+  /* ---- two-score callout ---- */
+  .scorebox{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:2px 0 10px}
+  .sc{background:var(--panel);border:1px solid var(--edge2);border-radius:13px;padding:15px 16px}
+  .sc.macro{border-color:var(--accdim);background:linear-gradient(180deg,var(--accsoft),transparent)}
+  .sc.model{border-color:var(--golddim);background:linear-gradient(180deg,var(--goldsoft),transparent)}
+  .sc .big{font-family:var(--mono);font-weight:800;font-size:30px;line-height:1}
+  .sc.macro .big{color:var(--acc)} .sc.model .big{color:var(--gold)}
+  .sc .lbl{font-weight:700;font-size:13.5px;margin:8px 0 4px;color:var(--ink)}
+  .sc p{font-size:12.5px;margin:0;color:var(--ink2);line-height:1.5}
+  @media(max-width:640px){.scorebox{grid-template-columns:1fr}}
+
+  /* ---- case chips ---- */
+  .cases{display:flex;flex-direction:column;gap:10px}
+  .case{display:flex;gap:13px;align-items:flex-start;background:var(--panel);border:1px solid var(--edge2);border-radius:12px;padding:12px 14px}
+  .case .tag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:7px;flex:none;margin-top:1px;
+    color:var(--acc);background:var(--accsoft);border:1px solid var(--accdim)}
+  .case .tag.s{color:var(--crit);background:rgba(255,93,108,.1);border-color:rgba(255,93,108,.4)}
+  .case .tag.c{color:var(--gold);background:var(--goldsoft);border-color:var(--golddim)}
+  .case .cb{font-size:13.5px}
+  .case .cb b{color:var(--ink)}
+  .case .cb span{color:var(--ink2)}
+
+  /* ---- two-up lists ---- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  ul.tick{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  ul.tick li{position:relative;padding-left:24px;font-size:13.5px;color:var(--ink2);line-height:1.5}
+  ul.tick li::before{content:"";position:absolute;left:2px;top:7px;width:8px;height:8px;border-radius:2px;background:var(--acc)}
+  ul.tick.warn li::before{background:var(--gold);border-radius:50%}
+
+  .honest{background:linear-gradient(180deg,rgba(233,200,119,.06),transparent);border:1px solid var(--golddim);
+    border-radius:14px;padding:18px 20px;margin-top:14px}
+  .honest .ht{font-weight:700;color:var(--gold);font-size:14px;margin-bottom:9px}
+
+  footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--edge2);color:var(--ink3);font-size:12.5px}
+  footer .fmark{font-family:var(--mono);letter-spacing:.14em;color:var(--ink2)}
+  .backlink{display:inline-block;margin-bottom:6px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink3)}
+  .backlink:hover{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="index.html" class="backlink">&larr; NEXUS portfolio</a>
+  <div class="brand">
+    <svg class="shield" viewBox="0 0 40 46" fill="none" aria-hidden="true">
+      <path d="M20 2 L36 8 V22 C36 33 29 41 20 44 C11 41 4 33 4 22 V8 Z"
+            fill="rgba(121,196,255,.06)" stroke="url(#sg)" stroke-width="1.6"/>
+      <path d="M14 30 V16 L26 30 V16" stroke="var(--acc)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs><linearGradient id="sg" x1="4" y1="2" x2="36" y2="44" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#79c4ff"/><stop offset="1" stop-color="#e9c877"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="wm">NE<span class="x">X</span>US</div>
+      <div class="kicker">Financial Crime Intelligence</div>
+    </div>
+    <span class="verpill">Beta v1.0</span>
+  </div>
+
+  <h1>One resolved-entity substrate. <span class="g">Investigate and manage on the same screen.</span></h1>
+  <p class="lede">A working investigator console for financial-crime detection — real data, a live network graph,
+    three worked typologies, and a governed case workflow. This is the two-minute story to read before (or while) you click.</p>
+
+  <a class="cta" href="runtime-demo/console.html">▶ &nbsp;Open the live console</a>
+  <p class="ctanote">Best on desktop. It's a Beta — bugs and rough edges are on purpose; it ships and iterates in public.</p>
+
+  <section>
+    <h2>The problem it solves</h2>
+    <p>Banks run two separate systems to fight financial crime: one to <strong>investigate</strong> — network and
+      entity analytics (think Quantexa) — and another to <strong>manage</strong> the casework — alert triage,
+      workflow, and reporting (think Actimize). Analysts swivel-chair between them, and the graph an investigator
+      explores is never quite the one the alert was scored on.</p>
+    <p><span class="em">NEXUS fuses both onto a single resolved-entity + money-flow substrate.</span> The same graph you
+      explore is the one the score was computed on, and the case is worked and dispositioned on the same page.
+      Typologies and sanctions are <em>overlays</em> on that substrate — not separate products bolted together.</p>
+  </section>
+
+  <section>
+    <h2>What you're looking at <span class="n">— three columns</span></h2>
+    <div class="cols">
+      <div class="colc">
+        <div class="ct">Left</div>
+        <div class="ch">Alert queue</div>
+        <p>Entities scored and ranked, each showing the typologies that fired on it. The front door.</p>
+      </div>
+      <div class="colc">
+        <div class="ct">Centre</div>
+        <div class="ch">Resolved network</div>
+        <p>The entity and everything it links to. Three lenses: <span class="em">Resolution</span>, <span class="em">Ownership</span>, <span class="emg">Case-cashflow</span>.</p>
+      </div>
+      <div class="colc">
+        <div class="ct">Right</div>
+        <div class="ch">Entity &middot; case</div>
+        <p>Why the score is what it is — and the governed decision: verdict, actions, audit, drafted SAR.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The 90-second walkthrough <span class="n">— follow the clicks</span></h2>
+    <ol class="steps">
+      <li class="step"><span class="cue">Point at the queue</span>
+        <div class="say"><span class="q">"Top of the queue —</span> <b>Crans Resources</b>, a Pakistani gold miner, scored <b>Critical</b>. Five typologies fired: circular funds flow, high-value activity, jurisdiction deviation, high-risk industry, and a TBML settlement/trade mismatch.<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">Click the alert</span>
+        <div class="say"><span class="q">"Click it and the middle panel resolves the whole picture —</span> Crans, its counterparty, the gold trade document, the carrier vessel, and both cash accounts, all one connected entity view.<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">Open the case &rarr; Pattern panel</span>
+        <div class="say"><span class="q">"Open the case for the investigator workspace. On the left, the circular-funds-flow pattern walked on real money —</span> value leaves Crans and comes back through <b>Wiggo Jewel</b>, about <b>69% retained</b>, a closed loop with a common controller, <b>Aurelian Holdings</b>. No genuine change of ownership — the hallmark of round-tripping, not commerce.<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">Point at 'Why scored'</span>
+        <div class="say"><span class="q">"The middle panel is why it scored — and it's not a black box.</span> A governed, <b>weighted six-component model</b>: circularity, trade value, jurisdiction, counterparty screening, network, history. Each one is tunable, and each traces back to the data that produced it.<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">The two numbers</span>
+        <div class="say"><span class="q">"You'll see two scores, deliberately.</span> The queue shows <b>100</b> — the macro triage score that ranks what to look at first. The model shows <b>56 / Medium</b> — the Circular Funds Flow analytic verdict. <b>Triage versus verdict.</b> (More on that below.)<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">The Decision panel</span>
+        <div class="say"><span class="q">"On the right, the governed decision —</span> a recommendation, the intelligence produced, six case actions, a live audit trail, and a <b>drafted SAR narrative</b> that's provenance-linked back to the evidence. Investigate and manage, closed on one screen.<span class="q">"</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The two scores <span class="n">— the bit worth understanding</span></h2>
+    <div class="scorebox">
+      <div class="sc macro">
+        <div class="big">100</div>
+        <div class="lbl">Macro triage score</div>
+        <p>Additive risk points across every signal, capped at 100. Its job is <em>ranking</em> — what does an analyst open first? Crans hits the cap: a closed loop, high-value legs, jurisdiction deviation, high-risk industry.</p>
+      </div>
+      <div class="sc model">
+        <div class="big">56<span style="font-size:15px;color:var(--ink3)"> / Med</span></div>
+        <div class="lbl">Typology analytic verdict</div>
+        <p>The weighted Circular Funds Flow model — six governed, tunable components. Its job is the <em>analytic call</em>: how strong is <em>this specific typology</em> on this entity? Medium, honestly — not force-escalated.</p>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--ink3)">Two numbers because they answer two different questions. Conflating "what do I look at first" with "how strong is the case" is a classic detection-system failure — keeping them separate is the point.</p>
+  </section>
+
+  <section>
+    <h2>Three worked cases <span class="n">— every queue item is real</span></h2>
+    <div class="cases">
+      <div class="case"><span class="tag c">CFF</span><div class="cb"><b>Crans Resources</b> — <span>Circular Funds Flow. A closed two-leg gold-trade loop with a common controller; TBML mismatch and jurisdiction risk (PK / CY) stacked on top.</span></div></div>
+      <div class="case"><span class="tag s">SAN002</span><div class="cb"><b>Silverline Petrochemicals</b> — <span>Shadow Fleet. A sanctions screening hit that escalates the band — the case management side reacting to a real designation match.</span></div></div>
+      <div class="case"><span class="tag">CM003</span><div class="cb"><b>Deltaforge Metals Ltd</b> — <span>Spoofing / layering. A capital-markets typology, showing the same substrate carries market-abuse detection, not just AML.</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Under the hood &amp; what it demonstrates</h2>
+    <div class="grid2">
+      <div>
+        <p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:9px">How it's built</p>
+        <ul class="tick">
+          <li><strong>Real pillar data</strong> — entities, ownership, transactions, KYC, screening, shipping.</li>
+          <li><strong>Resolved once, reused</strong> — the entity graph is shared across every typology.</li>
+          <li><strong>Deterministic</strong> — byte-identical rebuilds, no hidden randomness.</li>
+          <li><strong>Tested end-to-end</strong> — five-layer functional packs: network &rarr; analytic &rarr; score &rarr; alert &rarr; output.</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:9px">What it shows I can do</p>
+        <ul class="tick">
+          <li><strong>The domain</strong> — typologies, entity resolution, sanctions, SAR, AMLD6.</li>
+          <li><strong>The vendor landscape</strong> — investigate + manage, fused, not just named.</li>
+          <li><strong>Full-stack build</strong> — data model &rarr; analytics &rarr; scoring &rarr; UI.</li>
+          <li><strong>A governance mindset</strong> — provenance, tunable config, audit trail.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Known limitations &amp; where it's going</h2>
+    <div class="honest">
+      <div class="ht">The honest version — named before you ask</div>
+      <ul class="tick warn">
+        <li>Entity-resolution matching is deliberately naive today; a production-grade resolver is the next replacement.</li>
+        <li>Single-source pillar data — no cross-source provenance fusion yet.</li>
+        <li>No beneficial-ownership / directors register yet — a known <strong>AMLD6</strong> gap, already on the roadmap.</li>
+        <li>Score thresholds need calibration against real run history before they'd be trustworthy in production.</li>
+      </ul>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--ink2)">This is <span class="emg">Beta v1.0</span> — the start of a proving journey, iterating in public. Naming the gaps is the point: it's a system built by someone who knows what "done" actually looks like.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="fmark">NEXUS</span> &middot; Financial Crime Intelligence Console &middot; Beta v1.0 &middot;
+    <a href="runtime-demo/console.html">Open the live console &rarr;</a>
+  </footer>
+
+</div>
+</body>
+</html>
