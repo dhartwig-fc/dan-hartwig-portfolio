@@ -260,16 +260,16 @@ h1{margin:0;line-height:0}
 
 .briefing-slides{
   display:grid;
-  gap:26px;
+  gap:18px;
+  grid-template-columns:repeat(3,1fr);
 }
 
 .briefing-slide-card{
-  display:grid;
-  grid-template-columns:.78fr 1.22fr;
-  gap:28px;
-  align-items:center;
-  padding:28px;
-  border-radius:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:26px;
+  border-radius:26px;
   border:1px solid var(--line);
   background:linear-gradient(180deg,rgba(15,23,42,.92),rgba(8,19,34,.92));
   box-shadow:0 32px 90px rgba(0,0,0,.30);
@@ -295,16 +295,16 @@ h1{margin:0;line-height:0}
 
 .briefing-slide-copy h3{
   margin:0;
-  font-size:clamp(28px,4vw,46px);
-  line-height:.98;
-  letter-spacing:-.065em;
+  font-size:clamp(22px,2.3vw,29px);
+  line-height:1.04;
+  letter-spacing:-.04em;
 }
 
 .briefing-slide-copy p{
-  margin:18px 0 0;
+  margin:14px 0 0;
   color:var(--muted);
-  font-size:16px;
-  line-height:1.65;
+  font-size:14.5px;
+  line-height:1.6;
 }
 
 .briefing-link{
@@ -315,16 +315,8 @@ h1{margin:0;line-height:0}
   font-size:14px;
 }
 
-.briefing-slide-image img{
-  width:100%;
-  display:block;
-  border-radius:22px;
-  border:1px solid rgba(148,163,184,.24);
-  box-shadow:0 22px 60px rgba(0,0,0,.36);
-}
-
 @media(max-width:900px){
-  .briefing-slide-card{
+  .briefing-slides{
     grid-template-columns:1fr;
   }
 }
@@ -2025,9 +2017,6 @@ h1{margin:0;line-height:0}
           <p>Forward view of the NEXUS programme roadmap, delivery phases, maturity path and future operating model.</p>
           <span class="briefing-link">Open full briefing →</span>
         </div>
-        <div class="briefing-slide-image">
-          <img src="../../projects/nexus/assets/images/executive-pack/Programme Roadmap_27_June.png" alt="Platform Roadmap briefing">
-        </div>
       </a>
 
       <a class="briefing-slide-card" id="mission-status" href="mission-status.html">
@@ -2037,9 +2026,6 @@ h1{margin:0;line-height:0}
           <p>Current development overview, platform readiness, delivery health and mission progress snapshot.</p>
           <span class="briefing-link">Open full briefing →</span>
         </div>
-        <div class="briefing-slide-image">
-          <img src="../../projects/nexus/assets/images/executive-pack/Mission Status_27_June.png" alt="Mission Status briefing">
-        </div>
       </a>
 
       <a class="briefing-slide-card" id="stage-catalogue" href="stage-catalogue.html">
@@ -2048,9 +2034,6 @@ h1{margin:0;line-height:0}
           <h3>Detailed Stage Catalogue</h3>
           <p>Complete programme reference showing stage progression, delivery components, current state and completion evidence.</p>
           <span class="briefing-link">Open full briefing →</span>
-        </div>
-        <div class="briefing-slide-image">
-          <img src="../../projects/nexus/assets/images/executive-pack/Stage Catalogue_27_June.png" alt="Detailed Stage Catalogue briefing">
         </div>
       </a>
 
