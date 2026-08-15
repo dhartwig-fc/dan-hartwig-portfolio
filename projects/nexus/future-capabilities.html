@@ -31,8 +31,9 @@ h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.06em;margin:0
 .track::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
 .track.copilot::before{background:var(--blue)}
 .track.threat::before{background:var(--purple)}
+.track.knowledge::before{background:var(--gold)}
 .track .tk{font-family:var(--mono);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
-.track.copilot .tk{color:var(--blue)} .track.threat .tk{color:var(--purple)}
+.track.copilot .tk{color:var(--blue)} .track.threat .tk{color:var(--purple)} .track.knowledge .tk{color:var(--gold)}
 .track h2{font-size:32px;letter-spacing:-.05em;margin:0 0 12px}
 .track .intro{color:var(--muted);font-size:16px;line-height:1.62;max-width:76ch;margin:0}
 .track .intro b{color:var(--text);font-weight:600}
@@ -91,12 +92,30 @@ figcaption b{color:var(--purple)}
   <div class="kicker">Future Capabilities</div>
   <h1>Where the AI plugs in.</h1>
   <p class="lead">
-    The chain is built. The next layer makes it <b>learn and assist</b> — two tracks that sit on the same
-    resolved-entity substrate: an <b>AI copilot</b> that plugs applications onto grounded context, and a
-    <b>threat-intelligence layer</b> that keeps the platform current. Both are <b>grounded and governed</b> —
+    The chain is built. The next layer makes it <b>learn and stay current</b> — a doctrine <b>foundation</b> plus
+    two AI tracks, all on the same resolved-entity substrate: the <b>Knowledge Centre</b> (the typology doctrine,
+    surfaced), an <b>AI copilot</b> that plugs applications onto grounded context, and a
+    <b>threat-intelligence layer</b> that keeps the platform current. All <b>grounded and governed</b> —
     AI acting on the platform's own evidence, never a free-floating model.
   </p>
-  <div class="note">Direction &amp; architecture · not yet built · SAR drafter is copilot slice 1 (<b>live</b>)</div>
+  <div class="note">Direction &amp; architecture · Knowledge Centre is the near-term first step · SAR drafter is copilot slice 1 (<b>live</b>)</div>
+
+  <!-- FOUNDATION -->
+  <div class="track knowledge">
+    <div class="tk">Foundation · Knowledge Centre</div>
+    <h2>The doctrine, surfaced — near-term, from what's already written.</h2>
+    <p class="intro">
+      The estate already holds <b>~188 typology descriptors</b> in the analytics toolkits — every method's
+      description, red-flag indicators, worked example and investigation actions. The Knowledge Centre
+      <b>curates them into a governed typology library</b> and surfaces it in the console: an
+      <b>in-context slide-over</b> from any typology chip on a case (the investigator learns <i>why this fired</i>
+      without leaving it), and a standalone <b>Knowledge tab</b> to browse the whole doctrine by family.
+    </p>
+    <div class="callout p">
+      <div class="ct">Why it comes first — and why it's the spine</div>
+      <p>It's the <b>static half</b> of the intelligence layer ("what each method <i>is</i>") to threat intelligence's dynamic half ("what's happening <i>now</i>"). Cheap and near-term — the content is already written — and each library record carries an <b>intel attachment point</b>, so <b>Track 2's advisories, actors and emergent typologies pin straight onto it</b> without rework. Build the doctrine, and the live intelligence has something to attach to.</p>
+    </div>
+  </div>
 
   <!-- TRACK 1 -->
   <div class="track copilot">
