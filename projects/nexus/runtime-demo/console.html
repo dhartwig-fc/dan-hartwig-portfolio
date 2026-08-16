@@ -2470,24 +2470,28 @@
   // the alert queue (hide non-matching `#alerts .alert` cards) and the
   // network graph (dim non-matching nodes via the CSS-only `.facet-dim`
   // class -- never `gmode-hide`/display:none, which stays Task 4b's own
-  // mode-scoped-visibility concern). Semantics (additive / OR-union, owner
-  // decision 2026-08-13): an entity is shown iff at least one of its
-  // represented values has an active chip -- turning a chip ON ADDS its
-  // matches, so the queue GROWS as you add criteria, and Clear all (every
-  // chip off) empties it. See matchesFacets below.
+  // mode-scoped-visibility concern). Semantics (standard faceted filter,
+  // owner decision 2026-08-16, replacing the 2026-08-13 additive OR-union):
+  // AND across groups, OR within a group. For every group in which the
+  // entity has at least one REPRESENTABLE value, one of those values must
+  // have an active chip -- otherwise that group EXCLUDES the entity. Groups
+  // are ANDed, so narrowing Band to "Critical only" removes every non-
+  // Critical alert even when it still matches on Type. All chips on ->
+  // everything shows; Clear all on a box drops every entity that box
+  // represents. See matchesFacets below.
   //
   // Type/Band are always-present categorical fields (every alert/node has
   // exactly one) -- an entity whose value has NO corresponding chip at all
   // (e.g. entity_type "bank": there is no Bank chip, only Company/
-  // Individual/Vessel/Account) is left alone by that group entirely (a
+  // Individual/Vessel/Account) is left UNCONSTRAINED by that group (a
   // control that doesn't exist can't filter you out). Status/Family/Queue
-  // are TAG fields -- most entities carry zero of them; an entity passes a
-  // tag group vacuously whenever it has no RECOGNIZED tag for that group
+  // are TAG fields -- most entities carry zero of them; an entity is
+  // unconstrained by a tag group whenever it has no RECOGNIZED tag for it
   // (either no tag at all, or only tags no chip covers, e.g. a typology
-  // whose family is None, outside the 5 shown Family chips) --
-  // otherwise at least one of its recognized tags must be active. This is
-  // the same "no fabricated exclusion" standard as the rest of the payload:
-  // a chip only ever filters values it actually represents.
+  // whose family is None, outside the 5 shown Family chips) -- otherwise at
+  // least one of its recognized tags must be active. This is the same "no
+  // fabricated exclusion" standard as the rest of the payload: a chip only
+  // ever filters values it actually represents.
   function facetValueMap(selector){
     var map = { type: {}, band: {}, status: {}, family: {}, queue: {} };
     document.querySelectorAll(selector).forEach(function(el){
@@ -2592,14 +2596,16 @@
     };
   }
   function matchesFacets(ek, active, available){
-    // Additive / OR-union model (owner decision 2026-08-13): an entity is
-    // shown iff AT LEAST ONE of its represented values has an ACTIVE chip.
-    // Turning a chip on ADDS its matches, so the queue GROWS as you add
-    // criteria; Clear all (every chip off) shows nothing, and you build the
-    // view back up. An entity that NO chip represents at all passes
-    // vacuously (a control that doesn't exist can neither include nor
-    // exclude it -- e.g. a "bank"-type node, since Type only has Company/
-    // Individual/Vessel/Account chips, that also carries no other tag).
+    // Standard faceted filter (owner decision 2026-08-16, replacing the
+    // 2026-08-13 additive OR-union): AND across groups, OR within a group.
+    // For each group where the entity has >=1 REPRESENTABLE value, one of
+    // those values must have an ACTIVE chip; a group excludes the entity
+    // when none of its represented values is active. A group in which the
+    // entity is not represented at all does not constrain it (a control
+    // that doesn't exist can't filter you out -- e.g. a "bank"-type node,
+    // since Type only has Company/Individual/Vessel/Account chips). This
+    // makes every box a real filter: narrowing Band to "Critical only"
+    // removes non-Critical alerts even though their Type chip is still on.
     var tags = entityFacetTags(ek);
     var groups = [
       ["type", tags.type == null ? [] : [tags.type]],
@@ -2608,18 +2614,19 @@
       ["family", tags.family],
       ["queue", tags.queue]
     ];
-    var hasRepresentable = false, hasActiveMatch = false;
     for (var i = 0; i < groups.length; i++){
       var g = groups[i][0], vals = groups[i][1];
+      var repr = false, match = false;
       for (var j = 0; j < vals.length; j++){
         var v = vals[j];
         if (available[g][v]){
-          hasRepresentable = true;
-          if (active[g][v]) hasActiveMatch = true;
+          repr = true;
+          if (active[g][v]) match = true;
         }
       }
+      if (repr && !match) return false;
     }
-    return hasRepresentable ? hasActiveMatch : true;
+    return true;
   }
   function applyFacetFilter(){
     var active = facetValueMap(".facet.on");
@@ -2643,7 +2650,8 @@
   });
   // Per-box Clear all -- each grouped facet box clears only its own groups
   // (Type/Status/Family vs Band/Queue), then re-runs the filter. Under the
-  // additive model, clearing a box empties the queue of that box's criteria.
+  // AND model, clearing a box drops every entity that box represents (that
+  // group now excludes all of them), isolating the other boxes' criteria.
   function clearFacetGroups(groups){
     document.querySelectorAll(".facet[data-group]").forEach(function(chip){
       if (groups.indexOf(chip.getAttribute("data-group")) !== -1) chip.classList.remove("on");
