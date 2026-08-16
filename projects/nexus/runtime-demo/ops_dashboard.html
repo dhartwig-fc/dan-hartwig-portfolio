@@ -20,6 +20,12 @@
   header.top{display:flex;justify-content:space-between;align-items:baseline;
     border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:22px}
   header.top h1{font-size:18px;letter-spacing:.02em;margin:0;font-weight:700}
+  header.top .hleft{display:flex;align-items:center;gap:14px}
+  .opsback{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+    font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);
+    text-decoration:none;border:1px solid rgba(233,200,119,.4);border-radius:9px;padding:6px 12px;
+    background:rgba(233,200,119,.06);transition:background .12s,color .12s,border-color .12s}
+  .opsback:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
   header.top .asof{font-family:var(--mono);font-size:11px;color:var(--ink3)}
   h2.sect{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);
     font-weight:700;margin:30px 0 10px}
@@ -89,7 +95,7 @@
 </style></head>
 <body>
 <div class="wrap">
-  <header class="top"><h1>NEXUS Operations &mdash; Supervisor Dashboard</h1><div class="asof">AS OF 2026-08-11</div></header>
+  <header class="top"><div class="hleft"><a class="opsback" href="console.html" onclick="if(history.length>1){history.back();return false;}" title="Back to the previous page">&#8592; Back</a><h1>NEXUS Operations &mdash; Supervisor Dashboard</h1></div><div class="asof">AS OF 2026-08-11</div></header>
   <div id="opsSession" class="ops-session"></div>
   <div class="mi-tabs"><span class="mi-tab on" data-panel="tab-overview">Overview</span><span class="mi-tab" data-panel="tab-mi">MI Explorer</span></div><div id="tab-overview" class="mi-panel on">
 
