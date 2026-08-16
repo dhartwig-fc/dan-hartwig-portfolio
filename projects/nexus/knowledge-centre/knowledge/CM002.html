@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset='utf-8'><title>NEXUS · CM002</title><style>
+:root{--bg:#050b14;--panel:#0b1626;--line:rgba(148,163,184,.22);--ink:#f8fafc;
+--ink2:#94a3b8;--acc:#79c4ff;--gold:#e9c877;--green:#37d39b;--amber:#e9c877;--mut:#5b6b82}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:56px 28px 100px}
+h1{font-size:40px;letter-spacing:-.04em;margin:0 0 8px}
+.lede{color:var(--ink2);font-size:16px;margin:0 0 8px}
+.fam{margin-top:40px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);
+border-bottom:1px solid var(--line);padding-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:16px}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--panel)}
+.card a{color:inherit;text-decoration:none}
+.code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink2)}
+.nm{font-size:15px;margin:4px 0 10px}
+.badge{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.06em;
+text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid}
+.b-authored{color:var(--green);border-color:var(--green)}
+.b-partial{color:var(--amber);border-color:var(--amber)}
+.b-pending{color:var(--mut);border-color:var(--mut)}
+.q{border-left:3px solid var(--acc);background:rgba(121,196,255,.08);padding:12px 14px;border-radius:8px;color:#d7ecff;margin:12px 0}h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-top:28px}h3{font-size:14px;color:var(--gold);margin:14px 0 4px}.chip{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:3px 9px;margin:3px 6px 3px 0;color:var(--acc);text-decoration:none}.prov{color:var(--mut);font-size:11px;margin-top:40px;font-family:ui-monospace,Menlo,monospace}</style></head><body><div class="wrap"><p class="code">CM002 · Capital Markets</p><h1>Market Manipulation</h1><p>Market manipulation is the artificial distortion of a security&#x27;s price or volume to
+create a false or misleading impression of supply, demand, or price, so a position can
+be exited — or a benchmark can be gamed — at an advantage. The finding is a convergence
+finding: it lives in how large the price move is relative to the instrument&#x27;s normal
+volatility, how concentrated the account&#x27;s footprint is against total market volume,
+whether the trading is coordinated across linked accounts, and how much of the price
+move reverses once the manipulative window closes — the tell that the move was not
+information-driven.
+
+Article 12 of the EU Market Abuse Regulation (MAR) defines market manipulation. Article
+15 prohibits it outright. CM002 detects the trading-side signature of both.
+
+---</p><h2>Risk indicators</h2><h3>Price Impact Ratio</h3><ul><li>Price move materially larger than the instrument&#x27;s normal volatility</li><li>Move concentrated in a short surveillance window rather than a sustained trend</li><li>Move inconsistent with any contemporaneous public news or disclosure</li></ul><h3>Volume Concentration</h3><ul><li>Account share of total market volume disproportionate to its normal trading pattern</li><li>Volume concentrated in a thin or illiquid instrument</li><li>Order flow inconsistent with the account&#x27;s stated trading mandate</li></ul><h3>Coordinated Accounts</h3><ul><li>Multiple accounts trading in concert, in the same direction, in the same window</li><li>Linked accounts sharing common beneficial ownership, venue, or execution timing</li><li>Coordination frequency inconsistent with independent trading decisions</li></ul><h3>Reversal After Close</h3><ul><li>Price move largely unwinds once the manipulative window closes</li><li>Reversal timing tightly coupled to the account&#x27;s own exit, not to any market news</li><li>Reversal magnitude disproportionate to the size of the original move</li></ul><h2>Investigation actions</h2><ol><li>Resolve the account holder, the ultimate owner and the venue.</li><li>Compute the price impact ratio (price move % / normal volatility %).</li><li>Compute the volume concentration (account share of total market volume in the window).</li><li>Count the linked accounts trading in concert with this account.</li><li>Compute the reversal-after-close ratio (post-period reversal % / price move %).</li><li>Score each of the four components against its band cut-lines.</li><li>Aggregate the weighted exposure score; escalate at or above the threshold.</li></ol><h2>Related typologies</h2><a class="chip" href="CM001.html">CM001</a><a class="chip" href="CM006.html">CM006</a><a class="chip" href="CM008.html">CM008</a><p class="prov">Curated from fc-07-capital-markets-analytics-toolkit/fc-07-capital-markets-analytics-toolkit/typologies/CM002_Market_Manipulation.md</p></div></body></html>

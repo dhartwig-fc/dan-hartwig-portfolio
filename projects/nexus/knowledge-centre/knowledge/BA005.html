@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset='utf-8'><title>NEXUS · BA005</title><style>
+:root{--bg:#050b14;--panel:#0b1626;--line:rgba(148,163,184,.22);--ink:#f8fafc;
+--ink2:#94a3b8;--acc:#79c4ff;--gold:#e9c877;--green:#37d39b;--amber:#e9c877;--mut:#5b6b82}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif}
+.wrap{max-width:1180px;margin:auto;padding:56px 28px 100px}
+h1{font-size:40px;letter-spacing:-.04em;margin:0 0 8px}
+.lede{color:var(--ink2);font-size:16px;margin:0 0 8px}
+.fam{margin-top:40px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);
+border-bottom:1px solid var(--line);padding-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:16px}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--panel)}
+.card a{color:inherit;text-decoration:none}
+.code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink2)}
+.nm{font-size:15px;margin:4px 0 10px}
+.badge{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.06em;
+text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid}
+.b-authored{color:var(--green);border-color:var(--green)}
+.b-partial{color:var(--amber);border-color:var(--amber)}
+.b-pending{color:var(--mut);border-color:var(--mut)}
+.q{border-left:3px solid var(--acc);background:rgba(121,196,255,.08);padding:12px 14px;border-radius:8px;color:#d7ecff;margin:12px 0}h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-top:28px}h3{font-size:14px;color:var(--gold);margin:14px 0 4px}.chip{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:3px 9px;margin:3px 6px 3px 0;color:var(--acc);text-decoration:none}.prov{color:var(--mut);font-size:11px;margin-top:40px;font-family:ui-monospace,Menlo,monospace}</style></head><body><div class="wrap"><p class="code">BA005 · Correspondent Banking</p><h1>Rapid Movement</h1><p>Rapid movement is the velocity / layering signal at the heart of correspondent-banking
+monitoring: funds land on an account and clear back out again almost immediately, resting
+only long enough to register a balance change before they are gone. It is not defined by
+who sent the money or where it ends up — those can look entirely ordinary on any single
+leg — it is defined by HOW FAST the funds move and HOW MUCH volume passes through an
+account relative to what it normally holds.
+
+The finding lives in four places: how briefly the funds dwell on the account before
+clearing onward, how large the turnover is relative to the account&#x27;s own balance (an
+account that turns over many multiples of its balance every cycle is not behaving like an
+ordinary deposit account), how widely the outbound leg disperses across multiple onward
+destinations rather than settling with one counterparty, and how closely the outbound
+amount tracks the inbound amount — near-total pass-through with almost nothing retained.
+
+---</p><h2>Risk indicators</h2><h3>Dwell Time</h3><ul><li>Inbound funds clearing back out within hours of arrival</li><li>Balance spikes that resolve to near-baseline within the same reporting cycle</li></ul><h3>Velocity</h3><ul><li>Turnover many multiples of the account&#x27;s own average balance</li><li>Throughput inconsistent with the account&#x27;s declared purpose or segment</li></ul><h3>Onward Dispersion</h3><ul><li>Outbound funds splitting across several distinct onward destinations</li><li>Destinations with no independent commercial rationale for receiving the funds</li></ul><h3>Value Match</h3><ul><li>Outbound amounts tracking inbound amounts almost 1:1</li><li>Round-number consistency between inbound and outbound legs inconsistent with genuine</li></ul><h2>Investigation actions</h2><ol><li>Resolve the account, its source, and every onward destination (first, second).</li><li>Compute the dwell time from inbound clearing to outbound clearing.</li><li>Compute the velocity ratio (total turnover amount / average balance).</li><li>Count the distinct onward destinations the outbound leg disperses across.</li><li>Compute the value match ratio (outbound amount / inbound amount).</li><li>Score each of the four components against its band cut-lines.</li><li>Aggregate the weighted exposure score; escalate at or above the threshold.</li></ol><h2>Detection logic</h2><p>1. Resolve the account, its source, and every onward destination (first, second).
+2. Compute the dwell time from inbound clearing to outbound clearing.
+3. Compute the velocity ratio (total turnover amount / average balance).
+4. Count the distinct onward destinations the outbound leg disperses across.
+5. Compute the value match ratio (outbound amount / inbound amount).
+6. Score each of the four components against its band cut-lines.
+7. Aggregate the weighted exposure score; escalate at or above the threshold.
+
+---</p><h2>Related typologies</h2><a class="chip" href="BA002.html">BA002</a><a class="chip" href="BA004.html">BA004</a><a class="chip" href="BA008.html">BA008</a><p class="prov">Curated from fc-06-correspondent-banking-analytics-toolkit/fc-06-correspondent-banking-analytics-toolkit/typologies/BA005_Rapid_Movement.md</p></div></body></html>
