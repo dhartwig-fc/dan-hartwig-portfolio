@@ -2756,11 +2756,19 @@
       + '</div>';
   }
 
+  function _hideRibbon(hide){
+    // While the search dropdown is open, hide the facet ribbon behind it so the
+    // dropdown reads as a solid block covering everything under it (visibility,
+    // not display -> the header keeps its height, no layout shift).
+    var r = document.querySelector(".hrow-facets");
+    if (r) r.style.visibility = hide ? "hidden" : "";
+  }
   function renderResults(query){
     var items = searchResults(query);
     if (!query){
       resultsEl.innerHTML = "";
       resultsEl.classList.remove("open");
+      _hideRibbon(false);
       if (searchInput) searchInput.setAttribute("aria-expanded", "false");
       return;
     }
@@ -2768,12 +2776,14 @@
       ? items.map(resultRowHtml).join("")
       : '<div class="noresults">No matches.</div>';
     resultsEl.classList.add("open");
+    _hideRibbon(true);
     if (searchInput) searchInput.setAttribute("aria-expanded", "true");
   }
 
   function closeResults(){
     resultsEl.innerHTML = "";
     resultsEl.classList.remove("open");
+    _hideRibbon(false);
     if (searchInput) searchInput.setAttribute("aria-expanded", "false");
   }
 
