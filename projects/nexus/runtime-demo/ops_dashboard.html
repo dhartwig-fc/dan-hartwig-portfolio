@@ -82,10 +82,15 @@
   .mibar{display:inline-block;height:7px;background:var(--acc);border-radius:3px;margin-left:6px;vertical-align:middle;opacity:.5}
   .micall{font-size:11px;color:var(--ink2);margin-bottom:8px} .micall b{color:var(--gold)}
   .miempty{font-size:11px;color:var(--ink2);padding:10px 0}
+
+  .ops-session{display:none;margin:0 0 16px;padding:10px 14px;border:1px solid var(--gold);
+    border-radius:10px;background:rgba(233,200,119,.08);color:var(--gold);font-size:12.5px;line-height:1.5}
+  .ops-session b{font-family:var(--mono)}
 </style></head>
 <body>
 <div class="wrap">
   <header class="top"><h1>NEXUS Operations &mdash; Supervisor Dashboard</h1><div class="asof">AS OF 2026-08-11</div></header>
+  <div id="opsSession" class="ops-session"></div>
   <div class="mi-tabs"><span class="mi-tab on" data-panel="tab-overview">Overview</span><span class="mi-tab" data-panel="tab-mi">MI Explorer</span></div><div id="tab-overview" class="mi-panel on">
 
   <div class="kpis"><div class="kpi"><div class="n">45</div><div class="l">Open</div></div><div class="kpi warn"><div class="n">7</div><div class="l">Critical open</div></div><div class="kpi warn"><div class="n">36</div><div class="l">SLA breaches</div></div><div class="kpi"><div class="n">1</div><div class="l">SARs filed</div></div><div class="kpi good"><div class="n">1</div><div class="l">Cleared</div></div><div class="kpi"><div class="n">1</div><div class="l">In QA</div></div></div>
@@ -214,6 +219,20 @@
     tabs.forEach(function(x){ x.classList.remove("on"); }); panels.forEach(function(p){ p.classList.remove("on"); });
     t.classList.add("on"); document.getElementById(t.dataset.panel).classList.add("on");
   };});
+})();
+</script>
+
+<script>
+(function(){
+  try {
+    var d = JSON.parse(localStorage.getItem("nexus_op_state_v1") || "{}");
+    var keys = Object.keys(d || {});
+    if (!keys.length) return;
+    var LBL = {New:"Open",Assigned:"Assigned",InProgress:"In progress",PendingQA:"QA review",Cleared:"Cleared",SARFiled:"SAR filed",Escalated:"Escalated"};
+    var items = keys.map(function(ek){ return ek.replace(/^E-/,"") + " \u2192 " + (LBL[d[ek]] || d[ek]); }).join("  \u00b7  ");
+    var el = document.getElementById("opsSession");
+    if (el){ el.innerHTML = "\u21bb <b>" + keys.length + "</b> live case update" + (keys.length > 1 ? "s" : "") + " from this session \u2014 " + items; el.style.display = "block"; }
+  } catch (e) {}
 })();
 </script>
 
