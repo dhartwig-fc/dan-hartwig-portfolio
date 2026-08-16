@@ -315,6 +315,19 @@ h1{margin:0;line-height:0}
   font-size:14px;
 }
 
+/* Release Notes — orange accent card */
+.briefing-slide-card.orange{
+  border-color:rgba(251,146,60,.5);
+  background:linear-gradient(180deg,rgba(43,26,11,.94),rgba(30,18,8,.94));
+  box-shadow:0 32px 90px rgba(120,60,10,.30);
+}
+.briefing-slide-card.orange:hover{
+  border-color:rgba(251,146,60,.85);
+  box-shadow:0 40px 110px rgba(251,146,60,.22);
+}
+.briefing-slide-card.orange .briefing-label{color:#fb923c}
+.briefing-slide-card.orange .briefing-link{color:#fdba74}
+
 @media(max-width:900px){
   .briefing-slides{
     grid-template-columns:1fr;
@@ -1834,7 +1847,7 @@ h1{margin:0;line-height:0}
 
         <a class="btn" href="telemetry/index.html">Enterprise Telemetry</a>
 
-<a class="btn" href="data-dictionary/">Data Dictionary &middot; Functional Spec</a>
+<a class="btn" href="data-dictionary/">Data Dictionary</a>
 
 <a class="btn" href="knowledge-centre/index.html">Knowledge Centre</a>
 </div>
@@ -2045,6 +2058,15 @@ h1{margin:0;line-height:0}
           <h3>Future Capabilities</h3>
           <p>Where the AI plugs in: the copilot's application slices and the threat-intelligence layer with live-feed seams.</p>
           <span class="briefing-link">Open full briefing →</span>
+        </div>
+      </a>
+
+      <a class="briefing-slide-card orange" id="release-notes" href="stage-catalogue.html#release-v2">
+        <div class="briefing-slide-copy">
+          <div class="briefing-label">Release Notes</div>
+          <h3>Console Beta v2.0</h3>
+          <p>What changed since v1.0 — the latest build wave's engineering and architectural additions, each with commentary.</p>
+          <span class="briefing-link">Read the notes →</span>
         </div>
       </a>
 
