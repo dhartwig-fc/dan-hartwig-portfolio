@@ -46,7 +46,12 @@
      and hrow-facets (the facet strip) -- so the header compacts to
      ~90px (from 165px) and the reclaimed height flows straight to the
      .board grid below (it fills whatever height remains). */
-  header{display:flex;flex-direction:column;gap:8px;padding:9px 16px}
+  /* .glass's backdrop-filter makes the header a stacking context; without a
+     positive z-index it sits at the same level as the later .board sibling,
+     which then paints OVER the absolutely-positioned search dropdown. Lift the
+     whole header above the board (still below the drill/drawers/toast at 50+)
+     so the dropdown covers the panels beneath it. */
+  header{display:flex;flex-direction:column;gap:8px;padding:9px 16px;position:relative;z-index:40}
   .hrow{display:flex;align-items:center;gap:14px}
   .hrow-facets{width:100%}
   .mark{display:flex;align-items:center;gap:9px;flex-shrink:0}
