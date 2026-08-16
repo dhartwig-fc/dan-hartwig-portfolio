@@ -2912,11 +2912,12 @@
     var revealText = walk.reveal || d.briefing.verdict || "";
     // Governed doctrine seam: when build_payload resolved this walk's typology
     // to an authored Knowledge Centre page, the Pattern panel carries a
-    // "Typology Library" button (top-right) that opens that doctrine in a new
-    // tab. No URL -> no button -- the renderer holds no typology branch, only
+    // "Typology Library" button (top-right) that opens that doctrine in the
+    // same tab (the doctrine page carries its own Back control). No URL -> no
+    // button -- the renderer holds no typology branch, only
     // "show the button if a url was baked into the payload".
     var doctrineBtn = walk.knowledge_url
-      ? '<a class="doctrinebtn" href="' + esc(walk.knowledge_url) + '" target="_blank" rel="noopener" title="Open the ' + esc(s.typology) + ' doctrine in the Typology Library">Typology Library &#9656;</a>'
+      ? '<a class="doctrinebtn" href="' + esc(walk.knowledge_url) + '" title="Open the ' + esc(s.typology) + ' doctrine in the Typology Library">Typology Library &#9656;</a>'
       : '';
     var vtitle = (function(b){ b = String(b || "").toLowerCase();
       return (b === "critical" || b === "high") ? "Escalate \u2014 SAR candidate"
