@@ -188,6 +188,8 @@
         <div class="say"><span class="q">"You'll see two scores, deliberately.</span> The queue shows <b>100</b> — the macro triage score that ranks what to look at first. The model shows <b>56 / Medium</b> — the Circular Funds Flow analytic verdict. <b>Triage versus verdict.</b> (More on that below.)<span class="q">"</span></div></li>
       <li class="step"><span class="cue">The Decision panel</span>
         <div class="say"><span class="q">"On the right, the governed decision —</span> a recommendation, the intelligence produced, six case actions, a live audit trail, and a <b>drafted SAR narrative</b> that's provenance-linked back to the evidence. Investigate and manage, closed on one screen.<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">Two more surfaces</span>
+        <div class="say"><span class="q">"Two more things on tap.</span> The pattern panel has a <b>Typology Library</b> button — the full doctrine for that typology (indicators, red flags, investigation steps) one click from the case, so the investigator learns <em>why this fired</em> without leaving it. And an <b>Operations</b> button opens the supervisor view: an MI dashboard and a Tableau-style <b>MI Explorer</b> — aging, jurisdiction and typology, over the whole case book. The manager's desk, on the same substrate.<span class="q">"</span></div></li>
     </ol>
   </section>
 
@@ -206,6 +208,7 @@
       </div>
     </div>
     <p style="font-size:13px;color:var(--ink3)">Two numbers because they answer two different questions. Conflating "what do I look at first" with "how strong is the case" is a classic detection-system failure — keeping them separate is the point.</p>
+    <p style="font-size:13px;color:var(--ink3)"><b>And the queue ranks on whichever is stronger.</b> If a typology's analytic verdict outranks the macro triage, the alert is promoted to that score and says so with a priority badge — <b>&#9650; CM003 &middot; macro 37.5</b> on Deltaforge, for example. So a compelling typology case can never hide behind a modest triage number, and you can always see <em>which</em> signal set the priority. The two scores stay distinct; the queue simply refuses to under-rank the stronger one.</p>
   </section>
 
   <section>
@@ -213,7 +216,7 @@
     <div class="cases">
       <div class="case"><span class="tag c">CFF</span><div class="cb"><b>Crans Resources</b> — <span>Circular Funds Flow. A closed two-leg gold-trade loop with a common controller; TBML mismatch and jurisdiction risk (PK / CY) stacked on top.</span></div></div>
       <div class="case"><span class="tag s">SAN002</span><div class="cb"><b>Silverline Petrochemicals</b> — <span>Shadow Fleet. A sanctions screening hit that escalates the band — the case management side reacting to a real designation match.</span></div></div>
-      <div class="case"><span class="tag">CM003</span><div class="cb"><b>Deltaforge Metals Ltd</b> — <span>Spoofing / layering. A capital-markets typology, showing the same substrate carries market-abuse detection, not just AML.</span></div></div>
+      <div class="case"><span class="tag">CM003</span><div class="cb"><b>Deltaforge Metals Ltd</b> — <span>Spoofing / layering. A capital-markets typology, showing the same substrate carries market-abuse detection, not just AML. Its spoofing verdict (<b>56</b>) outranks its macro triage (<b>37.5</b>), so the queue promotes it to 56 with a priority badge — the highest-score rule made visible.</span></div></div>
     </div>
   </section>
 
@@ -236,6 +239,7 @@
           <li><strong>The vendor landscape</strong> — investigate + manage, fused, not just named.</li>
           <li><strong>Full-stack build</strong> — data model &rarr; analytics &rarr; scoring &rarr; UI.</li>
           <li><strong>A governance mindset</strong> — provenance, tunable config, audit trail.</li>
+          <li><strong>Explainable by design</strong> — typology doctrine one click from the case, and a queue priority you can always trace to the signal that set it.</li>
         </ul>
       </div>
     </div>
