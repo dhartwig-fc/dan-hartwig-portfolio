@@ -2506,9 +2506,11 @@
   var CASE_STATE = {};
   var _OP_DIRTY = {};
   var QUEUE_VIEW = "open";   // "open" = the shared/unassigned queue; "assigned" = cases worked this session (the individual queue)
-  function _isWorked(ek){ return !!(_OP_DIRTY[ek] && caseState(ek) !== "New"); }
+  // NB: applyFacetFilter runs during the initial renderGraph, BEFORE these vars
+  // are assigned (var-hoisting: declared-but-undefined), so guard every read.
+  function _isWorked(ek){ return !!(_OP_DIRTY && _OP_DIRTY[ek] && caseState(ek) !== "New"); }
   function caseState(ek){
-    if (CASE_STATE[ek]) return CASE_STATE[ek];
+    if (CASE_STATE && CASE_STATE[ek]) return CASE_STATE[ek];
     return (P.cases && P.cases[ek] && P.cases[ek].state) || "New";
   }
   function _opInit(){
