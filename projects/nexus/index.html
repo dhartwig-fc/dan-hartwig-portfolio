@@ -328,6 +328,19 @@ h1{margin:0;line-height:0}
 .briefing-slide-card.orange .briefing-label{color:#fb923c}
 .briefing-slide-card.orange .briefing-link{color:#fdba74}
 
+/* Future Capabilities — purple accent card */
+.briefing-slide-card.purple{
+  border-color:rgba(167,139,250,.5);
+  background:linear-gradient(180deg,rgba(30,22,48,.94),rgba(21,15,36,.94));
+  box-shadow:0 32px 90px rgba(76,40,140,.30);
+}
+.briefing-slide-card.purple:hover{
+  border-color:rgba(167,139,250,.85);
+  box-shadow:0 40px 110px rgba(167,139,250,.22);
+}
+.briefing-slide-card.purple .briefing-label{color:#a78bfa}
+.briefing-slide-card.purple .briefing-link{color:#c4b5fd}
+
 @media(max-width:900px){
   .briefing-slides{
     grid-template-columns:1fr;
@@ -2043,7 +2056,7 @@ h1{margin:0;line-height:0}
         </div>
       </a>
 
-      <a class="briefing-slide-card" id="stage-catalogue" href="stage-catalogue.html">
+      <a class="briefing-slide-card orange" id="stage-catalogue" href="stage-catalogue.html">
         <div class="briefing-slide-copy">
           <div class="briefing-label">Update Pack 03</div>
           <h3>Detailed Stage Catalogue</h3>
@@ -2052,7 +2065,7 @@ h1{margin:0;line-height:0}
         </div>
       </a>
 
-      <a class="briefing-slide-card" id="future-capabilities" href="future-capabilities.html">
+      <a class="briefing-slide-card purple" id="future-capabilities" href="future-capabilities.html">
         <div class="briefing-slide-copy">
           <div class="briefing-label">Update Pack 04</div>
           <h3>Future Capabilities</h3>
@@ -2060,16 +2073,6 @@ h1{margin:0;line-height:0}
           <span class="briefing-link">Open full briefing →</span>
         </div>
       </a>
-
-      <a class="briefing-slide-card orange" id="release-notes" href="stage-catalogue.html#release-v2">
-        <div class="briefing-slide-copy">
-          <div class="briefing-label">Release Notes</div>
-          <h3>Console Beta v2.0</h3>
-          <p>What changed since v1.0 — the latest build wave's engineering and architectural additions, each with commentary.</p>
-          <span class="briefing-link">Read the notes →</span>
-        </div>
-      </a>
-
   </div>
 </section>
 <!-- UPDATE PACK SLIDES END -->
