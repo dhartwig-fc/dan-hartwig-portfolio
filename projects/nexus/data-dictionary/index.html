@@ -87,11 +87,11 @@
   <p class="lead">The canonical pillar data model for the NEXUS financial-crime platform. Every table anchors to one resolved party via a shared <b>entity_key</b> — the spine that lets sanctions, transaction monitoring, trade, ownership, intelligence, and case management be <b>views on one truth rather than systems to reconcile</b>. This spec is generated from <b>data_dictionary.yaml</b> (the governed source of truth).</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">25</div><div class="l">Governed tables</div></div>
+    <div class="stat"><div class="n">29</div><div class="l">Governed tables</div></div>
     <div class="stat"><div class="n">9</div><div class="l">Pillars</div></div>
-    <div class="stat"><div class="n">18</div><div class="l">Active</div></div>
-    <div class="stat"><div class="n">7</div><div class="l">Pending / reserved</div></div>
-    <div class="stat"><div class="n">12</div><div class="l">FK links</div></div>
+    <div class="stat"><div class="n">27</div><div class="l">Active</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Pending / reserved</div></div>
+    <div class="stat"><div class="n">20</div><div class="l">FK links</div></div>
     <div class="stat"><div class="n">entity_key</div><div class="l">The join spine</div></div>
   </div>
 
@@ -109,6 +109,7 @@ flowchart LR
   subgraph KYC["KYC / Reference"]
     K[kyc_profile]
     O[ownership]
+    DIR[directorships]
   end
   subgraph SANC["Sanctions / Watchlists"]
     SL[sanctions_list]
@@ -140,6 +141,8 @@ flowchart LR
   T -.->|from/to_entity_key| ENT
   K -.->|entity_key| ENT
   O -->|owner/owned| ENT
+  DIR -->|entity_key| ENT
+  DIR -.->|person_entity_key| ENT
   V -->|owner_entity_key| ENT
   SE -->|vessel_id| V
   SE -.->|counterparty| V
@@ -184,7 +187,7 @@ flowchart LR
     <tbody id="connbody"></tbody>
   </table>
 
-  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-13 · 25 tables / 9 pillars</div>
+  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-17 · 29 tables / 9 pillars</div>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -232,6 +235,8 @@ const PILLARS = [
      els:[["entity_key","entity_key","anchor"],["country_of_incorporation","country_code",""],["industry_code","string (UK SIC)",""],["expected_currency","currency_code",""],["legal_entity_type","enum · ltd|plc|sole_trader|trust|fi|charity|sovereign",""],["cdd_risk_rating","enum · low|medium|high",""]]},
     {n:"ownership",st:"active",ct:"SCD",pk:"owner + owned (+ valid_from)",grain:"one governed ownership/control edge (owner → owned)",
      els:[["owner_entity_key","entity_key → entities","fk"],["owned_entity_key","entity_key → entities","fk"],["percent","decimal",""],["nature","enum · shareholding|control|nominee|trust",""]]},
+    {n:"directorships",st:"active",ct:"SCD",pk:"entity + person + role (+ valid_from)",grain:"one officer appointment (natural person → legal entity). A directorship is a CONTROL relationship, not an ownership stake, so it carries no percentage — the beneficial-ownership resolver uses it as AMLD6's senior-managing-official route when the ownership chain identifies no qualifying natural person",
+     els:[["entity_key","entity_key → entities","fk"],["person_entity_key","entity_key → entities (entity_type must be person)","fk"],["role","enum · director|secretary|officer|senior_managing_official",""],["appointed_on","date",""],["resigned_on","date · empty means currently serving",""],["source","string · provenance of the record",""],["as_of_date","date · last confirmed current (AMLD6 requires BO data be kept current)",""]]},
   ]],
   ["Sanctions / Watchlists","Designations, screening hits, and the governed risk-tier reference tables (country/currency/industry).",[
     {n:"sanctions_list",st:"active",ct:"periodic ref",pk:"designation_id",grain:"one sanctions/PEP/adverse-media designation record",
@@ -240,8 +245,8 @@ const PILLARS = [
      els:[["screening_id","string","pk"],["entity_key","entity_key","anchor"],["designation_id","string → sanctions_list","fk"],["match_score","decimal",""]]},
     {n:"country_risk",st:"active",ct:"periodic ref",pk:"country_code",grain:"one governed risk tier per jurisdiction",
      els:[["country_code","country_code","pk"],["tier","enum · low|medium|high|restricted",""]]},
-    {n:"currency_risk",st:"active",ct:"periodic ref",pk:"currency_code",grain:"one governed risk tier per currency",
-     els:[["currency_code","currency_code","pk"],["tier","enum · low|medium|high|restricted",""]]},
+    {n:"currency_risk",st:"active",ct:"periodic ref",pk:"currency_code",grain:"one governed risk tier per currency, plus whether it is a CORE settlement currency (G7 + CHF + AUD) — orthogonal to tier: core is how unremarkable it is to settle in, tier is the risk the currency carries",
+     els:[["currency_code","currency_code","pk"],["tier","enum · low|medium|high|restricted",""],["core","enum · true|false","governs currency_deviation"]]},
     {n:"industry_risk",st:"active",ct:"periodic ref",pk:"industry_code",grain:"one governed risk tier per industry (UK SIC 2007, keyed to kyc_profile.industry_code)",
      els:[["industry_code","string","pk"],["tier","enum · low|medium|high|restricted",""],["descriptor","string",""]]},
   ]],
