@@ -1,14 +1,14 @@
 {
-  "active_stage": "Stage516",
+  "active_stage": "Stage549",
   "build_fingerprint": "efaedaa68407bedec6cb8db7d1006eb7f09bc575a294f00db2ff4eb176de1519",
   "current_branch": "main",
-  "current_commit": "9b77c08812b9ed8b0466de3d3d2cd78f8df185c7",
+  "current_commit": "e71e5a09e3edb219338002bd6a52c08996df1889",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
     "sources": {
       "accepted_run_id": "derived: the run_id of this envelope",
-      "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-08-07)",
+      "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-08-30)",
       "authority_registry": "derived: authority_lock+pointer+registry (records agree on 7c5b613ccceec356\u2026 but the artefact is 5661a348b4220bca\u2026)",
       "build_fingerprint": "telemetry_projections/tbml010-0d9a8be2b1_telemetry_projection.json:projection_integrity.canonical_core_sha256",
       "canonical_source": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); MISMATCH actual=5661a348b4220bca\u2026)",
@@ -19,13 +19,13 @@
       "events": "derived: logs/tbml010-0d9a8be2b1.json:events (runtime stage events for this run)",
       "evidence_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
       "failures": "derived: count of non-PASS run statuses",
-      "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-08-07)",
+      "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-08-30)",
       "generated_at": "producer runtime clock",
       "intelligence_asset_status": "derived: end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
       "last_validation": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:created_at",
-      "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-08-07)",
+      "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-08-30)",
       "product_id": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:product_id",
-      "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-08-07)",
+      "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-08-30)",
       "release_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
       "repository_integrity": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); MISMATCH actual=5661a348b4220bca\u2026)",
       "repository_status": "authority_registry.json:status",
@@ -33,15 +33,15 @@
       "runtime_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:runtime_status",
       "state_reviewed": "programme_state.json:last_reviewed",
       "validation_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:validation_status",
-      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 10 runtime-output paths excluded)"
+      "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 0 runtime-output paths excluded)"
     }
   },
-  "generated_at": "2026-08-30T08:02:51.620274+00:00",
+  "generated_at": "2026-08-30T08:28:37.805287+00:00",
   "last_validation": "2026-08-30T07:42:26.794007Z",
   "product_id": "TBML010",
   "projection": {
     "accepted_run_id": "tbml010-0d9a8be2b1",
-    "active_stage": "Stage516",
+    "active_stage": "Stage549",
     "authority_registry": "UNVERIFIED",
     "canonical_source": "UNVERIFIED",
     "connection": "UNVERIFIED",
@@ -57,7 +57,7 @@
     "repository_integrity": "UNVERIFIED",
     "repository_status": "VERIFIED",
     "runtime_status": "SUCCESS",
-    "state_reviewed": "2026-08-07",
+    "state_reviewed": "2026-08-30",
     "validation_status": "PASS"
   },
   "run_id": "tbml010-0d9a8be2b1",
