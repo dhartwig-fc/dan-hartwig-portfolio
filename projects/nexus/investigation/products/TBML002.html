@@ -164,12 +164,7 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 <h2>Data Sources</h2>
 <div class="case-evidence" data-source-scope="case"><div class="case-evidence-head">This case &middot; 15 of 15 evidence items present</div><ul class="evidence-list"><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Exporter identity</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Importer identity</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Invoice identifier</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Transaction reference</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Invoice date</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Transaction date</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Goods description</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Commodity code</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Route description</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Declared value</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Benchmark value</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Variance amount</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Variance percentage</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Currency</li><li class="evi evi-present"><span class="evi-mark" aria-hidden="true"></span>Document discrepancy flag</li></ul></div>
 <div class="source-scope-label">Platform data sources · all typologies</div>
-<div class="source" data-source-scope="catalogue"><strong>Corporate Registry</strong>Director, company and ownership filings</div>
-<div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div>
-<div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div>
-<div class="source" data-source-scope="catalogue"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div>
-<div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence <em>(trade typologies)</em></div>
-<div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+<div class="source" data-source-scope="catalogue"><strong>Corporate Registry</strong>Director, company and ownership filings</div><div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div><div class="source" data-source-scope="catalogue" data-source-relevance="family"><strong>Transaction History</strong>Payments, relationship history and account activity <em>(relevant to this typology)</em></div><div class="source" data-source-scope="catalogue"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div><div class="source" data-source-scope="catalogue" data-source-relevance="family"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence <em>(relevant to this typology)</em></div><div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
 </aside>
 
 <main>
@@ -182,7 +177,7 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 
 <div class="executive-banner-card">
 <h2>Dominant Typology</h2>
-<strong>TBML001 Over Invoicing</strong><p>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</p>
+<strong>TBML002 Over-Invoicing (Cross-Domain)</strong><p>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</p>
 </div>
 
 <div class="executive-banner-card">
@@ -256,7 +251,7 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 
 
 <div class="band" id="graph">VISUAL INTELLIGENCE MODEL</div>
-<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/tbml002-2a880d4f87_TBML002_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/tbml002-80342c7e01_TBML002_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -1319,7 +1314,7 @@ FINDING · BENCHMARK_001&lt;/title&gt;
 <div class="grid3">
 <div class="box"><h2>Key Indicators</h2><ul><li>Valuation is the dominant risk driver: declared USD 2,500,000.00 sits USD 800,000.00 (47.06%) above the USD 1,700,000.00 benchmark.</li></ul></div>
 <div class="box"><h2>Risk Rationale</h2><p>The governed FC-04 TBML001 callable identified over-invoicing for invoice INV001 between XYZ Trading LLC and Alpha Trading Ltd.</p></div>
-<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Ownership/control indicators</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li><li>Trade and pricing indicators</li></ul></div>
 </div>
 
 <div class="band" id="workspace">INTELLIGENCE WORKSPACE</div>
@@ -1380,13 +1375,7 @@ FINDING · BENCHMARK_001&lt;/title&gt;
 
 <div class="box">
 <h2>Key Investigation Questions</h2>
-<ul>
-<li>Does available evidence support the dominant hypothesis?</li>
-<li>Are there additional transaction counterparties or connected parties not currently visible?</li>
-<li>Can ownership, control and shared attributes be independently verified?</li>
-<li>Does historical activity support the observed network structure?</li>
-<li>Is escalation warranted given the published risk rating and confidence score?</li>
-</ul>
+<ul><li>Does available evidence support the dominant hypothesis?</li><li>Are there additional transaction counterparties or connected parties not currently visible?</li><li>Does historical activity support the observed network structure?</li><li>Is escalation warranted given the published risk rating and confidence score?</li><li>Can the declared trade terms be corroborated against independent benchmarks?</li></ul>
 </div>
 
 <div class="box">
@@ -1426,7 +1415,7 @@ FINDING · BENCHMARK_001&lt;/title&gt;
 <h2>Alternative Hypotheses</h2>
 <table>
 <tr><th>Hypothesis</th><th>Supported by</th><th>Weakened by</th></tr>
-<tr><td>TBML001 Over Invoicing</td><td>counterparty (High); inflation (High); jurisdiction (High); network (Critical); trade value (Critical)</td><td>historical (Low)</td></tr><tr><td>Each indicator that fired has an innocent explanation</td><td>counterparty (High); inflation (High); jurisdiction (High); network (Critical); trade value (Critical)</td><td>—</td></tr>
+<tr><td>TBML002 Over-Invoicing (Cross-Domain)</td><td>counterparty (High); inflation (High); jurisdiction (High); network (Critical); trade value (Critical)</td><td>historical (Low)</td></tr><tr><td>Each indicator that fired has an innocent explanation</td><td>counterparty (High); inflation (High); jurisdiction (High); network (Critical); trade value (Critical)</td><td>—</td></tr>
 </table>
 </div>
 
@@ -1479,7 +1468,7 @@ The case carries 15 of 15 required evidence items. The governed case envelope de
 
 <div class="box">
 <h2>Reasoning Summary</h2>
-<p>TBML001 Over Invoicing was selected as the dominant typology from the governed analytic&#x27;s own output.</p>
+<p>TBML002 Over-Invoicing (Cross-Domain) was selected as the dominant typology from the governed analytic&#x27;s own output.</p>
 </div>
 
 </div>
@@ -1534,7 +1523,7 @@ The case carries 15 of 15 required evidence items. The governed case envelope de
 
 <div class="box">
 <h2>Technical Metadata</h2>
-<div class="meta"><div><strong>Run ID</strong><br>tbml002-2a880d4f87</div><div><strong>Built</strong><br>2026-08-09T20:11:21.928988Z</div><div><strong>Pattern ID</strong><br>TBML002</div><div><strong>Entity Count</strong><br>6</div><div><strong>Relationship Count</strong><br>7</div><div class="mv-cap"><strong>Topology</strong><br>diamond</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
+<div class="meta"><div><strong>Run ID</strong><br>tbml002-80342c7e01</div><div><strong>Built</strong><br>2026-08-30T14:41:37.747027Z</div><div><strong>Pattern ID</strong><br>TBML002</div><div><strong>Entity Count</strong><br>6</div><div><strong>Relationship Count</strong><br>7</div><div class="mv-cap"><strong>Topology</strong><br>diamond</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
 </div>
 </section>
 
