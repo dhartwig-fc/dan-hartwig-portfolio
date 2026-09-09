@@ -1,0 +1,237 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><title>NEXUS Entity Explorer</title><style>
+:root{--bg:#0e1b2e;--panel:#12233b;--ink:#e8eef7;--sub:#9db0c9;--line:#2a4a6e;--acc:#f4a920;
+--red:#c0202a;--grn:#2e8b57;--blu:#1c4fa0}
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial;
+background:var(--bg);color:var(--ink)}
+.sr{position:absolute;left:-9999px}
+header{padding:14px 20px;background:#0b1626;border-bottom:1px solid #22344d;display:flex;gap:16px;align-items:center}
+header h1{font-size:16px;margin:0}
+#search{flex:1;max-width:520px;position:relative}
+#q{width:100%;padding:9px 12px;border-radius:8px;border:1px solid #33507a;background:#0b1626;color:var(--ink)}
+#suggest{position:absolute;left:0;right:0;top:40px;background:#0b1626;border:1px solid #33507a;border-radius:8px;
+list-style:none;margin:0;padding:4px;z-index:5;max-height:260px;overflow:auto}
+#suggest li{padding:7px 10px;border-radius:6px;cursor:pointer}
+#suggest li[aria-selected="true"],#suggest li:hover{background:#1b3050}
+main{display:grid;grid-template-columns:340px 1fr;height:calc(100vh - 53px)}
+#panel{padding:18px;border-right:1px solid #22344d;overflow:auto;background:var(--panel)}
+#panel h2{margin:.2em 0}#panel .k{color:var(--sub);font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin-top:12px}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600}
+.b-crit{background:var(--red)}.b-high{background:#d4772a}.b-med{background:#c8a53a;color:#111}.b-low{background:var(--grn)}
+.chip{display:inline-block;padding:2px 8px;margin:2px;border-radius:8px;background:#20406a;font-size:12px}
+#filterbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 14px;background:#0b1626;
+border-bottom:1px solid #22344d;font-size:12px}
+#filterbar .fl{color:var(--sub);text-transform:uppercase;letter-spacing:.04em;font-size:11px}
+.chiprow{display:flex;flex-wrap:wrap;gap:4px}
+.chip.tog{background:#1b3050;border:1px solid #33507a;color:var(--ink);cursor:pointer;
+padding:2px 9px;border-radius:10px;font-size:12px}
+.chip.tog[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#231a04;font-weight:600}
+#typefilter{padding:4px 8px;border-radius:6px;border:1px solid #33507a;background:#0b1626;color:var(--ink)}
+.seg{display:inline-flex;border:1px solid #33507a;border-radius:8px;overflow:hidden}
+.seg button{background:#0b1626;color:var(--ink);border:none;border-right:1px solid #33507a;
+padding:4px 10px;cursor:pointer;font-size:12px}
+.seg button:last-child{border-right:none}
+.seg button[aria-pressed="true"]{background:var(--acc);color:#231a04;font-weight:600}
+#clearfilters{background:#1b3050;border:1px solid #33507a;color:var(--ink);border-radius:6px;
+padding:4px 10px;cursor:pointer;font-size:12px}
+#graphwrap{position:relative}#graph{width:100%;height:100%;display:block}
+.edge{stroke:#3a5a86;stroke-width:1.5}
+.node circle{stroke:#0b1626;stroke-width:2;cursor:pointer}
+.node:focus circle{outline:none;stroke:var(--acc);stroke-width:3}
+.node text{fill:var(--ink);font-size:11px;pointer-events:none}
+.node.center circle{stroke:var(--acc);stroke-width:3}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--sub);padding:6px 4px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend b{width:11px;height:11px;border-radius:50%;display:inline-block}
+footer{position:fixed;bottom:0;right:0;padding:6px 10px;font-size:11px;color:var(--sub);background:#0b1626cc}
+</style></head><body><header><h1>NEXUS Entity Explorer</h1><div id=search role=combobox aria-expanded=false><label for=q class=sr>Search an entity</label><input id=q autocomplete=off placeholder='Search an entity by name or id…' aria-label='Search an entity' aria-controls=suggest aria-autocomplete=list><ul id=suggest role=listbox aria-label=Suggestions style='display:none'></ul></div></header><main><section id=panel aria-live=polite><h2>Search an entity</h2><div class=k>Start typing a name or id above.</div></section><div id=graphwrap><div id="filterbar" role="group" aria-label="Highlight filters"><span class="fl">Highlight</span><div id="typology" class="chiprow" aria-label="Typology"></div><label class="sr" for="typefilter">Entity type</label><select id="typefilter"><option value="">All types</option></select><div id="riskfloor" class="seg" role="group" aria-label="Minimum risk"><button data-r="0" aria-pressed="true">Any</button><button data-r="30" aria-pressed="false">&ge;30</button><button data-r="60" aria-pressed="false">&ge;60</button><button data-r="80" aria-pressed="false">&ge;80</button></div><button id="clearfilters" type="button">Clear</button></div><svg id="graph" role="group" aria-label='Entity neighbourhood graph'></svg><div class="legend" aria-label="Risk band colours"><span><b style="background:#c0202a"></b>Critical</span><span><b style="background:#d4772a"></b>High</span><span><b style="background:#c8a53a"></b>Medium</span><span><b style="background:#2e8b57"></b>Low</span></div></div></main><footer>graph 15 · 5 products · fingerprint 478f2c63b1826074</footer><script>window.__EXPLORER_MODE__="embedded";window.__EXPLORER_DATA__={"graph": {"nodes": [{"entity_key": "CE-fe5b5ecd", "label": "Alpha Trading Limited", "type": "company", "risk_score": 22, "flagged_by": ["FND001", "FND004", "PAT007"], "resolved_from": ["C001", "CRM-1001", "PAY-3001", "REG-2001"]}, {"entity_key": "CE-df1e4005", "label": "John Smith", "type": "person", "risk_score": 90, "flagged_by": ["FND004", "SAN005"], "resolved_from": ["P001"]}, {"entity_key": "CE-493dd93a", "label": "Beta Holdings Ltd", "type": "company", "risk_score": 17, "flagged_by": ["FND004"], "resolved_from": ["C002"]}, {"entity_key": "CE-7dddb5f9", "label": "Gamma Imports Ltd", "type": "company", "risk_score": 90, "flagged_by": ["FND004", "SAN005", "SAN002"], "resolved_from": ["C003"]}, {"entity_key": "CE-adaa9c4b", "label": "Delta Shipping Ltd", "type": "company", "risk_score": 17, "flagged_by": ["FND004"], "resolved_from": ["C004"]}, {"entity_key": "CE-be112f32", "label": "Zeta Commodities Ltd", "type": "company", "risk_score": 17, "flagged_by": ["FND004"], "resolved_from": ["C006"]}, {"entity_key": "CE-6f19dec9", "label": "Epsilon Logistics Ltd", "type": "company", "risk_score": 90, "flagged_by": ["SAN005"], "resolved_from": ["C005"]}, {"entity_key": "CE-daffacc3", "label": "MV EASTERN STAR", "type": "vessel", "risk_score": 85, "flagged_by": ["SAN002"], "resolved_from": ["VSL001"]}, {"entity_key": "CE-45632164", "label": "Eastern Star Shipping Ltd", "type": "company", "risk_score": 85, "flagged_by": ["SAN002"], "resolved_from": ["ENT103"]}, {"entity_key": "CE-f6da42be", "label": "Petrov Holdings Ltd", "type": "company", "risk_score": 85, "flagged_by": ["SAN002"], "resolved_from": ["ENT101"]}, {"entity_key": "CE-891b21b2", "label": "Ivan Petrov", "type": "company", "risk_score": 85, "flagged_by": ["SAN002"], "resolved_from": ["ENT100"]}, {"entity_key": "CE-fe2f688b", "label": "Ship-to-ship partner vessel", "type": "company", "risk_score": 85, "flagged_by": ["SAN002"], "resolved_from": ["VSL099"]}, {"entity_key": "CE-d6d3f7e3", "label": "Common Address", "type": "company", "risk_score": 22, "flagged_by": ["PAT007"], "resolved_from": ["Common Address"]}, {"entity_key": "CE-7e8e431b", "label": "Common Contact", "type": "company", "risk_score": 22, "flagged_by": ["PAT007"], "resolved_from": ["Common Contact"]}, {"entity_key": "CE-339245a9", "label": "Shared Director", "type": "company", "risk_score": 22, "flagged_by": ["PAT007"], "resolved_from": ["Shared Director"]}], "edges": [{"source": "CE-df1e4005", "target": "CE-fe5b5ecd", "relationship": "NETWORK_LINK", "source_products": ["FND004"]}, {"source": "CE-df1e4005", "target": "CE-493dd93a", "relationship": "NETWORK_LINK", "source_products": ["FND004"]}, {"source": "CE-df1e4005", "target": "CE-7dddb5f9", "relationship": "NETWORK_LINK", "source_products": ["FND004"]}, {"source": "CE-df1e4005", "target": "CE-adaa9c4b", "relationship": "NETWORK_LINK", "source_products": ["FND004"]}, {"source": "CE-df1e4005", "target": "CE-be112f32", "relationship": "NETWORK_LINK", "source_products": ["FND004"]}, {"source": "CE-6f19dec9", "target": "CE-7dddb5f9", "relationship": "CO_SCREENED", "source_products": ["SAN005"]}, {"source": "CE-6f19dec9", "target": "CE-df1e4005", "relationship": "CO_SCREENED", "source_products": ["SAN005"]}, {"source": "CE-daffacc3", "target": "CE-45632164", "relationship": "EXPOSED_THROUGH", "source_products": ["SAN002"]}, {"source": "CE-daffacc3", "target": "CE-7dddb5f9", "relationship": "EXPOSED_THROUGH", "source_products": ["SAN002"]}, {"source": "CE-daffacc3", "target": "CE-f6da42be", "relationship": "EXPOSED_THROUGH", "source_products": ["SAN002"]}, {"source": "CE-daffacc3", "target": "CE-891b21b2", "relationship": "EXPOSED_THROUGH", "source_products": ["SAN002"]}, {"source": "CE-daffacc3", "target": "CE-fe2f688b", "relationship": "EXPOSED_THROUGH", "source_products": ["SAN002"]}, {"source": "CE-fe5b5ecd", "target": "CE-d6d3f7e3", "relationship": "FLAGGED_FOR", "source_products": ["PAT007"]}, {"source": "CE-fe5b5ecd", "target": "CE-7e8e431b", "relationship": "FLAGGED_FOR", "source_products": ["PAT007"]}, {"source": "CE-fe5b5ecd", "target": "CE-339245a9", "relationship": "FLAGGED_FOR", "source_products": ["PAT007"]}]}, "index": {"C001": "CE-fe5b5ecd", "CRM-1001": "CE-fe5b5ecd", "PAY-3001": "CE-fe5b5ecd", "REG-2001": "CE-fe5b5ecd", "alphatrading": "CE-fe5b5ecd", "P001": "CE-df1e4005", "C002": "CE-493dd93a", "betaholdings": "CE-493dd93a", "C003": "CE-7dddb5f9", "gammaimports": "CE-7dddb5f9", "C004": "CE-adaa9c4b", "deltashipping": "CE-adaa9c4b", "C006": "CE-be112f32", "zetacommodities": "CE-be112f32", "C005": "CE-6f19dec9", "epsilonlogistics": "CE-6f19dec9", "VSL001": "CE-daffacc3", "mveasternstar": "CE-daffacc3", "ENT103": "CE-45632164", "easternstarshipping": "CE-45632164", "ENT101": "CE-f6da42be", "petrovholdings": "CE-f6da42be", "ENT100": "CE-891b21b2", "ivanpetrov": "CE-891b21b2", "VSL099": "CE-fe2f688b", "shiptoshippartnervessel": "CE-fe2f688b", "Common Address": "CE-d6d3f7e3", "commonaddress": "CE-d6d3f7e3", "Common Contact": "CE-7e8e431b", "commoncontact": "CE-7e8e431b", "Shared Director": "CE-339245a9", "shareddirector": "CE-339245a9", "c001": "CE-fe5b5ecd", "crm1001": "CE-fe5b5ecd", "pay3001": "CE-fe5b5ecd", "reg2001": "CE-fe5b5ecd", "CE-fe5b5ecd": "CE-fe5b5ecd", "p001": "CE-df1e4005", "CE-df1e4005": "CE-df1e4005", "c002": "CE-493dd93a", "CE-493dd93a": "CE-493dd93a", "c003": "CE-7dddb5f9", "CE-7dddb5f9": "CE-7dddb5f9", "c004": "CE-adaa9c4b", "CE-adaa9c4b": "CE-adaa9c4b", "c006": "CE-be112f32", "CE-be112f32": "CE-be112f32", "c005": "CE-6f19dec9", "CE-6f19dec9": "CE-6f19dec9", "vsl001": "CE-daffacc3", "CE-daffacc3": "CE-daffacc3", "ent103": "CE-45632164", "CE-45632164": "CE-45632164", "ent101": "CE-f6da42be", "CE-f6da42be": "CE-f6da42be", "ent100": "CE-891b21b2", "CE-891b21b2": "CE-891b21b2", "vsl099": "CE-fe2f688b", "CE-fe2f688b": "CE-fe2f688b", "CE-d6d3f7e3": "CE-d6d3f7e3", "CE-7e8e431b": "CE-7e8e431b", "CE-339245a9": "CE-339245a9"}, "provenance": {"investigation_id": "INV007", "graph_fingerprint": "478f2c63b1826074", "products": ["FND001", "FND004", "SAN005", "SAN002", "PAT007"], "node_count": 15, "edge_count": 15, "generated_at": "2026-09-09T12:01:54+00:00"}};</script><script>
+const MODE = window.__EXPLORER_MODE__;
+const DATA = window.__EXPLORER_DATA__ || null;
+// mirrors canonical_entity_registry.normalise_name: strip '· | ' decoration -> lowercase ->
+// strip bracketed/parenthetical tags -> strip legal suffixes (SUFFIX_RE, built from the real
+// Python suffix token list so it can't drift) -> strip punctuation -> remove all whitespace.
+// The boundary uses Unicode letter/number properties (\p{L}\p{N}, "u" flag) rather than \b:
+// JS's \b is ASCII-only, while Python's \b is Unicode-aware, so a plain \b would silently
+// fail to strip non-ASCII suffix tokens (e.g. the Estonian "oü").
+const SUFFIX_RE = new RegExp("(?<![\\p{L}\\p{N}_])(?:" + "ltd|limited|llc|l\\.l\\.c|plc|inc|incorporated|corp|corporation|sa|nv|gmbh|ag|ou|o\u00fc|fze|dmcc|pjsc|ojsc|llp|pte|bv|srl" + ")(?![\\p{L}\\p{N}_])", "giu");
+function norm(s){
+  s = String(s||"").split(/[·|]/)[0].toLowerCase();
+  s = s.replace(/[\(\[][^\)\]]*[\)\]]/g," ").replace(SUFFIX_RE," ").replace(/[^a-z0-9 ]/g," ");
+  return s.replace(/\s+/g,"").trim();
+}
+function esc(s){ return String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+// query-client: two implementations behind one interface
+function embeddedClient(data){
+  const nodesByKey = Object.fromEntries(data.graph.nodes.map(n=>[n.entity_key,n]));
+  const adj={}; data.graph.edges.forEach(e=>{(adj[e.source]=adj[e.source]||new Set()).add(e.target);(adj[e.target]=adj[e.target]||new Set()).add(e.source)});
+  const index=data.index;
+  function resolve(q){ if(index[q])return index[q]; return index[norm(q)]||null; }
+  return {
+    suggest(q){const nn=norm(q); if(!nn)return []; return Object.keys(index).filter(k=>k.indexOf(":")<0&&k.indexOf(nn)>=0).sort().slice(0,10);},
+    lookup(q){const k=resolve(q); if(!k||!nodesByKey[k])return {found:false,suggestions:this.suggest(q)}; return Object.assign({found:true},nodesByKey[k]);},
+    neighbourhood(k,hops){hops=Math.max(1,Math.min(hops||2,5)); let seen=new Set([k]),front=new Set([k]);
+      for(let i=0;i<hops;i++){const nx=new Set(); front.forEach(x=>(adj[x]||new Set()).forEach(m=>{if(!seen.has(m)){seen.add(m);nx.add(m)}})); front=nx;}
+      const nodes=[...seen].filter(x=>nodesByKey[x]).map(x=>nodesByKey[x]);
+      const keep=new Set(nodes.map(n=>n.entity_key));
+      const edges=data.graph.edges.filter(e=>keep.has(e.source)&&keep.has(e.target));
+      return {center:nodesByKey[k],nodes,edges};}
+  };
+}
+// STORE_UNAVAILABLE_MSG: shown when a live-store fetch fails (network error or non-2xx) so
+// the UI never sits blank/frozen -- the exact wording is asserted by a structural test.
+const STORE_UNAVAILABLE_MSG = "live store unavailable — use the static snapshot";
+function showStoreUnavailable(){
+  panel.innerHTML = "<h2>"+esc(STORE_UNAVAILABLE_MSG)+"</h2>";
+  svg.innerHTML = "";
+}
+function httpClient(){
+  const j=async(u)=>{const r=await fetch(u); if(!r.ok)throw new Error("store unavailable"); return r.json();};
+  return {
+    suggest:(q)=>j("/api/suggest?q="+encodeURIComponent(q)).catch(()=>[]),
+    lookup:(q)=>j("/api/lookup?q="+encodeURIComponent(q))
+      .catch(()=>{ showStoreUnavailable(); return {found:false, storeUnavailable:true}; }),
+    neighbourhood:(k,hops)=>j("/api/neighbourhood?entity_key="+encodeURIComponent(k)+"&hops="+(hops||2))
+      .catch(()=>{ showStoreUnavailable(); return {center:null, storeUnavailable:true}; }),
+  };
+}
+const client = MODE==="embedded" ? embeddedClient(DATA) : httpClient();
+
+const searchBox=document.getElementById("search"),
+      q=document.getElementById("q"), sug=document.getElementById("suggest"),
+      panel=document.getElementById("panel"), svg=document.getElementById("graph");
+let sIdx=-1, sItems=[];
+function setExpanded(open){ searchBox.setAttribute("aria-expanded", open?"true":"false"); }
+function closeSuggest(){ sug.style.display="none"; setExpanded(false); q.removeAttribute("aria-activedescendant"); }
+async function refreshSuggest(){ const items=await client.suggest(q.value); sItems=items; sIdx=-1;
+  sug.innerHTML=""; items.forEach((it,i)=>{const li=document.createElement("li"); li.id="sug-opt-"+i; li.textContent=it; li.setAttribute("role","option");
+    li.onclick=()=>select(it); sug.appendChild(li);});
+  const open=items.length>0; sug.style.display=open?"block":"none"; setExpanded(open); q.removeAttribute("aria-activedescendant"); }
+function moveSel(d){ if(!sItems.length)return; sIdx=(sIdx+d+sItems.length)%sItems.length;
+  [...sug.children].forEach((li,i)=>li.setAttribute("aria-selected", i===sIdx?"true":"false"));
+  q.setAttribute("aria-activedescendant", sug.children[sIdx].id); }
+async function select(term){ closeSuggest(); q.value=term; const res=await client.lookup(term);
+  if(res && res.storeUnavailable){ return; }                  // banner already rendered by the client
+  if(!res || res.found===false){ panel.innerHTML="<h2>No match</h2><div class=k>Try</div>"+
+    (res&&res.suggestions||[]).map(s=>`<span class=chip>${esc(s)}</span>`).join(""); svg.innerHTML=""; return; }
+  await showEntity(res.entity_key); }
+q.addEventListener("input", refreshSuggest);
+q.addEventListener("keydown", e=>{ if(e.key==="ArrowDown"){e.preventDefault();moveSel(1);} else if(e.key==="ArrowUp"){e.preventDefault();moveSel(-1);}
+  else if(e.key==="Enter"){e.preventDefault(); select(sIdx>=0?sItems[sIdx]:q.value);} else if(e.key==="Escape"){closeSuggest();} });
+
+// highlight controls: typology chips + type dropdown + risk floor, all data-driven from the
+// current neighbourhood (never a baked product/type list). FILT holds the active filter state;
+// RENDER is populated by drawGraph with the live SVG elements so applyHighlight can re-style
+// in place (no re-layout). The center node is ALWAYS lit, regardless of filters.
+const FILT = { typ:new Set(), type:"", risk:0 };
+let RENDER = { nodes:[], edges:[], centerKey:null };
+function lit(n){ return (n.entity_key===RENDER.centerKey) ||
+  ((FILT.typ.size===0 || (n.flagged_by||[]).some(p=>FILT.typ.has(p)))
+   && (FILT.type==="" || n.type===FILT.type)
+   && ((n.risk_score||0) >= FILT.risk)); }
+function applyHighlight(){
+  const active = FILT.typ.size||FILT.type||FILT.risk;
+  for(const it of RENDER.nodes){ const on = !active || lit(it.data);
+    it.g.style.opacity = on?1:0.22; }
+  for(const it of RENDER.edges){ const on = !active || (lit(it.data.s) && lit(it.data.t));
+    it.line.style.opacity = on?"":"0.08"; }
+}
+function buildFilterBar(nb){
+  FILT.typ.clear(); FILT.type=""; FILT.risk=0;                 // reset on navigate
+  const typ=[...new Set(nb.nodes.flatMap(n=>n.flagged_by||[]))].sort();
+  const row=document.getElementById("typology"); row.innerHTML="";
+  for(const p of typ){ const b=document.createElement("button"); b.className="chip tog"; b.textContent=p;
+    b.type="button"; b.setAttribute("aria-pressed","false");
+    b.onclick=()=>{ if(FILT.typ.has(p)){FILT.typ.delete(p);b.setAttribute("aria-pressed","false");}
+      else{FILT.typ.add(p);b.setAttribute("aria-pressed","true");} applyHighlight(); }; row.appendChild(b); }
+  const sel=document.getElementById("typefilter"); sel.innerHTML='<option value="">All types</option>';
+  const LABEL={person:"Individual",company:"Company"};
+  for(const ty of [...new Set(nb.nodes.map(n=>n.type).filter(Boolean))].sort()){
+    const o=document.createElement("option"); o.value=ty; o.textContent=LABEL[ty]||ty.replace(/_/g," "); sel.appendChild(o); }
+  sel.value=""; sel.onchange=()=>{ FILT.type=sel.value; applyHighlight(); };
+  document.querySelectorAll("#riskfloor button").forEach(bt=>{ bt.setAttribute("aria-pressed", bt.dataset.r==="0"?"true":"false");
+    bt.onclick=()=>{ FILT.risk=+bt.dataset.r; document.querySelectorAll("#riskfloor button").forEach(x=>x.setAttribute("aria-pressed", x===bt?"true":"false")); applyHighlight(); }; });
+  document.getElementById("clearfilters").onclick=()=>{ buildFilterBar(nb); };
+  applyHighlight();
+}
+function band(r){r=r||0; return r>=80?["b-crit","Critical"]:r>=60?["b-high","High"]:r>=30?["b-med","Medium"]:["b-low","Low"];}
+function renderPanel(res){
+  const [bc,bl]=band(res.risk_score);
+  panel.innerHTML=`<h2>${esc(res.label||res.entity_key)}</h2>
+    <div><span class="badge ${bc}">${esc(bl)} · ${esc(res.risk_score??"?")}</span> <span class=chip>${esc(res.type||"")}</span></div>
+    <div class=k>Flagged by</div>${(res.flagged_by||[]).map(p=>`<span class=chip>${esc(p)}</span>`).join("")||"&mdash;"}
+    <div class=k>Resolved from</div>${(res.resolved_from||[]).map(p=>`<span class=chip>${esc(p)}</span>`).join("")||"&mdash;"}
+    <div class=k>Entity key</div><code>${esc(res.entity_key)}</code>`;
+}
+// showEntity: render an entity we ALREADY have the entity_key for (e.g. a clicked graph
+// node) directly from the neighbourhood response's `center` — no re-resolution through
+// name normalisation, so a node click can never "no match" on its own entity_key.
+async function showEntity(key){
+  const nb=await client.neighbourhood(key,2);
+  if(nb && nb.storeUnavailable){ return; }                     // banner already rendered by the client
+  if(!nb || !nb.center){ panel.innerHTML="<h2>No match</h2>"; svg.innerHTML=""; return; }
+  renderPanel(nb.center); drawGraph(nb, key);
+}
+function drawGraph(nb, centerKey){
+  const W=svg.clientWidth||900, H=svg.clientHeight||600;
+  const nodes=nb.nodes.map(n=>Object.assign({}, n, {x:W/2+(Math.random()-.5)*300, y:H/2+(Math.random()-.5)*300, vx:0, vy:0}));
+  const byKey=Object.fromEntries(nodes.map(n=>[n.entity_key,n]));
+  const links=nb.edges.map(e=>({s:byKey[e.source],t:byKey[e.target],rel:e.relationship})).filter(l=>l.s&&l.t);
+  for(let it=0; it<180; it++){                                   // simple force layout
+    for(const a of nodes){ for(const b of nodes){ if(a===b)continue; let dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy)||1;
+      const f=1400/(d*d); a.vx+=dx/d*f; a.vy+=dy/d*f; } a.vx+=(W/2-a.x)*0.01; a.vy+=(H/2-a.y)*0.01; }
+    for(const l of links){ let dx=l.t.x-l.s.x,dy=l.t.y-l.s.y,d=Math.hypot(dx,dy)||1,f=(d-110)*0.05;
+      l.s.vx+=dx/d*f; l.s.vy+=dy/d*f; l.t.vx-=dx/d*f; l.t.vy-=dy/d*f; }
+    for(const n of nodes){ n.x+=n.vx*=0.85; n.y+=n.vy*=0.85; n.x=Math.max(30,Math.min(W-30,n.x)); n.y=Math.max(30,Math.min(H-30,n.y)); }
+  }
+  // COLLIDE: separate overlapping nodes so labels/circles don't stack (bounded)
+  const R = n => (n.entity_key===centerKey?16:11), PAD = 14;
+  for(let pass=0; pass<60; pass++){ let moved=false;
+    for(const a of nodes){ for(const b of nodes){ if(a===b) continue;
+      let dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||0.01, min=R(a)+R(b)+PAD;
+      if(d<min){ const push=(min-d)/2/d; dx*=push; dy*=push;
+        a.x-=dx; a.y-=dy; b.x+=dx; b.y+=dy; moved=true; } } }
+    for(const n of nodes){ n.x=Math.max(30,Math.min(W-30,n.x)); n.y=Math.max(30,Math.min(H-30,n.y)); }
+    if(!moved) break;
+  }
+  const svgns="http://www.w3.org/2000/svg"; svg.innerHTML="";
+  RENDER = { nodes:[], edges:[], centerKey:centerKey };
+  const ln_of = l => l.line;
+  for(const l of links){ const ln=document.createElementNS(svgns,"line"); ln.setAttribute("class","edge");
+    ln.setAttribute("x1",l.s.x);ln.setAttribute("y1",l.s.y);ln.setAttribute("x2",l.t.x);ln.setAttribute("y2",l.t.y);
+    l.line=ln; svg.appendChild(ln); RENDER.edges.push({data:l, line:ln}); }
+  for(const n of nodes){ const g=document.createElementNS(svgns,"g");
+    g.setAttribute("class","node"+(n.entity_key===centerKey?" center":"")); g.setAttribute("tabindex","0");
+    g.setAttribute("role","button"); g.setAttribute("aria-label",(n.label||n.entity_key)+", risk "+(n.risk_score??"unknown"));
+    const c=document.createElementNS(svgns,"circle"); c.setAttribute("cx",n.x);c.setAttribute("cy",n.y);
+    c.setAttribute("r", n.entity_key===centerKey?16:11); c.setAttribute("fill", band(n.risk_score)[0]==="b-crit"?"#c0202a":band(n.risk_score)[0]==="b-high"?"#d4772a":band(n.risk_score)[0]==="b-med"?"#c8a53a":"#2e8b57");
+    const t=document.createElementNS(svgns,"text"); t.setAttribute("x",n.x+14);t.setAttribute("y",n.y+4); t.textContent=n.label||n.entity_key;
+    g.appendChild(c); g.appendChild(t);
+    // drag + pin: pointer drag repositions the node (edges follow) and pins it; a real drag
+    // suppresses the click-navigate. Keyboard activation is unchanged.
+    let dragging=false, moved=false, sx=0, sy=0;
+    g.style.cursor="grab";
+    g.addEventListener("pointerdown", e=>{ dragging=true; moved=false; sx=e.clientX; sy=e.clientY;
+      g.setPointerCapture(e.pointerId); g.style.cursor="grabbing"; e.preventDefault(); });
+    g.addEventListener("pointermove", e=>{ if(!dragging) return;
+      const pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+      const p=pt.matrixTransform(svg.getScreenCTM().inverse());
+      if(Math.hypot(e.clientX-sx, e.clientY-sy)>3) moved=true;
+      n.x=p.x; n.y=p.y; n.pinned=true;
+      c.setAttribute("cx",n.x); c.setAttribute("cy",n.y);
+      t.setAttribute("x",n.x+14); t.setAttribute("y",n.y+4);
+      for(const l of links){ if(l.s===n||l.t===n){ ln_of(l).setAttribute("x1",l.s.x);
+        ln_of(l).setAttribute("y1",l.s.y); ln_of(l).setAttribute("x2",l.t.x); ln_of(l).setAttribute("y2",l.t.y); } } });
+    g.addEventListener("pointerup", e=>{ dragging=false; g.style.cursor="grab"; });
+    // node click/keyboard-activate goes straight to showEntity(n.entity_key) -- the node
+    // already carries its own entity_key, so this must NOT re-resolve via the display label.
+    const go=()=>showEntity(n.entity_key);
+    g.addEventListener("click",e=>{ if(moved){ moved=false; return; } go(); });
+    g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+    svg.appendChild(g); RENDER.nodes.push({data:n, g:g, c:c, t:t}); }
+  buildFilterBar(nb);
+}
+// deep-link focus: opening the page with #<entity_key> lands directly on that entity
+// (used by the workspace bundle's dossier -> explore.html#<CE-id> links). An empty or
+// absent hash keeps the normal "start typing" state; a non-empty hash always calls
+// showEntity(), which renders the entity if the key resolves, or "No match" if it doesn't.
+if(typeof location !== 'undefined'){ (function(){ var h=decodeURIComponent((location.hash||"").replace(/^#/,"")); if(h){ showEntity(h); } })(); }
+</script></body></html>

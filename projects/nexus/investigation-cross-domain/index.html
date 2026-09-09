@@ -14,30 +14,26 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#0b1a2e;d
 .nav:hover{background:rgba(255,255,255,.05)}
 .nav.active{background:rgba(201,138,16,.12);border-color:rgba(201,138,16,.4)}
 .nav.active .nl{color:#f0b84a}
+.case-tabs{display:flex;flex:none;background:#050b14;border-bottom:1px solid rgba(255,255,255,.08)}
+.case-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;text-decoration:none;color:#9db8dc;font-weight:600;font-size:13.5px;border-bottom:3px solid transparent;border-right:1px solid rgba(255,255,255,.05);transition:background .15s,color .15s}
+.case-tab:last-child{border-right:0}
+.case-tab .ct-k{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;opacity:.65}
+.case-tab:hover{color:#eaf1fb;background:rgba(255,255,255,.05)}
+@media(max-width:620px){.case-tab{font-size:11.5px;padding:11px 6px;gap:5px}}
 .nl{font-size:13px;font-weight:600}.ns{font-size:11px;color:#8fb0d8}
 .framewrap{flex:1;min-width:0;background:#f7f9fb}
 iframe{width:100%;height:100%;border:0;background:#fff}
 @media(max-width:720px){.side{width:168px}}
-</style></head><body><!-- CASE-TABS --><style>
-.case-tabs{display:flex;flex:none;background:#050b14;border-bottom:1px solid rgba(255,255,255,.08)}
-.case-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;
-  text-decoration:none;color:#9db8dc;font-weight:600;font-size:13.5px;border-bottom:3px solid transparent;
-  border-right:1px solid rgba(255,255,255,.05);transition:background .15s,color .15s}
-.case-tab:last-child{border-right:0}
-.case-tab .ct-k{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;opacity:.65}
-.case-tab:hover{color:#eaf1fb;background:rgba(255,255,255,.05)}
-.t-journey{border-bottom-color:#1f7a5c}.t-cross{border-bottom-color:#c98a10}.t-desig{border-bottom-color:#b3261e}
-.t-journey.active{color:#fff;background:#1f7a5c}.t-cross.active{color:#fff;background:#c98a10}.t-desig.active{color:#fff;background:#b3261e}
-@media(max-width:620px){.case-tab{font-size:11.5px;padding:11px 6px;gap:5px}}
-</style><div class="case-tabs"><a class="case-tab t-journey" href="../investigation/index.html"><span class="ct-k">01</span><span class="ct-l">Full Journey</span></a><a class="case-tab t-cross active" href="index.html"><span class="ct-k">02</span><span class="ct-l">Cross-Domain Sanctions</span></a><a class="case-tab t-desig" href="../investigation-designated-party/index.html"><span class="ct-k">03</span><span class="ct-l">Designated-Party Proximity</span></a></div><!-- /CASE-TABS -->
+</style></head><body><div class="case-tabs"><a class="case-tab" style="border-bottom-color:#1f7a5c" href="../investigation/index.html"><span class="ct-k">01</span><span class="ct-l">Full Journey</span></a><a class="case-tab active" style="border-bottom-color:#c98a10;color:#fff;background:#c98a10" href="index.html"><span class="ct-k">02</span><span class="ct-l">Cross-Domain Sanctions</span></a><a class="case-tab" style="border-bottom-color:#b3261e" href="../investigation-designated-party/index.html"><span class="ct-k">03</span><span class="ct-l">Designated-Party Proximity</span></a></div>
 <div class="top"><h1>INV006 — Fused Case</h1><span class="agg">Aggregate 90 · High</span>
 <span class="crumb" id="crumb">Case intelligence</span></div>
 <div class="main">
   <nav class="side">
+    <div class="tier">Tier 0 · Explore</div><a class="nav" data-src="explore.html" href="#"><span class="nl">Entity explorer</span><span class="ns">search · 2-hop network</span></a>
     <div class="tier">Tier 1 · Case</div>
     <a class="nav active" data-src="case.html" href="#"><span class="nl">Case intelligence</span><span class="ns">fused network + briefing</span></a>
     <div class="tier">Tier 2 · Entities</div>
-    <a class="nav" data-src="entities/CE-e67d6c92.html" href="#"><span class="nl">Nordwind Trading AG</span><span class="ns">flagged by 6</span></a>
+    <a class="nav" data-src="entities/CE-5338081c.html" href="#"><span class="nl">Nordwind Trading AG</span><span class="ns">flagged by 6</span></a>
     <a class="nav" data-src="entities/CE-675e8715.html" href="#"><span class="nl">Ruslan Orlov</span><span class="ns">flagged by 2</span></a>
     <a class="nav" data-src="entities/CE-fcf5b567.html" href="#"><span class="nl">Transcaspian Trading Ltd</span><span class="ns">flagged by 5</span></a>
     <a class="nav" data-src="entities/CE-d2eea373.html" href="#"><span class="nl">Orkun Nominees Ltd</span><span class="ns">flagged by 2</span></a>
@@ -56,7 +52,7 @@ iframe{width:100%;height:100%;border:0;background:#fff}
   <div class="framewrap"><iframe id="bframe" title="case tier" src="case.html"></iframe></div>
 </div>
 <script>
-var PATHS={"case.html": "case.html", "CE-e67d6c92.html": "entities/CE-e67d6c92.html", "CE-675e8715.html": "entities/CE-675e8715.html", "CE-fcf5b567.html": "entities/CE-fcf5b567.html", "CE-d2eea373.html": "entities/CE-d2eea373.html", "CE-ec94f782.html": "entities/CE-ec94f782.html", "SAN003.html": "products/SAN003.html", "SAN004.html": "products/SAN004.html", "SAN006.html": "products/SAN006.html", "SAN007.html": "products/SAN007.html", "SAN008.html": "products/SAN008.html", "CMI010.html": "products/CMI010.html", "TBML002U.html": "products/TBML002U.html", "TBML009.html": "products/TBML009.html", "TBML010.html": "products/TBML010.html"},LABELS={"case.html": "Case intelligence", "entities/CE-e67d6c92.html": "Nordwind Trading AG", "entities/CE-675e8715.html": "Ruslan Orlov", "entities/CE-fcf5b567.html": "Transcaspian Trading Ltd", "entities/CE-d2eea373.html": "Orkun Nominees Ltd", "entities/CE-ec94f782.html": "Anchor Commodities Ltd", "products/SAN003.html": "SAN003", "products/SAN004.html": "SAN004", "products/SAN006.html": "SAN006", "products/SAN007.html": "SAN007", "products/SAN008.html": "SAN008", "products/CMI010.html": "CMI010", "products/TBML002U.html": "TBML002U", "products/TBML009.html": "TBML009", "products/TBML010.html": "TBML010"},frame=document.getElementById('bframe');
+var PATHS={"case.html": "case.html", "explore.html": "explore.html", "CE-5338081c.html": "entities/CE-5338081c.html", "CE-675e8715.html": "entities/CE-675e8715.html", "CE-fcf5b567.html": "entities/CE-fcf5b567.html", "CE-d2eea373.html": "entities/CE-d2eea373.html", "CE-ec94f782.html": "entities/CE-ec94f782.html", "SAN003.html": "products/SAN003.html", "SAN004.html": "products/SAN004.html", "SAN006.html": "products/SAN006.html", "SAN007.html": "products/SAN007.html", "SAN008.html": "products/SAN008.html", "CMI010.html": "products/CMI010.html", "TBML002U.html": "products/TBML002U.html", "TBML009.html": "products/TBML009.html", "TBML010.html": "products/TBML010.html"},LABELS={"explore.html": "Entity explorer", "case.html": "Case intelligence", "entities/CE-5338081c.html": "Nordwind Trading AG", "entities/CE-675e8715.html": "Ruslan Orlov", "entities/CE-fcf5b567.html": "Transcaspian Trading Ltd", "entities/CE-d2eea373.html": "Orkun Nominees Ltd", "entities/CE-ec94f782.html": "Anchor Commodities Ltd", "products/SAN003.html": "SAN003", "products/SAN004.html": "SAN004", "products/SAN006.html": "SAN006", "products/SAN007.html": "SAN007", "products/SAN008.html": "SAN008", "products/CMI010.html": "CMI010", "products/TBML002U.html": "TBML002U", "products/TBML009.html": "TBML009", "products/TBML010.html": "TBML010"},frame=document.getElementById('bframe');
 function nav(src){if(!src)return;frame.src=src;document.querySelectorAll('.nav').forEach(function(a){a.classList.toggle('active',a.dataset.src===src);});document.getElementById('crumb').textContent=LABELS[src]||'Case intelligence';}
 document.querySelectorAll('.nav').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();nav(a.dataset.src);});});
 frame.addEventListener('load',function(){try{var doc=frame.contentDocument;if(!doc)return;doc.querySelectorAll('a[href]').forEach(function(a){var base=(a.getAttribute('href')||'').split('#')[0].split('/').pop();if(!base||base.slice(-5)!=='.html')return;var src=PATHS[base==='index.html'?'case.html':base];if(src){a.addEventListener('click',function(e){e.preventDefault();nav(src);});}});}catch(err){}});

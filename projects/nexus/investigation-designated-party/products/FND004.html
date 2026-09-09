@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Network Intelligence · Entity Resolution — Case NI001-REG-2001</title>
+<title>Network Intelligence · Network Risk Assessment — Case FND004-P001</title>
 <style>
 /* ==========================================================================
    Track C — the product adopts the NEXUS site's design tokens, in two keys.
@@ -157,19 +157,14 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 </head>
 <body>
 
-<h1>Network Intelligence · Entity Resolution — Case NI001-REG-2001</h1>
+<h1>Network Intelligence · Network Risk Assessment — Case FND004-P001</h1>
 
 <div class="shell">
 <aside class="sources">
 <h2>Data Sources</h2>
 
 <div class="source-scope-label">Platform data sources · all typologies</div>
-<div class="source" data-source-scope="catalogue"><strong>Corporate Registry</strong>Director, company and ownership filings</div>
-<div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div>
-<div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div>
-<div class="source" data-source-scope="catalogue"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div>
-<div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence <em>(trade typologies)</em></div>
-<div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+<div class="source" data-source-scope="catalogue" data-source-relevance="family"><strong>Corporate Registry</strong>Director, company and ownership filings <em>(relevant to this typology)</em></div><div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div><div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div><div class="source" data-source-scope="catalogue" data-source-relevance="family"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation <em>(relevant to this typology)</em></div><div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence</div><div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
 </aside>
 
 <main>
@@ -177,10 +172,13 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 <div class="executive-banner-grid">
 <div class="executive-banner-card">
 <h2>Intelligence Judgement</h2>
-<span class="risk-pill risk-resolved">RESOLVED</span><strong>RESOLVED &middot; confidence 0.9553</strong><p>10 records resolved to 5 entities (6 matches)</p>
+<span class="risk-pill risk-low">LOW</span><strong>LOW Risk &middot; confidence 0.9605</strong><p>The governed analytic scored this case 17 of 100 and it classified as LOW.</p>
 </div>
 
-
+<div class="executive-banner-card">
+<h2>Dominant Typology</h2>
+<strong>FND004 Network Risk Assessment</strong><p>Network risk scored 17/100 (Low) by the governed NetworkRiskEngine.</p>
+</div>
 
 <div class="executive-banner-card">
 <h2>Recommended Action</h2>
@@ -197,38 +195,36 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 <a href="#workspace">Workspace</a>
 </nav>
 
-<div class="band" id="capability">ENTITY RESOLUTION</div>
-<div class="grid3" data-runtime-section="capability_intelligence"><div class="box"><h2>Canonical Entity</h2><p><strong>Alpha Trading Limited</strong></p><p>canonical · REG-2001</p></div><div class="box"><h2>Resolution</h2><p><strong>10 records → 5 entities</strong></p><p>6 high-confidence matches</p></div><div class="box"><h2>Source Records</h2><ul><li>Alpha Trading Ltd (CRM)</li><li>Alpha Trading (PAYMENTS)</li></ul></div></div>
 <div class="band" id="scoring">SCORING FRAMEWORK</div>
 
 <div class="grid3"
      data-runtime-section="governed_case_summary"
      data-source="metadata_packet"
      data-case-family="network"
-     data-case-id="NI001-REG-2001"
-     data-case-fingerprint="a56c4a952feb9b4f74a4692108de5fc249d6732812a03b29e7741cbd6f584426"
-     data-product-id="NI001"
-     data-typology-id="NI001"
-     data-classification="RESOLVED"
-     data-risk-score="n/a">
+     data-case-id="FND004-P001"
+     data-case-fingerprint="423d858560b027ace57922876f76273ab07366a58367ad983a6a61054033349e"
+     data-product-id="FND004"
+     data-typology-id="FND004"
+     data-classification="LOW"
+     data-risk-score="17">
   <div class="box">
     <h2>Governed Case Identity</h2>
-    <p><strong>Case:</strong> NI001-REG-2001</p>
-    <p><strong>Fingerprint:</strong> <code>a56c4a952feb9b4f74a4692108de5fc249d6732812a03b29e7741cbd6f584426</code></p>
-    <p><strong>Product / Typology:</strong> NI001 / NI001</p>
-    <p><strong>Classification:</strong> RESOLVED</p>
-    <p><strong>Intelligence Outcome:</strong> 5 entities from 10 records</p>
+    <p><strong>Case:</strong> FND004-P001</p>
+    <p><strong>Fingerprint:</strong> <code>423d858560b027ace57922876f76273ab07366a58367ad983a6a61054033349e</code></p>
+    <p><strong>Product / Typology:</strong> FND004 / FND004</p>
+    <p><strong>Classification:</strong> LOW</p>
+    <p><strong>Governed Risk Score:</strong> 17 / 100</p>
   </div>
   <div class="box">
     <h2>Subject and Network</h2>
-    <p><strong>Subject:</strong> Alpha Trading Limited</p>
-    <p><strong>Subject Entity:</strong> REG-2001</p>
-    <p><strong>Connected Entities:</strong> 2</p>
-    <p><strong>Findings:</strong> 0</p>
+    <p><strong>Subject:</strong> John Smith</p>
+    <p><strong>Subject Entity:</strong> P001</p>
+    <p><strong>Connected Entities:</strong> 5</p>
+    <p><strong>Findings:</strong> 1</p>
   </div>
   <div class="box">
     <h2>Network Composition</h2>
-    <p><strong>Connected:</strong> Alpha Trading Ltd (CRM), Alpha Trading (PAYMENTS)</p>
+    <p><strong>Connected:</strong> Alpha Trading Ltd, Beta Holdings Ltd, Gamma Imports Ltd, Delta Shipping Ltd, Zeta Commodities Ltd</p>
   </div>
 </div>
 
@@ -239,13 +235,19 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
     
     <p>This product did not report evidence coverage.</p>
   </div>
-  
-  
+  <div class="box">
+    <h2>Risk Score</h2>
+    <p><strong>17 / 100</strong></p><ul><li>Network risk scored 17/100 (Low) by the governed NetworkRiskEngine.</li><li>Dominant risk components: structural risk 60, relationship risk 53.</li><li>Highest-influence node John Smith (P001) is linked to 5 entities.</li></ul>
+  </div>
+  <div class="box">
+    <h2>Exposure</h2>
+    <p><strong>Not carried</strong></p><p>This case reports no measured variance, so there is no exposure amount to publish. No score is substituted.</p>
+  </div>
 </div>
 
 
 <div class="band" id="graph">VISUAL INTELLIGENCE MODEL</div>
-<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/ni001-51e7f738d7_NI001_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/fnd004-f4bf9b6983_FND004_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -287,17 +289,17 @@ body { margin:0; background:var(--g-bg); }
   data-renderer-id=&quot;NETWORK_STAR_VISUAL_RENDERER&quot;
   data-graph-topology=&quot;star&quot;
   data-graph-contract=&quot;CANONICAL_GRAPH_ENGINE_CONTRACT&quot;
-  data-graph-fingerprint=&quot;7b407d1f30454a74215389481a3d147a86d09e4cfc6f26099147099556c337bb&quot;
-  data-case-id=&quot;NI001-REG-2001&quot;
-  data-case-fingerprint=&quot;a56c4a952feb9b4f74a4692108de5fc249d6732812a03b29e7741cbd6f584426&quot;
-  data-subject-entity-id=&quot;REG-2001&quot;
-  data-summary-for=&quot;REG-2001&quot;&gt;
-  &lt;svg class=&quot;network-star-svg&quot; viewBox=&quot;0 0 960.0 720.0&quot; role=&quot;img&quot; aria-label=&quot;Network star: Alpha Trading Limited connected to 2 entities&quot;&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;480.0&quot; y2=&quot;144.0&quot; class=&quot;spoke&quot; data-source=&quot;REG-2001&quot; data-target=&quot;CRM-1001&quot; /&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;480.0&quot; y2=&quot;556.0&quot; class=&quot;spoke&quot; data-source=&quot;REG-2001&quot; data-target=&quot;PAY-3001&quot; /&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;resolved from&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;434.3&quot; y=&quot;203.5&quot; width=&quot;91.4&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;480.0&quot; y=&quot;217.5&quot; text-anchor=&quot;middle&quot;&gt;resolved from&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;resolved from&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;434.3&quot; y=&quot;475.5&quot; width=&quot;91.4&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;480.0&quot; y=&quot;489.5&quot; text-anchor=&quot;middle&quot;&gt;resolved from&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;CRM-1001&quot; data-label=&quot;Alpha Trading Ltd (CRM)&quot;&gt;&lt;title&gt;Alpha Trading Ltd (CRM) · CRM-1001&lt;/title&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;144.0&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;147.5&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;CRM-1001&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;PAY-3001&quot; data-label=&quot;Alpha Trading (PAYMENTS)&quot;&gt;&lt;title&gt;Alpha Trading (PAYMENTS) · PAY-3001&lt;/title&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;556.0&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;559.5&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;PAY-3001&lt;/text&gt;&lt;/g&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;480.0&quot; y=&quot;107.0&quot; text-anchor=&quot;middle&quot;&gt;Alpha Trading Ltd (CR…&lt;/text&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;480.0&quot; y=&quot;602.0&quot; text-anchor=&quot;middle&quot;&gt;Alpha Trading (PAYMEN…&lt;/text&gt;&lt;g class=&quot;hub&quot; data-node-id=&quot;REG-2001&quot; data-label=&quot;Alpha Trading Limited&quot;&gt;&lt;title&gt;Alpha Trading Limited · REG-2001&lt;/title&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;350.0&quot; r=&quot;48.0&quot; class=&quot;hub-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;354.0&quot; class=&quot;hub-text&quot; text-anchor=&quot;middle&quot;&gt;REG-2001&lt;/text&gt;&lt;text x=&quot;480.0&quot; y=&quot;420.0&quot; class=&quot;subject-name&quot; text-anchor=&quot;middle&quot;&gt;Alpha Trading Limited&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;
+  data-graph-fingerprint=&quot;06cef8b694a780dab0f9f19a0ce4d07f00a49e77c8c07ac4ed866e6aecf94061&quot;
+  data-case-id=&quot;FND004-P001&quot;
+  data-case-fingerprint=&quot;423d858560b027ace57922876f76273ab07366a58367ad983a6a61054033349e&quot;
+  data-subject-entity-id=&quot;P001&quot;
+  data-summary-for=&quot;P001&quot;&gt;
+  &lt;svg class=&quot;network-star-svg&quot; viewBox=&quot;0 0 960.0 720.0&quot; role=&quot;img&quot; aria-label=&quot;Network star: John Smith connected to 5 entities&quot;&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;480.0&quot; y2=&quot;144.0&quot; class=&quot;spoke&quot; data-source=&quot;P001&quot; data-target=&quot;C001&quot; /&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;675.9&quot; y2=&quot;286.3&quot; class=&quot;spoke&quot; data-source=&quot;P001&quot; data-target=&quot;C002&quot; /&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;601.1&quot; y2=&quot;516.7&quot; class=&quot;spoke&quot; data-source=&quot;P001&quot; data-target=&quot;C003&quot; /&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;358.9&quot; y2=&quot;516.7&quot; class=&quot;spoke&quot; data-source=&quot;P001&quot; data-target=&quot;C004&quot; /&gt;&lt;line x1=&quot;480.0&quot; y1=&quot;350.0&quot; x2=&quot;284.1&quot; y2=&quot;286.3&quot; class=&quot;spoke&quot; data-source=&quot;P001&quot; data-target=&quot;C006&quot; /&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;network link&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;437.2&quot; y=&quot;203.5&quot; width=&quot;85.6&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;480.0&quot; y=&quot;217.5&quot; text-anchor=&quot;middle&quot;&gt;network link&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;network link&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;566.5&quot; y=&quot;297.5&quot; width=&quot;85.6&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;609.3&quot; y=&quot;311.5&quot; text-anchor=&quot;middle&quot;&gt;network link&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;network link&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;517.1&quot; y=&quot;449.5&quot; width=&quot;85.6&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;559.9&quot; y=&quot;463.5&quot; text-anchor=&quot;middle&quot;&gt;network link&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;network link&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;357.3&quot; y=&quot;449.5&quot; width=&quot;85.6&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;400.1&quot; y=&quot;463.5&quot; text-anchor=&quot;middle&quot;&gt;network link&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;edge-label-group&quot; data-relationship-label=&quot;network link&quot;&gt;&lt;rect class=&quot;edge-label-bg&quot; x=&quot;307.9&quot; y=&quot;297.5&quot; width=&quot;85.6&quot; height=&quot;21.0&quot; rx=&quot;7&quot; /&gt;&lt;text class=&quot;edge-label&quot; x=&quot;350.7&quot; y=&quot;311.5&quot; text-anchor=&quot;middle&quot;&gt;network link&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;C001&quot; data-label=&quot;Alpha Trading Ltd&quot;&gt;&lt;title&gt;Alpha Trading Ltd · C001&lt;/title&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;144.0&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;147.5&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;C001&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;C002&quot; data-label=&quot;Beta Holdings Ltd&quot;&gt;&lt;title&gt;Beta Holdings Ltd · C002&lt;/title&gt;&lt;circle cx=&quot;675.9&quot; cy=&quot;286.3&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;675.9&quot; y=&quot;289.8&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;C002&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;C003&quot; data-label=&quot;Gamma Imports Ltd&quot;&gt;&lt;title&gt;Gamma Imports Ltd · C003&lt;/title&gt;&lt;circle cx=&quot;601.1&quot; cy=&quot;516.7&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;601.1&quot; y=&quot;520.2&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;C003&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;C004&quot; data-label=&quot;Delta Shipping Ltd&quot;&gt;&lt;title&gt;Delta Shipping Ltd · C004&lt;/title&gt;&lt;circle cx=&quot;358.9&quot; cy=&quot;516.7&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;358.9&quot; y=&quot;520.2&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;C004&lt;/text&gt;&lt;/g&gt;&lt;g class=&quot;leaf&quot; data-node-id=&quot;C006&quot; data-label=&quot;Zeta Commodities Ltd&quot;&gt;&lt;title&gt;Zeta Commodities Ltd · C006&lt;/title&gt;&lt;circle cx=&quot;284.1&quot; cy=&quot;286.3&quot; r=&quot;26.0&quot; class=&quot;leaf-dot&quot; /&gt;&lt;text x=&quot;284.1&quot; y=&quot;289.8&quot; class=&quot;leaf-text&quot; text-anchor=&quot;middle&quot;&gt;C006&lt;/text&gt;&lt;/g&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;480.0&quot; y=&quot;107.0&quot; text-anchor=&quot;middle&quot;&gt;Alpha Trading Ltd&lt;/text&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;710.9&quot; y=&quot;290.3&quot; text-anchor=&quot;start&quot;&gt;Beta Holdings Ltd&lt;/text&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;636.1&quot; y=&quot;520.7&quot; text-anchor=&quot;start&quot;&gt;Gamma Imports Ltd&lt;/text&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;323.9&quot; y=&quot;520.7&quot; text-anchor=&quot;end&quot;&gt;Delta Shipping Ltd&lt;/text&gt;&lt;text class=&quot;leaf-name&quot; x=&quot;249.1&quot; y=&quot;290.3&quot; text-anchor=&quot;end&quot;&gt;Zeta Commodities Ltd&lt;/text&gt;&lt;g class=&quot;hub&quot; data-node-id=&quot;P001&quot; data-label=&quot;John Smith&quot;&gt;&lt;title&gt;John Smith · P001&lt;/title&gt;&lt;circle cx=&quot;480.0&quot; cy=&quot;350.0&quot; r=&quot;48.0&quot; class=&quot;hub-dot&quot; /&gt;&lt;text x=&quot;480.0&quot; y=&quot;354.0&quot; class=&quot;hub-text&quot; text-anchor=&quot;middle&quot;&gt;P001&lt;/text&gt;&lt;text x=&quot;480.0&quot; y=&quot;420.0&quot; class=&quot;subject-name&quot; text-anchor=&quot;middle&quot;&gt;John Smith&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;
   &lt;div class=&quot;graph-caption&quot;&gt;
     CANONICAL_GRAPH_ENGINE &amp;middot; CANONICAL_GRAPH_ENGINE_CONTRACT&lt;br&gt;
-    Case NI001-REG-2001 &amp;middot; Alpha Trading Limited (REG-2001) &amp;middot;
-    2 connected entities&lt;br&gt;
-    fingerprint a56c4a952feb9b4f74a4692108de5fc249d6732812a03b29e7741cbd6f584426
+    Case FND004-P001 &amp;middot; John Smith (P001) &amp;middot;
+    5 connected entities&lt;br&gt;
+    fingerprint 423d858560b027ace57922876f76273ab07366a58367ad983a6a61054033349e
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;/body&gt;
@@ -306,17 +308,24 @@ body { margin:0; background:var(--g-bg); }
 <div class="band" id="drivers">DRIVER ANALYSIS</div>
 
 <div class="grid3" data-runtime-section="driver_analysis" data-source="metadata_packet">
-  
-  
-  
+  <div class="box" data-source="confidence_components"><h2>Risk Confidence Drivers</h2>
+    <p class="muted">Not computed &mdash; the analytic supplied no confidence breakdown.</p>
+  </div>
+  <div class="box" data-source="risk_components"><h2>Risk Score Drivers</h2>
+    <p class="muted">Not computed &mdash; the analytic supplied no component breakdown for this score.</p>
+  </div>
+  <div class="box" data-source="fc01_runtime_content" data-content-section="risk_exposure_drivers" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
+    <h2>Risk Exposure Drivers</h2>
+    <p>Network risk scored 17/100 (Low) by the governed NetworkRiskEngine.</p><p>Dominant risk components: structural risk 60, relationship risk 53.</p><p>Highest-influence node John Smith (P001) is linked to 5 entities.</p>
+  </div>
 </div>
 
 
 <div class="band" id="assessment">INTELLIGENCE ASSESSMENT</div>
 <div class="grid3">
-
-
-<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Ownership/control indicators</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+<div class="box"><h2>Key Indicators</h2><ul><li>Network risk scored 17/100 (Low) by the governed NetworkRiskEngine.</li></ul></div>
+<div class="box"><h2>Risk Rationale</h2><p>The governed FC-03 network risk engine scored this network 17/100 (Low) across 20 entities and 5 relationships.</p></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li><li>Ownership/control indicators</li></ul></div>
 </div>
 
 <div class="band" id="workspace">INTELLIGENCE WORKSPACE</div>
@@ -337,17 +346,17 @@ body { margin:0; background:var(--g-bg); }
      data-source="fc01_runtime_content">
   <div class="box" data-source="fc01_runtime_content" data-content-section="intelligence_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
     <h2>Assessment Summary</h2>
-    <p>Entity Resolution consolidated 10 fragmented records from 3 source systems into 5 trusted entities, on 6 high-confidence matches. The largest cluster is Alpha Trading Limited (REG-2001), consolidated from 3 source records: CRM-1001, REG-2001, PAY-3001.</p>
+    <p>The governed FC-03 network risk engine scored this network 17/100 (Low) across 20 entities and 5 relationships. Risk decomposes into five components; the strongest are structural risk 60, relationship risk 53. The network&#x27;s risk concentrates on its highest-influence node, John Smith (P001), linked to 5 entities.</p>
   </div>
 
   <div class="box" data-source="fc01_runtime_content" data-content-section="supporting_assessment" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
     <h2>Supporting Assessment</h2>
-    <ul><li>Entity Resolution consolidated 10 fragmented records from 3 source systems into 5 trusted entities, on 6 high-confidence matches. The largest cluster is Alpha Trading Limited (REG-2001), consolidated from 3 source records: CRM-1001, REG-2001, PAY-3001.</li><li>Records were matched by the governed FC-03 EntityResolutionEngine on name, registration number, address, email and phone.</li></ul>
+    <ul><li>The governed FC-03 network risk engine scored this network 17/100 (Low) across 20 entities and 5 relationships. Risk decomposes into five components; the strongest are structural risk 60, relationship risk 53. The network&#x27;s risk concentrates on its highest-influence node, John Smith (P001), linked to 5 entities.</li><li>Risk was scored across five explainable components by the governed engine, not by this adapter.</li></ul>
   </div>
 
   <div class="box" data-source="fc01_runtime_content" data-content-section="confidence_narrative" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
     <h2>Confidence Narrative</h2>
-    <p>Resolution confidence 0.96, the mean score of the 6 matches.</p>
+    <p>Confidence 0.9605, from the governed network risk engine&#x27;s coverage of the supplied network.</p>
   </div>
 
   <div class="box" data-source="fc01_runtime_content" data-content-section="alternative_explanations" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
@@ -357,7 +366,7 @@ body { margin:0; background:var(--g-bg); }
 
   <div class="box" data-source="fc01_runtime_content" data-content-section="investigation_hypothesis" data-content-contract="FC01_RUNTIME_CONTENT_CONTRACT_V1">
     <h2>Investigation Hypothesis</h2>
-    <p>Alpha Trading Limited is a single entity fragmented across 3 records; the canonical id REG-2001 should carry its risk across every downstream product.</p>
+    <p>The network&#x27;s risk concentrates around John Smith; the dominant components (structural risk 60, relationship risk 53) indicate where to focus the investigation.</p>
   </div>
 </div>
 
@@ -368,7 +377,7 @@ body { margin:0; background:var(--g-bg); }
 <div class="grid2">
 
 <div class="box"><h2>Recommended Actions</h2><div data-runtime-content-shape="semantic">
-<ul><li>Confirm the canonical identity for the largest cluster</li><li>Tag downstream products with the canonical entity id</li><li>Review any low-confidence matches before merging</li></ul>
+<ul><li>Review the highest-influence node and its direct links</li><li>Test the dominant risk components against source evidence</li><li>Assess whether the network&#x27;s structure warrants escalation</li></ul>
 </div></div>
 
 </div>
@@ -377,25 +386,19 @@ body { margin:0; background:var(--g-bg); }
 
 <div class="box">
 <h2>Key Investigation Questions</h2>
-<ul>
-<li>Does available evidence support the dominant hypothesis?</li>
-<li>Are there additional transaction counterparties or connected parties not currently visible?</li>
-<li>Can ownership, control and shared attributes be independently verified?</li>
-<li>Does historical activity support the observed network structure?</li>
-<li>Is escalation warranted given the published risk rating and confidence score?</li>
-</ul>
+<ul><li>Does available evidence support the dominant hypothesis?</li><li>Are there additional transaction counterparties or connected parties not currently visible?</li><li>Does historical activity support the observed network structure?</li><li>Is escalation warranted given the published risk rating and confidence score?</li><li>Can ownership, control and shared attributes be independently verified?</li></ul>
 </div>
 
 <div class="box">
 <h2>Collection Plan</h2>
-<ul><li>Confirm the canonical identity of the largest cluster against source registers.</li><li>Review the 6 high-confidence matches and any borderline pairs before merging.</li><li>Obtain the source-system records that resolved to each canonical entity.</li></ul>
+<p class="not-supplied">No collection plan has been supplied by the analytic. The five numbered items previously shown here were fixed text, not an assessment of this case.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
 </div>
 
 </div>
 
 <div class="box">
 <h2>Investigation Priorities</h2>
-<ul><li>Adopt the canonical entity ids across the downstream products.</li><li>Confirm the 10 records resolve to the 5 entities claimed.</li><li>Escalate any low-confidence match that would change a downstream finding.</li></ul>
+<p class="not-supplied">No investigation priorities have been supplied by the analytic. The confidence gains previously shown here were fixed values, not a forecast.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
 </div>
 
 </section>
@@ -403,10 +406,10 @@ body { margin:0; background:var(--g-bg); }
 <section class="panel" id="tab-brief">
 <div class="grid3">
 <div class="box"><h2>Executive Intelligence Summary</h2><div data-runtime-content-shape="semantic">
-<p><strong>Headline:</strong> 10 records resolved to 5 entities (6 matches)</p><p><strong>Summary:</strong> Entity Resolution consolidated 10 fragmented records from 3 source systems into 5 trusted entities, on 6 high-confidence matches. The largest cluster is Alpha Trading Limited (REG-2001), consolidated from 3 source records: CRM-1001, REG-2001, PAY-3001.</p>
+<p><strong>Headline:</strong> Network risk 17/100 (Low) across 20 entities</p><p><strong>Summary:</strong> The governed FC-03 network risk engine scored this network 17/100 (Low) across 20 entities and 5 relationships. Risk decomposes into five components; the strongest are structural risk 60, relationship risk 53. The network&#x27;s risk concentrates on its highest-influence node, John Smith (P001), linked to 5 entities.</p>
 </div></div>
-<div class="box"><h2>Key Intelligence Findings</h2><ul><li>Entity Resolution consolidated 10 fragmented records from 3 source systems into 5 trusted entities, on 6 high-confidence matches. The largest cluster is Alpha Trading Limited (REG-2001), consolidated from 3 source records: CRM-1001, REG-2001, PAY-3001.</li><li>Records were matched by the governed FC-03 EntityResolutionEngine on name, registration number, address, email and phone.</li></ul></div>
-<div class="box"><h2>Why This Matters</h2><p>Records that name the same real-world entity but sit in different systems hide that they are one party — so risk, ownership and sanctions findings attach to fragments instead of to the entity. Consolidating 10 records into 5 canonical entities on 6 high-confidence matches gives every downstream product one identity to reason about, so a hit on any source record lands on the whole entity.</p></div>
+<div class="box"><h2>Key Intelligence Findings</h2><ul><li>The governed FC-03 network risk engine scored this network 17/100 (Low) across 20 entities and 5 relationships. Risk decomposes into five components; the strongest are structural risk 60, relationship risk 53. The network&#x27;s risk concentrates on its highest-influence node, John Smith (P001), linked to 5 entities.</li><li>Risk was scored across five explainable components by the governed engine, not by this adapter.</li></ul></div>
+<div class="box"><h2>Why This Matters</h2><p>Why this case matters has not been supplied by the analytic.</p></div>
 </div>
 </section>
 
@@ -416,7 +419,7 @@ body { margin:0; background:var(--g-bg); }
 
 <div class="box">
 <h2>Primary Hypothesis</h2>
-<p>Alpha Trading Limited is a single entity fragmented across 3 records; the canonical id REG-2001 should carry its risk across every downstream product.</p><div class="conclusion-value">Confidence 0.9553</div>
+<p>The network&#x27;s risk concentrates around John Smith; the dominant components (structural risk 60, relationship risk 53) indicate where to focus the investigation.</p><div class="conclusion-value">Confidence 0.9605</div>
 </div>
 
 <div class="box">
@@ -434,7 +437,7 @@ body { margin:0; background:var(--g-bg); }
 <div class="box">
 <h2>Evidence Assessment</h2>
 <p>
-Entity resolution ran the governed FC-03 EntityResolutionEngine over the supplied records, consolidating 10 records into 5 canonical entities on 6 high-confidence matches at a mean match score of 0.96. The clusters are derived from name, registration-number and contact matching and should be confirmed against source registers before the canonical ids are treated as authoritative.
+<p class="not-supplied">No evidence assessment has been supplied by the analytic.</p><p class="not-supplied">This section is scaffolding and should not be read as an assessment.</p>
 </p>
 </div>
 
@@ -462,12 +465,12 @@ Entity resolution ran the governed FC-03 EntityResolutionEngine over the supplie
 <div class="grid2">
 
 <div class="box"><h2>Decision Support</h2><div data-runtime-content-shape="semantic">
-<p><strong>Rationale:</strong> Records resolve to canonical entities so that risk, ownership and typology findings attach to one identity rather than many records.</p>
+<p><strong>Rationale:</strong> Disposition follows the governed network risk band (Low) for this network.</p>
 </div></div>
 
 <div class="box">
 <h2>Investigation Value</h2>
-<ul><li>Collapses 10 source records into 5 canonical entities that downstream products can share.</li><li>Ensures a risk, ownership or sanctions hit on any record attaches to the whole entity.</li><li>Surfaces low-confidence matches for review before they are merged.</li></ul>
+<ul><li>Investigation value has not been supplied by the analytic.</li></ul>
 </div>
 
 </div>
@@ -476,7 +479,7 @@ Entity resolution ran the governed FC-03 EntityResolutionEngine over the supplie
 
 <div class="box">
 <h2>Reasoning Summary</h2>
-<p>NI001 Entity Resolution was selected as the dominant typology from the governed analytic&#x27;s own output.</p>
+<p>The network graph was built, its structure analysed, and its risk scored across entity, relationship, ownership, exposure and structural components by the governed network risk engine.</p>
 </div>
 
 </div>
@@ -495,7 +498,7 @@ Entity resolution ran the governed FC-03 EntityResolutionEngine over the supplie
 
 <div class="box"><h2>Evidence Quality</h2><div data-runtime-content-shape="semantic">
 <p><strong>Basis:</strong> Runtime evidence quality assessed from metadata coverage.</p>
-<p><strong>Confidence score:</strong> 0.9553</p>
+<p><strong>Confidence score:</strong> 0.9605</p>
 </div></div>
 
 <div class="box">
@@ -517,12 +520,12 @@ Entity resolution ran the governed FC-03 EntityResolutionEngine over the supplie
 <section class="panel" id="tab-metadata">
 <div class="box">
 <h2>Pattern Classification</h2>
-<div class="meta"><div><strong>Type</strong><br>Network Intelligence</div><div><strong>Category</strong><br>Entity Resolution</div><div><strong>Typology</strong><br>NI001</div><div><strong>Exposure</strong><br>Resolved</div></div>
+<div class="meta"><div><strong>Type</strong><br>Network Intelligence</div><div><strong>Category</strong><br>Network Risk Assessment</div><div><strong>Typology</strong><br>FND004</div><div><strong>Exposure</strong><br>Low</div></div>
 </div>
 
 <div class="box">
 <h2>Pattern Summary</h2>
-<p>NI001 identifies a star topology across 3 entities and 2 relationships.</p>
+<p>FND004 identifies a star topology across 6 entities and 5 relationships.</p>
 </div>
 
 <div class="box"><h2>Expected Fusion Result</h2><div data-runtime-content-shape="semantic">
@@ -531,7 +534,7 @@ Entity resolution ran the governed FC-03 EntityResolutionEngine over the supplie
 
 <div class="box">
 <h2>Technical Metadata</h2>
-<div class="meta"><div><strong>Run ID</strong><br>ni001-51e7f738d7</div><div><strong>Built</strong><br>2026-08-09T20:24:13.698692Z</div><div><strong>Pattern ID</strong><br>NI001</div><div><strong>Entity Count</strong><br>3</div><div><strong>Relationship Count</strong><br>2</div><div class="mv-cap"><strong>Topology</strong><br>star</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
+<div class="meta"><div><strong>Run ID</strong><br>fnd004-f4bf9b6983</div><div><strong>Built</strong><br>2026-09-05T12:05:18.410825Z</div><div><strong>Pattern ID</strong><br>FND004</div><div><strong>Entity Count</strong><br>6</div><div><strong>Relationship Count</strong><br>5</div><div class="mv-cap"><strong>Topology</strong><br>star</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
 </div>
 </section>
 
