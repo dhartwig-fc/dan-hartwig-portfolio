@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Intelligence · INV008</title><style>
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:#0b1a2e;display:flex;flex-direction:column;height:100vh;overflow:hidden}
+.top{background:linear-gradient(135deg,#050b14,#12325b);color:#eaf1fb;padding:12px 18px;display:flex;align-items:center;gap:14px;flex:none}
+.top h1{font-size:15px;margin:0}.top .crumb{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#9fc0ea;margin-left:auto}
+.top .agg{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:4px 10px;font-size:12px}
+.main{flex:1;display:flex;min-height:0}
+.side{width:250px;flex:none;background:#0b1a2e;border-right:1px solid rgba(148,163,184,.18);overflow-y:auto;padding:10px}
+.tier{font-family:ui-monospace,Menlo,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7fa8d8;margin:14px 8px 6px}
+.tier:first-child{margin-top:4px}
+.nav{display:flex;flex-direction:column;gap:1px;padding:8px 10px;border-radius:9px;text-decoration:none;color:#dbe6f5;border:1px solid transparent}
+.nav:hover{background:rgba(255,255,255,.05)}
+.nav.active{background:rgba(201,138,16,.12);border-color:rgba(201,138,16,.4)}
+.nav.active .nl{color:#f0b84a}
+.case-tabs{display:flex;flex:none;background:#050b14;border-bottom:1px solid rgba(255,255,255,.08)}
+.case-tab{flex:1;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px 10px;text-decoration:none;color:#9db8dc;font-weight:600;font-size:13.5px;border-bottom:3px solid transparent;border-right:1px solid rgba(255,255,255,.05);transition:background .15s,color .15s}
+.case-tab:last-child{border-right:0}
+.case-tab .ct-k{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;opacity:.65}
+.case-tab:hover{color:#eaf1fb;background:rgba(255,255,255,.05)}
+@media(max-width:620px){.case-tab{font-size:11.5px;padding:11px 6px;gap:5px}}
+.nl{font-size:13px;font-weight:600}.ns{font-size:11px;color:#8fb0d8}
+.framewrap{flex:1;min-width:0;background:#f7f9fb}
+iframe{width:100%;height:100%;border:0;background:#fff}
+@media(max-width:720px){.side{width:168px}}
+</style></head><body><div class="case-tabs"><a class="case-tab" style="border-bottom-color:#1f7a5c" href="../investigation/index.html"><span class="ct-k">01</span><span class="ct-l">Full Journey</span></a><a class="case-tab" style="border-bottom-color:#c98a10" href="../investigation-cross-domain/index.html"><span class="ct-k">02</span><span class="ct-l">Cross-Domain Sanctions</span></a><a class="case-tab" style="border-bottom-color:#b3261e" href="../investigation-designated-party/index.html"><span class="ct-k">03</span><span class="ct-l">Designated-Party Proximity</span></a><a class="case-tab" style="border-bottom-color:#6b3fa0" href="../investigation-network-fusion/index.html"><span class="ct-k">04</span><span class="ct-l">Network Risk Fusion</span></a><a class="case-tab active" style="border-bottom-color:#1a4f9c;color:#fff;background:#1a4f9c" href="index.html"><span class="ct-k">05</span><span class="ct-l">Correspondent Banking</span></a></div>
+<div class="top"><h1>INV008 — Fused Case</h1><span class="agg">Aggregate 90 · High</span>
+<span class="crumb" id="crumb">Case intelligence</span></div>
+<div class="main">
+  <nav class="side">
+    <div class="tier">Tier 0 · Explore</div><a class="nav" data-src="explore.html" href="#"><span class="nl">Entity explorer</span><span class="ns">search · 2-hop network</span></a>
+    <div class="tier">Tier 1 · Case</div>
+    <a class="nav active" data-src="case.html" href="#"><span class="nl">Case intelligence</span><span class="ns">fused network + briefing</span></a>
+    <div class="tier">Tier 2 · Entities</div>
+    <a class="nav" data-src="entities/CE-fe5b5ecd.html" href="#"><span class="nl">Alpha Trading Limited</span><span class="ns">flagged by 5</span></a>
+    <a class="nav" data-src="entities/CE-df1e4005.html" href="#"><span class="nl">John Smith</span><span class="ns">flagged by 3</span></a>
+    <a class="nav" data-src="entities/CE-f9e93b51.html" href="#"><span class="nl">Gamma Imports Ltd</span><span class="ns">flagged by 6</span></a>
+    <a class="nav" data-src="entities/CE-adaa9c4b.html" href="#"><span class="nl">Delta Shipping Ltd</span><span class="ns">flagged by 2</span></a>
+    <a class="nav" data-src="entities/CE-be112f32.html" href="#"><span class="nl">Zeta Commodities Ltd</span><span class="ns">flagged by 3</span></a>
+    <a class="nav" data-src="entities/CE-ff5e20d7.html" href="#"><span class="nl">Epsilon Commodities Ltd</span><span class="ns">flagged by 2</span></a>
+    <a class="nav" data-src="entities/CE-22b85d1e.html" href="#"><span class="nl">Aroha Ngata</span><span class="ns">flagged by 2</span></a>
+    <a class="nav" data-src="entities/CE-edd74e6f.html" href="#"><span class="nl">Continental Correspondent Bank</span><span class="ns">flagged by 3</span></a>
+    <div class="tier">Tier 3 · Products</div>
+    <a class="nav" data-src="products/FND001.html" href="#"><span class="nl">FND001</span><span class="ns">FND001 Entity Resolution Intelligence Product</span></a>
+    <a class="nav" data-src="products/FND004.html" href="#"><span class="nl">FND004</span><span class="ns">FND004 Network Risk Assessment Intelligence Product</span></a>
+    <a class="nav" data-src="products/PAT010.html" href="#"><span class="nl">PAT010</span><span class="ns">Hidden Controller Applied Pattern</span></a>
+    <a class="nav" data-src="products/SAN005.html" href="#"><span class="nl">SAN005</span><span class="ns">SAN005 Name Screening Evasion Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA002.html" href="#"><span class="nl">BA002</span><span class="ns">BA002 Funnel Accounts Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA003.html" href="#"><span class="nl">BA003</span><span class="ns">BA003 Mule Accounts Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA004.html" href="#"><span class="nl">BA004</span><span class="ns">BA004 Circular Funds Flow Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA006.html" href="#"><span class="nl">BA006</span><span class="ns">BA006 Dormant Reactivation Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA007.html" href="#"><span class="nl">BA007</span><span class="ns">BA007 Cash Intensive Activity Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA008.html" href="#"><span class="nl">BA008</span><span class="ns">BA008 Layering Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA009.html" href="#"><span class="nl">BA009</span><span class="ns">BA009 Transaction Laundering Intelligence Product</span></a>
+    <a class="nav" data-src="products/BA010.html" href="#"><span class="nl">BA010</span><span class="ns">BA010 Peer Group Anomalies Intelligence Product</span></a>
+  </nav>
+  <div class="framewrap"><iframe id="bframe" title="case tier" src="case.html"></iframe></div>
+</div>
+<script>
+var PATHS={"case.html": "case.html", "explore.html": "explore.html", "CE-fe5b5ecd.html": "entities/CE-fe5b5ecd.html", "CE-df1e4005.html": "entities/CE-df1e4005.html", "CE-f9e93b51.html": "entities/CE-f9e93b51.html", "CE-adaa9c4b.html": "entities/CE-adaa9c4b.html", "CE-be112f32.html": "entities/CE-be112f32.html", "CE-ff5e20d7.html": "entities/CE-ff5e20d7.html", "CE-22b85d1e.html": "entities/CE-22b85d1e.html", "CE-edd74e6f.html": "entities/CE-edd74e6f.html", "FND001.html": "products/FND001.html", "FND004.html": "products/FND004.html", "PAT010.html": "products/PAT010.html", "SAN005.html": "products/SAN005.html", "BA002.html": "products/BA002.html", "BA003.html": "products/BA003.html", "BA004.html": "products/BA004.html", "BA006.html": "products/BA006.html", "BA007.html": "products/BA007.html", "BA008.html": "products/BA008.html", "BA009.html": "products/BA009.html", "BA010.html": "products/BA010.html"},LABELS={"explore.html": "Entity explorer", "case.html": "Case intelligence", "entities/CE-fe5b5ecd.html": "Alpha Trading Limited", "entities/CE-df1e4005.html": "John Smith", "entities/CE-f9e93b51.html": "Gamma Imports Ltd", "entities/CE-adaa9c4b.html": "Delta Shipping Ltd", "entities/CE-be112f32.html": "Zeta Commodities Ltd", "entities/CE-ff5e20d7.html": "Epsilon Commodities Ltd", "entities/CE-22b85d1e.html": "Aroha Ngata", "entities/CE-edd74e6f.html": "Continental Correspondent Bank", "products/FND001.html": "FND001", "products/FND004.html": "FND004", "products/PAT010.html": "PAT010", "products/SAN005.html": "SAN005", "products/BA002.html": "BA002", "products/BA003.html": "BA003", "products/BA004.html": "BA004", "products/BA006.html": "BA006", "products/BA007.html": "BA007", "products/BA008.html": "BA008", "products/BA009.html": "BA009", "products/BA010.html": "BA010"},frame=document.getElementById('bframe');
+function nav(src){if(!src)return;frame.src=src;document.querySelectorAll('.nav').forEach(function(a){a.classList.toggle('active',a.dataset.src===src);});document.getElementById('crumb').textContent=LABELS[src]||'Case intelligence';}
+document.querySelectorAll('.nav').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();nav(a.dataset.src);});});
+frame.addEventListener('load',function(){try{var doc=frame.contentDocument;if(!doc)return;doc.querySelectorAll('a[href]').forEach(function(a){var base=(a.getAttribute('href')||'').split('#')[0].split('/').pop();if(!base||base.slice(-5)!=='.html')return;var src=PATHS[base==='index.html'?'case.html':base];if(src){a.addEventListener('click',function(e){e.preventDefault();nav(src);});}});}catch(err){}});
+</script></body></html>
