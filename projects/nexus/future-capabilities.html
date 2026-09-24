@@ -34,6 +34,8 @@ h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.06em;margin:0
 .track.knowledge::before{background:var(--gold)}
 .track .tk{font-family:var(--mono);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
 .track.copilot .tk{color:var(--blue)} .track.threat .tk{color:var(--purple)} .track.knowledge .tk{color:var(--gold)}
+.track.tuning::before{background:var(--green)}
+.track.tuning .tk{color:var(--green)}
 .track h2{font-size:32px;letter-spacing:-.05em;margin:0 0 12px}
 .track .intro{color:var(--muted);font-size:16px;line-height:1.62;max-width:76ch;margin:0}
 .track .intro b{color:var(--text);font-weight:600}
@@ -43,6 +45,8 @@ h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.06em;margin:0
   padding:5px 10px;border-radius:999px;white-space:nowrap;flex:none}
 .pill.built{background:rgba(34,197,94,.13);color:var(--green);border:1px solid rgba(34,197,94,.42)}
 .pill.later{background:rgba(148,163,184,.1);color:var(--muted);border:1px solid var(--line)}
+.pill.inbuild{background:rgba(56,189,248,.12);color:var(--blue);border:1px solid rgba(56,189,248,.42)}
+.callout.g{border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.06)}
 
 .subh{font-size:12px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#7fa8d8;margin:28px 0 14px}
 
@@ -93,12 +97,13 @@ figcaption b{color:var(--purple)}
   <h1>Where the AI plugs in.</h1>
   <p class="lead">
     The chain is built. The next layer makes it <b>learn and stay current</b> — a doctrine <b>foundation</b> plus
-    two AI tracks, all on the same resolved-entity substrate: the <b>Knowledge Centre</b> (the typology doctrine,
-    surfaced), an <b>AI copilot</b> that plugs applications onto grounded context, and a
-    <b>threat-intelligence layer</b> that keeps the platform current. All <b>grounded and governed</b> —
-    AI acting on the platform's own evidence, never a free-floating model.
+    three tracks, all on the same resolved-entity substrate: the <b>Knowledge Centre</b> (the typology doctrine,
+    surfaced), an <b>AI copilot</b> that plugs applications onto grounded context, a
+    <b>threat-intelligence layer</b> that keeps the platform current, and a <b>tuning studio</b> that
+    stress-tests the monitoring rules against known truth. All <b>grounded and governed</b> —
+    acting on the platform's own evidence, never a free-floating model.
   </p>
-  <div class="note">Direction &amp; architecture · Knowledge Centre <b>built</b> (Beta v2.0) · SAR drafter is copilot slice 1 (<b>live</b>)</div>
+  <div class="note">Direction &amp; architecture · Knowledge Centre <b>built</b> (Beta v2.0) · SAR drafter is copilot slice 1 (<b>live</b>) · Tuning Studio <b>in build</b> (week 1 of 10)</div>
 
   <!-- FOUNDATION -->
   <div class="track knowledge">
@@ -201,8 +206,35 @@ figcaption b{color:var(--purple)}
     </figure>
   </div>
 
+  <!-- TRACK 3 -->
+  <div class="track tuning">
+    <div class="tk">Track 3 · Detection Tuning</div>
+    <h2>Stress-testing the alerts — tuning on evidence, not instinct.</h2>
+    <p class="intro">
+      Every monitoring rule is a trade: catch more, and the queue grows past what investigators can work.
+      The Tuning Studio runs the platform's <b>real TM rules against a population whose truth is known</b>
+      (planted typologies across twelve months, seeded so every run is identical), then shows what a threshold,
+      a segment split or a challenger rule does to <b>alert volume, precision, recall and investigator capacity</b>.
+      A setting changes only through a <b>governed, evidenced decision</b>.
+    </p>
+
+    <div class="subh">The capability slices</div>
+    <div class="slices">
+      <div class="slice"><div class="st">Planted-truth backtest<small>A seeded population with known typology scenarios, so every alert is scored and every miss is a known blind spot. On it, today's flat <code>high_value</code> threshold catches 55% of planted spikes and misses the smaller customers' ones.</small></div><span class="pill inbuild">In build · wk 1 of 10</span></div>
+      <div class="slice"><div class="st">Threshold &amp; capacity frontier<small>Sweep a rule and see the highest recall that fits within the team's daily capacity.</small></div><span class="pill later">Direction · wk 3–4</span></div>
+      <div class="slice"><div class="st">Segments &amp; challengers<small>Retail, corporate and correspondent thresholds; the incumbent rule against an amount-and-velocity challenger.</small></div><span class="pill later">Direction · wk 5–6</span></div>
+      <div class="slice"><div class="st">Drift &amp; score calibration<small>KS and PSI stability across periods; decile yield and cut-offs on the macro triage score.</small></div><span class="pill later">Direction · wk 7–8</span></div>
+      <div class="slice"><div class="st">Governed apply &amp; tuning paper<small>Decision log → version-bumped config → a validation-ready paper, generated from the evidence.</small></div><span class="pill later">Direction · wk 9–10</span></div>
+    </div>
+
+    <div class="callout g">
+      <div class="ct">The principle — the studio proposes, governance applies</div>
+      <p>The studio can <b>preview any setting against the real scorer</b>, but it cannot change one. A change goes through a logged rationale, a version bump and the full test suite, and <b>fails if any result moves that the rationale did not predict</b>. Every rate is marked as planted truth, not a SAR outcome. Calibrating to real outcomes still needs a labelled history, and the studio says so.</p>
+    </div>
+  </div>
+
   <div class="foot">
-    NEXUS · Future capabilities · direction &amp; architecture · updated 2026-08-14 —
+    NEXUS · Future capabilities · direction &amp; architecture · updated 2026-09-24 —
     <a href="platform-roadmap.html">roadmap →</a> · <a href="mission-status.html">status →</a>
   </div>
 
