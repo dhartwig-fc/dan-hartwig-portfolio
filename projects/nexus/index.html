@@ -341,6 +341,62 @@ h1{margin:0;line-height:0}
 .briefing-slide-card.purple .briefing-label{color:#a78bfa}
 .briefing-slide-card.purple .briefing-link{color:#c4b5fd}
 
+/* TM Tuning Studio — green accent, full-width feature card below the four packs */
+.briefing-slide-card.green{
+  border-color:rgba(34,197,94,.5);
+  background:linear-gradient(180deg,rgba(10,38,24,.94),rgba(7,26,17,.94));
+  box-shadow:0 32px 90px rgba(12,90,45,.30);
+}
+.briefing-slide-card.green:hover{
+  border-color:rgba(34,197,94,.85);
+  box-shadow:0 40px 110px rgba(34,197,94,.20);
+}
+.briefing-slide-card.green .briefing-label{color:#22c55e}
+.briefing-slide-card.green .briefing-link{color:#86efac}
+.briefing-slide-card.wide{
+  grid-column:1/-1;
+  flex-direction:row;
+  align-items:center;
+  gap:32px;
+}
+.briefing-slide-card.wide .briefing-slide-copy{flex:1 1 0;min-width:0}
+.briefing-stats{
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,130px));
+  gap:12px;
+}
+.briefing-stats div{
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid rgba(34,197,94,.28);
+  background:rgba(34,197,94,.06);
+}
+.briefing-stats b{
+  display:block;
+  font-size:26px;
+  letter-spacing:-.04em;
+  font-variant-numeric:tabular-nums;
+}
+.briefing-stats span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+.briefing-stats b{white-space:nowrap}
+@media(max-width:820px){
+  .briefing-slide-card.wide{flex-direction:column;align-items:flex-start;gap:20px}
+  .briefing-stats{grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+}
+@media(max-width:480px){
+  .briefing-stats{gap:8px}
+  .briefing-stats div{padding:10px 10px}
+  .briefing-stats b{font-size:20px}
+  .briefing-stats span{font-size:11px}
+}
+
 @media(max-width:900px){
   .briefing-slides{
     grid-template-columns:1fr;
@@ -2071,6 +2127,20 @@ h1{margin:0;line-height:0}
           <h3>Future Capabilities</h3>
           <p>Where the AI plugs in: the copilot's application slices and the threat-intelligence layer with live-feed seams.</p>
           <span class="briefing-link">Open full briefing →</span>
+        </div>
+      </a>
+
+      <a class="briefing-slide-card green wide" id="tuning-studio" href="tuning-studio.html">
+        <div class="briefing-slide-copy">
+          <div class="briefing-label">Update Pack 05 · In build</div>
+          <h3>TM Tuning Studio</h3>
+          <p>Stress-testing the transaction-monitoring alerts against a population whose truth is known: what every threshold, segment split and challenger rule does to precision, recall and investigator capacity, changed only through a governed decision. A ten-week build with a training programme alongside.</p>
+          <span class="briefing-link">Open full briefing →</span>
+        </div>
+        <div class="briefing-stats" aria-label="Measured in week 1, against planted truth">
+          <div><b>55%</b><span>of planted spikes caught by today's £75k rule</span></div>
+          <div><b>4.05×</b><span>lift over picking at random</span></div>
+          <div><b>1 / 10</b><span>weeks built</span></div>
         </div>
       </a>
   </div>

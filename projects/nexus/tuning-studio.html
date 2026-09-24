@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TM Tuning Studio | NEXUS</title>
+<style>
+:root{
+  --bg:#050b14; --panel:#081322; --line:rgba(148,163,184,.22);
+  --text:#f8fafc; --muted:#94a3b8;
+  --blue:#38bdf8; --green:#22c55e; --gold:#e9c877; --purple:#a78bfa; --red:#f87171;
+  --mono:ui-monospace,Menlo,"SF Mono",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  background:radial-gradient(circle at 74% 8%,rgba(34,197,94,.13),transparent 32%),
+             radial-gradient(circle at 10% 90%,rgba(56,189,248,.10),transparent 30%),var(--bg);color:var(--text)}
+.wrap{max-width:1080px;margin:auto;padding:60px 32px 100px}
+@media(max-width:600px){.wrap{padding:40px 16px 80px}}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;gap:16px;margin-bottom:60px}
+.back{font-weight:800;color:var(--muted)}
+.kicker{color:var(--green);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.06em;margin:0 0 22px}
+.lead{max-width:840px;font-size:18px;line-height:1.62;color:var(--muted)}
+.lead b{color:var(--text);font-weight:600}
+.note{margin-top:14px;font-size:13px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+.note b{color:var(--green)}
+code{background:#0c1a2e;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;color:#bcd3ef;font-family:var(--mono)}
+
+.block{margin-top:66px;border:1px solid var(--line);border-radius:28px;padding:34px 34px 30px;
+  background:linear-gradient(180deg,rgba(15,23,42,.7),rgba(8,19,34,.7));position:relative;overflow:hidden}
+@media(max-width:600px){.block{padding:24px 18px 20px}}
+.block::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--green)}
+.block .tk{font-family:var(--mono);font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;color:var(--green)}
+.block h2{font-size:32px;letter-spacing:-.05em;margin:0 0 12px;line-height:1.1}
+.block .intro{color:var(--muted);font-size:16px;line-height:1.62;max-width:76ch;margin:0}
+.block .intro b{color:var(--text);font-weight:600}
+.subh{font-size:12px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#7fa8d8;margin:28px 0 14px}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.step{padding:14px 14px;border-radius:15px;border:1px solid var(--line);background:rgba(15,23,42,.55)}
+.step .n{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.step h4{margin:4px 0 5px;font-size:14.5px}
+.step p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}
+.step.gov{border-color:rgba(233,200,119,.5)}
+
+/* figures */
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fig{padding:16px 18px;border-radius:15px;border:1px solid var(--line);background:rgba(15,23,42,.55)}
+.fig .v{font-size:30px;font-weight:750;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.fig .l{color:var(--muted);font-size:12.5px;margin-top:4px;line-height:1.45}
+figure{margin:24px 0 0}
+figure .chart{overflow-x:auto}
+figure svg{width:100%;min-width:520px;height:auto;display:block}
+figcaption{color:var(--muted);font-size:13px;margin-top:10px;max-width:76ch;line-height:1.55}
+figcaption b{color:var(--text)}
+
+/* weeks */
+.slices{display:flex;flex-direction:column;gap:9px}
+.slice{display:grid;grid-template-columns:44px 1fr auto;gap:14px;align-items:center;
+  padding:12px 16px;border-radius:15px;border:1px solid var(--line);background:rgba(15,23,42,.55)}
+@media(max-width:600px){.slice{grid-template-columns:36px 1fr}.slice .pill{grid-column:2}}
+.slice .wk{font-family:var(--mono);font-size:12px;color:var(--green);font-weight:800}
+.slice .st{font-size:14.5px;font-weight:650}
+.slice .st small{display:block;color:var(--muted);font-weight:400;font-size:12.5px;margin-top:3px;line-height:1.5}
+.pill{justify-self:start;font-family:var(--mono);font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;white-space:nowrap}
+.pill.done{background:rgba(34,197,94,.13);color:var(--green);border:1px solid rgba(34,197,94,.42)}
+.pill.later{background:rgba(148,163,184,.1);color:var(--muted);border:1px solid var(--line)}
+
+/* cadence */
+.cad{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.cad div{padding:14px 16px;border-radius:15px;border:1px solid var(--line);background:rgba(15,23,42,.55)}
+.cad b{display:block;font-size:14.5px}
+.cad span{font-family:var(--mono);font-size:11px;color:var(--green)}
+.cad p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.5}
+
+.callout{margin-top:22px;border:1px dashed rgba(34,197,94,.45);background:rgba(34,197,94,.06);border-radius:16px;padding:18px 20px}
+.callout.gold{border-color:rgba(233,200,119,.45);background:rgba(233,200,119,.05)}
+.callout .ct{font-weight:700;font-size:15px;margin-bottom:6px}
+.callout p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.6}
+.callout p b{color:var(--text)}
+
+.foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-family:var(--mono)}
+.foot a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="back" href="index.html">← NEXUS</a>
+    <a class="back" href="future-capabilities.html">Future capabilities</a>
+  </div>
+
+  <div class="kicker">Update Pack 05 · Detection Tuning</div>
+  <h1>Stress-testing the alerts.</h1>
+  <p class="lead">
+    Every transaction-monitoring rule is a trade: catch more, and the queue grows past what investigators can work.
+    The <b>Tuning Studio</b> runs the platform's real TM rules against a <b>population whose truth is known</b>,
+    shows what a threshold, a segment split or a challenger rule does to <b>alert volume, precision, recall and
+    investigator capacity</b>, and turns the chosen setting into a <b>governed, evidenced change</b>. It is built
+    over ten weeks with a training programme running alongside, one concept per week.
+  </p>
+  <div class="note">Status · <b>in build</b> · week 1 of 10 complete · every rate on this page is planted truth, not a SAR outcome</div>
+
+  <!-- WHY -->
+  <div class="block">
+    <div class="tk">The problem</div>
+    <h2>Tuning needs something to be right about.</h2>
+    <p class="intro">
+      A threshold can only be tuned against outcomes, and outcomes are thin: the estate holds a few dozen
+      transactions and a handful of dispositioned cases. Real SAR labels also arrive only for customers the rules
+      <b>already</b> flagged, so a missed case never gets a label and recall looks better than it is. Meanwhile the
+      one value rule in the estate, <code>high_value</code>, is a <b>flat £75,000 cut-off</b>, which can't tell a
+      large customer's routine payment from a small customer's fifteen-fold spike.
+    </p>
+    <div class="callout gold">
+      <div class="ct">The answer — planted truth</div>
+      <p>A seeded synthetic population where the suspicious behaviour is <b>put there on purpose</b>, so every alert can be
+      scored and every miss is visible. Turn a scenario's intensity down until a rule stops catching it, and you have
+      measured that rule's blind spot. It is a stress test, not evidence of real-world performance, and the studio
+      labels every rate that way.</p>
+    </div>
+  </div>
+
+  <!-- HOW -->
+  <div class="block">
+    <div class="tk">How it works</div>
+    <h2>One population, one loop, one governed exit.</h2>
+    <p class="intro">The same deterministic population feeds the studio and the training notebooks, so what is learned and what is built are measured on identical data.</p>
+    <div class="subh">The loop</div>
+    <div class="flow">
+      <div class="step"><div class="n">input</div><h4>TM-SIM population</h4><p>5,000 customers × 12 months, planted typology scenarios at known intensities.</p></div>
+      <div class="step"><div class="n">config</div><h4>Rule registry</h4><p>Every TM rule and threshold held as governed data, not code.</p></div>
+      <div class="step"><div class="n">engine</div><h4>Backtest</h4><p>Alerts, TP / FP / FN, precision, recall, FPR, alerts per day.</p></div>
+      <div class="step"><div class="n">surface</div><h4>Studio</h4><p>Sweep, capacity line, segments, challenger, drift, score deciles.</p></div>
+      <div class="step gov"><div class="n">record</div><h4>Decision log</h4><p>Candidate, rationale and predicted impact, append-only.</p></div>
+      <div class="step gov"><div class="n">governance</div><h4>Apply</h4><p>Version bump and full test suite; fails on any move the rationale didn't predict.</p></div>
+      <div class="step"><div class="n">output</div><h4>Tuning paper</h4><p>A validation-ready paper, generated from the log.</p></div>
+    </div>
+  </div>
+
+  <!-- MEASURED -->
+  <div class="block">
+    <div class="tk">Measured · week 1</div>
+    <h2>Today's £75k rule, on known truth.</h2>
+    <p class="intro">The first thing the population measured was the platform's own <code>high_value</code> rule. 200 of 5,000 customers (4%) carry a planted value spike; the rule alerts on any customer with a payment above the threshold.</p>
+    <div class="subh">high_value at £75,000 · planted truth</div>
+    <div class="figs">
+      <div class="fig"><div class="v">679</div><div class="l">customers alerted</div></div>
+      <div class="fig"><div class="v">16.2%</div><div class="l">precision: alerts that were planted</div></div>
+      <div class="fig"><div class="v">55.0%</div><div class="l">recall: planted customers caught</div></div>
+      <div class="fig"><div class="v">4.05×</div><div class="l">lift over picking customers at random</div></div>
+      <div class="fig"><div class="v">90</div><div class="l">planted customers missed, typically paying ~£1.7k against ~£8.7k for those caught</div></div>
+    </div>
+
+    <figure>
+      <div class="chart">
+      <svg viewBox="0 0 700 290" role="img" aria-label="Precision rises from 8.3% to 37.0% and recall falls from 83.5% to 22.0% as the high-value threshold rises from £25k to £250k.">
+        <g stroke="rgba(148,163,184,.16)" stroke-width="1">
+          <line x1="70" y1="40" x2="600" y2="40"/><line x1="70" y1="90" x2="600" y2="90"/>
+          <line x1="70" y1="140" x2="600" y2="140"/><line x1="70" y1="190" x2="600" y2="190"/>
+          <line x1="70" y1="240" x2="600" y2="240"/>
+        </g>
+        <g fill="#94a3b8" font-size="11" font-family="ui-monospace,Menlo,monospace" text-anchor="end">
+          <text x="60" y="44">100%</text><text x="60" y="94">75%</text><text x="60" y="144">50%</text><text x="60" y="194">25%</text><text x="60" y="244">0%</text>
+        </g>
+        <g fill="#94a3b8" font-size="11" font-family="ui-monospace,Menlo,monospace" text-anchor="middle">
+          <text x="70" y="262">£25k</text><text x="176" y="262">£50k</text><text x="282" y="262">£75k</text>
+          <text x="388" y="262">£100k</text><text x="494" y="262">£150k</text><text x="600" y="262">£250k</text>
+          <text x="335" y="283">high_value threshold (tested points)</text>
+        </g>
+        <line x1="282" y1="40" x2="282" y2="240" stroke="#e9c877" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <text x="288" y="34" fill="#e9c877" font-size="11" font-family="ui-monospace,Menlo,monospace">today</text>
+        <path d="M70 73 L176 102 L282 130 L388 147 L494 168 L600 196" fill="none" stroke="#38bdf8" stroke-width="2.4"/>
+        <path d="M70 223.4 L176 214.8 L282 207.6 L388 200 L494 186.8 L600 166" fill="none" stroke="#22c55e" stroke-width="2.4"/>
+        <g fill="#38bdf8"><circle cx="70" cy="73" r="3.5"/><circle cx="176" cy="102" r="3.5"/><circle cx="282" cy="130" r="4.5"/><circle cx="388" cy="147" r="3.5"/><circle cx="494" cy="168" r="3.5"/><circle cx="600" cy="196" r="3.5"/></g>
+        <g fill="#22c55e"><circle cx="70" cy="223.4" r="3.5"/><circle cx="176" cy="214.8" r="3.5"/><circle cx="282" cy="207.6" r="4.5"/><circle cx="388" cy="200" r="3.5"/><circle cx="494" cy="186.8" r="3.5"/><circle cx="600" cy="166" r="3.5"/></g>
+        <text x="610" y="200" fill="#38bdf8" font-size="12" font-weight="700">recall</text>
+        <text x="610" y="170" fill="#22c55e" font-size="12" font-weight="700">precision</text>
+      </svg>
+      </div>
+      <figcaption>Raising the threshold <b>trades recall for precision</b>, so there is a real operating point to choose, and week 4 chooses it against investigator capacity. A control run with the same labels but the behaviour removed shows <b>no lift at any threshold</b>: the signal comes from the planted behaviour and nothing else.</figcaption>
+    </figure>
+
+    <div class="callout">
+      <div class="ct">The blind spot, found on day one</div>
+      <p>The planted spike is relative to each customer's own level. A flat £75k threshold catches the big customers' spikes and <b>misses the small customers' ones</b>: a £30k payment from someone who usually sends £2k is a fifteen-fold jump, and it sits under the line. Segmented thresholds and behavioural rules (weeks 5–6) are measured against exactly this gap.</p>
+    </div>
+  </div>
+
+  <!-- WEEKS -->
+  <div class="block">
+    <div class="tk">The build · ten weeks</div>
+    <h2>Learn it, build it, prove it — each week.</h2>
+    <p class="intro">Each week teaches one tuning concept, builds the studio feature that performs it, and ends with a guard that has been seen to fail and a logged decision.</p>
+    <div class="subh">Programme</div>
+    <div class="slices">
+      <div class="slice"><span class="wk">01</span><div class="st">The tuning framework<small>Seeded planted-truth population, metrics, and a check that the behaviour causes the label.</small></div><span class="pill done">Done</span></div>
+      <div class="slice"><span class="wk">02</span><div class="st">Backtesting fundamentals<small>A governed rule registry; the £75k threshold moves out of code into it; a baseline backtest of today's rules.</small></div><span class="pill later">Next</span></div>
+      <div class="slice"><span class="wk">03</span><div class="st">Threshold optimisation<small>Sweeps and the precision–recall trade-off; the first logged decision on £75k.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">04</span><div class="st">Alert volume &amp; capacity<small>The highest recall that fits inside what investigators can work in a day.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">05</span><div class="st">Segment calibration<small>Retail, corporate and correspondent thresholds, with the complexity cost shown.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">06</span><div class="st">Challenger rules<small>The incumbent against an amount-and-velocity challenger: who each catches that the other misses.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">07</span><div class="st">Stability &amp; drift<small>Twelve months with injected drift; KS and PSI per feature; which thresholds don't hold.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">08</span><div class="st">Score calibration<small>The macro triage weights through the real scorer: deciles, yield, cap saturation.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">09</span><div class="st">Validation &amp; governance<small>The governed apply step, an independent challenge, and the paper generated from the log.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">10</span><div class="st">Capstone engagement<small>A full tuning exercise on a 30-day cash rule under fixed capacity, written up for validation.</small></div><span class="pill later">Planned</span></div>
+    </div>
+  </div>
+
+  <!-- TRAINING -->
+  <div class="block">
+    <div class="tk">The training programme</div>
+    <h2>The course is also the check on the build.</h2>
+    <p class="intro">The studio computes its metrics by hand so the platform stays free of heavy dependencies. The training notebooks compute the same numbers with scikit-learn, on the same population, and a <b>parity test requires the two to agree exactly</b>. Learning the method and verifying the build are the same act.</p>
+    <div class="subh">Each week</div>
+    <div class="cad">
+      <div><b>Monday</b><span>1 hour</span><p>The concept and the model-governance reading.</p></div>
+      <div><b>Wednesday</b><span>1 hour</span><p>A notebook worked against the planted-truth population.</p></div>
+      <div><b>Friday</b><span>1–2 hours</span><p>The studio feature, with a guard proved to fail when broken.</p></div>
+      <div><b>Weekend</b><span>30 min</span><p>A one-page recommendation for the decision log.</p></div>
+    </div>
+    <div class="callout">
+      <div class="ct">The principle — the studio proposes, governance applies</div>
+      <p>The studio can preview any setting against the real scorer, but it <b>cannot change one</b>. A change goes through a logged rationale, a version bump and the full test suite. Calibrating to real outcomes still needs a labelled history the estate doesn't have yet, and the studio <b>says so rather than papering over it</b>.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-24 —
+    <a href="future-capabilities.html">future capabilities →</a> · <a href="platform-roadmap.html">roadmap →</a>
+  </div>
+
+</div>
+</body>
+</html>
