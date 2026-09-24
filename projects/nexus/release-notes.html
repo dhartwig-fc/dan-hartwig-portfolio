@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Console Beta v2.0 — Release Notes | NEXUS</title>
+<title>Beta v2.1 — Release Notes | NEXUS</title>
 <style>
 :root{
   --bg:#050b14; --panel:#081322; --panel2:#0b182b; --line:rgba(148,163,184,.22);
@@ -89,21 +89,59 @@ table.mx .neg{color:#c9b6a0}
     <a class="back" href="../../index.html">Portfolio</a>
   </div>
 
-  <div class="kicker" style="color:var(--gold)">Release Notes · Console Beta v2.0</div>
+  <div class="kicker" style="color:var(--gold)">Release Notes · Beta v2.1</div>
   <h1>What changed since v1.0.</h1>
   <p class="lead">
-    The console first shipped as <b>Beta v1.0</b>. This page is the changelog for <b>Beta v2.0</b> — each addition
+    The console first shipped as <b>Beta v1.0</b>. This page is the changelog for <b>Beta v2.1</b> and <b>Beta v2.0</b>, newest first — each addition
     with the engineering and architectural reasoning behind it. For the full delivery record and the rollout gate,
     see the <a href="stage-catalogue.html" style="color:var(--blue)">stage catalogue</a>.
   </p>
-  <div class="updated">Updated <b>17 August 2026</b> · baseline green</div>
+  <div class="updated">Updated <b>24 September 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
+
+<section class="section" id="release-v2-1">
+    <h2>Beta v2.1 — 17 August to 24 September 2026</h2>
+    <p class="sub">
+      Twelve additions since v2.0, each through the same Spec → Plan → Subagent build → Whole-branch review cycle.
+      The theme is <b>reach and trust</b>: the copilot and the investigations reach the public site, and every
+      published artefact became something a clean clone can reproduce and a gate can check.
+      Items marked <span class="pill next" style="vertical-align:middle">In build</span> are live work, reported honestly.
+    </p>
+    <div class="ladder">
+
+      <div class="step"><div class="n">✦</div><div class="bt">Copilot slice 2 — the EDD memo<small>Enhanced-due-diligence memos assembled from KYC, ownership, screening and network exposure, section by section. Screening names what it <b>rejected</b> as well as what it matched, and a closing section states <b>what is not known</b> — so a gap reads as a gap, not as a clean result. Deterministic, with a pin that proves it. <a href="runtime-demo/edd_memos.html" style="color:var(--blue)">See the memos →</a></small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Copilot slice 3 — disposition support<small>A recommended, justified decision — close, escalate or file — against the governed case workflow. The rule was <b>settled against the real 48 alerts</b> rather than a fixture, and uses the platform's governed types, so the recommendation and the workflow can never disagree about what a state means. <a href="runtime-demo/dispositions.html" style="color:var(--blue)">See the dispositions →</a></small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">CI gate and a protected main<small>The full suite runs <b>cold on every push</b> and gates <code>main</code>, which is protected server-side on every private repository — the rules bind the owner too. The baseline reached <b>zero failures</b>: a long-carried "29 failing" turned out to be two root causes, fixed at source.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">The estate, committed whole<small>Every product re-manufactured and each run committed in full — packet, graph, evidence and logs together — so any run the public site names can be <b>rebuilt from a clean clone</b>. A guard now refuses a run committed only in part.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Queue ↔ casework convergence<small>The task queue and the manufactured case files became one workflow: each task shows its casework in <b>four explicit states</b>, and an escalated entity with no case gets a drafted manifest instead of silence.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Honest pipeline status<small>A step now reports whether its handler ran <i>and</i> what it concluded. A run whose own gate refused it reports <b>BLOCKED</b> and exits non-zero — where it used to say SUCCESS — while every evidence artefact is still kept.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Capital markets — the first product<small><code>CM003</code> spoofing / layering manufactures as a governed product, delegating to the capital-markets toolkit's own analytic and naming it in its own words. Instruments are typed as instruments: a bond is not its issuer.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Foundation products and 57/57 doctrine<small>The five foundation capabilities — entity resolution, relationship discovery, beneficial ownership, network risk, investigation workflow — manufacture as <code>FND001</code>–<code>FND005</code>, and the ten network typologies became <code>PAT001</code>–<code>PAT010</code>, ending one prefix meaning two things. Doctrine is now authored for <b>all 57 typologies</b>.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Five investigations, published and governed<small>Five fused investigation cases are public, each linking to the others through a strip rendered from the <b>governed set</b>, so adding a case updates every case. Each public surface now has a publisher and a gate that fails when the site falls behind its source, and the publisher refuses any page that references an internal surface.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Ordered-path graphs<small>A third graph family: ownership chains and cycles are drawn as a <b>walk in order</b>, closed only when the walk actually closes — rather than as an unordered star. Guardrails now see three topology families and three renderers.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Geometry guards on what the site draws<small>A review that deliberately broke the shipping renderers found checks that stayed green over real defects — edges drawn backwards, a renderer with no layout guard at all. Each gap now has a guard that asserts the <b>geometry itself</b>, not the renderer's report of it, and each was seen to fail.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step next"><div class="n">◆</div><div class="bt">TM Tuning Studio — week 1 of 10<small>Stress-testing the monitoring rules against a <b>planted-truth population</b>: on it, today's flat £75k high-value rule catches 55% of planted spikes and misses the small customers' ones. A ten-week build with a training programme alongside. <a href="tuning-studio.html" style="color:#86efac">Update Pack 05 →</a></small></div><span class="pill next">In build</span></div>
+
+    </div>
+  </section>
+
 
 <section class="section" id="release-v2">
+    <h2>Beta v2.0 — 15 to 16 August 2026</h2>
         <p class="sub">
       The console first shipped as <b>Beta v1.0</b>. This wave — built across <b>15–16 August</b> — is <b>Beta v2.0</b>:
       twelve engineering and architectural additions, each its own governed sub-project through the same Spec → Plan →
-      Subagent build → Whole-branch review cycle. Items marked <span class="pill next" style="vertical-align:middle">In build</span>
-      are on their feature branch and finalise on merge + portfolio sync.
+      Subagent build → Whole-branch review cycle. All twelve are merged; the last two landed on 16–17 August.
     </p>
     <div class="ladder">
 
@@ -127,16 +165,16 @@ table.mx .neg{color:#c9b6a0}
 
       <div class="step"><div class="n">✦</div><div class="bt">AI Copilot — opt-in LLM SAR refinement<small>The deterministic SAR drafter gained a <b>refinement seam</b>: an opt-in LLM pass that improves narrative prose while the <b>facts stay locked</b> to the provenance-linked draft. Fail-safe by construction — no API key means it is a no-op and the deterministic draft ships unchanged. The governed artefact is never the model's output; the model only rewrites language it is not allowed to invent.</small></div><span class="pill built">Built</span></div>
 
-      <div class="step"><div class="n">◆</div><div class="bt">Vessel detail panel — the hull's whole story<small>Clicking a vessel now answers "what physical asset carried this, and who else used it?" in one surface: <b>every shipper on the hull</b> (each row click-navigable, so a shared hull becomes an investigation step), the <b>identity timeline</b> with a contested-vs-churn integrity flag, and <b>dark activity</b> — AIS gaps and ship-to-ship transfers, with a <b>Dark STS</b> chip when a hull goes dark and transfers at the same location. Shown, deliberately not scored: concealment is surfaced as evidence before it is priced into a number.</small></div><span class="pill next">In build</span></div>
+      <div class="step"><div class="n">◆</div><div class="bt">Vessel detail panel — the hull's whole story<small>Clicking a vessel now answers "what physical asset carried this, and who else used it?" in one surface: <b>every shipper on the hull</b> (each row click-navigable, so a shared hull becomes an investigation step), the <b>identity timeline</b> with a contested-vs-churn integrity flag, and <b>dark activity</b> — AIS gaps and ship-to-ship transfers, with a <b>Dark STS</b> chip when a hull goes dark and transfers at the same location. Shown, deliberately not scored: concealment is surfaced as evidence before it is priced into a number.</small></div><span class="pill built">Built</span></div>
 
-      <div class="step"><div class="n">◆</div><div class="bt">Brand ignition &amp; console identity<small>The demo now opens through a governed <b>ignition sequence</b> — the NEXUS shield charging, flashing and releasing a shockwave before the console resolves — and the console header carries the approved <b>metallic shield-and-wordmark lockup</b> as an embedded asset rather than ad-hoc inline markup. One brand definition, reused, not redrawn per surface.</small></div><span class="pill next">In build</span></div>
+      <div class="step"><div class="n">◆</div><div class="bt">Brand ignition &amp; console identity<small>The demo now opens through a governed <b>ignition sequence</b> — the NEXUS shield charging, flashing and releasing a shockwave before the console resolves — and the console header carries the approved <b>metallic shield-and-wordmark lockup</b> as an embedded asset rather than ad-hoc inline markup. One brand definition, reused, not redrawn per surface.</small></div><span class="pill built">Built</span></div>
 
     </div>
   </section>
 
   
   <div class="foot">
-    NEXUS · Console Beta v2.0 release notes —
+    NEXUS · Beta v2.1 &amp; v2.0 release notes · updated 2026-09-24 —
     <a href="stage-catalogue.html">stage catalogue →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 

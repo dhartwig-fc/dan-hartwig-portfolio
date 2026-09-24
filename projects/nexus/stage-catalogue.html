@@ -46,6 +46,7 @@ h1{font-size:clamp(42px,6vw,74px);line-height:.95;letter-spacing:-.06em;margin:0
   font-weight:800;font-size:16px;color:var(--green);background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.4)}
 .step.next .n{color:var(--blue);background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.4)}
 .step.armed .n{color:var(--gold);background:rgba(233,200,119,.1);border-color:rgba(233,200,119,.4)}
+.ladder.dated .n{width:64px;font-size:11px;white-space:nowrap}
 .step.later .n{color:var(--muted);background:rgba(148,163,184,.08);border-color:var(--line)}
 .step .bt{font-size:16px;font-weight:650;letter-spacing:-.02em}
 .step .bt small{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:3px;line-height:1.5}
@@ -96,9 +97,9 @@ table.mx .neg{color:#c9b6a0}
     every typology passes a <b>five-layer functional test</b> before it goes live. This is the depth beneath the
     <a href="platform-roadmap.html" style="color:var(--blue)">roadmap</a> and the
     <a href="mission-status.html" style="color:var(--blue)">status</a> — the proof it's real.
-    Latest wave: <a href="release-notes.html" style="color:#fdba74">Console Beta v2.0 release notes →</a>
+    Latest wave: <a href="release-notes.html#release-v2-1" style="color:#fdba74">Beta v2.1 release notes →</a>
   </p>
-  <div class="updated">Updated <b>16 August 2026</b> · baseline green</div>
+  <div class="updated">Updated <b>24 September 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
 
   <section class="section">
     <h2>How each build shipped</h2>
@@ -120,14 +121,31 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">4</div><div class="bt">Money-flow vertical<small>The first vertical <i>through</i> the substrate: a cash-movement graph + a sanctions-escalating alert.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">5</div><div class="bt">Risk-scoring engine<small>Per-entity aggregation + deviation vs the KYC expected-profile → the ranked alert table. Behavioural/temporal axis deferred.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">6</div><div class="bt">Investigation &amp; operations<small>The governed case-lifecycle state machine + task queue + audit — the case-management workflow.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">7</div><div class="bt">AI Copilot · SAR drafter<small>An explainable, provenance-linked SAR draft with an LLM-refinement hook. (Slice 1.)</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">7</div><div class="bt">AI Copilot · SAR, EDD, disposition<small>Three live slices on grounded context: a provenance-linked SAR draft (with an LLM-refinement hook), the EDD memo, and disposition support.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Fused Investigator Console<small>The single UI over every layer — the entity-scoped graph, the typology walk, the case surface, on an obsidian-glass design.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Capital Markets — pillar + connector<small>The 5 CM pillar tables activated with typology data, and the <code>CM003</code> spoofing detector run over canonical data → a live console chip. First cross-toolkit detection, end to end.</small></div><span class="pill built">Built</span></div>
       <div class="step next"><div class="n">◆</div><div class="bt">Investigator Workspace<small>One alert = one three-panel object (pattern · tunable score · governed decision), replicable per typology. Design signed off; build next.</small></div><span class="pill next">Next</span></div>
       <div class="step armed"><div class="n">◆</div><div class="bt">Family integration &amp; specialist queues<small>Family-tag every typology + specialist queues with a cross-typology Connector Desk. Track A merged.</small></div><span class="pill armed">Armed</span></div>
-      <div class="step later"><div class="n">…</div><div class="bt">Analytic MI &amp; calibration<small>Close the tuning loop on evidence — firing / escalation / false-positive rates per component. Deferred; needs ~6 months of run data.</small></div><span class="pill later">Deferred</span></div>
+      <div class="step armed"><div class="n">◆</div><div class="bt">Analytic MI &amp; calibration<small>The MI layer is built — firing, escalation and false-positive rates per component. The TM Tuning Studio now stress-tests the rules against planted truth; fitting weights to real outcomes still needs a labelled history.</small></div><span class="pill armed">In build</span></div>
       <div class="step later"><div class="n">…</div><div class="bt">Behavioural/temporal scoring<small>Volume/value/velocity spikes vs a trailing window — the self-history baseline. Deferred; own sprint.</small></div><span class="pill later">Deferred</span></div>
 
+    </div>
+  </section>
+
+  <section class="section" id="since-v2">
+    <h2>Since Beta v2.0 — the v2.1 wave</h2>
+    <p class="sub">Delivered 17 August – 24 September 2026, each through the same governed cycle. Full notes: <a href="release-notes.html#release-v2-1" style="color:#fdba74">Beta v2.1 release notes →</a></p>
+    <div class="ladder dated">
+      <div class="step"><div class="n">19 Aug</div><div class="bt">Copilot slice 2 · EDD memo<small>Enhanced-due-diligence memos from KYC, ownership, screening and network context — including what is <i>not</i> known, stated as such.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">20 Aug</div><div class="bt">CI gate &amp; protected main<small>The test suite runs cold on every push and gates <code>main</code>, which is protected on every private repo; the baseline reached zero failures.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">30 Aug</div><div class="bt">Estate committed whole<small>Every product re-manufactured and each run committed in full, so any published run can be rebuilt from a clean clone.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">31 Aug</div><div class="bt">Queue ↔ casework<small>Each task in the queue shows its casework in four explicit states; escalated entities without a case get a drafted manifest.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">3 Sep</div><div class="bt">Capital markets · CM003 product<small>Spoofing / layering manufactures as a governed product — the first capital-markets product family member.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">5 Sep</div><div class="bt">Foundation products &amp; 57/57 doctrine<small>The five foundation capabilities manufacture as FND001–FND005; doctrine is authored for all 57 typologies.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">6 Sep</div><div class="bt">Copilot slice 3 · disposition support<small>A recommended, justified disposition against the governed workflow, settled on the real alert population.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">10 Sep</div><div class="bt">Governed publishing · five investigations<small>Five fused investigation cases public and linked; every public surface has a publisher and a gate that fails when the site falls behind its source.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">12 Sep</div><div class="bt">Ordered-path graphs<small>A third graph family draws ownership chains and cycles as a walk in order, closed only when the walk closes.</small></div><span class="pill built">Built</span></div>
+      <div class="step armed"><div class="n">24 Sep</div><div class="bt">TM Tuning Studio · week 1<small>A seeded planted-truth population and alert metrics, the first of ten weeks. <a href="tuning-studio.html" style="color:#86efac">Update Pack 05 →</a></small></div><span class="pill armed">In build</span></div>
     </div>
   </section>
 
@@ -152,13 +170,13 @@ table.mx .neg{color:#c9b6a0}
     <h2>Engineering posture</h2>
     <div class="posture">
       <div class="post"><strong>Deterministic</strong><span>Every rendered page and dataset is <b>byte-identical</b> to rebuild — no hidden randomness, no timestamps in output.</span></div>
-      <div class="post"><strong>Governed baseline</strong><span>A single baseline count gates the estate; every merge re-pins it and the full suite stays green.</span></div>
+      <div class="post"><strong>Governed baseline</strong><span>A single baseline count, measured cold in CI, gates a protected main; every merge re-pins it and the full suite stays green.</span></div>
       <div class="post"><strong>Reviewed</strong><span>Each sub-project passes a <b>whole-branch review</b> before merge — spec compliance and code quality both.</span></div>
     </div>
   </section>
 
   <div class="foot">
-    NEXUS · Stage Catalogue · delivery record + rollout gate · updated 2026-08-14 —
+    NEXUS · Stage Catalogue · delivery record + rollout gate · updated 2026-09-24 —
     <a href="release-notes.html">release notes →</a> · <a href="platform-roadmap.html">roadmap →</a> · <a href="mission-status.html">status →</a>
   </div>
 
