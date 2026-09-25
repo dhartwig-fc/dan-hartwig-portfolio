@@ -392,9 +392,14 @@ h1{margin:0;line-height:0}
 }
 @media(max-width:480px){
   .briefing-stats{gap:8px}
-  .briefing-stats div{padding:10px 10px}
-  .briefing-stats b{font-size:20px}
+  .briefing-stats div{padding:10px 8px}
+  .briefing-stats b{font-size:17px}
   .briefing-stats span{font-size:11px}
+}
+@media(max-width:400px){
+  .briefing-stats{grid-template-columns:1fr}
+  .briefing-stats div{display:flex;align-items:baseline;gap:10px}
+  .briefing-stats span{margin-top:0}
 }
 
 @media(max-width:900px){
@@ -2137,10 +2142,10 @@ h1{margin:0;line-height:0}
           <p>Stress-testing the transaction-monitoring alerts against a population whose truth is known: what every threshold, segment split and challenger rule does to precision, recall and investigator capacity, changed only through a governed decision. A ten-week build with a training programme alongside.</p>
           <span class="briefing-link">Open full briefing →</span>
         </div>
-        <div class="briefing-stats" aria-label="Measured in week 1, against planted truth">
+        <div class="briefing-stats" aria-label="Measured on planted truth, weeks 1 to 4">
           <div><b>55%</b><span>of planted spikes caught by today's £75k rule</span></div>
-          <div><b>4.05×</b><span>lift over picking at random</span></div>
-          <div><b>1 / 10</b><span>weeks built</span></div>
+          <div><b>13.5%</b><span>actually reviewed once the queue is counted</span></div>
+          <div><b>4 / 10</b><span>weeks built · 2 decisions logged</span></div>
         </div>
       </a>
   </div>
