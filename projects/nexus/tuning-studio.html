@@ -104,7 +104,7 @@ figcaption b{color:var(--text)}
     investigator capacity</b>, and turns the chosen setting into a <b>governed, evidenced change</b>. It is built
     over ten weeks with a training programme running alongside, one concept per week.
   </p>
-  <div class="note">Status · <b>in build</b> · weeks 1–4 of 10 complete · two decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
+  <div class="note">Status · <b>in build</b> · weeks 1–5 of 10 complete · three decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
 
   <!-- WHY -->
   <div class="block">
@@ -194,9 +194,9 @@ figcaption b{color:var(--text)}
 
   <!-- DECISIONS -->
   <div class="block">
-    <div class="tk">Decisions logged · weeks 3–4</div>
-    <h2>Two decisions, both to hold the line — for different reasons.</h2>
-    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two both kept <code>high_value</code> at £75,000. Holding is a decision too, and the log says why.</p>
+    <div class="tk">Decisions logged · weeks 3–5</div>
+    <h2>Three decisions: hold, hold, then split the line.</h2>
+    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two.</p>
     <div class="subh">D1 · week 3 · threshold · HOLD</div>
     <div class="figs">
       <div class="fig"><div class="v">None</div><div class="l">cost ratios (missed case : false alert, from 1 to 100) for which £75k is the cheapest threshold</div></div>
@@ -217,6 +217,16 @@ figcaption b{color:var(--text)}
       <div class="ct">Why hold — and what it costs</div>
       <p>The recall a rule reports and the recall a team delivers are different numbers once the queue is counted. The owner kept the line and <b>named the gap as a staffing ask</b> (about 1,390 reviews a day at bank scale, on stated assumptions) rather than quietly trading coverage for a queue that fits. Until that is met, the drowned queue is the known state, and the log says so.</p>
     </div>
+    <div class="subh">D3 · week 5 · segments · SPLIT the line, decided not applied</div>
+    <div class="figs">
+      <div class="fig"><div class="v">149</div><div class="l">planted caught on a hold-out population by two lines — retail £30,000, everyone else £152,500</div></div>
+      <div class="fig"><div class="v">122</div><div class="l">caught by the best single line, at the same workload</div></div>
+      <div class="fig"><div class="v">154</div><div class="l">caught by one line per segment — but two of the four lines rest on 9 and 1 planted cases</div></div>
+    </div>
+    <div class="callout gold">
+      <div class="ct">Why two lines — and why not yet applied</div>
+      <p>Compared at the <b>same workload</b> and scored on a population the lines were not fitted to, splitting retail from everyone else catches 27 more planted customers than one line. Four lines add five more, but refitting on fresh populations shows the thin lines swing by tens of thousands of pounds, and the one-case correspondent line switches itself off. Two lines keep nearly all the gain with none too thin to defend. The decision is recorded but <b>not applied</b>: the live threshold stays £75,000 until the governed apply step in week 9, which first has to teach the rule registry per-segment lines.</p>
+    </div>
   </div>
 
   <!-- WEEKS -->
@@ -230,8 +240,8 @@ figcaption b{color:var(--text)}
       <div class="slice"><span class="wk">02</span><div class="st">Backtesting fundamentals<small>A governed rule registry — the £75k threshold, hardcoded in two places, now read from one — and a baseline backtest of today's rules.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">03</span><div class="st">Threshold optimisation<small>The threshold sweep, cost-weighted optimisation and the first studio page; Decision 1 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">04</span><div class="st">Alert volume &amp; capacity<small>A queue model of the team that works the alerts, effective recall, and the capacity frontier on the page; Decision 2 logged.</small></div><span class="pill done">Done</span></div>
-      <div class="slice"><span class="wk">05</span><div class="st">Segment calibration<small>Retail, corporate and correspondent thresholds, with the complexity cost shown.</small></div><span class="pill later">Next</span></div>
-      <div class="slice"><span class="wk">06</span><div class="st">Challenger rules<small>The incumbent against an amount-and-velocity challenger: who each catches that the other misses.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">05</span><div class="st">Segment calibration<small>Customer segments, per-segment lines fitted within a workload budget and tested on a hold-out, with the complexity cost shown; Decision 3 logged.</small></div><span class="pill done">Done</span></div>
+      <div class="slice"><span class="wk">06</span><div class="st">Challenger rules<small>The incumbent against an amount-and-velocity challenger: who each catches that the other misses.</small></div><span class="pill later">Next</span></div>
       <div class="slice"><span class="wk">07</span><div class="st">Stability &amp; drift<small>Twelve months with injected drift; KS and PSI per feature; which thresholds don't hold.</small></div><span class="pill later">Planned</span></div>
       <div class="slice"><span class="wk">08</span><div class="st">Score calibration<small>The macro triage weights through the real scorer: deciles, yield, cap saturation.</small></div><span class="pill later">Planned</span></div>
       <div class="slice"><span class="wk">09</span><div class="st">Validation &amp; governance<small>The governed apply step, an independent challenge, and the paper generated from the log.</small></div><span class="pill later">Planned</span></div>
@@ -258,7 +268,7 @@ figcaption b{color:var(--text)}
   </div>
 
   <div class="foot">
-    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-25 —
+    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-25 (week 5) —
     <a href="future-capabilities.html">future capabilities →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
