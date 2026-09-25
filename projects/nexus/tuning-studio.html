@@ -104,7 +104,7 @@ figcaption b{color:var(--text)}
     investigator capacity</b>, and turns the chosen setting into a <b>governed, evidenced change</b>. It is built
     over ten weeks with a training programme running alongside, one concept per week.
   </p>
-  <div class="note">Status · <b>in build</b> · weeks 1–6 of 10 complete · four decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
+  <div class="note">Status · <b>in build</b> · weeks 1–7 of 10 complete · five decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
 
   <!-- WHY -->
   <div class="block">
@@ -194,9 +194,9 @@ figcaption b{color:var(--text)}
 
   <!-- DECISIONS -->
   <div class="block">
-    <div class="tk">Decisions logged · weeks 3–6</div>
-    <h2>Four decisions: hold, hold, split the line, then test a challenger.</h2>
-    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, and the fourth runs a challenger beside it.</p>
+    <div class="tk">Decisions logged · weeks 3–7</div>
+    <h2>Five decisions: hold, hold, split the line, test a challenger, then test for drift.</h2>
+    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, the fourth runs a challenger beside it, and the fifth asks which rules survive a year of drift.</p>
     <div class="subh">D1 · week 3 · threshold · HOLD</div>
     <div class="figs">
       <div class="fig"><div class="v">None</div><div class="l">cost ratios (missed case : false alert, from 1 to 100) for which £75k is the cheapest threshold</div></div>
@@ -238,6 +238,17 @@ figcaption b{color:var(--text)}
       <div class="ct">Why advance it — and why not adopt it</div>
       <p>The challenger catches 63 planted customers the champion misses, and its negative control (the same labels with the behaviour removed) shows no lift, so its catches come from the behaviour. It is <b>advanced to validation, not adopted</b>, for three reasons on the record: planted truth favours it by construction, because the planted spike is relative to each customer's own scale; it alerts on 2.7× as many distinct customers; and 49 planted customers spike before they have enough history for a baseline, so it would need a fallback to run live. The champion stays at £75,000.</p>
     </div>
+    <div class="subh">D5 · week 7 · stability &amp; drift · HOLD, watch each rule's own alert volume</div>
+    <div class="figs">
+      <div class="fig"><div class="v">+124%</div><div class="l">workload of the £75k line by year 3, held fixed while payments drift (10% a year, plus non-retail business stepping up)</div></div>
+      <div class="fig"><div class="v">+69%</div><div class="l">even with £75k indexed to the median payment — the drift sits in the tail the median doesn't see</div></div>
+      <div class="fig"><div class="v">0.05</div><div class="l">PSI of payment amounts in the same year: read as "stable" while the tail above £75k grew 124%</div></div>
+      <div class="fig"><div class="v">stable</div><div class="l">the customer-baseline rule (a ratio to each customer's own spend), with a one-quarter bump after the step</div></div>
+    </div>
+    <div class="callout gold">
+      <div class="ct">Why the trigger is the rule's own volume, not PSI</div>
+      <p>A threshold rule works on the few payments above its line. A drift that barely moves the bulk of payments can move that tail a lot, so the standard distribution checks read <b>stable</b> while the flat lines' workload more than doubles. The decision holds £75,000, records the flat lines as <b>unstable</b> under drift, and makes each rule's own monthly alert volume the monitoring trigger, with the flat lines recalibrated at least annually. The drift itself is a stated scenario, not an observation.</p>
+    </div>
   </div>
 
   <!-- WEEKS -->
@@ -253,8 +264,8 @@ figcaption b{color:var(--text)}
       <div class="slice"><span class="wk">04</span><div class="st">Alert volume &amp; capacity<small>A queue model of the team that works the alerts, effective recall, and the capacity frontier on the page; Decision 2 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">05</span><div class="st">Segment calibration<small>Customer segments, per-segment lines fitted within a workload budget and tested on a hold-out, with the complexity cost shown; Decision 3 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">06</span><div class="st">Challenger rules<small>The champion against two challengers at the same workload, with the overlap, a negative control and an explanation for every alert; Decision 4 logged.</small></div><span class="pill done">Done</span></div>
-      <div class="slice"><span class="wk">07</span><div class="st">Stability &amp; drift<small>Twelve months with injected drift; KS and PSI per feature; which thresholds don't hold.</small></div><span class="pill later">Next</span></div>
-      <div class="slice"><span class="wk">08</span><div class="st">Score calibration<small>The macro triage weights through the real scorer: deciles, yield, cap saturation.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">07</span><div class="st">Stability &amp; drift<small>Every rule held fixed over three drifted years; KS and PSI; a monthly transient check; which thresholds don't hold; Decision 5 logged.</small></div><span class="pill done">Done</span></div>
+      <div class="slice"><span class="wk">08</span><div class="st">Score calibration<small>The macro triage weights through the real scorer: deciles, yield, cap saturation.</small></div><span class="pill later">Next</span></div>
       <div class="slice"><span class="wk">09</span><div class="st">Validation &amp; governance<small>The governed apply step, an independent challenge, and the paper generated from the log.</small></div><span class="pill later">Planned</span></div>
       <div class="slice"><span class="wk">10</span><div class="st">Capstone engagement<small>A full tuning exercise on a 30-day cash rule under fixed capacity, written up for validation.</small></div><span class="pill later">Planned</span></div>
     </div>
@@ -279,7 +290,7 @@ figcaption b{color:var(--text)}
   </div>
 
   <div class="foot">
-    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-25 (week 6) —
+    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-25 (week 7) —
     <a href="future-capabilities.html">future capabilities →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
