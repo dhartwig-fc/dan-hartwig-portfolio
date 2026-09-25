@@ -4,15 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dan Hartwig | Financial Crime Intelligence Architect</title>
-<meta name="description" content="Dan Hartwig — financial crime intelligence architect. NEXUS: a working intelligence platform spanning detection, investigation and governed delivery.">
+<meta name="description" content="Dan Hartwig — financial crime intelligence architect. 15+ years of regulated change in investment banking, and the builder of NEXUS.">
 <style>
 :root{
   --ink:#0b1726;--body:#26364a;--muted:#5b6878;--paper:#f5f7fa;--card:#ffffff;
   --line:#e2e7ee;--line-strong:#cfd7e2;
   --blue:#1d5fd1;--blue-soft:#eaf1fd;--cyan:#0891b2;--cyan-soft:#e6f6fa;--gold:#b8872b;--gold-soft:#fbf4e6;
   --navy:#081a2c;--navy-2:#0c2c47;
-  --ok:#157f4f;--ok-soft:#e7f5ee;--build:#9a6212;--build-soft:#fbf1e1;
-  --radius:22px;--radius-sm:14px;
+  --radius:22px;
   --shadow:0 1px 2px rgba(11,23,38,.04),0 12px 32px rgba(11,23,38,.07);
   --shadow-lift:0 2px 4px rgba(11,23,38,.05),0 22px 48px rgba(11,23,38,.12);
   --font:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -24,154 +23,98 @@ body{margin:0;font-family:var(--font);background:var(--paper);color:var(--ink);l
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
 a:focus-visible{outline:3px solid rgba(29,95,209,.45);outline-offset:3px;border-radius:12px}
-.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto}
+.wrap{width:min(1080px,calc(100% - 32px));margin:0 auto}
 
-/* ---------- type ---------- */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:.74rem;font-weight:800;
   letter-spacing:.16em;text-transform:uppercase;margin:0 0 12px}
 h1{margin:0;font-size:clamp(3rem,6.6vw,5.6rem);line-height:.95;letter-spacing:-.055em;font-weight:850;text-wrap:balance}
-h2{margin:0 0 14px;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.06;letter-spacing:-.04em;font-weight:800;text-wrap:balance}
+h2{margin:0 0 14px;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.06;letter-spacing:-.04em;font-weight:800;text-wrap:balance}
 h3{margin:0 0 8px;font-size:1.12rem;line-height:1.25;letter-spacing:-.015em;font-weight:750}
-.lede{max-width:66ch;margin:0 0 30px;color:var(--muted);font-size:1.06rem}
+.lede{max-width:64ch;margin:0 0 30px;color:var(--muted);font-size:1.06rem}
 p{margin:0}
 
-/* ---------- icons ---------- */
 .ico{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .ico-tile{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;
   background:var(--blue-soft);color:var(--blue);margin-bottom:18px}
 .ico-tile.gold{background:var(--gold-soft);color:var(--gold)}
 .ico-tile.cyan{background:var(--cyan-soft);color:var(--cyan)}
 
-/* ---------- buttons ---------- */
 .buttons{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;
   border:1px solid var(--line-strong);background:var(--card);color:var(--ink);font-weight:700;font-size:.98rem;
   box-shadow:0 1px 2px rgba(11,23,38,.05);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,color .18s ease}
 .btn:hover{transform:translateY(-2px);border-color:var(--blue);color:var(--blue);box-shadow:0 12px 24px rgba(29,95,209,.12)}
 .btn .ico{width:18px;height:18px}
-.btn.primary{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-color:var(--navy-2);color:#fff;
-  box-shadow:0 10px 22px rgba(8,26,44,.22)}
-.btn.primary:hover{background:linear-gradient(135deg,var(--navy-2),var(--blue));border-color:var(--blue);color:#fff}
 .btn .logo{width:18px;height:18px;fill:currentColor;stroke:none}
 .btn.linkedin .logo{fill:#0a66c2}
 .btn.linkedin:hover .logo{fill:currentColor}
+.btn.primary{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-color:var(--navy-2);color:#fff;
+  box-shadow:0 10px 22px rgba(8,26,44,.22)}
+.btn.primary:hover{background:linear-gradient(135deg,var(--navy-2),var(--blue));border-color:var(--blue);color:#fff}
+.btn.primary .logo,.btn.primary:hover .logo{fill:#fff}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding:88px 0 64px;border-bottom:1px solid var(--line);
+/* hero */
+.hero{position:relative;overflow:hidden;padding:96px 0 80px;border-bottom:1px solid var(--line);
   background:radial-gradient(circle at 84% 12%,rgba(8,145,178,.13),transparent 32%),
              radial-gradient(circle at 12% 88%,rgba(184,135,43,.11),transparent 30%),
              linear-gradient(135deg,#fff 0%,#f6f9fe 58%,#edf6fa 100%)}
 .hero-map{position:absolute;top:24px;right:-40px;width:min(760px,62vw);opacity:.2;pointer-events:none;user-select:none}
 .hero-inner{position:relative}
 .role{margin:16px 0 0;font-size:clamp(1.15rem,2.1vw,1.6rem);font-weight:650;color:var(--body);letter-spacing:-.02em}
-.mantra{margin:30px 0 22px;font-size:clamp(2.2rem,4.6vw,4.4rem);line-height:.98;letter-spacing:-.05em;font-weight:420;color:var(--ink)}
+.mantra{margin:30px 0 22px;font-size:clamp(2.2rem,4.6vw,4.4rem);line-height:.98;letter-spacing:-.05em;font-weight:420}
 .mantra strong{font-weight:780}
-.hero-copy{max-width:62ch;margin:0 0 30px;color:var(--muted);font-size:1.08rem}
-.now{margin-top:46px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;max-width:980px}
-.stat{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;
-  backdrop-filter:blur(4px)}
-.stat b{display:block;font-size:1.55rem;line-height:1;letter-spacing:-.04em;font-weight:820;font-variant-numeric:tabular-nums;color:var(--ink)}
-.stat span{display:block;margin-top:6px;font-size:.8rem;line-height:1.3;color:var(--muted)}
-.now-note{margin-top:12px;font-size:.78rem;color:var(--muted)}
-.now-note a{color:var(--blue);font-weight:700}
+.hero-copy{max-width:60ch;margin:0 0 30px;color:var(--muted);font-size:1.08rem}
 
-/* ---------- sections ---------- */
-section{padding:84px 0 0;scroll-margin-top:24px}
+section{padding:88px 0 0;scroll-margin-top:24px}
 .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
 .card p{color:var(--muted);font-size:.97rem}
-.card.tall{padding:32px}
 
-.band{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:30px;padding:48px;
-  box-shadow:var(--shadow-lift);display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.band .eyebrow{color:#7cc4e8}
-.band h2{color:#fff}
-.band p{color:#bcd0de;font-size:1.04rem}
-.band-flow{display:grid;gap:10px}
-.flow-step{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(124,196,232,.22);
-  border-radius:16px;padding:14px 16px}
-.flow-step .ico{color:#7cc4e8}
-.flow-step strong{display:block;font-size:.98rem}
-.flow-step span{display:block;color:#a9c0d0;font-size:.84rem}
-
-/* ---------- NEXUS ---------- */
-.nexus-head{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin-bottom:30px}
+/* featured work */
+.feature{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:30px;padding:44px;box-shadow:var(--shadow-lift)}
 /* The approved shield PNG carries a stray rule at rows 233-234 of 256, below the
-   shield's last row (226); clip it here rather than alter the brand asset. No
-   drop-shadow: the PNG's canvas carries faint alpha everywhere, and a shadow
-   filter turns that haze into a visible grey box. The shield has its own glow. */
-.nexus-head img{width:112px;height:112px;clip-path:inset(0 0 10% 0)}
-.nexus-head .lede{margin-bottom:0}
-.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 10px;font-size:.72rem;font-weight:800;
-  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.tag.live{background:var(--ok-soft);color:var(--ok)}
-.tag.build{background:var(--build-soft);color:var(--build)}
-.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.surfaces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.surface{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:24px;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.surface:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--line-strong)}
-.surface-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-.surface .ico-tile{margin-bottom:16px}
-.surface p{color:var(--muted);font-size:.93rem;flex:1}
-.surface .go{margin-top:16px;display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:750;font-size:.9rem;
-  transition:gap .18s ease}
-.surface .go .ico{width:16px;height:16px}
-.surface:hover .go{gap:10px}
-.sublinks{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
-.sublinks a{font-size:.78rem;font-weight:700;color:var(--body);background:var(--paper);border:1px solid var(--line);
-  border-radius:999px;padding:4px 10px}
-.sublinks a:hover{border-color:var(--blue);color:var(--blue)}
-.proof{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.proof div{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
-  padding:14px 16px;font-size:.92rem;font-weight:650;color:var(--body)}
-.proof .ico{width:18px;height:18px;color:var(--ok);margin-top:2px}
+   shield's last row (226); clip it here rather than alter the brand asset. */
+.feature img{width:140px;height:140px;clip-path:inset(0 0 10% 0)}
+.feature .eyebrow{color:#7cc4e8}
+.feature h2{color:#fff}
+.feature p{color:#bcd0de;font-size:1.03rem;max-width:62ch}
+.highlights{margin:22px 0 26px;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}
+.highlights li{display:flex;gap:10px;align-items:flex-start;color:#e3edf4;font-size:.95rem}
+.highlights .ico{width:18px;height:18px;color:#7cc4e8;margin-top:3px}
+.feature .btn{background:#fff;color:var(--navy);border-color:#fff}
+.feature .btn:hover{background:var(--blue-soft);color:var(--navy)}
+.feature .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+.feature .btn.ghost:hover{background:rgba(255,255,255,.1)}
 
-/* ---------- repositories ---------- */
-.repos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.repo{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-a.repo:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);border-color:var(--blue)}
-.repo-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
-.code{display:inline-flex;border-radius:8px;background:var(--blue-soft);color:#154796;padding:4px 9px;font-size:.74rem;
-  font-weight:850;letter-spacing:.04em;font-variant-numeric:tabular-nums}
-.code.core{background:var(--navy);color:#fff}
-.vis{font-size:.72rem;font-weight:750;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
-.vis.public{color:var(--ok)}
-.vis .ico{width:14px;height:14px}
-.repo p{color:var(--muted);font-size:.92rem}
+/* expertise */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:9px 16px;font-size:.93rem;font-weight:650;color:var(--body);box-shadow:0 1px 2px rgba(11,23,38,.04)}
+.chip .ico{width:14px;height:14px;color:var(--blue);fill:currentColor;stroke:none}
 
-/* ---------- CTA + footer ---------- */
-.cta{margin:84px 0 0;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:30px;padding:56px 40px;
-  text-align:center;box-shadow:var(--shadow-lift)}
-.cta .eyebrow{color:#7cc4e8}
-.cta h2{font-size:clamp(2.2rem,4.6vw,3.9rem);line-height:1;letter-spacing:-.05em;color:#fff;margin-bottom:18px}
-.cta p{color:#bcd0de;max-width:62ch;margin:0 auto 28px;font-size:1.05rem}
+/* contact + footer */
+.cta{margin:88px 0 0;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:48px 40px;
+  text-align:center;box-shadow:var(--shadow)}
+.cta h2{margin-bottom:12px}
+.cta p{color:var(--muted);max-width:56ch;margin:0 auto 26px;font-size:1.04rem}
 .cta .buttons{justify-content:center}
-.cta .btn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);color:#fff}
-.cta .btn:hover{background:#fff;color:var(--navy);border-color:#fff}
-.cta .btn.linkedin .logo{fill:#fff}
-.cta .btn.linkedin:hover .logo{fill:#0a66c2}
-footer{margin-top:84px;border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:.86rem}
+footer{margin-top:72px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.86rem}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
 .foot strong{color:var(--ink);letter-spacing:-.02em}
 .foot nav{display:flex;gap:18px;font-weight:700;color:var(--ink)}
 .foot nav a:hover{color:var(--blue)}
 
-/* ---------- responsive ---------- */
-@media (max-width:980px){
-  .grid-3,.surfaces,.repos,.proof{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .band{grid-template-columns:1fr;padding:36px}
-  .now{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){
+  .grid-3{grid-template-columns:1fr}
+  .feature{grid-template-columns:1fr;padding:32px 26px}
+  .feature img{width:96px;height:96px}
+  .highlights{grid-template-columns:1fr}
 }
 @media (max-width:640px){
-  .grid-3,.surfaces,.repos,.proof{grid-template-columns:1fr}
-  .now{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero{padding:64px 0 48px}
+  .hero{padding:64px 0 52px}
   .hero-map{width:120vw;right:-30vw;opacity:.14}
-  .nexus-head{grid-template-columns:1fr}
-  .nexus-head img{width:84px;height:84px}
-  .band,.cta{padding:28px 22px;border-radius:24px}
+  .cta{padding:32px 22px;border-radius:24px}
   section{padding-top:64px}
 }
 </style>
@@ -187,26 +130,12 @@ footer{margin-top:84px;border-top:1px solid var(--line);padding:30px 0 40px;colo
     <symbol id="i-signal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M7.5 7.5a6.4 6.4 0 0 0 0 9M16.5 7.5a6.4 6.4 0 0 1 0 9M4.6 4.6a10.4 10.4 0 0 0 0 14.8M19.4 4.6a10.4 10.4 0 0 1 0 14.8"/></symbol>
     <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 3 7.5l9 4.5 9-4.5L12 3Z"/><path d="m3 12 9 4.5 9-4.5"/><path d="m3 16.5 9 4.5 9-4.5"/></symbol>
     <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14 4c3 0 6 .5 6 .5s.5 3 .5 6c0 4-5 8-5 8l-3.5-3.5L8.5 11.5S10 4 14 4Z"/><circle cx="15.2" cy="8.8" r="1.4"/><path d="M8.5 11.5 5 12l-2 3 4.5.5M12.5 15.5 12 19l-3 2-.5-4.5"/></symbol>
-    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8 4.8-2.2Z"/></symbol>
-    <symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><circle cx="12" cy="12.5" r="1.6"/><path d="M12 7v4M11 13.6 6.4 16.6M13 13.6l4.6 3M7 18h10"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
-    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".9"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8.2c.6 2.2 1.6 3.2 3.8 3.8-2.2.6-3.2 1.6-3.8 3.8-.6-2.2-1.6-3.2-3.8-3.8 2.2-.6 3.2-1.6 3.8-3.8Z"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.4 2.9 7.9 7 9.5 4.1-1.6 7-5.1 7-9.5V6l-7-3Z"/><path d="m9 12 2.1 2.1L15.2 10"/></symbol>
     <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5H3Z"/><path d="M5 10v7M9.5 10v7M14.5 10v7M19 10v7M3 20h18"/></symbol>
     <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6.8"/></symbol>
     <symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M9 4h3.5v2a1.8 1.8 0 1 0 3.5 0V4H20v5.5h-2a1.8 1.8 0 1 0 0 3.5h2V20h-4.5v-2a1.8 1.8 0 1 0-3.5 0v2H4v-5.5h2a1.8 1.8 0 1 0 0-3.5H4V4h5Z"/></symbol>
-    <symbol id="i-console" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2.2"/><path d="m7 9 2.5 2.2L7 13.5M11.5 13.5H16M8 21h8"/></symbol>
-    <symbol id="i-case" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.2A1.2 1.2 0 0 1 10.2 4h3.6A1.2 1.2 0 0 1 15 5.2V7M3 12.5h18M11 12.5v1.8h2v-1.8"/></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/><circle cx="10.5" cy="10.5" r="1.3"/><path d="M10.5 6.8v2.4M10.5 11.8v2.4M6.8 10.5h2.4M11.8 10.5h2.4"/></symbol>
-    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5v-15ZM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5v-15Z"/></symbol>
-    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
-    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M5 21v-6M5 11V3M12 21v-9M12 8V3M19 21v-4M19 13V3M3 15h4M10 8h4M17 17h4"/></symbol>
-    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 4 12 2.5-6H21"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.2 2.8 2.8L16 9.6"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3Z"/></symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></symbol>
   </defs>
@@ -222,265 +151,92 @@ footer{margin-top:84px;border-top:1px solid var(--line);padding:30px 0 40px;colo
     <p class="mantra"><strong>Intelligence.</strong><br>Architecture.<br>Delivery.</p>
 
     <p class="hero-copy">
-      I turn financial crime intelligence into operational capability. NEXUS, the platform I have built,
-      takes detection across five crime families through governed scoring, fused investigation and an
-      investigator copilot, and every published result can be rebuilt from a clean clone.
+      I spent 15+ years delivering regulated change in investment banking. Now I design and build
+      financial crime intelligence platforms that take analytics all the way to a governed decision an
+      investigator can stand behind.
     </p>
 
     <div class="buttons">
-      <a class="btn primary" href="projects/nexus/index.html">Launch NEXUS
+      <a class="btn primary" href="projects/nexus/index.html">See my work: NEXUS
         <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn" href="projects/nexus/runtime-demo/console.html">
-        <svg class="ico" aria-hidden="true"><use href="#i-console"/></svg>Investigator console</a>
-      <a class="btn" href="https://github.com/dhartwig-fc">
-        <svg class="logo" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
       <a class="btn linkedin" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">
         <svg class="logo" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+      <a class="btn" href="https://github.com/dhartwig-fc">
+        <svg class="logo" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
     </div>
-
-    <div class="now" aria-label="NEXUS today">
-      <div class="stat"><b>5</b><span>crime families detected and scored</span></div>
-      <div class="stat"><b>57</b><span>typologies with authored doctrine</span></div>
-      <div class="stat"><b>5</b><span>fused investigations published</span></div>
-      <div class="stat"><b>3</b><span>copilot slices live</span></div>
-      <div class="stat"><b>v2.1</b><span>NEXUS console, beta</span></div>
-    </div>
-    <p class="now-note">Synthetic demonstration data throughout. <a href="projects/nexus/release-notes.html">What changed in v2.1 &rarr;</a></p>
   </div>
 </header>
 
 <main class="wrap">
 
-<section id="philosophy" aria-labelledby="philosophy-h">
-  <p class="eyebrow">Operating philosophy</p>
-  <h2 id="philosophy-h">Intelligence becomes valuable when it becomes operational.</h2>
-  <p class="lede">One delivery principle runs through the work: financial crime intelligence has to travel
-    from insight, to architecture, to governed operational capability.</p>
+<section id="approach" aria-labelledby="approach-h">
+  <p class="eyebrow">How I work</p>
+  <h2 id="approach-h">Intelligence only matters once it becomes operational.</h2>
+  <p class="lede">Most financial crime programmes stop at analytics: the models run, and the findings never reach a
+    decision. My work closes that gap, from insight to architecture to a governed operational capability.</p>
   <div class="grid-3">
-    <div class="card tall">
+    <div class="card">
       <span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-signal"/></svg></span>
       <h3>Intelligence</h3>
-      <p>Turn fragmented risk signals, typologies, data patterns and threat context into structured intelligence
-        that investigators, platforms and decision-makers can act on.</p>
+      <p>Turning fragmented risk signals, typologies and threat context into structured intelligence that
+        investigators and decision-makers can act on.</p>
     </div>
-    <div class="card tall">
+    <div class="card">
       <span class="ico-tile gold"><svg class="ico" aria-hidden="true"><use href="#i-layers"/></svg></span>
       <h3>Architecture</h3>
-      <p>Design reusable capability that connects analytics, metadata, AI, governance and investigation
-        workflow into one scalable financial crime platform.</p>
+      <p>Designing reusable capability that connects analytics, data, AI, governance and investigation
+        workflow, rather than one more isolated tool.</p>
     </div>
-    <div class="card tall">
+    <div class="card">
       <span class="ico-tile cyan"><svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg></span>
       <h3>Delivery</h3>
-      <p>Make the architecture real: tested repositories, governed intelligence products and evidence
-        that anyone can reproduce, not slideware.</p>
+      <p>Making it real: working software, evidence that can be reproduced, and delivery that survives
+        contact with operations and audit.</p>
     </div>
   </div>
 </section>
 
-<section aria-labelledby="why-h">
-  <div class="band">
+<section id="work" aria-labelledby="work-h">
+  <div class="feature">
+    <img src="assets/img/nexus-shield.png" alt="NEXUS shield" width="140" height="140">
     <div>
-      <p class="eyebrow">Why this matters</p>
-      <h2 id="why-h">Most financial crime programmes stop at analytics.</h2>
-      <p>Organisations invest heavily in analytics and then struggle to operationalise what it finds. Operational
-        capability starts when intelligence, architecture and delivery work as one system, and that system is
-        what the work below demonstrates.</p>
-    </div>
-    <div class="band-flow" aria-label="From signal to decision">
-      <div class="flow-step"><svg class="ico" aria-hidden="true"><use href="#i-pulse"/></svg>
-        <div><strong>Detect</strong><span>Typologies scored across the crime families</span></div></div>
-      <div class="flow-step"><svg class="ico" aria-hidden="true"><use href="#i-network"/></svg>
-        <div><strong>Resolve</strong><span>One entity picture, fused across products</span></div></div>
-      <div class="flow-step"><svg class="ico" aria-hidden="true"><use href="#i-case"/></svg>
-        <div><strong>Investigate</strong><span>A governed case with its evidence attached</span></div></div>
-      <div class="flow-step"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>
-        <div><strong>Decide</strong><span>Copilot drafts, human judgement, audit trail</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="nexus" aria-labelledby="nexus-h">
-  <div class="nexus-head">
-    <img src="assets/img/nexus-shield.png" alt="NEXUS shield" width="112" height="112">
-    <div>
-      <p class="eyebrow">Working platform</p>
-      <h2 id="nexus-h">NEXUS: architecture proven through implementation.</h2>
-      <p class="lede">Detection, scoring, fused investigation, case workflow and an investigator copilot on one
-        governed substrate. Everything marked live below is running now, on synthetic data.</p>
-    </div>
-  </div>
-
-  <div class="surfaces">
-    <a class="surface" href="projects/nexus/runtime-demo/console.html">
-      <div class="surface-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-console"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Investigator console</h3>
-      <p>The resolved graph, the ranked alert queue and the case lifecycle on one screen. Investigate and manage together.</p>
-      <span class="go">Open the console <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-    <div class="surface">
-      <div class="surface-top"><span class="ico-tile gold"><svg class="ico" aria-hidden="true"><use href="#i-case"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Fused investigations</h3>
-      <p>Five published cases, each fusing typology products into one master case that links down to the evidence behind it.</p>
-      <div class="sublinks">
-        <a href="projects/nexus/investigation/index.html">Network risk</a>
-        <a href="projects/nexus/investigation-network-fusion/index.html">Network fusion</a>
-        <a href="projects/nexus/investigation-cross-domain/index.html">Cross-domain</a>
-        <a href="projects/nexus/investigation-designated-party/index.html">Designated party</a>
-        <a href="projects/nexus/investigation-correspondent-banking/index.html">Correspondent banking</a>
+      <p class="eyebrow">Featured work</p>
+      <h2 id="work-h">NEXUS</h2>
+      <p>A financial crime intelligence platform I designed and built end to end. It carries detection across
+        the crime families through fused investigation to an investigator copilot, on one governed substrate,
+        running on synthetic data.</p>
+      <ul class="highlights">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Detection across five crime families, from network risk to capital markets</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fused investigations with the evidence behind every finding</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>An investigator copilot drafting SARs and EDD memos</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Deterministic and reproducible, from a clean clone</li>
+      </ul>
+      <div class="buttons">
+        <a class="btn" href="projects/nexus/index.html">Explore NEXUS <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="projects/nexus/runtime-demo/console.html">Try the investigator console</a>
       </div>
     </div>
-    <div class="surface">
-      <div class="surface-top"><span class="ico-tile cyan"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Investigator copilot</h3>
-      <p>Three live slices: a provenance-linked SAR draft, the EDD memo and disposition support. Drafted by the machine, decided by a person.</p>
-      <div class="sublinks">
-        <a href="projects/nexus/runtime-demo/sar_drafts.html">SAR drafts</a>
-        <a href="projects/nexus/runtime-demo/edd_memos.html">EDD memos</a>
-        <a href="projects/nexus/runtime-demo/dispositions.html">Dispositions</a>
-      </div>
-    </div>
-    <a class="surface" href="projects/nexus/explorer/index.html">
-      <div class="surface-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Entity Explorer</h3>
-      <p>Search the resolved estate and walk any entity's network across every product that touches it.</p>
-      <span class="go">Open the explorer <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-    <a class="surface" href="projects/nexus/knowledge-centre/index.html">
-      <div class="surface-top"><span class="ico-tile gold"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Knowledge Centre</h3>
-      <p>Doctrine for all 57 typologies: purpose, the intelligence question, detection rules, risk drivers and investigation actions.</p>
-      <span class="go">Open the doctrine <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-    <a class="surface" href="projects/nexus/runtime-demo/ops_dashboard.html">
-      <div class="surface-top"><span class="ico-tile cyan"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Operations dashboard</h3>
-      <p>Queue, workflow and model-performance MI for the people who run the team, not only the people who work the cases.</p>
-      <span class="go">Open the dashboard <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-    <a class="surface" href="projects/nexus/tuning-studio.html">
-      <div class="surface-top"><span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg></span><span class="tag build">In build</span></div>
-      <h3>TM Tuning Studio</h3>
-      <p>Threshold tuning measured against planted truth, with capacity modelling and a logged, reproducible decision for every change.</p>
-      <span class="go">Read the briefing <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-    <a class="surface" href="projects/nexus/future-capabilities.html">
-      <div class="surface-top"><span class="ico-tile gold"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg></span><span class="tag build">In build</span></div>
-      <h3>Threat intelligence layer</h3>
-      <p>Agentic extraction from published advisories, with every proposed link reviewed by a person before it enters the record.</p>
-      <span class="go">See future capabilities <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-    <a class="surface" href="projects/nexus/release-notes.html">
-      <div class="surface-top"><span class="ico-tile cyan"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span><span class="tag live">Live</span></div>
-      <h3>Release notes &amp; briefings</h3>
-      <p>What each release added and why, beside the roadmap, mission status and the full stage catalogue.</p>
-      <span class="go">Read the release notes <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-    </a>
-  </div>
-
-  <div class="proof" aria-label="How it is built">
-    <div><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Working software with a pinned, CI-gated test baseline</div>
-    <div><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Deterministic: the same input gives the same output</div>
-    <div><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Every published run reproducible from a clean clone</div>
-    <div><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Typology content arrives as governed data, never hard-coded</div>
-    <div><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Runtime evidence retained for every manufactured product</div>
-    <div><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Guards verified by breaking what they guard</div>
   </div>
 </section>
 
-<section id="capability" aria-labelledby="capability-h">
-  <p class="eyebrow">Capability</p>
-  <h2 id="capability-h">Core capability areas</h2>
-  <p class="lede">The disciplines it takes to design, govern and run an intelligence-led financial crime platform, each one shown in working software.</p>
-  <div class="grid-3">
-    <div class="card">
-      <span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-compass"/></svg></span>
-      <h3>Intelligence strategy</h3>
-      <p>Threat intelligence, emerging typologies, the intelligence lifecycle and risk prioritisation, with a threat-intelligence layer now in build.</p>
-    </div>
-    <div class="card">
-      <span class="ico-tile gold"><svg class="ico" aria-hidden="true"><use href="#i-layers"/></svg></span>
-      <h3>Platform architecture</h3>
-      <p>Operating models, metadata architecture, a canonical data model and reusable capability frameworks.</p>
-    </div>
-    <div class="card">
-      <span class="ico-tile cyan"><svg class="ico" aria-hidden="true"><use href="#i-network"/></svg></span>
-      <h3>Financial crime analytics</h3>
-      <p>Network intelligence, TBML, sanctions exposure, correspondent banking and capital markets, as reusable analytic libraries.</p>
-    </div>
-    <div class="card">
-      <span class="ico-tile"><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg></span>
-      <h3>Detection &amp; tuning</h3>
-      <p>Governed risk scoring, ranked alert queues, and threshold tuning measured against capacity rather than asserted.</p>
-    </div>
-    <div class="card">
-      <span class="ico-tile gold"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg></span>
-      <h3>AI-assisted investigation</h3>
-      <p>A live investigator copilot for SAR drafts, EDD memos and dispositions, plus agentic extraction with human review.</p>
-    </div>
-    <div class="card">
-      <span class="ico-tile cyan"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
-      <h3>Governance &amp; validation</h3>
-      <p>Validation frameworks, reproducible evidence, append-only decision logs and guards proven by mutation testing.</p>
-    </div>
+<section id="expertise" aria-labelledby="expertise-h">
+  <p class="eyebrow">Expertise</p>
+  <h2 id="expertise-h">Where I go deep</h2>
+  <div class="chips">
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Network &amp; entity intelligence</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Trade-based money laundering</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Sanctions exposure</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Correspondent banking</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Capital markets surveillance</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Transaction monitoring &amp; tuning</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>AI-assisted investigation</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Threat intelligence</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Platform &amp; data architecture</span>
+    <span class="chip"><svg class="ico" aria-hidden="true"><use href="#i-dot"/></svg>Model governance &amp; validation</span>
   </div>
 </section>
 
-<section id="repositories" aria-labelledby="repos-h">
-  <p class="eyebrow">Technical evidence</p>
-  <h2 id="repos-h">Nine repositories, one operating model.</h2>
-  <p class="lede">Each repository is one working component. Analytic toolkits for each crime family feed a core platform, which
-    manufactures governed intelligence products and fuses them into investigations.</p>
-  <div class="repos">
-    <div class="repo">
-      <div class="repo-top"><span class="code core">FC-10</span><span class="vis"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
-      <h3>NEXUS core platform</h3>
-      <p>The intelligence repository layer: manufacturing, fusion, investigations, the console, the copilot and every publish path.</p>
-    </div>
-    <a class="repo" href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">
-      <div class="repo-top"><span class="code">FC-01</span><span class="vis public"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>Public</span></div>
-      <h3>Analytics showcase</h3>
-      <p>The public capability showcase: intelligence product structure, the platform shell and decision support.</p>
-    </a>
-    <div class="repo">
-      <div class="repo-top"><span class="code">FC-03</span><span class="vis"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
-      <h3>Network intelligence</h3>
-      <p>Shared-party and linked-entity typologies, plus the foundation doctrine for resolution, ownership and network risk.</p>
-    </div>
-    <div class="repo">
-      <div class="repo-top"><span class="code">FC-04</span><span class="vis"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
-      <h3>Trade-based money laundering</h3>
-      <p>TBML analytics and the scoring logic behind the trade typologies, over-invoicing and trade-value anomalies among them.</p>
-    </div>
-    <div class="repo">
-      <div class="repo-top"><span class="code">FC-05</span><span class="vis"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
-      <h3>Sanctions exposure</h3>
-      <p>Ten sanctions exposure analytics, SAN001 to SAN009 and CMI010, each one manufactured into a governed product.</p>
-    </div>
-    <a class="repo" href="https://github.com/dhartwig-fc/fc-06-correspondent-banking-analytics-toolkit">
-      <div class="repo-top"><span class="code">FC-06</span><span class="vis public"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>Public</span></div>
-      <h3>Correspondent banking</h3>
-      <p>Ten correspondent banking analytics, BA001 to BA010, fused into their own published investigation.</p>
-    </a>
-    <a class="repo" href="https://github.com/dhartwig-fc/fc-07-capital-markets-analytics-toolkit">
-      <div class="repo-top"><span class="code">FC-07</span><span class="vis public"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>Public</span></div>
-      <h3>Capital markets</h3>
-      <p>Ten capital markets surveillance scenarios, CM001 to CM010.</p>
-    </a>
-    <a class="repo" href="https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence">
-      <div class="repo-top"><span class="code">FC-08</span><span class="vis public"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>Public</span></div>
-      <h3>Emerging threat intelligence</h3>
-      <p>Agentic extraction from published advisories into a governed register, with a review gate on every proposal.</p>
-    </a>
-    <a class="repo" href="https://github.com/dhartwig-fc/fc-09-detection-strategy-library">
-      <div class="repo-top"><span class="code">FC-09</span><span class="vis public"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg>Public</span></div>
-      <h3>Detection strategy</h3>
-      <p>The tuning training programme, and the independent oracle that checks the TM Tuning Studio's numbers.</p>
-    </a>
-  </div>
-</section>
-
-<section aria-labelledby="career-h">
+<section id="career" aria-labelledby="career-h">
   <p class="eyebrow">Career</p>
   <h2 id="career-h">Career-backed delivery</h2>
   <p class="lede">The portfolio shows the capability. My career shows the delivery.</p>
@@ -504,14 +260,13 @@ footer{margin-top:84px;border-top:1px solid var(--line);padding:30px 0 40px;colo
 </section>
 
 <div class="cta">
-  <p class="eyebrow">Executive capability statement</p>
-  <h2>Intelligence.<br>Architecture.<br>Delivery.</h2>
-  <p>Three disciplines, one operating model. This portfolio shows how intelligence-led financial crime capability can
-    be designed, governed and delivered through reusable architecture, validated analytics and working software.</p>
+  <h2>Let's talk.</h2>
+  <p>If you are building or fixing financial crime capability, whether detection, investigation or the platform
+    underneath, I would be glad to compare notes.</p>
   <div class="buttons">
-    <a class="btn" href="projects/nexus/index.html">Launch NEXUS <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a class="btn linkedin" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">
+    <a class="btn primary linkedin" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">
       <svg class="logo" aria-hidden="true"><use href="#i-linkedin"/></svg>Connect on LinkedIn</a>
+    <a class="btn" href="projects/nexus/index.html">Explore NEXUS <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </div>
 
@@ -524,8 +279,8 @@ footer{margin-top:84px;border-top:1px solid var(--line);padding:30px 0 40px;colo
       A personal professional showcase built on synthetic data. No confidential employer, client or customer information is included.
     </div>
     <nav aria-label="Elsewhere">
-      <a href="https://github.com/dhartwig-fc">GitHub</a>
       <a href="https://www.linkedin.com/in/dan-hartwig-financial-crime">LinkedIn</a>
+      <a href="https://github.com/dhartwig-fc">GitHub</a>
       <a href="projects/nexus/index.html">NEXUS</a>
     </nav>
   </div>
