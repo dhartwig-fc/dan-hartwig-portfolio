@@ -104,7 +104,7 @@ figcaption b{color:var(--text)}
     investigator capacity</b>, and turns the chosen setting into a <b>governed, evidenced change</b>. It is built
     over ten weeks with a training programme running alongside, one concept per week.
   </p>
-  <div class="note">Status · <b>in build</b> · weeks 1–8 of 10 complete · six decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
+  <div class="note">Status · <b>in build</b> · weeks 1–9 of 10 complete · seven decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
 
   <!-- WHY -->
   <div class="block">
@@ -194,9 +194,9 @@ figcaption b{color:var(--text)}
 
   <!-- DECISIONS -->
   <div class="block">
-    <div class="tk">Decisions logged · weeks 3–8</div>
-    <h2>Six decisions: hold, hold, split the line, test a challenger, test for drift, then rank instead of fire.</h2>
-    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, the fourth runs a challenger beside it, the fifth asks which rules survive a year of drift, and the sixth asks whether one ranked score beats the rules it is built from.</p>
+    <div class="tk">Decisions logged · weeks 3–9</div>
+    <h2>Seven decisions: hold, hold, split the line, test a challenger, test for drift, rank instead of fire, then validate under independent challenge.</h2>
+    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, the fourth runs a challenger beside it, the fifth asks which rules survive a year of drift, the sixth asks whether one ranked score beats the rules it is built from, and the seventh puts the best challenger through validation with an independent reviewer trying to break it.</p>
     <div class="subh">D1 · week 3 · threshold · HOLD</div>
     <div class="figs">
       <div class="fig"><div class="v">None</div><div class="l">cost ratios (missed case : false alert, from 1 to 100) for which £75k is the cheapest threshold</div></div>
@@ -254,11 +254,22 @@ figcaption b{color:var(--text)}
       <div class="fig"><div class="v">166 vs 161</div><div class="l">planted customers caught by one ranked score blending the £75k rule and the customer-baseline rule, against the customer-baseline rule alone, at the same 2,419 reviews (171 vs 170 on the hold-out)</div></div>
       <div class="fig"><div class="v">112</div><div class="l">caught once a score cap of 75 ties 3,375 cases against a budget of 2,419: the alphabetical tie-break, not the risk, decides who is reviewed</div></div>
       <div class="fig"><div class="v">46% → 35%</div><div class="l">planted rate in the top half-percent band where the score was built, and at the same score on a population it never saw</div></div>
-      <div class="fig"><div class="v">6 of 48</div><div class="l">entities in the live estate sitting on the macro triage score's cap of 100, previewed through the real scorer</div></div>
+      <div class="fig"><div class="v">7 of 48</div><div class="l">entities in the live estate tied at the macro triage score's cap of 100, previewed through the real scorer. This read 6 until an independent reviewer found one scoring exactly 100; the 6 are those flattened from above it</div></div>
     </div>
     <div class="callout gold">
       <div class="ct">Why the cap, not the score, is the finding</div>
       <p>Ranked and worked to the team's budget, the blended score finds nobody neither rule already finds, so the gain does not justify governing a scoring model. The cap is different. It flattens every score above it to one number, and something has to order the tie. While the team can work every tied case the cap is free; once the tie is larger than capacity, recall falls to the plain £75k rule's level. The decision holds the rules as they run and makes the size of the tie at any cap, against review capacity, a monitored figure. The score also ranks well out of sample but is not calibrated, so it must never be read as a probability. The live estate has too few decided cases to fit its weights; the studio previews what a weight change does through the real scorer, not whether it is right.</p>
+    </div>
+    <div class="subh">D7 · week 9 · validation &amp; governance · HOLD, not yet validated</div>
+    <div class="figs">
+      <div class="fig"><div class="v">5 of 5</div><div class="l">independent reviewers, one per decision from D3 to D7, returned "stands with conditions"; all 31 points they raised are answered on the record (29 accepted, 2 in part)</div></div>
+      <div class="fig"><div class="v">149 vs 122</div><div class="l">planted customers caught on the hold-out by the two-line split from D3 alone, every one on a planted payment, against the £75k rule, while alerting 1.3× its customers</div></div>
+      <div class="fig"><div class="v">+55%</div><div class="l">workload of the customer-baseline rule with a fallback under a drift that makes payments more variable, where the flat line moves +8%; it alerts 2.9× the customers, and fails both conditions</div></div>
+      <div class="fig"><div class="v">20 of 23</div><div class="l">extra catches from that rule's fallback that fell in the simulation's first three months, which a live book does not have. This is why the decision was taken again before it was committed</div></div>
+    </div>
+    <div class="callout gold">
+      <div class="ct">A decision taken again, before it was committed</div>
+      <p>The first draft of this decision carried the customer-baseline rule, with a fallback, forward as the candidate. An independent reviewer found that it had been compared only with the £75k rule, and that most of its extra catches came from the simulation's start. Both findings were checked by measurement, and the decision was taken again. Scored against every rule the log already holds, and again with the first three months removed, only two rules pass both stated conditions: the £75k rule and the two-line split. The split is now the candidate for the capstone, and the customer-baseline rule is the challenger to beat. Nothing is live. The governed apply step refuses any change whose effects the decision did not predict, and the tuning paper is generated from the records rather than written by hand.</p>
     </div>
   </div>
 
@@ -277,8 +288,8 @@ figcaption b{color:var(--text)}
       <div class="slice"><span class="wk">06</span><div class="st">Challenger rules<small>The champion against two challengers at the same workload, with the overlap, a negative control and an explanation for every alert; Decision 4 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">07</span><div class="st">Stability &amp; drift<small>Every rule held fixed over three drifted years; KS and PSI; a monthly transient check; which thresholds don't hold; Decision 5 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">08</span><div class="st">Score calibration<small>The champion and the challenger as one ranked score, worked to capacity; ranking against calibration on a hold-out; where a score cap starts to cost; the macro triage weights previewed through the real scorer; Decision 6 logged.</small></div><span class="pill done">Done</span></div>
-      <div class="slice"><span class="wk">09</span><div class="st">Validation &amp; governance<small>The governed apply step, an independent challenge, and the paper generated from the log.</small></div><span class="pill later">Next</span></div>
-      <div class="slice"><span class="wk">10</span><div class="st">Capstone engagement<small>A full tuning exercise on a 30-day cash rule under fixed capacity, written up for validation.</small></div><span class="pill later">Planned</span></div>
+      <div class="slice"><span class="wk">09</span><div class="st">Validation &amp; governance<small>The governed apply step, proven on drills with nothing live; an independent challenge of every open decision, answered on the record; the customer-baseline rule validated against stated conditions; the paper generated from the log; Decision 7 logged.</small></div><span class="pill done">Done</span></div>
+      <div class="slice"><span class="wk">10</span><div class="st">Capstone engagement<small>A full tuning exercise on a 30-day cash rule under fixed capacity, written up for validation.</small></div><span class="pill later">Next</span></div>
     </div>
   </div>
 
@@ -301,7 +312,7 @@ figcaption b{color:var(--text)}
   </div>
 
   <div class="foot">
-    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-25 (week 8) —
+    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-26 (week 9) —
     <a href="future-capabilities.html">future capabilities →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
