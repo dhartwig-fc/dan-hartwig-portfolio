@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Threat Intelligence Walkthrough</title>
+<style>
+  :root{
+    --bg0:#060910; --bg1:#0b1120; --panel:rgba(255,255,255,.035);
+    --edge:rgba(255,255,255,.10);
+    --ink:#eaf1f9; --ink2:#a7b7cd; --ink3:#71839a;
+    --acc:#79c4ff; --gold:#e9c877;
+    --crit:#ff5d6c; --good:#4fdca0;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,monospace;
+    --maxw:820px;
+    --wm:linear-gradient(180deg,#f4f8ff,#aec0d7 58%,#7f92ac);
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg0:#f5f7fb; --bg1:#ffffff; --panel:rgba(10,30,60,.04);
+      --edge:rgba(10,30,60,.14);
+      --ink:#0f1a2a; --ink2:#34465e; --ink3:#5b6d84;
+      --acc:#0b64b8; --gold:#8a5f00;
+      --crit:#c42636; --good:#0f7d52;
+      --wm:linear-gradient(180deg,#1b2b45,#33496a 58%,#51678a);
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg0);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:32px 16px 72px}
+  a{color:var(--acc);text-decoration:none;overflow-wrap:anywhere}
+  a:hover{text-decoration:underline}
+  code{font-family:var(--mono);font-size:.88em;color:var(--ink);overflow-wrap:anywhere}
+  .backlink{display:inline-block;margin-bottom:10px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink3)}
+  .brand{display:flex;align-items:center;gap:13px;margin-bottom:6px}
+  .shield{width:38px;height:44px;flex:none;filter:drop-shadow(0 0 10px rgba(121,196,255,.35))}
+  .wm{font-weight:800;letter-spacing:.2em;font-size:19px;background:var(--wm);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wm .x{color:var(--acc);-webkit-text-fill-color:var(--acc)}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
+  h1{font-size:27px;line-height:1.22;font-weight:800;letter-spacing:-.015em;margin:24px 0 10px}
+  .lede{font-size:16px;color:var(--ink2);margin:0 0 8px}
+  section{margin-top:40px}
+  h2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-weight:700;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid var(--edge);display:flex;gap:9px}
+  h2 .n{font-family:var(--mono);color:var(--ink3);font-size:11px}
+  p{margin:0 0 13px;color:var(--ink2)}
+  p strong{color:var(--ink)}
+  .chain{list-style:none;margin:0;padding:0}
+  .chain>li{border-left:2px solid var(--edge);padding:0 0 4px 14px;margin:0 0 6px}
+  .chain>li:last-child{border-left-color:var(--gold)}
+  .step{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+  .facts{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0 0 14px}
+  .facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding-top:3px}
+  .facts dd{margin:0;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+  .hash{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere;word-break:break-all}
+  table.rows{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px}
+  table.rows th{text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--edge)}
+  table.rows th:nth-child(1){width:22%}
+  table.rows th:nth-child(2){width:14%}
+  table.rows th:nth-child(3){width:12%}
+  table.rows th:nth-child(4){width:14%}
+  table.rows td{vertical-align:top;padding:10px 8px;border-bottom:1px solid var(--edge);color:var(--ink2);overflow-wrap:anywhere;min-width:0}
+  .cite{display:flex;gap:8px;align-items:baseline;margin:0 0 8px}
+  .pg{flex:none;font-family:var(--mono);font-size:11px;color:var(--gold)}
+  blockquote{margin:0;padding:2px 0 2px 10px;border-left:2px solid var(--edge);color:var(--ink);font-size:14px;overflow-wrap:anywhere;min-width:0}
+  .props{list-style:none;margin:0;padding:0}
+  .proposal{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:12px 14px;margin:0 0 10px}
+  .ph{margin-bottom:8px;color:var(--ink)}
+  .conf{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-left:6px}
+  .link{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:12px 14px;margin:0 0 14px}
+  pre{white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--ink2);margin:0 0 10px}
+  .decisions{list-style:none;margin:0;padding:8px 0 0;border-top:1px solid var(--edge)}
+  .decisions li{margin:0 0 4px;color:var(--ink2)}
+  .decisions time{font-family:var(--mono);font-size:12px;color:var(--ink3)}
+  .approve{color:var(--good)}
+  .reject{color:var(--crit)}
+  .flag{border-left:2px solid var(--gold);padding-left:10px;color:var(--ink)}
+  .desks{margin:0 0 6px;padding-left:18px;color:var(--ink2)}
+  .desks li{margin:0 0 3px}
+  .why{margin:2px 0 6px;font-size:13px;color:var(--ink2)}
+  .why summary{cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--ink3)}
+  .why p{margin:6px 0 0;overflow-wrap:anywhere}
+  table.two th:nth-child(1){width:44%}
+  table.two th:nth-child(2){width:auto}
+  table.tel th:nth-child(n){width:auto}
+  table.tel th:nth-child(1),table.score th:nth-child(1){width:46%}
+  table.score th:nth-child(n+2){width:18%}
+  table.tel td:nth-child(n+2),table.score td:nth-child(n+2){font-family:var(--mono);font-size:13px}
+  table.score{margin:0 0 16px}
+  caption{text-align:left;font-size:13px;color:var(--ink);padding:0 0 6px}
+  .role{display:block;font-size:12.5px;color:var(--ink3);margin-top:2px}
+  .cats,.limits,.fails{margin:0 0 12px;padding-left:18px;color:var(--ink2)}
+  .cats li,.limits li,.fails li{margin:0 0 6px}
+  .limits strong{color:var(--ink)}
+  .nr{color:var(--ink3);font-size:13px}
+  .err{font-family:var(--mono);font-size:12px;overflow-wrap:anywhere}
+  pre.digest{background:var(--panel);border:1px solid var(--edge);border-radius:10px;padding:12px 14px}
+  @media (max-width:640px){
+    h1{font-size:23px}
+    table.rows thead{display:none}
+    table.rows,table.rows tbody,table.rows tr,table.rows td{display:block;width:100%}
+    table.rows tr{border-bottom:1px solid var(--edge);padding:8px 0}
+    table.rows td{border:0;padding:3px 0}
+    table.rows td:nth-child(2),table.rows td:nth-child(3),table.rows td:nth-child(4){display:inline-block;width:auto;margin-right:18px}
+    table.two td:nth-child(2){display:block;margin-right:0}
+    table.rows caption{display:block;width:100%}
+    table.rows td::before{content:attr(data-h);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+    .facts{grid-template-columns:1fr;gap:0}
+    .facts dd{margin-bottom:8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="../future-capabilities.html" class="backlink">&larr; Future capabilities</a>
+  <div class="brand">
+    <svg class="shield" viewBox="0 0 40 46" fill="none" aria-hidden="true">
+      <path d="M20 2 L36 8 V22 C36 33 29 41 20 44 C11 41 4 33 4 22 V8 Z"
+            fill="rgba(121,196,255,.06)" stroke="url(#sg)" stroke-width="1.6"/>
+      <path d="M14 30 V16 L26 30 V16" stroke="var(--acc)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs><linearGradient id="sg" x1="4" y1="2" x2="36" y2="44" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#79c4ff"/><stop offset="1" stop-color="#e9c877"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="wm">NE<span class="x">X</span>US</div>
+      <div class="kicker">Threat Intelligence &middot; Slice 1</div>
+    </div>
+  </div>
+
+  <h1>One advisory, from PDF to owner-approved typology links</h1>
+  <p class="lede">ADV-2026-0013, followed through extraction, grounding and review to the desks it reaches, with the actors it names, what the agent did, how the extraction scores and what this slice does not do yet. Every figure and quote on this page is read from a governed file when the page is built.</p>
+
+<section id="question">
+  <h2><span class="n">01</span> The question</h2>
+  <ol class="chain">
+    <li><span class="step">Question</span>
+      <p>What does <strong>Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls</strong> (OFAC / BIS / DOJ, 2023-03-02) tell a financial-crime team to look for, and which desks need to hear it?</p></li>
+    <li><span class="step">Capability</span>
+      <p>An extraction agent reads the advisory and writes a governed record: every typology it asserts carries a page number and a verbatim quote from a document pinned by its sha256. The agent's only write is <code>propose_link</code>, which will not record a proposal whose quote it cannot find on the cited page. A second, reviewer agent adds what the extractor missed, each addition with its justification; the owner decides each proposed link at a review gate; every decision is a dated line in an append-only log.</p></li>
+    <li><span class="step">Intelligence produced</span>
+      <p><span class="count" data-count="typologies">9</span> typologies asserted in the record &mdash; <span class="count" data-count="extractor">5</span> by the extractor, <span class="count" data-count="reviewer">4</span> added by the reviewer agent, <span class="count" data-count="emergent">1</span> of them emergent (not in the typology library). Run <code>adv-2026-0013-extractor-f617bd3b00</code> made <span class="count" data-count="proposals">5</span> proposals; the owner approved <span class="count" data-count="approved">5</span> links and rejected <span class="count" data-count="rejected">0</span>.</p></li>
+    <li><span class="step">Investigator outcome</span>
+      <p>The routing table has <span class="count" data-count="desk-total">7</span> desks; this advisory reached <span class="count" data-count="desks">3</span> desks. What each desk's digest carries for it:</p>
+      <ul class="desks">
+        <li class="desk">Trade desk: 0 approved; 2 awaiting review (TBML002U, TBML008)</li>
+        <li class="desk">Sanctions desk: 4 approved (SAN001, SAN003, SAN004, SAN007); 1 awaiting review (SAN005)</li>
+        <li class="desk">Correspondent banking desk: 1 approved (BA005); 1 awaiting review (BA008)</li>
+      </ul></li>
+  </ol>
+</section>
+
+<section id="source">
+  <h2><span class="n">02</span> The source</h2>
+  <dl class="facts">
+    <dt>Title</dt><dd>Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls</dd>
+    <dt>Publisher</dt><dd>OFAC / BIS / DOJ</dd>
+    <dt>Published</dt><dd>2023-03-02</dd>
+    <dt>Document</dt><dd><a href="https://ofac.treasury.gov/media/931471/download?inline=" rel="noopener">https://ofac.treasury.gov/media/931471/download?inline=</a></dd>
+    <dt>Pages</dt><dd>6</dd>
+    <dt>sha256</dt><dd class="hash">826d69174369f68372b92031fcc27ebfdf61649da0730d5e4382593ae59d1e3e</dd>
+  </dl>
+  <p>Every citation below is pinned to this hash: a page number and a quote name a place in exactly this document, and the build refuses a record or proposal that names any other.</p>
+</section>
+
+<section id="extraction">
+  <h2><span class="n">03</span> What the record asserts</h2>
+  <p>The merged record for ADV-2026-0013: 9 typologies, each with the quotes that ground it. &ldquo;Owner&rdquo; is the standing decision in the pinned decision log; a typology with none is awaiting review.</p>
+  <table class="rows">
+    <thead><tr><th>Typology</th><th>Family</th><th>Asserted by</th><th>Owner</th><th>Citations</th></tr></thead>
+    <tbody>
+    <tr>
+      <td data-h="Typology"><code>SAN003</code> Transshipment</td>
+      <td data-h="Family">sanctions</td>
+      <td data-h="Asserted by">extractor</td>
+      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p1</span><blockquote>transshipment points to circumvent restrictions, disguise the involvement of Specially Designated</blockquote></div><div class="cite"><span class="pg">p3</span><blockquote>Routing purchases through certain transshipment points commonly used to illegally redirect restricted items to Russia or Belarus.  Such locations may include China</blockquote></div></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>SAN004</code> Front Companies</td>
+      <td data-h="Family">sanctions</td>
+      <td data-h="Asserted by">extractor</td>
+      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p4</span><blockquote>AO PKK Milandr, which used a front company to transfer funds from Milandr to another front in</blockquote></div><div class="cite"><span class="pg">p5</span><blockquote>Claiming that shell companies located in third countries were intermediaries or end</blockquote></div></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>SAN007</code> Dual Use Goods</td>
+      <td data-h="Family">sanctions</td>
+      <td data-h="Asserted by">extractor</td>
+      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p4</span><blockquote>Austin, Texas company, for shipping integrated circuit components, which are critical</blockquote></div><div class="cite"><span class="pg">p5</span><blockquote>The sensitive items at issue included advanced electronics and</blockquote></div></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>BA008</code> Layering</td>
+      <td data-h="Family">correspondent_banking</td>
+      <td data-h="Asserted by">extractor</td>
+      <td data-h="Owner">awaiting review</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Transferring funds from shell companies in foreign jurisdictions into U.S. bank accounts</blockquote></div></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>TBML002U</code> Under Invoicing</td>
+      <td data-h="Family">tbml</td>
+      <td data-h="Asserted by">extractor</td>
+      <td data-h="Owner">awaiting review</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Making false or misleading statements on shipping forms, including underestimating the</blockquote></div><div class="cite"><span class="pg">p5</span><blockquote>purchase price of merchandise by more than five times the actual amount</blockquote></div></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>SAN005</code> Name Screening Evasion</td>
+      <td data-h="Family">sanctions</td>
+      <td data-h="Asserted by">reviewer</td>
+      <td data-h="Owner">awaiting review</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Using aliases for the identities of the intermediaries and end users21;</blockquote></div><details class="why"><summary>Reviewer&rsquo;s justification</summary><p>Found in Criminal enforcement section, tactics bullet list, page 5. SAN005 doctrine: &#x27;Name Screening Evasion is the defeat of list-based screening through the form of the name: aliases, transliterations, suffix variants... that let a listed party transact under a name an exact-match filter never flags.&#x27; The advisory alleges defendants used aliases for the intermediaries and end users in the procurement scheme -- the same mechanism of engineering the name on transaction paperwork so it will not resolve to the true (potentially listed) party during screening.</p></details></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>TBML008</code> Third Party Payment Abuse</td>
+      <td data-h="Family">tbml</td>
+      <td data-h="Asserted by">reviewer</td>
+      <td data-h="Owner">awaiting review</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p2</span><blockquote>Payment coming from a third-party country or business not listed on the End-User Statement3 or other applicable end-user form;</blockquote></div><details class="why"><summary>Reviewer&rsquo;s justification</summary><p>Found in Red flag list, page 2. TBML008 doctrine: &#x27;Third Party Payment Abuse settles a trade through a payer who is not the trade counterparty... The payment breaks the link between the trade and the funds.&#x27; This red flag names exactly that pattern -- settlement arriving from a country or business absent from the end-user paperwork governing the underlying trade -- matching the Third-Party Payer indicator directly.</p></details></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>BA005</code> Rapid Movement</td>
+      <td data-h="Family">correspondent_banking</td>
+      <td data-h="Asserted by">reviewer</td>
+      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Transferring funds from shell companies in foreign jurisdictions into U.S. bank accounts and quickly forwarding or distributing funds to obfuscate the audit trail or the foreign source of the money22;</blockquote></div><details class="why"><summary>Reviewer&rsquo;s justification</summary><p>Found in Criminal enforcement section, tactics bullet list, page 5. BA005 doctrine: Rapid Movement &#x27;is defined by HOW FAST the funds move&#x27; -- funds land and clear back out almost immediately -- as distinct from BA008 Layering&#x27;s distance/opacity axis (already claimed for this same allegation). The advisory&#x27;s own word &#x27;quickly forwarding&#x27; names the velocity element BA005 captures, over and above the multi-hop distance BA008 addresses. Single-sentence evidence limits this to low confidence.</p></details></td>
+    </tr>
+    <tr>
+      <td data-h="Typology"><code>emergent</code> Shipment Splitting to Evade Export Control Detection</td>
+      <td data-h="Family">sanctions</td>
+      <td data-h="Asserted by">reviewer</td>
+      <td data-h="Owner">awaiting review</td>
+      <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Dividing shipments of controlled items into multiple, smaller shipments to try to avoid law enforcement detection20;</blockquote></div><details class="why"><summary>Reviewer&rsquo;s justification</summary><p>Found in Criminal enforcement section, tactics bullet list, page 5. No library typology covers this mechanism: BA001 Structuring addresses cash deposits kept under a CTR reporting threshold (a financial-transaction pattern), and TBML003 Multiple Invoicing addresses raising several invoices against one shipment (a documentary pattern), neither of which is dividing the physical goods movement itself into smaller consignments to stay below detection thresholds. The advisory describes a distinct physical-shipment fragmentation technique for export-control evasion that the current library does not name.</p></details></td>
+    </tr>
+    </tbody>
+  </table>
+  <p class="flag">The record and the decided proposals come from two separate extractions of this document. Both assert <span class="ids" data-set="both">SAN003, SAN004, SAN007</span>. The record&rsquo;s extractor also asserted <span class="ids" data-set="record-only">BA008, TBML002U</span>, which run <code>adv-2026-0013-extractor-f617bd3b00</code> (proposals written 2026-09-24) did not propose; that run proposed <span class="ids" data-set="run-only">SAN001</span>, which the record lacks, and <span class="ids" data-set="run-reviewer">BA005</span>, which the record carries only as a reviewer addition. The owner decides links, on the quotes shown in section 5.</p>
+</section>
+
+<section id="grounding">
+  <h2><span class="n">04</span> Grounding: the proposals</h2>
+  <p>Run <code>adv-2026-0013-extractor-f617bd3b00</code> made 5 proposals. Each quote was located on its cited page of the pinned document by <code>propose_link</code> before the proposal was written &mdash; that is the tool&rsquo;s contract, and a quote it cannot place is refused, never queued. This page is built without the PDF and does not re-check them.</p>
+  <ol class="props">
+    <li class="proposal">
+      <div class="ph"><code>SAN003</code> Transshipment <span class="conf">confidence high</span></div>
+      <div class="cite"><span class="pg">p3</span><blockquote>Routing purchases through certain transshipment points commonly used to illegally redirect restricted items to Russia or Belarus.</blockquote></div><div class="cite"><span class="pg">p4</span><blockquote>shipping integrated circuit components, which are critical components in missiles and military satellites, to Russia via a Bulgarian front company</blockquote></div>
+    </li>
+    <li class="proposal">
+      <div class="ph"><code>SAN004</code> Front Companies <span class="conf">confidence high</span></div>
+      <div class="cite"><span class="pg">p4</span><blockquote>used a front company to transfer funds from Milandr to another front in a third country, which purchased microchips to divert to Russia</blockquote></div><div class="cite"><span class="pg">p2</span><blockquote>Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries involved</blockquote></div>
+    </li>
+    <li class="proposal">
+      <div class="ph"><code>SAN007</code> Dual Use Goods <span class="conf">confidence high</span></div>
+      <div class="cite"><span class="pg">p4</span><blockquote>illegally export military and sensitive dual-use items to Russia and embargoed Venezuelan oil to Russian and Chinese end users</blockquote></div><div class="cite"><span class="pg">p5</span><blockquote>The sensitive items at issue included advanced electronics and sophisticated testing equipment used in quantum computing, hypersonic, and nuclear weapons development</blockquote></div>
+    </li>
+    <li class="proposal">
+      <div class="ph"><code>SAN001</code> Ownership Evasion <span class="conf">confidence medium</span></div>
+      <div class="cite"><span class="pg">p2</span><blockquote>Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries involved, particularly sanctioned jurisdictions</blockquote></div>
+    </li>
+    <li class="proposal">
+      <div class="ph"><code>BA005</code> Rapid Movement <span class="conf">confidence medium</span></div>
+      <div class="cite"><span class="pg">p5</span><blockquote>Transferring funds from shell companies in foreign jurisdictions into U.S. bank accounts and quickly forwarding or distributing funds to obfuscate the audit trail or the foreign source of the money</blockquote></div>
+    </li>
+  </ol>
+</section>
+
+<section id="review">
+  <h2><span class="n">05</span> Review: what the owner saw, and decided</h2>
+  <p>The decisions shown are the first 5 lines of the owner&rsquo;s decision log &mdash; the lines digest batch <code>slice1-2026-09-25</code> was built from (sha256 <span class="hash">7edd4aba25f738993abbbe2c86cfd2b554167c87e34d8a7eb1ffd32165bdb9c2</span>); 5 of them decide ADV-2026-0013.</p>
+  <p>Each card is rendered by the review gate&rsquo;s own card renderer from run <code>adv-2026-0013-extractor-f617bd3b00</code>&rsquo;s queue, without the terminal&rsquo;s separator line, and followed by the owner&rsquo;s decision. &ldquo;Golden label HOLDS&rdquo; or &ldquo;LACKS&rdquo; on a card refers to this advisory&rsquo;s reference answer (its golden label), drafted and reviewed by Claude; the owner has not yet reviewed it. It was shown to the owner as context only, never a rule.</p>
+  <article class="link">
+    <pre>ADV-2026-0013  Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
+PROPOSED LINK  BA005  Rapid Movement  [correspondent_banking]
+    Rapid movement is the velocity / layering signal at the heart of correspondent-banking
+    monitoring: funds land on an account and clear back out again almost immediately, resting
+    only long enough to register a balance change before they are gone. It is not defined by who
+    sent the money or where it ends up — those can look entirely ordinary on any single leg — it
+    is defined by HOW FAST the funds move and HOW MUCH volume passes through an account relative
+    to what it normally holds.
+  golden label HOLDS this link (context only, never a rule)
+QUOTES
+  p5   
+        “Transferring funds from shell companies in foreign jurisdictions into U.S. bank
+        accounts and quickly forwarding or distributing funds to obfuscate the audit trail or
+        the foreign source of the money”
+RATIONALE
+    DOJ&#x27;s indictment tactics list describes funds landing and clearing out almost immediately to
+    defeat tracing: &#x27;Transferring funds from shell companies in foreign jurisdictions into U.S.
+    bank accounts and quickly forwarding or distributing funds to obfuscate the audit trail or
+    the foreign source of the money&#x27; (p.5), matching BA005&#x27;s velocity-of-funds mechanism. This
+    rests on a single bullet, so confidence is medium.
+FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
+    <ul class="decisions">
+      <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">single bullet, fast forwarding to break the audit trail (p5); medium, weakest of the five</span></li>
+    </ul>
+  </article>
+  <article class="link">
+    <pre>ADV-2026-0013  Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
+PROPOSED LINK  SAN001  Ownership Evasion  [sanctions]
+    Beneficial Ownership Evasion is the use of layered holding structures, nominee arrangements
+    and secrecy jurisdictions to conceal that a designated party ultimately owns or controls an
+    entity. The entity itself is not on any sanctions list and passes conventional name
+    screening; the exposure sits in the ownership chain behind it.
+  golden label HOLDS this link (context only, never a rule)
+QUOTES
+  p2   
+        “Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal
+        arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries
+        involved, particularly sanctioned jurisdictions”
+RATIONALE
+    The red-flag list states use of corporate vehicles to &#x27;obscure (i) ownership, (ii) source of
+    funds, or (iii) countries involved, particularly sanctioned jurisdictions&#x27; (p.2), matching
+    SAN001&#x27;s concealment-of-ultimate-ownership mechanism. This rests on a single red-flag bullet
+    rather than a developed case narrative, so confidence is medium rather than high.
+FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
+    <p class="flag"><code>SAN001</code> is not in the merged record: it reached the owner as this run&rsquo;s proposal, not through the record. The digest still routes it, to the Sanctions desk, marked &ldquo;owner-approved, not in the record&rdquo;.</p>
+    <ul class="decisions">
+      <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">single red-flag bullet naming ownership concealment (p2); medium</span></li>
+    </ul>
+  </article>
+  <article class="link">
+    <pre>ADV-2026-0013  Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
+PROPOSED LINK  SAN003  Transshipment  [sanctions]
+    Transshipment Evasion is the routing of goods through an intermediary jurisdiction to
+    disguise their true origin or destination and defeat origin-based sanctions controls. Cargo
+    that could not move directly between two points is re-papered at a hub — a free zone, an
+    entrepôt — so the declared trade route no longer reveals the sanctioned leg.
+  golden label HOLDS this link (context only, never a rule)
+QUOTES
+  p3   
+        “Routing purchases through certain transshipment points commonly used to illegally
+        redirect restricted items to Russia or Belarus.”
+  p4   
+        “shipping integrated circuit components, which are critical components in missiles and
+        military satellites, to Russia via a Bulgarian front company”
+RATIONALE
+    The advisory develops transshipment as a core evasion mechanism: it lists &#x27;Routing purchases
+    through certain transshipment points commonly used to illegally redirect restricted items to
+    Russia or Belarus&#x27; (p.3) naming specific hub jurisdictions, and illustrates it with the
+    Vorago Technologies case where ICs were &#x27;shipp[ed]...to Russia via a Bulgarian front
+    company&#x27; (p.4), matching SAN003&#x27;s routing-through-an-intermediary-hub mechanism.
+FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
+    <ul class="decisions">
+      <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">mechanism developed: named transshipment hubs (p3) + Bulgarian front case (p4)</span></li>
+    </ul>
+  </article>
+  <article class="link">
+    <pre>ADV-2026-0013  Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
+PROPOSED LINK  SAN004  Front Companies  [sanctions]
+    A front company is an entity with little or no genuine economic substance, established to
+    give a sanctioned interest a clean commercial face. It exists to transact — to hold
+    accounts, sign contracts and move goods — while the real party stays hidden behind it.
+  golden label HOLDS this link (context only, never a rule)
+QUOTES
+  p2   
+        “Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal
+        arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries
+        involved”
+  p4   
+        “used a front company to transfer funds from Milandr to another front in a third
+        country, which purchased microchips to divert to Russia”
+RATIONALE
+    Front companies with no genuine economic substance recur throughout: the red-flag list cites
+    &#x27;Use of corporate vehicles (i.e., legal entities, such as shell companies...)&#x27; (p.2), the
+    Milandr network &#x27;used a front company to transfer funds...to another front in a third
+    country&#x27; (p.4), and DOJ indictments allege shell companies &#x27;consisted of an empty room in a
+    strip mall&#x27; (p.5) -- matching SAN004&#x27;s entity-with-no-substance mechanism.
+FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
+    <ul class="decisions">
+      <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">Milandr front-to-front transfer (p4) is the mechanism itself</span></li>
+    </ul>
+  </article>
+  <article class="link">
+    <pre>ADV-2026-0013  Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
+PROPOSED LINK  SAN007  Dual Use Goods  [sanctions]
+    Dual-use goods are items with a legitimate civilian use that can also serve a military or
+    proliferation purpose — electronics, precision instruments, controlled technology. Sanctions
+    and export controls turn on the commodity&#x27;s classification, its end-use and its destination,
+    not merely on the parties named.
+  golden label HOLDS this link (context only, never a rule)
+QUOTES
+  p4   
+        “illegally export military and sensitive dual-use items to Russia and embargoed
+        Venezuelan oil to Russian and Chinese end users”
+  p5   
+        “The sensitive items at issue included advanced electronics and sophisticated testing
+        equipment used in quantum computing, hypersonic, and nuclear weapons development”
+RATIONALE
+    SAN007 is the TWIN of TBML007; this document is framed squarely as sanctions and export-
+    control evasion (a Commerce/Treasury/DOJ compliance note on Russia sanctions and export
+    controls), so per the twin convention SAN007 is preferred. The advisory describes &#x27;military
+    and sensitive dual-use items&#x27; exported to Russia (p.4) and items used in &#x27;quantum computing,
+    hypersonic, and nuclear weapons development...fighter aircraft, missile systems, smart
+    munitions, radar, and satellites&#x27; (p.5), matching SAN007&#x27;s dual-use/military-end-use
+    mechanism.
+FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
+    <ul class="decisions">
+      <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">dual-use items to Russia (p4-5); sanctions twin correctly preferred over TBML007</span></li>
+    </ul>
+  </article>
+</section>
+
+<section id="actors">
+  <h2><span class="n">06</span> Actors: who the advisory names</h2>
+  <p>The record names 10 actors: 6 named actors and 4 categories. The reviewer agent added none &mdash; these are the extractor&rsquo;s. Each named actor is looked up in the actor register: 86 entries built from the parties the reference labels name, each with an <code>ACT-</code> id. The lookup shown is the actor-resolution evaluation&rsquo;s, run over the extractor&rsquo;s committed records after extraction (section 10 says why).</p>
+  <table class="rows two">
+    <thead><tr><th>Actor</th><th>Resolution</th></tr></thead>
+    <tbody>
+    <tr class="actor" data-actor="Office of Foreign Assets Control (OFAC)" data-status="unresolved" data-act="" data-entries="">
+      <td data-h="Actor">Office of Foreign Assets Control (OFAC)<span class="role">Treasury sanctions regulator co-issuing the note; designates SDNs and maintains sanctions lists</span></td>
+      <td data-h="Resolution">unresolved: no register entry matches it; no suggestion</td>
+    </tr>
+    <tr class="actor" data-actor="Bureau of Industry and Security (BIS)" data-status="unresolved" data-act="" data-entries="">
+      <td data-h="Actor">Bureau of Industry and Security (BIS)<span class="role">Commerce export control regulator co-issuing the note; maintains Entity List and civil enforcement</span></td>
+      <td data-h="Resolution">unresolved: no register entry matches it; no suggestion</td>
+    </tr>
+    <tr class="actor" data-actor="Department of Justice (DOJ)" data-status="unresolved" data-act="" data-entries="">
+      <td data-h="Actor">Department of Justice (DOJ)<span class="role">Prosecutes criminal sanctions and export control violations</span></td>
+      <td data-h="Resolution">unresolved: no register entry matches it; no suggestion</td>
+    </tr>
+    <tr class="actor" data-actor="Task Force KleptoCapture" data-status="unresolved" data-act="" data-entries="">
+      <td data-h="Actor">Task Force KleptoCapture<span class="role">DOJ task force leading enforcement against Russia-related sanctions evasion</span></td>
+      <td data-h="Resolution">unresolved: no register entry matches it; no suggestion</td>
+    </tr>
+    <tr class="actor" data-actor="AO PKK Milandr" data-status="resolved" data-act="ACT-4d02ddb9cb" data-entries="">
+      <td data-h="Actor">AO PKK Milandr<span class="role">Russian microelectronics company maintaining a global procurement network that used front companies to divert microchips to Russia</span></td>
+      <td data-h="Resolution">resolved to <code>ACT-4d02ddb9cb</code>, matched as &ldquo;AO PKK Milandr&rdquo;</td>
+    </tr>
+    <tr class="actor" data-actor="Vorago Technologies" data-status="resolved" data-act="ACT-acad19cf90" data-entries="">
+      <td data-h="Actor">Vorago Technologies<span class="role">Austin, Texas company penalized for shipping controlled integrated circuit components to Russia via a Bulgarian front company</span></td>
+      <td data-h="Resolution">resolved to <code>ACT-acad19cf90</code>, matched as &ldquo;Vorago Technologies&rdquo;</td>
+    </tr>
+    </tbody>
+  </table>
+  <p>3 of the 4 named actors that do not resolve are the note&rsquo;s own publishers &mdash; <span class="who" data-publisher="Office of Foreign Assets Control (OFAC)">Office of Foreign Assets Control (OFAC)</span>, <span class="who" data-publisher="Bureau of Industry and Security (BIS)">Bureau of Industry and Security (BIS)</span>, <span class="who" data-publisher="Department of Justice (DOJ)">Department of Justice (DOJ)</span>. The extractor recorded the note&rsquo;s issuers as actors; the register, built from the parties the reference labels name, has no entry for them. Task Force KleptoCapture is unresolved too, with no register entry to match.</p>
+  <p>The record&rsquo;s categories, which the lookup skips:</p>
+  <ul class="cats">
+    <li class="category" data-actor="Iranian drone entities">Iranian drone entities <span class="nr">recorded by the extractor as a category, so never looked up</span></li>
+    <li class="category" data-actor="Orekhov network (six Russian nationals and one Spanish national)">Orekhov network (six Russian nationals and one Spanish national) <span class="nr">recorded by the extractor as a category, so never looked up</span></li>
+    <li class="category" data-actor="Grinin network (five Russian nationals including a suspected FSB officer, and two U.S. citizens)">Grinin network (five Russian nationals including a suspected FSB officer, and two U.S. citizens) <span class="nr">recorded by the extractor as a category, so never looked up</span></li>
+    <li class="category" data-actor="Third-party intermediaries and transshipment points">Third-party intermediaries and transshipment points <span class="nr">recorded by the extractor as a category, so never looked up</span></li>
+  </ul>
+  <p class="flag">A finding about slice 1: the register holds <span class="count" data-count="named-unresolved">2</span> parties the reference label names for ADV-2026-0013 that no row above resolves &mdash; <span class="who" data-register="ACT-a764bcc886" data-category="Orekhov network (six Russian nationals and one Spanish national)"><code>ACT-a764bcc886</code> Orekhov procurement network, recorded as &ldquo;Orekhov network (six Russian nationals and one Spanish national)&rdquo;</span>; <span class="who" data-register="ACT-938966b9a7" data-category="Grinin network (five Russian nationals including a suspected FSB officer, and two U.S. citizens)"><code>ACT-938966b9a7</code> Grinin procurement network, recorded as &ldquo;Grinin network (five Russian nationals including a suspected FSB officer, and two U.S. citizens)&rdquo;</span>. The extractor recorded each as a category, so the lookup never ran on them.</p>
+  <dl class="facts">
+    <dt>entity_key</dt><dd data-entity-key="empty" data-empty="86" data-of="86">empty, on all 86 register entries</dd>
+  </dl>
+  <p>The <code>entity_key</code> is the seam where a register entry would link to the platform&rsquo;s resolved-entity estate. It is left empty on purpose: that estate is synthetic demonstration data, and a real designation will never name a synthetic party. A link waits for a real substrate.</p>
+</section>
+
+<section id="digest">
+  <h2><span class="n">07</span> What a desk&rsquo;s digest carries</h2>
+  <p>The advisory reached 3 desks (section 1). This is the Sanctions desk&rsquo;s entry for it, exactly as written in digest batch <code data-batch="slice1-2026-09-25">slice1-2026-09-25</code>, which was built from the first <span data-count="digest-log-lines">5</span> lines of the decision log &mdash; the same lines section 5 reads. It is markdown, shown as written; &ldquo;asserted by the pipeline&rdquo; means in the record, awaiting the owner.</p>
+  <pre class="digest">## ADV-2026-0013 -- Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
+
+Publisher: OFAC / BIS / DOJ
+
+Routed here because: SAN001 Ownership Evasion (sanctions; owner-approved, not in the record); SAN003 Transshipment (sanctions); SAN004 Front Companies (sanctions); SAN005 Name Screening Evasion (sanctions); SAN007 Dual Use Goods (sanctions).
+
+### Approved links
+
+- **SAN001 Ownership Evasion** -- p2: &quot;Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries involved, particularly sanctioned jurisdictions&quot; (approved 2026-09-24)
+- **SAN003 Transshipment** -- p3: &quot;Routing purchases through certain transshipment points commonly used to illegally redirect restricted items to Russia or Belarus.&quot; (approved 2026-09-24)
+- **SAN004 Front Companies** -- p4: &quot;used a front company to transfer funds from Milandr to another front in a third country, which purchased microchips to divert to Russia&quot; (approved 2026-09-24)
+- **SAN007 Dual Use Goods** -- p4: &quot;illegally export military and sensitive dual-use items to Russia and embargoed Venezuelan oil to Russian and Chinese end users&quot; (approved 2026-09-24)
+- also approved on this advisory, for other desks: BA005 Rapid Movement
+
+### Awaiting review
+
+- SAN005 Name Screening Evasion -- asserted by the pipeline, not yet decided</pre>
+</section>
+
+<section id="telemetry">
+  <h2><span class="n">08</span> Telemetry: what the agent did</h2>
+  <p>Every tool call and permission decision in an extraction run has been logged since telemetry was added. <span class="count" data-count="tel-runs">1</span> run of this advisory has telemetry: <code>adv-2026-0013-extractor-69eeab7b41</code> (claude-sonnet-5, started 2026-09-24), with <span class="count" data-count="events">37</span> events. The decided run, <code>adv-2026-0013-extractor-f617bd3b00</code>, has none.</p>
+  <table class="rows tel">
+    <thead><tr><th>Tool call</th><th>Succeeded</th><th>Refused</th><th>Failed</th></tr></thead>
+    <tbody>
+    <tr><td data-h="Tool"><code>StructuredOutput</code></td><td data-h="Succeeded" data-tool="StructuredOutput" data-status="SUCCESS">1</td><td data-h="Refused" data-tool="StructuredOutput" data-status="REFUSED">0</td><td data-h="Failed" data-tool="StructuredOutput" data-status="FAILURE">1</td></tr>
+    <tr><td data-h="Tool"><code>knowledge_centre_get_typology</code></td><td data-h="Succeeded" data-tool="mcp__knowledge_centre__knowledge_centre_get_typology" data-status="SUCCESS">9</td><td data-h="Refused" data-tool="mcp__knowledge_centre__knowledge_centre_get_typology" data-status="REFUSED">0</td><td data-h="Failed" data-tool="mcp__knowledge_centre__knowledge_centre_get_typology" data-status="FAILURE">0</td></tr>
+    <tr><td data-h="Tool"><code>knowledge_centre_list_typologies</code></td><td data-h="Succeeded" data-tool="mcp__knowledge_centre__knowledge_centre_list_typologies" data-status="SUCCESS">1</td><td data-h="Refused" data-tool="mcp__knowledge_centre__knowledge_centre_list_typologies" data-status="REFUSED">0</td><td data-h="Failed" data-tool="mcp__knowledge_centre__knowledge_centre_list_typologies" data-status="FAILURE">0</td></tr>
+    <tr><td data-h="Tool"><code>knowledge_centre_propose_link</code></td><td data-h="Succeeded" data-tool="mcp__knowledge_centre__knowledge_centre_propose_link" data-status="SUCCESS">7</td><td data-h="Refused" data-tool="mcp__knowledge_centre__knowledge_centre_propose_link" data-status="REFUSED">0</td><td data-h="Failed" data-tool="mcp__knowledge_centre__knowledge_centre_propose_link" data-status="FAILURE">0</td></tr>
+    <tr><td data-h="Tool"><code>knowledge_centre_search_typologies</code></td><td data-h="Succeeded" data-tool="mcp__knowledge_centre__knowledge_centre_search_typologies" data-status="SUCCESS">8</td><td data-h="Refused" data-tool="mcp__knowledge_centre__knowledge_centre_search_typologies" data-status="REFUSED">0</td><td data-h="Failed" data-tool="mcp__knowledge_centre__knowledge_centre_search_typologies" data-status="FAILURE">1</td></tr>
+    </tbody>
+  </table>
+  <p><code>StructuredOutput</code> is the agent SDK&rsquo;s tool for handing in the finished record. &ldquo;Refused&rdquo; would mean a tool declined the call under its own rules, as <code>knowledge_centre_propose_link</code> does with a quote it cannot place; &ldquo;failed&rdquo; means the call raised an error.</p>
+  <p>2 calls failed. The error each logged, first line:</p>
+  <ul class="fails">
+    <li><code>knowledge_centre_search_typologies</code> <span class="err">Error executing tool knowledge_centre_search_typologies: 1 validation error for search_typologiesArguments</span></li>
+    <li><code>StructuredOutput</code> <span class="err">Output does not match required schema: root: must have required property &#x27;advisory_id&#x27;, root: must have requir…</span></li>
+  </ul>
+  <p>Permission decisions: <span data-perm="PERMISSION_ALLOWED">7</span> allowed, <span data-perm="PERMISSION_DENIED">0</span> denied. Every decision concerns <code>knowledge_centre_propose_link</code>, the agent&rsquo;s one write. The read-only lookup tools are pre-approved and never reach the check.</p>
+  <dl class="facts">
+    <dt>Turns</dt><dd data-rc="turns" data-raw="29">29 of at most 60</dd>
+    <dt>Duration</dt><dd data-rc="duration_ms" data-raw="250345">250.3 seconds</dd>
+    <dt>SDK cost estimate</dt><dd data-rc="cost_usd" data-raw="0.4985208">US$0.50 at API prices, as computed by the agent SDK; not a bill</dd>
+    <dt>The run&rsquo;s own record validated</dt><dd data-rc="validated" data-raw="true">yes</dd>
+  </dl>
+  <p class="flag">Run <code>adv-2026-0013-extractor-69eeab7b41</code> is neither the run the owner decided (<code>adv-2026-0013-extractor-f617bd3b00</code>, sections 4 and 5) nor the extraction the record carries (section 3): this advisory has three extractions. Its 7 successful <code>knowledge_centre_propose_link</code> calls match the 7 proposals in its queue: <span class="ids" data-set="tel-proposed">BA008, SAN003, SAN004, SAN005, SAN006, SAN007, SAN009</span>. They are separate from the decided run&rsquo;s proposals: <span data-count="tel-cited">0</span> of them are cited by any decision in the pinned log, so as proposals they remain undecided. Of the links they name, <span class="ids" data-set="tel-decided-elsewhere">SAN003, SAN004, SAN007</span> were decided on proposals from run <code>adv-2026-0013-extractor-f617bd3b00</code> (all approved); <span class="ids" data-set="tel-no-decision">BA008, SAN005, SAN006, SAN009</span> have no decision.</p>
+</section>
+
+<section id="score">
+  <h2><span class="n">09</span> How well the extraction scores</h2>
+  <p>Across the <span class="count" data-count="scored">20</span> advisories scored, ADV-2026-0013 among them, each record is scored against a reference answer (its golden label), drafted and reviewed by Claude; the owner has decided the set&rsquo;s <span class="count" data-count="label-decided">15</span> disputed entries, not yet the rest. Precision: of what the pipeline asserted, the share the label holds. Recall: of what the label holds, the share the pipeline asserted. F1 balances the two. Computed when this page was built.</p>
+  <table class="rows score">
+    <caption>Extraction only: the extractor&rsquo;s committed records</caption>
+    <thead><tr><th>Field</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead>
+    <tbody>
+      <tr><td data-h="Field">Typologies (library)</td><td data-h="Precision" data-score="extraction" data-field="typologies" data-m="precision">0.889</td><td data-h="Recall" data-score="extraction" data-field="typologies" data-m="recall">0.340</td><td data-h="F1" data-score="extraction" data-field="typologies" data-m="f1">0.492</td></tr>
+      <tr><td data-h="Field">Emergent typologies</td><td data-h="Precision" data-score="extraction" data-field="emergent" data-m="precision">0.647</td><td data-h="Recall" data-score="extraction" data-field="emergent" data-m="recall">0.200</td><td data-h="F1" data-score="extraction" data-field="emergent" data-m="f1">0.306</td></tr>
+      <tr><td data-h="Field">Actors</td><td data-h="Precision" data-score="extraction" data-field="actors" data-m="precision">0.701</td><td data-h="Recall" data-score="extraction" data-field="actors" data-m="recall">0.684</td><td data-h="F1" data-score="extraction" data-field="actors" data-m="f1">0.692</td></tr>
+      <tr><td data-h="Field">Jurisdictions</td><td data-h="Precision" data-score="extraction" data-field="jurisdictions" data-m="precision">0.843</td><td data-h="Recall" data-score="extraction" data-field="jurisdictions" data-m="recall">0.644</td><td data-h="F1" data-score="extraction" data-field="jurisdictions" data-m="f1">0.730</td></tr>
+    </tbody>
+  </table>
+  <table class="rows score">
+    <caption>Extraction + reviewer: the merged records, with the reviewer agent&rsquo;s additions</caption>
+    <thead><tr><th>Field</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead>
+    <tbody>
+      <tr><td data-h="Field">Typologies (library)</td><td data-h="Precision" data-score="reviewer" data-field="typologies" data-m="precision">0.930</td><td data-h="Recall" data-score="reviewer" data-field="typologies" data-m="recall">0.566</td><td data-h="F1" data-score="reviewer" data-field="typologies" data-m="f1">0.704</td></tr>
+      <tr><td data-h="Field">Emergent typologies</td><td data-h="Precision" data-score="reviewer" data-field="emergent" data-m="precision">0.571</td><td data-h="Recall" data-score="reviewer" data-field="emergent" data-m="recall">0.255</td><td data-h="F1" data-score="reviewer" data-field="emergent" data-m="f1">0.352</td></tr>
+      <tr><td data-h="Field">Actors</td><td data-h="Precision" data-score="reviewer" data-field="actors" data-m="precision">0.701</td><td data-h="Recall" data-score="reviewer" data-field="actors" data-m="recall">0.684</td><td data-h="F1" data-score="reviewer" data-field="actors" data-m="f1">0.692</td></tr>
+      <tr><td data-h="Field">Jurisdictions</td><td data-h="Precision" data-score="reviewer" data-field="jurisdictions" data-m="precision">0.843</td><td data-h="Recall" data-score="reviewer" data-field="jurisdictions" data-m="recall">0.644</td><td data-h="F1" data-score="reviewer" data-field="jurisdictions" data-m="f1">0.730</td></tr>
+    </tbody>
+  </table>
+  <p>Adding the reviewer moves <span class="move" data-move="typologies" data-from="0.492" data-to="0.704">typologies (library) F1 0.492 &rarr; 0.704</span>; <span class="move" data-move="emergent" data-from="0.306" data-to="0.352">emergent typologies F1 0.306 &rarr; 0.352</span>. Actors and jurisdictions score the same in both tables.</p>
+  <p class="flag">Each table is a single full-set run: one extraction of each advisory, scored once. The repeat records are not committed and these figures have no bands of their own. Two committed traces give context. <a href="https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence/blob/main/evals/traces/REVIEWER_BANDS_2026-09-13.md" rel="noopener">The reviewer&rsquo;s acceptance bands, 2026-09-13</a>: typology precision, recall and F1 over three repeats of the reviewer on four advisories, before the owner&rsquo;s label pass &mdash; bands for that experiment, not for these figures. <a href="https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence/blob/main/evals/traces/FULL_BASELINE_2026-09-12.md" rel="noopener">The first full-set run, 2026-09-12</a>: what limits typology recall; its figures are that day&rsquo;s, not these.</p>
+</section>
+
+<section id="limits">
+  <h2><span class="n">10</span> What this slice does not do yet</h2>
+  <ul class="limits">
+    <li><strong>The corpus is fixed.</strong> <span data-count="advisories">20</span> advisories on a fixed list, each pinned by its sha256, with no live ingestion: nothing fetches a new publication.</li>
+    <li><strong>Nothing flows into detection yet.</strong> An approved link reaches a desk&rsquo;s digest; no typology link, indicator or actor is fed to the platform&rsquo;s detection.</li>
+    <li><strong>Actor resolution is not part of extraction.</strong> No committed extraction had the resolver: <code>knowledge_centre_resolve_actor</code> was added to the Knowledge Centre on <span data-date="resolver-added">2026-09-25</span>, and the newest proposal in any committed queue is dated <span data-date="newest-proposal">2026-09-24</span>. Separately, the extraction agent&rsquo;s current instructions do not name it, though it is among the agent&rsquo;s tools. Section 6&rsquo;s resolution was run afterwards, over the committed records. Resolving during extraction is slice 2.</li>
+    <li><strong>No actor is linked to the platform&rsquo;s entities.</strong> <span data-count="entity-keys">0</span> of the <span data-count="register">86</span> register entries carry an <code>entity_key</code>; section 6 says why.</li>
+    <li><strong>Digests are built, not delivered.</strong> A batch is cut on demand; nothing sends it to a desk.</li>
+    <li><strong>Approved emergent candidates are not doctrine.</strong> An emergent typology the owner approves is recorded as approved; it is not added to the typology library. The pinned log holds <span data-count="emergent-approved">0</span> such approvals.</li>
+    <li><strong>Undecided emergent candidates reach no digest.</strong> A digest carries an emergent typology only once the owner approves it. ADV-2026-0013&rsquo;s record holds <span data-count="emergent-undecided">1</span> emergent candidate with no standing decision (<span class="ids" data-set="emergent-undecided">Shipment Splitting to Evade Export Control Detection</span>), and no desk&rsquo;s digest mentions it.</li>
+    <li><strong>Some citations are attested, not matched.</strong> <span data-count="attested">12</span> citations across the merged records are true quotes the citation matcher cannot place on their page (8 across a page break, 2 with a list bullet extracted as a letter, 1 with an accent dropped, 1 with an ellipsis spanning pages), each attested by the owner. <span data-count="attested-here">0</span> of them are on ADV-2026-0013.</li>
+    <li><strong>The reference answers are Claude&rsquo;s.</strong> Every golden label was drafted and reviewed by Claude. The owner has decided the <span data-count="label-decided">15</span> entries disputed in the label pass, across <span data-count="label-advisories">7</span> advisories, and not yet the rest. Section 9&rsquo;s scores are measured against these labels.</li>
+    <li><strong>The scores are single runs.</strong> Section 9 shows one extraction per advisory; its figures have no bands of their own.</li>
+  </ul>
+</section>
+</div>
+</body>
+</html>
