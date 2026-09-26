@@ -104,7 +104,8 @@ figcaption b{color:var(--text)}
     investigator capacity</b>, and turns the chosen setting into a <b>governed, evidenced change</b>. It is built
     over ten weeks with a training programme running alongside, one concept per week.
   </p>
-  <div class="note">Status · <b>in build</b> · weeks 1–9 of 10 complete · seven decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
+  <div class="note">Status · <b>built</b> · all ten weeks complete · eight decisions logged · every rate on this page is planted truth, not a SAR outcome</div>
+  <p style="margin:14px 0 0"><a href="tuning-studio/paper.html" style="color:var(--green,#22c55e);font-weight:700">Read the tuning paper →</a> &nbsp;·&nbsp; <a href="tuning-studio/studio.html" style="color:var(--green,#22c55e);font-weight:700">Open the studio snapshot →</a></p>
 
   <!-- WHY -->
   <div class="block">
@@ -194,9 +195,9 @@ figcaption b{color:var(--text)}
 
   <!-- DECISIONS -->
   <div class="block">
-    <div class="tk">Decisions logged · weeks 3–9</div>
-    <h2>Seven decisions: hold, hold, split the line, test a challenger, test for drift, rank instead of fire, then validate under independent challenge.</h2>
-    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, the fourth runs a challenger beside it, the fifth asks which rules survive a year of drift, the sixth asks whether one ranked score beats the rules it is built from, and the seventh puts the best challenger through validation with an independent reviewer trying to break it.</p>
+    <div class="tk">Decisions logged · weeks 3–10</div>
+    <h2>Eight decisions: hold, hold, split the line, test a challenger, test for drift, rank instead of fire, validate under challenge, then run the capstone.</h2>
+    <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, the fourth runs a challenger beside it, the fifth asks which rules survive a year of drift, the sixth asks whether one ranked score beats the rules it is built from, the seventh puts the best challenger through validation with an independent reviewer trying to break it, and the eighth runs the whole programme on a new rule.</p>
     <div class="subh">D1 · week 3 · threshold · HOLD</div>
     <div class="figs">
       <div class="fig"><div class="v">None</div><div class="l">cost ratios (missed case : false alert, from 1 to 100) for which £75k is the cheapest threshold</div></div>
@@ -272,6 +273,20 @@ figcaption b{color:var(--text)}
       <p>The first draft of this decision carried the customer-baseline rule, with a fallback, forward as the candidate. An independent reviewer found that it had been compared only with the £75k rule, and that most of its extra catches came from the simulation's start. Both findings were checked by measurement, and the decision was taken again. Scored against every rule the log already holds, and again with the first three months removed, only two rules pass both stated conditions: the £75k rule and the two-line split. The split is now the candidate for the capstone, and the customer-baseline rule is the challenger to beat. Nothing is live. The governed apply step refuses any change whose effects the decision did not predict, and the tuning paper is generated from the records rather than written by hand.</p>
     </div>
   </div>
+  <div class="block">
+    <div class="subh">D8 · week 10 · the capstone: cash over £10k in 30 days · PROPOSE, capacity is the finding</div>
+    <div class="figs">
+      <div class="fig"><div class="v">90 vs 23</div><div class="l">planted structurers caught when the same 4,312 alerts are worked to the team's 522 reviews a year: most structuring signs first, against oldest first</div></div>
+      <div class="fig"><div class="v">90 vs 88</div><div class="l">the proposed line worked in that order, against the best rule that fits the capacity on its own: at this capacity every plan lands in the same place</div></div>
+      <div class="fig"><div class="v">−8 pt</div><div class="l">recall the proposed £15,000 line loses when structurers make fewer deposits, past the 5-point tolerance; the figure depends on the pattern it was fitted to</div></div>
+      <div class="fig"><div class="v">158 vs 120</div><div class="l">the two-line split from D3 against the £75k rule on a seed no earlier decision used, every catch on a planted payment: the validation candidate holds</div></div>
+    </div>
+    <div class="callout gold">
+      <div class="ct">Capacity is the finding, not the line</div>
+      <p>The capstone ran the whole programme on a new rule: cash deposits over £10,000 in 30 days, with planted structuring, meaning deposits kept under a reporting line in fixed amounts rather than scaled to the customer. The owner stated the terms first: at least 20% fewer alerts, and no more than 5 points of recall lost. At the team's fixed capacity, what gets caught depends on the order the queue is worked in, not on where the line sits, and every plan tested lands in the same place, so the terms cannot be met by tuning. The staffing gap found in week 4 now covers a second rule. The decision proposes the rule rather than applying it: £15,000 is the target once capacity exists, and the structuring signature only orders the queue. Like D7, it was taken again after an independent reviewer showed the first draft had asserted the queue order rather than scoring it. The first version of the synthetic scenario was also discarded before any decision, because it handed one rule a perfect score by construction.</p>
+    </div>
+    <p style="margin:18px 0 0"><a href="tuning-studio/paper.html" style="color:var(--green,#22c55e);font-weight:700">Read the tuning paper →</a> &nbsp;·&nbsp; <a href="tuning-studio/studio.html" style="color:var(--green,#22c55e);font-weight:700">Open the studio snapshot →</a></p>
+  </div>
 
   <!-- WEEKS -->
   <div class="block">
@@ -289,7 +304,7 @@ figcaption b{color:var(--text)}
       <div class="slice"><span class="wk">07</span><div class="st">Stability &amp; drift<small>Every rule held fixed over three drifted years; KS and PSI; a monthly transient check; which thresholds don't hold; Decision 5 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">08</span><div class="st">Score calibration<small>The champion and the challenger as one ranked score, worked to capacity; ranking against calibration on a hold-out; where a score cap starts to cost; the macro triage weights previewed through the real scorer; Decision 6 logged.</small></div><span class="pill done">Done</span></div>
       <div class="slice"><span class="wk">09</span><div class="st">Validation &amp; governance<small>The governed apply step, proven on drills with nothing live; an independent challenge of every open decision, answered on the record; the customer-baseline rule validated against stated conditions; the paper generated from the log; Decision 7 logged.</small></div><span class="pill done">Done</span></div>
-      <div class="slice"><span class="wk">10</span><div class="st">Capstone engagement<small>A full tuning exercise on a 30-day cash rule under fixed capacity, written up for validation.</small></div><span class="pill later">Next</span></div>
+      <div class="slice"><span class="wk">10</span><div class="st">Capstone engagement<small>A full tuning exercise on a 30-day cash rule under fixed capacity, with planted structuring, three stresses and the queue worked to capacity; the tuning paper and a studio snapshot published behind a staleness gate; Decision 8 logged.</small></div><span class="pill done">Done</span></div>
     </div>
   </div>
 
@@ -312,7 +327,7 @@ figcaption b{color:var(--text)}
   </div>
 
   <div class="foot">
-    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-26 (week 9) —
+    NEXUS · Update Pack 05 · TM Tuning Studio · SYNTHETIC_DEMONSTRATION_DATA · updated 2026-09-26 (week 10, complete) —
     <a href="future-capabilities.html">future capabilities →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
