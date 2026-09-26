@@ -103,7 +103,7 @@ figcaption b{color:var(--purple)}
     stress-tests the monitoring rules against known truth. All <b>grounded and governed</b> —
     acting on the platform's own evidence, never a free-floating model.
   </p>
-  <div class="note">Direction &amp; architecture · Knowledge Centre <b>built</b> (57 typologies) · copilot slices 1–3 <b>live</b> · threat intel <b>in build</b> (week 4 of 6) · Tuning Studio <b>in build</b> (week 9 of 10)</div>
+  <div class="note">Direction &amp; architecture · Knowledge Centre <b>built</b> (57 typologies) · copilot slices 1–3 <b>live</b> · threat intel <b>built</b> (slice 1) · Tuning Studio <b>in build</b> (week 9 of 10)</div>
 
   <!-- FOUNDATION -->
   <div class="track knowledge">
@@ -150,7 +150,7 @@ figcaption b{color:var(--purple)}
 
   <!-- TRACK 2 -->
   <div class="track threat">
-    <div class="tk">Track 2 · Threat Intelligence · In build</div>
+    <div class="tk">Track 2 · Threat Intelligence <span class="pill built">Built · slice 1</span></div>
     <h2>Keeping the platform current — curated core, live feeds.</h2>
     <p class="intro">
       Detection knows the <b>methods</b>; threat intelligence knows <b>what's happening now</b>. This layer pins
@@ -161,16 +161,16 @@ figcaption b{color:var(--purple)}
     </p>
 
     <div class="callout p">
-      <div class="ct">In build — slice 1, week 4 of 6</div>
-      <p>An agent extracts a governed <b>advisory record</b> from regulator publications, grounded on the Knowledge Centre through its own MCP server so every typology it names is one the platform holds. It is scored against a <b>hand-labelled set of 20 advisories</b>: typology recall has moved from F1 0.51 to 0.67 so far. Next: governance, provenance and digest routing, then the slice lands.</p>
+      <div class="ct">Built — slice 1</div>
+      <p>An agent extracts a governed <b>advisory record</b> from regulator publications, grounded on the Knowledge Centre through its own MCP server so every typology it names is one the platform holds — each link carries a page number and a verbatim quote from the pinned document, and a quote it cannot place is refused, never queued. A second, reviewer agent adds what the extractor missed, each addition with its own justification; the owner decides every link at a review gate, and each decision is a dated line in an append-only log. Decided advisories route straight into desk digests. Scored across <b>20</b> hand-labelled advisories, typology F1 reaches <b>0.704</b> once the reviewer's additions are counted. <a href="threat-intel/index.html" style="color:var(--blue)">See the walkthrough →</a></p>
     </div>
 
     <div class="subh">Four pieces</div>
     <div class="pieces">
-      <div class="piece"><div class="pn">01 · anchored on the library</div><h4>Advisory overlay</h4><p>Curated advisories pinned to typologies; new indicators flow <b>downstream into detection</b>.</p><span class="seam">Seam · FATF / OFAC / FinCEN bulletins</span></div>
-      <div class="piece"><div class="pn">02 · anchored on the substrate</div><h4>Threat-actor &amp; entity intel</h4><p>Bad-actor, sanctioned-vessel and adverse-media intel attached to the <code>entity_key</code>, typology-tagged.</p><span class="seam">Seam · watchlist &amp; adverse-media feeds</span></div>
-      <div class="piece"><div class="pn">03 · anchored detection ↔ doctrine</div><h4>Emergent-typology loop</h4><p>The platform surfaces <b>candidate typologies from its own clusters</b> — detection feeding living doctrine.</p><span class="seam">Internal · no feed required</span></div>
-      <div class="piece"><div class="pn">04 · anchored on the queues</div><h4>Intel digest</h4><p>A <b>specialism-routed briefing</b> into the desks — the sanctions desk gets shadow-fleet advisories, the trade desk gets TBML updates.</p><span class="seam">Routed · per specialist queue</span></div>
+      <div class="piece"><div class="pn">01 · anchored on the library</div><h4>Advisory overlay</h4><p><b>Built.</b> <b>20</b> advisories extracted and merged, each typology grounded on a page number and a verbatim quote from the pinned document.</p><span class="seam">Seam · FATF / OFAC / FinCEN bulletins, for live ingestion</span></div>
+      <div class="piece"><div class="pn">02 · anchored on the substrate</div><h4>Threat-actor &amp; entity intel</h4><p><b>Built.</b> A governed register resolves named actors by <b>exact match only</b> — a near-miss is never offered as a suggestion. The <code>entity_key</code> seam to the platform's resolved entities is open on purpose: synthetic data has no real party to link to.</p><span class="seam">Seam · watchlist &amp; adverse-media feeds</span></div>
+      <div class="piece"><div class="pn">03 · anchored detection ↔ doctrine</div><h4>Emergent-typology loop</h4><p><b>Built.</b> A reviewer agent can name a typology outside the library, with its own justification; the owner decides it at the same review gate as any other link — <b>candidates, not automatic doctrine</b>.</p><span class="seam">Internal · no feed required</span></div>
+      <div class="piece"><div class="pn">04 · anchored on the queues</div><h4>Intel digest</h4><p><b>Built.</b> A specialism-routed briefing, cut from the pinned decision log, into <b>seven</b> desks — the sanctions desk gets shadow-fleet advisories, the trade desk gets TBML updates.</p><span class="seam">Routed · per specialist queue</span></div>
     </div>
 
     <div class="callout p">
