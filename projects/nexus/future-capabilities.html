@@ -154,28 +154,28 @@ figcaption b{color:var(--purple)}
     <h2>Keeping the platform current — curated core, live feeds.</h2>
     <p class="intro">
       Detection knows the <b>methods</b>; threat intelligence knows <b>what's happening now</b>. This layer pins
-      live intelligence to the typology library and feeds new indicators back into detection — a closed loop.
-      Its architecture is the point: a <b>curated, governed core</b> that's deterministic today, with
-      <b>live-ready ingestion seams</b> for the feeds (the "scraping") that run as runtime operations, outside
-      the hermetic core.
+      intelligence to the typology library. Its architecture is the point: a <b>curated, governed core</b> that's
+      deterministic today. <b>Slice 1 builds the governed core; the live feeds and the return path into detection
+      are the direction</b> — the feeds (the "scraping") will run as runtime operations outside the hermetic core,
+      and new indicators will flow back into detection to close the loop.
     </p>
 
     <div class="callout p">
       <div class="ct">Built — slice 1</div>
-      <p>An agent extracts a governed <b>advisory record</b> from regulator publications, grounded on the Knowledge Centre through its own MCP server so every typology it names is one the platform holds — each link carries a page number and a verbatim quote from the pinned document, and a quote it cannot place is refused, never queued. A second, reviewer agent adds what the extractor missed, each addition with its own justification; the owner decides every link at a review gate, and each decision is a dated line in an append-only log. Digests are cut per desk as a batch from the decided links — built, not yet delivered to a desk. Scored on a set of <b>20</b> advisories, with reference labels drafted and reviewed by Claude and the owner deciding the disputed entries: a single full-set run puts typology F1 at <b>0.704</b> once the reviewer's additions are counted. <a href="threat-intel/index.html" style="color:var(--blue)">See the walkthrough →</a></p>
+      <p>An agent extracts a governed <b>advisory record</b> from regulator publications, grounded on the Knowledge Centre through its own MCP server, so every library typology it names is one the platform holds; anything outside the library is marked emergent. Each link carries a page number and a verbatim quote from the pinned document, and a quote it cannot place is refused, never queued. A second, reviewer agent adds what the extractor missed, each addition with its own justification; the owner decides every link at a review gate, and each decision is a dated line in an append-only log. Digests are cut per desk as a batch from the decided links — built, not yet delivered to a desk. Scored on a set of <b>20</b> advisories, with reference labels drafted and reviewed by Claude and the owner deciding the disputed entries: a single full-set run puts typology F1 at <b>0.704</b> once the reviewer's additions are counted. <a href="threat-intel/index.html" style="color:var(--blue)">See the walkthrough →</a></p>
     </div>
 
     <div class="subh">Four pieces</div>
     <div class="pieces">
       <div class="piece"><div class="pn">01 · anchored on the library</div><h4>Advisory overlay</h4><p><b>Built.</b> <b>20</b> advisories extracted and merged, each typology grounded on a page number and a verbatim quote from the pinned document.</p><span class="seam">Seam · FATF / OFAC / FinCEN bulletins, for live ingestion</span></div>
-      <div class="piece"><div class="pn">02 · anchored on the substrate</div><h4>Threat-actor &amp; entity intel</h4><p><b>Built.</b> A governed register resolves named actors by <b>exact match only</b> — a near-miss is never offered as a suggestion. The <code>entity_key</code> seam to the platform's resolved entities is open on purpose: synthetic data has no real party to link to.</p><span class="seam">Seam · watchlist &amp; adverse-media feeds</span></div>
-      <div class="piece"><div class="pn">03 · anchored detection ↔ doctrine</div><h4>Emergent-typology loop</h4><p><b>Built.</b> A reviewer agent can name a typology outside the library, with its own justification; the owner decides it at the same review gate as any other link — <b>candidates, not automatic doctrine</b>.</p><span class="seam">Internal · no feed required</span></div>
+      <div class="piece"><div class="pn">02 · anchored on the substrate</div><h4>Threat-actor &amp; entity intel</h4><p><b>Built.</b> A governed register resolves named actors by <b>exact match only</b> — a near-miss is only ever a labelled suggestion, never a match. The <code>entity_key</code> seam to the platform's resolved entities is open on purpose: synthetic data has no real party to link to.</p><span class="seam">Seam · watchlist &amp; adverse-media feeds</span></div>
+      <div class="piece"><div class="pn">03 · anchored detection ↔ doctrine</div><h4>Emergent-typology loop</h4><p><b>Built.</b> The extraction and reviewer agents can both name a typology outside the library, grounded on quotes like any other and marked emergent; the owner decides an emergent candidate at the same review gate as any other link — <b>candidates, not automatic doctrine</b>, and an undecided one reaches no digest.</p><span class="seam">Internal · no feed required</span></div>
       <div class="piece"><div class="pn">04 · anchored on the queues</div><h4>Intel digest</h4><p><b>Built.</b> A specialism-routed briefing, cut per desk from the pinned decision log — the routing table has <b>7</b> desks, the sanctions desk gets shadow-fleet advisories, the trade desk gets TBML updates. Cut on demand; not yet delivered to a desk.</p><span class="seam">Routed · per specialist queue</span></div>
     </div>
 
     <div class="callout p">
       <div class="ct">The architecture — "curated core, live-ready seams"</div>
-      <p>The governed content is <b>committed and byte-identical to rebuild, now</b>. The feed adapters — bulletins, watchlists, adverse media — are <b>runtime ops, lazy-imported</b>, exactly like the live Neo4j service: the platform demonstrates the whole capability deterministically, and the real feeds bolt on at the seam without touching the core.</p>
+      <p>The governed content is <b>committed and byte-identical to rebuild, now</b>. The feed adapters — bulletins, watchlists, adverse media — will be <b>runtime ops, lazy-imported</b>, like the live Neo4j service, so the real feeds bolt on at the seam without touching the core. Slice 1 builds the governed core; the live feeds and the return path into detection are the direction, not yet built.</p>
     </div>
 
     <figure>
@@ -207,7 +207,7 @@ figcaption b{color:var(--purple)}
         <path d="M210 100 Q267 64 324 100" stroke="#7c88a8" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
         <text x="268" y="66" text-anchor="middle" fill="#7fbfe6" font-size="10" font-family="ui-monospace,Menlo,monospace">surfaces patterns</text>
       </svg>
-      <figcaption>The closed loop: detection surfaces candidate patterns into doctrine; <b>threat intel and live feeds enrich doctrine</b>; new indicators flow back into detection. The typology taxonomy is the spine every piece pins to.</figcaption>
+      <figcaption>The loop this track builds toward — slice 1 is its governed threat-intel core; the feeds and the return path are direction: detection surfaces candidate patterns into doctrine; <b>threat intel and live feeds enrich doctrine</b>; new indicators flow back into detection. The typology taxonomy is the spine every piece pins to.</figcaption>
     </figure>
   </div>
 
