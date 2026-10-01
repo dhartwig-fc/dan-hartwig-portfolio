@@ -92,11 +92,34 @@ table.mx .neg{color:#c9b6a0}
   <div class="kicker" style="color:var(--gold)">Release Notes · Beta v2.1</div>
   <h1>What changed since v1.0.</h1>
   <p class="lead">
-    The console first shipped as <b>Beta v1.0</b>. This page is the changelog for <b>Beta v2.1</b> and <b>Beta v2.0</b>, newest first — each addition
+    The console first shipped as <b>Beta v1.0</b>. This page is the changelog for the work <b>since v2.1</b>, <b>Beta v2.1</b> and <b>Beta v2.0</b>, newest first — each addition
     with the engineering and architectural reasoning behind it. For the full delivery record and the rollout gate,
     see the <a href="stage-catalogue.html" style="color:var(--blue)">stage catalogue</a>.
   </p>
-  <div class="updated">Updated <b>24 September 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
+  <div class="updated">Updated <b>1 October 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
+
+<section class="section" id="since-v2-1">
+    <h2>Since v2.1 — 26 to 29 September 2026</h2>
+    <p class="sub">
+      Four additions that complete the <b>operations layer</b>, each through the same Spec → Plan → Subagent build →
+      Whole-branch review cycle. The theme is <b>one record</b>: every case action, SAR step, SLA breach and QA
+      review is an event on a single tamper-evident log, and every table and dashboard is derived from it.
+      The supervisor surfaces are internal; their effect is live on the
+      <a href="runtime-demo/ops_dashboard.html" style="color:var(--blue)">ops dashboard</a>.
+    </p>
+    <div class="ladder">
+
+      <div class="step"><div class="n">✦</div><div class="bt">The case event log — one system of record<small>Every case-lifecycle fact is a row on an <b>append-only, SHA-256-chained</b> event log; the task list and its audit trail are <b>derived</b> from it, never edited by hand. Every write names its time explicitly — there is no hidden clock — and a broken chain, an illegal transition or time running backwards is refused without changing a byte. The chain makes tampering detectable, and a separate parity check covers what a chain cannot see.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">SAR lifecycle manager<small>A case's SAR decision now means <b>referred to the nominated officer</b>, not filed. The SAR then moves through its regime's stages — drafted, officer review, approved, submitted and acknowledged, or declined by the officer — with each regime's rules and deadlines held in governed configuration (UK POCA seeded) and a workflow engine that names no stage itself. Deadlines read <b>met, breached, open or overdue</b>; a decline or an acknowledgement cannot be recorded without its note, because the note is the record. The dashboard counts <b>SARs referred</b> for the same reason.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">SLA orchestration<small>A sweep records every SLA breach as an event and <b>routes it to the supervisor</b> — the case itself is untouched; the supervisor acts. It then allocates waiting work in priority order to the least-loaded analyst under a cap of five, and what does not fit stays visibly unassigned. Thresholds, roster and allocation rule live in one governed policy file. The demonstration sweep recorded 42 breaches and 20 allocations, and left 16 low-priority cases as an honest capacity shortfall.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">QA oversight<small>A second line that reviews decisions <b>after they are made</b> — clears, SAR referrals, escalations and an officer's SAR declines. Mandatory classes (a decision that disagrees with the governed rule, a declined SAR, an escalation without an outcome) are always selected; the rest are sampled by a reproducible seeded draw, once per decision. A reviewer who acted on the case is <b>refused at the point of writing</b>, not flagged afterwards. A finding goes to the supervisor or the nominated officer without reopening the case. The dashboard's QA panel is now built from these reviews.</small></div><span class="pill built">Built</span></div>
+
+    </div>
+  </section>
+
 
 <section class="section" id="release-v2-1">
     <h2>Beta v2.1 — 17 August to 24 September 2026</h2>

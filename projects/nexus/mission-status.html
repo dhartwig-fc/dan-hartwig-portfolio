@@ -91,7 +91,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
     A living snapshot of the platform — what's built, what's in flight, and what's next.
     For the destination and the phase arc, see the <a href="platform-roadmap.html" style="color:var(--blue)">roadmap</a>.
   </p>
-  <div class="updated">Updated <b>24 September 2026</b> · Beta v2.1</div>
+  <div class="updated">Updated <b>1 October 2026</b> · Beta v2.1</div>
 
   <section class="section">
     <div class="banner">
@@ -104,11 +104,15 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
         investigation cases</b> are public, doctrine is authored for <b>all 57 typologies</b>, capital markets
         manufactures its first product, and every published run can be rebuilt from a clean clone — see the
         <a href="release-notes.html#release-v2-1" style="color:var(--gold,#e9c877)">v2.1 release notes</a>.
+        Since v2.1 the <b>operations layer is complete</b>: a tamper-evident case event log as the system of record, the SAR lifecycle, SLA orchestration and QA oversight, all driving the live
+        <a href="runtime-demo/ops_dashboard.html" style="color:var(--blue)">ops dashboard</a> —
+        see <a href="release-notes.html#since-v2-1" style="color:var(--gold,#e9c877)">what changed since v2.1</a>.
       </p>
       <div class="bmeta">
         <span class="bchip">Console · Beta v2.1</span>
         <span class="bchip">Copilot · 3 slices live</span>
         <span class="bchip blue">5 investigations public</span>
+        <span class="bchip">Operations layer · 4 of 4 built</span>
       </div>
     </div>
   </section>
@@ -134,6 +138,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
       <div class="row"><div class="rt">Analytics &amp; detection<small>Network · TBML · sanctions · correspondent banking · capital markets</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Risk scoring<small>Per-typology weighted components + KYC deviation → ranked alert table &middot; behavioural/temporal deferred</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Investigation &amp; operations<small>Case-lifecycle state machine + task queue + audit &middot; each task linked to its case files</small></div><span class="pill built">Built</span></div>
+      <div class="row"><div class="rt">Operations management<small>Supervisor MI &amp; KPIs over a tamper-evident case event log &middot; SAR lifecycle with deadlines &middot; SLA breaches routed to the supervisor and work allocated by priority and capacity &middot; QA oversight of decisions after they are made</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">AI copilot<small>Three live slices on grounded context: SAR draft, EDD memo and disposition support, each provenance-linked</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Fused investigator console<small>Investigate + manage on one screen, over the whole substrate</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Published investigations<small>Five fused cases public and linked to one another; every published run reproducible from a clean clone</small></div><span class="pill built">Built</span></div>
@@ -144,7 +149,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
     <h2>In flight &amp; next</h2>
     <div class="chain">
       <div class="row"><div class="rt">Operational surface — Investigator Workspace<small>One alert = one three-panel object (pattern · tunable score · governed decision), replicable per typology</small></div><span class="pill next">Next</span></div>
-      <div class="row"><div class="rt">Operations management<small>MI &amp; KPIs <b>built</b> — supervisor dashboard + Tableau-style MI Explorer (Beta v2.0); SAR lifecycle manager · workflow &amp; SLA · quality assurance to follow</small></div><span class="pill integrated">MI built</span></div>
+      <div class="row"><div class="rt">Whole-estate batch testing<small>Every typology run over a generated estate whose truth is known, then manufactured product by product — the estate and its generator are built; the first full batch manufactured 1,248 of 1,248 products and is landing next</small></div><span class="pill integrated">In build</span></div>
       <div class="row"><div class="rt">TM Tuning Studio<small>Stress-testing the monitoring rules against planted truth — all ten weeks built, eight decisions logged; see <a href="tuning-studio.html" style="color:var(--green)">Update Pack 05</a></small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Threat intelligence<small>Agentic advisory extraction grounded on the Knowledge Centre, scored against a 20-advisory labelled set — week 4 of 6</small></div><span class="pill integrated">In build</span></div>
     </div>
@@ -161,7 +166,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
   </section>
 
   <div class="foot">
-    NEXUS · Mission Status · living snapshot · updated 2026-09-24 —
+    NEXUS · Mission Status · living snapshot · updated 2026-10-01 —
     <a href="platform-roadmap.html">see the roadmap →</a>
   </div>
 
