@@ -97,9 +97,9 @@ table.mx .neg{color:#c9b6a0}
     every typology passes a <b>five-layer functional test</b> before it goes live. This is the depth beneath the
     <a href="platform-roadmap.html" style="color:var(--blue)">roadmap</a> and the
     <a href="mission-status.html" style="color:var(--blue)">status</a> — the proof it's real.
-    Latest wave: <a href="release-notes.html#release-v2-1" style="color:#fdba74">Beta v2.1 release notes →</a>
+    Latest wave: <a href="release-notes.html#since-v2-1" style="color:#fdba74">the operations layer, since v2.1 →</a>
   </p>
-  <div class="updated">Updated <b>24 September 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
+  <div class="updated">Updated <b>2 October 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
 
   <section class="section">
     <h2>How each build shipped</h2>
@@ -120,7 +120,7 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">3</div><div class="bt">Daily-delta runtime<small>Append a day's records across the pillars and run them through every pipe — the Daily Estate Run.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">4</div><div class="bt">Money-flow vertical<small>The first vertical <i>through</i> the substrate: a cash-movement graph + a sanctions-escalating alert.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">5</div><div class="bt">Risk-scoring engine<small>Per-entity aggregation + deviation vs the KYC expected-profile → the ranked alert table. Behavioural/temporal axis deferred.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">6</div><div class="bt">Investigation &amp; operations<small>The governed case-lifecycle state machine + task queue + audit — the case-management workflow.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">6</div><div class="bt">Investigation &amp; operations<small>The governed case-lifecycle state machine + task queue + audit — the case-management workflow — and, above it, the operations layer: a tamper-evident case event log, the SAR lifecycle, SLA orchestration and QA oversight.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">7</div><div class="bt">AI Copilot · SAR, EDD, disposition<small>Three live slices on grounded context: a provenance-linked SAR draft (with an LLM-refinement hook), the EDD memo, and disposition support.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Fused Investigator Console<small>The single UI over every layer — the entity-scoped graph, the typology walk, the case surface, on an obsidian-glass design.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Capital Markets — pillar + connector<small>The 5 CM pillar tables activated with typology data, and the <code>CM003</code> spoofing detector run over canonical data → a live console chip. First cross-toolkit detection, end to end.</small></div><span class="pill built">Built</span></div>
@@ -146,6 +146,17 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">10 Sep</div><div class="bt">Governed publishing · five investigations<small>Five fused investigation cases public and linked; every public surface has a publisher and a gate that fails when the site falls behind its source.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">12 Sep</div><div class="bt">Ordered-path graphs<small>A third graph family draws ownership chains and cycles as a walk in order, closed only when the walk closes.</small></div><span class="pill built">Built</span></div>
       <div class="step armed"><div class="n">25 Sep</div><div class="bt">TM Tuning Studio · weeks 1–10<small>A seeded planted-truth population, a governed rule registry, the baseline backtest, the threshold sweep, a queue model of investigator capacity, customer segments tested on a hold-out, champion-and-challenger testing, drift testing across three years, a ranked risk score tested against the rules it blends, a preview of the macro triage weights through the real scorer, a governed apply step, independent challenge of every open decision, a tuning paper generated from the log, and a capstone on a new cash rule, published behind a staleness gate — with eight logged decisions: two holds on £75k, a two-line split decided not yet applied, a customer-baseline challenger advanced to validation, a drift finding that makes each rule’s own alert volume the monitoring trigger, and a calibration finding that makes the tie at any score cap, against review capacity, a monitored figure, and a validation, taken again before it was committed, that names the two-line split as the capstone candidate, and a capstone proposal that makes capacity the finding. <a href="tuning-studio.html" style="color:#86efac">Update Pack 05 →</a></small></div><span class="pill built">Built</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="since-v2-1">
+    <h2>Since Beta v2.1 — the operations layer</h2>
+    <p class="sub">Delivered 26 – 29 September 2026, each through the same governed cycle. Full notes: <a href="release-notes.html#since-v2-1" style="color:#fdba74">since v2.1 →</a></p>
+    <div class="ladder dated">
+      <div class="step"><div class="n">27 Sep</div><div class="bt">Case event log<small>An append-only, SHA-256-chained log becomes the system of record for every case-lifecycle fact; the task list and its audit trail are derived from it, and every write names its own time.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">27 Sep</div><div class="bt">SAR lifecycle manager<small>Referral to the nominated officer, then governed regime stages and deadlines (UK POCA seeded) on the same log; a decline or acknowledgement cannot be recorded without its note.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">28 Sep</div><div class="bt">SLA orchestration<small>A sweep records every breach as an event, routes it to the supervisor and allocates waiting work by priority and capacity from one governed policy file; what does not fit stays visibly unassigned.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">29 Sep</div><div class="bt">QA oversight<small>Decisions reviewed after they are made: mandatory classes always selected, the rest by a reproducible seeded sample, reviewer independence refused at the point of writing. The ops dashboard's QA panel is built from these reviews.</small></div><span class="pill built">Built</span></div>
     </div>
   </section>
 
