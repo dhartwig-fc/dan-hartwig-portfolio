@@ -103,7 +103,7 @@ figcaption b{color:var(--purple)}
     stress-tests the monitoring rules against known truth. All <b>grounded and governed</b> —
     acting on the platform's own evidence, never a free-floating model.
   </p>
-  <div class="note">Direction &amp; architecture · Knowledge Centre <b>built</b> (57 typologies) · copilot slices 1–3 <b>live</b> · threat intel <b>built</b> (slice 1) · Tuning Studio <b>built</b> (ten weeks)</div>
+  <div class="note">Direction &amp; architecture · Knowledge Centre <b>built</b> (57 typologies) · copilot slices 1–3 <b>live</b> · threat intel <b>live</b> (slice 2: weekly feeds) · Tuning Studio <b>built</b> (ten weeks)</div>
 
   <!-- FOUNDATION -->
   <div class="track knowledge">
@@ -150,14 +150,14 @@ figcaption b{color:var(--purple)}
 
   <!-- TRACK 2 -->
   <div class="track threat">
-    <div class="tk">Track 2 · Threat Intelligence <span class="pill built">Built · slice 1</span></div>
+    <div class="tk">Track 2 · Threat Intelligence <span class="pill built">Live · slice 2</span></div>
     <h2>Keeping the platform current — curated core, live feeds.</h2>
     <p class="intro">
       Detection knows the <b>methods</b>; threat intelligence knows <b>what's happening now</b>. This layer pins
       intelligence to the typology library. Its architecture is the point: a <b>curated, governed core</b> that's
-      deterministic today. <b>Slice 1 builds the governed core; the live feeds and the return path into detection
-      are the direction</b> — the feeds (the "scraping") will run as runtime operations outside the hermetic core,
-      and new indicators will flow back into detection to close the loop.
+      deterministic. <b>Slice 1 built the governed core; slice 2 put live regulator feeds on a weekly schedule</b>,
+      running as operations outside the hermetic core and entering it only through a person's decision. The return
+      path — new indicators flowing back into detection to close the loop — is the direction.
     </p>
 
     <div class="callout p">
@@ -165,21 +165,26 @@ figcaption b{color:var(--purple)}
       <p>An agent extracts a governed <b>advisory record</b> from regulator publications, grounded on the Knowledge Centre through its own MCP server, so every library typology it names is one the platform holds; anything outside the library is marked emergent. Each link carries a page number and a verbatim quote from the pinned document, and a quote it cannot place is refused, never queued. A second, reviewer agent adds what the extractor missed, each addition with its own justification; the owner decides every link at a review gate, and each decision is a dated line in an append-only log. Digests are cut per desk as a batch from the decided links — built, not yet delivered to a desk. Scored on a set of <b>20</b> advisories, with reference labels drafted and reviewed by Claude and the owner deciding the disputed entries: a single full-set run puts typology F1 at <b>0.704</b> once the reviewer's additions are counted. <a href="threat-intel/index.html" style="color:var(--blue)">See the walkthrough →</a></p>
     </div>
 
+    <div class="callout p">
+      <div class="ct">Live — slice 2</div>
+      <p>The feeds now run. Every Friday a scheduled job reads the <b>OFSI</b>, <b>FinCEN</b> and <b>OFAC</b> publication listings and pins each new document. A triage agent decides which items matter, each verdict carrying a quote it found in the pinned document; slice 1's extractor then turns the relevant ones into advisory records, at most three a run, under a US$5 spending ceiling. <b>Nothing enters the governed record on its own</b>: a person accepts, drops or defers every item, and acceptance re-checks every citation against the pinned page. A listing whose layout changes is refused, never read as "nothing new". Triage, scored on 60 back-catalogue items over three repeats: <b>recall 0.93–0.96, precision 0.96–1.00</b>, with OFAC the weak source at 0.67. Three live runs so far (29 September – 2 October): <b>13 new items, 5 extracted, none accepted yet</b> — the first scheduled run's three records quoted text the gate could not place on the page they named, so they wait for review rather than entering the record.</p>
+    </div>
+
     <div class="subh">Four pieces</div>
     <div class="pieces">
-      <div class="piece"><div class="pn">01 · anchored on the library</div><h4>Advisory overlay</h4><p><b>Built.</b> <b>20</b> advisories extracted and merged, each typology grounded on a page number and a verbatim quote from the pinned document.</p><span class="seam">Seam · FATF / OFAC / FinCEN bulletins, for live ingestion</span></div>
+      <div class="piece"><div class="pn">01 · anchored on the library</div><h4>Advisory overlay</h4><p><b>Built.</b> <b>20</b> advisories extracted and merged, each typology grounded on a page number and a verbatim quote from the pinned document.</p><span class="seam">Live · OFSI / FinCEN / OFAC, weekly · FATF still a seam</span></div>
       <div class="piece"><div class="pn">02 · anchored on the substrate</div><h4>Threat-actor &amp; entity intel</h4><p><b>Built.</b> A governed register resolves named actors by <b>exact match only</b> — a near-miss is only ever a labelled suggestion, never a match. The <code>entity_key</code> seam to the platform's resolved entities is open on purpose: synthetic data has no real party to link to.</p><span class="seam">Seam · watchlist &amp; adverse-media feeds</span></div>
       <div class="piece"><div class="pn">03 · anchored detection ↔ doctrine</div><h4>Emergent-typology loop</h4><p><b>Built.</b> The extraction and reviewer agents can both name a typology outside the library, grounded on quotes like any other and marked emergent; the owner decides an emergent candidate at the same review gate as any other link — <b>candidates, not automatic doctrine</b>, and an undecided one reaches no digest.</p><span class="seam">Internal · no feed required</span></div>
       <div class="piece"><div class="pn">04 · anchored on the queues</div><h4>Intel digest</h4><p><b>Built.</b> A specialism-routed briefing, cut per desk from the pinned decision log — the routing table has <b>7</b> desks, the sanctions desk gets shadow-fleet advisories, the trade desk gets TBML updates. Cut on demand; not yet delivered to a desk.</p><span class="seam">Routed · per specialist queue</span></div>
     </div>
 
     <div class="callout p">
-      <div class="ct">The architecture — "curated core, live-ready seams"</div>
-      <p>The governed content is <b>committed and byte-identical to rebuild, now</b>. The feed adapters — bulletins, watchlists, adverse media — will be <b>runtime ops, lazy-imported</b>, like the live Neo4j service, so the real feeds bolt on at the seam without touching the core. Slice 1 builds the governed core; the live feeds and the return path into detection are the direction, not yet built.</p>
+      <div class="ct">The architecture — "curated core, live seams"</div>
+      <p>The governed content is <b>committed and byte-identical to rebuild</b>. The regulator-bulletin adapters are now built as <b>runtime operations outside the core</b>, like the live Neo4j service: they fetch only from named hosts, pin what they read, and hand results to the core only through the acceptance step. Watchlist and adverse-media feeds are still seams, and the return path into detection is the direction, not yet built.</p>
     </div>
 
     <figure>
-      <svg viewBox="0 0 820 220" role="img" aria-label="The intended closed loop: detection surfaces patterns into doctrine and threat intelligence enriches it; live feeds, and new indicators flowing from doctrine back into detection, are the direction beyond slice 1.">
+      <svg viewBox="0 0 820 220" role="img" aria-label="The closed loop: detection surfaces patterns into doctrine and threat intelligence enriches it, fed by live regulator feeds since slice 2; new indicators flowing from doctrine back into detection are the direction.">
         <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#7c88a8"/></marker></defs>
         <!-- nodes -->
         <rect x="40" y="86" width="170" height="52" rx="12" fill="rgba(56,189,248,.12)" stroke="#38bdf8" stroke-width="1.5"/>
@@ -195,19 +200,19 @@ figcaption b{color:var(--purple)}
         <text x="695" y="127" text-anchor="middle" fill="#9db0c9" font-size="10.5">what's happening now</text>
 
         <!-- live feeds -->
-        <rect x="610" y="14" width="170" height="34" rx="9" fill="#0f2036" stroke="#5b8fd6" stroke-width="1.2" stroke-dasharray="3 3"/>
-        <text x="695" y="35" text-anchor="middle" fill="#9cc0f0" font-size="11" font-family="ui-monospace,Menlo,monospace">live feeds (scraping)</text>
+        <rect x="610" y="14" width="170" height="34" rx="9" fill="#0f2036" stroke="#5b8fd6" stroke-width="1.2"/>
+        <text x="695" y="35" text-anchor="middle" fill="#9cc0f0" font-size="11" font-family="ui-monospace,Menlo,monospace">live feeds · weekly</text>
         <path d="M695 48 L695 84" stroke="#7c88a8" stroke-width="1.4" marker-end="url(#ar)"/>
 
         <!-- loop arrows -->
         <path d="M610 104 L497 104" stroke="#7c88a8" stroke-width="1.5" marker-end="url(#ar)"/>
         <text x="553" y="97" text-anchor="middle" fill="#c4b5fd" font-size="10" font-family="ui-monospace,Menlo,monospace">enriches</text>
-        <path d="M325 120 L212 120" stroke="#7c88a8" stroke-width="1.5" marker-end="url(#ar)"/>
+        <path d="M325 120 L212 120" stroke="#7c88a8" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#ar)"/>
         <text x="268" y="137" text-anchor="middle" fill="#8fd6ad" font-size="10" font-family="ui-monospace,Menlo,monospace">new indicators</text>
         <path d="M210 100 Q267 64 324 100" stroke="#7c88a8" stroke-width="1.5" fill="none" marker-end="url(#ar)"/>
         <text x="268" y="66" text-anchor="middle" fill="#7fbfe6" font-size="10" font-family="ui-monospace,Menlo,monospace">surfaces patterns</text>
       </svg>
-      <figcaption>The loop this track builds toward — slice 1 is its governed threat-intel core; the feeds and the return path are direction: detection surfaces candidate patterns into doctrine; <b>threat intel and live feeds enrich doctrine</b>; new indicators flow back into detection. The typology taxonomy is the spine every piece pins to.</figcaption>
+      <figcaption>The loop this track builds toward — slice 1 is its governed threat-intel core and slice 2 its live feeds; the dashed return path is direction: detection surfaces candidate patterns into doctrine; <b>threat intel and live feeds enrich doctrine</b>; new indicators flow back into detection. The typology taxonomy is the spine every piece pins to.</figcaption>
     </figure>
   </div>
 
@@ -240,7 +245,7 @@ figcaption b{color:var(--purple)}
   </div>
 
   <div class="foot">
-    NEXUS · Future capabilities · direction &amp; architecture · updated 2026-09-24 —
+    NEXUS · Future capabilities · direction &amp; architecture · updated 2026-10-02 —
     <a href="platform-roadmap.html">roadmap →</a> · <a href="mission-status.html">status →</a>
   </div>
 
