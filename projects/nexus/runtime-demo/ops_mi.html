@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS Operations MI</title>
+<meta name="description" content="Operations management information for NEXUS: backlog, aging, SLA position, team load, SAR pipeline and QA oversight, for the demo desk and for a batch estate at scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: header with scope switch and provenance; a one-line verdict; six summary figures; then a grid of MI panels for the chosen scope. One dark NEXUS look: blue for intake, gold for decisions and authority, coral for what needs action. */
+:root {
+  --bg: #060910; --surface: #0b1220; --raised: #0d1626; --line: #172131; --line-2: #22314a;
+  --fg: #eaf1f9; --fg-2: #c9d5e4; --muted: #a7b7cd; --faint: #8d9db3; --ghost: #6f8199;
+  --blue: #79c4ff; --blue-ink: #06192e; --gold: #e9c877; --gold-ink: #1a1405;
+  --warn: #ff8f6b; --ok: #4fdca0; --crit: #ff5d6c; --void: #3a4a60;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 var(--sans) }
+button { font: inherit; color: inherit; cursor: pointer }
+button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px }
+.wrap { max-width: 1360px; margin: 0 auto; padding-inline: 20px }
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums }
+header { border-bottom: 1px solid var(--line); background: #0a0f19 }
+header .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; padding-block: 14px }
+.brand { display: flex; align-items: center; gap: 12px; margin-right: auto }
+.brand b { display: block; letter-spacing: .2em; font-size: 17px }
+.brand small { display: block; font-size: 11px; color: var(--muted) }
+.seg { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line-2); border-radius: 11px; background: var(--raised) }
+.seg button { min-height: 38px; padding: 6px 14px; border: 0; border-radius: 8px; font-size: 13px; font-weight: 600; background: transparent; color: var(--fg-2) }
+.seg button[aria-pressed="true"] { background: var(--blue); color: var(--blue-ink) }
+.pill { font: 11px var(--mono); color: var(--muted); border: 1px solid var(--line-2); border-radius: 8px; padding: 6px 10px; background: var(--raised) }
+main { display: flex; flex-direction: column; gap: 18px; padding-block: 22px 44px }
+h1 { margin: 0; font-size: 26px; line-height: 1.2; text-wrap: balance }
+.lede { margin: 6px 0 0; color: var(--muted); max-width: 82ch }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px }
+.kpi .l { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.kpi .v { font: 600 30px var(--mono); margin-top: 4px }
+.kpi .s { font-size: 12px; color: var(--faint); margin-top: 2px }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 18px }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; min-width: 0 }
+.card h2 { margin: 0; font-size: 15px }
+.card .sub { margin: 4px 0 14px; font-size: 12.5px; color: var(--faint); max-width: 70ch }
+.chart { display: flex; align-items: flex-end; gap: 12px; height: 150px; border-bottom: 1px solid var(--line-2); padding-inline: 4px }
+.chart .wk { flex: 1 1 0; display: flex; justify-content: center; align-items: flex-end; gap: 4px; min-width: 0 }
+.chart i { display: block; width: 16px; border-radius: 4px 4px 0 0 }
+.axis { display: flex; gap: 12px; padding: 6px 4px 0 }
+.axis span { flex: 1 1 0; text-align: center; font: 10.5px var(--mono); color: var(--faint); min-width: 0 }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; font-size: 12px; color: var(--muted) }
+.legend span { display: inline-flex; align-items: center; gap: 6px }
+.sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block }
+.chips { display: flex; flex-wrap: wrap; gap: 4px }
+.chip { min-height: 30px; padding: 3px 10px; border-radius: 999px; font-size: 11.5px; border: 1px solid var(--line-2); background: transparent; color: var(--fg-2) }
+.chip[aria-pressed="true"] { background: var(--gold); color: var(--gold-ink); border-color: var(--gold) }
+.hbar { height: 10px; border-radius: 5px; background: var(--line); overflow: hidden; margin-top: 4px }
+.hbar i { display: block; height: 10px; border-radius: 5px }
+.row { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px }
+.stack { display: flex; flex-direction: column; gap: 12px }
+.stat3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px }
+.stat4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px }
+.stat { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px }
+.stat small { display: block; font-size: 11px; color: var(--faint) }
+.stat b { font: 600 22px var(--mono) }
+.tags { display: flex; flex-wrap: wrap; gap: 6px }
+.tag { font: 11px var(--mono); padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--fg-2) }
+table { width: 100%; border-collapse: collapse }
+th { text-align: left; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 500; padding: 0 0 6px; border-bottom: 1px solid var(--line) }
+td { padding: 9px 0; border-bottom: 1px solid #121b29; font-size: 13px; vertical-align: middle }
+td.num, th.num { text-align: right }
+.loadbar { display: flex; align-items: center; gap: 8px }
+.loadbar .hbar { flex: 1 1 auto; height: 8px; margin: 0 }
+.loadbar .hbar i { height: 8px }
+.stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 6px; margin-bottom: 14px }
+.stages div { border: 1px solid var(--line-2); border-radius: 10px; padding: 8px; text-align: center }
+.stages b { display: block; font: 600 20px var(--mono) }
+.stages span { font-size: 11px }
+.split { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--line) }
+.split i { display: block; height: 12px }
+.funnel { display: flex; flex-direction: column; gap: 8px }
+.frow { display: grid; grid-template-columns: minmax(0, 1fr) 80px; gap: 10px; align-items: center }
+.fbar { height: 30px; border-radius: 6px; background: #13203a; position: relative; overflow: hidden }
+.fbar i { display: block; height: 30px; background: rgba(121,196,255,.28) }
+.fbar span { position: absolute; left: 10px; top: 6px; font-size: 12.5px }
+.call { border: 1px solid var(--line-2); border-radius: 10px; padding: 12px; font-size: 13px }
+.call b { font: 600 18px var(--mono) }
+.call.warn { border-color: rgba(255,143,107,.45); background: rgba(255,143,107,.06) } .call.warn b { color: var(--warn) }
+.call.gold { border-color: rgba(233,200,119,.45); background: rgba(233,200,119,.06) } .call.gold b { color: var(--gold) }
+.call.ok b { color: var(--ok) }
+.cite { font: 11px var(--mono); color: var(--ghost); margin-top: 4px }
+footer { border-top: 1px solid var(--line); padding-top: 12px; font-size: 12px; color: var(--faint); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px }
+@media (max-width: 640px) { .stat3, .stat4 { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <svg width="30" height="34" viewBox="0 0 40 46" aria-hidden="true"><path d="M20 2 L36 8 V22 C36 33 29 41 20 44 C11 41 4 33 4 22 V8 Z" fill="rgba(121,196,255,.06)" stroke="#e9c877" stroke-width="1.8"/><path d="M14 30 V16 L26 30 V16" stroke="#79c4ff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>NEXUS</b><small>Operations MI · Head of Operations</small></div>
+    </div>
+    <div class="seg" role="group" aria-label="Scope">
+      <button type="button" id="scopeDesk" aria-pressed="true">Demo desk</button>
+      <button type="button" id="scopeBatch" aria-pressed="false">Batch estate</button>
+    </div>
+    <span class="pill" id="asOf">&nbsp;</span>
+  </div>
+</header>
+<main class="wrap">
+  <section><h1 id="headline">&nbsp;</h1><p class="lede" id="subline"></p></section>
+  <div class="kpis" id="kpis" aria-live="polite"></div>
+  <div class="grid" id="panels"></div>
+  <footer><span id="source"></span><span>NEXUS · synthetic demonstration data</span></footer>
+</main>
+<script id="payload" type="application/json">{"batch":{"figures":{"allocations_per_offset":{"column":4,"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","lines":["| d3 | 2026-10-04 | 25 | 25 | 15 | 6 | 1 | 1 | 1580 |","| d7 | 2026-10-08 | 25 | 15 | 20 | 8 | 3 | 3 | 1565 |","| d14 | 2026-10-15 | 25 | 20 | 25 | 14 | 3 | 3 | 1545 |","| d30 | 2026-10-31 | 25 | 25 | 25 | 32 | 5 | 5 | 1520 |"],"value":"25 / 15 / 20 / 25"},"cases_opened":{"document":"docs/BATCH_SIT_RUN_2026-10-07.md","line":"| opened | 1815 |","value":1815},"decisions":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| Total | | | 85 | 85 | 60 | 12 | 12 | |","value":85},"entities":{"document":"docs/BATCH_SIT_RUN_2026-10-07.md","line":"| rows | 9889 |","value":9889},"four_eyes_flags":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| four_eyes_flags | 0 |","value":0},"master_cases":{"document":"docs/BATCH_SIT_RUN_2026-10-07.md","line":"\"master_cases\": 150","value":150},"products":{"document":"docs/BATCH_SIT_RUN_2026-10-07.md","line":"Rows in `manufacture.csv`: 1500.","value":1500},"qa_fails":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| fails, other | 0 |","value":0},"qa_observations":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| outcomes | observation 12 |","value":12},"qa_selections":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| selected | 12 |","value":12},"sanctions_lane_open":{"document":"docs/SANCTIONS_LANE_SIT_RUN_2026-10-12.md","line":"| d3 | 240 | 240 | 240 | 3 | 0 |","value":240},"sars_acknowledged":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| acknowledged | 20 |","value":20},"sars_officer_review":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| by_state officer_review | 65 |","value":65},"sars_overdue":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| officer_review | 5 | 15 | 25 | 40 | - |","value":40},"sars_referred":{"document":"docs/DECISIONS_SIT_RUN_2026-10-12.md","line":"| referred | 85 |","value":85}},"label":"Batch sit-batch-01 · 2026-10-01 to 2026-10-31","sources":["BATCH_SIT_RUN_2026-10-07 at 9881ecee","DECISIONS_SIT_RUN_2026-10-12 at cbeaf02c","SANCTIONS_LANE_SIT_RUN_2026-10-12 at dd7dd253"]},"desk":{"age_buckets":["0-7 days","8-14 days","15-30 days","Over 30 days"],"aging":{"Critical":[0,1,5,0],"High":[0,0,3,0],"Low":[0,0,5,15],"Medium":[0,0,12,0]},"as_of":"2026-08-22","breaches_by_clock":{"case_state:Assigned":2,"case_state:InProgress":2,"case_state:New":36,"case_state:PendingQA":1,"sar:officer_review":1},"breaches_open":22,"breaches_open_by_band":{"Critical":6,"High":0,"Low":16,"Medium":0},"breaches_recorded":42,"cap":5,"cases":48,"decided":7,"decided_by_action":{"clear":1,"escalate":1,"file_sar":5},"events":165,"four_eyes_flags":0,"head":"ef0ab0521cf12b42a1fd82ecf01af69bc17dc506056c619aa0279553a32e6a5a","open":41,"qa":[{"class":"rule_disagreement","finding":"open","label":"Tariq Mahsud","outcome":"fail","subject":"TASK-E-TMAHSUD"},{"class":"sar_declined","finding":"none","label":"Vantage Textiles Ltd","outcome":"pass","subject":"SAR-TASK-E-VANTAGE"},{"class":"escalation_without_outcome","finding":"open","label":"Westbridge Pharma Ltd","outcome":"observation","subject":"TASK-E-WESTBRIDGE"},{"class":"random","finding":"none","label":"Gamma Imports Ltd","outcome":"pass","subject":"TASK-E-GAMMA"}],"sar_deadlines":{"end_to_end":{"met":3,"open":2},"officer_review":{"breached":1,"met":2,"not_started":1,"overdue":1},"submission":{"met":2,"not_started":3}},"sar_states":{"acknowledged":1,"declined":1,"drafted":1,"officer_review":1,"submitted":1},"sars_overdue":1,"sla_days":{"Critical":2,"High":5,"Low":20,"Medium":10},"team":[{"analyst":"anet","open":5,"started":2,"to_qa":2},{"analyst":"bkohl","open":5,"started":2,"to_qa":1},{"analyst":"cmorai","open":5,"started":2,"to_qa":2},{"analyst":"dpatel","open":5,"started":2,"to_qa":2},{"analyst":"erossi","open":5,"started":2,"to_qa":1}],"unassigned":16,"weeks":[{"decided":0,"opened":7,"week":"2026-07-06"},{"decided":1,"opened":7,"week":"2026-07-13"},{"decided":0,"opened":10,"week":"2026-07-20"},{"decided":2,"opened":13,"week":"2026-07-27"},{"decided":2,"opened":11,"week":"2026-08-03"},{"decided":2,"opened":0,"week":"2026-08-10"}]}}</script>
+<script>
+(function () {
+  "use strict";
+  var P = JSON.parse(document.getElementById("payload").textContent);
+  var D = P.desk, B = P.batch;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var fmt = function (n) { return Number(n).toLocaleString("en-GB"); };
+  var ui = { scope: "desk", band: "All" };
+  try { var s = localStorage.getItem("nexus-mi-scope"); if (s === "batch" || s === "desk") ui.scope = s; } catch (e) { /* storage unavailable */ }
+  var COLORS = { met: "var(--ok)", breached: "var(--crit)", overdue: "var(--warn)", open: "var(--blue)", not_started: "var(--void)" };
+  var AGE_COLORS = ["var(--ok)", "var(--blue)", "var(--gold)", "var(--warn)"];
+  var NICE = { file_sar: "referred", clear: "cleared", escalate: "escalated" };
+
+  function kpiHtml(list) {
+    return list.map(function (k) {
+      return '<div class="kpi"><div class="l">' + esc(k[0]) + '</div><div class="v" style="color:' + k[3] + '">' + esc(k[1]) + '</div><div class="s">' + esc(k[2]) + '</div></div>';
+    }).join("");
+  }
+  function sumObj(o) { return Object.keys(o).reduce(function (a, k) { return a + o[k]; }, 0); }
+
+  function deskView() {
+    var byBand = D.breaches_open_by_band;
+    var dec = Object.keys(D.decided_by_action).map(function (k) { return D.decided_by_action[k] + " " + (NICE[k] || k); }).join(" · ");
+    var qaOpen = D.qa.filter(function (q) { return q.finding === "open"; });
+    $("asOf").textContent = "Ledger as of " + D.as_of;
+    var behind = D.weeks.reduce(function (a, w) { return a + w.opened - w.decided; }, 0) > 0;
+    $("headline").textContent = behind ? "The desk is falling behind, and the backlog is ageing at the low end." : "Intake and decisions on the demo desk.";
+    $("subline").textContent = D.unassigned + " cases sit unassigned with the team at the allocation cap, and " + D.breaches_open + " SLA breaches are open. Every figure is derived by the governed replay of the case event log (" + D.events + " events, hash-chained).";
+    $("kpis").innerHTML = kpiHtml([
+      ["Open cases", D.open, "of " + D.cases + " on the queue", "var(--fg)"],
+      ["Unassigned", D.unassigned, "awaiting allocation", "var(--warn)"],
+      ["Open SLA breaches", D.breaches_open, Object.keys(byBand).filter(function (b) { return byBand[b]; }).map(function (b) { return byBand[b] + " " + b; }).join(" · "), "var(--warn)"],
+      ["Decided", D.decided, dec, "var(--fg)"],
+      ["SARs referred", sumObj(D.sar_states), D.sars_overdue + " overdue in officer review", "var(--gold)"],
+      ["QA findings open", qaOpen.length, qaOpen.map(function (q) { return q.outcome; }).join(" · ") || "none", "var(--gold)"]
+    ]);
+    var max = Math.max.apply(null, D.weeks.map(function (w) { return Math.max(w.opened, w.decided); }).concat([1]));
+    var chart = '<div class="chart" role="img" aria-label="Cases opened and decided per week">' + D.weeks.map(function (w) {
+      return '<div class="wk"><i title="' + w.opened + ' opened" style="height:' + Math.max(2, w.opened / max * 136) + 'px;background:var(--blue)"></i><i title="' + w.decided + ' decided" style="height:' + Math.max(2, w.decided / max * 136) + 'px;background:var(--gold)"></i></div>';
+    }).join("") + '</div><div class="axis">' + D.weeks.map(function (w) {
+      var d = new Date(w.week + "T00:00:00Z");
+      return '<span>' + d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", timeZone: "UTC" }) + '<br><b style="color:var(--fg-2);font-weight:500">' + w.opened + ' / ' + w.decided + '</b></span>';
+    }).join("") + '</div>';
+    var bands = ui.band === "All" ? Object.keys(D.aging) : [ui.band];
+    var totals = D.age_buckets.map(function (_, i) { return bands.reduce(function (a, b) { return a + D.aging[b][i]; }, 0); });
+    var tot = totals.reduce(function (a, b) { return a + b; }, 0);
+    var aging = D.age_buckets.map(function (label, i) {
+      return '<div><div class="row"><span>' + esc(label) + '</span><span class="mono">' + totals[i] + '</span></div><div class="hbar"><i style="width:' + (tot ? totals[i] / tot * 100 : 0) + '%;background:' + AGE_COLORS[i] + '"></i></div></div>';
+    }).join("");
+    var chips = ["All"].concat(Object.keys(D.aging)).map(function (b) { return '<button type="button" class="chip" data-band="' + b + '" aria-pressed="' + (ui.band === b) + '">' + b + '</button>'; }).join("");
+    var maxBand = Math.max.apply(null, Object.keys(byBand).map(function (b) { return byBand[b]; }).concat([1]));
+    var breachRows = Object.keys(byBand).map(function (b) {
+      return '<div><div class="row"><span>' + b + '</span><span class="mono">' + byBand[b] + '</span></div><div class="hbar"><i style="width:' + (byBand[b] / maxBand * 100) + '%;background:var(--warn)"></i></div></div>';
+    }).join("");
+    var clocks = Object.keys(D.breaches_by_clock).map(function (c) { return '<span class="tag">' + esc(c.replace("case_state:", "in ").replace("sar:", "SAR ").replace(/_/g, " ")) + ' · ' + D.breaches_by_clock[c] + '</span>'; }).join("");
+    var team = D.team.map(function (t) {
+      var over = t.open > D.cap;
+      return '<tr><td class="mono">' + esc(t.analyst) + '</td><td><div class="loadbar"><div class="hbar"><i style="width:' + Math.min(100, t.open / (D.cap + 1) * 100) + '%;background:' + (over ? "var(--warn)" : "var(--gold)") + '"></i></div><span class="mono" style="color:' + (over ? "var(--warn)" : "var(--fg-2)") + '">' + t.open + '/' + D.cap + '</span></div></td><td class="num mono">' + t.started + '</td><td class="num mono">' + t.to_qa + '</td></tr>';
+    }).join("");
+    var order = ["drafted", "officer_review", "approved", "submitted", "acknowledged", "declined"];
+    var stages = order.filter(function (st) { return D.sar_states[st]; }).map(function (st) {
+      var c = st === "officer_review" ? "color:#ffc59e;border-color:rgba(255,143,107,.6)" : st === "acknowledged" ? "color:var(--ok);border-color:rgba(79,220,160,.5)" : st === "declined" ? "color:var(--muted)" : "";
+      return '<div style="' + c + '"><b>' + D.sar_states[st] + '</b><span>' + st.replace(/_/g, " ") + '</span></div>';
+    }).join("");
+    var dls = Object.keys(D.sar_deadlines).map(function (name) {
+      var parts = D.sar_deadlines[name];
+      var keys = ["met", "breached", "overdue", "open", "not_started"].filter(function (k) { return parts[k]; });
+      return '<div><div style="font-size:12.5px;margin-bottom:4px">' + esc(name.replace(/_/g, " ")) + '</div><div class="split">' + keys.map(function (k) { return '<i title="' + parts[k] + ' ' + k.replace("_", " ") + '" style="flex:' + parts[k] + ' 1 0;background:' + COLORS[k] + '"></i>'; }).join("") +
+        '</div><div class="legend" style="margin-top:4px;font-family:var(--mono);font-size:11px">' + keys.map(function (k) { return '<span><span class="sw" style="background:' + COLORS[k] + '"></span>' + parts[k] + ' ' + k.replace("_", " ") + '</span>'; }).join("") + '</div></div>';
+    }).join("");
+    var qaCount = function (o) { return D.qa.filter(function (q) { return q.outcome === o; }).length; };
+    var qaRows = D.qa.map(function (q) {
+      var col = q.outcome === "fail" ? "var(--warn)" : q.outcome === "pass" ? "var(--ok)" : "var(--gold)";
+      return '<div><b style="color:' + col + '">' + esc(q.outcome) + '</b> · ' + esc(q.label) + ' · ' + esc(q["class"].replace(/_/g, " ")) + (q.finding === "open" ? ' · <span style="color:var(--gold)">finding open, routed to the supervisor</span>' : "") + '</div>';
+    }).join("");
+    $("panels").innerHTML =
+      '<section class="card"><h2>Intake and decisions by week</h2><p class="sub">Cases opened against cases decided (referred, cleared or escalated), by week commencing.</p>' + chart +
+        '<div class="legend"><span><span class="sw" style="background:var(--blue)"></span>Opened</span><span><span class="sw" style="background:var(--gold)"></span>Decided</span></div></section>' +
+      '<section class="card"><div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline"><h2>Backlog aging by band</h2><div class="chips">' + chips + '</div></div><p class="sub">Days since opening, for the ' + tot + ' open cases in view.</p><div class="stack">' + aging + '</div></section>' +
+      '<section class="card"><h2>SLA position</h2><p class="sub">Time in a case\'s current state against its band\'s limit (' + Object.keys(D.sla_days).map(function (b) { return b + " " + D.sla_days[b] + "d"; }).join(", ") + '). Every breach is routed to the supervisor; the sweep never changes the case itself.</p>' +
+        '<div class="stat3"><div class="stat"><small>Open</small><b style="color:var(--warn)">' + D.breaches_open + '</b></div><div class="stat"><small>Resolved</small><b style="color:var(--ok)">' + (D.breaches_recorded - D.breaches_open) + '</b></div><div class="stat"><small>Recorded</small><b>' + D.breaches_recorded + '</b></div></div>' +
+        '<div style="font-size:12px;color:var(--muted);margin-bottom:6px">Open breaches by band</div><div class="stack" style="gap:8px;margin-bottom:14px">' + breachRows + '</div><div style="font-size:12px;color:var(--muted);margin-bottom:6px">Every breach, by the clock that ran out</div><div class="tags">' + clocks + '</div></section>' +
+      '<section class="card"><h2>Team workload and throughput</h2><p class="sub">Open cases per analyst against the allocation cap, with investigations started and cases sent to QA. Decisions are taken by a second reviewer.</p><div style="overflow-x:auto"><table style="min-width:400px"><thead><tr><th>Analyst</th><th>Open load</th><th class="num">Started</th><th class="num">To QA</th></tr></thead><tbody>' + team + '</tbody></table></div>' +
+        '<div class="legend" style="color:var(--fg-2);font-size:12.5px"><span>Unassigned <b class="mono" style="color:var(--warn)">' + D.unassigned + '</b></span><span>Four-eyes flags <b class="mono" style="color:' + (D.four_eyes_flags ? "var(--warn)" : "var(--ok)") + '">' + D.four_eyes_flags + '</b></span></div></section>' +
+      '<section class="card"><h2>SAR pipeline and deadlines</h2><p class="sub">Referrals to the nominated officer and their policy clocks. The register is the authority on whether a SAR reached the regulator.</p><div class="stages">' + stages + '</div><div class="stack">' + dls + '</div></section>' +
+      '<section class="card"><h2>Quality oversight</h2><p class="sub">Second-line review of decisions already taken: mandatory classes at 100%, then a chain-seeded random sample. The reviewer must be independent of the case.</p>' +
+        '<div class="stat4"><div class="stat"><small>Selected</small><b>' + D.qa.length + '</b></div><div class="stat"><small>Pass</small><b style="color:var(--ok)">' + qaCount("pass") + '</b></div><div class="stat"><small>Observation</small><b style="color:var(--gold)">' + qaCount("observation") + '</b></div><div class="stat"><small>Fail</small><b style="color:var(--warn)">' + qaCount("fail") + '</b></div></div><div class="stack" style="gap:6px;font-size:12.5px">' + qaRows + '</div></section>';
+    document.querySelectorAll("[data-band]").forEach(function (b) { b.addEventListener("click", function () { ui.band = b.getAttribute("data-band"); render(); }); });
+    $("source").textContent = "Source: the case event log, " + D.events + " events to " + D.as_of + " (head " + D.head.slice(0, 12) + "…), via the governed ledger replay.";
+  }
+
+  function batchView() {
+    var F = B.figures;
+    var v = function (k) { return F[k].value; };
+    $("asOf").textContent = B.label;
+    $("headline").textContent = "At scale, the officer review is the constraint.";
+    $("subline").textContent = "One governed batch over a synthetic estate of " + fmt(v("entities")) + " entities. Simulated analysts, nominated officer and QA reviewer act by governed rule, so these figures measure the operating model rather than any one person.";
+    $("kpis").innerHTML = kpiHtml([
+      ["Entities", fmt(v("entities")), "on the batch queue", "var(--fg)"],
+      ["Products made", fmt(v("products")), "one per alert manufactured", "var(--ok)"],
+      ["Cases opened", fmt(v("cases_opened")), fmt(v("master_cases")) + " fused master cases", "var(--fg)"],
+      ["SARs referred", fmt(v("sars_referred")), fmt(v("sars_acknowledged")) + " acknowledged · " + fmt(v("sars_officer_review")) + " in officer review", "var(--gold)"],
+      ["Overdue", fmt(v("sars_overdue")), "officer reviews past deadline", "var(--warn)"],
+      ["Sanctions lane", fmt(v("sanctions_lane_open")), "open, visible, not yet worked", "var(--gold)"]
+    ]);
+    var steps = [["Entities on the queue", "entities"], ["Products manufactured", "products"], ["Cases opened", "cases_opened"], ["Decisions taken", "decisions"], ["SARs referred to the officer", "sars_referred"], ["Acknowledged by the FIU", "sars_acknowledged"]];
+    var top = Math.log10(v("entities") + 1);
+    var funnel = steps.map(function (st) {
+      return '<div class="frow"><div class="fbar"><i style="width:' + Math.max(1.5, Math.log10(v(st[1]) + 1) / top * 100) + '%"></i><span>' + esc(st[0]) + '</span></div><span class="mono" style="text-align:right;font-size:15px">' + fmt(v(st[1])) + '</span></div>';
+    }).join("");
+    var cite = function (k) { return '<div class="cite">' + esc(F[k].document) + '</div>'; };
+    $("panels").innerHTML =
+      '<section class="card"><h2>From estate to regulator</h2><p class="sub">Every subject scored, every alert manufactured, then the operating model works the cases by rule. Bar lengths are on a log scale.</p><div class="funnel">' + funnel + '</div></section>' +
+      '<section class="card"><h2>Where the pressure is</h2><p class="sub">What a head of operations would act on after this run.</p><div class="stack">' +
+        '<div class="call warn"><b>' + fmt(v("sars_overdue")) + ' of ' + fmt(v("sars_officer_review")) + '</b> SARs in officer review are overdue. The nominated officer\'s daily action budget is the bottleneck, not analyst decisions.' + cite("sars_overdue") + '</div>' +
+        '<div class="call gold"><b>' + fmt(v("sanctions_lane_open")) + '</b> sanctions-lane cases are open and breaching. By design: the lane is visible but not worked until the sanctions-operations workflow is built.' + cite("sanctions_lane_open") + '</div>' +
+        '<div class="call"><b>' + esc(v("allocations_per_offset")) + '</b> allocations at each operations run: five analysts at a cap of five, so the cap, not the decision rate, sets throughput.' + cite("allocations_per_offset") + '</div>' +
+        '<div class="call ok"><b>' + fmt(v("qa_fails")) + '</b> QA fails and <b>' + fmt(v("four_eyes_flags")) + '</b> four-eyes flags across ' + fmt(v("qa_selections")) + ' reviews (' + fmt(v("qa_observations")) + ' observations).' + cite("qa_selections") + '</div>' +
+      '</div></section>';
+    $("source").textContent = "Source: " + B.sources.join("; ") + ". Every figure in this view is quoted from those evidence documents.";
+  }
+
+  function render() {
+    $("scopeDesk").setAttribute("aria-pressed", String(ui.scope === "desk"));
+    $("scopeBatch").setAttribute("aria-pressed", String(ui.scope === "batch"));
+    if (ui.scope === "desk") deskView(); else batchView();
+  }
+  function setScope(sc) { ui.scope = sc; try { localStorage.setItem("nexus-mi-scope", sc); } catch (e) { /* ignore */ } render(); }
+  $("scopeDesk").addEventListener("click", function () { setScope("desk"); });
+  $("scopeBatch").addEventListener("click", function () { setScope("batch"); });
+  render();
+})();
+</script>
+</body>
+</html>
