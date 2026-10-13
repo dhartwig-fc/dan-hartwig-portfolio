@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS in 60 Seconds</title>
+<meta name="description" content="A guided, 60-second re-enactment of the NEXUS investigator console: from the alert queue to a filed SAR, using the published console's own cases and scores.">
+<style>
+  :root{
+    --bg0:#060910; --panel:rgba(255,255,255,.035); --panel2:rgba(255,255,255,.02);
+    --edge:rgba(255,255,255,.10); --edge2:rgba(255,255,255,.06);
+    --ink:#eaf1f9; --ink2:#a7b7cd; --ink3:#71839a;
+    --acc:#79c4ff; --accdim:rgba(121,196,255,.42); --accsoft:rgba(121,196,255,.09);
+    --gold:#e9c877; --golddim:rgba(233,200,119,.42); --goldsoft:rgba(233,200,119,.08);
+    --crit:#ff5d6c; --good:#4fdca0;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg0);color:var(--ink);font-family:var(--sans);line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 520px at 12% -8%, rgba(13,87,152,.28), transparent 60%),
+      radial-gradient(760px 520px at 100% 4%, rgba(20,48,127,.26), transparent 62%),
+      var(--bg0);
+    background-attachment:fixed;}
+  .wrap{max-width:1180px;margin:0 auto;padding:36px 22px 70px}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+  button{font-family:inherit;cursor:pointer}
+  button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  .backlink{display:inline-block;margin-bottom:6px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink3)}
+  .backlink:hover{color:var(--acc)}
+  .brand{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+  .shield{width:38px;height:44px;flex:none;filter:drop-shadow(0 0 10px rgba(121,196,255,.35))}
+  .wm{font-weight:800;letter-spacing:.2em;font-size:19px;
+    background:linear-gradient(180deg,#f4f8ff,#aec0d7 58%,#7f92ac);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wm .x{color:var(--acc);-webkit-text-fill-color:var(--acc)}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-top:3px}
+  .verpill{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--gold);
+    border:1px solid var(--golddim);border-radius:999px;padding:4px 11px;background:var(--goldsoft)}
+  h1{font-size:29px;line-height:1.2;font-weight:800;letter-spacing:-.015em;margin:22px 0 8px;text-wrap:balance}
+  h1 .g{background:linear-gradient(90deg,var(--acc),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:15.5px;color:var(--ink2);max-width:76ch;margin:0 0 18px}
+
+  /* ---- controls ---- */
+  .controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px}
+  .btn{min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:11px;font-weight:700;font-size:14px;
+    border:1px solid var(--edge);background:var(--panel);color:var(--ink)}
+  .btn.primary{color:#06192e;background:linear-gradient(180deg,#9ed3ff,var(--acc));border-color:var(--accdim);box-shadow:0 12px 30px -12px rgba(121,196,255,.6)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .clock{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink3)}
+
+  /* ---- caption ---- */
+  .caption{background:linear-gradient(180deg,var(--goldsoft),transparent);border:1px solid var(--golddim);border-radius:14px;padding:14px 18px 14px;margin-bottom:14px}
+  .caption .ct{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .caption p{margin:6px 0 12px;font-size:16.5px;line-height:1.5;color:var(--ink);min-height:3em}
+  .segs{display:flex;gap:4px}
+  .seg{flex:1 1 0;height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+  .seg i{display:block;height:100%;width:0;background:var(--gold)}
+  .seg.done i{width:100%}
+
+  /* ---- the console stage ---- */
+  .stage{display:grid;grid-template-columns:250px minmax(0,1fr) 300px;gap:12px}
+  @media(max-width:1240px){.stage{grid-template-columns:1fr 1fr}.col.graph{grid-column:1 / -1;order:-1}}
+  @media(max-width:640px){.stage{grid-template-columns:1fr}}
+  .col{background:var(--panel);border:1px solid var(--edge2);border-radius:14px;padding:14px;min-width:0}
+  .colh{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;display:flex;justify-content:space-between;gap:8px}
+
+  .qrow{border:1px solid var(--edge2);border-radius:11px;padding:10px 11px;margin-bottom:8px;background:var(--panel2);transition:border-color .35s, background .35s, opacity .35s}
+  .qrow.on{border-color:var(--golddim);background:var(--goldsoft)}
+  .qrow.dim{opacity:.45}
+  .qtop{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .qname{font-weight:700;font-size:13.5px}
+  .qscore{font-family:var(--mono);font-weight:800;font-size:17px}
+  .qmeta{font-size:11.5px;color:var(--ink3);margin-top:1px}
+  .band{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;letter-spacing:.04em}
+  .band.crit{color:var(--crit);background:rgba(255,93,108,.12);border:1px solid rgba(255,93,108,.4)}
+  .band.med{color:var(--gold);background:var(--goldsoft);border:1px solid var(--golddim)}
+  .badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .pb{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:6px;color:var(--acc);background:var(--accsoft);border:1px solid var(--accdim)}
+  .pb.s{color:var(--crit);background:rgba(255,93,108,.1);border-color:rgba(255,93,108,.4)}
+  .pb.l{color:var(--gold);background:var(--goldsoft);border-color:var(--golddim)}
+  .tys{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+  .ty{font-size:10.5px;color:var(--ink2);border:1px solid var(--edge2);border-radius:5px;padding:1px 6px}
+
+  .graph svg{width:100%;height:auto;display:block}
+  .gnote{font-size:11.5px;color:var(--ink3);margin-top:6px}
+
+  .panelt{font-weight:700;font-size:14px;margin:0 0 4px}
+  .panels{font-size:12px;color:var(--ink3);margin:0 0 12px}
+  .comp{margin-bottom:10px}
+  .comp .cl{display:flex;justify-content:space-between;gap:8px;font-size:12.5px}
+  .comp .cv{font-family:var(--mono);color:var(--ink3);white-space:nowrap}
+  .bar{height:6px;border-radius:3px;background:rgba(255,255,255,.07);margin-top:4px;overflow:hidden}
+  .bar i{display:block;height:100%;width:0;border-radius:3px;transition:width .9s ease}
+  .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--edge2);padding-top:10px;margin-top:4px}
+  .total b{font-family:var(--mono);font-size:26px;color:var(--gold)}
+  .prov{font-family:var(--mono);font-size:10.5px;color:var(--acc);margin-top:8px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .sc{border:1px solid var(--edge2);border-radius:12px;padding:12px}
+  .sc.m{border-color:var(--accdim);background:linear-gradient(180deg,var(--accsoft),transparent)}
+  .sc.v{border-color:var(--golddim);background:linear-gradient(180deg,var(--goldsoft),transparent)}
+  .sc .big{font-family:var(--mono);font-weight:800;font-size:28px;line-height:1}
+  .sc.m .big{color:var(--acc)} .sc.v .big{color:var(--gold)}
+  .sc .lbl{font-size:12px;font-weight:700;margin-top:6px}
+  .sc p{font-size:11.5px;color:var(--ink2);margin:4px 0 0;line-height:1.45}
+  .hit{display:flex;justify-content:space-between;gap:8px;font-size:12.5px;padding:8px 0;border-top:1px solid var(--edge2)}
+  .hit .hs{font-family:var(--mono);white-space:nowrap}
+  .ok{color:var(--crit);font-weight:700} .no{color:var(--ink3)}
+  .steps{list-style:none;margin:0 0 12px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+  .steps li{font-size:10.5px;text-align:center;padding:7px 4px;border-radius:8px;border:1px solid var(--edge2);color:var(--ink3);transition:all .35s}
+  .steps li.done{color:#cfe6ff;background:var(--accsoft);border-color:var(--accdim)}
+  .steps li.now{color:#1a1405;background:var(--gold);border-color:var(--gold);font-weight:700}
+  .audit{list-style:none;margin:0;padding:0}
+  .audit li{display:grid;grid-template-columns:62px 1fr;gap:8px;font-size:12px;padding:6px 0;border-top:1px solid var(--edge2);animation:in .4s ease}
+  .audit .t{font-family:var(--mono);color:var(--ink3)}
+  .sar p{font-size:12.5px;margin:0 0 8px;color:var(--ink)}
+  .sar .tag{font-family:var(--mono);font-size:10px;color:var(--acc)}
+  .sarh{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:12px 0 6px}
+  @keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  .after{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .fine{font-size:12.5px;color:var(--ink3);margin-top:16px;max-width:90ch}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="index.html" class="backlink">&larr; NEXUS portfolio</a>
+  <div class="brand">
+    <svg class="shield" viewBox="0 0 40 46" fill="none" aria-hidden="true">
+      <path d="M20 2 L36 8 V22 C36 33 29 41 20 44 C11 41 4 33 4 22 V8 Z" fill="rgba(121,196,255,.06)" stroke="url(#sg)" stroke-width="1.6"/>
+      <path d="M14 30 V16 L26 30 V16" stroke="var(--acc)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs><linearGradient id="sg" x1="4" y1="2" x2="36" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#79c4ff"/><stop offset="1" stop-color="#e9c877"/></linearGradient></defs>
+    </svg>
+    <div>
+      <div class="wm">NE<span class="x">X</span>US</div>
+      <div class="kicker">Financial Crime Intelligence</div>
+    </div>
+    <span class="verpill">Beta v2.1</span>
+  </div>
+
+  <h1>From the queue to a filed SAR. <span class="g">In about sixty seconds.</span></h1>
+  <p class="lede">A guided re-enactment of the investigator console. Press play and it drives itself: the queue, the network, why each score is what it is, the sanctions lane, and the case through to submission. Every entity, score and weight shown is taken from the published console.</p>
+
+  <div class="controls">
+    <button class="btn primary" id="play" type="button">&#9654;&nbsp; Play the story</button>
+    <button class="btn" id="prev" type="button" aria-label="Previous step">&larr; Back</button>
+    <button class="btn" id="next" type="button" aria-label="Next step">Next &rarr;</button>
+    <span class="clock" id="clock" aria-hidden="true">0:00 / 1:01</span>
+  </div>
+
+  <div class="caption" role="status" aria-live="polite">
+    <div class="ct" id="ctitle">Ready</div>
+    <p id="ctext">Press play for the full story, or step through it at your own pace with Next.</p>
+    <div class="segs" id="segs" aria-hidden="true"></div>
+  </div>
+
+  <div class="stage">
+    <div class="col queue">
+      <div class="colh"><span>Alert queue</span><span>score</span></div>
+      <div id="queue"></div>
+    </div>
+    <div class="col graph">
+      <div class="colh"><span id="gtitle">Resolved network</span><span id="glens">case-cashflow lens</span></div>
+      <svg id="svg" viewBox="0 0 640 400" role="img" aria-labelledby="gdesc"><desc id="gdesc">Network graph for the selected entity</desc></svg>
+      <div class="gnote" id="gnote">Arrows run from source to target.</div>
+    </div>
+    <div class="col right" id="right"></div>
+  </div>
+
+  <div class="after">
+    <a class="btn primary" href="runtime-demo/console.html">&#9654;&nbsp; Now click through it yourself</a>
+    <a class="btn" href="walkthrough.html">Read the walkthrough</a>
+  </div>
+  <p class="fine">This page re-enacts the console; it does not run the platform. The cases, scores, component weights, ownership percentages, flows and screening hits are the values published in the live console (build <span style="font-family:var(--mono)">edfece8b</span>). The SAR lines are an illustrative excerpt in the console's provenance-tagged format. All data in NEXUS is synthetic demonstration data.</p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- published console values (build edfece8b) ----
+  var QUEUE = [
+    { id: "crans", name: "Crans Resources", meta: "Company · PK", score: "100", band: "Critical", bc: "crit",
+      badges: [], tys: ["Circular Funds Flow", "High-Value Activity", "Jurisdiction Deviation", "High-Risk Industry", "PEP Network Exposure", "Settlement/Trade Mismatch"] },
+    { id: "silverline", name: "Silverline Petrochemicals", meta: "Company · AE", score: "86.5", band: "Critical", bc: "crit",
+      badges: [["s", "⚠ sanctions"], ["l", "Sanctions lane"]], tys: ["Shadow Fleet", "Circular Funds Flow", "Identity Churn", "High-Risk Industry", "Settlement/Trade Mismatch"] },
+    { id: "deltaforge", name: "Deltaforge Metals Ltd", meta: "Company · TR", score: "56.0", band: "Medium", bc: "med",
+      badges: [["", "▲ CM003 · macro 37.5"]], tys: ["Spoofing/Layering", "High-Value Activity", "Jurisdiction Deviation"] }
+  ];
+
+  var GRAPHS = {
+    crans: {
+      title: "Crans Resources · resolved network",
+      nodes: { aur: ["Aurelian Holdings", "controller", 320, 62], cr: ["Crans Resources", "focal · PK", 130, 220],
+               wg: ["Wiggo Jewel", "counterparty", 510, 220], vs: ["Vessel VSL035", "container · DK flag", 130, 352] },
+      edges: [ { id: "o1", a: "aur", b: "cr", l: "OWNS 60% · control" }, { id: "o2", a: "aur", b: "wg", l: "OWNS 55% · control" },
+               { id: "t1", a: "wg", b: "cr", l: "485,000", bend: 46 }, { id: "t2", a: "cr", b: "wg", l: "335,000", bend: 46 },
+               { id: "v1", a: "cr", b: "vs", l: "OWNS_VESSEL" } ]
+    },
+    silverline: {
+      title: "Silverline Petrochemicals · resolved network",
+      nodes: { sl: ["Silverline Petrochemicals", "focal · AE", 320, 205], hit: ["SDL008", "sanctions list entry", 120, 62],
+               gm: ["Gamma Imports Ltd", "shareholding", 520, 62], v1: ["Vessel VSL001", "tanker · TZ flag", 130, 352], v2: ["Vessel VSL019", "tanker · FR flag", 510, 352] },
+      edges: [ { id: "h", a: "sl", b: "hit", l: "SCREENED · match 91" }, { id: "g", a: "sl", b: "gm", l: "OWNS 40%" },
+               { id: "a", a: "sl", b: "v1", l: "OWNS_VESSEL" }, { id: "b", a: "sl", b: "v2", l: "OWNS_VESSEL" } ]
+    },
+    deltaforge: {
+      title: "Deltaforge Metals Ltd · resolved network",
+      nodes: { df: ["Deltaforge Metals Ltd", "focal · TR", 260, 170], ng: ["E-NORTHGATE", "counterparty", 520, 92], vs: ["Vessel VSL015", "bulk carrier · DK flag", 130, 340] },
+      edges: [ { id: "t", a: "df", b: "ng", l: "155,000 · TR→AE corridor" }, { id: "v", a: "df", b: "vs", l: "OWNS_VESSEL" } ]
+    }
+  };
+
+  var MODELS = {
+    crans: { name: "Circular Funds Flow", src: "Six-component TBML006 model · governed scoring_config", total: "53", band: "Medium",
+      prov: "[transactions] [trade_documents] [money_flow.trace_loop]",
+      comps: [["Circularity", 45, .30], ["Trade value", 45, .15], ["Jurisdiction", 70, .15], ["Counterparty screening", 70, .15], ["Common control", 70, .15], ["Historical", 15, .10]] },
+    silverline: { name: "Shadow Fleet · SAN002", src: "Five-component exposure model · fc-05 governed engine", total: "85", band: "Critical",
+      prov: "[screening] [ownership] [shipping_events]",
+      comps: [["Ownership exposure", 90, .35], ["Maritime behaviour", 90, .25], ["Jurisdiction exposure", 90, .15], ["Trade exposure", 70, .15], ["Counterparty exposure", 70, .10]] },
+    deltaforge: { name: "Spoofing / Layering · CM003", src: "Four-component CM003 model · governed weights", total: "56", band: "Medium",
+      prov: "[orders] [executions] [order_book]",
+      comps: [["Non-bona-fide order ratio", 90, .35], ["Cancellation speed", 15, .25], ["Opposite-side execution", 15, .20], ["Order-book imbalance", 90, .20]] }
+  };
+
+  var AUDIT = [
+    ["09:02", "Case opened on Crans Resources from the queue"],
+    ["09:04", "Circular Funds Flow walk reviewed: 2-leg loop, 69.1% retained"],
+    ["09:07", "Common controller confirmed: Aurelian Holdings (60% / 55%)"],
+    ["09:11", "SAR narrative drafted from case evidence"],
+    ["09:15", "Referred for officer review"],
+    ["09:22", "Approved and submitted"]
+  ];
+  var SAR_STAGES = ["Drafted", "Officer review", "Approved", "Submitted"];
+
+  // ---- the story ----
+  var BEATS = [
+    { ms: 5000, t: "The queue", q: null, g: "crans", lit: [], r: "intro",
+      x: "This is the console's alert queue, as published. Three entities sit at the top, and each is there for a different reason." },
+    { ms: 6000, t: "Top of the queue", q: "crans", g: "crans", lit: [], r: "macro",
+      x: "Crans Resources, a Pakistani company, scores 100 (Critical). Six typologies fired on it, and the macro triage score hits its cap." },
+    { ms: 7000, t: "The loop", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "macro",
+      x: "485,000 moves from Wiggo Jewel to Crans and 335,000 goes back: a closed two-leg loop that retains 69.1% of the value. Aurelian Holdings controls both sides, with 60% of Crans and 55% of Wiggo." },
+    { ms: 7000, t: "Why it scored", q: "crans", g: "crans", lit: ["t1", "t2"], r: "model:crans",
+      x: "This is not a black box. Six governed, weighted components add up to the Circular Funds Flow verdict of 53 (Medium), and each one traces back to the data that produced it." },
+    { ms: 6000, t: "Two scores, on purpose", q: "crans", g: "crans", lit: ["t1", "t2"], r: "two",
+      x: "The queue says 100 and the model says 53. Triage answers “what do I open first?” and the verdict answers “how strong is this typology?”. They are kept apart deliberately." },
+    { ms: 6000, t: "The stronger score wins", q: "deltaforge", g: "deltaforge", lit: ["t"], r: "promo",
+      x: "Deltaforge's macro triage is only 37.5, but its CM003 spoofing verdict is 56. The queue promotes it to 56 and labels the badge with the signal that set the priority." },
+    { ms: 7000, t: "The sanctions lane", q: "silverline", g: "silverline", lit: ["h", "a", "b"], r: "sanctions",
+      x: "Silverline has an accepted sanctions match, SDL008 at 91, which forces the band to Critical. It is routed to the sanctions lane, a tag that is not a re-rank, and SAN002 shadow-fleet exposure scores 85." },
+    { ms: 6000, t: "One alert, one case", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "case:3",
+      x: "Back to Crans. The case is opened and worked on the same screen as the graph it was scored on. Every action lands in the audit trail." },
+    { ms: 6000, t: "The SAR draft", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "case:4",
+      x: "The SAR narrative is drafted from the case evidence, and every line carries the source that justifies it." },
+    { ms: 5000, t: "Submitted", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2", "v1"], r: "case:6",
+      x: "It goes to officer review, is approved and is submitted, on an append-only, hash-chained event log. Investigate and manage, in one governed flow." }
+  ];
+  var TOTAL = BEATS.reduce(function (a, b) { return a + b.ms; }, 0);
+
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+
+  // ---- renderers ----
+  function renderQueue(focus) {
+    $("queue").innerHTML = QUEUE.map(function (r) {
+      var cls = "qrow" + (focus === r.id ? " on" : focus ? " dim" : "");
+      return '<div class="' + cls + '"><div class="qtop"><span class="qname">' + esc(r.name) + '</span><span class="qscore">' + esc(r.score) + '</span></div>' +
+        '<div class="qtop"><span class="qmeta">' + esc(r.meta) + '</span><span class="band ' + r.bc + '">' + esc(r.band) + '</span></div>' +
+        (r.badges.length ? '<div class="badges">' + r.badges.map(function (b) { return '<span class="pb ' + b[0] + '">' + esc(b[1]) + '</span>'; }).join("") + '</div>' : "") +
+        '<div class="tys">' + r.tys.map(function (t) { return '<span class="ty">' + esc(t) + '</span>'; }).join("") + '</div></div>';
+    }).join("");
+  }
+
+  var HW = 96, HH = 25;
+  function clip(cx, cy, dx, dy) {
+    var t = Math.min(dx ? HW / Math.abs(dx) : Infinity, dy ? HH / Math.abs(dy) : Infinity);
+    return [cx + dx * t, cy + dy * t];
+  }
+  function renderGraph(key, lit) {
+    var G = GRAPHS[key], out = [];
+    out.push('<desc id="gdesc">' + esc(G.title) + '</desc><defs>' +
+      '<marker id="mh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#e9c877"/></marker>' +
+      '<marker id="md" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#3a4a60"/></marker></defs>');
+    G.edges.forEach(function (e) {
+      var A = G.nodes[e.a], B = G.nodes[e.b], on = lit.indexOf(e.id) >= 0;
+      var dx = B[2] - A[2], dy = B[3] - A[3], len = Math.hypot(dx, dy), nx = -dy / len, ny = dx / len;
+      var bend = e.bend || 0;
+      // aim each end at the bend's control point so the arrow meets the target card squarely
+      var mx = (A[2] + B[2]) / 2 + nx * bend, my = (A[3] + B[3]) / 2 + ny * bend;
+      var p1 = clip(A[2], A[3], mx - A[2], my - A[3]), p2 = clip(B[2], B[3], mx - B[2], my - B[3]);
+      var col = on ? "#e9c877" : "#3a4a60";
+      var d = bend ? "M" + p1[0] + " " + p1[1] + " Q" + mx + " " + my + " " + p2[0] + " " + p2[1] : "M" + p1[0] + " " + p1[1] + " L" + p2[0] + " " + p2[1];
+      out.push('<path d="' + d + '" fill="none" stroke="' + col + '" stroke-width="' + (on ? 2.2 : 1.2) + '" marker-end="url(#' + (on ? "mh" : "md") + ')" style="transition:stroke .4s"/>');
+      var lx = bend ? (p1[0] + 2 * mx + p2[0]) / 4 : (p1[0] + p2[0]) / 2, ly = bend ? (p1[1] + 2 * my + p2[1]) / 4 : (p1[1] + p2[1]) / 2;
+      var w = e.l.length * 7.1 + 14;
+      out.push('<g opacity="' + (on ? 1 : .55) + '"><rect x="' + (lx - w / 2) + '" y="' + (ly - 10) + '" width="' + w + '" height="20" rx="5" fill="#0a1220" stroke="' + (on ? "rgba(233,200,119,.5)" : "rgba(255,255,255,.08)") + '"/>' +
+        '<text x="' + lx + '" y="' + (ly + 4) + '" text-anchor="middle" font-family="SF Mono,ui-monospace,Menlo,monospace" font-size="11.5" fill="' + (on ? "#f3dc9e" : "#8a9bb2") + '">' + esc(e.l) + '</text></g>');
+    });
+    Object.keys(G.nodes).forEach(function (k) {
+      var n = G.nodes[k], focal = /focal/.test(n[1]), hit = k === "hit";
+      var stroke = focal ? "#e9c877" : hit ? "#ff5d6c" : "rgba(121,196,255,.55)";
+      out.push('<g><rect x="' + (n[2] - HW) + '" y="' + (n[3] - HH) + '" width="' + HW * 2 + '" height="' + HH * 2 + '" rx="9" fill="#0d1626" stroke="' + stroke + '" stroke-width="' + (focal ? 2 : 1.3) + '"/>' +
+        '<text x="' + n[2] + '" y="' + (n[3] - 2) + '" text-anchor="middle" font-size="13.5" font-weight="700" fill="#eaf1f9" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">' + esc(n[0]) + '</text>' +
+        '<text x="' + n[2] + '" y="' + (n[3] + 14) + '" text-anchor="middle" font-size="10.5" fill="#8a9bb2" font-family="SF Mono,ui-monospace,Menlo,monospace">' + esc(n[1]) + '</text></g>');
+    });
+    $("svg").innerHTML = out.join("");
+    $("gtitle").textContent = G.title;
+  }
+
+  function modelHtml(key) {
+    var M = MODELS[key];
+    return '<p class="panelt">' + esc(M.name) + '</p><p class="panels">' + esc(M.src) + '</p>' +
+      M.comps.map(function (c) {
+        var col = c[1] >= 70 ? "#ff8f6b" : c[1] >= 40 ? "#e9c877" : "#79c4ff";
+        return '<div class="comp"><div class="cl"><span>' + esc(c[0]) + '</span><span class="cv">' + c[1] + ' × ' + c[2].toFixed(2) + ' = ' + (c[1] * c[2]).toFixed(2) + '</span></div>' +
+          '<div class="bar"><i data-w="' + c[1] + '" style="background:' + col + '"></i></div></div>';
+      }).join("") +
+      '<div class="total"><span style="font-size:12.5px;color:var(--ink2)">Typology verdict · ' + esc(M.band) + '</span><b>' + esc(M.total) + '</b></div>' +
+      '<div class="prov">' + esc(M.prov) + '</div>';
+  }
+
+  function caseHtml(n) {
+    var sarIdx = n >= 6 ? 3 : n >= 5 ? 1 : n >= 4 ? 0 : -1;
+    var steps = SAR_STAGES.map(function (s, i) {
+      var c = i < sarIdx ? "done" : i === sarIdx ? "now" : "";
+      if (n >= 6) c = i === 3 ? "now" : "done";
+      return '<li class="' + c + '">' + s + '</li>';
+    }).join("");
+    var sar = n >= 4 ? '<div class="sarh">SAR narrative · excerpt</div><div class="sar">' +
+      '<p>Crans Resources (PK) is the focal entity of a closed two-leg flow with Wiggo Jewel: 485,000 in and 335,000 out, retaining 69.1% of value. <span class="tag">[transactions] [money_flow.trace_loop]</span></p>' +
+      '<p>Both parties are controlled by Aurelian Holdings, at 60% and 55%, so there is no genuine change of ownership. <span class="tag">[ownership · E-AURELIAN]</span></p>' +
+      '<p>The Circular Funds Flow verdict is 53 (Medium) on the governed TBML006 model. <span class="tag">[scoring_config]</span></p></div>' : "";
+    return '<p class="panelt">Case · Crans Resources</p><p class="panels">Investigate and manage on one screen</p>' +
+      (n >= 4 ? '<ol class="steps" aria-label="SAR lifecycle">' + steps + '</ol>' : "") +
+      '<ul class="audit">' + AUDIT.slice(0, n).map(function (a) { return '<li><span class="t">' + a[0] + '</span><span>' + esc(a[1]) + '</span></li>'; }).join("") + '</ul>' + sar;
+  }
+
+  function renderRight(r) {
+    var h = "";
+    if (r === "intro") h = '<p class="panelt">Entity · case</p><p class="panels">Select an alert to see why it scored, and to work the case.</p>' +
+      '<div class="two"><div class="sc m"><div class="big">3</div><div class="lbl">worked cases</div><p>AML, sanctions and market abuse on one substrate</p></div><div class="sc v"><div class="big">1</div><div class="lbl">resolved graph</div><p>scored, explored and cased in one place</p></div></div>';
+    else if (r === "macro") h = '<p class="panelt">Macro triage · Crans Resources</p><p class="panels">Additive risk points across every signal, capped at 100</p>' +
+      '<div class="comp"><div class="cl"><span>Circular loop (closed 2-hop, 69.1% retained)</span><span class="cv">+40</span></div><div class="bar"><i data-w="80" style="background:#e9c877"></i></div></div>' +
+      '<div class="comp"><div class="cl"><span>High value (TX-16 · 485,000)</span><span class="cv">+15</span></div><div class="bar"><i data-w="30" style="background:#e9c877"></i></div></div>' +
+      '<div class="comp"><div class="cl"><span>Further signals from the other typologies</span><span class="cv">…</span></div><div class="bar"><i data-w="100" style="background:#3a4a60"></i></div></div>' +
+      '<div class="total"><span style="font-size:12.5px;color:var(--ink2)">Macro triage · Critical · capped</span><b style="color:var(--acc)">100</b></div>';
+    else if (r.indexOf("model:") === 0) h = modelHtml(r.slice(6));
+    else if (r === "two") h = '<p class="panelt">Triage vs verdict</p><p class="panels">Two questions, two numbers</p><div class="two">' +
+      '<div class="sc m"><div class="big">100</div><div class="lbl">Macro triage</div><p>What to open first. Ranks the queue.</p></div>' +
+      '<div class="sc v"><div class="big">53</div><div class="lbl">CFF verdict · Medium</div><p>How strong this typology is. Not force-escalated.</p></div></div>';
+    else if (r === "promo") h = modelHtml("deltaforge") +
+      '<div class="two" style="margin-top:12px"><div class="sc m"><div class="big">37.5</div><div class="lbl">Macro triage</div></div><div class="sc v"><div class="big">56</div><div class="lbl">Queue priority</div><p>▲ CM003 · macro 37.5</p></div></div>';
+    else if (r === "sanctions") h = '<p class="panelt">Screening · Silverline Petrochemicals</p><p class="panels">Only an accepted hit counts as a designation</p>' +
+      '<div class="hit"><span>SDL008 · sanctions</span><span class="hs ok">91 · accepted</span></div>' +
+      '<div class="hit"><span>SDL016 · sanctions</span><span class="hs no">31 · rejected</span></div>' +
+      '<div class="hit"><span>SDL033 · adverse media</span><span class="hs no">55 · rejected</span></div>' +
+      '<div class="badges" style="margin:10px 0 12px"><span class="pb s">⚠ sanctions · forced to Critical</span><span class="pb l">Sanctions lane · routed to sanctions ops</span></div>' +
+      modelHtml("silverline");
+    else if (r.indexOf("case:") === 0) h = caseHtml(+r.slice(5));
+    $("right").innerHTML = h;
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      Array.prototype.forEach.call($("right").querySelectorAll(".bar i"), function (i) { i.style.width = i.getAttribute("data-w") + "%"; });
+    }); });
+  }
+
+  // ---- playback ----
+  var cur = -1, playing = false, timer = null, beatStart = 0, elapsedBefore = 0, raf = null;
+  $("segs").innerHTML = BEATS.map(function () { return '<div class="seg"><i></i></div>'; }).join("");
+  var segs = $("segs").children;
+  var fmt = function (ms) { var s = Math.round(ms / 1000); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
+  var startOf = function (i) { var t = 0; for (var k = 0; k < i; k++) t += BEATS[k].ms; return t; };
+
+  function show(i) {
+    cur = i;
+    var B = BEATS[i];
+    $("ctitle").textContent = "Step " + (i + 1) + " of " + BEATS.length + " · " + B.t;
+    $("ctext").textContent = B.x;
+    renderQueue(B.q);
+    renderGraph(B.g, B.lit);
+    renderRight(B.r);
+    for (var k = 0; k < segs.length; k++) { segs[k].className = "seg" + (k < i ? " done" : ""); segs[k].firstChild.style.width = k < i ? "100%" : "0"; }
+    $("prev").disabled = i <= 0;
+    $("next").disabled = i >= BEATS.length - 1;
+    $("clock").textContent = fmt(startOf(i)) + " / " + fmt(TOTAL);
+  }
+
+  function tick() {
+    if (!playing) return;
+    var B = BEATS[cur], el = elapsedBefore + (performance.now() - beatStart), f = Math.min(1, el / B.ms);
+    segs[cur].firstChild.style.width = (f * 100) + "%";
+    $("clock").textContent = fmt(startOf(cur) + el) + " / " + fmt(TOTAL);
+    raf = requestAnimationFrame(tick);
+  }
+  function arm() {
+    clearTimeout(timer); cancelAnimationFrame(raf);
+    beatStart = performance.now();
+    timer = setTimeout(advance, BEATS[cur].ms - elapsedBefore);
+    raf = requestAnimationFrame(tick);
+  }
+  function advance() {
+    elapsedBefore = 0;
+    if (cur >= BEATS.length - 1) { stop(true); return; }
+    show(cur + 1); arm();
+  }
+  function stop(finished) {
+    if (playing) elapsedBefore += performance.now() - beatStart;
+    playing = false; clearTimeout(timer); cancelAnimationFrame(raf);
+    if (finished) {
+      elapsedBefore = 0;
+      segs[cur].className = "seg done"; segs[cur].firstChild.style.width = "100%";
+      $("clock").textContent = fmt(TOTAL) + " / " + fmt(TOTAL);
+      $("play").innerHTML = "&#8635;&nbsp; Replay";
+    } else {
+      $("play").innerHTML = "&#9654;&nbsp; Resume";
+    }
+  }
+  $("play").addEventListener("click", function () {
+    if (playing) { stop(false); return; }
+    if (cur < 0 || /Replay/.test($("play").textContent)) { elapsedBefore = 0; show(0); }
+    playing = true; $("play").innerHTML = "&#10074;&#10074;&nbsp; Pause"; arm();
+  });
+  $("next").addEventListener("click", function () { if (cur < BEATS.length - 1) { elapsedBefore = 0; show(cur + 1); if (playing) arm(); } });
+  $("prev").addEventListener("click", function () { if (cur > 0) { elapsedBefore = 0; show(cur - 1); if (playing) arm(); } });
+
+  // initial frame: the queue, nothing selected
+  renderQueue(null); renderGraph("crans", []); renderRight("intro");
+  $("prev").disabled = true;
+  $("clock").textContent = "0:00 / " + fmt(TOTAL);
+})();
+</script>
+</body>
+</html>

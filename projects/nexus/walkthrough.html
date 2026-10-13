@@ -131,15 +131,16 @@
       <div class="wm">NE<span class="x">X</span>US</div>
       <div class="kicker">Financial Crime Intelligence</div>
     </div>
-    <span class="verpill">Beta v2.0</span>
+    <span class="verpill">Beta v2.1</span>
   </div>
 
   <h1>One resolved-entity substrate. <span class="g">Investigate and manage on the same screen.</span></h1>
-  <p class="lede">A working investigator console for financial-crime detection — real data, a live network graph,
-    three worked typologies, and a governed case workflow. This is the two-minute story to read before (or while) you click.</p>
+  <p class="lede">A working investigator console for financial-crime detection. It runs on production-shaped synthetic data, with a live network graph,
+    three worked typologies and a governed case workflow. This is the two-minute story to read before (or while) you click.</p>
 
   <a class="cta" href="runtime-demo/console.html">▶ &nbsp;Open the live console</a>
-  <p class="ctanote">Best on desktop. It's a Beta — bugs and rough edges are on purpose; it ships and iterates in public.</p>
+  <a class="cta" href="story.html" style="margin-left:8px;color:var(--ink);background:var(--panel);border-color:var(--golddim);box-shadow:none">&#9654; &nbsp;Watch the 60-second story</a>
+  <p class="ctanote">Best on desktop. The story plays itself; the console is the real thing. It's a Beta, so rough edges are expected: it ships and iterates in public.</p>
 
   <section>
     <h2>The problem it solves</h2>
@@ -177,19 +178,21 @@
     <h2>The 90-second walkthrough <span class="n">— follow the clicks</span></h2>
     <ol class="steps">
       <li class="step"><span class="cue">Point at the queue</span>
-        <div class="say"><span class="q">"Top of the queue —</span> <b>Crans Resources</b>, a Pakistani gold miner, scored <b>Critical</b>. Five typologies fired: circular funds flow, high-value activity, jurisdiction deviation, high-risk industry, and a TBML settlement/trade mismatch.<span class="q">"</span></div></li>
+        <div class="say"><span class="q">"Top of the queue —</span> <b>Crans Resources</b>, a Pakistani gold miner, scored <b>Critical</b>. Six typologies fired: circular funds flow, high-value activity, jurisdiction deviation, high-risk industry, PEP network exposure, and a TBML settlement/trade mismatch.<span class="q">"</span></div></li>
       <li class="step"><span class="cue">Click the alert</span>
         <div class="say"><span class="q">"Click it and the middle panel resolves the whole picture —</span> Crans, its counterparty, the gold trade document, the carrier vessel, and both cash accounts, all one connected entity view.<span class="q">"</span></div></li>
       <li class="step"><span class="cue">Open the case &rarr; Pattern panel</span>
-        <div class="say"><span class="q">"Open the case for the investigator workspace. On the left, the circular-funds-flow pattern walked on real money —</span> value leaves Crans and comes back through <b>Wiggo Jewel</b>, about <b>69% retained</b>, a closed loop with a common controller, <b>Aurelian Holdings</b>. No genuine change of ownership — the hallmark of round-tripping, not commerce.<span class="q">"</span></div></li>
+        <div class="say"><span class="q">"Open the case for the investigator workspace. On the left, the circular-funds-flow pattern walked on real money —</span> 485,000 from <b>Wiggo Jewel</b> to Crans and 335,000 back, a closed two-leg loop retaining <b>69.1%</b> of the value. Both sides share a common controller, <b>Aurelian Holdings</b>, which holds 60% of Crans and 55% of Wiggo. No genuine change of ownership — the hallmark of round-tripping, not commerce.<span class="q">"</span></div></li>
       <li class="step"><span class="cue">Point at 'Why scored'</span>
-        <div class="say"><span class="q">"The middle panel is why it scored — and it's not a black box.</span> A governed, <b>weighted six-component model</b>: circularity, trade value, jurisdiction, counterparty screening, network, history. Each one is tunable, and each traces back to the data that produced it.<span class="q">"</span></div></li>
+        <div class="say"><span class="q">"The middle panel is why it scored — and it's not a black box.</span> A governed, <b>weighted six-component model</b>: circularity, trade value, jurisdiction, counterparty screening, common control and history. Each one is tunable, and each traces back to the data that produced it.<span class="q">"</span></div></li>
       <li class="step"><span class="cue">The two numbers</span>
-        <div class="say"><span class="q">"You'll see two scores, deliberately.</span> The queue shows <b>100</b> — the macro triage score that ranks what to look at first. The model shows <b>56 / Medium</b> — the Circular Funds Flow analytic verdict. <b>Triage versus verdict.</b> (More on that below.)<span class="q">"</span></div></li>
+        <div class="say"><span class="q">"You'll see two scores, deliberately.</span> The queue shows <b>100</b> — the macro triage score that ranks what to look at first. The model shows <b>53 / Medium</b> — the Circular Funds Flow analytic verdict. <b>Triage versus verdict.</b> (More on that below.)<span class="q">"</span></div></li>
       <li class="step"><span class="cue">The Decision panel</span>
         <div class="say"><span class="q">"On the right, the governed decision —</span> a recommendation, the intelligence produced, six case actions, a live audit trail, and a <b>drafted SAR narrative</b> that's provenance-linked back to the evidence. Investigate and manage, closed on one screen.<span class="q">"</span></div></li>
+      <li class="step"><span class="cue">Point at Silverline</span>
+        <div class="say"><span class="q">"Second in the queue is</span> <b>Silverline Petrochemicals</b>, with a <b>&#9888; sanctions</b> badge. An accepted screening hit at <b>match 91</b> forces its band to Critical, and a <b>Sanctions lane</b> tag routes it to sanctions operations rather than the TM queue. That tag is a routing decision, not a re-rank. Rejected hits sit next to it on the record and don't count.<span class="q">"</span></div></li>
       <li class="step"><span class="cue">Two more surfaces</span>
-        <div class="say"><span class="q">"Two more things on tap.</span> The pattern panel has a <b>Typology Library</b> button — the full doctrine for that typology (indicators, red flags, investigation steps) one click from the case, so the investigator learns <em>why this fired</em> without leaving it. And an <b>Operations</b> button opens the supervisor view: an MI dashboard and a Tableau-style <b>MI Explorer</b> — aging, jurisdiction and typology, over the whole case book. The manager's desk, on the same substrate.<span class="q">"</span></div></li>
+        <div class="say"><span class="q">"Two more things on tap.</span> The pattern panel has a <b>Typology Library</b> button: the full doctrine for that typology (indicators, red flags, investigation steps) is one click from the case, so the investigator learns <em>why this fired</em> without leaving it. And an <b>Operations</b> button opens the supervisor view. It has the MI dashboard and the <b>MI Explorer</b>, plus the <b>SAR lifecycle</b> from draft to submission, <b>SLA</b> breaches routed to supervisors, and second-line <b>QA</b> review. All of it sits on an append-only, hash-chained case event log. The manager's desk, on the same substrate.<span class="q">"</span></div></li>
     </ol>
   </section>
 
@@ -202,7 +205,7 @@
         <p>Additive risk points across every signal, capped at 100. Its job is <em>ranking</em> — what does an analyst open first? Crans hits the cap: a closed loop, high-value legs, jurisdiction deviation, high-risk industry.</p>
       </div>
       <div class="sc model">
-        <div class="big">56<span style="font-size:15px;color:var(--ink3)"> / Med</span></div>
+        <div class="big">53<span style="font-size:15px;color:var(--ink3)"> / Med</span></div>
         <div class="lbl">Typology analytic verdict</div>
         <p>The weighted Circular Funds Flow model — six governed, tunable components. Its job is the <em>analytic call</em>: how strong is <em>this specific typology</em> on this entity? Medium, honestly — not force-escalated.</p>
       </div>
@@ -215,7 +218,7 @@
     <h2>Three worked cases <span class="n">— every queue item is real</span></h2>
     <div class="cases">
       <div class="case"><span class="tag c">CFF</span><div class="cb"><b>Crans Resources</b> — <span>Circular Funds Flow. A closed two-leg gold-trade loop with a common controller; TBML mismatch and jurisdiction risk (PK / CY) stacked on top.</span></div></div>
-      <div class="case"><span class="tag s">SAN002</span><div class="cb"><b>Silverline Petrochemicals</b> — <span>Shadow Fleet. A sanctions screening hit that escalates the band — the case management side reacting to a real designation match.</span></div></div>
+      <div class="case"><span class="tag s">SAN002</span><div class="cb"><b>Silverline Petrochemicals</b> — <span>Shadow Fleet. An accepted sanctions match (91) forces the band to Critical and routes the case to the sanctions lane. Its SAN002 exposure model scores 85, led by ownership reach to a designated party and maritime behaviour.</span></div></div>
       <div class="case"><span class="tag">CM003</span><div class="cb"><b>Deltaforge Metals Ltd</b> — <span>Spoofing / layering. A capital-markets typology, showing the same substrate carries market-abuse detection, not just AML. Its spoofing verdict (<b>56</b>) outranks its macro triage (<b>37.5</b>), so the queue promotes it to 56 with a priority badge — the highest-score rule made visible.</span></div></div>
     </div>
   </section>
@@ -226,9 +229,10 @@
       <div>
         <p style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:9px">How it's built</p>
         <ul class="tick">
-          <li><strong>Real pillar data</strong> — entities, ownership, transactions, KYC, screening, shipping.</li>
-          <li><strong>Resolved once, reused</strong> — the entity graph is shared across every typology.</li>
-          <li><strong>Deterministic</strong> — byte-identical rebuilds, no hidden randomness.</li>
+          <li><strong>A production-shaped pillar data model</strong> covering entities, ownership, transactions, KYC, screening and shipping, populated with synthetic data.</li>
+          <li><strong>Resolved once, reused</strong>: the entity graph is shared across every typology.</li>
+          <li><strong>Deterministic</strong>: byte-identical rebuilds, with no hidden randomness.</li>
+          <li><strong>Governed batch</strong>: one phased, resumable runner over a 9,889-entity synthetic estate, whose replays come out fingerprint-identical.</li>
           <li><strong>Tested end-to-end</strong> — five-layer functional packs: network &rarr; analytic &rarr; score &rarr; alert &rarr; output.</li>
         </ul>
       </div>
@@ -250,17 +254,19 @@
     <div class="honest">
       <div class="ht">The honest version — named before you ask</div>
       <ul class="tick warn">
-        <li>Entity-resolution matching is deliberately naive today; a production-grade resolver is the next replacement.</li>
-        <li>Single-source pillar data — no cross-source provenance fusion yet.</li>
-        <li>No beneficial-ownership / directors register yet — a known <strong>AMLD6</strong> gap, already on the roadmap.</li>
-        <li>Score thresholds need calibration against real run history before they'd be trustworthy in production.</li>
+        <li>Entity-resolution matching is still simple. Shared identifiers now merge only when the names agree or a governed declaration says they should, but a production-grade resolver is still the next replacement.</li>
+        <li>Single-source pillar data, with no cross-source provenance fusion yet.</li>
+        <li>Ownership and beneficial-ownership chains, including PEP directors, come from synthetic KYC ownership records. There is no external corporate-registry feed yet, which is the next step for <strong>AMLD6</strong>-grade UBO.</li>
+        <li>Score thresholds and weights still need calibration against a real run history before they'd be trustworthy in production.</li>
       </ul>
-      <p style="margin:12px 0 0;font-size:13px;color:var(--ink2)">This is <span class="emg">Beta v2.0</span> — the start of a proving journey, iterating in public. Naming the gaps is the point: it's a system built by someone who knows what "done" actually looks like.</p>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--ink2)">This is <span class="emg">Beta v2.1</span> — the start of a proving journey, iterating in public. Naming the gaps is the point: it's a system built by someone who knows what "done" actually looks like.</p>
     </div>
   </section>
 
   <footer>
-    <span class="fmark">NEXUS</span> &middot; Financial Crime Intelligence Console &middot; Beta v2.0 &middot;
+    <span class="fmark">NEXUS</span> &middot; Financial Crime Intelligence Console &middot; Beta v2.1 &middot;
+    <a href="story.html">60-second story</a> &middot;
+    <a href="release-notes.html">Release notes</a> &middot;
     <a href="runtime-demo/console.html">Open the live console &rarr;</a>
   </footer>
 
