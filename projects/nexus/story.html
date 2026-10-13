@@ -175,7 +175,7 @@
     <a class="btn primary" href="runtime-demo/console.html">&#9654;&nbsp; Now click through it yourself</a>
     <a class="btn" href="walkthrough.html">Read the walkthrough</a>
   </div>
-  <p class="fine">This page re-enacts the console; it does not run the platform. The cases, scores, component weights, ownership percentages, flows and screening hits are the values published in the live console (build <span style="font-family:var(--mono)">edfece8b</span>). The SAR lines are an illustrative excerpt in the console's provenance-tagged format. All data in NEXUS is synthetic demonstration data.</p>
+  <p class="fine">This page re-enacts the console; it does not run the platform. The entities, scores, component weights, macro contributions, ownership percentages, flows, vessels, screening hits and briefing lines are the values published in the live console (build <span style="font-family:var(--mono)">edfece8b</span>). In the console the Crans case is Assigned and Pending, so the review, approval and submission steps and their audit times are the workflow played forward, not recorded events. All data in NEXUS is synthetic demonstration data.</p>
 </div>
 
 <script>
@@ -187,31 +187,38 @@
     { id: "crans", name: "Crans Resources", meta: "Company · PK", score: "100", band: "Critical", bc: "crit",
       badges: [], tys: ["Circular Funds Flow", "High-Value Activity", "Jurisdiction Deviation", "High-Risk Industry", "PEP Network Exposure", "Settlement/Trade Mismatch"] },
     { id: "silverline", name: "Silverline Petrochemicals", meta: "Company · AE", score: "86.5", band: "Critical", bc: "crit",
-      badges: [["s", "⚠ sanctions"], ["l", "Sanctions lane"]], tys: ["Shadow Fleet", "Circular Funds Flow", "Identity Churn", "High-Risk Industry", "Settlement/Trade Mismatch"] },
+      badges: [["s", "⚠ sanctions"], ["l", "Sanctions lane"]], tys: ["Circular Funds Flow", "High-Risk Industry", "Identity Churn", "Shadow Fleet", "Settlement/Trade Mismatch"] },
     { id: "deltaforge", name: "Deltaforge Metals Ltd", meta: "Company · TR", score: "56.0", band: "Medium", bc: "med",
-      badges: [["", "▲ CM003 · macro 37.5"]], tys: ["Spoofing/Layering", "High-Value Activity", "Jurisdiction Deviation"] }
+      badges: [["", "▲ CM003 · macro 37.5"]], tys: ["High-Value Activity", "Jurisdiction Deviation", "Spoofing/Layering"] }
   ];
 
   var GRAPHS = {
     crans: {
       title: "Crans Resources · resolved network",
-      nodes: { aur: ["Aurelian Holdings", "controller", 320, 62], cr: ["Crans Resources", "focal · PK", 130, 220],
-               wg: ["Wiggo Jewel", "counterparty", 510, 220], vs: ["Vessel VSL035", "container · DK flag", 130, 352] },
-      edges: [ { id: "o1", a: "aur", b: "cr", l: "OWNS 60% · control" }, { id: "o2", a: "aur", b: "wg", l: "OWNS 55% · control" },
-               { id: "t1", a: "wg", b: "cr", l: "485,000", bend: 46 }, { id: "t2", a: "cr", b: "wg", l: "335,000", bend: 46 },
-               { id: "v1", a: "cr", b: "vs", l: "OWNS_VESSEL" } ]
+      nodes: { mah: ["Tariq Mahsud", "person · PEP match 93", 112, 62], aur: ["Aurelian Holdings", "controller · GB", 352, 62],
+               cr: ["Crans Resources", "focal · PK · gold mining", 130, 220], wg: ["Wiggo Jewel", "counterparty · CY · jeweller", 510, 220],
+               vs: ["Rimewind Carrier", "vessel · container · DK", 130, 352], dw: ["Driftwood Sentinel", "vessel · bulk carrier · GB", 400, 352] },
+      edges: [ { id: "m", a: "mah", b: "cr", l: "OWNS 15% · director", at: 0.35 },
+               { id: "o1", a: "aur", b: "cr", l: "OWNS 60% · control", at: 0.65 }, { id: "o2", a: "aur", b: "wg", l: "OWNS 55% · control" },
+               { id: "t1", a: "wg", b: "cr", l: "USD 485,000", bend: 46 }, { id: "t2", a: "cr", b: "wg", l: "USD 335,000", bend: 46 },
+               { id: "v1", a: "cr", b: "vs", l: "OWNS_VESSEL · SHIPPED_ON ×4" }, { id: "v2", a: "cr", b: "dw", l: "SHIPPED_ON · 1", at: 0.74 } ]
     },
     silverline: {
       title: "Silverline Petrochemicals · resolved network",
-      nodes: { sl: ["Silverline Petrochemicals", "focal · AE", 320, 205], hit: ["SDL008", "sanctions list entry", 120, 62],
-               gm: ["Gamma Imports Ltd", "shareholding", 520, 62], v1: ["Vessel VSL001", "tanker · TZ flag", 130, 352], v2: ["Vessel VSL019", "tanker · FR flag", 510, 352] },
-      edges: [ { id: "h", a: "sl", b: "hit", l: "SCREENED · match 91" }, { id: "g", a: "sl", b: "gm", l: "OWNS 40%" },
+      nodes: { zi: ["Piotr Zielinski", "person · owner", 330, 62], sl: ["Silverline Petrochemicals", "focal · AE", 330, 205],
+               hit: ["SDL008", "sanctions designation", 110, 62], gm: ["Gamma Imports Ltd", "shareholding", 545, 120],
+               v1: ["Marlin Crescent", "vessel · tanker · TZ", 130, 352], v2: ["Argent Mariner", "vessel · tanker · FR", 510, 352] },
+      edges: [ { id: "z", a: "zi", b: "sl", l: "OWNS 100% · control" }, { id: "h", a: "sl", b: "hit", l: "SCREENED · match 91", at: 0.75 },
+               { id: "g", a: "sl", b: "gm", l: "OWNS 40%" },
                { id: "a", a: "sl", b: "v1", l: "OWNS_VESSEL" }, { id: "b", a: "sl", b: "v2", l: "OWNS_VESSEL" } ]
     },
     deltaforge: {
       title: "Deltaforge Metals Ltd · resolved network",
-      nodes: { df: ["Deltaforge Metals Ltd", "focal · TR", 260, 170], ng: ["E-NORTHGATE", "counterparty", 520, 92], vs: ["Vessel VSL015", "bulk carrier · DK flag", 130, 340] },
-      edges: [ { id: "t", a: "df", b: "ng", l: "155,000 · TR→AE corridor" }, { id: "v", a: "df", b: "vs", l: "OWNS_VESSEL" } ]
+      nodes: { ak: ["Aslan Karimov", "person · shareholder", 112, 62], df: ["Deltaforge Metals Ltd", "focal · TR", 300, 205],
+               ng: ["Northgate Settlement Bank", "counterparty", 528, 92], vs: ["Tidewater Rambler", "vessel · bulk carrier · DK", 130, 352],
+               cp: ["Cape Ranger", "vessel", 510, 352] },
+      edges: [ { id: "k", a: "ak", b: "df", l: "OWNS 75%" }, { id: "t", a: "df", b: "ng", l: "155,000 · TR-AE corridor" },
+               { id: "v", a: "df", b: "vs", l: "OWNS_VESSEL" }, { id: "s", a: "df", b: "cp", l: "SHIPPED_ON" } ]
     }
   };
 
@@ -219,32 +226,42 @@
     crans: { name: "Circular Funds Flow", src: "Six-component TBML006 model · governed scoring_config", total: "53", band: "Medium",
       prov: "[transactions] [trade_documents] [money_flow.trace_loop]",
       comps: [["Circularity", 45, .30], ["Trade value", 45, .15], ["Jurisdiction", 70, .15], ["Counterparty screening", 70, .15], ["Common control", 70, .15], ["Historical", 15, .10]] },
-    silverline: { name: "Shadow Fleet · SAN002", src: "Five-component exposure model · fc-05 governed engine", total: "85", band: "Critical",
-      prov: "[screening] [ownership] [shipping_events]",
+    silverline: { name: "Shadow Fleet · SAN002", src: "Five-component SAN002 exposure model · fc-05 governed engine", total: "85", band: "Critical",
+      prov: "[screening_results] [ownership] [shipping_events] [vessel_identity_history]",
       comps: [["Ownership exposure", 90, .35], ["Maritime behaviour", 90, .25], ["Jurisdiction exposure", 90, .15], ["Trade exposure", 70, .15], ["Counterparty exposure", 70, .10]] },
     deltaforge: { name: "Spoofing / Layering · CM003", src: "Four-component CM003 model · governed weights", total: "56", band: "Medium",
-      prov: "[orders] [executions] [order_book]",
+      prov: "[orders] [executions] [market_data]",
       comps: [["Non-bona-fide order ratio", 90, .35], ["Cancellation speed", 15, .25], ["Opposite-side execution", 15, .20], ["Order-book imbalance", 90, .20]] }
   };
 
+  // The live console holds this case at Assigned / Pending; from step 2 on, the story plays it forward.
   var AUDIT = [
-    ["09:02", "Case opened on Crans Resources from the queue"],
+    ["09:02", "Case assigned to an analyst (the console's current state)"],
     ["09:04", "Circular Funds Flow walk reviewed: 2-leg loop, 69.1% retained"],
     ["09:07", "Common controller confirmed: Aurelian Holdings (60% / 55%)"],
-    ["09:11", "SAR narrative drafted from case evidence"],
+    ["09:11", "SAR narrative drafted from the case briefing"],
     ["09:15", "Referred for officer review"],
     ["09:22", "Approved and submitted"]
   ];
+  // The console's own briefing clauses for E-CRANS, verbatim, with their sources.
+  var BRIEFING = [
+    ["focal of a closed 2-hop circular flow retaining 69.1% of value", "signal:circular_loop"],
+    ["transaction TX-16 amount 485000.0 exceeds high-value threshold", "signal:high_value"],
+    ["corridor CY-PK routes through high-risk jurisdiction(s) ['CY'] outside country_of_incorporation PK", "signal:jurisdiction_deviation"],
+    ["ownership-network connection to PEP Tariq Mahsud (director)", "signal:pep_connection"]
+  ];
+  var MACRO = [["Circular loop", 40], ["High value · TX-16 (485,000)", 15], ["High value · TX-17 (335,000)", 15],
+               ["Jurisdiction deviation · CY-PK corridor", 45], ["High-risk industry · gold mining", 22.5], ["PEP connection · Tariq Mahsud", 20]];
   var SAR_STAGES = ["Drafted", "Officer review", "Approved", "Submitted"];
 
   // ---- the story ----
   var BEATS = [
     { ms: 5000, t: "The queue", q: null, g: "crans", lit: [], r: "intro",
       x: "This is the console's alert queue, as published. Three entities sit at the top, and each is there for a different reason." },
-    { ms: 6000, t: "Top of the queue", q: "crans", g: "crans", lit: [], r: "macro",
-      x: "Crans Resources, a Pakistani company, scores 100 (Critical). Six typologies fired on it, and the macro triage score hits its cap." },
+    { ms: 6000, t: "Top of the queue", q: "crans", g: "crans", lit: ["m"], r: "macro",
+      x: "Crans Resources, a Pakistani gold miner, scores 100 (Critical). Six signals add up to 157.5 points and the triage score caps at 100. One is a PEP director, Tariq Mahsud." },
     { ms: 7000, t: "The loop", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "macro",
-      x: "485,000 moves from Wiggo Jewel to Crans and 335,000 goes back: a closed two-leg loop that retains 69.1% of the value. Aurelian Holdings controls both sides, with 60% of Crans and 55% of Wiggo." },
+      x: "USD 485,000 moves from Wiggo Jewel, a Cypriot jeweller, to Crans, and USD 335,000 goes back the same day: a closed two-leg loop that retains 69.1% of the value. Aurelian Holdings controls both sides, with 60% of Crans and 55% of Wiggo." },
     { ms: 7000, t: "Why it scored", q: "crans", g: "crans", lit: ["t1", "t2"], r: "model:crans",
       x: "This is not a black box. Six governed, weighted components add up to the Circular Funds Flow verdict of 53 (Medium), and each one traces back to the data that produced it." },
     { ms: 6000, t: "Two scores, on purpose", q: "crans", g: "crans", lit: ["t1", "t2"], r: "two",
@@ -253,12 +270,12 @@
       x: "Deltaforge's macro triage is only 37.5, but its CM003 spoofing verdict is 56. The queue promotes it to 56 and labels the badge with the signal that set the priority." },
     { ms: 7000, t: "The sanctions lane", q: "silverline", g: "silverline", lit: ["h", "a", "b"], r: "sanctions",
       x: "Silverline has an accepted sanctions match, SDL008 at 91, which forces the band to Critical. It is routed to the sanctions lane, a tag that is not a re-rank, and SAN002 shadow-fleet exposure scores 85." },
-    { ms: 6000, t: "One alert, one case", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "case:3",
-      x: "Back to Crans. The case is opened and worked on the same screen as the graph it was scored on. Every action lands in the audit trail." },
-    { ms: 6000, t: "The SAR draft", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "case:4",
-      x: "The SAR narrative is drafted from the case evidence, and every line carries the source that justifies it." },
-    { ms: 5000, t: "Submitted", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2", "v1"], r: "case:6",
-      x: "It goes to officer review, is approved and is submitted, on an append-only, hash-chained event log. Investigate and manage, in one governed flow." }
+    { ms: 6000, t: "One alert, one case", q: "crans", g: "crans", lit: ["m", "o1", "o2", "t1", "t2"], r: "case:3",
+      x: "Back to Crans. In the live console this case is Assigned with its disposition Pending. From here the story plays the workflow forward, on the same screen as the graph it was scored on." },
+    { ms: 6000, t: "The SAR draft", q: "crans", g: "crans", lit: ["m", "o1", "o2", "t1", "t2"], r: "case:4",
+      x: "The narrative is built from the console's own briefing for this case, and every line carries the signal it came from." },
+    { ms: 5000, t: "Submitted", q: "crans", g: "crans", lit: ["m", "o1", "o2", "t1", "t2", "v1"], r: "case:6",
+      x: "Played forward, the case goes to officer review, is approved and is submitted, on an append-only, hash-chained event log. Investigate and manage, in one governed flow." }
   ];
   var TOTAL = BEATS.reduce(function (a, b) { return a + b.ms; }, 0);
 
@@ -296,7 +313,9 @@
       var col = on ? "#e9c877" : "#3a4a60";
       var d = bend ? "M" + p1[0] + " " + p1[1] + " Q" + mx + " " + my + " " + p2[0] + " " + p2[1] : "M" + p1[0] + " " + p1[1] + " L" + p2[0] + " " + p2[1];
       out.push('<path d="' + d + '" fill="none" stroke="' + col + '" stroke-width="' + (on ? 2.2 : 1.2) + '" marker-end="url(#' + (on ? "mh" : "md") + ')" style="transition:stroke .4s"/>');
-      var lx = bend ? (p1[0] + 2 * mx + p2[0]) / 4 : (p1[0] + p2[0]) / 2, ly = bend ? (p1[1] + 2 * my + p2[1]) / 4 : (p1[1] + p2[1]) / 2;
+      // `at` slides a straight edge's label along the line (0 = source, 1 = target) to keep it clear of its neighbours
+      var at = e.at == null ? 0.5 : e.at;
+      var lx = bend ? (p1[0] + 2 * mx + p2[0]) / 4 : p1[0] + (p2[0] - p1[0]) * at, ly = bend ? (p1[1] + 2 * my + p2[1]) / 4 : p1[1] + (p2[1] - p1[1]) * at;
       var w = e.l.length * 7.1 + 14;
       out.push('<g opacity="' + (on ? 1 : .55) + '"><rect x="' + (lx - w / 2) + '" y="' + (ly - 10) + '" width="' + w + '" height="20" rx="5" fill="#0a1220" stroke="' + (on ? "rgba(233,200,119,.5)" : "rgba(255,255,255,.08)") + '"/>' +
         '<text x="' + lx + '" y="' + (ly + 4) + '" text-anchor="middle" font-family="SF Mono,ui-monospace,Menlo,monospace" font-size="11.5" fill="' + (on ? "#f3dc9e" : "#8a9bb2") + '">' + esc(e.l) + '</text></g>');
@@ -331,10 +350,8 @@
       if (n >= 6) c = i === 3 ? "now" : "done";
       return '<li class="' + c + '">' + s + '</li>';
     }).join("");
-    var sar = n >= 4 ? '<div class="sarh">SAR narrative · excerpt</div><div class="sar">' +
-      '<p>Crans Resources (PK) is the focal entity of a closed two-leg flow with Wiggo Jewel: 485,000 in and 335,000 out, retaining 69.1% of value. <span class="tag">[transactions] [money_flow.trace_loop]</span></p>' +
-      '<p>Both parties are controlled by Aurelian Holdings, at 60% and 55%, so there is no genuine change of ownership. <span class="tag">[ownership · E-AURELIAN]</span></p>' +
-      '<p>The Circular Funds Flow verdict is 53 (Medium) on the governed TBML006 model. <span class="tag">[scoring_config]</span></p></div>' : "";
+    var sar = n >= 4 ? '<div class="sarh">Case briefing · as the console records it</div><div class="sar">' +
+      BRIEFING.map(function (b) { return '<p>' + esc(b[0]) + ' <span class="tag">[' + esc(b[1]) + ']</span></p>'; }).join("") + '</div>' : "";
     return '<p class="panelt">Case · Crans Resources</p><p class="panels">Investigate and manage on one screen</p>' +
       (n >= 4 ? '<ol class="steps" aria-label="SAR lifecycle">' + steps + '</ol>' : "") +
       '<ul class="audit">' + AUDIT.slice(0, n).map(function (a) { return '<li><span class="t">' + a[0] + '</span><span>' + esc(a[1]) + '</span></li>'; }).join("") + '</ul>' + sar;
@@ -345,10 +362,10 @@
     if (r === "intro") h = '<p class="panelt">Entity · case</p><p class="panels">Select an alert to see why it scored, and to work the case.</p>' +
       '<div class="two"><div class="sc m"><div class="big">3</div><div class="lbl">worked cases</div><p>AML, sanctions and market abuse on one substrate</p></div><div class="sc v"><div class="big">1</div><div class="lbl">resolved graph</div><p>scored, explored and cased in one place</p></div></div>';
     else if (r === "macro") h = '<p class="panelt">Macro triage · Crans Resources</p><p class="panels">Additive risk points across every signal, capped at 100</p>' +
-      '<div class="comp"><div class="cl"><span>Circular loop (closed 2-hop, 69.1% retained)</span><span class="cv">+40</span></div><div class="bar"><i data-w="80" style="background:#e9c877"></i></div></div>' +
-      '<div class="comp"><div class="cl"><span>High value (TX-16 · 485,000)</span><span class="cv">+15</span></div><div class="bar"><i data-w="30" style="background:#e9c877"></i></div></div>' +
-      '<div class="comp"><div class="cl"><span>Further signals from the other typologies</span><span class="cv">…</span></div><div class="bar"><i data-w="100" style="background:#3a4a60"></i></div></div>' +
-      '<div class="total"><span style="font-size:12.5px;color:var(--ink2)">Macro triage · Critical · capped</span><b style="color:var(--acc)">100</b></div>';
+      MACRO.map(function (m) {
+        return '<div class="comp"><div class="cl"><span>' + esc(m[0]) + '</span><span class="cv">+' + m[1] + '</span></div><div class="bar"><i data-w="' + (m[1] / 45 * 100).toFixed(0) + '" style="background:#e9c877"></i></div></div>';
+      }).join("") +
+      '<div class="total"><span style="font-size:12.5px;color:var(--ink2)">157.5 raw · capped · Critical</span><b style="color:var(--acc)">100</b></div>';
     else if (r.indexOf("model:") === 0) h = modelHtml(r.slice(6));
     else if (r === "two") h = '<p class="panelt">Triage vs verdict</p><p class="panels">Two questions, two numbers</p><div class="two">' +
       '<div class="sc m"><div class="big">100</div><div class="lbl">Macro triage</div><p>What to open first. Ranks the queue.</p></div>' +
