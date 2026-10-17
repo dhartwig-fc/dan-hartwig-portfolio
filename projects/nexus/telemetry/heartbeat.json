@@ -1,0 +1,353 @@
+{
+ "archive": {
+  "latest": null,
+  "not_safe": 0
+ },
+ "days": [
+  {
+   "alerts": null,
+   "day": "2026-09-21",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-22",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-23",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-24",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-25",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-28",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-29",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-09-30",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-01",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-02",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-05",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-06",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-07",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-08",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-09",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-12",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-13",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-14",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  },
+  {
+   "alerts": 1500,
+   "day": "2026-10-15",
+   "decided": 5,
+   "opening_load": true,
+   "reason": null,
+   "recovered_on": null,
+   "status": "ok"
+  },
+  {
+   "alerts": null,
+   "day": "2026-10-16",
+   "decided": null,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "grey"
+  }
+ ],
+ "estate": "living-01",
+ "learning": {
+  "as_of": "2026-10-16T17:00:00+01:00",
+  "events": [
+   {
+    "at": "2026-10-16T17:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-8 of PAT007: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-10-16T17:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-4 of SAN004: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-10-16T17:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-7 of SAN004: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-10-16T17:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-9 of SAN004: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-10-16T12:00:00+01:00",
+    "external": "U.S. Department of the Treasury - Office of Foreign Assets Control (OFAC) · Iran-related Designations and Designations Updates; Transnational Criminal Organizations Designation; Publication of Ira",
+    "internal": "corroborates PAT007",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-16T12:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-8 of PAT007: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-16T12:00:00+01:00",
+    "external": "U.S. Department of the Treasury, Office of Foreign Assets Control (OFAC) · Counter Narcotics and Counter Terrorism Designations",
+    "internal": "corroborates SAN004",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-16T12:00:00+01:00",
+    "external": "U.S. Department of the Treasury - Office of Foreign Assets Control (OFAC) · Iran-related Designations and Designations Updates; Transnational Criminal Organizations Designation; Publication of Ira",
+    "internal": "corroborates SAN004",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-16T12:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-7 of SAN004: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-16T12:00:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-9 of SAN004: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": "U.S. Department of Commerce, Department of the Treasury, and Department of Justice · U.S. Department of Commerce, Department of the Treasury, and Department of Justice advisory ADV-2026-0013",
+    "internal": "corroborates BA005",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-1 of BA005: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": "U.S. Department of Commerce, Department of the Treasury, and Department of Justice · U.S. Department of Commerce, Department of the Treasury, and Department of Justice advisory ADV-2026-0013",
+    "internal": "corroborates SAN001",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-2 of SAN001: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": "U.S. Department of Commerce, Department of the Treasury, and Department of Justice · U.S. Department of Commerce, Department of the Treasury, and Department of Justice advisory ADV-2026-0013",
+    "internal": "corroborates SAN003",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-3 of SAN003: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": "U.S. Department of Commerce, Department of the Treasury, and Department of Justice · U.S. Department of Commerce, Department of the Treasury, and Department of Justice advisory ADV-2026-0013",
+    "internal": "corroborates SAN004",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-4 of SAN004: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": "U.S. Department of the Treasury, Office of Foreign Assets Control (OFAC) · Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Pegasus Worldwid",
+    "internal": "corroborates SAN006",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-6 of SAN006: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": "U.S. Department of Commerce, Department of the Treasury, and Department of Justice · U.S. Department of Commerce, Department of the Treasury, and Department of Justice advisory ADV-2026-0013",
+    "internal": "corroborates SAN007",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-10-15T17:30:00+01:00",
+    "external": null,
+    "internal": "Re-review RR-5 of SAN007: raised",
+    "kind": "rereview_raised"
+   }
+  ]
+ },
+ "living_since": "2026-10-15",
+ "provenance": {
+  "authority": "LOCKED",
+  "fc10_commit": "d1296c987452a10aca8ec649f27f5ce82f40f156",
+  "run_id": "2026-10-16T05-30-04",
+  "titles_from": "fc-08"
+ },
+ "published_at": "2026-10-17T22:27:57+01:00",
+ "pulse_note": null,
+ "running": {
+  "as_of": "2026-10-16T05:34:42+01:00",
+  "avg_seconds": 277.4,
+  "clean": 1,
+  "of": 1
+ },
+ "schema": 1,
+ "stable": {
+  "as_of": "2026-10-13T10:45:19+01:00",
+  "reason": null,
+  "verdict": "BASELINE"
+ },
+ "synthetic": true,
+ "today": {
+  "day": "2026-10-15",
+  "intake_transactions": 20214,
+  "run_seconds": 277.4
+ }
+}
