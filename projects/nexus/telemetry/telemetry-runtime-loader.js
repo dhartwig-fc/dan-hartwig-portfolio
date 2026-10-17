@@ -147,9 +147,20 @@
   function bindLiveManufacturing(payload) {
     const live = payload.live_manufacturing;
 
-    if (!live || typeof live !== "object") {
+    // The governed envelope (build_website_telemetry_envelope) does not emit a
+    // live_manufacturing block, and no element on the page binds its fields.
+    // Treat it as optional: record its absence instead of failing the whole load.
+    if (live === undefined || live === null) {
+      document.documentElement.setAttribute(
+        "data-telemetry-live-manufacturing",
+        "not-published"
+      );
+      return 0;
+    }
+
+    if (typeof live !== "object") {
       throw new Error(
-        "Live manufacturing telemetry is missing or invalid"
+        "Live manufacturing telemetry is invalid"
       );
     }
 
