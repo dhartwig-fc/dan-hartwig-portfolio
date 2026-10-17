@@ -2096,6 +2096,13 @@ h1{margin:0;line-height:0}
 </div>
 <script>(function(){var n=document.querySelectorAll(".nx-demos-list li a").length,c=document.querySelector(".nx-demos .nx-count");if(c&&n){c.textContent=n+" demos";c.hidden=false}})();</script>
 
+<style id="nx-card-inbuild-style">
+  /* A briefing card whose surface is being rebuilt: not a link, no hover lift. */
+  .briefing-slide-card.nx-card-inbuild{border-style:dashed;border-color:rgba(216,160,58,.5);cursor:default}
+  .briefing-slide-card.nx-card-inbuild:hover{transform:none}
+  .briefing-slide-card.nx-card-inbuild .briefing-label{color:#d8a03a}
+  .briefing-slide-card.nx-card-inbuild .nx-inbuild-note{color:#d8a03a;opacity:.85}
+</style>
 <style id="nx-demo-library-style">
   /* Demo Library picture button. Scoped under .nx-demos so it cannot touch other
      controls; same footprint and lift as the harbour button above it. */
@@ -2162,13 +2169,13 @@ h1{margin:0;line-height:0}
           <span>Mission Status</span>
           <span class="status-dot"></span>
         </div>
-        <h3>NEXUS now runs as one governed, deterministic batch.</h3>
+        <h3>NEXUS now runs itself each morning, and what the regulators publish flows back into it.</h3>
         <p>
-          The substrate, detection and scoring across every crime family, and the fused investigator console are built and merged &mdash; governed, deterministic, tested end to end. <b>Beta v2.1</b> took the copilot to three live slices, published five fused investigations, completed doctrine for all 57 typologies and made every published run reproducible from a clean clone. Now the whole chain runs as one batch over a bank-scale synthetic estate of 9,889 entities &mdash; daily feeds to operations decisions, 7 of 7 phases, replay fingerprints equal.
+          All 57 products manufacture end to end, and the whole chain runs as one governed batch over a bank-scale synthetic estate of 9,889 entities. Since 13 October a <b>living estate</b> advances one business day every weekday at 05:30, and its first real day ran clean. The regulatory scan now <b>closes the loop into the platform</b>: a known pattern corroborates its typology and queues the cases built on it for re-review &mdash; 9 corroborations across 7 typologies so far &mdash; and an unknown one becomes a governed typology proposal. 6,082 tests, 0 failed, CI-gated.
         </p>
         <div class="metric">
-          <strong>Beta v2.1</strong>
-          <span>console</span>
+          <strong>17 Oct</strong>
+          <span>updated &middot; Beta v2.1</span>
         </div>
       </article>
 
@@ -2185,6 +2192,7 @@ h1{margin:0;line-height:0}
           <div class="stage-item"><span>Network intelligence</span><span>Built</span></div>
           <div class="stage-item"><span>TBML &amp; sanctions</span><span>Built</span></div>
           <div class="stage-item"><span>Risk scoring</span><span>Built</span></div>
+          <div class="stage-item"><span>Regulatory scan &rarr; typology loop</span><span>Live</span></div>
         </div>
       </article>
 
@@ -2195,12 +2203,13 @@ h1{margin:0;line-height:0}
         </div>
         <h3>Fused console &amp; operations.</h3>
         <p>
-          One console over every layer &mdash; the resolved graph, the case lifecycle, and a copilot with three live slices: a provenance-linked SAR draft, the EDD memo and disposition support. Investigate and manage on one screen.
+          One console over every layer &mdash; the resolved graph and the case lifecycle &mdash; with a living estate that runs every weekday and a re-review queue fed by the regulatory scan. The copilot surfaces (SAR draft, EDD memo, disposition support) are being updated.
         </p>
         <div class="stage-list">
           <div class="stage-item"><span>Investigator console</span><span>Built</span></div>
-          <div class="stage-item"><span>Case workflow</span><span>Built</span></div>
-          <div class="stage-item"><span>Copilot · SAR, EDD, disposition</span><span>Built</span></div>
+          <div class="stage-item"><span>Case workflow &amp; re-review queue</span><span>Live</span></div>
+          <div class="stage-item"><span>Living estate &middot; weekdays 05:30</span><span>Live</span></div>
+          <div class="stage-item"><span>Copilot &middot; SAR, EDD, disposition</span><span>Being updated</span></div>
         </div>
       </article>
 
@@ -2249,24 +2258,24 @@ h1{margin:0;line-height:0}
         <div class="briefing-slide-copy">
           <div class="briefing-label">Update Pack 04</div>
           <h3>Future Capabilities</h3>
-          <p>Where the AI plugs in: three live copilot slices, the threat-intelligence layer reading live regulator feeds, and the tuning studio.</p>
+          <p>Where the AI plugs in: the threat-intelligence layer reading the regulators and feeding what it finds back into the platform, the copilot surfaces (being updated), and the tuning studio (in build).</p>
           <span class="briefing-link">Open full briefing →</span>
         </div>
       </a>
 
-      <a class="briefing-slide-card green wide" id="tuning-studio" href="tuning-studio.html">
+      <div class="briefing-slide-card green wide nx-card-inbuild" id="tuning-studio" aria-label="TM Tuning Studio, in build">
         <div class="briefing-slide-copy">
-          <div class="briefing-label">Update Pack 05 · Built</div>
+          <div class="briefing-label">Update Pack 05 · In build</div>
           <h3>TM Tuning Studio</h3>
           <p>Stress-testing the transaction-monitoring alerts against a population whose truth is known: what every threshold, segment split and challenger rule does to precision, recall and investigator capacity, changed only through a governed decision. A ten-week build with a training programme alongside.</p>
-          <span class="briefing-link">Open full briefing →</span>
+          <span class="briefing-link nx-inbuild-note">A fresh build is on the way · the briefing returns when it is rebuilt</span>
         </div>
-        <div class="briefing-stats" aria-label="Measured on planted truth, weeks 1 to 4">
+        <div class="briefing-stats" aria-label="Previous build, measured on planted truth, weeks 1 to 4">
           <div><b>55%</b><span>of planted spikes caught by today's £75k rule</span></div>
           <div><b>13.5%</b><span>actually reviewed once the queue is counted</span></div>
-          <div><b>10 / 10</b><span>weeks built · 8 decisions logged</span></div>
+          <div><b>10 / 10</b><span>weeks built · 8 decisions logged (previous build)</span></div>
         </div>
-      </a>
+      </div>
   </div>
 </section>
 <!-- UPDATE PACK SLIDES END -->

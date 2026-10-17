@@ -96,7 +96,31 @@ table.mx .neg{color:#c9b6a0}
     with the engineering and architectural reasoning behind it. For the full delivery record and the rollout gate,
     see the <a href="stage-catalogue.html" style="color:var(--blue)">stage catalogue</a>.
   </p>
-  <div class="updated">Updated <b>12 October 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
+  <div class="updated">Updated <b>17 October 2026</b> · Beta v2.1 · CI-gated, 0 failures</div>
+
+<section class="section" id="since-v2-1-living">
+    <h2>Since v2.1 — 13 to 17 October 2026</h2>
+    <p class="sub">
+      The platform stops being run on demand and starts living: a scheduled estate that advances one business day at a time,
+      and a regulatory scan that now feeds both new typologies and the typologies already built, all on synthetic data.
+      The suite now stands at <b>6,082 tests, 0 failed</b>, measured cold in CI.
+    </p>
+    <div class="ladder">
+
+      <div class="step armed"><div class="n">✦</div><div class="bt">Weekly drift check — built, not yet switched on<small>Built but not yet scheduled. A Sunday 06:00 job re-runs the batch, re-runs it again, then replays it at one worker, compares with the last good run and attributes any change to the inputs that moved. The first manual run set the baseline; the scheduler is not loaded yet, by owner choice.</small></div><span class="pill armed">Built · off</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">The living-ready platform<small>Ingestion now recognises an unchanged full snapshot as a no-change day, and the batch runner gains a living mode: successive days, operations once per day, a day-scoped report. Five interleaved days ran 7 of 7 phases with equal fingerprints.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">The living estate — live<small>A new estate advances one business day every weekday at 05:30: feeds, ingestion, batch, a daily metrics row and a trend page. Catch-up is capped at 5 days, outputs are retained for a rolling 5 business days, and a day is never ingested before the previous day's batch completes. The first real day (16 October) ran OK in 4 min 38 s.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Typology proposals<small>An unknown pattern from the regulatory scan becomes a governed typology proposal: spot, decide, propose, define, build, live. Built end to end; waiting for its first proposal.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">The known-typology loop<small>A known pattern from the scan corroborates the typology it matches, queues the cases built on that typology for re-review (a supervisor closes them), and can propose a red flag that, once approved, is absorbed into the typology's doctrine under Risk Drivers. Live: 9 corroborations across 7 typologies; 9 re-reviews raised, 4 closed unchanged, 5 open. No red flag has been approved yet.</small></div><span class="pill built">Built</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Portfolio — the Demo Library<small>The NEXUS page now has a Demo Library, the NEXUS Capability Showcase. Live in it: Operations MI, the Supervisor dashboard and the regulatory scan. In build, with no link until rebuilt: the TM Tuning Studio, the three copilot surfaces (SAR drafts, EDD memos, dispositions) and a shipping demo. The Entity Explorer is withdrawn from the page pending further work, and the case ledger replay is no longer listed.</small></div><span class="pill built">Built</span></div>
+
+    </div>
+  </section>
 
 <section class="section" id="since-v2-1-batch">
     <h2>Since v2.1 — 30 September to 12 October 2026</h2>
@@ -224,7 +248,7 @@ table.mx .neg{color:#c9b6a0}
 
   
   <div class="foot">
-    NEXUS · Beta v2.1 &amp; v2.0 release notes · updated 2026-10-12 —
+    NEXUS · Beta v2.1 &amp; v2.0 release notes · updated 2026-10-17 —
     <a href="stage-catalogue.html">stage catalogue →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
