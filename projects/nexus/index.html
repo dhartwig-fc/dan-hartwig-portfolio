@@ -2025,10 +2025,11 @@ h1{margin:0;line-height:0}
 <div class="hiw-cta-row"><a class="hiw-btn" href="walkthrough.html">How it works &middot; 90-sec walkthrough &rarr;</a><a class="hiw-btn" href="story.html">&#9654; Watch the 60-second story &rarr;</a></div>
 
 <!-- Demo Library: one picture button that holds every further demo. Add a demo by
-     adding one <li> to .nx-demos-list; nothing else needs to change. -->
+     adding one <li> to a section of .nx-demos-list; the count chip counts the linked ones. A demo still in build is an
+     li.nx-soon with no link; swap it for a normal <li> when it publishes. -->
 <div class="nx-demos-wrap">
 <details class="nx-demos">
-  <summary class="nx-demos-button" aria-label="Demo Library: regulatory intelligence exchange. Opens the list of demos.">
+  <summary class="nx-demos-button" aria-label="Demo Library: NEXUS Capability Showcase. Opens the list of demos.">
     <svg class="nx-scene" viewBox="0 0 372 64" preserveAspectRatio="xMinYMid slice" aria-hidden="true">
       <defs>
         <radialGradient id="nxGlow" cx="0.14" cy="0.62" r="0.5"><stop offset="0" stop-color="#d8a03a" stop-opacity=".42"/><stop offset="1" stop-color="#d8a03a" stop-opacity="0"/></radialGradient>
@@ -2072,22 +2073,41 @@ h1{margin:0;line-height:0}
       </g>
     </svg>
     <span class="nx-scrim"></span>
-    <span class="nx-label"><span class="nx-title">Demo Library <span class="nx-count">2 demos</span></span><span class="nx-sub">Regulatory intelligence exchange</span></span>
+    <span class="nx-label"><span class="nx-title">Demo Library <span class="nx-count" hidden></span></span><span class="nx-sub">NEXUS Capability Showcase</span></span>
     <svg class="nx-chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 L6 6.5 L11 1.5"/></svg>
   </summary>
-  <ul class="nx-demos-list">
-    <li><a class="hiw-btn" href="runtime-demo/ops_mi.html">Operations MI dashboard &rarr;</a><span>Alert volumes, SLA and QA across the governed estate.</span></li>
-    <li><a class="hiw-btn" href="threat-intel/scan.html">Watch the agents scan the regulators &rarr;</a><span>Advisories in, corroborated typologies and re-reviews out.</span></li>
-  </ul>
+  <div class="nx-demos-list">
+    <section><h4>Operations</h4><ul>
+      <li><a class="hiw-btn" href="runtime-demo/ops_mi.html">Operations MI &rarr;</a><span>Alert volumes, SLA and QA across the governed estate.</span></li>
+      <li><a class="hiw-btn" href="runtime-demo/ops_dashboard.html">Supervisor dashboard &rarr;</a><span>Queues, allocation and SLA breaches as a supervisor sees them.</span></li>
+      <li><a class="hiw-btn" href="runtime-demo/ledger_replay.html">Case ledger replay &rarr;</a><span>The hash-chained case record, replayed event by event.</span></li>
+    </ul></section>
+    <section><h4>Copilot</h4><ul>
+      <li><a class="hiw-btn" href="runtime-demo/sar_drafts.html">SAR drafts &rarr;</a><span>Deterministic SAR narratives, every figure cited.</span></li>
+      <li><a class="hiw-btn" href="runtime-demo/edd_memos.html">EDD memos &rarr;</a><span>Enhanced due diligence memos drafted from the evidence.</span></li>
+      <li><a class="hiw-btn" href="runtime-demo/dispositions.html">Dispositions &rarr;</a><span>Recommended dispositions, each with its reasons.</span></li>
+    </ul></section>
+    <section><h4>Intelligence</h4><ul>
+      <li><a class="hiw-btn" href="threat-intel/scan.html">Watch the agents scan the regulators &rarr;</a><span>Advisories in; corroborated typologies and re-reviews out.</span></li>
+      <li><a class="hiw-btn" href="explorer/index.html">Entity Explorer &rarr;</a><span>Resolved entities, ownership and links across the estate.</span></li>
+      <li><a class="hiw-btn" href="tuning-studio.html">TM Tuning Studio &rarr;</a><span>Thresholds, segments and champion/challenger, governed.</span></li>
+      <li class="nx-soon"><span class="nx-soon-pill">Shipping demo <em>In build</em></span><span>Coming to the library soon.</span></li>
+    </ul></section>
+  </div>
 </details>
 </div>
+<script>(function(){var n=document.querySelectorAll(".nx-demos-list li a").length,c=document.querySelector(".nx-demos .nx-count");if(c&&n){c.textContent=n+" demos";c.hidden=false}})();</script>
 
 <style id="nx-demo-library-style">
   /* Demo Library picture button. Scoped under .nx-demos so it cannot touch other
      controls; same footprint and lift as the harbour button above it. */
-  .nx-demos-wrap{display:flex;justify-content:center;margin:26px 0 0}
-  .nx-demos{width:372px;max-width:100%}
-  .nx-demos-button{
+  /* Centre the hero's boxes on the page. Earlier rules pinned the demo row
+     beneath one nav pill with left:-135px; this final, more specific rule resets that. */
+  .stage429-hero-controls{justify-content:center}
+  .hero > .stage429-investigation-second-row{width:100%;max-width:100%;margin-left:0;margin-right:0;left:0;right:auto;transform:none;align-items:center}
+  .nx-demos-wrap{display:flex;justify-content:center;width:100%;margin:26px 0 0}
+  .nx-demos{width:100%}
+  .nx-demos-button{width:372px;max-width:100%;margin:0 auto;
     position:relative;display:flex;align-items:center;justify-content:flex-end;gap:12px;
     min-height:64px;padding:0 18px 0 26px;border-radius:16px;overflow:hidden;cursor:pointer;list-style:none;
     color:#fff;border:1px solid rgba(255,255,255,.18);
@@ -2108,9 +2128,17 @@ h1{margin:0;line-height:0}
   .nx-demos .nx-chev{position:relative;z-index:2;width:12px;height:8px;flex:none;transition:transform .22s ease}
   .nx-demos .nx-chev path{fill:none;stroke:#cfe3f5;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .nx-demos[open] .nx-chev{transform:rotate(180deg)}
-  .nx-demos-list{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:10px}
-  .nx-demos-list li{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
-  .nx-demos-list li span{font-size:12px;color:var(--muted);opacity:.75;max-width:46ch;line-height:1.45}
+  .nx-demos-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:960px;margin:16px auto 0;padding:16px;
+    border:1px solid rgba(79,208,224,.18);border-radius:16px;background:rgba(10,20,40,.45)}
+  .nx-demos-list section{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0}
+  .nx-demos-list h4{margin:0;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#d8a03a}
+  .nx-demos-list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+  .nx-demos-list li{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;min-width:0}
+  .nx-demos-list li span{font-size:12px;color:var(--muted);opacity:.75;max-width:34ch;line-height:1.45}
+  .nx-soon-pill{display:inline-flex;align-items:center;gap:8px;font-weight:650;font-size:13px;color:var(--muted);
+    border:1px dashed rgba(216,160,58,.5);border-radius:999px;padding:9px 18px}
+  .nx-soon-pill em{font-style:normal;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#d8a03a}
+  @media(max-width:820px){.nx-demos-list{grid-template-columns:minmax(0,1fr)}}
   @media(prefers-reduced-motion:reduce){
     .nx-demos .nx-pk,.nx-demos .nx-ring{display:none}
     .nx-demos-button,.nx-demos .nx-chev{transition:none}
