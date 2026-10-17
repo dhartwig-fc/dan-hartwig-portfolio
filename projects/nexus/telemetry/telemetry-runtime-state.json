@@ -1,47 +1,47 @@
 {
-  "active_stage": "Stage560",
-  "build_fingerprint": "efaedaa68407bedec6cb8db7d1006eb7f09bc575a294f00db2ff4eb176de1519",
+  "active_stage": "Stage566",
+  "build_fingerprint": "7ec4fc676ef012f4bc1a55d8a2067411b5265a715537a3add970c6730f473751",
   "current_branch": "main",
-  "current_commit": "ed361e25acba0b6a6510d63472a2b827458caf22",
+  "current_commit": "f5bfda3c1fc9e1a3ad0f7b6b58f8b0affbfcf190",
   "envelope_provenance": {
     "contract": "NEXUS_WEBSITE_TELEMETRY_ENVELOPE_V1",
     "produced_by": "runtime/manufacturing/producers/build_website_telemetry_envelope.py",
     "sources": {
       "accepted_run_id": "derived: the run_id of this envelope",
-      "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-09-25)",
+      "active_stage": "programme_state.json:state.active_stage (human-maintained, reviewed 2026-10-17)",
       "authority_registry": "derived: authority_lock+pointer+registry (status ACTIVE, records agree, artefact matches)",
-      "build_fingerprint": "telemetry_projections/tbml010-0d9a8be2b1_telemetry_projection.json:projection_integrity.canonical_core_sha256",
+      "build_fingerprint": "telemetry_projections/pat010-786c110640_telemetry_projection.json:projection_integrity.canonical_core_sha256",
       "canonical_source": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); matches)",
       "connection": "derived: authority_pointer.json:canonical_relative_path+canonical_sha256+lock_relative_path+registry_relative_path (pointer digest matches the artefact)",
-      "contract_integrity": "telemetry_projections/tbml010-0d9a8be2b1_telemetry_projection.json:projection_integrity.deterministic+contract_id",
+      "contract_integrity": "telemetry_projections/pat010-786c110640_telemetry_projection.json:projection_integrity.deterministic+contract_id",
       "current_branch": "git:rev-parse --abbrev-ref HEAD",
       "current_commit": "git:rev-parse HEAD",
-      "events": "derived: logs/tbml010-0d9a8be2b1.json:events (runtime stage events for this run)",
-      "evidence_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
+      "events": "derived: logs/pat010-786c110640.json:events (runtime stage events for this run)",
+      "evidence_status": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:evidence_status [governed value 'CAPTURED' translated to 'COMPLETE' for the page's display vocabulary]",
       "failures": "derived: count of non-PASS run statuses",
-      "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-09-25)",
+      "first_runtime_status": "programme_state.json:state.first_runtime_status (human-maintained, reviewed 2026-10-17)",
       "generated_at": "producer runtime clock",
-      "intelligence_asset_status": "derived: end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
-      "last_validation": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:created_at",
-      "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-09-25)",
-      "product_id": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:product_id",
-      "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-09-25)",
-      "release_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
+      "intelligence_asset_status": "derived: end_to_end_reports/pat010-786c110640_end_to_end_report.json:release_status == APPROVED_FOR_RELEASE",
+      "last_validation": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:created_at",
+      "manufacturing_status": "programme_state.json:state.manufacturing_status (human-maintained, reviewed 2026-10-17)",
+      "product_id": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:product_id",
+      "promotion_status": "programme_state.json:state.promotion_status (human-maintained, reviewed 2026-10-17)",
+      "release_status": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:release_status [governed value 'APPROVED_FOR_RELEASE' translated to 'RUNTIME_ACCEPTED' for the page's display vocabulary]",
       "repository_integrity": "authority_lock.json:locked_sha256 (dan-hartwig-portfolio/projects/nexus/telemetry/index.html via $NEXUS_PORTFOLIO_ROOT (set); matches)",
       "repository_status": "authority_registry.json:status",
-      "run_id": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:run_id",
-      "runtime_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:runtime_status",
+      "run_id": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:run_id",
+      "runtime_status": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:runtime_status",
       "state_reviewed": "programme_state.json:last_reviewed",
-      "validation_status": "end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json:validation_status",
+      "validation_status": "end_to_end_reports/pat010-786c110640_end_to_end_report.json:validation_status",
       "working_tree_state": "git:status --porcelain (no source path differs from HEAD; 0 runtime-output paths excluded)"
     }
   },
-  "generated_at": "2026-09-25T17:37:56.900890+00:00",
-  "last_validation": "2026-08-30T07:42:26.794007Z",
-  "product_id": "TBML010",
+  "generated_at": "2026-10-17T10:32:04.357464+00:00",
+  "last_validation": "2026-09-13T14:33:55.684807Z",
+  "product_id": "PAT010",
   "projection": {
-    "accepted_run_id": "tbml010-0d9a8be2b1",
-    "active_stage": "Stage560",
+    "accepted_run_id": "pat010-786c110640",
+    "active_stage": "Stage566",
     "authority_registry": "LOCKED",
     "canonical_source": "LOCKED",
     "connection": "BOUND",
@@ -57,10 +57,10 @@
     "repository_integrity": "VERIFIED",
     "repository_status": "VERIFIED",
     "runtime_status": "SUCCESS",
-    "state_reviewed": "2026-09-25",
+    "state_reviewed": "2026-10-17",
     "validation_status": "PASS"
   },
-  "run_id": "tbml010-0d9a8be2b1",
+  "run_id": "pat010-786c110640",
   "runtime_projection": {
     "evidence": {
       "artifacts": {
@@ -69,258 +69,543 @@
             "allocation": "Allocate further collection where runtime evidence gaps remain."
           },
           "analytic_authority": {
-            "alert_count": 1,
-            "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-            "callable": "evaluate_sanctions_evasion",
-            "repository": "$FC04_TBML_REPOSITORY",
-            "risk_band": "Critical",
-            "risk_reason": "Trade exposed to a sanctioned party or jurisdiction",
-            "risk_score": 80,
-            "scenario_path": "$FC04_TBML_REPOSITORY/python/specific/TBML010/scenarios/sanctions_evasion.py",
-            "scenario_sha256": "835a1247e889aa6ee4108c732da4010b9eca08d3ea813a71df02530dcbbbf09b"
+            "callable": "NI010HiddenController.run",
+            "confidence_score": 0.86,
+            "delegation_count": 1,
+            "entity_count": 22,
+            "finding_count": 3,
+            "relationship_count": 26,
+            "repository": "$FC03_NETWORK_REPOSITORY",
+            "risk_score": 20
           },
-          "analytic_name": "TBML010 Sanctions Evasion Through Trade",
+          "analytic_name": "Hidden Controller (applied pattern)",
           "analytic_reasoning": {
             "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
-            "reasoning_summary": "Runtime reasoning generated from metadata.",
+            "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
             "section": "Analytic Reasoning",
             "supporting_factors": [
-              "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-              "Trade exposed to a sanctioned party or jurisdiction.",
-              "Sanctions Exposure: Critical (90/100, weight 0.3)",
-              "Jurisdiction: Critical (90/100, weight 0.15)",
-              "Network: Critical (90/100, weight 0.15)",
-              "Trade Value: Critical (90/100, weight 0.15)",
-              "Counterparty: High (70/100, weight 0.15)",
-              "Historical: Low (15/100, weight 0.1)"
+              "Gamma Trading Ltd is the controller of 3 controlled entities.",
+              "3 hidden controller finding(s) were discovered across the network.",
+              "Network risk scoring returned 20."
             ]
           },
-          "assessment_summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+          "assessment_summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
           "case": {
-            "alert_count": 1,
-            "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
             "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
             "case_contract_version": "1.2",
-            "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
+            "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
             "case_fingerprint_excludes": [
               "run_id"
             ],
-            "case_id": "TBML010-TRD001",
-            "case_required_fields_count": 3,
+            "case_id": "PAT010-C003",
+            "case_required_fields_count": 2,
             "case_required_fields_declared": true,
-            "case_verdict": "TRD001: 80/100 Critical",
-            "classification": "CRITICAL",
+            "classification": "LOW",
             "connected_entities": [
-              "CP001"
+              "C004",
+              "C005",
+              "C006"
             ],
-            "connected_entity_count": 1,
+            "connected_entity_count": 3,
             "connected_entity_names": {
-              "CP001": "Transcaspian Trading Ltd"
+              "C004": "Delta Shipping Ltd",
+              "C005": "Epsilon Commodities Ltd",
+              "C006": "Zeta Logistics Ltd"
             },
             "data_classification": "GOVERNED_SYNTHETIC",
-            "product_id": "TBML010",
+            "finding_count": 3,
+            "product_id": "PAT010",
             "real_client_data": false,
-            "risk_band": "Critical",
-            "risk_score": 80,
-            "run_id": "tbml010-0d9a8be2b1",
-            "subject_entity_id": "CUST001",
-            "subject_identity": "Anchor Commodities Ltd",
+            "risk_score": 20,
+            "run_id": "pat010-786c110640",
+            "subject_entity_id": "C003",
+            "subject_identity": "Gamma Trading Ltd",
             "synthetic_data": true,
-            "typology_id": "TBML010",
-            "typology_name": "Sanctions Evasion Through Trade"
+            "typology_id": "PAT010",
+            "typology_name": "Hidden Controller"
           },
-          "case_id": "TBML010-TRD001",
+          "case_id": "PAT010-C003",
           "classification": {
-            "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-            "category": "Sanctions Evasion Through Trade",
-            "exposure": "Critical",
-            "type": "Trade Based Money Laundering",
-            "typology": "TBML010"
+            "category": "Hidden Controller",
+            "exposure": "Low",
+            "type": "Network Intelligence",
+            "typology": "PAT010"
           },
-          "confidence_score": 0.8,
-          "decision_rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
+          "confidence_narrative": "Confidence 0.86, from the governed FC-03 Hidden Controller analytic's coverage of the supplied network.",
+          "confidence_score": 0.86,
+          "decision_rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
           "decision_recommendation": {
-            "priority": "Metadata-driven",
-            "rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
-            "recommended_decision": "Review according to runtime risk and confidence indicators.",
+            "priority": "Low",
+            "rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
+            "recommended_decision": "Low",
             "section": "Decision Support"
           },
           "decision_support": {
-            "priority": "Metadata-driven",
-            "recommended_decision": "Review according to runtime risk and confidence indicators.",
+            "priority": "Low",
+            "recommended_decision": "Low",
             "section": "Decision Support"
           },
           "driver_analysis": {
             "risk_drivers": [
-              "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-              "Trade exposed to a sanctioned party or jurisdiction.",
-              "Sanctions Exposure: Critical (90/100, weight 0.3)",
-              "Jurisdiction: Critical (90/100, weight 0.15)",
-              "Network: Critical (90/100, weight 0.15)",
-              "Trade Value: Critical (90/100, weight 0.15)",
-              "Counterparty: High (70/100, weight 0.15)",
-              "Historical: Low (15/100, weight 0.1)"
+              "Gamma Trading Ltd is the controller of 3 controlled entities.",
+              "3 hidden controller finding(s) were discovered across the network.",
+              "Network risk scoring returned 20."
             ],
             "section": "Driver Analysis"
           },
           "evidence_quality": {
-            "confidence_score": 0.8,
+            "confidence_score": 0.86,
             "coverage": "Runtime metadata evidence coverage."
           },
-          "execution_mode": "governed_fc04_delegation",
+          "execution_mode": "governed_fc03_delegation",
           "execution_status": "SUCCESS",
           "expected_fusion_result": {
             "result": "Fused transaction, graph, counterparty and evidence intelligence."
           },
-          "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
-          "intelligence_assessment": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+          "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
+          "intelligence_assessment": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
           "intelligence_brief": {
-            "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
+            "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
             "section": "Intelligence Brief",
-            "summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here."
+            "summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006."
           },
           "intelligence_metadata": {
             "classification": {
-              "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-              "category": "Sanctions Evasion Through Trade",
-              "exposure": "Critical",
-              "type": "Trade Based Money Laundering",
-              "typology": "TBML010"
+              "category": "Hidden Controller",
+              "exposure": "Low",
+              "type": "Network Intelligence",
+              "typology": "PAT010"
             },
             "contract": "FC01_RUNTIME_CANONICAL_WORKSPACE",
-            "product_id": "TBML010",
+            "product_id": "PAT010",
             "section": "Intelligence Metadata",
-            "typology_id": "TBML010"
+            "typology_id": "PAT010"
           },
-          "investigation_actions": {
-            "actions": [],
-            "section": "Investigation Actions"
-          },
-          "investigation_hypothesis": "Transaction TRD001 may represent trade-based money laundering through sanctions evasion through trade; the finding is scored across the six-component model, not a single flag.",
-          "operational_action_plan": {
-            "actions": {
-              "actions": [],
-              "section": "Investigation Actions"
+          "investigation_actions": [
+            "Investigate hidden controller",
+            "Assess influence pathways",
+            "Review ultimate control"
+          ],
+          "investigation_hypothesis": "The hidden controller pattern around Gamma Trading Ltd may indicate coordinated or concealed activity worth investigating.",
+          "network_intelligence": {
+            "connected_entities": [
+              "C004",
+              "C005",
+              "C006"
+            ],
+            "connected_entity_count": 3,
+            "hidden_controller_findings": 3,
+            "network_metrics": {
+              "bridge_entities": [],
+              "clusters": [
+                {
+                  "cluster_id": "CLUSTER_1",
+                  "entities": [
+                    "P001",
+                    "C001",
+                    "C002",
+                    "C003",
+                    "C006",
+                    "C005",
+                    "C004",
+                    "P005"
+                  ],
+                  "entity_count": 8
+                },
+                {
+                  "cluster_id": "CLUSTER_2",
+                  "entities": [
+                    "P002",
+                    "C007",
+                    "C008",
+                    "C009",
+                    "C010",
+                    "C011",
+                    "P006"
+                  ],
+                  "entity_count": 7
+                },
+                {
+                  "cluster_id": "CLUSTER_3",
+                  "entities": [
+                    "P003",
+                    "C012",
+                    "C013",
+                    "C014"
+                  ],
+                  "entity_count": 4
+                },
+                {
+                  "cluster_id": "CLUSTER_4",
+                  "entities": [
+                    "P004",
+                    "C016",
+                    "C015"
+                  ],
+                  "entity_count": 3
+                }
+              ],
+              "connected_components": [
+                [
+                  "P001",
+                  "C001",
+                  "C002",
+                  "C003",
+                  "C006",
+                  "C005",
+                  "C004",
+                  "P005"
+                ],
+                [
+                  "P002",
+                  "C007",
+                  "C008",
+                  "C009",
+                  "C010",
+                  "C011",
+                  "P006"
+                ],
+                [
+                  "P003",
+                  "C012",
+                  "C013",
+                  "C014"
+                ],
+                [
+                  "P004",
+                  "C016",
+                  "C015"
+                ]
+              ],
+              "edge_count": 26,
+              "high_influence_entities": [
+                {
+                  "entity_id": "C003",
+                  "entity_name": "Gamma Trading Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1905
+                },
+                {
+                  "entity_id": "C004",
+                  "entity_name": "Delta Shipping Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1905
+                },
+                {
+                  "entity_id": "C005",
+                  "entity_name": "Epsilon Commodities Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1905
+                },
+                {
+                  "entity_id": "C006",
+                  "entity_name": "Zeta Logistics Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1905
+                },
+                {
+                  "entity_id": "P003",
+                  "entity_name": "Michael Brown",
+                  "entity_type": "PERSON",
+                  "influence_score": 0.1429
+                },
+                {
+                  "entity_id": "P005",
+                  "entity_name": "David Taylor",
+                  "entity_type": "PERSON",
+                  "influence_score": 0.1429
+                },
+                {
+                  "entity_id": "C009",
+                  "entity_name": "Kappa Resources Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1429
+                },
+                {
+                  "entity_id": "C010",
+                  "entity_name": "Lambda Holdings Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1429
+                },
+                {
+                  "entity_id": "C011",
+                  "entity_name": "Omega Trading Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.1429
+                },
+                {
+                  "entity_id": "P004",
+                  "entity_name": "Emma Wilson",
+                  "entity_type": "PERSON",
+                  "influence_score": 0.0952
+                },
+                {
+                  "entity_id": "P006",
+                  "entity_name": "Lisa Green",
+                  "entity_type": "PERSON",
+                  "influence_score": 0.0952
+                },
+                {
+                  "entity_id": "C001",
+                  "entity_name": "Alpha Holdings Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0952
+                },
+                {
+                  "entity_id": "C002",
+                  "entity_name": "Beta Investments Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0952
+                },
+                {
+                  "entity_id": "C007",
+                  "entity_name": "Theta Ventures Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0952
+                },
+                {
+                  "entity_id": "C008",
+                  "entity_name": "Iota Capital Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0952
+                },
+                {
+                  "entity_id": "P001",
+                  "entity_name": "John Smith",
+                  "entity_type": "PERSON",
+                  "influence_score": 0.0476
+                },
+                {
+                  "entity_id": "P002",
+                  "entity_name": "Sarah Johnson",
+                  "entity_type": "PERSON",
+                  "influence_score": 0.0476
+                },
+                {
+                  "entity_id": "C012",
+                  "entity_name": "Phoenix Investments Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0476
+                },
+                {
+                  "entity_id": "C013",
+                  "entity_name": "Apex Shipping Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0476
+                },
+                {
+                  "entity_id": "C014",
+                  "entity_name": "Horizon Logistics Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0476
+                },
+                {
+                  "entity_id": "C015",
+                  "entity_name": "Nexus Commodities Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0476
+                },
+                {
+                  "entity_id": "C016",
+                  "entity_name": "Vertex Global Ltd",
+                  "entity_type": "COMPANY",
+                  "influence_score": 0.0476
+                }
+              ],
+              "network_exposure": {
+                "C001": {
+                  "connected_entities": 2,
+                  "exposure_score": 20
+                },
+                "C002": {
+                  "connected_entities": 2,
+                  "exposure_score": 20
+                },
+                "C003": {
+                  "connected_entities": 4,
+                  "exposure_score": 40
+                },
+                "C004": {
+                  "connected_entities": 4,
+                  "exposure_score": 40
+                },
+                "C005": {
+                  "connected_entities": 4,
+                  "exposure_score": 40
+                },
+                "C006": {
+                  "connected_entities": 4,
+                  "exposure_score": 40
+                },
+                "C007": {
+                  "connected_entities": 2,
+                  "exposure_score": 20
+                },
+                "C008": {
+                  "connected_entities": 2,
+                  "exposure_score": 20
+                },
+                "C009": {
+                  "connected_entities": 3,
+                  "exposure_score": 30
+                },
+                "C010": {
+                  "connected_entities": 3,
+                  "exposure_score": 30
+                },
+                "C011": {
+                  "connected_entities": 3,
+                  "exposure_score": 30
+                },
+                "C012": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "C013": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "C014": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "C015": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "C016": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "P001": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "P002": {
+                  "connected_entities": 1,
+                  "exposure_score": 10
+                },
+                "P003": {
+                  "connected_entities": 3,
+                  "exposure_score": 30
+                },
+                "P004": {
+                  "connected_entities": 2,
+                  "exposure_score": 20
+                },
+                "P005": {
+                  "connected_entities": 3,
+                  "exposure_score": 30
+                },
+                "P006": {
+                  "connected_entities": 2,
+                  "exposure_score": 20
+                }
+              },
+              "node_count": 22
             },
+            "source_repository": "$FC03_NETWORK_REPOSITORY",
+            "subject_entity_id": "C003",
+            "subject_identity": "Gamma Trading Ltd"
+          },
+          "operational_action_plan": {
+            "actions": [
+              "Investigate hidden controller",
+              "Assess influence pathways",
+              "Review ultimate control"
+            ],
             "next_gate": "Evidence validation and decision review",
             "owner": "Financial Crime Operations",
             "section": "Investigation Actions"
           },
-          "product_id": "TBML010",
-          "product_kind": "risk_assessment",
+          "priority": "Low",
+          "product_id": "PAT010",
+          "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
+          "recommended_decision": "Low",
           "resource_optimisation": {
             "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
           },
-          "risk_band": "Critical",
           "risk_drivers": [
-            "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-            "Trade exposed to a sanctioned party or jurisdiction.",
-            "Sanctions Exposure: Critical (90/100, weight 0.3)",
-            "Jurisdiction: Critical (90/100, weight 0.15)",
-            "Network: Critical (90/100, weight 0.15)",
-            "Trade Value: Critical (90/100, weight 0.15)",
-            "Counterparty: High (70/100, weight 0.15)",
-            "Historical: Low (15/100, weight 0.1)"
+            "Gamma Trading Ltd is the controller of 3 controlled entities.",
+            "3 hidden controller finding(s) were discovered across the network.",
+            "Network risk scoring returned 20."
           ],
-          "risk_exposure_drivers": [
-            "Sanctions Exposure: Critical (90/100, weight 0.3)",
-            "Jurisdiction: Critical (90/100, weight 0.15)",
-            "Network: Critical (90/100, weight 0.15)",
-            "Trade Value: Critical (90/100, weight 0.15)",
-            "Counterparty: High (70/100, weight 0.15)",
-            "Historical: Low (15/100, weight 0.1)"
-          ],
-          "risk_score": 80,
+          "risk_score": 20,
           "scoring_framework": {
             "classification": {
-              "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-              "category": "Sanctions Evasion Through Trade",
-              "exposure": "Critical",
-              "type": "Trade Based Money Laundering",
-              "typology": "TBML010"
+              "category": "Hidden Controller",
+              "exposure": "Low",
+              "type": "Network Intelligence",
+              "typology": "PAT010"
             },
-            "confidence_score": 0.8,
-            "risk_score": 80,
+            "confidence_score": 0.86,
+            "risk_score": 20,
             "section": "Scoring Framework"
           },
           "supporting_assessment": [
-            "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
-            "The risk score was produced by the governed FC-04 TBML010 engine (evaluate_sanctions_evasion), proven standalone by fc-04's test pack before the runtime consumed it."
+            "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
+            "Risk was scored by the governed FC-03 engines, not by this adapter."
           ],
-          "tbml_alerts": [
-            {
-              "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-              "counterparty_id": "CP001",
-              "customer_id": "CUST001",
-              "risk_band": "Critical",
-              "risk_components": "{\"band\": \"Critical\", \"band_scores\": {\"Critical\": 90, \"High\": 70, \"Low\": 15, \"Medium\": 45}, \"basis\": \"scoring-models/specific/TBML010_Sanctions_Evasion_Through_Trade_Scoring_Framework.md. Band-midpoint mapping; boundaries at 80; half-up; missing != zero.\", \"boundaries\": [{\"band\": \"Low\", \"max\": 29, \"min\": 0}, {\"band\": \"Medium\", \"max\": 59, \"min\": 30}, {\"band\": \"High\", \"max\": 79, \"min\": 60}, {\"band\": \"Critical\", \"max\": 100, \"min\": 80}], \"components\": {\"counterparty\": {\"band\": \"High\", \"component_score\": 70, \"contribution\": 10.5, \"weight\": 0.15}, \"historical\": {\"band\": \"Low\", \"component_score\": 15, \"contribution\": 1.5, \"weight\": 0.1}, \"jurisdiction\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}, \"network\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}, \"sanctions_exposure\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 27.0, \"weight\": 0.3}, \"trade_value\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}}, \"rounding\": \"half-up\", \"score\": 80, \"total\": 79.5}",
-              "risk_reason": "Trade exposed to a sanctioned party or jurisdiction",
-              "risk_score": 80,
-              "sanctioned_jurisdiction_flag": true,
-              "sanctioned_party_flag": true,
-              "transaction_id": "TRD001"
-            }
-          ],
-          "typology": "TBML010",
-          "typology_id": "TBML010",
+          "typology": "PAT010",
+          "typology_id": "PAT010",
           "visual_intelligence_model": {
             "graph_source": "CANONICAL_RUNTIME_GRAPH",
-            "product_id": "TBML010",
+            "product_id": "PAT010",
             "section": "Visual Intelligence Model",
             "status": "EMITTED_BY_RUNTIME"
           }
         },
         "canonical_case_envelope": {
-          "alert_count": 1,
           "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
           "case_contract_version": "1.2",
-          "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
+          "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
           "case_fingerprint_excludes": [
             "run_id"
           ],
-          "case_id": "TBML010-TRD001",
-          "case_required_fields_count": 3,
+          "case_id": "PAT010-C003",
+          "case_required_fields_count": 2,
           "case_required_fields_declared": true,
-          "case_verdict": "TRD001: 80/100 Critical",
-          "classification": "CRITICAL",
+          "classification": "LOW",
           "connected_entities": [
-            "CP001"
+            "C004",
+            "C005",
+            "C006"
           ],
-          "connected_entity_count": 1,
+          "connected_entity_count": 3,
           "connected_entity_names": {
-            "CP001": "Transcaspian Trading Ltd"
+            "C004": "Delta Shipping Ltd",
+            "C005": "Epsilon Commodities Ltd",
+            "C006": "Zeta Logistics Ltd"
           },
           "data_classification": "GOVERNED_SYNTHETIC",
-          "product_id": "TBML010",
+          "product_id": "PAT010",
           "real_client_data": false,
-          "risk_band": "Critical",
-          "risk_score": 80,
-          "run_id": "tbml010-0d9a8be2b1",
-          "subject_entity_id": "CUST001",
-          "subject_identity": "Anchor Commodities Ltd",
+          "risk_score": 20,
+          "run_id": "pat010-786c110640",
+          "subject_entity_id": "C003",
           "synthetic_data": true,
-          "typology_id": "TBML010",
-          "typology_name": "Sanctions Evasion Through Trade"
+          "typology_id": "PAT010",
+          "typology_name": "Hidden Controller"
         },
         "end_to_end_report": {
-          "created_at": "2026-08-30T07:42:26.794007Z",
-          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1",
+          "created_at": "2026-09-13T14:33:55.684807Z",
+          "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/pat010-786c110640_end_to_end_report.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/pat010-786c110640",
           "evidence_status": "CAPTURED",
-          "fc01_product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml010-0d9a8be2b1_TBML010_metadata_packet.json",
+          "fc01_product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/pat010-786c110640_PAT010_metadata_packet.json",
           "operational_status": "OPERATIONAL_READY",
           "pipeline_report_path": null,
-          "product_id": "TBML010",
-          "proof_statement": "TBML001 was executed through the runtime manufacturing pipeline, producing metadata, FC01 product, validation evidence, evidence pack and release approval.",
-          "release_record_path": "runtime/manufacturing/release_records/tbml010-0d9a8be2b1_release_record.json",
+          "product_id": "PAT010",
+          "proof_statement": "PAT010 was executed through the runtime manufacturing pipeline, producing metadata, FC01 product, validation evidence, evidence pack and release approval.",
+          "release_record_path": "runtime/manufacturing/release_records/pat010-786c110640_release_record.json",
           "release_status": "APPROVED_FOR_RELEASE",
-          "run_id": "tbml010-0d9a8be2b1",
+          "run_id": "pat010-786c110640",
           "runtime_log_path": null,
           "runtime_status": "SUCCESS",
           "stage": "323G",
           "stage_name": "End-to-End Execution Proof",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml010-0d9a8be2b1_runtime_validation_report.json",
+          "validation_report_path": "runtime/manufacturing/validation_reports/pat010-786c110640_runtime_validation_report.json",
           "validation_status": "PASS"
         },
         "evidence_pack": {
@@ -332,91 +617,123 @@
             "artefact_index"
           ],
           "checksums": {
-            "artefact_index": "6e116439671921a91870cf9ccce0261c9d1e0b2fece07dfad4ff6358903fe2b7",
-            "canonical_graph_artifact": "00cffdbf2c6fd1829d8bd968a458aa26ef598375151a2bb565716a6055e40cc3",
-            "fc01_product": "5c366efe5e4bb21f65dfe4abbd559fab6f8b7d8515c430a52db499f604007110",
-            "metadata_packet": "c553980777c254f93abde2077e646da3d4ff02d7c9f5ee2e9dc9c66115a46370",
-            "validation_report": "2f40a432922d81cbea6f171de1d3531c4327571eaeb82fdea0fc4a09cca487cf"
+            "artefact_index": "7ae7bf81a3783c4e4bd4a6c56ef033d6a99293a01316519850dc30f51ca264fa",
+            "canonical_graph_artifact": "77d0328e361675dbd47570e3f8a0d151411b1621d33af5461d02d44d6e56894c",
+            "fc01_product": "f9e3aade5ed2c76d611300bb190cdedeb1631bc84cf7b31960fd0c84cc626385",
+            "metadata_packet": "9f10ca2389c0c7feab3eee1e3a7f440f58c4d2d6a5f192d3178a815d8fc55afa",
+            "validation_report": "b08d93379b8117820d45d3dd228af57bc1d04e2f730881ec3a4ab8d4cac0623c"
           },
-          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/evidence_manifest.json",
-          "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1",
+          "evidence_manifest_path": "runtime/manufacturing/evidence_packs/pat010-786c110640/evidence_manifest.json",
+          "evidence_pack_path": "runtime/manufacturing/evidence_packs/pat010-786c110640",
           "status": "CAPTURED"
         },
         "fusion_packet": {
           "edges": [
             {
-              "id": "tbml010_edge_001",
-              "label": "TRADED_WITH",
-              "relationship": "TRADED_WITH",
-              "source": "CUST001",
-              "target": "CP001"
+              "id": "pat010_edge_001",
+              "label": "CONTROLS",
+              "relationship": "CONTROLS",
+              "source": "C003",
+              "target": "C004"
+            },
+            {
+              "id": "pat010_edge_002",
+              "label": "CONTROLS",
+              "relationship": "CONTROLS",
+              "source": "C003",
+              "target": "C005"
+            },
+            {
+              "id": "pat010_edge_003",
+              "label": "CONTROLS",
+              "relationship": "CONTROLS",
+              "source": "C003",
+              "target": "C006"
             }
           ],
           "evidence": [
             {
-              "description": "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-              "source_product": "TBML010",
+              "description": "Gamma Trading Ltd is the controller of 3 controlled entities.",
+              "source_product": "PAT010",
               "strength": "high"
             },
             {
-              "description": "Trade exposed to a sanctioned party or jurisdiction.",
-              "source_product": "TBML010",
+              "description": "3 hidden controller finding(s) were discovered across the network.",
+              "source_product": "PAT010",
               "strength": "medium"
             },
             {
-              "description": "Sanctions Exposure: Critical (90/100, weight 0.3)",
-              "source_product": "TBML010",
+              "description": "Network risk scoring returned 20.",
+              "source_product": "PAT010",
               "strength": "medium"
             }
           ],
           "maturity": "built_tested",
           "nodes": [
             {
-              "id": "CUST001",
-              "label": "Anchor Commodities Ltd",
-              "risk_score": 80,
+              "id": "C003",
+              "label": "Gamma Trading Ltd",
+              "risk_score": 20,
               "source_products": [
-                "TBML010"
+                "PAT010"
+              ],
+              "type": "person"
+            },
+            {
+              "id": "C004",
+              "label": "Delta Shipping Ltd",
+              "risk_score": 20,
+              "source_products": [
+                "PAT010"
               ],
               "type": "company"
             },
             {
-              "id": "CP001",
-              "label": "Transcaspian Trading Ltd",
-              "risk_score": 80,
+              "id": "C005",
+              "label": "Epsilon Commodities Ltd",
+              "risk_score": 20,
               "source_products": [
-                "TBML010"
+                "PAT010"
+              ],
+              "type": "company"
+            },
+            {
+              "id": "C006",
+              "label": "Zeta Logistics Ltd",
+              "risk_score": 20,
+              "source_products": [
+                "PAT010"
               ],
               "type": "company"
             }
           ],
-          "product_id": "TBML010",
+          "product_id": "PAT010",
           "role": "domain_analytics",
-          "typology": "Sanctions Evasion Through Trade"
+          "typology": "Hidden Controller"
         },
         "intelligence_product": {
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
-          "fc01_html_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-          "output_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-          "product_id": "TBML010",
-          "product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-          "rendered_html_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-          "run_id": "tbml010-0d9a8be2b1",
-          "runtime_product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
+          "fc01_html_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+          "output_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+          "product_id": "PAT010",
+          "product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+          "rendered_html_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+          "run_id": "pat010-786c110640",
+          "runtime_product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
           "semantic_release_gate": {
-            "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
-            "case_id": "TBML010-TRD001",
-            "classification": "CRITICAL",
+            "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
+            "case_id": "PAT010-C003",
+            "classification": "LOW",
             "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-            "graph_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
+            "graph_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
             "graph_semantic_value_count": 6,
-            "product_id": "TBML010",
-            "product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+            "product_id": "PAT010",
+            "product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
             "product_semantic_value_count": 7,
-            "risk_score": 80,
+            "risk_score": 20,
             "stale_hits": [],
             "status": "PASS",
-            "typology_id": "TBML010",
+            "typology_id": "PAT010",
             "unresolved_tokens": []
           }
         },
@@ -437,125 +754,129 @@
             ],
             "title": "Alternative Explanations"
           },
-          "analytic_name": "TBML010 Sanctions Evasion Through Trade",
+          "analytic_name": "Hidden Controller (applied pattern)",
           "analytic_reasoning": {
             "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
-            "reasoning_summary": "Runtime reasoning generated from metadata.",
+            "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
             "section": "Analytic Reasoning",
             "supporting_factors": [
-              "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-              "Trade exposed to a sanctioned party or jurisdiction.",
-              "Sanctions Exposure: Critical (90/100, weight 0.3)",
-              "Jurisdiction: Critical (90/100, weight 0.15)",
-              "Network: Critical (90/100, weight 0.15)",
-              "Trade Value: Critical (90/100, weight 0.15)",
-              "Counterparty: High (70/100, weight 0.15)",
-              "Historical: Low (15/100, weight 0.1)"
+              "Gamma Trading Ltd is the controller of 3 controlled entities.",
+              "3 hidden controller finding(s) were discovered across the network.",
+              "Network risk scoring returned 20."
             ]
           },
-          "assessment_summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+          "assessment_summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
           "case": {
-            "alert_count": 1,
-            "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
             "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
             "case_contract_version": "1.2",
-            "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
+            "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
             "case_fingerprint_excludes": [
               "run_id"
             ],
-            "case_id": "TBML010-TRD001",
-            "case_required_fields_count": 3,
+            "case_id": "PAT010-C003",
+            "case_required_fields_count": 2,
             "case_required_fields_declared": true,
-            "case_verdict": "TRD001: 80/100 Critical",
-            "classification": "CRITICAL",
+            "classification": "LOW",
             "connected_entities": [
-              "CP001"
+              "C004",
+              "C005",
+              "C006"
             ],
-            "connected_entity_count": 1,
+            "connected_entity_count": 3,
             "connected_entity_names": {
-              "CP001": "Transcaspian Trading Ltd"
+              "C004": "Delta Shipping Ltd",
+              "C005": "Epsilon Commodities Ltd",
+              "C006": "Zeta Logistics Ltd"
             },
             "data_classification": "GOVERNED_SYNTHETIC",
-            "product_id": "TBML010",
+            "finding_count": 3,
+            "product_id": "PAT010",
             "real_client_data": false,
-            "risk_band": "Critical",
-            "risk_score": 80,
-            "run_id": "tbml010-0d9a8be2b1",
-            "subject_entity_id": "CUST001",
-            "subject_identity": "Anchor Commodities Ltd",
+            "risk_score": 20,
+            "run_id": "pat010-786c110640",
+            "subject_entity_id": "C003",
+            "subject_identity": "Gamma Trading Ltd",
             "synthetic_data": true,
-            "typology_id": "TBML010",
-            "typology_name": "Sanctions Evasion Through Trade"
+            "typology_id": "PAT010",
+            "typology_name": "Hidden Controller"
           },
           "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
           "case_contract_version": "1.2",
-          "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
+          "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
           "case_fingerprint_excludes": [
             "run_id"
           ],
-          "case_id": "TBML010-TRD001",
+          "case_id": "PAT010-C003",
           "classification": {
-            "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-            "category": "Sanctions Evasion Through Trade",
-            "exposure": "Critical",
-            "type": "Trade Based Money Laundering",
-            "typology": "TBML010"
+            "category": "Hidden Controller",
+            "exposure": "Low",
+            "type": "Network Intelligence",
+            "typology": "PAT010"
           },
           "collection_plan": {},
           "competing_hypotheses": {},
           "confidence_assessment": {
-            "confidence_score": 0.8,
-            "summary": "Confidence is derived from the governed analytic's own output and the completeness of the supplied metadata.",
+            "confidence_score": 0.86,
+            "summary": "Confidence 0.86, from the governed FC-03 Hidden Controller analytic's coverage of the supplied network.",
             "title": "Confidence Assessment"
           },
           "confidence_components": {},
           "confidence_forecast": {},
-          "confidence_narrative": {
-            "confidence_score": 0.8,
-            "summary": "Confidence is derived from the governed analytic's own output and the completeness of the supplied metadata.",
-            "title": "Confidence Assessment"
-          },
-          "confidence_score": 0.8,
-          "created_at": "2026-08-30T07:42:26.571918Z",
-          "decision_rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
+          "confidence_narrative": "Confidence 0.86, from the governed FC-03 Hidden Controller analytic's coverage of the supplied network.",
+          "confidence_score": 0.86,
+          "created_at": "2026-09-13T14:33:46.051844Z",
+          "decision_rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
           "decision_recommendation": {
-            "priority": "Metadata-driven",
-            "rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
-            "recommended_decision": "Review according to runtime risk and confidence indicators.",
+            "priority": "Low",
+            "rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
+            "recommended_decision": "Low",
             "section": "Decision Support"
           },
           "decision_simulation": {},
-          "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
+          "diagram_html_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
           "driver_analysis": {
             "risk_drivers": [
-              "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-              "Trade exposed to a sanctioned party or jurisdiction.",
-              "Sanctions Exposure: Critical (90/100, weight 0.3)",
-              "Jurisdiction: Critical (90/100, weight 0.15)",
-              "Network: Critical (90/100, weight 0.15)",
-              "Trade Value: Critical (90/100, weight 0.15)",
-              "Counterparty: High (70/100, weight 0.15)",
-              "Historical: Low (15/100, weight 0.1)"
+              "Gamma Trading Ltd is the controller of 3 controlled entities.",
+              "3 hidden controller finding(s) were discovered across the network.",
+              "Network risk scoring returned 20."
             ],
             "section": "Driver Analysis"
           },
           "entities": [
             {
-              "case_id": "TBML010-TRD001",
-              "entity_type": "company",
-              "id": "CUST001",
-              "label": "Anchor Commodities Ltd",
-              "linked_entities": 1,
-              "risk_score": 80,
-              "role": "customer",
-              "type": "company"
+              "case_id": "PAT010-C003",
+              "entity_type": "person",
+              "id": "C003",
+              "label": "Gamma Trading Ltd",
+              "linked_entities": 3,
+              "risk_score": 20,
+              "role": "controller",
+              "type": "individual"
             },
             {
-              "case_id": "TBML010-TRD001",
+              "case_id": "PAT010-C003",
               "entity_type": "company",
-              "id": "CP001",
-              "label": "Transcaspian Trading Ltd",
+              "id": "C004",
+              "label": "Delta Shipping Ltd",
               "position_in_network": 1,
+              "role": "connected_entity",
+              "type": "business"
+            },
+            {
+              "case_id": "PAT010-C003",
+              "entity_type": "company",
+              "id": "C005",
+              "label": "Epsilon Commodities Ltd",
+              "position_in_network": 2,
+              "role": "connected_entity",
+              "type": "business"
+            },
+            {
+              "case_id": "PAT010-C003",
+              "entity_type": "company",
+              "id": "C006",
+              "label": "Zeta Logistics Ltd",
+              "position_in_network": 3,
               "role": "connected_entity",
               "type": "business"
             }
@@ -563,19 +884,19 @@
           "evidence_assessment": {},
           "evidence_coverage": {},
           "evidence_quality": {
-            "confidence_score": 0.8,
+            "confidence_score": 0.86,
             "coverage": "Runtime metadata evidence coverage."
           },
           "evidence_supporting_assessment": {
             "items": [
-              "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
-              "The risk score was produced by the governed FC-04 TBML010 engine (evaluate_sanctions_evasion), proven standalone by fc-04's test pack before the runtime consumed it."
+              "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
+              "Risk was scored by the governed FC-03 engines, not by this adapter."
             ],
             "title": "Evidence Supporting Assessment"
           },
           "executive_intelligence_summary": {
-            "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
-            "summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here."
+            "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
+            "summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006."
           },
           "expected_fusion_result": {
             "result": "Fused transaction, graph, counterparty and evidence intelligence."
@@ -601,38 +922,33 @@
                 "status": "NOT_PROVIDED"
               },
               "confidence_narrative": {
-                "narrative": "Confidence is derived from the governed analytic's own output and the completeness of the supplied metadata.",
+                "narrative": "Confidence 0.86, from the governed FC-03 Hidden Controller analytic's coverage of the supplied network.",
                 "section_id": "confidence_narrative",
                 "status": "PROVIDED"
               },
               "intelligence_assessment": {
-                "narrative": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+                "narrative": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
                 "section_id": "intelligence_assessment",
                 "status": "PROVIDED"
               },
               "investigation_hypothesis": {
-                "narrative": "Transaction TRD001 may represent trade-based money laundering through sanctions evasion through trade; the finding is scored across the six-component model, not a single flag.",
+                "narrative": "The hidden controller pattern around Gamma Trading Ltd may indicate coordinated or concealed activity worth investigating.",
                 "section_id": "investigation_hypothesis",
                 "status": "PROVIDED"
               },
               "risk_exposure_drivers": {
                 "items": [
-                  "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                  "Trade exposed to a sanctioned party or jurisdiction.",
-                  "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                  "Jurisdiction: Critical (90/100, weight 0.15)",
-                  "Network: Critical (90/100, weight 0.15)",
-                  "Trade Value: Critical (90/100, weight 0.15)",
-                  "Counterparty: High (70/100, weight 0.15)",
-                  "Historical: Low (15/100, weight 0.1)"
+                  "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                  "3 hidden controller finding(s) were discovered across the network.",
+                  "Network risk scoring returned 20."
                 ],
                 "section_id": "risk_exposure_drivers",
                 "status": "PROVIDED"
               },
               "supporting_assessment": {
                 "items": [
-                  "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
-                  "The risk score was produced by the governed FC-04 TBML010 engine (evaluate_sanctions_evasion), proven standalone by fc-04's test pack before the runtime consumed it."
+                  "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
+                  "Risk was scored by the governed FC-03 engines, not by this adapter."
                 ],
                 "section_id": "supporting_assessment",
                 "status": "PROVIDED"
@@ -646,16 +962,16 @@
               "intelligence_assessment",
               "supporting_assessment",
               "risk_exposure_drivers",
-              "investigation_hypothesis"
+              "investigation_hypothesis",
+              "confidence_narrative"
             ],
             "migrated_fields": [
-              "alternative_explanations",
-              "confidence_narrative"
+              "alternative_explanations"
             ],
             "missing_fields": [],
             "provenance": {
               "alternative_explanations": "metadata_packet.alternative_explanations",
-              "confidence_narrative": "metadata_packet.confidence_assessment",
+              "confidence_narrative": "metadata_packet.confidence_narrative",
               "intelligence_assessment": "metadata_packet.intelligence_assessment",
               "investigation_hypothesis": "metadata_packet.investigation_hypothesis",
               "risk_exposure_drivers": "metadata_packet.risk_exposure_drivers",
@@ -667,57 +983,73 @@
           "graph_pipeline_contract": "CANONICAL_GRAPH_PIPELINE_CONTRACT",
           "graph_purpose": "entity_resolution_and_relationship_intelligence",
           "graph_source": "CANONICAL_INTELLIGENCE_GRAPH",
-          "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
+          "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
           "hypothesis_probabilities": {},
-          "intelligence_assessment": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+          "intelligence_assessment": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
           "intelligence_brief": {
-            "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
+            "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
             "section": "Intelligence Brief",
-            "summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here."
+            "summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006."
           },
-          "investigation_actions": {
-            "actions": [],
-            "section": "Investigation Actions"
-          },
-          "investigation_hypothesis": "Transaction TRD001 may represent trade-based money laundering through sanctions evasion through trade; the finding is scored across the six-component model, not a single flag.",
+          "investigation_actions": [
+            "Investigate hidden controller",
+            "Assess influence pathways",
+            "Review ultimate control"
+          ],
+          "investigation_hypothesis": "The hidden controller pattern around Gamma Trading Ltd may indicate coordinated or concealed activity worth investigating.",
           "investigation_priorities": {},
           "investigation_strategy": {
             "steps": [
-              "Investigation steps have not been supplied by the analytic."
+              "Investigate hidden controller",
+              "Assess influence pathways",
+              "Review ultimate control"
             ],
             "title": "Investigation Strategy"
           },
           "investigation_value": [],
           "investigator_playbook": {},
-          "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml010-0d9a8be2b1_TBML010_metadata_packet.json",
+          "metadata_packet_path": "runtime/manufacturing/metadata_packets/pat010-786c110640_PAT010_metadata_packet.json",
           "metadata_version": "327-hard-active-entity-graph-v1",
           "operational_action_plan": {
-            "actions": {
-              "actions": [],
-              "section": "Investigation Actions"
-            },
+            "actions": [
+              "Investigate hidden controller",
+              "Assess influence pathways",
+              "Review ultimate control"
+            ],
             "next_gate": "Evidence validation and decision review",
             "owner": "Financial Crime Operations",
             "section": "Investigation Actions"
           },
-          "priority": "",
+          "priority": "Low",
           "probability_assessment": {},
-          "product_id": "TBML010",
+          "product_id": "PAT010",
           "product_kind": "risk_assessment",
-          "product_name": "TBML010 Sanctions Evasion Through Trade Intelligence Product",
-          "reasoning_summary": "",
+          "product_name": "Hidden Controller Applied Pattern",
+          "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
           "recommended_actions": {
             "items": [
-              "Recommended actions have not been supplied by the analytic."
+              "Investigate hidden controller",
+              "Assess influence pathways",
+              "Review ultimate control"
             ],
-            "priority": "UNSET"
+            "priority": "LOW"
           },
-          "recommended_decision": "",
+          "recommended_decision": "Low",
           "relationships": [
             {
-              "label": "TRADED_WITH",
-              "source": "CUST001",
-              "target": "CP001"
+              "label": "CONTROLS",
+              "source": "C003",
+              "target": "C004"
+            },
+            {
+              "label": "CONTROLS",
+              "source": "C003",
+              "target": "C005"
+            },
+            {
+              "label": "CONTROLS",
+              "source": "C003",
+              "target": "C006"
             }
           ],
           "resource_optimisation": {
@@ -725,99 +1057,83 @@
           },
           "risk_components": null,
           "risk_drivers": [
-            "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-            "Trade exposed to a sanctioned party or jurisdiction.",
-            "Sanctions Exposure: Critical (90/100, weight 0.3)",
-            "Jurisdiction: Critical (90/100, weight 0.15)",
-            "Network: Critical (90/100, weight 0.15)",
-            "Trade Value: Critical (90/100, weight 0.15)",
-            "Counterparty: High (70/100, weight 0.15)",
-            "Historical: Low (15/100, weight 0.1)"
+            "Gamma Trading Ltd is the controller of 3 controlled entities.",
+            "3 hidden controller finding(s) were discovered across the network.",
+            "Network risk scoring returned 20."
           ],
           "risk_drivers_expanded": {
             "items": [
-              "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-              "Trade exposed to a sanctioned party or jurisdiction.",
-              "Sanctions Exposure: Critical (90/100, weight 0.3)",
-              "Jurisdiction: Critical (90/100, weight 0.15)",
-              "Network: Critical (90/100, weight 0.15)",
-              "Trade Value: Critical (90/100, weight 0.15)",
-              "Counterparty: High (70/100, weight 0.15)",
-              "Historical: Low (15/100, weight 0.1)"
+              "Gamma Trading Ltd is the controller of 3 controlled entities.",
+              "3 hidden controller finding(s) were discovered across the network.",
+              "Network risk scoring returned 20."
             ],
             "title": "Risk Drivers"
           },
           "risk_exposure_drivers": [
-            "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-            "Trade exposed to a sanctioned party or jurisdiction.",
-            "Sanctions Exposure: Critical (90/100, weight 0.3)",
-            "Jurisdiction: Critical (90/100, weight 0.15)",
-            "Network: Critical (90/100, weight 0.15)",
-            "Trade Value: Critical (90/100, weight 0.15)",
-            "Counterparty: High (70/100, weight 0.15)",
-            "Historical: Low (15/100, weight 0.1)"
+            "Gamma Trading Ltd is the controller of 3 controlled entities.",
+            "3 hidden controller finding(s) were discovered across the network.",
+            "Network risk scoring returned 20."
           ],
-          "risk_score": 80,
+          "risk_score": 20,
           "route_intelligence": {},
           "runtime_metadata": {
             "contract_version": "FC01_METADATA_CONTRACT_V1_STAGE362",
-            "created_utc": "2026-08-30T07:42:26.571941+00:00",
+            "created_utc": "2026-09-13T14:33:46.051862+00:00",
             "pipeline_version": "stage361_runtime_pipeline_governance",
-            "product_id": "TBML010",
+            "product_id": "PAT010",
             "renderer_version": "fc01_runtime_product_builder.py",
-            "run_id": "tbml010-0d9a8be2b1"
+            "run_id": "pat010-786c110640"
           },
           "runtime_ready": true,
           "scenario_analysis": {},
           "scoring_framework": {
             "classification": {
-              "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-              "category": "Sanctions Evasion Through Trade",
-              "exposure": "Critical",
-              "type": "Trade Based Money Laundering",
-              "typology": "TBML010"
+              "category": "Hidden Controller",
+              "exposure": "Low",
+              "type": "Network Intelligence",
+              "typology": "PAT010"
             },
-            "confidence_score": 0.8,
-            "risk_score": 80,
+            "confidence_score": 0.86,
+            "risk_score": 20,
             "section": "Scoring Framework"
           },
           "source": "runtime_product_execution_327_hard_active_fix",
           "supporting_assessment": [
-            "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
-            "The risk score was produced by the governed FC-04 TBML010 engine (evaluate_sanctions_evasion), proven standalone by fc-04's test pack before the runtime consumed it."
+            "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
+            "Risk was scored by the governed FC-03 engines, not by this adapter."
           ],
           "technical_metadata": {
-            "entity_count": 2,
+            "entity_count": 4,
             "layout": "FC01 Runtime",
-            "pattern_id": "TBML010",
-            "priority": "Critical",
-            "relationship_count": 1,
+            "pattern_id": "PAT010",
+            "priority": "Low",
+            "relationship_count": 3,
             "renderer": "fc01_runtime_product_builder.py",
             "topology": "star",
             "version": "stage361_runtime_pipeline_governance"
           },
           "topology": "star",
-          "typology_id": "TBML010",
+          "typology_id": "PAT010",
           "visual_intelligence_model": {
             "graph_source": "CANONICAL_RUNTIME_GRAPH",
-            "product_id": "TBML010",
+            "product_id": "PAT010",
             "section": "Visual Intelligence Model",
             "status": "EMITTED_BY_RUNTIME"
           },
           "why_this_matters": ""
         },
-        "pipeline_report": "runtime/manufacturing/reports/tbml010-0d9a8be2b1_pipeline_report.json",
+        "pipeline_report": "runtime/manufacturing/reports/pat010-786c110640_pipeline_report.json",
         "pipeline_status": "SUCCESS",
         "product_execution_status": "SUCCESS",
         "release_status": {
           "checks_failed": 0,
           "checks_passed": 6,
           "release_gate": "323F_RUNTIME_RELEASE_GATE",
-          "release_record_path": "runtime/manufacturing/release_records/tbml010-0d9a8be2b1_release_record.json",
+          "release_record_path": "runtime/manufacturing/release_records/pat010-786c110640_release_record.json",
           "status": "APPROVED_FOR_RELEASE"
         },
         "runtime_initialised": true,
-        "runtime_log": "runtime/manufacturing/logs/tbml010-0d9a8be2b1.json",
+        "runtime_log": "runtime/manufacturing/logs/pat010-786c110640.json",
         "validation_result": {
           "metadata_validation": {
             "checks": [
@@ -893,29 +1209,29 @@
               },
               {
                 "check": "risk_score_range",
-                "message": "80",
+                "message": "20",
                 "passed": true
               },
               {
                 "check": "confidence_score_range",
-                "message": "0.8",
+                "message": "0.86",
                 "passed": true
               }
             ],
             "checks_failed": 0,
             "checks_passed": 16,
-            "created_at": "2026-08-30T07:42:26.779987Z",
-            "product_id": "TBML010",
-            "run_id": "tbml010-0d9a8be2b1",
+            "created_at": "2026-09-13T14:33:55.671465Z",
+            "product_id": "PAT010",
+            "run_id": "pat010-786c110640",
             "status": "PASS",
             "validation_type": "metadata_validation"
           },
-          "product_id": "TBML010",
+          "product_id": "PAT010",
           "renderer_validation": {
             "checks": [
               {
                 "check": "html_file_exists",
-                "message": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+                "message": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
                 "passed": true
               },
               {
@@ -981,25 +1297,25 @@
             ],
             "checks_failed": 0,
             "checks_passed": 13,
-            "created_at": "2026-08-30T07:42:26.780337Z",
-            "product_id": "TBML010",
-            "run_id": "tbml010-0d9a8be2b1",
+            "created_at": "2026-09-13T14:33:55.671851Z",
+            "product_id": "PAT010",
+            "run_id": "pat010-786c110640",
             "status": "PASS",
             "validation_type": "renderer_validation"
           },
-          "run_id": "tbml010-0d9a8be2b1",
+          "run_id": "pat010-786c110640",
           "status": "PASS",
-          "validation_report_path": "runtime/manufacturing/validation_reports/tbml010-0d9a8be2b1_runtime_validation_report.json"
+          "validation_report_path": "runtime/manufacturing/validation_reports/pat010-786c110640_runtime_validation_report.json"
         }
       },
       "evidence_files": [
-        "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-        "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/tbml010-0d9a8be2b1_runtime_validation_report.json",
-        "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/evidence_manifest.json",
-        "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-        "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/artefact_index.json",
-        "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/tbml010-0d9a8be2b1_TBML010_metadata_packet.json",
-        "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html"
+        "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+        "runtime/manufacturing/evidence_packs/pat010-786c110640/evidence_manifest.json",
+        "runtime/manufacturing/evidence_packs/pat010-786c110640/pat010-786c110640_PAT010_metadata_packet.json",
+        "runtime/manufacturing/evidence_packs/pat010-786c110640/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
+        "runtime/manufacturing/evidence_packs/pat010-786c110640/pat010-786c110640_runtime_validation_report.json",
+        "runtime/manufacturing/evidence_packs/pat010-786c110640/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+        "runtime/manufacturing/evidence_packs/pat010-786c110640/artefact_index.json"
       ]
     },
     "evidence_files": [],
@@ -1010,23 +1326,23 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:23.624251Z"
+          "timestamp": "2026-09-13T14:33:45.954487Z"
         },
         {
           "message": "Runtime manifest loaded",
           "payload": {
-            "product_id": "TBML010"
+            "product_id": "PAT010"
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:23.628632Z"
+          "timestamp": "2026-09-13T14:33:45.965810Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:23.628726Z"
+          "timestamp": "2026-09-13T14:33:45.966013Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -1035,14 +1351,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:23.629249Z"
+          "timestamp": "2026-09-13T14:33:45.966146Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:23.629262Z"
+          "timestamp": "2026-09-13T14:33:45.966163Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -1052,203 +1368,488 @@
                 "allocation": "Allocate further collection where runtime evidence gaps remain."
               },
               "analytic_authority": {
-                "alert_count": 1,
-                "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                "callable": "evaluate_sanctions_evasion",
-                "repository": "$FC04_TBML_REPOSITORY",
-                "risk_band": "Critical",
-                "risk_reason": "Trade exposed to a sanctioned party or jurisdiction",
-                "risk_score": 80,
-                "scenario_path": "$FC04_TBML_REPOSITORY/python/specific/TBML010/scenarios/sanctions_evasion.py",
-                "scenario_sha256": "835a1247e889aa6ee4108c732da4010b9eca08d3ea813a71df02530dcbbbf09b"
+                "callable": "NI010HiddenController.run",
+                "confidence_score": 0.86,
+                "delegation_count": 1,
+                "entity_count": 22,
+                "finding_count": 3,
+                "relationship_count": 26,
+                "repository": "$FC03_NETWORK_REPOSITORY",
+                "risk_score": 20
               },
-              "analytic_name": "TBML010 Sanctions Evasion Through Trade",
+              "analytic_name": "Hidden Controller (applied pattern)",
               "analytic_reasoning": {
                 "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
-                "reasoning_summary": "Runtime reasoning generated from metadata.",
+                "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
                 "section": "Analytic Reasoning",
                 "supporting_factors": [
-                  "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                  "Trade exposed to a sanctioned party or jurisdiction.",
-                  "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                  "Jurisdiction: Critical (90/100, weight 0.15)",
-                  "Network: Critical (90/100, weight 0.15)",
-                  "Trade Value: Critical (90/100, weight 0.15)",
-                  "Counterparty: High (70/100, weight 0.15)",
-                  "Historical: Low (15/100, weight 0.1)"
+                  "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                  "3 hidden controller finding(s) were discovered across the network.",
+                  "Network risk scoring returned 20."
                 ]
               },
-              "assessment_summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+              "assessment_summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
               "case": {
-                "alert_count": 1,
-                "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
                 "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
                 "case_contract_version": "1.2",
-                "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
+                "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
                 "case_fingerprint_excludes": [
                   "run_id"
                 ],
-                "case_id": "TBML010-TRD001",
-                "case_required_fields_count": 3,
+                "case_id": "PAT010-C003",
+                "case_required_fields_count": 2,
                 "case_required_fields_declared": true,
-                "case_verdict": "TRD001: 80/100 Critical",
-                "classification": "CRITICAL",
+                "classification": "LOW",
                 "connected_entities": [
-                  "CP001"
+                  "C004",
+                  "C005",
+                  "C006"
                 ],
-                "connected_entity_count": 1,
+                "connected_entity_count": 3,
                 "connected_entity_names": {
-                  "CP001": "Transcaspian Trading Ltd"
+                  "C004": "Delta Shipping Ltd",
+                  "C005": "Epsilon Commodities Ltd",
+                  "C006": "Zeta Logistics Ltd"
                 },
                 "data_classification": "GOVERNED_SYNTHETIC",
-                "product_id": "TBML010",
+                "finding_count": 3,
+                "product_id": "PAT010",
                 "real_client_data": false,
-                "risk_band": "Critical",
-                "risk_score": 80,
-                "run_id": "tbml010-0d9a8be2b1",
-                "subject_entity_id": "CUST001",
-                "subject_identity": "Anchor Commodities Ltd",
+                "risk_score": 20,
+                "run_id": "pat010-786c110640",
+                "subject_entity_id": "C003",
+                "subject_identity": "Gamma Trading Ltd",
                 "synthetic_data": true,
-                "typology_id": "TBML010",
-                "typology_name": "Sanctions Evasion Through Trade"
+                "typology_id": "PAT010",
+                "typology_name": "Hidden Controller"
               },
-              "case_id": "TBML010-TRD001",
+              "case_id": "PAT010-C003",
               "classification": {
-                "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                "category": "Sanctions Evasion Through Trade",
-                "exposure": "Critical",
-                "type": "Trade Based Money Laundering",
-                "typology": "TBML010"
+                "category": "Hidden Controller",
+                "exposure": "Low",
+                "type": "Network Intelligence",
+                "typology": "PAT010"
               },
-              "confidence_score": 0.8,
-              "decision_rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
+              "confidence_narrative": "Confidence 0.86, from the governed FC-03 Hidden Controller analytic's coverage of the supplied network.",
+              "confidence_score": 0.86,
+              "decision_rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
               "decision_recommendation": {
-                "priority": "Metadata-driven",
-                "rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
-                "recommended_decision": "Review according to runtime risk and confidence indicators.",
+                "priority": "Low",
+                "rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
+                "recommended_decision": "Low",
                 "section": "Decision Support"
               },
               "decision_support": {
-                "priority": "Metadata-driven",
-                "recommended_decision": "Review according to runtime risk and confidence indicators.",
+                "priority": "Low",
+                "recommended_decision": "Low",
                 "section": "Decision Support"
               },
               "driver_analysis": {
                 "risk_drivers": [
-                  "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                  "Trade exposed to a sanctioned party or jurisdiction.",
-                  "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                  "Jurisdiction: Critical (90/100, weight 0.15)",
-                  "Network: Critical (90/100, weight 0.15)",
-                  "Trade Value: Critical (90/100, weight 0.15)",
-                  "Counterparty: High (70/100, weight 0.15)",
-                  "Historical: Low (15/100, weight 0.1)"
+                  "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                  "3 hidden controller finding(s) were discovered across the network.",
+                  "Network risk scoring returned 20."
                 ],
                 "section": "Driver Analysis"
               },
               "evidence_quality": {
-                "confidence_score": 0.8,
+                "confidence_score": 0.86,
                 "coverage": "Runtime metadata evidence coverage."
               },
-              "execution_mode": "governed_fc04_delegation",
+              "execution_mode": "governed_fc03_delegation",
               "execution_status": "SUCCESS",
               "expected_fusion_result": {
                 "result": "Fused transaction, graph, counterparty and evidence intelligence."
               },
-              "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
-              "intelligence_assessment": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+              "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
+              "intelligence_assessment": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
               "intelligence_brief": {
-                "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
+                "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
                 "section": "Intelligence Brief",
-                "summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here."
+                "summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006."
               },
               "intelligence_metadata": {
                 "classification": {
-                  "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                  "category": "Sanctions Evasion Through Trade",
-                  "exposure": "Critical",
-                  "type": "Trade Based Money Laundering",
-                  "typology": "TBML010"
+                  "category": "Hidden Controller",
+                  "exposure": "Low",
+                  "type": "Network Intelligence",
+                  "typology": "PAT010"
                 },
                 "contract": "FC01_RUNTIME_CANONICAL_WORKSPACE",
-                "product_id": "TBML010",
+                "product_id": "PAT010",
                 "section": "Intelligence Metadata",
-                "typology_id": "TBML010"
+                "typology_id": "PAT010"
               },
-              "investigation_actions": {
-                "actions": [],
-                "section": "Investigation Actions"
-              },
-              "investigation_hypothesis": "Transaction TRD001 may represent trade-based money laundering through sanctions evasion through trade; the finding is scored across the six-component model, not a single flag.",
-              "operational_action_plan": {
-                "actions": {
-                  "actions": [],
-                  "section": "Investigation Actions"
+              "investigation_actions": [
+                "Investigate hidden controller",
+                "Assess influence pathways",
+                "Review ultimate control"
+              ],
+              "investigation_hypothesis": "The hidden controller pattern around Gamma Trading Ltd may indicate coordinated or concealed activity worth investigating.",
+              "network_intelligence": {
+                "connected_entities": [
+                  "C004",
+                  "C005",
+                  "C006"
+                ],
+                "connected_entity_count": 3,
+                "hidden_controller_findings": 3,
+                "network_metrics": {
+                  "bridge_entities": [],
+                  "clusters": [
+                    {
+                      "cluster_id": "CLUSTER_1",
+                      "entities": [
+                        "P001",
+                        "C001",
+                        "C002",
+                        "C003",
+                        "C006",
+                        "C005",
+                        "C004",
+                        "P005"
+                      ],
+                      "entity_count": 8
+                    },
+                    {
+                      "cluster_id": "CLUSTER_2",
+                      "entities": [
+                        "P002",
+                        "C007",
+                        "C008",
+                        "C009",
+                        "C010",
+                        "C011",
+                        "P006"
+                      ],
+                      "entity_count": 7
+                    },
+                    {
+                      "cluster_id": "CLUSTER_3",
+                      "entities": [
+                        "P003",
+                        "C012",
+                        "C013",
+                        "C014"
+                      ],
+                      "entity_count": 4
+                    },
+                    {
+                      "cluster_id": "CLUSTER_4",
+                      "entities": [
+                        "P004",
+                        "C016",
+                        "C015"
+                      ],
+                      "entity_count": 3
+                    }
+                  ],
+                  "connected_components": [
+                    [
+                      "P001",
+                      "C001",
+                      "C002",
+                      "C003",
+                      "C006",
+                      "C005",
+                      "C004",
+                      "P005"
+                    ],
+                    [
+                      "P002",
+                      "C007",
+                      "C008",
+                      "C009",
+                      "C010",
+                      "C011",
+                      "P006"
+                    ],
+                    [
+                      "P003",
+                      "C012",
+                      "C013",
+                      "C014"
+                    ],
+                    [
+                      "P004",
+                      "C016",
+                      "C015"
+                    ]
+                  ],
+                  "edge_count": 26,
+                  "high_influence_entities": [
+                    {
+                      "entity_id": "C003",
+                      "entity_name": "Gamma Trading Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "C004",
+                      "entity_name": "Delta Shipping Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "C005",
+                      "entity_name": "Epsilon Commodities Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "C006",
+                      "entity_name": "Zeta Logistics Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "P003",
+                      "entity_name": "Michael Brown",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "P005",
+                      "entity_name": "David Taylor",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "C009",
+                      "entity_name": "Kappa Resources Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "C010",
+                      "entity_name": "Lambda Holdings Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "C011",
+                      "entity_name": "Omega Trading Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "P004",
+                      "entity_name": "Emma Wilson",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "P006",
+                      "entity_name": "Lisa Green",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C001",
+                      "entity_name": "Alpha Holdings Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C002",
+                      "entity_name": "Beta Investments Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C007",
+                      "entity_name": "Theta Ventures Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C008",
+                      "entity_name": "Iota Capital Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "P001",
+                      "entity_name": "John Smith",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "P002",
+                      "entity_name": "Sarah Johnson",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C012",
+                      "entity_name": "Phoenix Investments Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C013",
+                      "entity_name": "Apex Shipping Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C014",
+                      "entity_name": "Horizon Logistics Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C015",
+                      "entity_name": "Nexus Commodities Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C016",
+                      "entity_name": "Vertex Global Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    }
+                  ],
+                  "network_exposure": {
+                    "C001": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C002": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C003": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C004": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C005": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C006": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C007": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C008": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C009": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "C010": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "C011": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "C012": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C013": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C014": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C015": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C016": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "P001": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "P002": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "P003": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "P004": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "P005": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "P006": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    }
+                  },
+                  "node_count": 22
                 },
+                "source_repository": "$FC03_NETWORK_REPOSITORY",
+                "subject_entity_id": "C003",
+                "subject_identity": "Gamma Trading Ltd"
+              },
+              "operational_action_plan": {
+                "actions": [
+                  "Investigate hidden controller",
+                  "Assess influence pathways",
+                  "Review ultimate control"
+                ],
                 "next_gate": "Evidence validation and decision review",
                 "owner": "Financial Crime Operations",
                 "section": "Investigation Actions"
               },
-              "product_id": "TBML010",
-              "product_kind": "risk_assessment",
+              "priority": "Low",
+              "product_id": "PAT010",
+              "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
+              "recommended_decision": "Low",
               "resource_optimisation": {
                 "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
               },
-              "risk_band": "Critical",
               "risk_drivers": [
-                "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                "Trade exposed to a sanctioned party or jurisdiction.",
-                "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                "Jurisdiction: Critical (90/100, weight 0.15)",
-                "Network: Critical (90/100, weight 0.15)",
-                "Trade Value: Critical (90/100, weight 0.15)",
-                "Counterparty: High (70/100, weight 0.15)",
-                "Historical: Low (15/100, weight 0.1)"
+                "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                "3 hidden controller finding(s) were discovered across the network.",
+                "Network risk scoring returned 20."
               ],
-              "risk_exposure_drivers": [
-                "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                "Jurisdiction: Critical (90/100, weight 0.15)",
-                "Network: Critical (90/100, weight 0.15)",
-                "Trade Value: Critical (90/100, weight 0.15)",
-                "Counterparty: High (70/100, weight 0.15)",
-                "Historical: Low (15/100, weight 0.1)"
-              ],
-              "risk_score": 80,
+              "risk_score": 20,
               "scoring_framework": {
                 "classification": {
-                  "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                  "category": "Sanctions Evasion Through Trade",
-                  "exposure": "Critical",
-                  "type": "Trade Based Money Laundering",
-                  "typology": "TBML010"
+                  "category": "Hidden Controller",
+                  "exposure": "Low",
+                  "type": "Network Intelligence",
+                  "typology": "PAT010"
                 },
-                "confidence_score": 0.8,
-                "risk_score": 80,
+                "confidence_score": 0.86,
+                "risk_score": 20,
                 "section": "Scoring Framework"
               },
               "supporting_assessment": [
-                "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
-                "The risk score was produced by the governed FC-04 TBML010 engine (evaluate_sanctions_evasion), proven standalone by fc-04's test pack before the runtime consumed it."
+                "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
+                "Risk was scored by the governed FC-03 engines, not by this adapter."
               ],
-              "tbml_alerts": [
-                {
-                  "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                  "counterparty_id": "CP001",
-                  "customer_id": "CUST001",
-                  "risk_band": "Critical",
-                  "risk_components": "{\"band\": \"Critical\", \"band_scores\": {\"Critical\": 90, \"High\": 70, \"Low\": 15, \"Medium\": 45}, \"basis\": \"scoring-models/specific/TBML010_Sanctions_Evasion_Through_Trade_Scoring_Framework.md. Band-midpoint mapping; boundaries at 80; half-up; missing != zero.\", \"boundaries\": [{\"band\": \"Low\", \"max\": 29, \"min\": 0}, {\"band\": \"Medium\", \"max\": 59, \"min\": 30}, {\"band\": \"High\", \"max\": 79, \"min\": 60}, {\"band\": \"Critical\", \"max\": 100, \"min\": 80}], \"components\": {\"counterparty\": {\"band\": \"High\", \"component_score\": 70, \"contribution\": 10.5, \"weight\": 0.15}, \"historical\": {\"band\": \"Low\", \"component_score\": 15, \"contribution\": 1.5, \"weight\": 0.1}, \"jurisdiction\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}, \"network\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}, \"sanctions_exposure\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 27.0, \"weight\": 0.3}, \"trade_value\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}}, \"rounding\": \"half-up\", \"score\": 80, \"total\": 79.5}",
-                  "risk_reason": "Trade exposed to a sanctioned party or jurisdiction",
-                  "risk_score": 80,
-                  "sanctioned_jurisdiction_flag": true,
-                  "sanctioned_party_flag": true,
-                  "transaction_id": "TRD001"
-                }
-              ],
-              "typology": "TBML010",
-              "typology_id": "TBML010",
+              "typology": "PAT010",
+              "typology_id": "PAT010",
               "visual_intelligence_model": {
                 "graph_source": "CANONICAL_RUNTIME_GRAPH",
-                "product_id": "TBML010",
+                "product_id": "PAT010",
                 "section": "Visual Intelligence Model",
                 "status": "EMITTED_BY_RUNTIME"
               }
@@ -1257,71 +1858,71 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.779769Z"
+          "timestamp": "2026-09-13T14:33:55.671081Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.779790Z"
+          "timestamp": "2026-09-13T14:33:55.671099Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml010-0d9a8be2b1_TBML010_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/pat010-786c110640_PAT010_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.779817Z"
+          "timestamp": "2026-09-13T14:33:55.671140Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.779825Z"
+          "timestamp": "2026-09-13T14:33:55.671150Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "product_id": "TBML010",
-            "product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml010-0d9a8be2b1",
-            "runtime_product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "product_id": "PAT010",
+            "product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "pat010-786c110640",
+            "runtime_product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
-              "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
-              "case_id": "TBML010-TRD001",
-              "classification": "CRITICAL",
+              "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
+              "case_id": "PAT010-C003",
+              "classification": "LOW",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 6,
-              "product_id": "TBML010",
-              "product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+              "product_id": "PAT010",
+              "product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
               "product_semantic_value_count": 7,
-              "risk_score": 80,
+              "risk_score": 20,
               "stale_hits": [],
               "status": "PASS",
-              "typology_id": "TBML010",
+              "typology_id": "PAT010",
               "unresolved_tokens": []
             }
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.779844Z"
+          "timestamp": "2026-09-13T14:33:55.671183Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.779852Z"
+          "timestamp": "2026-09-13T14:33:55.671193Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -1400,29 +2001,29 @@
                 },
                 {
                   "check": "risk_score_range",
-                  "message": "80",
+                  "message": "20",
                   "passed": true
                 },
                 {
                   "check": "confidence_score_range",
-                  "message": "0.8",
+                  "message": "0.86",
                   "passed": true
                 }
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-08-30T07:42:26.779987Z",
-              "product_id": "TBML010",
-              "run_id": "tbml010-0d9a8be2b1",
+              "created_at": "2026-09-13T14:33:55.671465Z",
+              "product_id": "PAT010",
+              "run_id": "pat010-786c110640",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
-            "product_id": "TBML010",
+            "product_id": "PAT010",
             "renderer_validation": {
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -1488,26 +2089,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-08-30T07:42:26.780337Z",
-              "product_id": "TBML010",
-              "run_id": "tbml010-0d9a8be2b1",
+              "created_at": "2026-09-13T14:33:55.671851Z",
+              "product_id": "PAT010",
+              "run_id": "pat010-786c110640",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml010-0d9a8be2b1",
+            "run_id": "pat010-786c110640",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml010-0d9a8be2b1_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/pat010-786c110640_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.787111Z"
+          "timestamp": "2026-09-13T14:33:55.673214Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.787127Z"
+          "timestamp": "2026-09-13T14:33:55.673311Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -1520,26 +2121,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "6e116439671921a91870cf9ccce0261c9d1e0b2fece07dfad4ff6358903fe2b7",
-              "canonical_graph_artifact": "00cffdbf2c6fd1829d8bd968a458aa26ef598375151a2bb565716a6055e40cc3",
-              "fc01_product": "5c366efe5e4bb21f65dfe4abbd559fab6f8b7d8515c430a52db499f604007110",
-              "metadata_packet": "c553980777c254f93abde2077e646da3d4ff02d7c9f5ee2e9dc9c66115a46370",
-              "validation_report": "2f40a432922d81cbea6f171de1d3531c4327571eaeb82fdea0fc4a09cca487cf"
+              "artefact_index": "7ae7bf81a3783c4e4bd4a6c56ef033d6a99293a01316519850dc30f51ca264fa",
+              "canonical_graph_artifact": "77d0328e361675dbd47570e3f8a0d151411b1621d33af5461d02d44d6e56894c",
+              "fc01_product": "f9e3aade5ed2c76d611300bb190cdedeb1631bc84cf7b31960fd0c84cc626385",
+              "metadata_packet": "9f10ca2389c0c7feab3eee1e3a7f440f58c4d2d6a5f192d3178a815d8fc55afa",
+              "validation_report": "b08d93379b8117820d45d3dd228af57bc1d04e2f730881ec3a4ab8d4cac0623c"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/pat010-786c110640/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/pat010-786c110640",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.792722Z"
+          "timestamp": "2026-09-13T14:33:55.683647Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.792734Z"
+          "timestamp": "2026-09-13T14:33:55.683693Z"
         },
         {
           "message": "Register release completed successfully",
@@ -1547,36 +2148,36 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml010-0d9a8be2b1_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/pat010-786c110640_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.793865Z"
+          "timestamp": "2026-09-13T14:33:55.684681Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.793884Z"
+          "timestamp": "2026-09-13T14:33:55.684690Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/pat010-786c110640_end_to_end_report.json",
             "execution_complete": true,
-            "fusion_packet_path": "runtime/manufacturing/fusion/packets/TBML010_packet.yaml",
+            "fusion_packet_path": "runtime/manufacturing/fusion/packets/PAT010_packet.yaml",
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.801023Z"
+          "timestamp": "2026-09-13T14:33:55.700842Z"
         }
       ],
-      "product_id": "TBML010",
-      "run_id": "tbml010-0d9a8be2b1",
-      "started_at": "2026-08-30T07:42:23.623935Z",
+      "product_id": "PAT010",
+      "run_id": "pat010-786c110640",
+      "started_at": "2026-09-13T14:33:45.954212Z",
       "status": "SUCCESS"
     },
     "governance": {
@@ -1591,31 +2192,31 @@
     "projection_identity": {
       "contract_id": "FC10_TELEMETRY_PROJECTION_PRODUCER_V1",
       "contract_version": "1.0.0",
-      "execution_id": "tbml010-0d9a8be2b1",
+      "execution_id": "pat010-786c110640",
       "following_step": "08_REGISTER_RELEASE",
       "pipeline_step": "07_BUILD_TELEMETRY_PROJECTION",
       "preceding_step": "06_CAPTURE_EVIDENCE",
       "projection_type": "ENTERPRISE_MANUFACTURING_TELEMETRY"
     },
     "projection_integrity": {
-      "canonical_core_sha256": "efaedaa68407bedec6cb8db7d1006eb7f09bc575a294f00db2ff4eb176de1519",
+      "canonical_core_sha256": "7ec4fc676ef012f4bc1a55d8a2067411b5265a715537a3add970c6730f473751",
       "canonicalisation": "JSON_SORT_KEYS_INDENT_2_UTF8_LF",
       "deterministic": true
     },
     "repository": {
       "analytics": {
-        "product": "TBML010",
-        "repository": "fc-04-tbml-analytics-toolkit"
+        "repository": "fc-03-network-intelligence-library",
+        "sample_data": "sample-data/NI010"
       },
-      "description": "TBML010 Sanctions Evasion Through Trade \u2014 an FC-04 TBML product. Delegates to the governed fc-04 TBML010 engine (evaluate_sanctions_evasion); scores a trade's trade-based money-laundering exposure across the six-component model (primary anomaly, trade value, jurisdiction, counterparty, network, historical). Risk-assessment shape, risk band.",
+      "description": "Hidden Controller applied pattern \u2014 a fc-03 network typology folded into the foundation.",
       "evidence": {
         "capture_required": true,
         "output_dir": "runtime/manufacturing/evidence"
       },
       "metadata": {
-        "source": "canonical_tbml010_metadata"
+        "source": "canonical_pat010_metadata"
       },
-      "product_id": "TBML010",
+      "product_id": "PAT010",
       "release": {
         "approval_required": true,
         "release_mode": "controlled_runtime_baseline"
@@ -1625,35 +2226,34 @@
       },
       "required_case_fields": [
         "subject_entity_id",
-        "subject_identity",
         "connected_entities"
       ],
       "sample_case": {
-        "alert_count": 1,
-        "case_fingerprint": "6069c651bacc446e",
-        "case_id": "TBML010-TRD001",
-        "case_verdict": "TRD001: 80/100 Critical",
-        "classification": "CRITICAL",
+        "case_fingerprint": "f087ba4dc01267ed",
+        "case_id": "PAT010-C003",
+        "classification": "LOW",
         "connected_entities": [
-          "CP001"
+          "C004",
+          "C005",
+          "C006"
         ],
-        "connected_entity_count": 1,
+        "connected_entity_count": 3,
         "connected_entity_names": {
-          "CP001": "Transcaspian Trading Ltd"
+          "C004": "Delta Shipping Ltd",
+          "C005": "Epsilon Commodities Ltd",
+          "C006": "Zeta Logistics Ltd"
         },
         "data_classification": "GOVERNED_SYNTHETIC",
-        "product_id": "TBML010",
+        "product_id": "PAT010",
         "real_client_data": false,
-        "risk_band": "Critical",
-        "risk_score": 80,
-        "subject_entity_id": "CUST001",
-        "subject_identity": "Anchor Commodities Ltd",
+        "risk_score": 20,
+        "subject_entity_id": "C003",
         "synthetic_data": true,
-        "typology_id": "TBML010",
-        "typology_name": "Sanctions Evasion Through Trade"
+        "typology_id": "PAT010",
+        "typology_name": "Hidden Controller"
       },
-      "stage": "W4",
-      "status": "TBML_PRODUCT",
+      "stage": "W3",
+      "status": "APPLIED_PATTERN",
       "validation": {
         "profile": "runtime_validation_profile"
       }
@@ -1665,23 +2265,23 @@
           "payload": {},
           "stage": "ORCHESTRATOR_INITIALISED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:23.624251Z"
+          "timestamp": "2026-09-13T14:33:45.954487Z"
         },
         {
           "message": "Runtime manifest loaded",
           "payload": {
-            "product_id": "TBML010"
+            "product_id": "PAT010"
           },
           "stage": "MANIFEST_LOADED",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:23.628632Z"
+          "timestamp": "2026-09-13T14:33:45.965810Z"
         },
         {
           "message": "Initialise runtime started",
           "payload": {},
           "stage": "01_INITIALISE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:23.628726Z"
+          "timestamp": "2026-09-13T14:33:45.966013Z"
         },
         {
           "message": "Initialise runtime completed successfully",
@@ -1690,14 +2290,14 @@
           },
           "stage": "01_INITIALISE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:23.629249Z"
+          "timestamp": "2026-09-13T14:33:45.966146Z"
         },
         {
           "message": "Execute analytics started",
           "payload": {},
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:23.629262Z"
+          "timestamp": "2026-09-13T14:33:45.966163Z"
         },
         {
           "message": "Execute analytics completed successfully",
@@ -1707,203 +2307,488 @@
                 "allocation": "Allocate further collection where runtime evidence gaps remain."
               },
               "analytic_authority": {
-                "alert_count": 1,
-                "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                "callable": "evaluate_sanctions_evasion",
-                "repository": "$FC04_TBML_REPOSITORY",
-                "risk_band": "Critical",
-                "risk_reason": "Trade exposed to a sanctioned party or jurisdiction",
-                "risk_score": 80,
-                "scenario_path": "$FC04_TBML_REPOSITORY/python/specific/TBML010/scenarios/sanctions_evasion.py",
-                "scenario_sha256": "835a1247e889aa6ee4108c732da4010b9eca08d3ea813a71df02530dcbbbf09b"
+                "callable": "NI010HiddenController.run",
+                "confidence_score": 0.86,
+                "delegation_count": 1,
+                "entity_count": 22,
+                "finding_count": 3,
+                "relationship_count": 26,
+                "repository": "$FC03_NETWORK_REPOSITORY",
+                "risk_score": 20
               },
-              "analytic_name": "TBML010 Sanctions Evasion Through Trade",
+              "analytic_name": "Hidden Controller (applied pattern)",
               "analytic_reasoning": {
                 "confidence_basis": "Runtime confidence is based on metadata, graph relationships and action coverage.",
-                "reasoning_summary": "Runtime reasoning generated from metadata.",
+                "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
                 "section": "Analytic Reasoning",
                 "supporting_factors": [
-                  "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                  "Trade exposed to a sanctioned party or jurisdiction.",
-                  "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                  "Jurisdiction: Critical (90/100, weight 0.15)",
-                  "Network: Critical (90/100, weight 0.15)",
-                  "Trade Value: Critical (90/100, weight 0.15)",
-                  "Counterparty: High (70/100, weight 0.15)",
-                  "Historical: Low (15/100, weight 0.1)"
+                  "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                  "3 hidden controller finding(s) were discovered across the network.",
+                  "Network risk scoring returned 20."
                 ]
               },
-              "assessment_summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+              "assessment_summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
               "case": {
-                "alert_count": 1,
-                "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
                 "case_contract_id": "FC10_CANONICAL_CASE_ENVELOPE",
                 "case_contract_version": "1.2",
-                "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
+                "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
                 "case_fingerprint_excludes": [
                   "run_id"
                 ],
-                "case_id": "TBML010-TRD001",
-                "case_required_fields_count": 3,
+                "case_id": "PAT010-C003",
+                "case_required_fields_count": 2,
                 "case_required_fields_declared": true,
-                "case_verdict": "TRD001: 80/100 Critical",
-                "classification": "CRITICAL",
+                "classification": "LOW",
                 "connected_entities": [
-                  "CP001"
+                  "C004",
+                  "C005",
+                  "C006"
                 ],
-                "connected_entity_count": 1,
+                "connected_entity_count": 3,
                 "connected_entity_names": {
-                  "CP001": "Transcaspian Trading Ltd"
+                  "C004": "Delta Shipping Ltd",
+                  "C005": "Epsilon Commodities Ltd",
+                  "C006": "Zeta Logistics Ltd"
                 },
                 "data_classification": "GOVERNED_SYNTHETIC",
-                "product_id": "TBML010",
+                "finding_count": 3,
+                "product_id": "PAT010",
                 "real_client_data": false,
-                "risk_band": "Critical",
-                "risk_score": 80,
-                "run_id": "tbml010-0d9a8be2b1",
-                "subject_entity_id": "CUST001",
-                "subject_identity": "Anchor Commodities Ltd",
+                "risk_score": 20,
+                "run_id": "pat010-786c110640",
+                "subject_entity_id": "C003",
+                "subject_identity": "Gamma Trading Ltd",
                 "synthetic_data": true,
-                "typology_id": "TBML010",
-                "typology_name": "Sanctions Evasion Through Trade"
+                "typology_id": "PAT010",
+                "typology_name": "Hidden Controller"
               },
-              "case_id": "TBML010-TRD001",
+              "case_id": "PAT010-C003",
               "classification": {
-                "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                "category": "Sanctions Evasion Through Trade",
-                "exposure": "Critical",
-                "type": "Trade Based Money Laundering",
-                "typology": "TBML010"
+                "category": "Hidden Controller",
+                "exposure": "Low",
+                "type": "Network Intelligence",
+                "typology": "PAT010"
               },
-              "confidence_score": 0.8,
-              "decision_rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
+              "confidence_narrative": "Confidence 0.86, from the governed FC-03 Hidden Controller analytic's coverage of the supplied network.",
+              "confidence_score": 0.86,
+              "decision_rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
               "decision_recommendation": {
-                "priority": "Metadata-driven",
-                "rationale": "A trade that clears individual controls can still carry sanctions evasion through trade exposure once the six weighted components are scored together; the FC-04 TBML010 engine makes that a defensible number.",
-                "recommended_decision": "Review according to runtime risk and confidence indicators.",
+                "priority": "Low",
+                "rationale": "Recommendation follows the governed analytic's own priority classification for this pattern.",
+                "recommended_decision": "Low",
                 "section": "Decision Support"
               },
               "decision_support": {
-                "priority": "Metadata-driven",
-                "recommended_decision": "Review according to runtime risk and confidence indicators.",
+                "priority": "Low",
+                "recommended_decision": "Low",
                 "section": "Decision Support"
               },
               "driver_analysis": {
                 "risk_drivers": [
-                  "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                  "Trade exposed to a sanctioned party or jurisdiction.",
-                  "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                  "Jurisdiction: Critical (90/100, weight 0.15)",
-                  "Network: Critical (90/100, weight 0.15)",
-                  "Trade Value: Critical (90/100, weight 0.15)",
-                  "Counterparty: High (70/100, weight 0.15)",
-                  "Historical: Low (15/100, weight 0.1)"
+                  "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                  "3 hidden controller finding(s) were discovered across the network.",
+                  "Network risk scoring returned 20."
                 ],
                 "section": "Driver Analysis"
               },
               "evidence_quality": {
-                "confidence_score": 0.8,
+                "confidence_score": 0.86,
                 "coverage": "Runtime metadata evidence coverage."
               },
-              "execution_mode": "governed_fc04_delegation",
+              "execution_mode": "governed_fc03_delegation",
               "execution_status": "SUCCESS",
               "expected_fusion_result": {
                 "result": "Fused transaction, graph, counterparty and evidence intelligence."
               },
-              "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
-              "intelligence_assessment": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
+              "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
+              "intelligence_assessment": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
               "intelligence_brief": {
-                "headline": "Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold",
+                "headline": "Hidden Controller: Gamma Trading Ltd across 3 controlled entities",
                 "section": "Intelligence Brief",
-                "summary": "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here."
+                "summary": "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006."
               },
               "intelligence_metadata": {
                 "classification": {
-                  "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                  "category": "Sanctions Evasion Through Trade",
-                  "exposure": "Critical",
-                  "type": "Trade Based Money Laundering",
-                  "typology": "TBML010"
+                  "category": "Hidden Controller",
+                  "exposure": "Low",
+                  "type": "Network Intelligence",
+                  "typology": "PAT010"
                 },
                 "contract": "FC01_RUNTIME_CANONICAL_WORKSPACE",
-                "product_id": "TBML010",
+                "product_id": "PAT010",
                 "section": "Intelligence Metadata",
-                "typology_id": "TBML010"
+                "typology_id": "PAT010"
               },
-              "investigation_actions": {
-                "actions": [],
-                "section": "Investigation Actions"
-              },
-              "investigation_hypothesis": "Transaction TRD001 may represent trade-based money laundering through sanctions evasion through trade; the finding is scored across the six-component model, not a single flag.",
-              "operational_action_plan": {
-                "actions": {
-                  "actions": [],
-                  "section": "Investigation Actions"
+              "investigation_actions": [
+                "Investigate hidden controller",
+                "Assess influence pathways",
+                "Review ultimate control"
+              ],
+              "investigation_hypothesis": "The hidden controller pattern around Gamma Trading Ltd may indicate coordinated or concealed activity worth investigating.",
+              "network_intelligence": {
+                "connected_entities": [
+                  "C004",
+                  "C005",
+                  "C006"
+                ],
+                "connected_entity_count": 3,
+                "hidden_controller_findings": 3,
+                "network_metrics": {
+                  "bridge_entities": [],
+                  "clusters": [
+                    {
+                      "cluster_id": "CLUSTER_1",
+                      "entities": [
+                        "P001",
+                        "C001",
+                        "C002",
+                        "C003",
+                        "C006",
+                        "C005",
+                        "C004",
+                        "P005"
+                      ],
+                      "entity_count": 8
+                    },
+                    {
+                      "cluster_id": "CLUSTER_2",
+                      "entities": [
+                        "P002",
+                        "C007",
+                        "C008",
+                        "C009",
+                        "C010",
+                        "C011",
+                        "P006"
+                      ],
+                      "entity_count": 7
+                    },
+                    {
+                      "cluster_id": "CLUSTER_3",
+                      "entities": [
+                        "P003",
+                        "C012",
+                        "C013",
+                        "C014"
+                      ],
+                      "entity_count": 4
+                    },
+                    {
+                      "cluster_id": "CLUSTER_4",
+                      "entities": [
+                        "P004",
+                        "C016",
+                        "C015"
+                      ],
+                      "entity_count": 3
+                    }
+                  ],
+                  "connected_components": [
+                    [
+                      "P001",
+                      "C001",
+                      "C002",
+                      "C003",
+                      "C006",
+                      "C005",
+                      "C004",
+                      "P005"
+                    ],
+                    [
+                      "P002",
+                      "C007",
+                      "C008",
+                      "C009",
+                      "C010",
+                      "C011",
+                      "P006"
+                    ],
+                    [
+                      "P003",
+                      "C012",
+                      "C013",
+                      "C014"
+                    ],
+                    [
+                      "P004",
+                      "C016",
+                      "C015"
+                    ]
+                  ],
+                  "edge_count": 26,
+                  "high_influence_entities": [
+                    {
+                      "entity_id": "C003",
+                      "entity_name": "Gamma Trading Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "C004",
+                      "entity_name": "Delta Shipping Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "C005",
+                      "entity_name": "Epsilon Commodities Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "C006",
+                      "entity_name": "Zeta Logistics Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1905
+                    },
+                    {
+                      "entity_id": "P003",
+                      "entity_name": "Michael Brown",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "P005",
+                      "entity_name": "David Taylor",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "C009",
+                      "entity_name": "Kappa Resources Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "C010",
+                      "entity_name": "Lambda Holdings Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "C011",
+                      "entity_name": "Omega Trading Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.1429
+                    },
+                    {
+                      "entity_id": "P004",
+                      "entity_name": "Emma Wilson",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "P006",
+                      "entity_name": "Lisa Green",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C001",
+                      "entity_name": "Alpha Holdings Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C002",
+                      "entity_name": "Beta Investments Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C007",
+                      "entity_name": "Theta Ventures Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "C008",
+                      "entity_name": "Iota Capital Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0952
+                    },
+                    {
+                      "entity_id": "P001",
+                      "entity_name": "John Smith",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "P002",
+                      "entity_name": "Sarah Johnson",
+                      "entity_type": "PERSON",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C012",
+                      "entity_name": "Phoenix Investments Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C013",
+                      "entity_name": "Apex Shipping Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C014",
+                      "entity_name": "Horizon Logistics Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C015",
+                      "entity_name": "Nexus Commodities Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    },
+                    {
+                      "entity_id": "C016",
+                      "entity_name": "Vertex Global Ltd",
+                      "entity_type": "COMPANY",
+                      "influence_score": 0.0476
+                    }
+                  ],
+                  "network_exposure": {
+                    "C001": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C002": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C003": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C004": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C005": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C006": {
+                      "connected_entities": 4,
+                      "exposure_score": 40
+                    },
+                    "C007": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C008": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "C009": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "C010": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "C011": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "C012": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C013": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C014": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C015": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "C016": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "P001": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "P002": {
+                      "connected_entities": 1,
+                      "exposure_score": 10
+                    },
+                    "P003": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "P004": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    },
+                    "P005": {
+                      "connected_entities": 3,
+                      "exposure_score": 30
+                    },
+                    "P006": {
+                      "connected_entities": 2,
+                      "exposure_score": 20
+                    }
+                  },
+                  "node_count": 22
                 },
+                "source_repository": "$FC03_NETWORK_REPOSITORY",
+                "subject_entity_id": "C003",
+                "subject_identity": "Gamma Trading Ltd"
+              },
+              "operational_action_plan": {
+                "actions": [
+                  "Investigate hidden controller",
+                  "Assess influence pathways",
+                  "Review ultimate control"
+                ],
                 "next_gate": "Evidence validation and decision review",
                 "owner": "Financial Crime Operations",
                 "section": "Investigation Actions"
               },
-              "product_id": "TBML010",
-              "product_kind": "risk_assessment",
+              "priority": "Low",
+              "product_id": "PAT010",
+              "reasoning_summary": "The hidden controller pattern was discovered from the entity and relationship sets, a network graph was built, and the finding was scored by the governed network risk engine.",
+              "recommended_decision": "Low",
               "resource_optimisation": {
                 "recommendation": "Prioritise analyst effort according to risk, confidence and evidence coverage."
               },
-              "risk_band": "Critical",
               "risk_drivers": [
-                "Sanctions Evasion Through Trade scored 80/100 (Critical) by the governed FC-04 TBML010 engine.",
-                "Trade exposed to a sanctioned party or jurisdiction.",
-                "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                "Jurisdiction: Critical (90/100, weight 0.15)",
-                "Network: Critical (90/100, weight 0.15)",
-                "Trade Value: Critical (90/100, weight 0.15)",
-                "Counterparty: High (70/100, weight 0.15)",
-                "Historical: Low (15/100, weight 0.1)"
+                "Gamma Trading Ltd is the controller of 3 controlled entities.",
+                "3 hidden controller finding(s) were discovered across the network.",
+                "Network risk scoring returned 20."
               ],
-              "risk_exposure_drivers": [
-                "Sanctions Exposure: Critical (90/100, weight 0.3)",
-                "Jurisdiction: Critical (90/100, weight 0.15)",
-                "Network: Critical (90/100, weight 0.15)",
-                "Trade Value: Critical (90/100, weight 0.15)",
-                "Counterparty: High (70/100, weight 0.15)",
-                "Historical: Low (15/100, weight 0.1)"
-              ],
-              "risk_score": 80,
+              "risk_score": 20,
               "scoring_framework": {
                 "classification": {
-                  "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                  "category": "Sanctions Evasion Through Trade",
-                  "exposure": "Critical",
-                  "type": "Trade Based Money Laundering",
-                  "typology": "TBML010"
+                  "category": "Hidden Controller",
+                  "exposure": "Low",
+                  "type": "Network Intelligence",
+                  "typology": "PAT010"
                 },
-                "confidence_score": 0.8,
-                "risk_score": 80,
+                "confidence_score": 0.86,
+                "risk_score": 20,
                 "section": "Scoring Framework"
               },
               "supporting_assessment": [
-                "The governed FC-04 TBML010 engine (evaluate_sanctions_evasion) scored TRD001 at 80/100 (Critical). Trade exposed to a sanctioned party or jurisdiction. Component breakdown: Sanctions Exposure: Critical (90/100, weight 0.3); Jurisdiction: Critical (90/100, weight 0.15); Network: Critical (90/100, weight 0.15); Trade Value: Critical (90/100, weight 0.15); Counterparty: High (70/100, weight 0.15); Historical: Low (15/100, weight 0.1). The score is produced by the governed callable, not re-implemented here.",
-                "The risk score was produced by the governed FC-04 TBML010 engine (evaluate_sanctions_evasion), proven standalone by fc-04's test pack before the runtime consumed it."
+                "The governed FC-03 Hidden Controller analytic flagged 3 finding(s) across 22 entities. The strongest is Gamma Trading Ltd, the controller of 3 controlled entities: C004, C005, C006.",
+                "Risk was scored by the governed FC-03 engines, not by this adapter."
               ],
-              "tbml_alerts": [
-                {
-                  "alert_type": "TBML010_SANCTIONS_EVASION_THROUGH_TRADE",
-                  "counterparty_id": "CP001",
-                  "customer_id": "CUST001",
-                  "risk_band": "Critical",
-                  "risk_components": "{\"band\": \"Critical\", \"band_scores\": {\"Critical\": 90, \"High\": 70, \"Low\": 15, \"Medium\": 45}, \"basis\": \"scoring-models/specific/TBML010_Sanctions_Evasion_Through_Trade_Scoring_Framework.md. Band-midpoint mapping; boundaries at 80; half-up; missing != zero.\", \"boundaries\": [{\"band\": \"Low\", \"max\": 29, \"min\": 0}, {\"band\": \"Medium\", \"max\": 59, \"min\": 30}, {\"band\": \"High\", \"max\": 79, \"min\": 60}, {\"band\": \"Critical\", \"max\": 100, \"min\": 80}], \"components\": {\"counterparty\": {\"band\": \"High\", \"component_score\": 70, \"contribution\": 10.5, \"weight\": 0.15}, \"historical\": {\"band\": \"Low\", \"component_score\": 15, \"contribution\": 1.5, \"weight\": 0.1}, \"jurisdiction\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}, \"network\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}, \"sanctions_exposure\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 27.0, \"weight\": 0.3}, \"trade_value\": {\"band\": \"Critical\", \"component_score\": 90, \"contribution\": 13.5, \"weight\": 0.15}}, \"rounding\": \"half-up\", \"score\": 80, \"total\": 79.5}",
-                  "risk_reason": "Trade exposed to a sanctioned party or jurisdiction",
-                  "risk_score": 80,
-                  "sanctioned_jurisdiction_flag": true,
-                  "sanctioned_party_flag": true,
-                  "transaction_id": "TRD001"
-                }
-              ],
-              "typology": "TBML010",
-              "typology_id": "TBML010",
+              "typology": "PAT010",
+              "typology_id": "PAT010",
               "visual_intelligence_model": {
                 "graph_source": "CANONICAL_RUNTIME_GRAPH",
-                "product_id": "TBML010",
+                "product_id": "PAT010",
                 "section": "Visual Intelligence Model",
                 "status": "EMITTED_BY_RUNTIME"
               }
@@ -1912,71 +2797,71 @@
           },
           "stage": "02_EXECUTE_ANALYTICS",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.779769Z"
+          "timestamp": "2026-09-13T14:33:55.671081Z"
         },
         {
           "message": "Generate metadata started",
           "payload": {},
           "stage": "03_GENERATE_METADATA",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.779790Z"
+          "timestamp": "2026-09-13T14:33:55.671099Z"
         },
         {
           "message": "Generate metadata completed successfully",
           "payload": {
-            "metadata_packet_path": "runtime/manufacturing/metadata_packets/tbml010-0d9a8be2b1_TBML010_metadata_packet.json",
+            "metadata_packet_path": "runtime/manufacturing/metadata_packets/pat010-786c110640_PAT010_metadata_packet.json",
             "metadata_version": "327-hard-active-entity-graph-v1",
             "runtime_ready": true
           },
           "stage": "03_GENERATE_METADATA",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.779817Z"
+          "timestamp": "2026-09-13T14:33:55.671140Z"
         },
         {
           "message": "Build intelligence product started",
           "payload": {},
           "stage": "04_BUILD_PRODUCT",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.779825Z"
+          "timestamp": "2026-09-13T14:33:55.671150Z"
         },
         {
           "message": "Build intelligence product completed successfully",
           "payload": {
-            "diagram_html_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
-            "fc01_html_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "output_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "product_id": "TBML010",
-            "product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "rendered_html_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
-            "run_id": "tbml010-0d9a8be2b1",
-            "runtime_product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+            "diagram_html_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
+            "fc01_html_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "output_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "product_id": "PAT010",
+            "product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "rendered_html_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
+            "run_id": "pat010-786c110640",
+            "runtime_product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
             "semantic_release_gate": {
-              "case_fingerprint": "0c38c25492c5d1c1c5c263bf8783ab9b980b7a1ab5ac926d9c43d0bdf560fa76",
-              "case_id": "TBML010-TRD001",
-              "classification": "CRITICAL",
+              "case_fingerprint": "78346667bda5de2a54580dd5bafafb7e6e0d202c8c9f5999f13c685a66d63016",
+              "case_id": "PAT010-C003",
+              "classification": "LOW",
               "gate_id": "INTELLIGENCE_ASSET_SEMANTIC_RELEASE_GATE_V1",
-              "graph_path": "runtime/manufacturing/graph_artifacts/tbml010-0d9a8be2b1_TBML010_CANONICAL_GRAPH.html",
+              "graph_path": "runtime/manufacturing/graph_artifacts/pat010-786c110640_PAT010_CANONICAL_GRAPH.html",
               "graph_semantic_value_count": 6,
-              "product_id": "TBML010",
-              "product_path": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+              "product_id": "PAT010",
+              "product_path": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
               "product_semantic_value_count": 7,
-              "risk_score": 80,
+              "risk_score": 20,
               "stale_hits": [],
               "status": "PASS",
-              "typology_id": "TBML010",
+              "typology_id": "PAT010",
               "unresolved_tokens": []
             }
           },
           "stage": "04_BUILD_PRODUCT",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.779844Z"
+          "timestamp": "2026-09-13T14:33:55.671183Z"
         },
         {
           "message": "Validate runtime package started",
           "payload": {},
           "stage": "05_VALIDATE_RUNTIME",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.779852Z"
+          "timestamp": "2026-09-13T14:33:55.671193Z"
         },
         {
           "message": "Validate runtime package completed successfully",
@@ -2055,29 +2940,29 @@
                 },
                 {
                   "check": "risk_score_range",
-                  "message": "80",
+                  "message": "20",
                   "passed": true
                 },
                 {
                   "check": "confidence_score_range",
-                  "message": "0.8",
+                  "message": "0.86",
                   "passed": true
                 }
               ],
               "checks_failed": 0,
               "checks_passed": 16,
-              "created_at": "2026-08-30T07:42:26.779987Z",
-              "product_id": "TBML010",
-              "run_id": "tbml010-0d9a8be2b1",
+              "created_at": "2026-09-13T14:33:55.671465Z",
+              "product_id": "PAT010",
+              "run_id": "pat010-786c110640",
               "status": "PASS",
               "validation_type": "metadata_validation"
             },
-            "product_id": "TBML010",
+            "product_id": "PAT010",
             "renderer_validation": {
               "checks": [
                 {
                   "check": "html_file_exists",
-                  "message": "runtime/manufacturing/products/tbml010-0d9a8be2b1_TBML010_FC01_RUNTIME_PRODUCT.html",
+                  "message": "runtime/manufacturing/products/pat010-786c110640_PAT010_FC01_RUNTIME_PRODUCT.html",
                   "passed": true
                 },
                 {
@@ -2143,26 +3028,26 @@
               ],
               "checks_failed": 0,
               "checks_passed": 13,
-              "created_at": "2026-08-30T07:42:26.780337Z",
-              "product_id": "TBML010",
-              "run_id": "tbml010-0d9a8be2b1",
+              "created_at": "2026-09-13T14:33:55.671851Z",
+              "product_id": "PAT010",
+              "run_id": "pat010-786c110640",
               "status": "PASS",
               "validation_type": "renderer_validation"
             },
-            "run_id": "tbml010-0d9a8be2b1",
+            "run_id": "pat010-786c110640",
             "status": "PASS",
-            "validation_report_path": "runtime/manufacturing/validation_reports/tbml010-0d9a8be2b1_runtime_validation_report.json"
+            "validation_report_path": "runtime/manufacturing/validation_reports/pat010-786c110640_runtime_validation_report.json"
           },
           "stage": "05_VALIDATE_RUNTIME",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.787111Z"
+          "timestamp": "2026-09-13T14:33:55.673214Z"
         },
         {
           "message": "Capture evidence started",
           "payload": {},
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.787127Z"
+          "timestamp": "2026-09-13T14:33:55.673311Z"
         },
         {
           "message": "Capture evidence completed successfully",
@@ -2175,26 +3060,26 @@
               "artefact_index"
             ],
             "checksums": {
-              "artefact_index": "6e116439671921a91870cf9ccce0261c9d1e0b2fece07dfad4ff6358903fe2b7",
-              "canonical_graph_artifact": "00cffdbf2c6fd1829d8bd968a458aa26ef598375151a2bb565716a6055e40cc3",
-              "fc01_product": "5c366efe5e4bb21f65dfe4abbd559fab6f8b7d8515c430a52db499f604007110",
-              "metadata_packet": "c553980777c254f93abde2077e646da3d4ff02d7c9f5ee2e9dc9c66115a46370",
-              "validation_report": "2f40a432922d81cbea6f171de1d3531c4327571eaeb82fdea0fc4a09cca487cf"
+              "artefact_index": "7ae7bf81a3783c4e4bd4a6c56ef033d6a99293a01316519850dc30f51ca264fa",
+              "canonical_graph_artifact": "77d0328e361675dbd47570e3f8a0d151411b1621d33af5461d02d44d6e56894c",
+              "fc01_product": "f9e3aade5ed2c76d611300bb190cdedeb1631bc84cf7b31960fd0c84cc626385",
+              "metadata_packet": "9f10ca2389c0c7feab3eee1e3a7f440f58c4d2d6a5f192d3178a815d8fc55afa",
+              "validation_report": "b08d93379b8117820d45d3dd228af57bc1d04e2f730881ec3a4ab8d4cac0623c"
             },
-            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1/evidence_manifest.json",
-            "evidence_pack_path": "runtime/manufacturing/evidence_packs/tbml010-0d9a8be2b1",
+            "evidence_manifest_path": "runtime/manufacturing/evidence_packs/pat010-786c110640/evidence_manifest.json",
+            "evidence_pack_path": "runtime/manufacturing/evidence_packs/pat010-786c110640",
             "status": "CAPTURED"
           },
           "stage": "06_CAPTURE_EVIDENCE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.792722Z"
+          "timestamp": "2026-09-13T14:33:55.683647Z"
         },
         {
           "message": "Register release started",
           "payload": {},
           "stage": "07_REGISTER_RELEASE",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.792734Z"
+          "timestamp": "2026-09-13T14:33:55.683693Z"
         },
         {
           "message": "Register release completed successfully",
@@ -2202,31 +3087,31 @@
             "checks_failed": 0,
             "checks_passed": 6,
             "release_gate": "323F_RUNTIME_RELEASE_GATE",
-            "release_record_path": "runtime/manufacturing/release_records/tbml010-0d9a8be2b1_release_record.json",
+            "release_record_path": "runtime/manufacturing/release_records/pat010-786c110640_release_record.json",
             "status": "APPROVED_FOR_RELEASE"
           },
           "stage": "07_REGISTER_RELEASE",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.793865Z"
+          "timestamp": "2026-09-13T14:33:55.684681Z"
         },
         {
           "message": "Complete execution started",
           "payload": {},
           "stage": "08_COMPLETE_EXECUTION",
           "status": "RUNNING",
-          "timestamp": "2026-08-30T07:42:26.793884Z"
+          "timestamp": "2026-09-13T14:33:55.684690Z"
         },
         {
           "message": "Complete execution completed successfully",
           "payload": {
-            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/tbml010-0d9a8be2b1_end_to_end_report.json",
+            "end_to_end_report_path": "runtime/manufacturing/end_to_end_reports/pat010-786c110640_end_to_end_report.json",
             "execution_complete": true,
-            "fusion_packet_path": "runtime/manufacturing/fusion/packets/TBML010_packet.yaml",
+            "fusion_packet_path": "runtime/manufacturing/fusion/packets/PAT010_packet.yaml",
             "operational_status": "OPERATIONAL_READY"
           },
           "stage": "08_COMPLETE_EXECUTION",
           "status": "SUCCESS",
-          "timestamp": "2026-08-30T07:42:26.801023Z"
+          "timestamp": "2026-09-13T14:33:55.700842Z"
         }
       ],
       "status": "SUCCESS"
