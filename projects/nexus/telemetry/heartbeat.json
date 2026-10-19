@@ -1,7 +1,10 @@
 {
  "archive": {
-  "latest": null,
-  "not_safe": 0
+  "latest": {
+   "day": "2026-10-16",
+   "state": "shipped"
+  },
+  "not_safe": 2
  },
  "days": [
   {
@@ -176,13 +179,13 @@
    "status": "ok"
   },
   {
-   "alerts": null,
+   "alerts": 1500,
    "day": "2026-10-16",
-   "decided": null,
+   "decided": 5,
    "opening_load": false,
    "reason": null,
    "recovered_on": null,
-   "status": "grey"
+   "status": "ok"
   }
  ],
  "estate": "living-01",
@@ -326,28 +329,28 @@
  "living_since": "2026-10-15",
  "provenance": {
   "authority": "LOCKED",
-  "fc10_commit": "d1296c987452a10aca8ec649f27f5ce82f40f156",
-  "run_id": "2026-10-16T05-30-04",
+  "fc10_commit": "49a4e74aa0d372363d5e1a6af8db9d93c14de731",
+  "run_id": "2026-10-19T05-30-04",
   "titles_from": "fc-08"
  },
- "published_at": "2026-10-17T22:27:57+01:00",
+ "published_at": "2026-10-19T05:37:56+01:00",
  "pulse_note": null,
  "running": {
-  "as_of": "2026-10-16T05:34:42+01:00",
-  "avg_seconds": 277.4,
-  "clean": 1,
-  "of": 1
+  "as_of": "2026-10-19T05:34:26+01:00",
+  "avg_seconds": 269.6,
+  "clean": 2,
+  "of": 2
  },
  "schema": 1,
  "stable": {
-  "as_of": "2026-10-13T10:45:19+01:00",
+  "as_of": "2026-10-18T06:24:08+01:00",
   "reason": null,
-  "verdict": "BASELINE"
+  "verdict": "PASS"
  },
  "synthetic": true,
  "today": {
-  "day": "2026-10-15",
-  "intake_transactions": 20214,
-  "run_seconds": 277.4
+  "day": "2026-10-16",
+  "intake_transactions": 400,
+  "run_seconds": 261.8
  }
 }
