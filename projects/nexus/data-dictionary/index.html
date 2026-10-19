@@ -87,11 +87,11 @@
   <p class="lead">The canonical pillar data model for the NEXUS financial-crime platform. Every table anchors to one resolved party via a shared <b>entity_key</b> — the spine that lets sanctions, transaction monitoring, trade, ownership, intelligence, and case management be <b>views on one truth rather than systems to reconcile</b>. This spec is generated from <b>data_dictionary.yaml</b> (the governed source of truth).</p>
 
   <div class="stats">
-    <div class="stat"><div class="n">29</div><div class="l">Governed tables</div></div>
-    <div class="stat"><div class="n">9</div><div class="l">Pillars</div></div>
-    <div class="stat"><div class="n">27</div><div class="l">Active</div></div>
+    <div class="stat"><div class="n">44</div><div class="l">Governed tables</div></div>
+    <div class="stat"><div class="n">10</div><div class="l">Pillars</div></div>
+    <div class="stat"><div class="n">42</div><div class="l">Active</div></div>
     <div class="stat"><div class="n">2</div><div class="l">Pending / reserved</div></div>
-    <div class="stat"><div class="n">20</div><div class="l">FK links</div></div>
+    <div class="stat"><div class="n">28</div><div class="l">FK links</div></div>
     <div class="stat"><div class="n">entity_key</div><div class="l">The join spine</div></div>
   </div>
 
@@ -101,66 +101,111 @@
 %%{init: {'theme':'dark','themeVariables':{'fontSize':'13px'}}}%%
 flowchart LR
   ENT["entities<br/>(entity_key)"]:::hub
-
-  subgraph ACC["Accounts / Transactions"]
-    A[accounts]
-    T[transactions]
+  subgraph P1["Accounts"]
+    t_accounts[accounts]
   end
-  subgraph KYC["KYC / Reference"]
-    K[kyc_profile]
-    O[ownership]
-    DIR[directorships]
+  subgraph P2["Transactions"]
+    t_transactions[transactions]
   end
-  subgraph SANC["Sanctions / Watchlists"]
-    SL[sanctions_list]
-    SR[screening_results]
-    CR[country_risk]
-    CUR[currency_risk]
-    IR[industry_risk]
+  subgraph P3["KYC / Reference"]
+    t_kyc_profile[kyc_profile]
+    t_ownership[ownership]
+    t_directorships[directorships]
   end
-  subgraph SHIP["Shipping / Trade"]
-    V[vessels]
-    VIH[vessel_identity_history]
-    SE[shipping_events]
-    TD[trade_documents]
-    MB[market_benchmark]
-    SH[shipments]
+  subgraph P4["Sanctions / Watchlists"]
+    t_sanctions_list[sanctions_list]
+    t_screening_results[screening_results]
+    t_country_risk[country_risk]
+    t_currency_risk[currency_risk]
+    t_typology_results[typology_results]
+    t_industry_risk[industry_risk]
   end
-  subgraph OPS["Investigation &amp; Ops"]
-    TL[task_list]
-    TA[task_audit]
+  subgraph P5["Shipping / Trade"]
+    t_shipping_events[shipping_events]
+    t_trade_documents[trade_documents]
+    t_market_benchmark[market_benchmark]
+    t_freight_benchmark[freight_benchmark]
+    t_route_distance[route_distance]
+    t_vessel_class_cost[vessel_class_cost]
+    t_bunker_price[bunker_price]
+    t_port_charges[port_charges]
+    t_vessel_value_reference[vessel_value_reference]
+    t_price_cap[price_cap]
+    t_controlled_goods[controlled_goods]
+    t_shipments[shipments]
+    t_vessels[vessels]
+    t_vessel_identity_history[vessel_identity_history]
   end
-  subgraph INT["Intel / Markets (pending)"]
-    IE[intel_events]
-    IRg[intel_register]
-    MK[markets]
+  subgraph P6["Investigation & Operations"]
+    t_task_list[task_list]
+    t_task_audit[task_audit]
+    t_case_events[case_events]
+    t_sar_register[sar_register]
+    t_sar_deadlines[sar_deadlines]
+    t_sla_breaches[sla_breaches]
+    t_qa_reviews[qa_reviews]
+    t_queue_rereviews[queue_rereviews]
   end
-
-  A -->|entity_key| ENT
-  T -->|from/to_account| A
-  T -.->|from/to_entity_key| ENT
-  K -.->|entity_key| ENT
-  O -->|owner/owned| ENT
-  DIR -->|entity_key| ENT
-  DIR -.->|person_entity_key| ENT
-  V -->|owner_entity_key| ENT
-  SE -->|vessel_id| V
-  SE -.->|counterparty| V
-  VIH -->|vessel_id| V
-  SE -.->|entity_key| ENT
-  TD -->|hs_code| MB
-  TD -.->|entity_key| ENT
-  SH -.->|entity_key| ENT
-  SR -->|designation_id| SL
-  SR -.->|entity_key| ENT
-  TL -.->|entity_key| ENT
-  TA -->|task_id| TL
-  IE -.->|entity_key| ENT
-  IRg -.->|entity_key| ENT
-  K -. industry_code .-> IR
-  K -. country .-> CR
-  K -. currency .-> CUR
-
+  subgraph P7["Ingestion"]
+    t_load_ledger[load_ledger]
+    t_ingest_quarantine[ingest_quarantine]
+    t_ingest_history[ingest_history]
+  end
+  subgraph P8["Intel"]
+    t_intel_events[intel_events]
+    t_intel_register[intel_register]
+  end
+  subgraph P9["Capital Markets"]
+    t_instruments[instruments]
+    t_orders[orders]
+    t_executions[executions]
+    t_market_data[market_data]
+    t_positions[positions]
+  end
+  ENT -.->|entity_key| ENT
+  t_accounts -->|entity_key| ENT
+  t_transactions -->|from_account| t_accounts
+  t_transactions -.->|from_entity_key| ENT
+  t_transactions -->|to_account| t_accounts
+  t_transactions -.->|to_entity_key| ENT
+  t_kyc_profile -.->|entity_key| ENT
+  t_ownership -->|owner_entity_key| ENT
+  t_ownership -->|owned_entity_key| ENT
+  t_directorships -->|entity_key| ENT
+  t_directorships -->|person_entity_key| ENT
+  t_shipping_events -.->|entity_key| ENT
+  t_shipping_events -->|vessel_id| t_vessels
+  t_shipping_events -->|counterparty_vessel_id| t_vessels
+  t_trade_documents -.->|entity_key| ENT
+  t_trade_documents -->|hs_code| t_market_benchmark
+  t_trade_documents -->|route_key| t_freight_benchmark
+  t_trade_documents -->|vessel_id| t_vessels
+  t_route_distance -->|route_key| t_freight_benchmark
+  t_vessel_class_cost -->|fuel_grade| t_bunker_price
+  t_shipments -.->|entity_key| ENT
+  t_vessels -->|owner_entity_key| ENT
+  t_vessel_identity_history -->|vessel_id| t_vessels
+  t_screening_results -.->|entity_key| ENT
+  t_screening_results -->|designation_id| t_sanctions_list
+  t_typology_results -->|entity_key| ENT
+  t_intel_events -.->|entity_key| ENT
+  t_intel_register -.->|entity_key| ENT
+  t_instruments -->|issuer_entity_key| ENT
+  t_orders -->|instrument_id| t_instruments
+  t_orders -.->|entity_key| ENT
+  t_orders -->|account_id| t_accounts
+  t_executions -->|order_id| t_orders
+  t_executions -->|instrument_id| t_instruments
+  t_executions -.->|entity_key| ENT
+  t_executions -->|counterparty_entity_key| ENT
+  t_market_data -->|instrument_id| t_instruments
+  t_positions -.->|entity_key| ENT
+  t_positions -->|instrument_id| t_instruments
+  t_task_list -.->|entity_key| ENT
+  t_task_audit -->|task_id| t_task_list
+  t_case_events -.->|entity_key| ENT
+  t_sar_register -.->|entity_key| ENT
+  t_sar_deadlines -->|sar_ref| t_sar_register
   classDef hub fill:#1c3a5e,stroke:#79c4ff,stroke-width:2px,color:#eaf1f9;
     </pre>
     <figcaption>Solid = foreign key · dashed = <code>entity_key</code> anchor / reference-code link. Every operational table resolves back to <code>entities</code>.</figcaption>
@@ -187,7 +232,7 @@ flowchart LR
     <tbody id="connbody"></tbody>
   </table>
 
-  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 2026-08-17 · 29 tables / 9 pillars</div>
+  <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 44 tables / 10 pillars</div>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -217,94 +262,8 @@ flowchart LR
 </defs></svg>
 
 <script>
-const PILLARS = [
-  ["Entities / Parties","The resolved-party spine — one row per real-world person, company, account, or merchant.",[
-    {n:"entities",st:"active",ct:"SCD",pk:"entity_key",grain:"one resolved party (person, company, account, or merchant)",
-     els:[["entity_key","entity_key","anchor"],["label","string",""],["entity_type","enum · company|person|account|merchant|bank",""],["country","country_code",""]]},
-  ]],
-  ["Accounts","Accounts / processor records, owned by an entity — the bridge between parties and transactions.",[
-    {n:"accounts",st:"active",ct:"SCD",pk:"account_id",grain:"one account or processor record owned by an entity",
-     els:[["account_id","string","pk"],["entity_key","entity_key → entities","fk"],["account_type","enum · checking|savings|correspondent|custody|merchant|current",""]]},
-  ]],
-  ["Transactions","The money-movement event stream — the driver of transaction monitoring.",[
-    {n:"transactions",st:"active",ct:"event stream",pk:"txn_id",grain:"one payment/settlement event between two accounts",
-     els:[["txn_id","string","pk"],["value_date","date",""],["from_account","string → accounts","fk"],["from_entity_key","entity_key","anchor"],["to_account","string → accounts","fk"],["to_entity_key","entity_key","anchor"],["amount","amount",""],["currency","currency_code",""],["direction","enum · inbound|outbound",""],["corridor","string",""],["swift_ref","string",""]]},
-  ]],
-  ["KYC / Reference","The expected-profile + ownership reference layer (KYC/CLM) — one baseline for behavioural scoring + the UBO graph.",[
-    {n:"kyc_profile",st:"active",ct:"SCD",pk:"entity_key + valid_from",grain:"the expected/reference profile for an entity, effective-dated",
-     els:[["entity_key","entity_key","anchor"],["country_of_incorporation","country_code",""],["industry_code","string (UK SIC)",""],["expected_currency","currency_code",""],["legal_entity_type","enum · ltd|plc|sole_trader|trust|fi|charity|sovereign",""],["cdd_risk_rating","enum · low|medium|high",""]]},
-    {n:"ownership",st:"active",ct:"SCD",pk:"owner + owned (+ valid_from)",grain:"one governed ownership/control edge (owner → owned)",
-     els:[["owner_entity_key","entity_key → entities","fk"],["owned_entity_key","entity_key → entities","fk"],["percent","decimal",""],["nature","enum · shareholding|control|nominee|trust",""]]},
-    {n:"directorships",st:"active",ct:"SCD",pk:"entity + person + role (+ valid_from)",grain:"one officer appointment (natural person → legal entity). A directorship is a CONTROL relationship, not an ownership stake, so it carries no percentage — the beneficial-ownership resolver uses it as AMLD6's senior-managing-official route when the ownership chain identifies no qualifying natural person",
-     els:[["entity_key","entity_key → entities","fk"],["person_entity_key","entity_key → entities (entity_type must be person)","fk"],["role","enum · director|secretary|officer|senior_managing_official",""],["appointed_on","date",""],["resigned_on","date · empty means currently serving",""],["source","string · provenance of the record",""],["as_of_date","date · last confirmed current (AMLD6 requires BO data be kept current)",""]]},
-  ]],
-  ["Sanctions / Watchlists","Designations, screening hits, and the governed risk-tier reference tables (country/currency/industry).",[
-    {n:"sanctions_list",st:"active",ct:"periodic ref",pk:"designation_id",grain:"one sanctions/PEP/adverse-media designation record",
-     els:[["designation_id","string","pk"],["listed_name","string",""],["list_type","enum · sanctions|pep|adverse_media",""],["programme","string",""]]},
-    {n:"screening_results",st:"active",ct:"event stream",pk:"screening_id",grain:"one screening hit of an entity against a designation",
-     els:[["screening_id","string","pk"],["entity_key","entity_key","anchor"],["designation_id","string → sanctions_list","fk"],["match_score","decimal",""]]},
-    {n:"country_risk",st:"active",ct:"periodic ref",pk:"country_code",grain:"one governed risk tier per jurisdiction",
-     els:[["country_code","country_code","pk"],["tier","enum · low|medium|high|restricted",""]]},
-    {n:"currency_risk",st:"active",ct:"periodic ref",pk:"currency_code",grain:"one governed risk tier per currency, plus whether it is a CORE settlement currency (G7 + CHF + AUD) — orthogonal to tier: core is how unremarkable it is to settle in, tier is the risk the currency carries",
-     els:[["currency_code","currency_code","pk"],["tier","enum · low|medium|high|restricted",""],["core","enum · true|false","governs currency_deviation"]]},
-    {n:"industry_risk",st:"active",ct:"periodic ref",pk:"industry_code",grain:"one governed risk tier per industry (UK SIC 2007, keyed to kyc_profile.industry_code)",
-     els:[["industry_code","string","pk"],["tier","enum · low|medium|high|restricted",""],["descriptor","string",""]]},
-  ]],
-  ["Shipping / Trade","Vessels + identity/flag history, AIS movements (incl. dark gaps + ship-to-ship transfers), HS-coded trade docs + market benchmarks, and shipments — the substrate for TBML, transshipment + shadow-fleet typologies.",[
-    {n:"vessels",st:"active",ct:"SCD",pk:"vessel_id",grain:"one vessel registry record: IMO/name identity, flag, owner, type, P&I insurer",
-     els:[["vessel_id","string","pk"],["flag","country_code",""],["owner_entity_key","entity_key → entities","fk"],["vessel_type","enum · cargo|tanker|container|bulk_carrier|fishing",""],["imo","string",""],["name","string",""],["built_year","int",""],["pi_insurer_status","enum · western|non_western|none",""]]},
-    {n:"vessel_identity_history",st:"active",ct:"SCD",pk:"hist_id",grain:"one effective-dated vessel identity state (name + flag) — one row per rename / reflag (flag-hopping trail)",
-     els:[["hist_id","string","pk"],["vessel_id","string → vessels","fk"],["name","string",""],["flag","country_code",""],["change_type","enum · initial|rename|reflag|both",""]]},
-    {n:"shipping_events",st:"active",ct:"event stream",pk:"event_id",grain:"one shipping/vessel event — AIS ping/gap, port call, movement, ship-to-ship transfer (with position + kinematics)",
-     els:[["entity_key","entity_key","anchor"],["event_id","string","pk"],["vessel_id","string → vessels","fk"],["event_type","enum · ais_ping|port_call|movement|ais_gap|sts_transfer",""],["location","string",""],["event_ts","datetime",""],["lat","decimal",""],["lon","decimal",""],["speed_knots","decimal",""],["counterparty_vessel_id","string → vessels","fk"],["gap_hours","decimal",""]]},
-    {n:"trade_documents",st:"active",ct:"event stream",pk:"doc_id",grain:"one trade document (invoice, B/L) evidencing a shipment, with HS commodity + declared origin",
-     els:[["doc_id","string","pk"],["entity_key","entity_key","anchor"],["doc_type","enum · invoice|bill_of_lading|trade",""],["value","amount",""],["currency","currency_code",""],["hs_code","string → market_benchmark","fk"],["commodity","string",""],["declared_origin","country_code",""]]},
-    {n:"market_benchmark",st:"active",ct:"periodic ref",pk:"hs_code",grain:"one governed benchmark unit price per HS commodity code — the reference for over/under-invoicing",
-     els:[["hs_code","string","pk"],["commodity","string",""],["benchmark_unit_price","amount",""],["unit","string",""],["currency","currency_code",""]]},
-    {n:"shipments",st:"active",ct:"SCD",pk:"shipment_id",grain:"one shipment/consignment record and its status",
-     els:[["shipment_id","string","pk"],["entity_key","entity_key","anchor"],["status","enum · booked|in_transit|delivered|delayed|cancelled",""],["origin_port","string",""],["dest_port","string",""]]},
-  ]],
-  ["Investigation &amp; Operations","The case-management workflow — worklist + append-only audit log (L6).",[
-    {n:"task_list",st:"active",ct:"periodic ref",pk:"task_id",grain:"one case task per scored entity — current-state investigation snapshot",
-     els:[["task_id","string","pk"],["entity_key","entity_key","anchor"],["label","string",""],["band","enum · Critical|High|Medium|Low",""],["score","int",""],["priority_rank","int",""],["state","enum · New|Assigned|InProgress|PendingQA|Cleared|SARFiled|Escalated",""],["assignee","string",""],["disposition","enum · Pending|Cleared|SARFiled|Escalated",""],["sar_ref","string",""]]},
-    {n:"task_audit",st:"active",ct:"event stream",pk:"task_id + seq",grain:"one row per applied workflow action — append-only transition log",
-     els:[["task_id","string → task_list","fk"],["seq","int",""],["from_state","enum",""],["to_state","enum",""],["action","enum · assign|start|reassign|submit_qa|return_to_investigator|clear|file_sar|escalate",""],["actor","string",""],["note","string",""]]},
-  ]],
-  ["Intel / Markets","Intelligence arrivals + the reserved capital-markets pillar — governed skeletons ahead of build.",[
-    {n:"intel_events",st:"pending",ct:"event stream",pk:"intel_id",grain:"one intel arrival (adverse media, SAR, exit) for an entity",
-     els:[["intel_id","string","pk"],["entity_key","entity_key","anchor"],["intel_type","enum · adverse_media|sar|exit",""],["summary","string",""]]},
-    {n:"intel_register",st:"pending",ct:"periodic ref",pk:"register_id",grain:"the as-of SAR/exit register entry for an entity",
-     els:[["register_id","string","pk"],["entity_key","entity_key","anchor"],["register_type","enum · sar|exit",""],["status","enum · open|closed|escalated",""]]},
-    {n:"instruments",st:"pending",ct:"SCD",pk:"instrument_id",grain:"one tradable instrument (equity/bond/derivative/commodity) — the Capital Markets (fc-07) join spine",
-     els:[["instrument_id","string","pk"],["symbol","string",""],["issuer_entity_key","entity_key","fk"],["instrument_type","enum · equity|bond|derivative|fx|commodity",""],["venue","string",""],["currency","currency_code",""]]},
-    {n:"orders",st:"pending",ct:"event stream",pk:"order_id",grain:"one order lifecycle event — feeds CM003/CM004 spoofing & layering cancel-speed",
-     els:[["order_id","string","pk"],["instrument_id","string → instruments","fk"],["entity_key","entity_key","anchor"],["account_id","string → accounts","fk"],["side","enum · buy|sell",""],["order_type","enum · limit|market|stop|iceberg",""],["price","amount",""],["quantity","decimal",""],["status","enum · new|amended|cancelled|filled|…",""],["placed_ts","datetime",""],["cancelled_ts","datetime",""]]},
-    {n:"executions",st:"pending",ct:"event stream",pk:"execution_id",grain:"one trade execution; self-match detection for CM005 wash trading",
-     els:[["execution_id","string","pk"],["order_id","string → orders","fk"],["instrument_id","string → instruments","fk"],["entity_key","entity_key","anchor"],["counterparty_entity_key","entity_key","fk"],["quantity","decimal",""],["price","amount",""],["executed_ts","datetime",""]]},
-    {n:"market_data",st:"pending",ct:"event stream",pk:"market_data_id",grain:"one market observation (tick/quote/fixing/close) — CM009 benchmark manipulation",
-     els:[["market_data_id","string","pk"],["instrument_id","string → instruments","fk"],["observed_ts","datetime",""],["price","amount",""],["volume","decimal",""],["data_type","enum · trade_tick|quote|fixing|close",""],["benchmark_name","string",""]]},
-    {n:"positions",st:"pending",ct:"periodic ref",pk:"entity_key + instrument_id",grain:"as-of holding of an instrument by an entity",
-     els:[["entity_key","entity_key","anchor"],["instrument_id","string → instruments","fk"],["quantity","decimal",""],["market_value","amount",""],["currency","currency_code",""]]},
-  ]],
-];
-const CONNS = [
-  ["accounts.entity_key","entities.entity_key","entity ownership of account","fk"],
-  ["transactions.from_account / to_account","accounts.account_id","which accounts moved money","fk"],
-  ["transactions.from_entity_key / to_entity_key","entities.entity_key","payer / payee party","anchor"],
-  ["ownership.owner_entity_key / owned_entity_key","entities.entity_key","the UBO ownership graph","fk"],
-  ["kyc_profile.entity_key","entities.entity_key","expected profile per party","anchor"],
-  ["screening_results.entity_key","entities.entity_key","who was screened","anchor"],
-  ["screening_results.designation_id","sanctions_list.designation_id","which designation was hit","fk"],
-  ["vessels.owner_entity_key","entities.entity_key","vessel beneficial owner","fk"],
-  ["shipping_events.vessel_id","vessels.vessel_id","movement → vessel","fk"],
-  ["shipping_events.counterparty_vessel_id","vessels.vessel_id","ship-to-ship transfer counterparty","fk"],
-  ["vessel_identity_history.vessel_id","vessels.vessel_id","identity / flag history → vessel","fk"],
-  ["trade_documents.hs_code","market_benchmark.hs_code","declared commodity → benchmark price","ref"],
-  ["task_audit.task_id","task_list.task_id","audit trail → case task","fk"],
-  ["kyc_profile.industry_code","industry_risk.industry_code","industry → risk tier","ref"],
-  ["kyc_profile.country_of_incorporation / txn corridor","country_risk.country_code","jurisdiction → risk tier","ref"],
-  ["kyc_profile.expected_currency / txn currency","currency_risk.currency_code","currency → risk tier","ref"],
-];
+const PILLARS = [["Entities / Parties", "The resolved-party spine — one row per real-world person, company, account, or merchant.", [{"n": "entities", "st": "active", "ct": "SCD", "pk": "entity_key", "grain": "one resolved party (person, company, account, or merchant) in the estate", "els": [["entity_key", "entity_key", "anchor"], ["label", "string", ""], ["entity_type", "enum · company|person|account|merchant|bank", ""], ["country", "country_code", ""]]}]], ["Accounts", "Accounts / processor records, owned by an entity — the bridge between parties and transactions.", [{"n": "accounts", "st": "active", "ct": "SCD", "pk": "account_id", "grain": "one account or processor record owned by an entity", "els": [["account_id", "string", "pk"], ["entity_key", "entity_key → entities", "fk"], ["account_type", "enum · checking|savings|correspondent|custody|merchant|current", ""]]}]], ["Transactions", "The money-movement event stream — the driver of transaction monitoring.", [{"n": "transactions", "st": "active", "ct": "event stream", "pk": "txn_id", "grain": "one payment/settlement event between two accounts", "els": [["txn_id", "string", "pk"], ["value_date", "date", ""], ["from_account", "string → accounts", "fk"], ["from_entity_key", "entity_key", "anchor"], ["to_account", "string → accounts", "fk"], ["to_entity_key", "entity_key", "anchor"], ["amount", "amount", ""], ["currency", "currency_code", ""], ["direction", "enum · inbound|outbound", ""], ["corridor", "string", ""], ["swift_ref", "string", ""]]}]], ["KYC / Reference", "Who each party is expected to be: KYC profiles, ownership and directorships.", [{"n": "kyc_profile", "st": "active", "ct": "SCD", "pk": "entity_key", "grain": "the expected/reference profile for an entity, effective-dated (business key: entity_key + valid_from, the latter auto-attached by change_type)\n", "els": [["entity_key", "entity_key", "anchor"], ["country_of_incorporation", "country_code", ""], ["industry_code", "string", ""], ["expected_currency", "currency_code", ""], ["legal_entity_type", "enum · ltd|plc|sole_trader|trust|fi|charity|sovereign", ""], ["cdd_risk_rating", "enum · low|medium|high", ""]]}, {"n": "ownership", "st": "active", "ct": "SCD", "pk": "[&#x27;owner_entity_key&#x27;, &#x27;owned_entity_key&#x27;]", "grain": "one governed ownership/control edge (owner -&gt; owned) from the KYC/CLM reference layer, effective-dated (business key: owner_entity_key + owned_entity_key + valid_from, the latter auto-attached by change_type)\n", "els": [["owner_entity_key", "entity_key → entities", "fk"], ["owned_entity_key", "entity_key → entities", "fk"], ["percent", "decimal", ""], ["nature", "enum · shareholding|control|nominee|trust", ""]]}, {"n": "directorships", "st": "active", "ct": "SCD", "pk": "[&#x27;entity_key&#x27;, &#x27;person_entity_key&#x27;, &#x27;role&#x27;]", "grain": "one officer appointment (natural person -&gt; legal entity) from the KYC/CLM reference layer. An appointment is a control relationship, not an ownership stake: it carries no percentage. Effective-dated (business key: entity_key + person_entity_key + role, valid_from auto-attached by change_type)\n", "els": [["entity_key", "entity_key → entities", "fk"], ["person_entity_key", "entity_key → entities", "fk"], ["role", "enum · director|secretary|officer|senior_managing_official", ""], ["appointed_on", "date", ""], ["resigned_on", "date", ""], ["source", "string", ""], ["as_of_date", "date", ""]]}]], ["Sanctions / Watchlists", "Designations, screening results, the governed risk tiers, and the typology findings detection writes.", [{"n": "sanctions_list", "st": "active", "ct": "reference", "pk": "designation_id", "grain": "one sanctions/PEP/adverse-media designation record", "els": [["designation_id", "string", "pk"], ["listed_name", "string", ""], ["list_type", "enum · sanctions|pep|adverse_media", ""], ["programme", "string", ""]]}, {"n": "screening_results", "st": "active", "ct": "event stream", "pk": "screening_id", "grain": "one screening hit/result of an entity against a designation", "els": [["screening_id", "string", "pk"], ["entity_key", "entity_key", "anchor"], ["designation_id", "string → sanctions_list", "fk"], ["match_score", "decimal", ""]]}, {"n": "country_risk", "st": "active", "ct": "reference", "pk": "country_code", "grain": "one governed risk tier per jurisdiction", "els": [["country_code", "country_code", "pk"], ["tier", "enum · low|medium|high|restricted", ""]]}, {"n": "currency_risk", "st": "active", "ct": "reference", "pk": "currency_code", "grain": "one governed risk tier per currency", "els": [["currency_code", "currency_code", "pk"], ["tier", "enum · low|medium|high|restricted", ""], ["core", "enum · true|false", ""]]}, {"n": "typology_results", "st": "active", "ct": "reference", "pk": "[&#x27;entity_key&#x27;, &#x27;typology_code&#x27;, &#x27;subject_ref&#x27;]", "grain": "one engine finding: a governed typology&#x27;s own result for one resolved party against one subject. The estate&#x27;s analytics engines write here and the console&#x27;s alert stream reads here, so an engine finding reaches the console by entity_key rather than by matching a name (which resolved 5 of 48 entities). Scores and components are the ENGINE&#x27;s, carried verbatim.\n", "els": [["entity_key", "entity_key → entities", "fk"], ["typology_code", "string", ""], ["family", "enum · Network Intelligence|TBML|Correspondent Banking|Sanctions|Capital Markets", ""], ["score", "decimal", ""], ["band", "enum · Low|Medium|High|Critical", ""], ["subject_kind", "enum · entity|vessel|instrument|account|document", ""], ["subject_ref", "string", ""], ["subject_label", "string", ""], ["components", "string", ""], ["engine_source", "string", ""]]}, {"n": "industry_risk", "st": "active", "ct": "reference", "pk": "industry_code", "grain": "one governed risk tier per industry (UK SIC 2007 code, keyed to kyc_profile.industry_code)", "els": [["industry_code", "string", "pk"], ["tier", "enum · low|medium|high|restricted", ""], ["descriptor", "string", ""]]}]], ["Shipping / Trade", "Vessels, their identity and movements, trade documents, and the governed benchmarks and reference tables that price a voyage and value a hull.", [{"n": "shipping_events", "st": "active", "ct": "event stream", "pk": "event_id", "grain": "one shipping/vessel movement event (AIS ping, port call, cargo movement)", "els": [["entity_key", "entity_key", "anchor"], ["event_id", "string", "pk"], ["vessel_id", "string → vessels", "fk"], ["event_type", "enum · ais_ping|port_call|movement|ais_gap|sts_transfer", ""], ["location", "string", ""], ["event_ts", "datetime", ""], ["lat", "decimal", ""], ["lon", "decimal", ""], ["speed_knots", "decimal", ""], ["counterparty_vessel_id", "string → vessels", "fk"], ["gap_hours", "decimal", ""]]}, {"n": "trade_documents", "st": "active", "ct": "event stream", "pk": "doc_id", "grain": "one trade document (invoice, bill of lading) evidencing a shipment", "els": [["doc_id", "string", "pk"], ["entity_key", "entity_key", "anchor"], ["doc_type", "enum · invoice|bill_of_lading|trade", ""], ["value", "amount", ""], ["currency", "currency_code", ""], ["hs_code", "string → market_benchmark", "fk"], ["commodity", "string", ""], ["declared_origin", "country_code", ""], ["quantity", "decimal", ""], ["quantity_unit", "string", ""], ["freight_cost", "amount", ""], ["insurance_cost", "amount", ""], ["incoterm", "enum · EXW|FOB|CFR|CIF|DAP|DDP", ""], ["route_key", "string → freight_benchmark", "fk"], ["vessel_id", "string → vessels", "fk"]]}, {"n": "market_benchmark", "st": "active", "ct": "reference", "pk": "hs_code", "grain": "one governed benchmark unit price per HS commodity code", "els": [["hs_code", "string", "pk"], ["commodity", "string", ""], ["benchmark_unit_price", "amount", ""], ["unit", "string", ""], ["currency", "currency_code", ""]]}, {"n": "freight_benchmark", "st": "active", "ct": "reference", "pk": "route_key", "grain": "one governed freight rate benchmark per shipping route and vessel class", "els": [["route_key", "string", "pk"], ["origin_port", "string", ""], ["dest_port", "string", ""], ["vessel_class", "string", ""], ["benchmark_rate", "amount", ""], ["rate_unit", "string", ""], ["currency", "currency_code", ""]]}, {"n": "route_distance", "st": "active", "ct": "reference", "pk": "route_key", "grain": "one sea distance per freight_benchmark route", "els": [["route_key", "string → freight_benchmark", "fk"], ["distance_nm", "amount", ""]]}, {"n": "vessel_class_cost", "st": "active", "ct": "reference", "pk": "vessel_type", "grain": "one running cost per vessel type", "els": [["vessel_type", "enum · cargo|tanker|container|bulk_carrier|fishing", "pk"], ["daily_opex", "amount", ""], ["fuel_tonnes_per_day", "amount", ""], ["service_speed_knots", "amount", ""], ["fuel_grade", "string → bunker_price", "fk"], ["currency", "currency_code", ""]]}, {"n": "bunker_price", "st": "active", "ct": "reference", "pk": "fuel_grade", "grain": "one price per marine fuel grade", "els": [["fuel_grade", "string", "pk"], ["price_per_tonne", "amount", ""], ["currency", "currency_code", ""]]}, {"n": "port_charges", "st": "active", "ct": "reference", "pk": "port", "grain": "one charge per port call, per port that ends a freight_benchmark route", "els": [["port", "string", "pk"], ["country", "country_code", ""], ["charge_per_call", "amount", ""], ["currency", "currency_code", ""]]}, {"n": "vessel_value_reference", "st": "active", "ct": "reference", "pk": "vessel_type", "grain": "one newbuild and scrap price per dwt per vessel type", "els": [["vessel_type", "enum · cargo|tanker|container|bulk_carrier|fishing", "pk"], ["newbuild_per_dwt", "amount", ""], ["scrap_per_dwt", "amount", ""], ["life_years", "amount", ""], ["currency", "currency_code", ""]]}, {"n": "price_cap", "st": "active", "ct": "reference", "pk": "cap_id", "grain": "one governed maximum/reference unit price per HS commodity code and origin country", "els": [["cap_id", "string", "pk"], ["hs_code", "string", ""], ["origin_country", "country_code", ""], ["cap_price", "amount", ""], ["unit", "string", ""], ["regime", "string", ""]]}, {"n": "controlled_goods", "st": "active", "ct": "reference", "pk": "hs_code", "grain": "one dual-use/export-controlled commodity, by HS code", "els": [["hs_code", "string", "pk"], ["control_regime", "string", ""], ["control_list", "string", ""], ["descriptor", "string", ""]]}, {"n": "shipments", "st": "active", "ct": "SCD", "pk": "shipment_id", "grain": "one shipment/consignment record and its status", "els": [["shipment_id", "string", "pk"], ["entity_key", "entity_key", "anchor"], ["status", "enum · booked|in_transit|delivered|delayed|cancelled", ""], ["origin_port", "string", ""], ["dest_port", "string", ""]]}, {"n": "vessels", "st": "active", "ct": "SCD", "pk": "vessel_id", "grain": "one vessel registry record: flag, owner, type", "els": [["vessel_id", "string", "pk"], ["flag", "country_code", ""], ["owner_entity_key", "entity_key → entities", "fk"], ["vessel_type", "enum · cargo|tanker|container|bulk_carrier|fishing", ""], ["imo", "string", ""], ["name", "string", ""], ["built_year", "int", ""], ["pi_insurer_status", "enum · western|non_western|none", ""], ["mmsi", "string", ""], ["lifecycle_status", "enum · in_service|laid_up|out_of_service|scrapped|demolished", ""], ["status_effective_date", "date", ""], ["dwt", "decimal", ""], ["capacity_unit", "enum · dwt_tonnes|teu|cbm", ""], ["class_society", "string", ""], ["class_is_iacs", "bool", ""]]}, {"n": "vessel_identity_history", "st": "active", "ct": "SCD", "pk": "hist_id", "grain": "one effective-dated vessel identity state (name + flag), one row per rename/reflag", "els": [["hist_id", "string", "pk"], ["vessel_id", "string → vessels", "fk"], ["name", "string", ""], ["flag", "country_code", ""], ["change_type", "enum · initial|rename|reflag|both", ""]]}]], ["Investigation &amp; Operations", "The case event log as the system of record, and the task, SAR, SLA, QA and re-review tables derived from it.", [{"n": "task_list", "st": "active", "ct": "reference", "pk": "task_id", "grain": "one case task per scored entity — the current-state snapshot of its investigation lifecycle (business key: task_id, as-of the batch)\n", "els": [["task_id", "string", "pk"], ["entity_key", "entity_key", "anchor"], ["label", "string", ""], ["band", "enum · Critical|High|Medium|Low", ""], ["score", "int", ""], ["priority_rank", "int", ""], ["state", "enum · New|Assigned|InProgress|PendingQA|Cleared|SARFiled|Escalated", ""], ["assignee", "string", ""], ["disposition", "enum · Pending|Cleared|SARFiled|Escalated", ""], ["sar_ref", "string", ""], ["opened_at", "date", ""]]}, {"n": "task_audit", "st": "active", "ct": "event stream", "pk": "task_id", "grain": "one row per applied workflow action — the append-only transition log (business key: task_id + seq)\n", "els": [["task_id", "string → task_list", "fk"], ["seq", "int", ""], ["from_state", "enum · New|Assigned|InProgress|PendingQA|Cleared|SARFiled|Escalated", ""], ["to_state", "enum · New|Assigned|InProgress|PendingQA|Cleared|SARFiled|Escalated", ""], ["action", "enum · assign|start|reassign|submit_qa|return_to_investigator|clear|file_sar|escalate", ""], ["actor", "string", ""], ["note", "string", ""], ["source", "string", ""]]}, {"n": "case_events", "st": "active", "ct": "event stream", "pk": "event_id", "grain": "one row per case-lifecycle fact, in append order — the system of record the task spine is replayed from; task_list and task_audit are derived from it (business key: event_id)\n", "els": [["event_id", "int", "pk"], ["task_id", "string", ""], ["event_type", "enum · open|assign|start|reassign|submit_qa|return_to_investigator|clear|file_sar|escalate|sar:submit_for_review|sar:approve|sar:decline|sar:return_to_drafter|sar:submit|sar:acknowledge|sla:breach|oversight:select|oversight:pass|oversight:observation|oversight:fail|oversight:remediate|rereview:raise|rereview:close", ""], ["entity_key", "entity_key", "anchor"], ["label", "string", ""], ["band", "enum · Critical|High|Medium|Low", ""], ["score", "decimal", ""], ["actor", "string", ""], ["note", "string", ""], ["source", "string", ""], ["prev_hash", "string", ""], ["event_hash", "string", ""]]}, {"n": "sar_register", "st": "active", "ct": "reference", "pk": "sar_ref", "grain": "one row per SAR -- its lifecycle under the active regime, DERIVED by replaying case_events; the authority on whether a SAR reached the regulator (a task_list state of SARFiled means referred to the nominated officer, not filed) (business key: sar_ref)\n", "els": [["sar_ref", "string", "pk"], ["task_id", "string", ""], ["entity_key", "entity_key", "anchor"], ["label", "string", ""], ["regime", "string", ""], ["state", "string", ""], ["opened_at", "date", ""], ["submitted_at", "date", ""], ["acknowledged_at", "date", ""], ["regulator_ref", "string", ""], ["decline_reason", "string", ""]]}, {"n": "sar_deadlines", "st": "active", "ct": "reference", "pk": "[&#x27;sar_ref&#x27;, &#x27;deadline&#x27;]", "grain": "one row per SAR per regime deadline, DERIVED by replaying case_events; status is judged against the date of the log&#x27;s latest event, never a clock (business key: sar_ref + deadline)\n", "els": [["sar_ref", "string → sar_register", "fk"], ["deadline", "string", ""], ["basis", "enum · statutory|policy", ""], ["from_on", "date", ""], ["due_on", "date", ""], ["met_on", "date", ""], ["status", "enum · met|breached|open|overdue|not_started", ""]]}, {"n": "sla_breaches", "st": "active", "ct": "reference", "pk": "event_id", "grain": "one row per recorded SLA breach, DERIVED by replaying the sla:breach events of case_events; open until replay sees the case leave that state or the SAR clock stop (business key: event_id, the breach event)\n", "els": [["event_id", "int", "pk"], ["task_id", "string", ""], ["clock", "string", ""], ["breached_on", "date", ""], ["days_over", "int", ""], ["routed_to", "string", ""], ["status", "enum · open|resolved", ""], ["resolved_on", "date", ""]]}, {"n": "qa_reviews", "st": "active", "ct": "reference", "pk": "select_event_id", "grain": "one row per oversight selection, DERIVED by replaying the oversight:* events of case_events: the selection, its outcome and any remediation (business key: select_event_id, the oversight:select event)\n", "els": [["select_event_id", "int", "pk"], ["subject_type", "enum · case|sar", ""], ["subject_id", "string", ""], ["task_id", "string", ""], ["class", "enum · rule_disagreement|sar_declined|escalation_without_outcome|random", ""], ["selected_on", "date", ""], ["reviewer", "string", ""], ["outcome", "enum · pass|observation|fail", ""], ["reviewed_on", "date", ""], ["finding_status", "enum · none|open|remediated", ""], ["remediated_on", "date", ""], ["remediated_by", "string", ""]]}, {"n": "queue_rereviews", "st": "active", "ct": "reference", "pk": "raise_event_id", "grain": "one row per rereview:raise, DERIVED by replaying the rereview:* events of case_events: an absorbed advisory putting a queue case of its typology back up for review, and its close (business key: raise_event_id, the rereview:raise event)\n", "els": [["raise_event_id", "int", "pk"], ["task_id", "string", ""], ["entity_key", "string", ""], ["advisory_id", "string", ""], ["typology_code", "string", ""], ["link_key", "string", ""], ["raised_at", "datetime", ""], ["routed_to", "string", ""], ["status", "enum · open|closed", ""], ["outcome", "enum · unchanged|action_taken", ""], ["closed_at", "datetime", ""], ["closed_by", "string", ""]]}]], ["Ingestion", "The daily feeds&#x27; own record — the load ledger, the quarantine, and the append-only history every load leaves behind.", [{"n": "load_ledger", "st": "active", "ct": "event stream", "pk": "seq", "grain": "one row per business date, source, feed file and ingestion run: the outcome of one delivered (or missing) file, SHA-256-chained to the row before (Stage563B)\n", "els": [["seq", "int", "pk"], ["prev_hash", "string", ""], ["row_hash", "string", ""], ["business_date", "date", ""], ["source", "string", ""], ["feed", "string", ""], ["mode", "enum · delta|full|events", ""], ["file", "string", ""], ["run_id", "string", ""], ["processed_at", "datetime", ""], ["status", "enum · LOADED|LOADED_WITH_QUARANTINE|LOADED_NO_CHANGE|HALTED|MISSING|SKIPPED", ""], ["late", "bool", ""], ["received", "int", ""], ["loaded", "int", ""], ["quarantined", "int", ""], ["released", "int", ""], ["history_written", "int", ""], ["breaks_json", "string", ""], ["control_expected_json", "string", ""], ["control_actual_json", "string", ""], ["file_sha256", "string", ""], ["sequence", "int", ""], ["reason", "enum · missing_file|manifest_mismatch|sequence_gap|duplicate_delivery|file_changed_after_load|reject_threshold|reconciliation_threshold|no_initial_load", ""]]}, {"n": "ingest_quarantine", "st": "active", "ct": "event stream", "pk": "[&#x27;run_id&#x27;, &#x27;file&#x27;, &#x27;source_record_id&#x27;]", "grain": "one row per quarantined feed row: what arrived, which check it failed, and whether a later run released it or a later delivery superseded it (Stage563B)\n", "els": [["business_date", "date", ""], ["run_id", "string", ""], ["source", "string", ""], ["feed", "string", ""], ["file", "string", ""], ["source_record_id", "string", ""], ["row_json", "string", ""], ["check", "enum · record_action|required|type|enum|effective_date|duplicate_key|target_missing|reference|key_collision_use_CORRECT", ""], ["reason", "string", ""], ["retryable", "bool", ""], ["status", "enum · OPEN|RELEASED|SUPERSEDED", ""], ["resolved_by_run", "string", ""], ["resolved_by_batch", "string", ""]]}, {"n": "ingest_history", "st": "active", "ct": "event stream", "pk": "[&#x27;run_id&#x27;, &#x27;table&#x27;, &#x27;business_key&#x27;, &#x27;action&#x27;]", "grain": "one row per superseded, closed, corrected, cancelled, replaced or reconciled version of a fed table&#x27;s row, or a backdated version inserted into a key&#x27;s timeline (Stage563B)\n", "els": [["table", "string", ""], ["business_key", "string", ""], ["row_json", "string", ""], ["valid_from", "date", ""], ["valid_to", "date", ""], ["action", "enum · UPSERT|CLOSE|CORRECT|CANCEL|REPLACE|RECONCILE", ""], ["reason", "string", ""], ["run_id", "string", ""], ["business_date", "date", ""]]}]], ["Intel", "Intelligence arrivals and their register — governed skeletons ahead of build.", [{"n": "intel_events", "st": "pending", "ct": "event stream", "pk": "intel_id", "grain": "one intel arrival (adverse media, SAR, exit event) for an entity", "els": [["intel_id", "string", "pk"], ["entity_key", "entity_key", "anchor"], ["intel_type", "enum · adverse_media|sar|exit", ""], ["summary", "string", ""]]}, {"n": "intel_register", "st": "pending", "ct": "reference", "pk": "register_id", "grain": "the as-of SAR/exit register entry for an entity", "els": [["register_id", "string", "pk"], ["entity_key", "entity_key", "anchor"], ["register_type", "enum · sar|exit", ""], ["status", "enum · open|closed|escalated", ""]]}]], ["Capital Markets", "The capital-markets pillar — instruments, orders, executions, market data and positions.", [{"n": "instruments", "st": "active", "ct": "SCD", "pk": "instrument_id", "grain": "one tradable instrument (equity, bond, derivative, benchmark) reference record", "els": [["instrument_id", "string", "pk"], ["symbol", "string", ""], ["issuer_entity_key", "entity_key → entities", "fk"], ["instrument_type", "enum · equity|bond|derivative|fx|commodity|benchmark", ""], ["venue", "string", ""], ["currency", "currency_code", ""]]}, {"n": "orders", "st": "active", "ct": "event stream", "pk": "order_id", "grain": "one order-lifecycle event (placed/amended/cancelled) submitted to a venue", "els": [["order_id", "string", "pk"], ["instrument_id", "string → instruments", "fk"], ["entity_key", "entity_key", "anchor"], ["account_id", "string → accounts", "fk"], ["side", "enum · buy|sell", ""], ["order_type", "enum · limit|market|stop|iceberg", ""], ["price", "amount", ""], ["quantity", "decimal", ""], ["venue", "string", ""], ["status", "enum · new|amended|cancelled|filled|partially_filled|expired", ""], ["placed_ts", "datetime", ""], ["cancelled_ts", "datetime", ""]]}, {"n": "executions", "st": "active", "ct": "event stream", "pk": "execution_id", "grain": "one filled trade execution matched against an order", "els": [["execution_id", "string", "pk"], ["order_id", "string → orders", "fk"], ["instrument_id", "string → instruments", "fk"], ["entity_key", "entity_key", "anchor"], ["counterparty_entity_key", "entity_key → entities", "fk"], ["quantity", "decimal", ""], ["price", "amount", ""], ["venue", "string", ""], ["executed_ts", "datetime", ""]]}, {"n": "market_data", "st": "active", "ct": "event stream", "pk": "market_data_id", "grain": "one observed market price/volume tick or benchmark fixing observation for an instrument", "els": [["market_data_id", "string", "pk"], ["instrument_id", "string → instruments", "fk"], ["observed_ts", "datetime", ""], ["price", "amount", ""], ["volume", "decimal", ""], ["data_type", "enum · trade_tick|quote|fixing|close", ""], ["benchmark_name", "string", ""]]}, {"n": "positions", "st": "active", "ct": "reference", "pk": "[&#x27;entity_key&#x27;, &#x27;instrument_id&#x27;]", "grain": "one entity&#x27;s held position in an instrument as of a reference date (business key: entity_key + instrument_id + as_of_date, the latter auto-attached by change_type)\n", "els": [["entity_key", "entity_key", "anchor"], ["instrument_id", "string → instruments", "fk"], ["quantity", "decimal", ""], ["market_value", "amount", ""], ["currency", "currency_code", ""]]}]]];
+const CONNS = [["entities.entity_key", "entities.entity_key", "the join-spine key every pillar resolves to (produced by Entity Resolution, Layer 3)", "anchor"], ["accounts.entity_key", "entities.entity_key", "the owning entity", "fk"], ["transactions.from_account", "accounts.account_id", "", "fk"], ["transactions.from_entity_key", "entities.entity_key", "", "anchor"], ["transactions.to_account", "accounts.account_id", "", "fk"], ["transactions.to_entity_key", "entities.entity_key", "", "anchor"], ["kyc_profile.entity_key", "entities.entity_key", "", "anchor"], ["ownership.owner_entity_key", "entities.entity_key", "the owning party", "fk"], ["ownership.owned_entity_key", "entities.entity_key", "the owned party", "fk"], ["directorships.entity_key", "entities.entity_key", "the legal entity being directed", "fk"], ["directorships.person_entity_key", "entities.entity_key", "the natural person holding the appointment (entities.entity_type must be &#x27;person&#x27;)", "fk"], ["shipping_events.entity_key", "entities.entity_key", "the shipper/consignee entity", "anchor"], ["shipping_events.vessel_id", "vessels.vessel_id", "", "fk"], ["shipping_events.counterparty_vessel_id", "vessels.vessel_id", "", "fk"], ["trade_documents.entity_key", "entities.entity_key", "", "anchor"], ["trade_documents.hs_code", "market_benchmark.hs_code", "", "fk"], ["trade_documents.route_key", "freight_benchmark.route_key", "", "fk"], ["trade_documents.vessel_id", "vessels.vessel_id", "the join that makes vessel identity reachable from a document", "fk"], ["route_distance.route_key", "freight_benchmark.route_key", "", "fk"], ["vessel_class_cost.fuel_grade", "bunker_price.fuel_grade", "", "fk"], ["shipments.entity_key", "entities.entity_key", "", "anchor"], ["vessels.owner_entity_key", "entities.entity_key", "", "fk"], ["vessel_identity_history.vessel_id", "vessels.vessel_id", "", "fk"], ["screening_results.entity_key", "entities.entity_key", "", "anchor"], ["screening_results.designation_id", "sanctions_list.designation_id", "", "fk"], ["typology_results.entity_key", "entities.entity_key", "the resolved party the finding is about", "fk"], ["intel_events.entity_key", "entities.entity_key", "", "anchor"], ["intel_register.entity_key", "entities.entity_key", "", "anchor"], ["instruments.issuer_entity_key", "entities.entity_key", "the resolved issuer entity (CM001/CM008/CM009 issuer_name)", "fk"], ["orders.instrument_id", "instruments.instrument_id", "", "fk"], ["orders.entity_key", "entities.entity_key", "the trader/account entity submitting the order", "anchor"], ["orders.account_id", "accounts.account_id", "the trading account, where resolved", "fk"], ["executions.order_id", "orders.order_id", "", "fk"], ["executions.instrument_id", "instruments.instrument_id", "", "fk"], ["executions.entity_key", "entities.entity_key", "", "anchor"], ["executions.counterparty_entity_key", "entities.entity_key", "the matched counterparty; self-match detection (CM005 wash trading)", "fk"], ["market_data.instrument_id", "instruments.instrument_id", "", "fk"], ["positions.entity_key", "entities.entity_key", "", "anchor"], ["positions.instrument_id", "instruments.instrument_id", "", "fk"], ["task_list.entity_key", "entities.entity_key", "", "anchor"], ["task_audit.task_id", "task_list.task_id", "", "fk"], ["case_events.entity_key", "entities.entity_key", "set on open only", "anchor"], ["sar_register.entity_key", "entities.entity_key", "", "anchor"], ["sar_deadlines.sar_ref", "sar_register.sar_ref", "", "fk"]];
 
 function tagHtml(t){ if(!t) return ""; const m={pk:"PK",fk:"FK",anchor:"entity_key"}; return `<span class="tag ${t}">${m[t]}</span>`; }
 function elHtml(e){ const [n,ty,tag]=e; return `<li class="el"><span class="en">${n}</span><span class="et">${ty}</span>${tagHtml(tag)}</li>`; }
