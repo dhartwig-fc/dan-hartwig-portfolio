@@ -1,21 +1,12 @@
 {
  "archive": {
   "latest": {
-   "day": "2026-10-16",
+   "day": "2026-10-19",
    "state": "shipped"
   },
-  "not_safe": 2
+  "not_safe": 1
  },
  "days": [
-  {
-   "alerts": null,
-   "day": "2026-09-21",
-   "decided": null,
-   "opening_load": false,
-   "reason": null,
-   "recovered_on": null,
-   "status": "grey"
-  },
   {
    "alerts": null,
    "day": "2026-09-22",
@@ -186,6 +177,15 @@
    "reason": null,
    "recovered_on": null,
    "status": "ok"
+  },
+  {
+   "alerts": 1500,
+   "day": "2026-10-19",
+   "decided": 5,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "ok"
   }
  ],
  "estate": "living-01",
@@ -329,17 +329,17 @@
  "living_since": "2026-10-15",
  "provenance": {
   "authority": "LOCKED",
-  "fc10_commit": "49a4e74aa0d372363d5e1a6af8db9d93c14de731",
-  "run_id": "2026-10-19T05-30-04",
+  "fc10_commit": "2a48c63a056235493dc7c8bb143bcee229053ccb",
+  "run_id": "2026-10-20T05-30-06",
   "titles_from": "fc-08"
  },
- "published_at": "2026-10-19T05:37:56+01:00",
+ "published_at": "2026-10-20T05:37:25+01:00",
  "pulse_note": null,
  "running": {
-  "as_of": "2026-10-19T05:34:26+01:00",
-  "avg_seconds": 269.6,
-  "clean": 2,
-  "of": 2
+  "as_of": "2026-10-20T05:34:50+01:00",
+  "avg_seconds": 274.0,
+  "clean": 3,
+  "of": 3
  },
  "schema": 1,
  "stable": {
@@ -349,8 +349,8 @@
  },
  "synthetic": true,
  "today": {
-  "day": "2026-10-16",
+  "day": "2026-10-19",
   "intake_transactions": 400,
-  "run_seconds": 261.8
+  "run_seconds": 282.8
  }
 }
