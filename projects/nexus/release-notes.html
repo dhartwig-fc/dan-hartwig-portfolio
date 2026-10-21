@@ -97,7 +97,20 @@ table.mx .neg{color:#c9b6a0}
     all on synthetic data. The full delivery record, wave by wave, is in the
     <a href="stage-catalogue.html" style="color:var(--blue)">stage catalogue</a>.
   </p>
-  <div class="updated">Updated <b>19 October 2026</b> · Beta v2.2 · 6,161 tests passed, 0 failed, CI-gated</div>
+  <div class="updated">Updated <b>21 October 2026</b> · Beta v2.2 · 6,619 tests passed, 0 failed, CI-gated</div>
+
+  <section class="section" id="since-v2-2">
+    <h2>Since Beta v2.2</h2>
+    <div class="ladder">
+
+      <div class="step"><div class="n">✦</div><div class="bt">A telemetry page that shows the work<small>The <a href="telemetry/index.html" style="color:var(--blue)">telemetry page</a> now leads with today's risk level against the bank's own 20-day normal (learned over its first 20 business days), and one planted scheme told as a short story by role. An activity dashboard shows the case flow by severity, the backlog and today's risk profile by typology. Below it, an engineering section gives system owners the run history, data feeds, drift and any failure, pinned at the top.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">A governed data dictionary<small>The <a href="data-dictionary/index.html" style="color:var(--blue)">data dictionary</a> is built from the governed <code>data_dictionary.yaml</code>, 44 tables across 10 pillars. It is checked against the generators' real CSV headers and the ingest table map, so the page, the data and the loader cannot drift apart unnoticed.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step next"><div class="n">◆</div><div class="bt">A test phase before the next features<small>From 19 October new features are frozen while the platform is tested. Agents run test packages every night against a fixed baseline: 313 new tests in the first two nights, each one seen to fail before it was trusted. The expected outcomes for the realistic test estate are written from the typology doctrine, never from the code, and signed off typology by typology.</small></div><span class="pill next">In progress</span></div>
+
+    </div>
+  </section>
 
   <section class="section" id="release-v2-2">
     <h2>Built on top of the core</h2>
@@ -115,13 +128,13 @@ table.mx .neg{color:#c9b6a0}
 
       <div class="step"><div class="n">✦</div><div class="bt">Data the checks can trust<small>Background voyages are consistent, so the maritime checks fire only where a scenario planted them, and every derived page is rebuilt from its data and checked against it.</small></div><span class="pill built">Built</span></div>
 
-      <div class="step armed"><div class="n">◆</div><div class="bt">Still in build<small>The TM Tuning Studio and the three copilot surfaces (SAR drafts, EDD memos, dispositions) are being rebuilt and return to the Demo Library when ready; the weekly drift check is built but not yet switched on.</small></div><span class="pill armed">In build</span></div>
+      <div class="step armed"><div class="n">◆</div><div class="bt">Still in build<small>The TM Tuning Studio and the three copilot surfaces (SAR drafts, EDD memos, dispositions) are being rebuilt and return to the Demo Library when ready.</small></div><span class="pill armed">In build</span></div>
 
     </div>
   </section>
 
   <div class="foot">
-    NEXUS · Beta v2.2 release notes · updated 2026-10-19 —
+    NEXUS · Beta v2.2 release notes · updated 2026-10-21 —
     <a href="stage-catalogue.html">stage catalogue →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
