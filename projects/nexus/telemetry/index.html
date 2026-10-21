@@ -7,6 +7,45 @@
 <style>
 :root{--bg:#050b14;--panel:#0b1424;--line:#1d2a44;--text:#f8fafc;--muted:#93a6c0;--dim:#6d7d96;
   --blue:#38bdf8;--gold:#e9c877;--green:#1f7a55;--greenb:#3ecb8f;--red:#b4473a;--amber:#f0a93a}
+[hidden]{display:none!important}
+.status{font-size:clamp(20px,4vw,28px);font-weight:800;letter-spacing:-.02em;margin:0 0 4px}
+.status b{color:var(--greenb)}
+.honesty{color:var(--muted);font-size:13.5px;margin:0 0 6px;max-width:70ch}
+.reporting{color:var(--dim);font-size:12px;margin:0 0 14px}
+.two{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin:16px 0 10px}
+.lvl{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.lvl.normal{color:var(--greenb)}.lvl.elevated{color:var(--amber)}.lvl.high{color:#f08a4b}.lvl.severe{color:#e8705f}
+.reason{font-size:12.5px;color:var(--muted);margin:6px 0 10px}
+.fig{display:flex;justify-content:space-between;font-size:12.5px;border-top:1px solid var(--line);padding:5px 0}
+.fig b{font:700 14px ui-monospace,Menlo,monospace}
+.card h3{font-size:18px;margin:2px 0 6px}
+.card .story{font-size:13.5px;color:var(--text);margin:0 0 8px}
+.card .facts{font:11.5px ui-monospace,Menlo,monospace;color:var(--muted)}
+.none{font-size:14px;color:var(--muted)}
+.also{display:flex;flex-direction:column;gap:6px;margin:8px 0 0}
+.also .a{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12.5px}
+.also .a b{display:block}.also .a span{font:11.5px ui-monospace,Menlo,monospace;color:var(--muted)}
+.divider{border-top:1px solid var(--line);margin:26px 0 14px;padding-top:12px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px;min-width:0}
+.tile .big{font-size:18px;cursor:default}
+.big.ok{color:var(--greenb)}
+.big.bad{color:#e8705f}
+.tile .age{margin-top:6px}
+.tile.warn{border-color:var(--amber)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
+.kpi .big{font-size:24px;cursor:default}
+.kpi.bad{border-color:var(--red)}.kpi.bad .big{color:#e8705f}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.charts svg{display:block;width:100%;height:auto}
+.tblwrap{overflow-x:auto;max-width:100%;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:11.5px;min-width:520px}
+th,td{text-align:left;padding:3px 8px 3px 0;white-space:nowrap}
+th{color:var(--dim);font-weight:600}
+.pin{background:var(--panel);border:1px solid var(--red);border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:12px}
+.mono{font-family:ui-monospace,Menlo,monospace;color:var(--muted)}
+.two2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(circle at 70% 0,rgba(56,189,248,.14),transparent 38%),var(--bg);color:var(--text);
   font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
@@ -25,7 +64,7 @@ h1{font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:-.04em;margin:0 0
 .cell.red{background:var(--red)}
 .cell.grey{background:#232d40}
 .why{font-size:12px;color:#f2a497;margin:6px 0 18px;min-height:18px}
-.row{display:grid;grid-template-columns:1.25fr .8fr 1.6fr;gap:10px}
+.row{display:grid;grid-template-columns:1.25fr .8fr;gap:10px;margin-bottom:10px}
 .pane{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}
 .k{display:flex;justify-content:space-between;font:11px ui-monospace,Menlo,monospace;color:var(--muted);margin-top:6px}
 .k b{color:#fff;cursor:help}
@@ -51,6 +90,7 @@ h1{font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:-.04em;margin:0 0
 [data-state=unavailable] #unavailable{display:block}
 [data-state=unavailable] .content{display:none}
 @media(max-width:760px){.row{grid-template-columns:1fr}.wrap{padding:20px 14px 32px}}
+@media(max-width:720px){.two,.two2{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.charts{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -96,10 +136,44 @@ h1{font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:-.04em;margin:0 0
   <p class="sub" title="The three schedules this page reports on.">A new business day every weekday at 05:30 &middot; the regulators read every Friday &middot; a drift check every Sunday.</p>
   <div id="unavailable" role="alert">Heartbeat unavailable</div>
   <div class="content">
+  <div id="v2-head" hidden>
+    <p class="status" id="status-line"></p>
+    <p class="honesty" id="honesty"></p>
+    <p class="reporting" id="reporting-label"></p>
+  </div>
   <div class="lbl" title="One cell per business day: green = processed on time, green with a stripe and a bright base = processed late (caught up), red = missed, grey = not yet due. The newest day is on the right.">Recent business days</div>
   <div class="strip" id="pulse"></div>
   <div class="why" id="why"></div>
-  <div class="row">
+  <div id="v2-top" hidden>
+    <div class="two">
+      <div class="pane" id="risk-panel"><div class="lbl">Risk today</div>
+        <div class="lvl" id="risk-level"></div>
+        <div class="reason" id="risk-reason"></div>
+        <div class="fig"><span>New cases</span><b id="risk-new"></b></div>
+        <div class="fig"><span>New Critical cases</span><b id="risk-critical"></b></div>
+        <div class="fig"><span>SAR referrals</span><b id="risk-sars"></b></div></div>
+      <div class="pane card" id="case-panel"><div id="case-card"><div class="lbl g" id="case-label"></div>
+        <h3 id="case-title"></h3><p class="story" id="case-story"></p><div class="facts" id="case-facts"></div></div>
+        <div class="none" id="case-none" hidden></div></div>
+    </div>
+    <div id="also-section" hidden><div class="lbl">Also caught overnight</div><div class="also" id="also-list"></div></div>
+  </div>
+  <div id="v2-dash" hidden style="margin-top:18px">
+    <div class="lbl">Activity &middot; last 20 business days</div>
+    <div class="kpis" id="dash-kpis"></div>
+    <div class="charts">
+      <div class="pane"><div class="lbl">Case flow</div><div id="chart-flow"></div>
+        <div class="s">bars: new cases by band &middot; dots: SAR referrals &middot; hatched: the opening load, off the scale</div>
+        <div class="s" id="note-bands"></div></div>
+      <div class="pane"><div class="lbl">Backlog and breaches</div><div id="chart-backlog"></div>
+        <div class="s">line: unassigned open cases &middot; red tag: new SLA breaches that day</div></div>
+      <div class="pane"><div class="lbl">Risk profile</div><div id="chart-risk"></div>
+        <div class="s" id="note-risk"></div></div>
+      <div class="pane"><div class="lbl">SAR pipeline</div><div id="chart-sar"></div>
+        <div class="s">where each suspicious activity report stands today</div></div>
+    </div>
+  </div>
+  <div id="v1-panes"><div class="row">
     <div class="pane" id="pane-running"><div class="lbl">Running &middot; each day</div>
       <div class="k"><span title="New alerts of every band raised from that day's batch, read from the living estate's daily metrics row.">Alerts raised</span><b id="alerts-today"></b></div>
       <div class="bars" id="bars-alerts"></div>
@@ -113,9 +187,28 @@ h1{font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:-.04em;margin:0 0
       <div class="big" id="stable-verdict" title="The weekly drift check: the same inputs are re-run and compared with last week's answers."></div>
       <div class="s" id="stable-line"></div>
       <span class="age" id="age-stable" title="How long ago the last drift check finished. Turns amber after eight days."></span></div>
+  </div></div>
+  <div class="row" style="grid-template-columns:1fr">
     <div class="pane" id="pane-learning"><div class="lbl g">Learning &middot; outside &rarr; inside</div>
       <div id="learning-list" title="What regulators published (outside) and what NEXUS did with it (inside), newest first."></div>
       <span class="age" id="age-learning" title="How long ago the newest learning event happened. Turns amber after eight days."></span></div>
+  </div>
+  <div id="v2-engineering" hidden>
+    <div class="divider"><div class="lbl" style="color:var(--dim)">Engineering &middot; for system owners</div></div>
+    <div class="tiles">
+      <div class="tile" id="tile-runs"></div>
+      <div class="tile" id="tile-feeds"></div>
+      <div class="tile" id="tile-drift"></div>
+      <div class="tile" id="tile-archive"></div>
+    </div>
+    <div id="pinned-wrap" hidden><div class="lbl" style="color:#f2a497">Pinned failures</div><div id="pinned-list"></div></div>
+    <div class="lbl">Run history &middot; last 20 runs</div>
+    <div class="tblwrap"><table><thead><tr><th>Run</th><th>Outcome</th><th>Days</th><th>Took</th><th>Slowest step</th><th>Why (if not OK)</th></tr></thead>
+      <tbody id="history-body"></tbody></table></div>
+    <div class="two2">
+      <div class="pane"><div class="lbl">Pipeline phases &middot; latest day</div><div class="mono" id="phases"></div></div>
+      <div class="pane"><div class="lbl">Operations queue</div><div id="queue"></div></div>
+    </div>
   </div>
   <div class="prov">
     <span title="The code version that built this page's data.">fc-10 main <span id="prov-commit"></span></span> &middot;
