@@ -195,7 +195,7 @@
   var GRAPHS = {
     crans: {
       title: "Crans Resources · resolved network",
-      nodes: { mah: ["Tariq Mahsud", "person · PEP match 93", 112, 62], aur: ["Aurelian Holdings", "controller · GB", 352, 62],
+      nodes: { mah: ["Tariq Copperquill", "person · PEP match 93", 112, 62], aur: ["Aurelian Holdings", "controller · GB", 352, 62],
                cr: ["Crans Resources", "focal · PK · gold mining", 130, 220], wg: ["Wiggo Jewel", "counterparty · CY · jeweller", 510, 220],
                vs: ["Rimewind Carrier", "vessel · container · DK", 130, 352], dw: ["Driftwood Sentinel", "vessel · bulk carrier · GB", 400, 352] },
       edges: [ { id: "m", a: "mah", b: "cr", l: "OWNS 15% · director", at: 0.35 },
@@ -205,18 +205,18 @@
     },
     silverline: {
       title: "Silverline Petrochemicals · resolved network",
-      nodes: { zi: ["Piotr Zielinski", "person · owner", 330, 62], sl: ["Silverline Petrochemicals", "focal · AE", 330, 205],
-               hit: ["SDL008", "sanctions designation", 110, 62], gm: ["Gamma Imports Ltd", "shareholding", 545, 120],
-               v1: ["Marlin Crescent", "vessel · tanker · TZ", 130, 352], v2: ["Argent Mariner", "vessel · tanker · FR", 510, 352] },
+      nodes: { zi: ["Piotr Kettlecrumb", "person · owner", 330, 62], sl: ["Silverline Petrochemicals", "focal · AE", 330, 205],
+               hit: ["SDL008", "sanctions designation", 110, 62], gm: ["Gammavane Imports Ltd", "shareholding", 545, 120],
+               v1: ["Marlin Crescent", "vessel · tanker · RU", 130, 352], v2: ["Argent Mariner", "vessel · tanker · RU", 510, 352] },
       edges: [ { id: "z", a: "zi", b: "sl", l: "OWNS 100% · control" }, { id: "h", a: "sl", b: "hit", l: "SCREENED · match 91", at: 0.75 },
                { id: "g", a: "sl", b: "gm", l: "OWNS 40%" },
                { id: "a", a: "sl", b: "v1", l: "OWNS_VESSEL" }, { id: "b", a: "sl", b: "v2", l: "OWNS_VESSEL" } ]
     },
     deltaforge: {
       title: "Deltaforge Metals Ltd · resolved network",
-      nodes: { ak: ["Aslan Karimov", "person · shareholder", 112, 62], df: ["Deltaforge Metals Ltd", "focal · TR", 300, 205],
+      nodes: { ak: ["Aslan Mosskettle", "person · shareholder", 112, 62], df: ["Deltaforge Metals Ltd", "focal · TR", 300, 205],
                ng: ["Northgate Settlement Bank", "counterparty", 528, 92], vs: ["Tidewater Rambler", "vessel · bulk carrier · DK", 130, 352],
-               cp: ["Cape Ranger", "vessel · container · MT", 510, 352] },
+               cp: ["Capewren Ranger", "vessel · container · MT", 510, 352] },
       edges: [ { id: "k", a: "ak", b: "df", l: "OWNS 75%" }, { id: "t", a: "df", b: "ng", l: "155,000 · TR-AE corridor" },
                { id: "v", a: "df", b: "vs", l: "OWNS_VESSEL" }, { id: "s", a: "df", b: "cp", l: "SHIPPED_ON" } ]
     }
@@ -248,10 +248,10 @@
     ["focal of a closed 2-hop circular flow retaining 69.1% of value", "signal:circular_loop"],
     ["transaction TX-16 amount 485000.0 exceeds high-value threshold", "signal:high_value"],
     ["corridor CY-PK routes through high-risk jurisdiction(s) ['CY'] outside country_of_incorporation PK", "signal:jurisdiction_deviation"],
-    ["ownership-network connection to PEP Tariq Mahsud (director)", "signal:pep_connection"]
+    ["ownership-network connection to PEP Tariq Copperquill (director)", "signal:pep_connection"]
   ];
   var MACRO = [["Circular loop", 40], ["High value · TX-16 (485,000)", 15], ["High value · TX-17 (335,000)", 15],
-               ["Jurisdiction deviation · CY-PK corridor", 45], ["High-risk industry · gold mining", 22.5], ["PEP connection · Tariq Mahsud", 20]];
+               ["Jurisdiction deviation · CY-PK corridor", 45], ["High-risk industry · gold mining", 22.5], ["PEP connection · Tariq Copperquill", 20]];
   var SAR_STAGES = ["Drafted", "Officer review", "Approved", "Submitted"];
 
   // ---- the story ----
@@ -259,7 +259,7 @@
     { ms: 5000, t: "The queue", q: null, g: "crans", lit: [], r: "intro",
       x: "This is the console's alert queue, as published. Three entities sit at the top, and each is there for a different reason." },
     { ms: 6000, t: "Top of the queue", q: "crans", g: "crans", lit: ["m"], r: "macro",
-      x: "Crans Resources, a Pakistani gold miner, scores 100 (Critical). Six signals add up to 157.5 points and the triage score caps at 100. One is a PEP director, Tariq Mahsud." },
+      x: "Crans Resources, a Pakistani gold miner, scores 100 (Critical). Six signals add up to 157.5 points and the triage score caps at 100. One is a PEP director, Tariq Copperquill." },
     { ms: 7000, t: "The loop", q: "crans", g: "crans", lit: ["o1", "o2", "t1", "t2"], r: "macro",
       x: "USD 485,000 moves from Wiggo Jewel, a Cypriot jeweller, to Crans, and USD 335,000 goes back the same day: a closed two-leg loop that retains 69.1% of the value. Aurelian Holdings controls both sides, with 60% of Crans and 55% of Wiggo." },
     { ms: 7000, t: "Why it scored", q: "crans", g: "crans", lit: ["t1", "t2"], r: "model:crans",
@@ -269,7 +269,7 @@
     { ms: 6000, t: "The stronger score wins", q: "deltaforge", g: "deltaforge", lit: ["t"], r: "promo",
       x: "Deltaforge's macro triage is only 37.5, but its CM003 spoofing verdict is 56. The queue promotes it to 56 and labels the badge with the signal that set the priority." },
     { ms: 7000, t: "The sanctions lane", q: "silverline", g: "silverline", lit: ["h", "a", "b"], r: "sanctions",
-      x: "Silverline has an accepted sanctions match, SDL008 at 91, which forces the band to Critical. It is routed to the sanctions lane, a tag that is not a re-rank, and SAN002 shadow-fleet exposure scores 85." },
+      x: "Silverline has an accepted sanctions match, SDL008 at 91, which forces the band to Critical. It is routed to the sanctions lane, a tag that is not a re-rank, and SAN002 shadow-fleet exposure scores 85. Its tanker Marlin Crescent, now on the Russian flag, loaded at Novorossiysk, went dark off Sohar and met Amberwhit Tide, an ex-Iranian tanker on a Comoros flag, in a ship-to-ship transfer; the cargo sailed on as a declared Malaysian blend." },
     { ms: 6000, t: "One alert, one case", q: "crans", g: "crans", lit: ["m", "o1", "o2", "t1", "t2"], r: "case:3",
       x: "Back to Crans. In the live console this case is Assigned with its disposition Pending. From here the story plays the workflow forward, on the same screen as the graph it was scored on." },
     { ms: 6000, t: "The SAR draft", q: "crans", g: "crans", lit: ["m", "o1", "o2", "t1", "t2"], r: "case:4",
