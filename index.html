@@ -177,6 +177,45 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:28px 0 40px;colo
 </style>
 
 <script data-goatcounter="https://danhartwig.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap">
+<style>
+  /* Fault Lines button, Fracture brand: split wordmark + issue tag */
+  .btn.fl-btn { background: #0B1219; color: #F0EFEC; border: 2px solid #D95926; gap: 0; padding-inline: .9em .95em; }
+  /* Split F/L monogram, sized to match the NEXUS shield */
+  .fl-mono { display: inline-grid; place-items: center; flex: none; width: 1.4em; height: 1.4em; margin-right: .55em;
+             border-radius: 50%; border: 1.5px solid #D95926; box-sizing: border-box;
+             font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400; line-height: 1; }
+  .fl-mono .fl-t, .fl-mono .fl-b { grid-area: 1 / 1; font-size: .6em; letter-spacing: -.02em; }
+  .fl-mono .fl-t { clip-path: polygon(0 0, 100% 0, 100% 46%, 55% 58%, 0 46%); }
+  .fl-mono .fl-b { transform: translate(.09em, .09em); clip-path: polygon(0 46%, 55% 58%, 100% 46%, 100% 100%, 0 100%); }
+  .btn.fl-btn:hover, .btn.fl-btn:focus-visible { background: #132231; color: #F0EFEC; border-color: #E8703F; }
+  .fl-wm { position: relative; display: inline-block; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400;
+           text-transform: uppercase; letter-spacing: .035em; line-height: 1; padding-right: .1em; }
+  .fl-wm .fl-top { display: block; clip-path: polygon(0 0, 100% 0, 100% 49%, 74% 55%, 51% 45%, 27% 56%, 0 50%); }
+  .fl-wm .fl-bot { position: absolute; left: .07em; top: .07em;
+                   clip-path: polygon(0 50%, 27% 56%, 51% 45%, 74% 55%, 100% 49%, 100% 100%, 0 100%); }
+  .fl-issue { margin-left: .7em; padding-left: .7em; border-left: 1px solid rgba(240, 239, 236, .22);
+              font-family: ui-monospace, 'SFMono-Regular', Menlo, monospace; font-size: .74em; letter-spacing: .16em;
+              text-transform: uppercase; color: #D95926; line-height: 1.6; }
+  .btn.fl-btn .ico { margin-left: .6em; color: #D95926; }
+  /* NEXUS badge: same build as the Fault Lines badge, NEXUS blue instead of signal orange */
+  .btn.nx-btn { background: #0B1219; color: #F0EFEC; border: 2px solid #3987E5; gap: 0; padding-inline: .9em .95em; }
+  .btn.nx-btn:hover, .btn.nx-btn:focus-visible { background: #132231; color: #F0EFEC; border-color: #6AA6EF; }
+  .nx-shield { width: 1.25em; height: 1.45em; margin-right: .55em; flex: none; }
+  .nx-wm { font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400; text-transform: uppercase;
+           letter-spacing: .1em; line-height: 1; }
+  .fl-issue.nx-tag { color: #6AA6EF; }
+  /* Approved NEXUS wordmark image */
+  .nx-wordmark { height: 1em; width: auto; display: block; }
+  /* Fracture lockup in miniature: FAULT over LINES, orange crack between, lower line offset */
+  .fl-lock { position: relative; display: inline-flex; flex-direction: column; font-family: 'Archivo Black', 'Arial Black', sans-serif;
+             font-weight: 400; text-transform: uppercase; font-size: .7em; line-height: 1; letter-spacing: .02em; row-gap: .16em; }
+  .fl-lock .fl-l2 { transform: translate(.07em, .02em); }
+  .fl-lock .fl-crack { position: absolute; left: -7%; width: 114%; top: calc(50% - 2px); height: 5px; overflow: visible; }
+  .btn.nx-btn .ico { margin-left: .6em; color: #6AA6EF; }
+</style>
 </head>
 
 <body>
@@ -214,7 +253,15 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:28px 0 40px;colo
     </p>
 
     <div class="buttons">
-      <a class="btn primary" href="projects/nexus/index.html">See my work: NEXUS
+      <a class="btn nx-btn" href="projects/nexus/index.html" aria-label="NEXUS platform">
+        <svg class="nx-shield" viewBox="0 0 24 28" aria-hidden="true"><path d="M12 1.2 22 4.6V13c0 6.8-4.4 11.3-10 13.8C6.4 24.3 2 19.8 2 13V4.6Z" fill="#0F1B26" stroke="#3987E5" stroke-width="1.8" stroke-linejoin="round"/><text x="12" y="18.6" text-anchor="middle" font-family="'Archivo Black','Arial Black',sans-serif" font-size="12.5" fill="#F0EFEC">N</text></svg>
+        <img class="nx-wordmark" src="assets/img/nexus-wordmark.png" alt="" width="413" height="82">
+        <span class="fl-issue nx-tag" aria-hidden="true">Platform</span>
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn fl-btn" href="fault-lines/issue-01/" aria-label="Read Fault Lines, Issue 1">
+        <span class="fl-mono" aria-hidden="true"><span class="fl-t">FL</span><span class="fl-b">FL</span></span>
+        <span class="fl-lock" aria-hidden="true"><span class="fl-l1">Fault</span><span class="fl-l2">Lines</span><svg class="fl-crack" viewBox="0 0 100 10" preserveAspectRatio="none"><polyline points="0,5 27,6.6 51,3.6 74,6.2 100,4.6" fill="none" stroke="#D95926" stroke-width="1.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span>
+        <span class="fl-issue" aria-hidden="true">Issue #1</span>
         <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn linkedin" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">
         <svg class="logo" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
@@ -343,6 +390,7 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding:28px 0 40px;colo
       <a href="https://github.com/dhartwig-fc">GitHub</a>
       <a href="https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase">Showcase</a>
       <a href="projects/nexus/index.html">NEXUS</a>
+      <a href="fault-lines/issue-01/">Fault Lines</a>
     </nav>
   </div>
 </footer>

@@ -15,7 +15,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one reading column (~66ch) on a deep-sea ground, matching the issue's video; media breaks slightly wider. Deliberately dark-only. */
 :root {
@@ -57,8 +57,13 @@ a:focus-visible, video:focus-visible { outline: 2px solid var(--money); outline-
   display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: baseline; justify-content: space-between;
   padding-block: 1.75rem 1.1rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem;
 }
-.wordmark { font-family: var(--display); font-weight: 800; letter-spacing: .22em; font-size: 1rem; }
-.wordmark span { display: block; font-family: var(--mono); font-weight: 400; letter-spacing: .02em; font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+.wordmark { display: flex; align-items: center; gap: 1rem; }
+.wordmark .tag { font-family: var(--mono); font-weight: 400; letter-spacing: .02em; font-size: .78rem; color: var(--muted); border-left: 1px solid var(--rule); padding-left: 1rem; }
+/* Fracture lockup: FAULT over LINES, orange crack between, lower line offset */
+.fl-lock { position: relative; display: inline-flex; flex-direction: column; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400;
+           text-transform: uppercase; font-size: 1.35rem; line-height: 1; letter-spacing: .02em; row-gap: .16em; color: var(--ink); }
+.fl-lock .fl-l2 { transform: translate(.07em, .02em); }
+.fl-lock svg { position: absolute; left: -7%; width: 114%; top: calc(50% - 3px); height: 6px; overflow: visible; }
 .issue-meta { font-family: var(--mono); font-size: .78rem; color: var(--ink-2); display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
 .pill { border: 1px solid var(--cargo); color: var(--cargo); border-radius: 999px; padding: .1rem .6rem; letter-spacing: .04em; }
 
@@ -160,7 +165,7 @@ ul.watch b { font-family: var(--display); font-weight: 700; }
 
 <div class="wrap">
   <header class="mast">
-    <div class="wordmark">FAULT LINES<span>Where geopolitics meets dirty money</span></div>
+    <div class="wordmark"><span class="fl-lock" role="img" aria-label="Fault Lines"><span class="fl-l1" aria-hidden="true">Fault</span><span class="fl-l2" aria-hidden="true">Lines</span><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,5 27,6.6 51,3.6 74,6.2 100,4.6" fill="none" stroke="#D95926" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span><span class="tag">Where geopolitics<br>meets dirty money</span></div>
     <div class="issue-meta"><span>Issue #1 · Tuesday 27 October 2026</span><span class="pill">Preview</span></div>
   </header>
 
