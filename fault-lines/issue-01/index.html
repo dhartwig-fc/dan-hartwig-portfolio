@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Fault Lines Issue #1: the shadow fleet stopped hiding. Russia's tankers swapped false flags for their own; what it means for the money trail and your red flags.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The shadow fleet stopped hiding. Your red flags need to catch up.">
+<meta property="og:description" content="Fault Lines Issue #1: where geopolitics meets dirty money.">
+<meta property="og:image" content="https://dhartwig-fc.github.io/dan-hartwig-portfolio/fault-lines/issue-01/poster.jpg">
+<meta property="og:url" content="https://dhartwig-fc.github.io/dan-hartwig-portfolio/fault-lines/issue-01/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Fault Lines Issue #1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~66ch) on a deep-sea ground, matching the issue's video; media breaks slightly wider. Deliberately dark-only. */
+:root {
+  color-scheme: dark;
+  --sea: #0b1219;
+  --hull: #111b25;
+  --rule: #22303d;
+  --ink: #eeede9;
+  --ink-2: #b9bcb8;
+  --muted: #858c94;
+  --cargo: #d95926;   /* route / cargo / red flags */
+  --money: #3987e5;   /* money, documents, links */
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --measure: 66ch;
+}
+* { box-sizing: border-box; }
+html { background: var(--sea); }
+body {
+  background: var(--sea);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+a { color: var(--money); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #6aa6ef; }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--money); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 760px; margin: 0 auto; }
+.prose { max-width: var(--measure); margin: 0 auto; }
+
+/* masthead */
+.mast {
+  display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: baseline; justify-content: space-between;
+  padding-block: 1.75rem 1.1rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem;
+}
+.wordmark { font-family: var(--display); font-weight: 800; letter-spacing: .22em; font-size: 1rem; }
+.wordmark span { display: block; font-family: var(--mono); font-weight: 400; letter-spacing: .02em; font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+.issue-meta { font-family: var(--mono); font-size: .78rem; color: var(--ink-2); display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.pill { border: 1px solid var(--cargo); color: var(--cargo); border-radius: 999px; padding: .1rem .6rem; letter-spacing: .04em; }
+
+/* headline */
+.kicker { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cargo); }
+h1 {
+  font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 5.2vw, 3.1rem); line-height: 1.06;
+  letter-spacing: -.015em; margin: .5rem 0 1rem; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--ink-2); font-weight: 700; }
+.standfirst { color: var(--ink-2); font-size: 1.2rem; margin: 0 0 2rem; }
+
+/* video */
+.video-block { margin: 0 0 2.75rem; }
+.video-frame { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); background: #000; aspect-ratio: 16 / 9; max-width: 100%; }
+.video-frame video { width: 100%; height: 100%; display: block; }
+.replay { font-family: var(--mono); font-size: .78rem; color: var(--money); background: none; border: 1px solid var(--rule); border-radius: 6px; padding: .25rem .6rem; cursor: pointer; }
+.replay:hover { border-color: var(--money); }
+.caption { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .6rem; display: flex; flex-wrap: wrap; gap: .3rem 1rem; justify-content: space-between; }
+.caption strong { color: var(--ink-2); font-weight: 500; }
+
+/* sections */
+.prose p { margin: 0 0 1.15rem; }
+h2 {
+  font-family: var(--display); font-weight: 700; font-size: 1.45rem; line-height: 1.2; margin: 2.75rem 0 1rem;
+  display: flex; gap: .75rem; align-items: baseline; text-wrap: balance;
+}
+h2 .n { font-family: var(--mono); font-weight: 500; font-size: .85rem; color: var(--cargo); letter-spacing: .06em; }
+.lede { font-size: 1.2rem; }
+.figure { margin: 1.75rem 0; }
+.figure img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--rule); }
+.figure figcaption { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .55rem; }
+.num { font-family: var(--display); font-weight: 700; white-space: nowrap; }
+
+ol.trail { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: grid; gap: .9rem; counter-reset: step; }
+ol.trail li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .25rem .75rem; counter-increment: step; }
+ol.trail li::before {
+  content: counter(step); font-family: var(--mono); font-size: .85rem; color: var(--money);
+  border: 1px solid var(--money); border-radius: 50%; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; margin-top: .15rem;
+}
+ol.trail b, ol.flags b { font-family: var(--display); font-weight: 700; }
+
+ol.flags { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 0; counter-reset: flag; }
+ol.flags li { counter-increment: flag; padding: .95rem 0 .95rem 2.6rem; border-top: 1px solid var(--rule); position: relative; min-width: 0; }
+ol.flags li:last-child { border-bottom: 1px solid var(--rule); }
+ol.flags li::before { content: counter(flag, decimal-leading-zero); position: absolute; left: 0; top: 1.1rem; font-family: var(--mono); font-size: .8rem; color: var(--cargo); }
+.note { color: var(--ink-2); font-style: italic; }
+.punch { font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+
+ul.ai { padding-left: 1.2rem; margin: .5rem 0 1.25rem; }
+ul.ai li { margin-bottom: .55rem; }
+
+/* Nexus demo panel */
+.demo {
+  margin: 1.75rem 0; padding: 1.25rem 1.35rem; background: var(--hull); border: 1px solid var(--rule); border-radius: 10px;
+  display: grid; gap: .9rem;
+}
+.demo .tag { font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--money); }
+.demo h3 { font-family: var(--display); font-weight: 700; font-size: 1.15rem; margin: 0; }
+.demo p { margin: 0; font-size: 1rem; color: var(--ink-2); }
+.demo .links { display: flex; flex-wrap: wrap; gap: .6rem; }
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: .95rem; text-decoration: none; color: var(--sea);
+  background: var(--money); border-radius: 6px; padding: .55rem .95rem; display: inline-block;
+}
+.btn:hover { color: var(--sea); background: #6aa6ef; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.btn.ghost:hover { border-color: var(--money); color: var(--ink); }
+.demo .fine { font-family: var(--mono); font-size: .74rem; color: var(--muted); }
+
+ul.watch { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .8rem; }
+ul.watch li { padding-left: 1rem; border-left: 2px solid var(--cargo); }
+ul.watch b { font-family: var(--display); font-weight: 700; }
+
+/* footer */
+.sign { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 1rem; }
+.sources { margin-top: 2.25rem; }
+.sources h4, .where h4 { font-family: var(--mono); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 .75rem; }
+.sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem; font-size: .95rem; }
+.sources li { min-width: 0; overflow-wrap: anywhere; }
+.sources li span { color: var(--muted); }
+
+.where { margin-top: 2.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; }
+.where h4 { grid-column: 1 / -1; margin: 0; }
+.where div { background: var(--hull); border: 1px solid var(--rule); border-radius: 8px; padding: .85rem 1rem; font-size: .92rem; color: var(--ink-2); }
+.where b { display: block; font-family: var(--display); color: var(--ink); margin-bottom: .2rem; }
+
+@media (max-width: 520px) {
+  body { font-size: 1.05rem; }
+  .standfirst, .lede { font-size: 1.1rem; }
+  ol.flags li { padding-left: 2.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+.video-msg { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: .6rem 1rem; color: var(--ink-2); font-family: var(--mono); font-size: .75rem; background: rgba(11,18,25,.88); z-index: 2; }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="mast">
+    <div class="wordmark">FAULT LINES<span>Where geopolitics meets dirty money</span></div>
+    <div class="issue-meta"><span>Issue #1 · Tuesday 27 October 2026</span><span class="pill">Preview</span></div>
+  </header>
+
+  <article>
+    <div class="prose">
+      <div class="kicker">Sanctions · Shadow fleet</div>
+      <h1>The shadow fleet stopped hiding. <em>Your red flags need to catch up.</em></h1>
+      <p class="standfirst">Russia's tankers have swapped false flags for their own. Here is what that means for the money trail, and for the controls that are meant to catch it.</p>
+    </div>
+
+    <section class="video-block" aria-label="Video: follow one cargo">
+      <div class="video-frame">
+        <video id="money-trail" controls playsinline preload="metadata" poster="poster.jpg">
+          <source src="fault-lines-issue-01.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="caption"><span><strong>The 60-second version:</strong> follow one cargo from Primorsk to your payments queue.</span><span>69 s · captions on screen</span></div>
+    </section>
+
+    <div class="prose">
+      <p class="lede">Welcome to the first issue of Fault Lines.</p>
+      <p>After many years working in financial crime, I've seen the same thing again and again: the biggest risks don't start in a transaction monitoring alert. They start on a map, with a war, a sanctions package or a new trade route, and they reach your bank months later as a payment that looks perfectly ordinary. Each week I'll take one of those stories, follow the money, and finish with red flags you can use on Monday morning.</p>
+      <p>We start at sea.</p>
+
+      <h2><span class="n">01</span>The story</h2>
+      <p>Since 2022, Western governments have tried to squeeze Russia's oil revenue with sanctions and a price cap, enforced through the Western services the tanker trade depends on: insurance, finance and shipping. Russia's answer was a parallel fleet: older tankers, often bought second-hand through newly formed companies, insured outside the mainstream market and registered under flags with light oversight.</p>
+      <p>Governments have been listing these ships one by one. The EU's list passed <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/07/23/21st-package-of-sanctions-eu-hits-russian-energy-financial-services-and-crypto-hard/" target="_blank" rel="noopener"><span class="num">673 vessels</span></a> with its 21st package on 23 July 2026. The UK has now designated <a href="https://www.themoscowtimes.com/2026/10/08/uk-expands-sanctions-to-cover-90-of-russian-oil-output-shadow-fleet-and-finance-networks-a93922" target="_blank" rel="noopener"><span class="num">more than 600</span></a>, adding <a href="https://gcaptain.com/uk-sanctions-12-more-shadow-fleet-tankers-as-russias-arctic-traffic-grows/" target="_blank" rel="noopener">12 more on 8 October</a>. The US has focused its recent maritime action on Iran, <a href="https://www.state.gov/releases/office-of-the-spokesman/2026/10/u-s-intensifies-operation-economic-outcast-against-irans-shadow-fleet-networks-fact-sheet" target="_blank" rel="noopener">designating 17 more vessels in Iran's shadow fleet</a> on 8 October. Separately, Washington has said it is <a href="https://www.investing.com/news/commodities-news/us-weighs-easing-sanctions-on-shadow-fleet-to-curb-shipping-costs--reuters-4950473" target="_blank" rel="noopener">weighing a partial easing</a> that would let sanctioned tankers carry non-sanctioned oil, to bring down freight rates. No decision had been announced when this issue went out.</p>
+      <p>The bigger shift is in tactics. For years, the classic tell was the <em>false flag</em>: a tanker claiming a registry that didn't recognise it. According to the <a href="https://energyandcleanair.org/september-2026-monthly-analysis-of-russian-fossil-fuel-exports-and-sanctions/" target="_blank" rel="noopener">Centre for Research on Energy and Clean Air (CREA)</a>, falsely flagged tankers carried only <span class="num">2%</span> of the shadow fleet's Russian oil in September 2026, down from <span class="num">24%</span> a year earlier. Russian-flagged tankers' share rose from <span class="num">9% to 36%</span>, making Russia's own flag the largest in the shadow fleet.</p>
+
+      <figure class="figure">
+        <img src="flag-shift.gif" alt="Animated bar chart: falsely flagged tankers' share of Russian shadow-fleet oil fell from 24% in September 2025 to 2% in September 2026, while Russian-flagged tankers' share rose from 9% to 36%." width="1200" height="675" loading="lazy">
+        <figcaption>Share of Russian oil delivered by 'shadow' tankers, by flag. Source: <a href="https://energyandcleanair.org/september-2026-monthly-analysis-of-russian-fossil-fuel-exports-and-sanctions/" target="_blank" rel="noopener">CREA, September 2026</a>.</figcaption>
+      </figure>
+
+      <p>The fleet is moving from hiding to openly flying the Russian flag, and protection at sea is following: European boardings have become harder in some waters.</p>
+
+      <h2><span class="n">02</span>The money trail</h2>
+      <p>A sanctioned cargo still has to be loaded, insured, sold and paid for, and each step touches the financial system:</p>
+      <ol class="trail">
+        <li><span><b>Ownership.</b> The tanker sits in a single-ship company, often recently incorporated in a third country, with management passed between small operators.</span></li>
+        <li><span><b>Insurance.</b> Cover comes from outside the International Group of P&amp;I Clubs, or can't be verified at all.</span></li>
+        <li><span><b>The voyage.</b> Cargo may change hands at sea through ship-to-ship (STS) transfers, which can blend or relabel its origin.</span></li>
+        <li><span><b>The sale.</b> Trading companies with short histories buy and resell the cargo, sometimes several times.</span></li>
+        <li><span><b>The payment.</b> Funds route through banks in third countries, often in non-dollar currencies, with costs such as freight or "services" inflated to keep the headline price under the cap on paper.</span></li>
+      </ol>
+      <p>Banks touch this chain through trade finance, correspondent payments, ship finance, insurance, freight and port services. Most of the time they never see a tanker. They see a payment.</p>
+
+      <h2><span class="n">03</span>Red flags for Monday morning</h2>
+      <ol class="flags">
+        <li><b>Old ship, new owner.</b> A tanker of 15 years or more bought recently by a newly formed single-ship company.</li>
+        <li><b>Flag history.</b> Frequent flag changes, a registry with weak oversight, or a flag that doesn't match registry records. Check IMO GISIS or Equasis rather than trusting what the ship broadcasts. <span class="note">New in 2026: a Russian flag is now a signal in its own right, not just a missing false one.</span></li>
+        <li><b>Dark or impossible voyages.</b> AIS gaps or spoofed positions near loading ports or known STS areas. Allow for GPS interference in conflict zones before drawing conclusions.</li>
+        <li><b>Ship-to-ship transfers.</b> STS in open water, at night, or several per cargo, especially when the counterpart vessel also has gaps in its track.</li>
+        <li><b>Unverifiable insurance.</b> Cover outside the International Group, or an insurer you can't confirm exists.</li>
+        <li><b>Documents that don't add up.</b> A bill of lading or origin that conflicts with the voyage history; price-cap attestations paired with unusually high freight or ancillary costs.</li>
+        <li><b>Payments with no trade logic.</b> Third-country intermediaries with no link to the cargo, round-tripping, or newly opened accounts settling large energy trades in non-dollar currencies.</li>
+      </ol>
+      <p class="punch">No single flag proves evasion. The pattern does.</p>
+
+      <h2><span class="n">04</span>The AI angle</h2>
+      <p>Shadow-fleet detection is a data-fusion problem. The evidence sits in different places: vessel tracking data, ownership registries, trade documents and payment messages. Human teams rarely join them up in time.</p>
+      <p>This is where AI helps:</p>
+      <ul class="ai">
+        <li><b>Voyage anomaly detection</b> spots loitering, dark periods and implausible routes across thousands of ships.</li>
+        <li><b>Entity resolution</b> links shell owners, managers and payment counterparties that share addresses, directors or ships.</li>
+        <li><b>Document checking.</b> Language models can read bills of lading, attestations and invoices and flag contradictions with the voyage data.</li>
+        <li><b>Network analysis</b> traces a payment back to a vessel, and a vessel back to an owner on a sanctions list.</li>
+      </ul>
+      <p>The catch is explainability. A model that says "suspicious" isn't enough for a SAR or a sanctions decision. The analyst still needs the story, and that's what good tools should give them.</p>
+
+      <aside class="demo" aria-label="Nexus demo">
+        <div class="tag">See it working</div>
+        <h3>Nexus: from the queue to a filed SAR</h3>
+        <p>The video's final minute comes from Nexus, my financial-crime intelligence platform. Open the same shadow-fleet case yourself: the sanctions lane, the five weighted drivers behind a score of 85, the freight and price-cap signals, and the case through to submission.</p>
+        <div class="links">
+          <a class="btn" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/story.html" target="_blank" rel="noopener">Watch the 60-second story</a>
+          <a class="btn ghost" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/runtime-demo/console.html" target="_blank" rel="noopener">Open the investigator console</a>
+        </div>
+        <div class="fine">All Nexus data is synthetic demonstration data. No real people, vessels or cases.</div>
+      </aside>
+
+      <h2><span class="n">05</span>Watchlist</h2>
+      <ul class="watch">
+        <li><b>Washington:</b> whether talk of easing shadow-fleet sanctions becomes policy, and what licensing would look like.</li>
+        <li><b>LNG:</b> the UK's latest Russia package <a href="https://www.tradecomplianceresourcehub.com/2026/10/05/uk-sanctions-update-new-russia-package-targets-lng-shadow-fleet-propagandists-and-human-rights-abusers/" target="_blank" rel="noopener">reached into the LNG shadow fleet</a>. Gas may be the next frontier.</li>
+        <li><b>The Baltic:</b> the legal limits on boarding tankers in narrow straits, and whether more states stop trying.</li>
+      </ul>
+
+      <p class="sign"><em>Fault Lines uses public sources only and is not legal advice. If this was useful, forward it to a colleague in compliance, trade finance or sanctions screening.</em> Dan Hartwig</p>
+
+      <section class="sources" aria-label="Sources">
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/07/23/21st-package-of-sanctions-eu-hits-russian-energy-financial-services-and-crypto-hard/" target="_blank" rel="noopener">EU 21st sanctions package</a> <span>· Council of the EU, 23 Jul 2026</span></li>
+          <li><a href="https://gcaptain.com/uk-sanctions-12-more-shadow-fleet-tankers-as-russias-arctic-traffic-grows/" target="_blank" rel="noopener">UK designates 12 more shadow-fleet tankers</a> <span>· gCaptain</span></li>
+          <li><a href="https://www.themoscowtimes.com/2026/10/08/uk-expands-sanctions-to-cover-90-of-russian-oil-output-shadow-fleet-and-finance-networks-a93922" target="_blank" rel="noopener">UK running total after 8 October</a> <span>· The Moscow Times</span></li>
+          <li><a href="https://www.tradecomplianceresourcehub.com/2026/10/05/uk-sanctions-update-new-russia-package-targets-lng-shadow-fleet-propagandists-and-human-rights-abusers/" target="_blank" rel="noopener">UK package covering the LNG shadow fleet</a> <span>· Trade Compliance Resource Hub</span></li>
+          <li><a href="https://www.state.gov/releases/office-of-the-spokesman/2026/10/u-s-intensifies-operation-economic-outcast-against-irans-shadow-fleet-networks-fact-sheet" target="_blank" rel="noopener">US action on Iran's shadow fleet</a> <span>· US State Department</span> · <a href="https://qz.com/treasury-sanctions-iran-shadow-fleet-tankers-100826" target="_blank" rel="noopener">Quartz</a></li>
+          <li><a href="https://www.investing.com/news/commodities-news/us-weighs-easing-sanctions-on-shadow-fleet-to-curb-shipping-costs--reuters-4950473" target="_blank" rel="noopener">US weighs easing shadow-fleet sanctions</a> <span>· Reuters via Investing.com</span> · <a href="https://meduza.io/en/news/2026/10/15/us-weighs-easing-sanctions-on-shadow-fleet-tankers" target="_blank" rel="noopener">Meduza</a></li>
+          <li><a href="https://energyandcleanair.org/september-2026-monthly-analysis-of-russian-fossil-fuel-exports-and-sanctions/" target="_blank" rel="noopener">Flagging trends and Russian oil exports</a> <span>· CREA, September 2026</span></li>
+          <li><a href="https://institute.kse.ua/wp-content/uploads/2026/08/2026_mid_year_assessment_eng_august_2026.pdf" target="_blank" rel="noopener">Mid-2026 sanctions assessment</a> <span>· KSE Institute</span> · <a href="https://www.grosswald.org/baltic-sea-security-tracker/" target="_blank" rel="noopener">Baltic Sea security tracker</a></li>
+          <li><a href="https://windward.ai/knowledge-base/ofacs-strategy-evolved-over-the-past-5-years-has-yours/" target="_blank" rel="noopener">OFAC's maritime advisory, summarised</a> <span>· Windward</span> · <a href="https://alessa.com/blog/maritime-sanctions-evasion-and-the-dark-fleet/" target="_blank" rel="noopener">Alessa</a></li>
+        </ul>
+      </section>
+
+      <section class="where" aria-label="Where this issue goes">
+        <h4>Where it goes on Tuesday</h4>
+        <div><b>LinkedIn Newsletter</b>The full issue, with the flag-shift chart as its cover.</div>
+        <div><b>LinkedIn feed</b>The 4:5 video posted natively, linking to the issue.</div>
+        <div><b>Substack</b>The same issue with the video and chart inline, for email subscribers.</div>
+      </section>
+    </div>
+  </article>
+</div>
+</body>
+</html>
