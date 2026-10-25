@@ -248,11 +248,10 @@
     ["focal of a closed 2-hop circular flow retaining 69.1% of value", "signal:circular_loop"],
     ["transaction TX-16 amount 485000.0 exceeds high-value threshold", "signal:high_value"],
     ["corridor CY-PK routes through high-risk jurisdiction(s) ['CY'] outside country_of_incorporation PK", "signal:jurisdiction_deviation"],
-    ["ownership-network connection to PEP Tariq Copperquill (director)", "signal:pep_connection"],
-    ["Rimewind Carrier (VSL035) went dark for 29.0 h, Arabian Sea (PK-CY corridor) (SE_CRANS_GAP)", "signal:ais_gap"]
+    ["ownership-network connection to PEP Tariq Copperquill (director)", "signal:pep_connection"]
   ];
   var MACRO = [["Circular loop", 40], ["High value · TX-16 (485,000)", 15], ["High value · TX-17 (335,000)", 15],
-               ["Jurisdiction deviation · CY-PK corridor", 45], ["High-risk industry · gold mining", 22.5], ["PEP connection · Tariq Copperquill", 20], ["AIS gap · Rimewind Carrier, 29 h", 20]];
+               ["Jurisdiction deviation · CY-PK corridor", 45], ["High-risk industry · gold mining", 22.5], ["PEP connection · Tariq Copperquill", 20]];
   var SAR_STAGES = ["Drafted", "Officer review", "Approved", "Submitted"];
 
   // ---- the story ----
@@ -366,7 +365,7 @@
       MACRO.map(function (m) {
         return '<div class="comp"><div class="cl"><span>' + esc(m[0]) + '</span><span class="cv">+' + m[1] + '</span></div><div class="bar"><i data-w="' + (m[1] / 45 * 100).toFixed(0) + '" style="background:#e9c877"></i></div></div>';
       }).join("") +
-      '<div class="total"><span style="font-size:12.5px;color:var(--ink2)">177.5 raw · capped · Critical</span><b style="color:var(--acc)">100</b></div>';
+      '<div class="total"><span style="font-size:12.5px;color:var(--ink2)">157.5 raw · capped · Critical</span><b style="color:var(--acc)">100</b></div>';
     else if (r.indexOf("model:") === 0) h = modelHtml(r.slice(6));
     else if (r === "two") h = '<p class="panelt">Triage vs verdict</p><p class="panels">Two questions, two numbers</p><div class="two">' +
       '<div class="sc m"><div class="big">100</div><div class="lbl">Macro triage</div><p>What to open first. Ranks the queue.</p></div>' +
