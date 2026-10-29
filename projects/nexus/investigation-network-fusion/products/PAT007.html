@@ -164,7 +164,7 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 <h2>Data Sources</h2>
 
 <div class="source-scope-label">Platform data sources · all typologies</div>
-<div class="source" data-source-scope="catalogue"><strong>Corporate Registry</strong>Director, company and ownership filings</div><div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div><div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div><div class="source" data-source-scope="catalogue"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation</div><div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence</div><div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
+<div class="source" data-source-scope="catalogue" data-source-relevance="family"><strong>Corporate Registry</strong>Director, company and ownership filings <em>(relevant to this typology)</em></div><div class="source" data-source-scope="catalogue"><strong>KYC / CDD</strong>Customer profile, disclosures and onboarding records</div><div class="source" data-source-scope="catalogue"><strong>Transaction History</strong>Payments, relationship history and account activity</div><div class="source" data-source-scope="catalogue" data-source-relevance="family"><strong>Evidence Documentation</strong>Ownership records, relationship evidence and source documentation <em>(relevant to this typology)</em></div><div class="source" data-source-scope="catalogue"><strong>Trade Documentation</strong>Invoices, shipment records and payment evidence</div><div class="source" data-source-scope="catalogue"><strong>External Intelligence</strong>OSINT, adverse media and horizon signals</div>
 </aside>
 
 <main>
@@ -247,7 +247,7 @@ th,td { border:1px solid var(--line); padding:8px; text-align:left; }
 
 
 <div class="band" id="graph">VISUAL INTELLIGENCE MODEL</div>
-<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/pat007-307d0dece1_PAT007_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
+<iframe class="diagram-frame" data-consumption-mode="DIAGRAM_HTML_PATH" data-contract="CANONICAL_GRAPH_ENGINE_CONTRACT" data-graph-path="runtime/manufacturing/graph_artifacts/pat007-639a35b715_PAT007_CANONICAL_GRAPH.html" srcdoc="&lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -289,7 +289,7 @@ body { margin:0; background:var(--g-bg); }
   data-renderer-id=&quot;NETWORK_STAR_VISUAL_RENDERER&quot;
   data-graph-topology=&quot;star&quot;
   data-graph-contract=&quot;CANONICAL_GRAPH_ENGINE_CONTRACT&quot;
-  data-graph-fingerprint=&quot;e29bc69a5810992b026f0823e175829d022375dbacc59ad92f9c540c34aaea0b&quot;
+  data-graph-fingerprint=&quot;5a585171b052cd40549fed1524c13ee9c1749b731536c49829bb38135acb88b0&quot;
   data-case-id=&quot;PAT007-C001&quot;
   data-case-fingerprint=&quot;f82ad48f1192f976df42626cc68f0932c2700aab77e814f515794dea18a0ec70&quot;
   data-subject-entity-id=&quot;C001&quot;
@@ -325,7 +325,7 @@ body { margin:0; background:var(--g-bg); }
 <div class="grid3">
 <div class="box"><h2>Key Indicators</h2><ul><li>Alpha Trading Ltd is flagged by 3 shell indicators.</li></ul></div>
 <div class="box"><h2>Risk Rationale</h2><p>The governed FC-03 Shell Company Network analytic flagged 3 finding(s) across 26 entities.</p></div>
-<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li></ul></div>
+<div class="box"><h2>Intelligence Produced</h2><ul><li>Entity relationship intelligence</li><li>Routing intelligence</li><li>Exposure assessment</li><li>Investigation-ready hypothesis</li><li>Ownership/control indicators</li></ul></div>
 </div>
 
 <div class="band" id="workspace">INTELLIGENCE WORKSPACE</div>
@@ -386,7 +386,7 @@ body { margin:0; background:var(--g-bg); }
 
 <div class="box">
 <h2>Key Investigation Questions</h2>
-<ul><li>Does available evidence support the dominant hypothesis?</li><li>Are there additional transaction counterparties or connected parties not currently visible?</li><li>Does historical activity support the observed network structure?</li><li>Is escalation warranted given the published risk rating and confidence score?</li></ul>
+<ul><li>Does available evidence support the dominant hypothesis?</li><li>Are there additional transaction counterparties or connected parties not currently visible?</li><li>Does historical activity support the observed network structure?</li><li>Is escalation warranted given the published risk rating and confidence score?</li><li>Can ownership, control and shared attributes be independently verified?</li></ul>
 </div>
 
 <div class="box">
@@ -534,7 +534,7 @@ body { margin:0; background:var(--g-bg); }
 
 <div class="box">
 <h2>Technical Metadata</h2>
-<div class="meta"><div><strong>Run ID</strong><br>pat007-307d0dece1</div><div><strong>Built</strong><br>2026-08-30T14:40:40.795452Z</div><div><strong>Pattern ID</strong><br>PAT007</div><div><strong>Entity Count</strong><br>4</div><div><strong>Relationship Count</strong><br>3</div><div class="mv-cap"><strong>Topology</strong><br>star</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
+<div class="meta"><div><strong>Run ID</strong><br>pat007-639a35b715</div><div><strong>Built</strong><br>2026-10-29T17:44:31.006483Z</div><div><strong>Pattern ID</strong><br>PAT007</div><div><strong>Entity Count</strong><br>4</div><div><strong>Relationship Count</strong><br>3</div><div class="mv-cap"><strong>Topology</strong><br>star</div><div><strong>Layout</strong><br>FC01 Runtime</div><div><strong>Renderer</strong><br>fc01_runtime_product_builder.py</div><div><strong>Version</strong><br>stage361_runtime_pipeline_governance</div></div>
 </div>
 </section>
 
