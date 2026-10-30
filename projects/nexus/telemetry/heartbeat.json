@@ -1,11 +1,8 @@
 {
  "also_caught": [],
  "archive": {
-  "latest": {
-   "day": "2026-10-29",
-   "state": "shipped"
-  },
-  "not_safe": 1
+  "latest": null,
+  "not_safe": 0
  },
  "case_of_day": {
   "band": "Medium",
@@ -639,6 +636,14 @@
  "engineering": {
   "history": [
    {
+    "days": [],
+    "outcome": "OK",
+    "reason": "",
+    "run": "2026-10-30T09-22-27",
+    "seconds": 2.4,
+    "slowest_step": "estate_state"
+   },
+   {
     "days": [
      "2026-10-29"
     ],
@@ -822,8 +827,8 @@
   },
   "tiles": {
    "archive": {
-    "not_safe": 1,
-    "state": "shipped"
+    "not_safe": 0,
+    "state": "evicted"
    },
    "drift": {
     "reason": "",
@@ -835,9 +840,9 @@
     "of": 8
    },
    "runs": {
-    "avg_seconds": 255.8,
-    "clean": 12,
-    "of": 13
+    "avg_seconds": 236.3,
+    "clean": 13,
+    "of": 14
    }
   }
  },
@@ -1079,11 +1084,11 @@
  "no_scheme_text": null,
  "provenance": {
   "authority": "LOCKED",
-  "fc10_commit": "8001da80b88bb8673fa77c071503755d344486d0",
-  "run_id": "2026-10-30T05-30-01",
+  "fc10_commit": "eb23e2340a19b1df8ed5fa2fb05b4035e5e5a1e3",
+  "run_id": "2026-10-30T09-22-27",
   "titles_from": "fc-08"
  },
- "published_at": "2026-10-30T05:37:02+00:00",
+ "published_at": "2026-10-30T09:22:50+00:00",
  "pulse_note": null,
  "risk": {
   "critical": 0,
@@ -1095,7 +1100,7 @@
   "usual_sars": 5
  },
  "running": {
-  "as_of": "2026-10-30T05:34:43+00:00",
+  "as_of": "2026-10-30T09:22:33+00:00",
   "avg_seconds": 278.9,
   "clean": 11,
   "of": 11
