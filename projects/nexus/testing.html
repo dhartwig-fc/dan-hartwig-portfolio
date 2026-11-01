@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test Phase | NEXUS</title>
+<style>
+:root{
+  --bg:#050b14; --panel:#081322; --panel2:#0b182b; --line:rgba(148,163,184,.22);
+  --text:#f8fafc; --muted:#94a3b8;
+  --blue:#38bdf8; --green:#22c55e; --gold:#e9c877;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",sans-serif;
+  background:radial-gradient(circle at 70% 8%,rgba(56,189,248,.18),transparent 34%),var(--bg);color:var(--text)}
+.wrap{max-width:1120px;margin:auto;padding:60px 32px 100px}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;margin-bottom:64px}
+.back{font-weight:800;color:var(--muted)}
+.kicker{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin:0 0 22px}
+.lead{max-width:820px;font-size:19px;line-height:1.6;color:var(--muted)}
+.lead b{color:var(--text);font-weight:600}
+.updated{margin-top:14px;font-size:13px;color:var(--muted);font-family:ui-monospace,Menlo,monospace;letter-spacing:.04em}
+.updated b{color:var(--green)}
+
+.section{margin-top:66px}
+.section h2{font-size:32px;letter-spacing:-.05em;margin:0 0 22px}
+.section .sub{color:var(--muted);font-size:15px;margin:-12px 0 22px;max-width:70ch}
+
+/* headline figures */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{padding:22px 20px;border-radius:22px;border:1px solid var(--line);background:var(--panel)}
+.kpi b{display:block;font-size:34px;letter-spacing:-.04em;margin-bottom:6px}
+.kpi span{color:var(--muted);font-size:13.5px;line-height:1.5}
+.kpi b.g{color:var(--green)} .kpi b.bl{color:var(--blue)} .kpi b.gd{color:var(--gold)}
+@media(max-width:860px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.kpis{grid-template-columns:1fr}}
+
+/* phase bars */
+.phases{display:grid;gap:12px}
+.ph{display:grid;grid-template-columns:minmax(0,1fr) 64px;gap:8px 18px;align-items:center;
+  padding:18px 22px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(15,23,42,.7),rgba(8,19,34,.7))}
+.ph .nm{font-size:17px;font-weight:650;letter-spacing:-.02em;min-width:0}
+.ph .nm small{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:3px;font-family:ui-monospace,Menlo,monospace}
+.ph .pct{font-family:ui-monospace,Menlo,monospace;font-size:18px;font-weight:800;text-align:right}
+.ph .bar{grid-column:1/-1;height:10px;border-radius:999px;background:rgba(148,163,184,.14);overflow:hidden}
+.ph .bar i{display:block;height:100%;border-radius:999px;background:var(--blue)}
+.ph.done .bar i{background:var(--green)} .ph.done .pct{color:var(--green)}
+.ph.due .bar i{background:var(--blue)} .ph.due .pct{color:var(--blue)}
+.ph.later .bar i{background:var(--muted)} .ph.later .pct{color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;color:var(--muted);font-size:13px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:7px;vertical-align:-1px;background:var(--c)}
+
+/* exit criteria table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line);line-height:1.5}
+th{color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:650;white-space:nowrap}
+td.ok{color:var(--green);font-weight:700}
+
+/* chain rows */
+.chain{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;
+  padding:18px 22px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(15,23,42,.7),rgba(8,19,34,.7))}
+.row .rt{font-size:17px;font-weight:650;letter-spacing:-.02em;min-width:0}
+.row .rt small{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:3px;line-height:1.5}
+.pill{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;white-space:nowrap}
+.pill.built{background:rgba(34,197,94,.13);color:var(--green);border:1px solid rgba(34,197,94,.42)}
+.pill.next{background:rgba(56,189,248,.13);color:var(--blue);border:1px solid rgba(56,189,248,.5)}
+
+/* method */
+.posture{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.post{padding:20px;border-radius:20px;border:1px solid var(--line);background:rgba(15,23,42,.6)}
+.post strong{display:block;font-size:15px;margin-bottom:6px}
+.post span{color:var(--muted);font-size:13.5px;line-height:1.5}
+@media(max-width:860px){.posture{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.posture{grid-template-columns:1fr}.wrap{padding:40px 16px 80px}}
+
+.foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-family:ui-monospace,Menlo,monospace}
+.foot a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="back" href="index.html">← NEXUS</a>
+    <a class="back" href="../../index.html">Portfolio</a>
+  </div>
+
+  <div class="kicker">Test Phase</div>
+  <h1>Testing before the next features.</h1>
+  <p class="lead">
+    From <b>19 October 2026</b> new features are frozen for about twelve weeks, to about 11 January 2027, while the
+    platform is tested against a written strategy in six phases. Only defect fixes and test work land. Agents run test
+    packages every night against a fixed baseline, every new test is seen to fail before it is trusted, and the expected
+    outcomes for the realistic test estate are written from the <b>typology doctrine, never from the code</b>.
+    For what the platform does, see <a href="mission-status.html" style="color:var(--blue)">mission status</a>.
+  </p>
+  <div class="updated">Status report <b>31 October 2026</b> · day 13 of about 84 · updated 1 November</div>
+
+  <section class="section">
+    <div class="kpis">
+      <div class="kpi"><b class="bl">~40%</b><span>complete overall, estimated across the six phases</span></div>
+      <div class="kpi"><b>15%</b><span>of the calendar used (day 13 of about 84)</span></div>
+      <div class="kpi"><b class="g">73 / 129</b><span>defects closed on the released platform; 13 more fixed and in review</span></div>
+      <div class="kpi"><b class="g">11,107</b><span>tests collected, up from 6,377 when the phase began; 9,986 pass, 0 fail</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Progress by phase</h2>
+    <p class="sub">Each figure is an estimate against that phase's exit criterion in the master test strategy.</p>
+    <div class="phases">
+      <div class="ph done"><div class="nm">0 · Strategy and inventory<small>planned week 1</small></div><div class="pct">100%</div><div class="bar"><i style="width:100%"></i></div></div>
+      <div class="ph due"><div class="nm">1 · Analytics validation<small>from week 2</small></div><div class="pct">50%</div><div class="bar"><i style="width:50%"></i></div></div>
+      <div class="ph due"><div class="nm">2 · GUI testing<small>planned weeks 3–7</small></div><div class="pct">20%</div><div class="bar"><i style="width:20%"></i></div></div>
+      <div class="ph due"><div class="nm">3 · Daily runs and operations<small>planned weeks 2–9</small></div><div class="pct">25%</div><div class="bar"><i style="width:25%"></i></div></div>
+      <div class="ph done"><div class="nm">4 · Reporting interfaces<small>planned weeks 5–9</small></div><div class="pct">50%</div><div class="bar"><i style="width:50%"></i></div></div>
+      <div class="ph later"><div class="nm">5 · Scale, resilience, sign-off<small>planned weeks 8–12</small></div><div class="pct">10%</div><div class="bar"><i style="width:10%"></i></div></div>
+    </div>
+    <div class="legend">
+      <span style="--c:var(--green)">done, or ahead of its window</span>
+      <span style="--c:var(--blue)">in its window, exit evidence missing</span>
+      <span style="--c:var(--muted)">not yet due</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Each phase against its exit</h2>
+    <div class="tbl"><table>
+      <tr><th>Phase</th><th>Exit criterion</th><th>Done</th><th>Still needed</th></tr>
+      <tr><td>0 · Strategy</td><td>A signed-off strategy and defect register</td><td>Risk inventory and strategy. A regression pin on a 9,889-entity estate. Register triaged and signed off.</td><td class="ok">Met</td></tr>
+      <tr><td>1 · Analytics</td><td>Recall and precision curves per typology, an entity-resolution F1 score, evidenced thresholds</td><td>A realistic test estate with 15 doctrine-based expected-outcome sheets signed off. Pass rule: recall of at least 0.95 on each typology's own hold-out. All 57 typology engines package-tested, with 96.7% of planted code mutations caught.</td><td>Run the first measurement round. Measure entity-resolution F1. Derive thresholds from the curves. Calibrate the macro score weights.</td></tr>
+      <tr><td>2 · GUI</td><td>The suite runs and every priority journey passes</td><td>Browser-journey tests run locally and nightly. Static accessibility checks.</td><td>The triage, workspace, evidence, decision, SAR and QA journeys. Accessibility audit. Visual regression. A 10,000-row queue.</td></tr>
+      <tr><td>3 · Daily runs</td><td>At least 95% of runs unattended, every fault recovered, the queue balances</td><td>The living estate runs every weekday at 05:30. Fault-drill tests exist.</td><td>A second living estate with planted faults. A written 20-day soak report. Drift Sundays, a runbook and a capacity model.</td></tr>
+      <tr><td>4 · Reporting</td><td>Every published number traced and reconciled</td><td>47 published surfaces audited, 59 defect classes registered. Three fix packages landed and live. Reconciliation tests on the operations figures.</td><td>Land the third fix package. A definitions catalogue. Walkthroughs as analyst, supervisor, MLRO and regulator.</td></tr>
+      <tr><td>5 · Sign-off</td><td>A go / no-go for a production-like pilot</td><td>A 10× scale probe reached 5×, and showed where the build scales badly.</td><td>10× and 100× estates. A restore drill. A security review of the publish boundary. A test summary report.</td></tr>
+    </table></div>
+  </section>
+
+  <section class="section">
+    <h2>Since the 31 October report</h2>
+    <div class="chain">
+      <div class="row"><div class="rt">Knowledge Centre record landed<small>The republish that carries seven re-rendered doctrine pages is now on the released platform (1 November).</small></div><span class="pill built">Landed</span></div>
+      <div class="row"><div class="rt">Third fix package in review<small>Thirteen fixes to product pages, merged with the released platform and rebuilt: 34 products re-manufactured, no score, band, classification or rank moved. In CI now.</small></div><span class="pill next">In review</span></div>
+      <div class="row"><div class="rt">First browser journeys<small>Thirty new browser tests, each journey seen to fail before it was trusted, plus an accessibility baseline. Their findings are being triaged.</small></div><span class="pill next">In review</span></div>
+      <div class="row"><div class="rt">Living estate soak<small>11 of 20 weekday runs complete at the halfway check, all 11 OK, median 4 min 42 s.</small></div><span class="pill next">Day 11 of 20</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>How it is tested</h2>
+    <div class="posture">
+      <div class="post"><strong>Seen to fail</strong><span>A guard is trusted only after it has gone red on the fault it guards, and green again once restored.</span></div>
+      <div class="post"><strong>Oracle from doctrine</strong><span>Expected outcomes are written from each typology's doctrine and signed off typology by typology, never read back from the code.</span></div>
+      <div class="post"><strong>Baseline-gated</strong><span>Every landing holds a pinned CI baseline, measured on a clean clone, with zero failures.</span></div>
+      <div class="post"><strong>No moving outputs</strong><span>A fix may change what a page says. It may not move a score, band or rank unless that is the defect.</span></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    NEXUS · Test Phase · status as of 2026-10-31, updated 2026-11-01 · synthetic data throughout —
+    <a href="mission-status.html">mission status →</a>
+  </div>
+
+</div>
+</body>
+</html>

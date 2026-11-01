@@ -175,14 +175,14 @@
     <a class="btn primary" href="runtime-demo/console.html">&#9654;&nbsp; Now click through it yourself</a>
     <a class="btn" href="walkthrough.html">Read the walkthrough</a>
   </div>
-  <p class="fine">This page re-enacts the console; it does not run the platform. The entities, scores, component weights, macro contributions, ownership percentages, flows, vessels, screening hits and briefing lines are the values published in the live console (build <span style="font-family:var(--mono)">10f9396d</span>). In the console the Crans case is Assigned and Pending, so the review, approval and submission steps and their audit times are the workflow played forward, not recorded events. All data in NEXUS is synthetic demonstration data.</p>
+  <p class="fine">This page re-enacts the console; it does not run the platform. The entities, scores, component weights, macro contributions, ownership percentages, flows, vessels, screening hits and briefing lines are the values published in the live console (build <span style="font-family:var(--mono)">ae0de150</span>). In the console the Crans case is Assigned and Pending, so the review, approval and submission steps and their audit times are the workflow played forward, not recorded events. All data in NEXUS is synthetic demonstration data.</p>
 </div>
 
 <script>
 (function () {
   "use strict";
 
-  // ---- published console values (build 10f9396d) ----
+  // ---- published console values (build ae0de150) ----
   var QUEUE = [
     { id: "crans", name: "Crans Resources", meta: "Company · PK", score: "100", band: "Critical", bc: "crit",
       badges: [], tys: ["Circular Funds Flow", "High-Value Activity", "Jurisdiction Deviation", "High-Risk Industry", "PEP Network Exposure", "Settlement/Trade Mismatch"] },
@@ -197,11 +197,11 @@
       title: "Crans Resources · resolved network",
       nodes: { mah: ["Tariq Copperquill", "person · PEP match 93", 112, 62], aur: ["Aurelian Holdings", "controller · GB", 352, 62],
                cr: ["Crans Resources", "focal · PK · gold mining", 130, 220], wg: ["Wiggo Jewel", "counterparty · CY · jeweller", 510, 220],
-               vs: ["Rimewind Carrier", "vessel · container · DK", 130, 352], dw: ["Driftwood Sentinel", "vessel · bulk carrier · GB", 400, 352] },
-      edges: [ { id: "m", a: "mah", b: "cr", l: "OWNS 15% · director", at: 0.35 },
+               vs: ["Rimewind Carrier", "vessel · container · DK", 130, 352] },
+      edges: [ { id: "m", a: "mah", b: "cr", l: "director · PEP", at: 0.35 },
                { id: "o1", a: "aur", b: "cr", l: "OWNS 60% · control", at: 0.65 }, { id: "o2", a: "aur", b: "wg", l: "OWNS 55% · control" },
                { id: "t1", a: "wg", b: "cr", l: "USD 485,000", bend: 46 }, { id: "t2", a: "cr", b: "wg", l: "USD 335,000", bend: 46 },
-               { id: "v1", a: "cr", b: "vs", l: "OWNS_VESSEL · SHIPPED_ON ×4" }, { id: "v2", a: "cr", b: "dw", l: "SHIPPED_ON · 1", at: 0.74 } ]
+               { id: "v1", a: "cr", b: "vs", l: "OWNS_VESSEL · SHIPPED_ON ×7" } ]
     },
     silverline: {
       title: "Silverline Petrochemicals · resolved network",

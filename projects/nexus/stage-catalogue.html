@@ -98,8 +98,9 @@ table.mx .neg{color:#c9b6a0}
     <a href="platform-roadmap.html" style="color:var(--blue)">roadmap</a> and the
     <a href="mission-status.html" style="color:var(--blue)">status</a> — the proof it's real.
     Latest wave: <a href="release-notes.html#release-v2-2" style="color:#fdba74">Beta v2.2 — the maritime case →</a>
+    Since 19 October: <a href="#test-phase" style="color:#fdba74">the test phase →</a>
   </p>
-  <div class="updated">Updated <b>21 October 2026</b> · Beta v2.2 · CI-gated, 0 failures</div>
+  <div class="updated">Updated <b>1 November 2026</b> · Beta v2.2 · 11,107 tests collected, 9,986 passed, 0 failed · CI-gated</div>
 
   <section class="section">
     <h2>How each build shipped</h2>
@@ -121,11 +122,11 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">4</div><div class="bt">Money-flow vertical<small>The first vertical <i>through</i> the substrate: a cash-movement graph + a sanctions-escalating alert.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">5</div><div class="bt">Risk-scoring engine<small>Per-entity aggregation + deviation vs the KYC expected-profile → the ranked alert table. Behavioural/temporal axis deferred.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">6</div><div class="bt">Investigation &amp; operations<small>The governed case-lifecycle state machine + task queue + audit — the case-management workflow — and, above it, the operations layer: a tamper-evident case event log, the SAR lifecycle, SLA orchestration and QA oversight.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">7</div><div class="bt">AI Copilot · SAR, EDD, disposition<small>Three slices on grounded context: a provenance-linked SAR draft (with an LLM-refinement hook), the EDD memo, and disposition support; public surfaces being rebuilt for the Demo Library.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">7</div><div class="bt">AI Copilot · SAR, EDD, disposition<small>Three slices on grounded context: a provenance-linked SAR draft (with an LLM-refinement hook), the EDD memo, and disposition support; all three surfaces live in the Demo Library.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Fused Investigator Console<small>The single UI over every layer — the entity-scoped graph, the typology walk, the case surface, on an obsidian-glass design.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Capital Markets — pillar + connector<small>The 5 CM pillar tables activated with typology data, and the <code>CM003</code> spoofing detector run over canonical data → a live console chip. First cross-toolkit detection, end to end.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">★</div><div class="bt">Governed batch at bank scale<small>The whole chain as one deterministic batch over a synthetic estate of 9,889 entities — daily feeds, ingestion, detection, manufacture, fusion and simulated operations decisions. 7 of 7 phases; a replay reproduces the run's fingerprints.</small></div><span class="pill built">Built</span></div>
-      <div class="step next"><div class="n">◆</div><div class="bt">Investigator Workspace<small>One alert = one three-panel object (pattern · tunable score · governed decision), replicable per typology. Design signed off; build next.</small></div><span class="pill next">Next</span></div>
+      <div class="step next"><div class="n">◆</div><div class="bt">Investigator Workspace<small>One alert = one three-panel object (pattern · tunable score · governed decision), replicable per typology. Design signed off; build after the test phase.</small></div><span class="pill next">Next</span></div>
       <div class="step armed"><div class="n">◆</div><div class="bt">Family integration &amp; specialist queues<small>Family-tag every typology + specialist queues with a cross-typology Connector Desk. Track A merged.</small></div><span class="pill armed">Armed</span></div>
       <div class="step armed"><div class="n">◆</div><div class="bt">Analytic MI &amp; calibration<small>The MI layer is built — firing, escalation and false-positive rates per component. The TM Tuning Studio now stress-tests the rules against planted truth; fitting weights to real outcomes still needs a labelled history.</small></div><span class="pill armed">In build</span></div>
       <div class="step later"><div class="n">…</div><div class="bt">Behavioural/temporal scoring<small>Volume/value/velocity spikes vs a trailing window — the self-history baseline. Deferred; own sprint.</small></div><span class="pill later">Deferred</span></div>
@@ -173,12 +174,12 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">11 Oct</div><div class="bt">The batch runner<small>Feeds to fusion as phased, resumable work on a batch ledger: 7 of 7 phases, 1,500 products and 150 master cases, and a replay whose fingerprints equal the run's.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">12 Oct</div><div class="bt">Simulated decisions<small>Governed simulated analysts, an officer and a reviewer drive the SAR lifecycle and QA oversight at volume: 85 decisions, 85 SARs referred, 20 approved and submitted.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">12 Oct</div><div class="bt">The sanctions lane<small>Designated hits route to a lane that is visible but not worked — a tag, so no priority rank moves — and analysts now reach the analytics-flagged work. The live console shows the lane on queue rows.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">13 Oct</div><div class="bt">Weekly drift check<small>Built but not yet scheduled. A Sunday 06:00 job re-runs the batch, re-runs it again, then replays it at one worker, compares with the last good run and attributes any change to the inputs that moved. The first manual run set the baseline; the scheduler is not loaded yet, by owner choice. Switched on 17 October.</small></div><span class="pill built">Live</span></div>
+      <div class="step"><div class="n">13 Oct</div><div class="bt">Weekly drift check<small>A Sunday 06:00 job re-runs the batch, re-runs it again, then replays it at one worker, compares with the last good run and attributes any change to the inputs that moved. The first manual run set the baseline; the schedule was switched on 17 October.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">13 Oct</div><div class="bt">The living-ready platform<small>Ingestion now recognises an unchanged full snapshot as a no-change day, and the batch runner gains a living mode: successive days, operations once per day, a day-scoped report. Five interleaved days ran 7 of 7 phases with equal fingerprints.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">15 Oct</div><div class="bt">The living estate<small>A new estate advances one business day every weekday at 05:30: feeds, ingestion, batch, a daily metrics row and a trend page. Catch-up is capped at 5 days, outputs are retained for a rolling 5 business days, and a day is never ingested before the previous day's batch completes. The first real day (16 October) ran OK in 4 min 38 s.</small></div><span class="pill built">Live</span></div>
+      <div class="step"><div class="n">15 Oct</div><div class="bt">The living estate<small>A new estate advances one business day every weekday at 05:30: feeds, ingestion, batch, a daily metrics row and a trend page. Catch-up is capped at 5 days, outputs are retained for a rolling 5 business days, and a day is never ingested before the previous day's batch completes. The first real day (16 October) ran OK in 4 min 38 s; at the halfway check of its 20-day soak, all 11 runs were OK, median 4 min 42 s.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">15 Oct</div><div class="bt">Typology proposals<small>An unknown pattern from the regulatory scan becomes a governed typology proposal: spot, decide, propose, define, build, live. Built end to end; waiting for its first proposal.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">17 Oct</div><div class="bt">The known-typology loop<small>A known pattern from the scan corroborates the typology it matches, queues the cases built on that typology for re-review (a supervisor closes them), and can propose a red flag that, once approved, is absorbed into the typology's doctrine under Risk Drivers. Live: 9 corroborations across 7 typologies; 9 re-reviews raised, 4 closed unchanged, 5 open. No red flag has been approved yet.</small></div><span class="pill built">Built</span></div>
-      <div class="step next"><div class="n">Next</div><div class="bt">What is next<small>The living estate's three-day trial halts on Tuesday 20 October with a system-test report, and the first typology proposal is awaited.</small></div><span class="pill next">Next</span></div>
+      <div class="step"><div class="n">17 Oct</div><div class="bt">The known-typology loop<small>A known pattern from the scan corroborates the typology it matches, queues the cases built on that typology for re-review (a supervisor closes them), and can propose a red flag that, once approved, is absorbed into the typology's doctrine under Risk Drivers. Live: the 23 October run corroborated six typologies (BA008, CMI010, SAN004, SAN005, SAN006, SAN009). No red flag has been approved yet.</small></div><span class="pill built">Built</span></div>
+      <div class="step next"><div class="n">Next</div><div class="bt">What is next<small>From 19 October new features are frozen for the <a href="#test-phase" style="color:var(--blue)">test phase</a>. The first typology proposal is still awaited.</small></div><span class="pill next">Next</span></div>
     </div>
   </section>
 
@@ -192,6 +193,20 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">18 Oct</div><div class="bt">TBML walk &amp; guided tour<small>A planted price-cap voyage, a pattern walk traced to real records, and a seven-step tour over the existing console views.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">19 Oct</div><div class="bt">The maritime case, live<small>Rebuilt and republished, with a guard that every derived page matches its data; the Demo Library's Shipping demo button opens the tour.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">19 Oct</div><div class="bt">Consistent background voyages<small>Maritime checks fire only on planted cases (hull fit 32 → 6, route 43 → 4) with no score moved.</small></div><span class="pill built">Built</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="test-phase">
+    <h2>The test phase — from 19 October</h2>
+    <p class="sub">New features frozen for about twelve weeks while the platform is tested in six phases. Only defect fixes and test work land, each on its own branch, checked against a pinned CI baseline. Status by phase: <a href="testing.html" style="color:var(--gold,#e9c877)">the test phase →</a></p>
+    <div class="ladder dated">
+      <div class="step"><div class="n">19 Oct</div><div class="bt">Strategy and inventory<small>A risk inventory and a six-phase master test strategy, a regression pin on the 9,889-entity estate, and a defect register triaged and signed off.</small></div><span class="pill built">Done</span></div>
+      <div class="step"><div class="n">21 Oct</div><div class="bt">An oracle from the doctrine<small>A realistic test estate, with 15 expected-outcome sheets written from the typology doctrine rather than the code and signed off typology by typology. Pass rule: recall of at least 0.95 on each typology's own hold-out.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">28 Oct</div><div class="bt">Every typology engine package-tested<small>All 57 typology engines tested as packages, with 96.7% of planted code mutations caught.</small></div><span class="pill built">Done</span></div>
+      <div class="step"><div class="n">29 Oct</div><div class="bt">Obviously fictional demo names, signed off<small>Every person, company and vessel renamed across the platform and five toolkits, the analytics re-run, and a sign-off system test of the published demo with its fixes live.</small></div><span class="pill built">Live</span></div>
+      <div class="step"><div class="n">30 Oct</div><div class="bt">Paying a sanctioned party escalates the payer<small>Found by the alert disposition benchmark; three demo entities move to Critical.</small></div><span class="pill built">Live</span></div>
+      <div class="step"><div class="n">31 Oct</div><div class="bt">Thirty-one published-surface fixes<small>From an audit of 47 published surfaces: one voyage story per shipping entity, operations figures that add up, corridor-named disposition reasons. No alert score, band or rank moved.</small></div><span class="pill built">Live</span></div>
+      <div class="step next"><div class="n">Next</div><div class="bt">Measured, not just tested<small>The first measurement round on the realistic estate, giving each typology a recall figure and the entity resolver an F1 score; a third fix package of thirteen product-page fixes is in review.</small></div><span class="pill next">Next</span></div>
     </div>
   </section>
 
@@ -222,7 +237,7 @@ table.mx .neg{color:#c9b6a0}
   </section>
 
   <div class="foot">
-    NEXUS · Stage Catalogue · delivery record + rollout gate · updated 2026-10-17 —
+    NEXUS · Stage Catalogue · delivery record + rollout gate · updated 2026-11-01 —
     <a href="release-notes.html">release notes →</a> · <a href="platform-roadmap.html">roadmap →</a> · <a href="mission-status.html">status →</a>
   </div>
 
