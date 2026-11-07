@@ -101,20 +101,20 @@ td.ok{color:var(--green);font-weight:700}
     outcomes for the realistic test estate are written from the <b>typology doctrine, never from the code</b>.
     For what the platform does, see <a href="mission-status.html" style="color:var(--blue)">mission status</a>.
   </p>
-  <div class="updated">Status report <b>31 October 2026</b> · day 13 of about 84 · updated 1 November</div>
+  <div class="updated">Updated <b>7 November 2026</b> · day 20 of about 84 · phase estimates from the 31 October status report</div>
 
   <section class="section">
     <div class="kpis">
-      <div class="kpi"><b class="bl">~40%</b><span>complete overall, estimated across the six phases</span></div>
-      <div class="kpi"><b>15%</b><span>of the calendar used (day 13 of about 84)</span></div>
-      <div class="kpi"><b class="g">73 / 129</b><span>defects closed on the released platform; 13 more fixed and in review</span></div>
-      <div class="kpi"><b class="g">11,107</b><span>tests collected, up from 6,377 when the phase began; 9,986 pass, 0 fail</span></div>
+      <div class="kpi"><b class="bl">~40%</b><span>complete overall, estimated across the six phases on 31 October</span></div>
+      <div class="kpi"><b>24%</b><span>of the calendar used (day 20 of about 84)</span></div>
+      <div class="kpi"><b class="g">100 / 261</b><span>defects closed. Nightly testing registered 132 new ones in a week, faster than they close: 161 open</span></div>
+      <div class="kpi"><b class="g">13,435</b><span>tests collected, up from 6,377 when the phase began; 10,703 pass, 0 fail</span></div>
     </div>
   </section>
 
   <section class="section">
     <h2>Progress by phase</h2>
-    <p class="sub">Each figure is an estimate against that phase's exit criterion in the master test strategy.</p>
+    <p class="sub">Each figure is an estimate against that phase's exit criterion in the master test strategy, as of the 31 October status report. The table below records what has been done since.</p>
     <div class="phases">
       <div class="ph done"><div class="nm">0 · Strategy and inventory<small>planned week 1</small></div><div class="pct">100%</div><div class="bar"><i style="width:100%"></i></div></div>
       <div class="ph due"><div class="nm">1 · Analytics validation<small>from week 2</small></div><div class="pct">50%</div><div class="bar"><i style="width:50%"></i></div></div>
@@ -136,20 +136,22 @@ td.ok{color:var(--green);font-weight:700}
       <tr><th>Phase</th><th>Exit criterion</th><th>Done</th><th>Still needed</th></tr>
       <tr><td>0 · Strategy</td><td>A signed-off strategy and defect register</td><td>Risk inventory and strategy. A regression pin on a 9,889-entity estate. Register triaged and signed off.</td><td class="ok">Met</td></tr>
       <tr><td>1 · Analytics</td><td>Recall and precision curves per typology, an entity-resolution F1 score, evidenced thresholds</td><td>A realistic test estate with 15 doctrine-based expected-outcome sheets signed off. Pass rule: recall of at least 0.95 on each typology's own hold-out. All 57 typology engines package-tested, with 96.7% of planted code mutations caught.</td><td>Run the first measurement round. Measure entity-resolution F1. Derive thresholds from the curves. Calibrate the macro score weights.</td></tr>
-      <tr><td>2 · GUI</td><td>The suite runs and every priority journey passes</td><td>Browser-journey tests run locally and nightly. Static accessibility checks.</td><td>The triage, workspace, evidence, decision, SAR and QA journeys. Accessibility audit. Visual regression. A 10,000-row queue.</td></tr>
-      <tr><td>3 · Daily runs</td><td>At least 95% of runs unattended, every fault recovered, the queue balances</td><td>The living estate runs every weekday at 05:30. Fault-drill tests exist.</td><td>A second living estate with planted faults. A written 20-day soak report. Drift Sundays, a runbook and a capacity model.</td></tr>
-      <tr><td>4 · Reporting</td><td>Every published number traced and reconciled</td><td>47 published surfaces audited, 59 defect classes registered. Three fix packages landed and live. Reconciliation tests on the operations figures.</td><td>Land the third fix package. A definitions catalogue. Walkthroughs as analyst, supervisor, MLRO and regulator.</td></tr>
-      <tr><td>5 · Sign-off</td><td>A go / no-go for a production-like pilot</td><td>A 10× scale probe reached 5×, and showed where the build scales badly.</td><td>10× and 100× estates. A restore drill. A security review of the publish boundary. A test summary report.</td></tr>
+      <tr><td>2 · GUI</td><td>The suite runs and every priority journey passes</td><td>Browser-journey tests run locally and nightly, including the operations pages. Visual regression baselines. Persona walks. A console error sweep (a second is in review). The console measured at 10,000 queue rows.</td><td>The remaining priority journeys. The accessibility audit and its keyboard findings.</td></tr>
+      <tr><td>3 · Daily runs</td><td>At least 95% of runs unattended, every fault recovered, the queue balances</td><td>The living estate runs every weekday at 05:30: 16 of 16 scheduled runs OK since 16 October. Fault-drill tests exist.</td><td>Finish the 20-day soak and write its report. A second living estate with planted faults. Four clean drift Sundays, a runbook and a capacity model.</td></tr>
+      <tr><td>4 · Reporting</td><td>Every published number traced and reconciled</td><td>47 published surfaces audited, 59 defect classes registered. Three fix packages landed and live. Reconciliation tests on the operations figures.</td><td>A definitions catalogue. Walkthroughs as analyst, supervisor, MLRO and regulator.</td></tr>
+      <tr><td>5 · Sign-off</td><td>A go / no-go for a production-like pilot</td><td>A restore drill. A review of the publish boundary. A first draft of the test summary report. The alert table built at 10× (night 26, in review), showing where it scales badly.</td><td>A 100× estate. Finish the test summary report. A go / no-go.</td></tr>
     </table></div>
   </section>
 
   <section class="section">
-    <h2>Since the 31 October report</h2>
+    <h2>Since 1 November</h2>
     <div class="chain">
-      <div class="row"><div class="rt">Knowledge Centre record landed<small>The republish that carries seven re-rendered doctrine pages is now on the released platform (1 November).</small></div><span class="pill built">Landed</span></div>
-      <div class="row"><div class="rt">Third fix package in review<small>Thirteen fixes to product pages, merged with the released platform and rebuilt: 34 products re-manufactured, no score, band, classification or rank moved. In CI now.</small></div><span class="pill next">In review</span></div>
-      <div class="row"><div class="rt">First browser journeys<small>Thirty new browser tests, each journey seen to fail before it was trusted, plus an accessibility baseline. Their findings are being triaged.</small></div><span class="pill next">In review</span></div>
-      <div class="row"><div class="rt">Living estate soak<small>11 of 20 weekday runs complete at the halfway check, all 11 OK, median 4 min 42 s.</small></div><span class="pill next">Day 11 of 20</span></div>
+      <div class="row"><div class="rt">Third fix package live<small>Thirteen product-page fixes landed on 1 November and the five investigation cases were republished from them on 2 November. No score, band or rank moved.</small></div><span class="pill built">Live</span></div>
+      <div class="row"><div class="rt">Nightly stability run green again<small>It had failed for a week because the test runner ran out of disk, not because a test was wrong. Two fixes landed on 3 November, and the 4 November run passed.</small></div><span class="pill built">Landed</span></div>
+      <div class="row"><div class="rt">Eight test nights landed<small>Nights 18 to 25, landed on 4, 5 and 6 November: browser journeys on the operations pages, visual regression, persona walks, a restore drill, a publish-boundary review, mutation testing of the graph and operations code, and a draft test summary report. The suite grew from 11,107 to 13,435 tests.</small></div><span class="pill built">Landed</span></div>
+      <div class="row"><div class="rt">Findings triaged and registered<small>Two triage rounds registered 74 defects (D188 to D261), 6 and 7 November. 27 defects closed in the week. Each ruling is recorded.</small></div><span class="pill built">Landed</span></div>
+      <div class="row"><div class="rt">Night 26 in review<small>A screening-threshold sweep, a replay of the SAR register, the alert table at 1×, 2×, 5× and 10×, a second console error sweep, a secrets review and a second mutation round. 885 tests, 47 findings still to triage.</small></div><span class="pill next">In review</span></div>
+      <div class="row"><div class="rt">Living estate soak<small>16 of 20 weekday runs complete, all OK. The soak ends on 12 November, and its report follows.</small></div><span class="pill next">Day 16 of 20</span></div>
     </div>
   </section>
 
@@ -164,7 +166,7 @@ td.ok{color:var(--green);font-weight:700}
   </section>
 
   <div class="foot">
-    NEXUS · Test Phase · status as of 2026-10-31, updated 2026-11-01 · synthetic data throughout —
+    NEXUS · Test Phase · phase estimates as of 2026-10-31, updated 2026-11-07 · synthetic data throughout —
     <a href="mission-status.html">mission status →</a>
   </div>
 

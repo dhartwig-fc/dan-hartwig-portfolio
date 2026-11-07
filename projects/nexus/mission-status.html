@@ -91,7 +91,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
     A living snapshot of the platform — what's built, what's in flight, and what's next.
     For the destination and the phase arc, see the <a href="platform-roadmap.html" style="color:var(--blue)">roadmap</a>.
   </p>
-  <div class="updated">Updated <b>1 November 2026</b> · Beta v2.2 · test phase since 19 October</div>
+  <div class="updated">Updated <b>7 November 2026</b> · Beta v2.2 · test phase since 19 October</div>
 
   <section class="section">
     <div class="banner">
@@ -100,7 +100,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
       <p>
         The substrate, detection and scoring across every crime family, and the <b>fused investigator console</b>
         are built and merged — <b>governed, deterministic, and tested end to end</b>. Since Beta v2.0 the copilot
-        has grown to three slices (SAR draft, EDD memo, disposition support), whose public surfaces are <b>being updated</b>; <b>five fused
+        has become <b>one case flow</b> in the investigator workspace (recommendation, EDD memo, the regime's report draft and the nominated officer's decision), live with a guided tour for each of three showcase cases; <b>five fused
         investigation cases</b> are public, doctrine is authored for <b>all 57 typologies</b>, capital markets
         manufactures its first product, and every published run can be rebuilt from a clean clone — see the
         <a href="stage-catalogue.html#since-v2" style="color:var(--gold,#e9c877)">v2.1 stage catalogue</a>.
@@ -122,12 +122,12 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
       </p>
       <div class="bmeta">
         <span class="bchip">Console · Beta v2.2</span>
-        <span class="bchip">Copilot · surfaces being updated</span>
+        <span class="bchip">Copilot · case flow live · 3 tours</span>
         <span class="bchip blue">5 investigations public</span>
         <span class="bchip">Operations layer · 4 of 4 built</span>
         <span class="bchip">Governed batch · 7 of 7 phases</span>
-        <span class="bchip blue">11,107 tests collected · 9,986 passed · 0 failed · CI-gated</span>
-        <a class="bchip blue" href="testing.html">Test phase · ~40% · day 13 of ~84</a>
+        <span class="bchip blue">13,435 tests collected · 10,703 passed · 0 failed · CI-gated</span>
+        <a class="bchip blue" href="testing.html">Test phase · day 20 of ~84</a>
       </div>
     </div>
   </section>
@@ -154,7 +154,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
       <div class="row"><div class="rt">Risk scoring<small>Per-typology weighted components + KYC deviation → ranked alert table &middot; behavioural/temporal deferred</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Investigation &amp; operations<small>Case-lifecycle state machine + task queue + audit &middot; each task linked to its case files</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Operations management<small>Supervisor MI &amp; KPIs over a tamper-evident case event log &middot; SAR lifecycle with deadlines &middot; SLA breaches routed to the supervisor and work allocated by priority and capacity &middot; QA oversight of decisions after they are made &middot; a sanctions lane, visible but not worked</small></div><span class="pill built">Built</span></div>
-      <div class="row"><div class="rt">AI copilot<small>Three slices on grounded context: SAR draft, EDD memo and disposition support, each provenance-linked &middot; the public surfaces are being updated</small></div><span class="pill next">Being updated</span></div>
+      <div class="row"><div class="rt">AI copilot<small>One case flow inside the investigator workspace for Crans, Silverline and Deltaforge: recommendation, EDD memo, the report draft its regime requires (SAR, OFSI report or STOR) and the nominated officer&rsquo;s decision, every sentence with numbered sources &middot; live since 4 November with a five-step tour per case &middot; template-worded; AI wording awaits approval</small></div><span class="pill built">Live</span></div>
       <div class="row"><div class="rt">Fused investigator console<small>Investigate + manage on one screen, over the whole substrate</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Published investigations<small>Five fused cases public and linked to one another; every published run reproducible from a clean clone</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Governed batch at bank scale<small>9,889 synthetic entities &middot; feeds → ingestion → detection → manufacture → fusion → simulated decisions &middot; 1,500 products and 150 master cases &middot; 7 of 7 phases, replay fingerprints equal</small></div><span class="pill built">Built</span></div>
@@ -164,15 +164,15 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
   <section class="section">
     <h2>In flight &amp; next</h2>
     <div class="chain">
-      <div class="row"><div class="rt">Test phase<small>Six phases over about twelve weeks, features frozen from 19 October &middot; 73 of 129 registered defects closed, 13 more in review &middot; all 57 typology engines package-tested &middot; next: the first measured recall round on the realistic estate &mdash; <a href="testing.html" style="color:var(--blue)">status by phase</a></small></div><span class="pill next">In progress</span></div>
+      <div class="row"><div class="rt">Test phase<small>Six phases over about twelve weeks, features frozen from 19 October &middot; 13,435 tests, 0 failing &middot; eight overnight test nights landed in the first week of November &middot; 100 of 261 registered defects closed, 161 open &middot; all 57 typology engines package-tested &middot; next: the first measured recall round on the realistic estate &mdash; <a href="testing.html" style="color:var(--blue)">status by phase</a></small></div><span class="pill next">In progress</span></div>
       <div class="row"><div class="rt">Operational surface — Investigator Workspace<small>One alert = one three-panel object (pattern · tunable score · governed decision), replicable per typology &middot; after the test phase</small></div><span class="pill next">Next</span></div>
-      <div class="row"><div class="rt">Weekly drift check<small>A Sunday re-run of the batch, replayed at one worker and compared with the last good run, with any change attributed to the inputs that moved &mdash; switched on; ran 17 and 18 October</small></div><span class="pill built">Live</span></div>
-      <div class="row"><div class="rt">Living estate<small>A synthetic estate that advances one business day every weekday at 05:30: feeds, ingestion, batch, a daily metrics row and a trend page &mdash; runs every weekday at 05:30, live since 16 October &middot; 20-day soak at day 11, all 11 runs OK, median 4 min 42 s</small></div><span class="pill built">Live</span></div>
+      <div class="row"><div class="rt">Weekly drift check<small>A Sunday re-run of the batch, replayed at one worker and compared with the last good run, with any change attributed to the inputs that moved &mdash; runs every Sunday; 18 and 25 October and 1 November all held, with every change traced to an input that moved</small></div><span class="pill built">Live</span></div>
+      <div class="row"><div class="rt">Living estate<small>A synthetic estate that advances one business day every weekday at 05:30: feeds, ingestion, batch, a daily metrics row and a trend page &mdash; runs every weekday at 05:30, live since 16 October &middot; 20-day soak at day 16, all 16 scheduled runs OK</small></div><span class="pill built">Live</span></div>
       <div class="row"><div class="rt">Typology proposals<small>An unknown pattern from the regulatory scan becomes a governed typology proposal: spot, decide, propose, define, build, live &mdash; built end to end, waiting for its first proposal</small></div><span class="pill built">Built</span></div>
       <div class="row"><div class="rt">Known-typology loop<small>A known pattern from the scan corroborates the typology it matches, queues the cases built on it for re-review and can propose a red flag for the doctrine &mdash; the 23 October run corroborated six typologies (BA008, CMI010, SAN004, SAN005, SAN006, SAN009), now shown on the Knowledge Centre; no red flag approved yet</small></div><span class="pill built">Live</span></div>
       <div class="row"><div class="rt">TM Tuning Studio<small>Stress-testing the monitoring rules against planted truth &mdash; a fresh build is in progress</small></div><span class="pill next">In build</span></div>
-      <div class="row"><div class="rt">Threat intelligence<small>Slice 1 built and published — agentic advisory extraction grounded on the Knowledge Centre, scored against a 20-advisory labelled set. Slice 2 live on a weekly schedule: the Friday run now reads ten sources (OFSI, FinCEN, OFAC, OTSI, FCA, NCA, EU Council, EBA, AMLA and the Wolfsberg Group; FATF by hand), triages what is new and extracts the relevant advisories; nothing enters the record until a person accepts it. The 30 October run produced the first approved emergent pattern, DPRK IT-worker facilitation, and the <a href="threat-intel/scan.html" style="color:var(--blue)">scan page</a> shows the three paths a decision can take</small></div><span class="pill built">Live</span></div>
-      <div class="row"><div class="rt">Still open<small>The living estate&rsquo;s 20-day soak (day 11) &middot; the first typology proposal &middot; the rebuilds of the tuning studio and copilot surfaces &middot; the first measured recall round</small></div><span class="pill next">Next</span></div>
+      <div class="row"><div class="rt">Threat intelligence<small>Slice 1 built and published — agentic advisory extraction grounded on the Knowledge Centre, scored against a 20-advisory labelled set. Slice 2 live on a weekly schedule: the Friday run now reads twelve sources (OFSI, FinCEN, OFAC, OTSI, FCA, NCA, EU Council, EBA, AMLA, the Wolfsberg Group, the FBI&rsquo;s IC3 announcements and FBI national press releases; FATF by hand), triages what is new and extracts the relevant advisories; nothing enters the record until a person accepts it. The 30 October run produced the first approved emergent pattern, DPRK IT-worker facilitation, and the <a href="threat-intel/scan.html" style="color:var(--blue)">scan page</a> shows the three paths a decision can take</small></div><span class="pill built">Live</span></div>
+      <div class="row"><div class="rt">Still open<small>The living estate&rsquo;s 20-day soak (day 16, ends 12 November) &middot; the first typology proposal &middot; the tuning studio rebuild &middot; AI wording for the copilot &middot; the first measured recall round &middot; 161 open defects</small></div><span class="pill next">Next</span></div>
     </div>
   </section>
 
@@ -187,7 +187,7 @@ h1{font-size:clamp(44px,6.4vw,78px);line-height:.94;letter-spacing:-.06em;margin
   </section>
 
   <div class="foot">
-    NEXUS · Mission Status · living snapshot · updated 2026-11-01 —
+    NEXUS · Mission Status · living snapshot · updated 2026-11-07 —
     <a href="platform-roadmap.html">see the roadmap →</a>
   </div>
 
