@@ -2,7 +2,7 @@
  "also_caught": [],
  "archive": {
   "latest": {
-   "day": "2026-11-05",
+   "day": "2026-11-06",
    "state": "shipped"
   },
   "not_safe": 1
@@ -10,9 +10,6 @@
  "case_of_day": null,
  "dashboard": {
   "backlog": [
-   {
-    "day": null
-   },
    {
     "day": null
    },
@@ -101,13 +98,14 @@
     "day": "2026-11-05",
     "new_breaches": 12,
     "unassigned": 2254
+   },
+   {
+    "day": "2026-11-06",
+    "new_breaches": 69,
+    "unassigned": 2254
    }
   ],
   "flow": [
-   {
-    "day": null,
-    "state": "empty"
-   },
    {
     "day": null,
     "state": "empty"
@@ -279,15 +277,25 @@
     "day": "2026-11-05",
     "sars": 4,
     "state": "ok"
+   },
+   {
+    "by_band": {
+     "Critical": 5,
+     "High": 0,
+     "Medium": 0
+    },
+    "day": "2026-11-06",
+    "sars": 5,
+    "state": "ok"
    }
   ],
   "kpis": {
-   "new_breaches": 12,
-   "new_cases": 7,
+   "new_breaches": 69,
+   "new_cases": 5,
    "new_cases_opening": false,
-   "sars_to_date": 72,
+   "sars_to_date": 77,
    "unassigned": 2254,
-   "unassigned_change": 2
+   "unassigned_change": 0
   },
   "notes": {
    "bands": "Case severity and alert severity are separate scales.",
@@ -471,34 +479,25 @@
      "stage": "Drafted"
     },
     {
-     "count": 61,
+     "count": 65,
      "stage": "Officer review"
     },
     {
-     "count": 0,
+     "count": 1,
      "stage": "Approved"
     },
     {
-     "count": 1,
+     "count": 0,
      "stage": "Submitted"
     },
     {
-     "count": 10,
+     "count": 11,
      "stage": "Acknowledged"
     }
    ]
   }
  },
  "days": [
-  {
-   "alerts": null,
-   "day": "2026-10-09",
-   "decided": null,
-   "opening_load": false,
-   "reason": null,
-   "recovered_on": null,
-   "status": "grey"
-  },
   {
    "alerts": null,
    "day": "2026-10-12",
@@ -669,10 +668,29 @@
    "reason": null,
    "recovered_on": null,
    "status": "ok"
+  },
+  {
+   "alerts": 1500,
+   "day": "2026-11-06",
+   "decided": 5,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "ok"
   }
  ],
  "engineering": {
   "history": [
+   {
+    "days": [
+     "2026-11-06"
+    ],
+    "outcome": "OK",
+    "reason": "",
+    "run": "2026-11-09T05-30-07",
+    "seconds": 326.9,
+    "slowest_step": "batch"
+   },
    {
     "days": [
      "2026-11-05"
@@ -901,15 +919,15 @@
   ],
   "queue": {
    "backlog_trend": [
-    2325,
     2334,
     2339,
     2347,
-    2354
+    2354,
+    2359
    ],
-   "breaches_today": 12,
-   "open": 2354,
-   "qa_open": 19,
+   "breaches_today": 69,
+   "open": 2359,
+   "qa_open": 21,
    "sanctions_open": 242,
    "unassigned": 2254
   },
@@ -928,9 +946,9 @@
     "of": 8
    },
    "runs": {
-    "avg_seconds": 293.0,
-    "clean": 18,
-    "of": 19
+    "avg_seconds": 295.0,
+    "clean": 19,
+    "of": 20
    }
   }
  },
@@ -1172,48 +1190,48 @@
  "no_scheme_text": "No planted scheme surfaced today",
  "provenance": {
   "authority": "LOCKED",
-  "fc10_commit": "006ab509cc9205d2861d138f76fd296efccb7c57",
-  "run_id": "2026-11-06T05-30-05",
+  "fc10_commit": "08aa003eff3bec402f30c10842c3f0a064a87ad6",
+  "run_id": "2026-11-09T05-30-07",
   "titles_from": "fc-08"
  },
- "published_at": "2026-11-06T05:37:56+00:00",
+ "published_at": "2026-11-09T05:38:07+00:00",
  "pulse_note": null,
  "risk": {
-  "critical": 7,
-  "days_known": 16,
+  "critical": 5,
+  "days_known": 17,
   "level": "Elevated",
-  "reason": "Learning what's normal: day 16 of 20 · Critical cases 7 vs a usual 5.9",
-  "sars": 4,
-  "usual_critical": 5.928571428571429,
-  "usual_sars": 4.533333333333333
+  "reason": "Learning what's normal: day 17 of 20 · SAR referrals 5 vs a usual 4.5",
+  "sars": 5,
+  "usual_critical": 6,
+  "usual_sars": 4.5
  },
  "running": {
-  "as_of": "2026-11-06T05:35:33+00:00",
-  "avg_seconds": 293.0,
-  "clean": 16,
-  "of": 16
+  "as_of": "2026-11-09T05:35:36+00:00",
+  "avg_seconds": 295.0,
+  "clean": 17,
+  "of": 17
  },
  "schema": 2,
  "stable": {
-  "as_of": "2026-11-01T06:15:59+00:00",
+  "as_of": "2026-11-08T06:18:43+00:00",
   "reason": null,
   "verdict": "CHANGED"
  },
  "status": {
   "honesty": "A simulated bank, run every business morning at 05:30 the way a production monitoring system would be. It catches the laundering planted in it.",
-  "of": 16,
-  "on_time": 16,
-  "reporting_day": "2026-11-05",
-  "reporting_label": "Thursday's activity, processed Friday 05:30 UK time",
+  "of": 17,
+  "on_time": 17,
+  "reporting_day": "2026-11-06",
+  "reporting_label": "Friday's activity, processed Monday 05:30 UK time",
   "running": true
  },
  "synthetic": true,
  "today": {
-  "critical": 7,
-  "day": "2026-11-05",
+  "critical": 5,
+  "day": "2026-11-06",
   "intake_transactions": 400,
-  "new_cases": 7,
-  "run_seconds": 327.0,
-  "sars": 4
+  "new_cases": 5,
+  "run_seconds": 326.9,
+  "sars": 5
  }
 }
