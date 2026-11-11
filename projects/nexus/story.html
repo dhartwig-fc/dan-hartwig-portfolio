@@ -175,21 +175,21 @@
     <a class="btn primary" href="runtime-demo/console.html">&#9654;&nbsp; Now click through it yourself</a>
     <a class="btn" href="walkthrough.html">Read the walkthrough</a>
   </div>
-  <p class="fine">This page re-enacts the console; it does not run the platform. The entities, scores, component weights, macro contributions, ownership percentages, flows, vessels, screening hits and briefing lines are the values published in the live console (build <span style="font-family:var(--mono)">86e7006a</span>). In the console the Crans case is Assigned and Pending, so the review, approval and submission steps and their audit times are the workflow played forward, not recorded events. All data in NEXUS is synthetic demonstration data.</p>
+  <p class="fine">This page re-enacts the console; it does not run the platform. The entities, scores, component weights, macro contributions, ownership percentages, flows, vessels, screening hits and briefing lines are the values published in the live console (build <span style="font-family:var(--mono)">b85a3295</span>). In the console the Crans case is Assigned and Pending, so the review, approval and submission steps and their audit times are the workflow played forward, not recorded events. All data in NEXUS is synthetic demonstration data.</p>
 </div>
 
 <script>
 (function () {
   "use strict";
 
-  // ---- published console values (build 86e7006a) ----
+  // ---- published console values (build b85a3295) ----
   var QUEUE = [
     { id: "crans", name: "Crans Resources", meta: "Company · PK", score: "100", band: "Critical", bc: "crit",
       badges: [], tys: ["Circular Funds Flow", "High-Value Activity", "Jurisdiction Deviation", "High-Risk Industry", "PEP Network Exposure", "Settlement/Trade Mismatch"] },
     { id: "silverline", name: "Silverline Petrochemicals", meta: "Company · AE", score: "100", band: "Critical", bc: "crit",
-      badges: [["s", "⚠ sanctions"], ["l", "Sanctions lane"]], tys: ["Circular Funds Flow", "High-Risk Industry", "Freight Cost Inflation", "Insurance Cost Inflation", "Price Cap Hugging", "Cap Circumvention", "Identity Churn", "Shadow Fleet"] },
+      badges: [["s", "⚠ sanctions"], ["l", "Sanctions lane"]], tys: ["Circular Funds Flow", "High-Value Activity", "High-Risk Industry", "Freight Cost Inflation", "Insurance Cost Inflation", "Price Cap Hugging", "Cap Circumvention", "Identity Churn", "Shadow Fleet"] },
     { id: "deltaforge", name: "Deltaforge Metals Ltd", meta: "Company · TR", score: "56.0", band: "Medium", bc: "med",
-      badges: [["", "▲ CM003 · macro 37.5"]], tys: ["High-Value Activity", "Jurisdiction Deviation", "Spoofing/Layering"] }
+      badges: [["", "▲ CM003 · macro 37.5"]], tys: ["High-Value Activity", "Jurisdiction Deviation", "Spoofing"] }
   ];
 
   var GRAPHS = {
@@ -205,20 +205,19 @@
     },
     silverline: {
       title: "Silverline Petrochemicals · resolved network",
-      nodes: { zi: ["Piotr Kettlecrumb", "person · owner", 330, 62], sl: ["Silverline Petrochemicals", "focal · AE", 330, 205],
-               hit: ["SDL008", "sanctions designation", 110, 62], gm: ["Gammavane Imports Ltd", "shareholding", 545, 120],
+      nodes: { zi: ["Piotr Kettlecrumb", "person · owner", 330, 62], sl: ["Silverline Petrochemicals", "focal · AE · SDL008 match 91", 330, 205],
+               gm: ["Gammavane Imports Ltd", "shareholding", 545, 120],
                v1: ["Marlin Crescent", "vessel · tanker · RU", 130, 352], v2: ["Argent Mariner", "vessel · tanker · RU", 510, 352] },
-      edges: [ { id: "z", a: "zi", b: "sl", l: "OWNS 100% · control" }, { id: "h", a: "sl", b: "hit", l: "SCREENED · match 91", at: 0.75 },
+      edges: [ { id: "z", a: "zi", b: "sl", l: "OWNS 100% · control" },
                { id: "g", a: "sl", b: "gm", l: "OWNS 40%" },
                { id: "a", a: "sl", b: "v1", l: "OWNS_VESSEL" }, { id: "b", a: "sl", b: "v2", l: "OWNS_VESSEL" } ]
     },
     deltaforge: {
       title: "Deltaforge Metals Ltd · resolved network",
       nodes: { ak: ["Aslan Mosskettle", "person · shareholder", 112, 62], df: ["Deltaforge Metals Ltd", "focal · TR", 300, 205],
-               ng: ["Northgate Settlement Bank", "counterparty", 528, 92], vs: ["Tidewater Rambler", "vessel · bulk carrier · DK", 130, 352],
-               cp: ["Capewren Ranger", "vessel · container · MT", 510, 352] },
+               ng: ["Northgate Settlement Bank", "counterparty", 528, 92], vs: ["Tidewater Rambler", "vessel · bulk carrier · DK", 130, 352] },
       edges: [ { id: "k", a: "ak", b: "df", l: "OWNS 75%" }, { id: "t", a: "df", b: "ng", l: "155,000 · TR-AE corridor" },
-               { id: "v", a: "df", b: "vs", l: "OWNS_VESSEL" }, { id: "s", a: "df", b: "cp", l: "SHIPPED_ON" } ]
+               { id: "v", a: "df", b: "vs", l: "OWNS_VESSEL · SHIPPED_ON ×1" } ]
     }
   };
 
@@ -229,7 +228,7 @@
     silverline: { name: "Shadow Fleet · SAN002", src: "Five-component SAN002 exposure model · fc-05 governed engine", total: "90", band: "Critical",
       prov: "[screening_results] [ownership] [shipping_events] [vessel_identity_history]",
       comps: [["Ownership exposure", 90, .35], ["Maritime behaviour", 90, .25], ["Jurisdiction exposure", 90, .15], ["Trade exposure", 90, .15], ["Counterparty exposure", 90, .10]] },
-    deltaforge: { name: "Spoofing / Layering · CM003", src: "Four-component CM003 model · governed weights", total: "56", band: "Medium",
+    deltaforge: { name: "Spoofing · CM003", src: "Four-component CM003 model · governed weights", total: "56", band: "Medium",
       prov: "[orders] [executions] [market_data]",
       comps: [["Non-bona-fide order ratio", 90, .35], ["Cancellation speed", 15, .25], ["Opposite-side execution", 15, .20], ["Order-book imbalance", 90, .20]] }
   };
@@ -268,7 +267,7 @@
       x: "The queue says 100 and the model says 53. Triage answers “what do I open first?” and the verdict answers “how strong is this typology?”. They are kept apart deliberately." },
     { ms: 6000, t: "The stronger score wins", q: "deltaforge", g: "deltaforge", lit: ["t"], r: "promo",
       x: "Deltaforge's macro triage is only 37.5, but its CM003 spoofing verdict is 56. The queue promotes it to 56 and labels the badge with the signal that set the priority." },
-    { ms: 7000, t: "The sanctions lane", q: "silverline", g: "silverline", lit: ["h", "a", "b"], r: "sanctions",
+    { ms: 7000, t: "The sanctions lane", q: "silverline", g: "silverline", lit: ["a", "b"], r: "sanctions",
       x: "Silverline has an accepted sanctions match, SDL008 at 91, which forces the band to Critical. It is routed to the sanctions lane, a tag that is not a re-rank, and SAN002 shadow-fleet exposure scores 90. Its tanker Marlin Crescent, now on the Russian flag, loaded at Novorossiysk, went dark off Sohar and met Amberwhit Tide, an ex-Iranian tanker on a Comoros flag, in a ship-to-ship transfer; the cargo sailed on as a declared Malaysian blend." },
     { ms: 6000, t: "One alert, one case", q: "crans", g: "crans", lit: ["m", "o1", "o2", "t1", "t2"], r: "case:3",
       x: "Back to Crans. In the live console this case is Assigned with its disposition Pending. From here the story plays the workflow forward, on the same screen as the graph it was scored on." },
