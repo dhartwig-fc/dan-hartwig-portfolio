@@ -200,7 +200,7 @@ figcaption b{color:var(--text)}
     <p class="intro">Each week ends in an entry in the <b>Tuning Decision Log</b>: the evidence, the call, who made it, and when to revisit it. The first two kept <code>high_value</code> at £75,000 — holding is a decision too, and the log says why. The third splits it in two, the fourth runs a challenger beside it, the fifth asks which rules survive a year of drift, the sixth asks whether one ranked score beats the rules it is built from, the seventh puts the best challenger through validation with an independent reviewer trying to break it, and the eighth runs the whole programme on a new rule.</p>
     <div class="subh">D1 · week 3 · threshold · HOLD</div>
     <div class="figs">
-      <div class="fig"><div class="v">None</div><div class="l">cost ratios (missed case : false alert, from 1 to 100) for which £75k is the cheapest threshold</div></div>
+      <div class="fig"><div class="v">0</div><div class="l">cost ratios (missed case : false alert, from 1 to 100) for which £75k is the cheapest threshold</div></div>
       <div class="fig"><div class="v">0.316</div><div class="l">best F1 on the whole curve, at £187,500, catching under a third of planted cases</div></div>
     </div>
     <div class="callout gold">
@@ -237,7 +237,7 @@ figcaption b{color:var(--text)}
     </div>
     <div class="callout gold">
       <div class="ct">Why advance it — and why not adopt it</div>
-      <p>The challenger catches 63 planted customers the champion misses, and its negative control (the same labels with the behaviour removed) shows no lift, so its catches come from the behaviour. It is <b>advanced to validation, not adopted</b>, for three reasons on the record: planted truth favours it by construction, because the planted spike is relative to each customer's own scale; it alerts on 2.7× as many distinct customers; and 49 planted customers spike before they have enough history for a baseline, so it would need a fallback to run live. The champion stays at £75,000.</p>
+      <p>The challenger catches 63 planted customers the champion misses, and its negative control (the same labels with the behaviour removed) shows no lift, so its catches come from the behaviour. It is <b>advanced to validation, not adopted</b>, for three reasons on the record: planted truth favours it by construction, because the planted spike is relative to each customer's own scale; it alerts on 2.6× as many distinct customers on the hold-out; and 49 planted customers spike before they have enough history for a baseline, so it would need a fallback to run live. The champion stays at £75,000.</p>
     </div>
     <div class="subh">D5 · week 7 · stability &amp; drift · HOLD, watch each rule's own alert volume</div>
     <div class="figs">
@@ -252,10 +252,10 @@ figcaption b{color:var(--text)}
     </div>
     <div class="subh">D6 · week 8 · risk score &amp; calibration · HOLD, guard the cap</div>
     <div class="figs">
-      <div class="fig"><div class="v">166 vs 161</div><div class="l">planted customers caught by one ranked score blending the £75k rule and the customer-baseline rule, against the customer-baseline rule alone, at the same 2,419 reviews (171 vs 170 on the hold-out)</div></div>
+      <div class="fig"><div class="v">166 vs 161</div><div class="l">planted customers caught by one ranked score blending the £75k rule and the customer-baseline rule, against the customer-baseline rule alone, with the score worked to 2,419 reviews and the rule at its own 2,286, not the same workload (171 vs 170 on the hold-out)</div></div>
       <div class="fig"><div class="v">112</div><div class="l">caught once a score cap of 75 ties 3,375 cases against a budget of 2,419: the alphabetical tie-break, not the risk, decides who is reviewed</div></div>
       <div class="fig"><div class="v">46% → 35%</div><div class="l">planted rate in the top half-percent band where the score was built, and at the same score on a population it never saw</div></div>
-      <div class="fig"><div class="v">7 of 48</div><div class="l">entities in the live estate tied at the macro triage score's cap of 100, previewed through the real scorer. This read 6 until an independent reviewer found one scoring exactly 100; the 6 are those flattened from above it</div></div>
+      <div class="fig"><div class="v">8 of 49</div><div class="l">entities in the live estate tied at the macro triage score's cap of 100, previewed through the real scorer. This read 6 until an independent reviewer found one scoring exactly 100; the 7 are those flattened from above it</div></div>
     </div>
     <div class="callout gold">
       <div class="ct">Why the cap, not the score, is the finding</div>
