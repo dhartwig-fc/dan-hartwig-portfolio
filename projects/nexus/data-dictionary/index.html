@@ -56,7 +56,8 @@
   .tag.fk{color:var(--acc);background:rgba(121,196,255,.1);border:1px solid var(--accdim)}
   .tag.anchor{color:#9fd8bd;background:rgba(79,220,160,.1);border:1px solid rgba(79,220,160,.35)}
   .enumline{font-family:var(--mono);font-size:10px;color:var(--ink3);padding-left:0;margin-top:1px}
-  .conns{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
+  .tablewrap{overflow-x:auto;max-width:100%;margin-top:10px}
+  .conns{width:100%;border-collapse:collapse;font-size:12.5px}
   .conns th{text-align:left;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:600;padding:8px 12px;border-bottom:1px solid var(--line)}
   .conns td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--ink2)}
   .conns td.m{font-family:var(--mono);color:var(--ink)}
@@ -97,7 +98,7 @@
   </div>
 
   <h2>Estate map — tables &amp; connections</h2>
-  <figure class="diagram">
+  <figure class="diagram" tabindex="0" role="region" aria-label="Estate map">
     <pre class="mermaid">
 %%{init: {'theme':'dark','themeVariables':{'fontSize':'13px'}}}%%
 flowchart LR
@@ -220,7 +221,7 @@ flowchart LR
   </figure>
 
   <div class="spine">
-    <b>The entity_key spine.</b> `entities` is the one resolved-party table; ~13 tables carry <code>entity_key</code> as an anchor (transactions, kyc_profile, ownership, screening, shipping, trade, intel, tasks…). Resolution (SP1–SP3) guarantees one <code>entity_key</code> per real-world party across every source, so a transaction, a sanctions hit, an ownership edge and a case task about the same party all line up without reconciliation.
+    <b>The entity_key spine.</b> `entities` is the one resolved-party table; 14 tables carry <code>entity_key</code> as an anchor (transactions, kyc_profile, shipping_events, trade_documents, shipments, screening_results, intel_events, intel_register…). Resolution (SP1–SP3) guarantees one <code>entity_key</code> per real-world party across every source, so a transaction, a sanctions hit, an ownership edge and a case task about the same party all line up without reconciliation.
   </div>
 
   <h2>Reading the keys <span class="cnt">— key &amp; relationship roles</span></h2>
@@ -235,10 +236,12 @@ flowchart LR
   <div id="pillars"></div>
 
   <h2>Connections reference <span class="cnt">— foreign keys, anchors &amp; reference links</span></h2>
+  <div class="tablewrap" tabindex="0" role="region" aria-label="Connections reference">
   <table class="conns">
     <thead><tr><th>From</th><th></th><th>To</th><th>On</th><th>Kind</th></tr></thead>
     <tbody id="connbody"></tbody>
   </table>
+  </div>
 
   <div class="foot">NEXUS · Data Dictionary Functional Specification · generated from data_dictionary.yaml · 48 tables / 10 pillars</div>
 </div>
