@@ -2,7 +2,7 @@
  "also_caught": [],
  "archive": {
   "latest": {
-   "day": "2026-11-11",
+   "day": "2026-11-12",
    "state": "shipped"
   },
   "not_safe": 1
@@ -10,11 +10,6 @@
  "case_of_day": null,
  "dashboard": {
   "backlog": [
-   {
-    "day": "2026-10-15",
-    "new_breaches": 0,
-    "unassigned": 1579
-   },
    {
     "day": "2026-10-16",
     "new_breaches": 0,
@@ -109,19 +104,14 @@
     "day": "2026-11-11",
     "new_breaches": 4,
     "unassigned": 2264
+   },
+   {
+    "day": "2026-11-12",
+    "new_breaches": 13,
+    "unassigned": 2266
    }
   ],
   "flow": [
-   {
-    "by_band": {
-     "Critical": 1070,
-     "High": 68,
-     "Medium": 466
-    },
-    "day": "2026-10-15",
-    "sars": 5,
-    "state": "opening"
-   },
    {
     "by_band": {
      "Critical": 0,
@@ -311,15 +301,25 @@
     "day": "2026-11-11",
     "sars": 5,
     "state": "ok"
+   },
+   {
+    "by_band": {
+     "Critical": 7,
+     "High": 0,
+     "Medium": 0
+    },
+    "day": "2026-11-12",
+    "sars": 5,
+    "state": "ok"
    }
   ],
   "kpis": {
-   "new_breaches": 4,
-   "new_cases": 5,
+   "new_breaches": 13,
+   "new_cases": 7,
    "new_cases_opening": false,
-   "sars_to_date": 90,
-   "unassigned": 2264,
-   "unassigned_change": 0
+   "sars_to_date": 95,
+   "unassigned": 2266,
+   "unassigned_change": 2
   },
   "notes": {
    "bands": "Case severity and alert severity are separate scales.",
@@ -503,11 +503,11 @@
      "stage": "Drafted"
     },
     {
-     "count": 76,
+     "count": 81,
      "stage": "Officer review"
     },
     {
-     "count": 1,
+     "count": 0,
      "stage": "Approved"
     },
     {
@@ -515,22 +515,13 @@
      "stage": "Submitted"
     },
     {
-     "count": 13,
+     "count": 14,
      "stage": "Acknowledged"
     }
    ]
   }
  },
  "days": [
-  {
-   "alerts": 1500,
-   "day": "2026-10-15",
-   "decided": 5,
-   "opening_load": true,
-   "reason": null,
-   "recovered_on": null,
-   "status": "ok"
-  },
   {
    "alerts": 1500,
    "day": "2026-10-16",
@@ -701,10 +692,29 @@
    "reason": null,
    "recovered_on": null,
    "status": "ok"
+  },
+  {
+   "alerts": 1500,
+   "day": "2026-11-12",
+   "decided": 5,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "ok"
   }
  ],
  "engineering": {
   "history": [
+   {
+    "days": [
+     "2026-11-12"
+    ],
+    "outcome": "OK",
+    "reason": "",
+    "run": "2026-11-13T05-30-08",
+    "seconds": 345.3,
+    "slowest_step": "batch"
+   },
    {
     "days": [
      "2026-11-11"
@@ -892,16 +902,6 @@
     "run": "2026-10-20T05-30-06",
     "seconds": 282.8,
     "slowest_step": "batch"
-   },
-   {
-    "days": [
-     "2026-10-16"
-    ],
-    "outcome": "OK",
-    "reason": "",
-    "run": "2026-10-19T05-30-04",
-    "seconds": 261.8,
-    "slowest_step": "batch"
    }
   ],
   "phases": [
@@ -937,17 +937,17 @@
   "pinned": [],
   "queue": {
    "backlog_trend": [
-    2354,
     2359,
     2371,
     2379,
-    2384
+    2384,
+    2391
    ],
-   "breaches_today": 4,
-   "open": 2384,
-   "qa_open": 24,
-   "sanctions_open": 241,
-   "unassigned": 2264
+   "breaches_today": 13,
+   "open": 2391,
+   "qa_open": 25,
+   "sanctions_open": 242,
+   "unassigned": 2266
   },
   "tiles": {
    "archive": {
@@ -964,7 +964,7 @@
     "of": 8
    },
    "runs": {
-    "avg_seconds": 301.3,
+    "avg_seconds": 305.7,
     "clean": 20,
     "of": 20
    }
@@ -1208,24 +1208,24 @@
  "no_scheme_text": "No planted scheme surfaced today",
  "provenance": {
   "authority": "UNVERIFIED",
-  "fc10_commit": "a5cca2113c6a4a83c8360b9389360c2ab46d3bcd",
-  "run_id": "2026-11-12T05-30-06",
+  "fc10_commit": "d40f4563499eb80cd907a7a3ed6adb85b5f791c4",
+  "run_id": "2026-11-13T05-30-08",
   "titles_from": "fc-08"
  },
- "published_at": "2026-11-12T05:37:34+00:00",
+ "published_at": "2026-11-13T05:38:43+00:00",
  "pulse_note": null,
  "risk": {
-  "critical": 3,
+  "critical": 7,
   "days_known": 20,
   "level": "Elevated",
-  "reason": "SAR referrals 5 vs a usual 4.5",
+  "reason": "Critical cases 7 vs a usual 6.1 · SAR referrals 5 vs a usual 4.5",
   "sars": 5,
-  "usual_critical": 6.277777777777778,
-  "usual_sars": 4.473684210526316
+  "usual_critical": 6.105263157894737,
+  "usual_sars": 4.5
  },
  "running": {
-  "as_of": "2026-11-12T05:35:10+00:00",
-  "avg_seconds": 300.1,
+  "as_of": "2026-11-13T05:35:54+00:00",
+  "avg_seconds": 303.5,
   "clean": 20,
   "of": 20
  },
@@ -1239,17 +1239,17 @@
   "honesty": "A simulated bank, run every business morning at 05:30 the way a production monitoring system would be. It catches the laundering planted in it.",
   "of": 20,
   "on_time": 20,
-  "reporting_day": "2026-11-11",
-  "reporting_label": "Wednesday's activity, processed Thursday 05:30 UK time",
+  "reporting_day": "2026-11-12",
+  "reporting_label": "Thursday's activity, processed Friday 05:30 UK time",
   "running": true
  },
  "synthetic": true,
  "today": {
-  "critical": 3,
-  "day": "2026-11-11",
+  "critical": 7,
+  "day": "2026-11-12",
   "intake_transactions": 400,
-  "new_cases": 5,
-  "run_seconds": 302.7,
+  "new_cases": 7,
+  "run_seconds": 345.3,
   "sars": 5
  }
 }
