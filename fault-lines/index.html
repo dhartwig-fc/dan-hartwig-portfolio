@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Fault Lines, the newsletter where geopolitics meets dirty money: every issue, newest first.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fault Lines: every issue">
+<meta property="og:description" content="Where geopolitics meets dirty money. Every issue, newest first.">
+<meta property="og:image" content="https://dhartwig-fc.github.io/dan-hartwig-portfolio/fault-lines/issue-02/poster.jpg">
+<meta property="og:url" content="https://dhartwig-fc.github.io/dan-hartwig-portfolio/fault-lines/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Fault Lines · every issue</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~66ch) on a deep-sea ground, matching the issue's video; media breaks slightly wider. Deliberately dark-only. */
+:root {
+  color-scheme: dark;
+  --sea: #0b1219;
+  --hull: #111b25;
+  --rule: #22303d;
+  --ink: #eeede9;
+  --ink-2: #b9bcb8;
+  --muted: #858c94;
+  --cargo: #d95926;   /* route / cargo / red flags */
+  --money: #3987e5;   /* money, documents, links */
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --measure: 66ch;
+}
+* { box-sizing: border-box; }
+html { background: var(--sea); }
+body {
+  background: var(--sea);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+a { color: var(--money); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #6aa6ef; }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--money); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 760px; margin: 0 auto; }
+.prose { max-width: var(--measure); margin: 0 auto; }
+
+/* masthead */
+.mast {
+  display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: baseline; justify-content: space-between;
+  padding-block: .9rem 1.1rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem;
+}
+.wordmark { display: flex; align-items: center; gap: 1rem; }
+.wordmark .tag { font-family: var(--mono); font-weight: 400; letter-spacing: .02em; font-size: .78rem; color: var(--muted); border-left: 1px solid var(--rule); padding-left: 1rem; }
+/* Fracture lockup: FAULT over LINES, orange crack between, lower line offset */
+.fl-lock { position: relative; display: inline-flex; flex-direction: column; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400;
+           text-transform: uppercase; font-size: 1.35rem; line-height: 1; letter-spacing: .02em; row-gap: .16em; color: var(--ink); }
+.fl-lock .fl-l2 { transform: translate(.07em, .02em); }
+.fl-lock svg { position: absolute; left: -7%; width: 114%; top: calc(50% - 3px); height: 6px; overflow: visible; }
+.wordmark .fl-mono { display: inline-grid; place-items: center; flex: none; width: 3.1rem; height: 3.1rem; border-radius: 50%; border: 2px solid var(--cargo); box-sizing: border-box; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400; line-height: 1; color: var(--ink); }
+.wordmark .fl-mono .fl-t, .wordmark .fl-mono .fl-b { grid-area: 1 / 1; font-size: 1.3rem; letter-spacing: -.02em; }
+.wordmark .fl-mono .fl-t { clip-path: polygon(0 0, 100% 0, 100% 46%, 55% 58%, 0 46%); }
+.wordmark .fl-mono .fl-b { transform: translate(.09em, .09em); clip-path: polygon(0 46%, 55% 58%, 100% 46%, 100% 100%, 0 100%); }
+.back { padding-top: 1.1rem; font-family: var(--mono); font-size: .78rem; }
+.back a { color: var(--ink-2); text-decoration: none; }
+.back a:hover, .back a:focus-visible { color: var(--money); }
+.issue-meta { font-family: var(--mono); font-size: .78rem; color: var(--ink-2); display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.pill { border: 1px solid var(--cargo); color: var(--cargo); border-radius: 999px; padding: .1rem .6rem; letter-spacing: .04em; }
+
+/* headline */
+.kicker { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cargo); }
+h1 {
+  font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 5.2vw, 3.1rem); line-height: 1.06;
+  letter-spacing: -.015em; margin: .5rem 0 1rem; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--ink-2); font-weight: 700; }
+.standfirst { color: var(--ink-2); font-size: 1.2rem; margin: 0 0 2rem; }
+
+/* video */
+.video-block { margin: 0 0 2.75rem; }
+.video-frame { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); background: #000; aspect-ratio: 16 / 9; max-width: 100%; }
+.video-frame video { width: 100%; height: 100%; display: block; }
+.replay { font-family: var(--mono); font-size: .78rem; color: var(--money); background: none; border: 1px solid var(--rule); border-radius: 6px; padding: .25rem .6rem; cursor: pointer; }
+.replay:hover { border-color: var(--money); }
+.caption { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .6rem; display: flex; flex-wrap: wrap; gap: .3rem 1rem; justify-content: space-between; }
+.caption strong { color: var(--ink-2); font-weight: 500; }
+
+/* sections */
+.prose p { margin: 0 0 1.15rem; }
+h2 {
+  font-family: var(--display); font-weight: 700; font-size: 1.45rem; line-height: 1.2; margin: 2.75rem 0 1rem;
+  display: flex; gap: .75rem; align-items: baseline; text-wrap: balance;
+}
+h2 .n { font-family: var(--mono); font-weight: 500; font-size: .85rem; color: var(--cargo); letter-spacing: .06em; }
+.lede { font-size: 1.2rem; }
+.figure { margin: 1.75rem 0; }
+.figure img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--rule); }
+.figure figcaption { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .55rem; }
+.num { font-family: var(--display); font-weight: 700; white-space: nowrap; }
+
+ol.trail { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: grid; gap: .9rem; counter-reset: step; }
+ol.trail li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .25rem .75rem; counter-increment: step; }
+ol.trail li::before {
+  content: counter(step); font-family: var(--mono); font-size: .85rem; color: var(--money);
+  border: 1px solid var(--money); border-radius: 50%; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; margin-top: .15rem;
+}
+ol.trail b, ol.flags b { font-family: var(--display); font-weight: 700; }
+
+ol.flags { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 0; counter-reset: flag; }
+ol.flags li { counter-increment: flag; padding: .95rem 0 .95rem 2.6rem; border-top: 1px solid var(--rule); position: relative; min-width: 0; }
+ol.flags li:last-child { border-bottom: 1px solid var(--rule); }
+ol.flags li::before { content: counter(flag, decimal-leading-zero); position: absolute; left: 0; top: 1.1rem; font-family: var(--mono); font-size: .8rem; color: var(--cargo); }
+.note { color: var(--ink-2); font-style: italic; }
+.punch { font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+
+ul.ai { padding-left: 1.2rem; margin: .5rem 0 1.25rem; }
+ul.ai li { margin-bottom: .55rem; }
+
+/* Nexus demo panel */
+.demo {
+  margin: 1.75rem 0; padding: 1.25rem 1.35rem; background: var(--hull); border: 1px solid var(--rule); border-radius: 10px;
+  display: grid; gap: .9rem;
+}
+.demo .tag { font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--money); }
+.demo h3 { font-family: var(--display); font-weight: 700; font-size: 1.15rem; margin: 0; }
+.demo p { margin: 0; font-size: 1rem; color: var(--ink-2); }
+.demo .links { display: flex; flex-wrap: wrap; gap: .6rem; }
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: .95rem; text-decoration: none; color: var(--sea);
+  background: var(--money); border-radius: 6px; padding: .55rem .95rem; display: inline-block;
+}
+.btn:hover { color: var(--sea); background: #6aa6ef; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.btn.ghost:hover { border-color: var(--money); color: var(--ink); }
+.demo .fine { font-family: var(--mono); font-size: .74rem; color: var(--muted); }
+
+ul.watch { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .8rem; }
+ul.watch li { padding-left: 1rem; border-left: 2px solid var(--cargo); }
+ul.watch b { font-family: var(--display); font-weight: 700; }
+
+/* footer */
+.sign { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 1rem; }
+.sources { margin-top: 2.25rem; }
+.sources h4, .where h4 { font-family: var(--mono); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 .75rem; }
+.sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem; font-size: .95rem; }
+.sources li { min-width: 0; overflow-wrap: anywhere; }
+.sources li span { color: var(--muted); }
+
+.where { margin-top: 2.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; }
+.where h4 { grid-column: 1 / -1; margin: 0; }
+.where div { background: var(--hull); border: 1px solid var(--rule); border-radius: 8px; padding: .85rem 1rem; font-size: .92rem; color: var(--ink-2); }
+.where b { display: block; font-family: var(--display); color: var(--ink); margin-bottom: .2rem; }
+
+@media (max-width: 520px) {
+  body { font-size: 1.05rem; }
+  .standfirst, .lede { font-size: 1.1rem; }
+  ol.flags li { padding-left: 2.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+.video-msg { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: .6rem 1rem; color: var(--ink-2); font-family: var(--mono); font-size: .75rem; background: rgba(11,18,25,.88); z-index: 2; }
+
+/* the library: one card per issue */
+.intro h1 { margin-top: .4rem; }
+.intro .standfirst { margin-bottom: 1.25rem; }
+.intro .links { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2.75rem; }
+ol.issues { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.5rem; }
+.issue { display: grid; grid-template-columns: 250px 1fr; gap: 1.25rem; padding: 1.1rem; background: var(--hull);
+         border: 1px solid var(--rule); border-radius: 10px; min-width: 0; }
+.issue .thumb { display: block; align-self: start; border-radius: 8px; overflow: hidden; border: 1px solid var(--rule);
+                aspect-ratio: 16 / 9; background: #000; position: relative; }
+.issue .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.issue .thumb .len { position: absolute; right: .4rem; bottom: .4rem; font-family: var(--mono); font-size: .7rem; color: var(--ink);
+                     background: rgba(11,18,25,.85); border-radius: 4px; padding: .05rem .4rem; }
+.issue .body { min-width: 0; }
+.issue .kicker { margin-top: .55rem; font-size: .72rem; }
+.issue h2 { display: block; font-size: 1.35rem; margin: .3rem 0 .5rem; }
+.issue h2 a { color: var(--ink); text-decoration: none; }
+.issue h2 a:hover, .issue h2 a:focus-visible { color: var(--money); }
+.issue h2 em { font-style: normal; color: var(--ink-2); }
+.issue .standfirst { font-size: 1rem; margin: 0 0 .7rem; }
+.issue .more { font-family: var(--mono); font-size: .8rem; margin: 0; }
+.sign a { color: var(--ink-2); }
+@media (max-width: 640px) { .issue { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="back" aria-label="Back to portfolio"><a href="../">← Dan Hartwig · Portfolio</a></nav>
+  <header class="mast">
+    <div class="wordmark"><span class="fl-mono" aria-hidden="true"><span class="fl-t">FL</span><span class="fl-b">FL</span></span><span class="fl-lock" role="img" aria-label="Fault Lines"><span class="fl-l1" aria-hidden="true">Fault</span><span class="fl-l2" aria-hidden="true">Lines</span><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,5 27,6.6 51,3.6 74,6.2 100,4.6" fill="none" stroke="#D95926" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span><span class="tag">Where geopolitics<br>meets dirty money</span></div>
+    <div class="issue-meta"><span>The library · 2 issues</span></div>
+  </header>
+  <main>
+  <div class="intro">
+    <div class="kicker">The newsletter</div>
+    <h1>Every issue of Fault Lines</h1>
+    <p class="standfirst">Each issue takes one threat, follows the money and ends with the red flags and controls a bank can use. Newest first.</p>
+    <div class="links"><a class="btn" href="issue-02/">Read the latest issue</a><a class="btn ghost" href="https://www.linkedin.com/in/dan-hartwig-financial-crime">Follow on LinkedIn</a></div>
+  </div>
+  <ol class="issues" reversed>
+    <li class="issue">
+      <a class="thumb" href="issue-02/" tabindex="-1" aria-hidden="true"><img src="issue-02/poster.jpg" alt="" width="1920" height="1080"><span class="len">▶ 1:13</span></a>
+      <div class="body">
+        <div class="issue-meta"><span>Issue #2 · Tuesday 17 November 2026</span><span class="pill">Latest</span></div>
+        <div class="kicker">Sanctions · Crypto · North Korea</div>
+        <h2><a href="issue-02/">Is North Korea on your payroll? <em>And in your crypto flows?</em></a></h2>
+        <p class="standfirst">Pyongyang raises hard currency two ways: IT workers hired by Western firms under false names and hackers who empty crypto exchanges. Both streams need the financial system to get out. Here is how the money moves and where a bank can stop it.</p>
+        <p class="more"><a href="issue-02/" aria-label="Read Issue #2: Is North Korea on your payroll? And in your crypto flows?">Read the issue →</a><span> · with video</span></p>
+      </div>
+    </li>
+    <li class="issue">
+      <a class="thumb" href="issue-01/" tabindex="-1" aria-hidden="true"><img src="issue-01/poster.jpg" alt="" width="1920" height="1080" loading="lazy"><span class="len">▶ 1:08</span></a>
+      <div class="body">
+        <div class="issue-meta"><span>Issue #1 · Tuesday 3 November 2026</span></div>
+        <div class="kicker">Sanctions · Shadow fleet</div>
+        <h2><a href="issue-01/">The shadow fleet stopped hiding. <em>Your red flags need to catch up.</em></a></h2>
+        <p class="standfirst">Russia's tankers have swapped false flags for their own. Here is what that means for the money trail, and for the controls that are meant to catch it.</p>
+        <p class="more"><a href="issue-01/" aria-label="Read Issue #1: The shadow fleet stopped hiding. Your red flags need to catch up.">Read the issue →</a><span> · with video</span></p>
+      </div>
+    </li>
+  </ol>
+  <p class="sign">Fault Lines is written by <a href="../">Dan Hartwig</a>.</p>
+  </main>
+</div>
+</body>
+</html>
