@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Fault Lines Issue #2: is North Korea on your payroll? Fake remote IT workers and stolen crypto, how the money moves and where a bank can stop it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Is North Korea on your payroll? And in your crypto flows?">
+<meta property="og:description" content="Fault Lines Issue #2: where geopolitics meets dirty money.">
+<meta property="og:image" content="https://dhartwig-fc.github.io/dan-hartwig-portfolio/fault-lines/issue-02/poster.jpg">
+<meta property="og:url" content="https://dhartwig-fc.github.io/dan-hartwig-portfolio/fault-lines/issue-02/">
+<meta name="twitter:card" content="summary_large_image">
+<title>Fault Lines Issue #2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~66ch) on a deep-sea ground, matching the issue's video; media breaks slightly wider. Deliberately dark-only. */
+:root {
+  color-scheme: dark;
+  --sea: #0b1219;
+  --hull: #111b25;
+  --rule: #22303d;
+  --ink: #eeede9;
+  --ink-2: #b9bcb8;
+  --muted: #858c94;
+  --cargo: #d95926;   /* route / cargo / red flags */
+  --money: #3987e5;   /* money, documents, links */
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --measure: 66ch;
+}
+* { box-sizing: border-box; }
+html { background: var(--sea); }
+body {
+  background: var(--sea);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+a { color: var(--money); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #6aa6ef; }
+a:focus-visible, video:focus-visible { outline: 2px solid var(--money); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 760px; margin: 0 auto; }
+.prose { max-width: var(--measure); margin: 0 auto; }
+
+/* masthead */
+.mast {
+  display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: baseline; justify-content: space-between;
+  padding-block: .9rem 1.1rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem;
+}
+.wordmark { display: flex; align-items: center; gap: 1rem; }
+.wordmark .tag { font-family: var(--mono); font-weight: 400; letter-spacing: .02em; font-size: .78rem; color: var(--muted); border-left: 1px solid var(--rule); padding-left: 1rem; }
+/* Fracture lockup: FAULT over LINES, orange crack between, lower line offset */
+.fl-lock { position: relative; display: inline-flex; flex-direction: column; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400;
+           text-transform: uppercase; font-size: 1.35rem; line-height: 1; letter-spacing: .02em; row-gap: .16em; color: var(--ink); }
+.fl-lock .fl-l2 { transform: translate(.07em, .02em); }
+.fl-lock svg { position: absolute; left: -7%; width: 114%; top: calc(50% - 3px); height: 6px; overflow: visible; }
+.wordmark .fl-mono { display: inline-grid; place-items: center; flex: none; width: 3.1rem; height: 3.1rem; border-radius: 50%; border: 2px solid var(--cargo); box-sizing: border-box; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-weight: 400; line-height: 1; color: var(--ink); }
+.wordmark .fl-mono .fl-t, .wordmark .fl-mono .fl-b { grid-area: 1 / 1; font-size: 1.3rem; letter-spacing: -.02em; }
+.wordmark .fl-mono .fl-t { clip-path: polygon(0 0, 100% 0, 100% 46%, 55% 58%, 0 46%); }
+.wordmark .fl-mono .fl-b { transform: translate(.09em, .09em); clip-path: polygon(0 46%, 55% 58%, 100% 46%, 100% 100%, 0 100%); }
+.back { padding-top: 1.1rem; font-family: var(--mono); font-size: .78rem; }
+.back a { color: var(--ink-2); text-decoration: none; }
+.back a:hover, .back a:focus-visible { color: var(--money); }
+.issue-meta { font-family: var(--mono); font-size: .78rem; color: var(--ink-2); display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; }
+.pill { border: 1px solid var(--cargo); color: var(--cargo); border-radius: 999px; padding: .1rem .6rem; letter-spacing: .04em; }
+
+/* headline */
+.kicker { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--cargo); }
+h1 {
+  font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 5.2vw, 3.1rem); line-height: 1.06;
+  letter-spacing: -.015em; margin: .5rem 0 1rem; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--ink-2); font-weight: 700; }
+.standfirst { color: var(--ink-2); font-size: 1.2rem; margin: 0 0 2rem; }
+
+/* video */
+.video-block { margin: 0 0 2.75rem; }
+.video-frame { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); background: #000; aspect-ratio: 16 / 9; max-width: 100%; }
+.video-frame video { width: 100%; height: 100%; display: block; }
+.replay { font-family: var(--mono); font-size: .78rem; color: var(--money); background: none; border: 1px solid var(--rule); border-radius: 6px; padding: .25rem .6rem; cursor: pointer; }
+.replay:hover { border-color: var(--money); }
+.caption { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .6rem; display: flex; flex-wrap: wrap; gap: .3rem 1rem; justify-content: space-between; }
+.caption strong { color: var(--ink-2); font-weight: 500; }
+
+/* sections */
+.prose p { margin: 0 0 1.15rem; }
+h2 {
+  font-family: var(--display); font-weight: 700; font-size: 1.45rem; line-height: 1.2; margin: 2.75rem 0 1rem;
+  display: flex; gap: .75rem; align-items: baseline; text-wrap: balance;
+}
+h2 .n { font-family: var(--mono); font-weight: 500; font-size: .85rem; color: var(--cargo); letter-spacing: .06em; }
+.lede { font-size: 1.2rem; }
+.figure { margin: 1.75rem 0; }
+.figure img { width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid var(--rule); }
+.figure figcaption { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin-top: .55rem; }
+.num { font-family: var(--display); font-weight: 700; white-space: nowrap; }
+
+ol.trail { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: grid; gap: .9rem; counter-reset: step; }
+ol.trail li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .25rem .75rem; counter-increment: step; }
+ol.trail li::before {
+  content: counter(step); font-family: var(--mono); font-size: .85rem; color: var(--money);
+  border: 1px solid var(--money); border-radius: 50%; width: 1.9rem; height: 1.9rem; display: grid; place-items: center; margin-top: .15rem;
+}
+ol.trail b, ol.flags b { font-family: var(--display); font-weight: 700; }
+
+ol.flags { list-style: none; padding: 0; margin: 1.25rem 0; display: grid; gap: 0; counter-reset: flag; }
+ol.flags li { counter-increment: flag; padding: .95rem 0 .95rem 2.6rem; border-top: 1px solid var(--rule); position: relative; min-width: 0; }
+ol.flags li:last-child { border-bottom: 1px solid var(--rule); }
+ol.flags li::before { content: counter(flag, decimal-leading-zero); position: absolute; left: 0; top: 1.1rem; font-family: var(--mono); font-size: .8rem; color: var(--cargo); }
+.note { color: var(--ink-2); font-style: italic; }
+.punch { font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+
+ul.ai { padding-left: 1.2rem; margin: .5rem 0 1.25rem; }
+ul.ai li { margin-bottom: .55rem; }
+
+/* Nexus demo panel */
+.demo {
+  margin: 1.75rem 0; padding: 1.25rem 1.35rem; background: var(--hull); border: 1px solid var(--rule); border-radius: 10px;
+  display: grid; gap: .9rem;
+}
+.demo .tag { font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--money); }
+.demo h3 { font-family: var(--display); font-weight: 700; font-size: 1.15rem; margin: 0; }
+.demo p { margin: 0; font-size: 1rem; color: var(--ink-2); }
+.demo .links { display: flex; flex-wrap: wrap; gap: .6rem; }
+.btn {
+  font-family: var(--display); font-weight: 700; font-size: .95rem; text-decoration: none; color: var(--sea);
+  background: var(--money); border-radius: 6px; padding: .55rem .95rem; display: inline-block;
+}
+.btn:hover { color: var(--sea); background: #6aa6ef; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.btn.ghost:hover { border-color: var(--money); color: var(--ink); }
+.demo .fine { font-family: var(--mono); font-size: .74rem; color: var(--muted); }
+
+ul.watch { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .8rem; }
+ul.watch li { padding-left: 1rem; border-left: 2px solid var(--cargo); }
+ul.watch b { font-family: var(--display); font-weight: 700; }
+
+/* footer */
+.sign { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--ink-2); font-size: 1rem; }
+.sources { margin-top: 2.25rem; }
+.sources h4, .where h4 { font-family: var(--mono); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 .75rem; }
+.sources ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .45rem; font-size: .95rem; }
+.sources li { min-width: 0; overflow-wrap: anywhere; }
+.sources li span { color: var(--muted); }
+
+.where { margin-top: 2.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; }
+.where h4 { grid-column: 1 / -1; margin: 0; }
+.where div { background: var(--hull); border: 1px solid var(--rule); border-radius: 8px; padding: .85rem 1rem; font-size: .92rem; color: var(--ink-2); }
+.where b { display: block; font-family: var(--display); color: var(--ink); margin-bottom: .2rem; }
+
+@media (max-width: 520px) {
+  body { font-size: 1.05rem; }
+  .standfirst, .lede { font-size: 1.1rem; }
+  ol.flags li { padding-left: 2.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+.video-msg { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: .6rem 1rem; color: var(--ink-2); font-family: var(--mono); font-size: .75rem; background: rgba(11,18,25,.88); z-index: 2; }
+
+ul.trail2 { list-style: none; padding: 0; margin: .6rem 0 1.4rem; display: grid; gap: .7rem; }
+ul.trail2 li { padding-left: 1rem; border-left: 2px solid var(--money); }
+ul.trail2.heist li { border-left-color: var(--cargo); }
+ul.trail2 b, ul.ctl b { font-family: var(--display); font-weight: 700; }
+ul.ctl { padding-left: 1.2rem; margin: .5rem 0 1.25rem; }
+ul.ctl li { margin-bottom: .6rem; }
+h3.pipe { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 1.5rem 0 .3rem; }
+.credits { font-family: var(--mono); font-size: .74rem; color: var(--muted); margin-top: 1.5rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="back" aria-label="Back to portfolio"><a href="../../">← Dan Hartwig · Portfolio</a></nav>
+  <header class="mast">
+    <div class="wordmark"><span class="fl-mono" aria-hidden="true"><span class="fl-t">FL</span><span class="fl-b">FL</span></span><span class="fl-lock" role="img" aria-label="Fault Lines"><span class="fl-l1" aria-hidden="true">Fault</span><span class="fl-l2" aria-hidden="true">Lines</span><svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><polyline points="0,5 27,6.6 51,3.6 74,6.2 100,4.6" fill="none" stroke="#D95926" stroke-width="2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg></span><span class="tag">Where geopolitics<br>meets dirty money</span></div>
+    <div class="issue-meta"><span>Issue #2 · Tuesday 17 November 2026</span></div>
+  </header>
+
+  <article>
+    <div class="prose">
+      <div class="kicker">Sanctions · Crypto · North Korea</div>
+      <h1>Is North Korea on your payroll? <em>And in your crypto flows?</em></h1>
+      <p class="standfirst">Pyongyang raises hard currency two ways: IT workers hired by Western firms under false names and hackers who empty crypto exchanges. Both streams need the financial system to get out. Here is how the money moves and where a bank can stop it.</p>
+    </div>
+
+    <section class="video-block" aria-label="Video: follow the coin">
+      <div class="video-frame">
+        <video id="follow-the-coin" controls playsinline preload="metadata" poster="poster.jpg">
+          <source src="fault-lines-issue-02.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="caption"><span><strong>The 73-second version:</strong> follow the salary and the stolen coin to the same exit.</span><span>73 s · captions on screen</span></div>
+    </section>
+
+    <div class="prose">
+      <p class="lede">Last issue we followed a cargo of oil from Novorossiysk to your payments queue. This time the cargo weighs nothing.</p>
+      <p>North Korea runs one of the world's most effective money operations without a correspondent bank of its own. It borrows everyone else's: an employer's payroll, an exchange's hot wallet and a bank's ordinary accounts.</p>
+      <p>This issue follows both streams to the same exit and finishes with red flags and controls you can use.</p>
+
+      <h2><span class="n">01</span>The story</h2>
+      <p>Two announcements three days apart show both halves of the same operation.</p>
+      <p>On 28 October the US Treasury's Office of Foreign Assets Control (OFAC) <a href="https://home.treasury.gov/news/press-releases/sb0669/" target="_blank" rel="noopener">designated ten people and one company</a> behind North Korea's IT-worker schemes: facilitators, team leaders and six of the workers themselves. Eight are North Korean and two are Russian. All ten are listed in Russia. The six workers are tied to that company, set up only in January 2024. Several listings carry crypto wallet addresses, and the two Russians share the same one.</p>
+      <p>On 31 October the FBI said North Korea was behind the theft of <a href="https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack" target="_blank" rel="noopener">more than US$6bn in virtual assets</a> from the exchange Binance, on or about 29 October. The FBI calls the actor TraderTraitor. It is the same name the FBI gave the group behind the US$1.5bn Bybit theft in February 2025.</p>
+      <p>The IT-worker scheme is the quieter half. North Koreans get hired as remote developers under stolen or invented identities. Helpers in the US run "laptop farms": homes where company laptops sit switched on so the workers can log in from abroad. In June 2025 the US Justice Department <a href="https://www.justice.gov/opa/pr/justice-department-announces-coordinated-nationwide-actions-combat-north-korean-remote" target="_blank" rel="noopener">searched 29 suspected laptop farms in 16 states</a> and seized 29 financial accounts used to launder the pay. In October 2026 <a href="https://www.justice.gov/opa/pr/justice-department-announces-coordinated-actions-combat-north-korean-remote-it-worker" target="_blank" rel="noopener">a second sweep</a> reached more than 40 suspected laptop farms in Texas alone.</p>
+      <p>One half is a salary. The other is a heist. Both have to become money the regime can spend, and that is where the financial system comes in.</p>
+
+      <h2><span class="n">02</span>The money trail</h2>
+      <p>Two pipes start in different places and end at the same exit. Each step touches someone's controls.</p>
+      <figure class="figure">
+        <img src="two-pipes.gif" width="1200" height="675" alt="Diagram: two pipes, the salary and the heist, each running through its steps and meeting at one exit, where a bank can act.">
+        <figcaption>Two pipes, one exit. The salary and the heist start far apart and meet at the one place a bank can act.</figcaption>
+      </figure>
+      <h3 class="pipe">Pipe one: the salary.</h3>
+      <ul class="trail2">
+        <li><b>The hire.</b> A remote developer is hired under a stolen or invented identity. Interviews happen with the camera off or with a stand-in.</li>
+        <li><b>The laptop.</b> The company ships a laptop to an address in the US, where a facilitator keeps it running for the worker abroad.</li>
+        <li><b>The pay.</b> Salary lands in an account held in the false name or by the facilitator, who takes a cut.</li>
+        <li><b>The hop.</b> The rest moves on fast, to a crypto exchange or to accounts held by front companies abroad, then to wallets like the ones on OFAC's list.</li>
+      </ul>
+      <h3 class="pipe">Pipe two: the heist.</h3>
+      <ul class="trail2 heist">
+        <li><b>The theft.</b> Hackers get into an exchange and drain its wallets. The FBI says the Binance haul is being converted mainly into Ether.</li>
+        <li><b>The scatter.</b> The FBI expects the coins to be swapped and split through DeFi protocols and instant swap services that ask few questions. In the Bybit case the FBI saw the haul spread across thousands of addresses on several blockchains.</li>
+        <li><b>The exit.</b> At some point the coins have to become ordinary money: an exchange account, an over-the-counter broker or a payment dressed up as something else.</li>
+      </ul>
+      <p>Banks rarely see a hacker or a laptop farm. They see a salary that leaves the day it arrives, a deposit from an exchange or a payment to a company with no obvious business. That is the laundering channel: ordinary accounts doing the last mile for a sanctioned state.</p>
+
+      <h2><span class="n">03</span>Red flags</h2>
+      <ol class="flags">
+        <li><b>A hire nobody has met.</b> Camera always off, references you can't reach and equipment shipped to an address that isn't the worker's home.</li>
+        <li><b>Many workers, one address.</b> Several "employees" or customers share a delivery address, phone number, device or bank account. That is how a laptop farm looks from the outside.</li>
+        <li><b>Pay that doesn't stay.</b> A salary moves on the day it lands, to a crypto exchange or to a third party with no clear link to the account holder.</li>
+        <li><b>Identity that doesn't fit.</b> Passports with near-consecutive numbers issued on the same day, or one name spelled several ways. Both appear in OFAC's 28 October listings.</li>
+        <li><b>Wallets on the list.</b> Exposure to an address on an OFAC listing or on the FBI's TraderTraitor list, directly or a hop or two away.</li>
+        <li><b>Ether in a hurry.</b> Large conversions into Ether or bursts of instant swaps soon after a reported exchange hack.</li>
+        <li><b>A counterparty that doesn't ask.</b> Payments to or from an exchange or swap service that doesn't screen its customers or registers nowhere.</li>
+      </ol>
+      <p class="punch">No single flag proves North Korea. The pattern does.</p>
+
+      <h2><span class="n">04</span>What compliance looks like</h2>
+      <p>A bank meets this threat twice: as an employer that could hire one of these workers and as the account provider for everyone in both pipes.</p>
+      <ul class="ctl">
+        <li><b>Screen wallets as well as names.</b> OFAC's North Korea listings carry crypto addresses. Screen crypto exposure, directly and a few hops out, with blockchain analytics. Treat the FBI's TraderTraitor addresses as high risk: the FBI asks firms to block them.</li>
+        <li><b>Know your crypto counterparties.</b> Do real due diligence on exchanges and payment firms you bank or pay: their licensing, their sanctions screening and whether they apply the travel rule.</li>
+        <li><b>Watch the salary pattern.</b> Build monitoring for wages that leave on arrival, payroll credits forwarded to exchanges and several customers sharing one address or device.</li>
+        <li><b>Check your own hiring.</b> Verify remote hires in person or by live video, check that the laptop goes to the worker's real address and watch for logins from unexpected countries. Paying a North Korean worker can itself breach sanctions: <a href="https://www.gov.uk/government/publications/north-korean-it-workers-advisory-signs-to-watch-for" target="_blank" rel="noopener">OFSI says</a> firms that employ or pay these workers could be directly or indirectly breaching financial sanctions.</li>
+        <li><b>Freeze, report and escalate.</b> Funds of a designated person must be frozen and reported to OFAC or the UK's Office of Financial Sanctions Implementation (OFSI). Anything short of a match but still suspicious goes in a suspicious activity report.</li>
+      </ul>
+      <p><b style="font-family:var(--display)">The AI angle.</b> This is a link-analysis problem. The evidence sits in HR systems, payment data and the blockchain, and humans rarely join them up in time.</p>
+      <ul class="ai">
+        <li><b>Entity resolution</b> spots the ten "employees" who share one address, device or account.</li>
+        <li><b>On-chain graph analysis</b> traces a deposit back through swaps and bridges to a listed wallet.</li>
+        <li><b>Anomaly detection</b> flags a payroll account that behaves like a pass-through.</li>
+      </ul>
+      <p>The catch is the same as last time. A model that says "suspicious" is not enough for a sanctions decision. The analyst needs the trail, and good tools should show it.</p>
+
+      <aside class="demo" aria-label="Nexus demo">
+        <div class="tag">See it working</div>
+        <h3>How Nexus scores both pipes</h3>
+        <p>Nexus, my financial-crime intelligence platform, catches the crypto pipe with a typology called CMI010 Cryptocurrency Evasion. It scores a wallet or exchange on four things: direct exposure to a sanctioned wallet, mixer use or an unregistered exchange (40% of the score), the counterparty's own risk (25%), the jurisdiction (20%) and who owns it (15%).</p>
+        <p>The salary pipe is newer. Nexus's threat-intelligence layer spotted it in the 28 October OFAC listing and I approved it as an emerging pattern. It is now a typology of its own, SAN010 Remote IT Worker Revenue. It scores a customer on four things: an identity that does not hold up, an address, phone or payout account shared with other workers, pay that leaves within 48 hours and where that pay goes. The video's last scene shows it at work. The front companies behind the facilitators fall under SAN004 Front Companies.</p>
+        <div class="links">
+          <a class="btn" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/knowledge-centre/knowledge/SAN010.html" target="_blank" rel="noopener">How SAN010 works</a>
+          <a class="btn ghost" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/knowledge-centre/knowledge/CMI010.html" target="_blank" rel="noopener">How CMI010 works</a>
+          <a class="btn ghost" href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/threat-intel/scan.html" target="_blank" rel="noopener">How the weekly scan works</a>
+        </div>
+        <div class="fine">All Nexus data is synthetic demonstration data. No real people, wallets or cases.</div>
+      </aside>
+
+      <h2><span class="n">05</span>Watchlist</h2>
+      <ul class="watch">
+        <li><b>The Binance funds.</b> How much exchanges and analytics firms freeze before the coins reach an exit.</li>
+        <li><b>Laptop farms.</b> Whether the US crackdown spreads to the UK and Europe, where remote hiring is just as common.</li>
+        <li><b>The facilitator network.</b> Whether the UK lists the same ten people. Treasury says Australia and the EU made their own North Korea designations the same month.</li>
+      </ul>
+
+      <p class="sign"><em>Fault Lines uses public sources only and is not legal advice. If this was useful, forward it to a colleague in compliance, payments or sanctions screening.</em> Dan Hartwig</p>
+
+      <section class="sources" aria-label="Sources">
+        <h4>Sources</h4>
+        <ul>
+          <li><a href="https://ofac.treasury.gov/recent-actions/20261028" target="_blank" rel="noopener">North Korea designations</a> <span>· OFAC, 28 Oct 2026</span></li>
+          <li><a href="https://home.treasury.gov/news/press-releases/sb0669/" target="_blank" rel="noopener">Treasury sanctions facilitators of DPRK IT worker fraud</a> <span>· US Treasury, 28 Oct 2026</span></li>
+          <li><a href="https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack" target="_blank" rel="noopener">North Korea responsible for US$6bn+ Binance attack</a> <span>· FBI, 31 Oct 2026</span></li>
+          <li><a href="https://ic3.gov/psa/2025/psa250226" target="_blank" rel="noopener">North Korea responsible for the US$1.5bn Bybit theft (I-022625-PSA)</a> <span>· FBI IC3, 26 Feb 2025</span></li>
+          <li><a href="https://www.justice.gov/opa/pr/justice-department-announces-coordinated-nationwide-actions-combat-north-korean-remote" target="_blank" rel="noopener">Coordinated nationwide actions against North Korean remote IT workers</a> <span>· US Justice Department, 30 Jun 2025</span></li>
+          <li><a href="https://www.justice.gov/opa/pr/justice-department-announces-coordinated-actions-combat-north-korean-remote-it-worker" target="_blank" rel="noopener">Coordinated actions against schemes affecting more than 70 US companies</a> <span>· US Justice Department, 13 Oct 2026</span></li>
+          <li><a href="https://www.gov.uk/government/publications/north-korean-it-workers-advisory-signs-to-watch-for" target="_blank" rel="noopener">North Korean IT workers advisory: signs to watch for</a> <span>· OFSI, 12 Sep 2024</span></li>
+          <li><a href="https://ofac.treasury.gov/media/923126/download?inline" target="_blank" rel="noopener">Guidance on North Korean IT workers</a> <span>· US State Department, Treasury and FBI, 16 May 2022</span></li>
+          <li><a href="https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/knowledge-centre/knowledge/CMI010.html" target="_blank" rel="noopener">CMI010 Cryptocurrency Evasion</a> <span>· Nexus knowledge centre</span></li>
+        </ul>
+      </section>
+
+      <p class="credits">Opening photographs: “Pyongyang City, Ryugyong Hotel in background” by Uri Tours and “Nordkorea 2015, Pjöngjang, Blick vom Juche Turm” by Uwe Brodrecht, both CC BY-SA 2.0, cropped and graded. Other photographs by Mike Bravo, Revendo, Taylor Vick, Mohammad Rahmani, Maxim Hopman, Aedrian Salazar and Austin Hervias, via Unsplash. Music: original.</p>
+    </div>
+  </article>
+</div>
+</body>
+</html>
