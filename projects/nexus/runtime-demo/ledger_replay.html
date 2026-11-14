@@ -189,6 +189,9 @@ footer { border-top: 1px solid var(--line); padding-top: 12px; font-size: 12px; 
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var TERMINAL = {}; P.terminal.forEach(function (s) { TERMINAL[s] = 1; });
+  // D235: every event names its case, by task id and the case's label (an event's own label is set on open only).
+  var CASE_LABEL = {}; P.tasks.forEach(function (t) { CASE_LABEL[t.id] = t.label; });
+  function caseOf(e) { var l = CASE_LABEL[e.task_id] || e.label; return e.task_id + (l ? " · " + l : ""); }
   var cur = 0, prevFrame = null, timer = null;
 
   // ---------- the chain check: the browser's own SHA-256 over case_ledger.canonical ----------
@@ -259,7 +262,7 @@ footer { border-top: 1px solid var(--line); padding-top: 12px; font-size: 12px; 
     for (var i = f.upto; i >= Math.max(0, f.upto - 59); i--) {
       var e = P.events[i], isNow = i >= from;
       items.push('<li class="' + (isNow ? "now" : "") + '"><span class="mono" style="color:var(--faint)">#' + esc(e.event_id) + '<br>' + esc(e.event_timestamp.slice(5, 10)) + '</span>' +
-        '<span><span class="src src-' + esc(e.source) + '">' + esc(e.source || "case") + '</span><b>' + esc(e.event_type) + '</b> · ' + esc(e.label) + '<br><span style="color:var(--muted)">' + esc(e.actor) + (e.note ? " — " + esc(e.note) : "") + '</span></span></li>');
+        '<span><span class="src src-' + esc(e.source) + '">' + esc(e.source || "case") + '</span><b>' + esc(e.event_type) + '</b> · ' + esc(caseOf(e)) + '<br><span style="color:var(--muted)">' + esc(e.actor) + (e.note ? " — " + esc(e.note) : "") + '</span></span></li>');
     }
     $("feed").innerHTML = items.join("");
   }
@@ -341,7 +344,7 @@ footer { border-top: 1px solid var(--line); padding-top: 12px; font-size: 12px; 
 
   // ---------- integrity panel ----------
   var pick = $("tamperPick");
-  P.events.forEach(function (e, i) { var o = document.createElement("option"); o.value = String(i); o.textContent = "#" + e.event_id + " · " + e.event_type + " · " + e.label; pick.appendChild(o); });
+  P.events.forEach(function (e, i) { var o = document.createElement("option"); o.value = String(i); o.textContent = "#" + e.event_id + " · " + e.event_type + " · " + caseOf(e); pick.appendChild(o); });
   var firstSar = firstBySource.sar_lifecycle;
   pick.value = String(firstSar != null ? firstSar : 0);
   function loadNote() { $("tamperNote").value = P.events[Number(pick.value)].note; }
