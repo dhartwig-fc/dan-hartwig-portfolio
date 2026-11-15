@@ -141,13 +141,13 @@
     <li><span class="step">Capability</span>
       <p>An extraction agent reads the advisory and writes a governed record: every typology it asserts carries a page number and a verbatim quote from a document pinned by its sha256. The agent's only write is <code>propose_link</code>, which will not record a proposal whose quote it cannot find on the cited page. A second, reviewer agent adds what the extractor missed, each addition with its justification; the owner decides each proposed link at a review gate; every decision is a dated line in an append-only log.</p></li>
     <li><span class="step">Intelligence produced</span>
-      <p><span class="count" data-count="typologies">9</span> typologies asserted in the record &mdash; <span class="count" data-count="extractor">5</span> by the extractor, <span class="count" data-count="reviewer">4</span> added by the reviewer agent, <span class="count" data-count="emergent">1</span> of them emergent (not in the typology library). Run <code>adv-2026-0013-extractor-f617bd3b00</code> made <span class="count" data-count="proposals">5</span> proposals; the owner approved <span class="count" data-count="approved">5</span> links and rejected <span class="count" data-count="rejected">0</span>.</p></li>
+      <p><span class="count" data-count="typologies">9</span> typologies asserted in the record &mdash; <span class="count" data-count="extractor">5</span> by the extractor, <span class="count" data-count="reviewer">4</span> added by the reviewer agent, <span class="count" data-count="emergent">1</span> of them emergent (not in the typology library). Run <code>adv-2026-0013-extractor-f617bd3b00</code> made <span class="count" data-count="proposals">5</span> proposals; the owner approved <span class="count" data-count="approved">9</span> links and rejected <span class="count" data-count="rejected">0</span>.</p></li>
     <li><span class="step">Investigator outcome</span>
       <p>The routing table has <span class="count" data-count="desk-total">7</span> desks; this advisory reached <span class="count" data-count="desks">3</span> desks. What each desk's digest carries for it:</p>
       <ul class="desks">
         <li class="desk">Trade desk: 0 approved; 2 awaiting review (TBML002U, TBML008)</li>
-        <li class="desk">Sanctions desk: 4 approved (SAN001, SAN003, SAN004, SAN007); 1 awaiting review (SAN005)</li>
-        <li class="desk">Correspondent banking desk: 1 approved (BA005); 1 awaiting review (BA008)</li>
+        <li class="desk">Sanctions desk: 7 approved (SAN001, SAN003, SAN004, SAN005, SAN006, SAN007, SAN009); 0 awaiting review</li>
+        <li class="desk">Correspondent banking desk: 2 approved (BA005, BA008); 0 awaiting review</li>
       </ul></li>
   </ol>
 </section>
@@ -175,28 +175,28 @@
       <td data-h="Typology"><code>SAN003</code> Transshipment</td>
       <td data-h="Family">sanctions</td>
       <td data-h="Asserted by">extractor</td>
-      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Owner">approved 2026-10-23</td>
       <td data-h="Citations"><div class="cite"><span class="pg">p1</span><blockquote>transshipment points to circumvent restrictions, disguise the involvement of Specially Designated</blockquote></div><div class="cite"><span class="pg">p3</span><blockquote>Routing purchases through certain transshipment points commonly used to illegally redirect restricted items to Russia or Belarus.  Such locations may include China</blockquote></div></td>
     </tr>
     <tr>
       <td data-h="Typology"><code>SAN004</code> Front Companies</td>
       <td data-h="Family">sanctions</td>
       <td data-h="Asserted by">extractor</td>
-      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Owner">approved 2026-10-23</td>
       <td data-h="Citations"><div class="cite"><span class="pg">p4</span><blockquote>AO PKK Milandr, which used a front company to transfer funds from Milandr to another front in</blockquote></div><div class="cite"><span class="pg">p5</span><blockquote>Claiming that shell companies located in third countries were intermediaries or end</blockquote></div></td>
     </tr>
     <tr>
       <td data-h="Typology"><code>SAN007</code> Dual Use Goods</td>
       <td data-h="Family">sanctions</td>
       <td data-h="Asserted by">extractor</td>
-      <td data-h="Owner">approved 2026-09-24</td>
+      <td data-h="Owner">approved 2026-10-23</td>
       <td data-h="Citations"><div class="cite"><span class="pg">p4</span><blockquote>Austin, Texas company, for shipping integrated circuit components, which are critical</blockquote></div><div class="cite"><span class="pg">p5</span><blockquote>The sensitive items at issue included advanced electronics and</blockquote></div></td>
     </tr>
     <tr>
       <td data-h="Typology"><code>BA008</code> Layering</td>
       <td data-h="Family">correspondent_banking</td>
       <td data-h="Asserted by">extractor</td>
-      <td data-h="Owner">awaiting review</td>
+      <td data-h="Owner">approved 2026-10-23</td>
       <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Transferring funds from shell companies in foreign jurisdictions into U.S. bank accounts</blockquote></div></td>
     </tr>
     <tr>
@@ -210,7 +210,7 @@
       <td data-h="Typology"><code>SAN005</code> Name Screening Evasion</td>
       <td data-h="Family">sanctions</td>
       <td data-h="Asserted by">reviewer</td>
-      <td data-h="Owner">awaiting review</td>
+      <td data-h="Owner">approved 2026-10-23</td>
       <td data-h="Citations"><div class="cite"><span class="pg">p5</span><blockquote>Using aliases for the identities of the intermediaries and end users21;</blockquote></div><details class="why"><summary>Reviewer&rsquo;s justification</summary><p>Found in Criminal enforcement section, tactics bullet list, page 5. SAN005 doctrine: &#x27;Name Screening Evasion is the defeat of list-based screening through the form of the name: aliases, transliterations, suffix variants... that let a listed party transact under a name an exact-match filter never flags.&#x27; The advisory alleges defendants used aliases for the intermediaries and end users in the procurement scheme -- the same mechanism of engineering the name on transaction paperwork so it will not resolve to the true (potentially listed) party during screening.</p></details></td>
     </tr>
     <tr>
@@ -268,7 +268,7 @@
 
 <section id="review">
   <h2><span class="n">05</span> Review: what the owner saw, and decided</h2>
-  <p>The decisions shown are the first 5 lines of the owner&rsquo;s decision log &mdash; the lines digest batch <code>slice1-2026-09-25</code> was built from (sha256 <span class="hash">7edd4aba25f738993abbbe2c86cfd2b554167c87e34d8a7eb1ffd32165bdb9c2</span>); 5 of them decide ADV-2026-0013.</p>
+  <p>The decisions shown are the first 28 lines of the owner&rsquo;s decision log &mdash; the lines digest batch <code>fc10-58-2026-11-15</code> was built from (sha256 <span class="hash">2dc20a9434bad268e2ce5634c16cc91a7ab62301ecb75e746453f1b8bc5f1b84</span>); 12 of them decide ADV-2026-0013.</p>
   <p>Each card is rendered by the review gate&rsquo;s own card renderer from run <code>adv-2026-0013-extractor-f617bd3b00</code>&rsquo;s queue, without the terminal&rsquo;s separator line, and followed by the owner&rsquo;s decision. &ldquo;Golden label HOLDS&rdquo; or &ldquo;LACKS&rdquo; on a card refers to this advisory&rsquo;s reference answer (its golden label), drafted and reviewed by Claude; the owner has not yet reviewed it. It was shown to the owner as context only, never a rule.</p>
   <article class="link">
     <pre>ADV-2026-0013  Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
@@ -344,6 +344,7 @@ RATIONALE
 FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
     <ul class="decisions">
       <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">mechanism developed: named transshipment hubs (p3) + Bulgarian front case (p4)</span></li>
+      <li class="decision"><time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">a</span></li>
     </ul>
   </article>
   <article class="link">
@@ -370,6 +371,7 @@ RATIONALE
 FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
     <ul class="decisions">
       <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">Milandr front-to-front transfer (p4) is the mechanism itself</span></li>
+      <li class="decision"><time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">a</span></li>
     </ul>
   </article>
   <article class="link">
@@ -398,6 +400,16 @@ RATIONALE
 FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</pre>
     <ul class="decisions">
       <li class="decision"><time>2026-09-24</time> <b class="approve">APPROVE</b> <span class="note">dual-use items to Russia (p4-5); sanctions twin correctly preferred over TBML007</span></li>
+      <li class="decision"><time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">a</span></li>
+    </ul>
+  </article>
+  <article class="link">
+    <p>Decisions on ADV-2026-0013 for links this run did not propose:</p>
+    <ul class="decisions">
+      <li class="decision"><code>BA008</code> <time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">(no note)</span></li>
+      <li class="decision"><code>SAN005</code> <time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">a</span></li>
+      <li class="decision"><code>SAN006</code> <time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">a</span></li>
+      <li class="decision"><code>SAN009</code> <time>2026-10-23</time> <b class="approve">APPROVE</b> <span class="note">(no note)</span></li>
     </ul>
   </article>
 </section>
@@ -451,24 +463,27 @@ FROM  1 proposal, runs: adv-2026-0013-extractor-f617bd3b00, stages: extractor</p
 
 <section id="digest">
   <h2><span class="n">07</span> What a desk&rsquo;s digest carries</h2>
-  <p>The advisory reached 3 desks (section 1). This is the Sanctions desk&rsquo;s entry for it, exactly as written in digest batch <code data-batch="slice1-2026-09-25">slice1-2026-09-25</code>, which was built from the first <span data-count="digest-log-lines">5</span> lines of the decision log &mdash; the same lines section 5 reads. It is markdown, shown as written; &ldquo;asserted by the pipeline&rdquo; means in the record, awaiting the owner.</p>
+  <p>The advisory reached 3 desks (section 1). This is the Sanctions desk&rsquo;s entry for it, exactly as written in digest batch <code data-batch="fc10-58-2026-11-15">fc10-58-2026-11-15</code>, which was built from the first <span data-count="digest-log-lines">28</span> lines of the decision log &mdash; the same lines section 5 reads. It is markdown, shown as written; &ldquo;asserted by the pipeline&rdquo; means in the record, awaiting the owner.</p>
   <pre class="digest">## ADV-2026-0013 -- Tri-Seal Compliance Note: Cracking Down on Third-Party Intermediaries Used to Evade Russia-Related Sanctions and Export Controls
 
 Publisher: OFAC / BIS / DOJ
 
-Routed here because: SAN001 Ownership Evasion (sanctions; owner-approved, not in the record); SAN003 Transshipment (sanctions); SAN004 Front Companies (sanctions); SAN005 Name Screening Evasion (sanctions); SAN007 Dual Use Goods (sanctions).
+Routed here because: SAN001 Ownership Evasion (sanctions; owner-approved, not in the record); SAN003 Transshipment (sanctions); SAN004 Front Companies (sanctions); SAN005 Name Screening Evasion (sanctions); SAN006 Trade Based Sanctions Evasion (sanctions; owner-approved, not in the record); SAN007 Dual Use Goods (sanctions); SAN009 Complex Ownership Structures (sanctions; owner-approved, not in the record).
 
 ### Approved links
 
 - **SAN001 Ownership Evasion** -- p2: &quot;Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries involved, particularly sanctioned jurisdictions&quot; (approved 2026-09-24)
-- **SAN003 Transshipment** -- p3: &quot;Routing purchases through certain transshipment points commonly used to illegally redirect restricted items to Russia or Belarus.&quot; (approved 2026-09-24)
-- **SAN004 Front Companies** -- p4: &quot;used a front company to transfer funds from Milandr to another front in a third country, which purchased microchips to divert to Russia&quot; (approved 2026-09-24)
-- **SAN007 Dual Use Goods** -- p4: &quot;illegally export military and sensitive dual-use items to Russia and embargoed Venezuelan oil to Russian and Chinese end users&quot; (approved 2026-09-24)
-- also approved on this advisory, for other desks: BA005 Rapid Movement
+- **SAN003 Transshipment** -- p3: &quot;Routing purchases through certain transshipment points commonly used to illegally redirect restricted items to Russia or Belarus. Such locations may include China (including Hong Kong and Macau) and jurisdictions close to Russia, including Armenia, Turkey, and Uzbekistan.&quot; (approved 2026-10-23)
+- **SAN004 Front Companies** -- p4: &quot;used a front company to transfer funds from Milandr to another front in a third country, which purchased microchips to divert to Russia&quot; (approved 2026-10-23)
+- **SAN005 Name Screening Evasion** -- p5: &quot;Using aliases for the identities of the intermediaries and end users&quot; (approved 2026-10-23)
+- **SAN006 Trade Based Sanctions Evasion** -- p5: &quot;Making false or misleading statements on shipping forms, including underestimating the purchase price of merchandise by more than five times the actual amount&quot; (approved 2026-10-23)
+- **SAN007 Dual Use Goods** -- p4: &quot;which used a front company to transfer funds from Milandr to another front in a third country, which purchased microchips to divert to Russia.&quot; (approved 2026-10-23)
+- **SAN009 Complex Ownership Structures** -- p2: &quot;Use of corporate vehicles (i.e., legal entities, such as shell companies, and legal arrangements) to obscure (i) ownership, (ii) source of funds, or (iii) countries involved, particularly sanctioned jurisdictions;&quot; (approved 2026-10-23)
+- also approved on this advisory, for other desks: BA005 Rapid Movement, BA008 Layering
 
 ### Awaiting review
 
-- SAN005 Name Screening Evasion -- asserted by the pipeline, not yet decided</pre>
+- nothing</pre>
 </section>
 
 <section id="telemetry">
@@ -497,7 +512,7 @@ Routed here because: SAN001 Ownership Evasion (sanctions; owner-approved, not in
     <dt>SDK cost estimate</dt><dd data-rc="cost_usd" data-raw="0.4985208">US$0.50 at API prices, as computed by the agent SDK; not a bill</dd>
     <dt>The run&rsquo;s own record validated</dt><dd data-rc="validated" data-raw="true">yes</dd>
   </dl>
-  <p class="flag">Run <code>adv-2026-0013-extractor-69eeab7b41</code> is neither the run the owner decided (<code>adv-2026-0013-extractor-f617bd3b00</code>, sections 4 and 5) nor the extraction the record carries (section 3): this advisory has three extractions. Its 7 successful <code>knowledge_centre_propose_link</code> calls match the 7 proposals in its queue: <span class="ids" data-set="tel-proposed">BA008, SAN003, SAN004, SAN005, SAN006, SAN007, SAN009</span>. They are separate from the decided run&rsquo;s proposals: <span data-count="tel-cited">0</span> of them are cited by any decision in the pinned log, so as proposals they remain undecided. Of the links they name, <span class="ids" data-set="tel-decided-elsewhere">SAN003, SAN004, SAN007</span> were decided on proposals from run <code>adv-2026-0013-extractor-f617bd3b00</code> (all approved); <span class="ids" data-set="tel-no-decision">BA008, SAN005, SAN006, SAN009</span> have no decision.</p>
+  <p class="flag">Run <code>adv-2026-0013-extractor-69eeab7b41</code> is neither the run the owner decided (<code>adv-2026-0013-extractor-f617bd3b00</code>, sections 4 and 5) nor the extraction the record carries (section 3): this advisory has three extractions. Its 7 successful <code>knowledge_centre_propose_link</code> calls match the 7 proposals in its queue: <span class="ids" data-set="tel-proposed">BA008, SAN003, SAN004, SAN005, SAN006, SAN007, SAN009</span>. They are separate from the decided run&rsquo;s proposals: <span data-count="tel-cited">7</span> of them are cited by any decision in the pinned log, so as proposals they remain undecided. Of the links they name, <span class="ids" data-set="tel-decided-elsewhere">BA008, SAN003, SAN004, SAN005, SAN006, SAN007, SAN009</span> were decided on proposals from run <code>adv-2026-0013-extractor-69eeab7b41</code>, <code>adv-2026-0013-extractor-f617bd3b00</code> (all approved); <span class="ids" data-set="tel-no-decision">none</span> have no decision.</p>
 </section>
 
 <section id="score">
@@ -535,7 +550,7 @@ Routed here because: SAN001 Ownership Evasion (sanctions; owner-approved, not in
     <li><strong>Actor resolution during extraction is counted, not assumed.</strong> At the snapshot of <span data-date="snapshot">2026-09-27</span>, of the <span data-count="extraction-runs">2</span> committed extraction runs with a proposal queue, <span data-count="runs-with-resolver">0</span> recorded <code>knowledge_centre_resolve_actor</code> among the agent&rsquo;s tools, <span data-count="runs-no-tool-record">2</span> recorded no list of tools, and <span data-count="runs-resolved">0</span> resolved an actor with it. The extraction agent&rsquo;s current instructions <span data-flag="prompt-names-resolver">name</span> it. The <span data-count="legacy-proposals">383</span> earlier proposals sit in one legacy queue without run ids, dated <span data-date="legacy-first">2026-09-10</span> to <span data-date="legacy-last">2026-09-13</span>. Section 6&rsquo;s resolution was run over the committed records, after extraction.</li>
     <li><strong>No actor is linked to the platform&rsquo;s entities.</strong> <span data-count="entity-keys">0</span> of the <span data-count="register">86</span> register entries carry an <code>entity_key</code>; section 6 says why.</li>
     <li><strong>Digests are built, not delivered.</strong> A batch is cut on demand; nothing sends it to a desk.</li>
-    <li><strong>Approved emergent candidates are not doctrine.</strong> An emergent typology the owner approves is recorded as approved; it is not added to the typology library. The pinned log holds <span data-count="emergent-approved">0</span> such approvals.</li>
+    <li><strong>Approved emergent candidates are not doctrine.</strong> An emergent typology the owner approves is recorded as approved; it is not added to the typology library. The pinned log holds <span data-count="emergent-approved">1</span> such approvals.</li>
     <li><strong>Undecided emergent candidates reach no digest.</strong> A digest carries an emergent typology only once the owner approves it. ADV-2026-0013&rsquo;s record holds <span data-count="emergent-undecided">1</span> emergent candidate with no standing decision (<span class="ids" data-set="emergent-undecided">Shipment Splitting to Evade Export Control Detection</span>), and no desk&rsquo;s digest mentions it.</li>
     <li><strong>Some citations are attested, not matched.</strong> <span data-count="attested">12</span> citations across the merged records are true quotes the citation matcher cannot place on their page (8 across a page break, 2 with a list bullet extracted as a letter, 1 with an accent dropped, 1 with an ellipsis spanning pages), each attested by the owner. <span data-count="attested-here">0</span> of them are on ADV-2026-0013.</li>
     <li><strong>The reference answers are Claude&rsquo;s.</strong> Every golden label was drafted and reviewed by Claude. The owner has decided the <span data-count="label-decided">15</span> entries disputed in the label pass, across <span data-count="label-advisories">7</span> advisories, and not yet the rest. Section 9&rsquo;s scores are measured against these labels.</li>
