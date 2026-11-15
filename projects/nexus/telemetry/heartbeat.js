@@ -148,7 +148,7 @@
 
     var t = eng.tiles || {}, r = t.runs || {}, f = t.feeds || {}, dr = t.drift || {}, ar = t.archive || {};
     var warn = !!dr.verdict && dr.verdict !== "PASS" && dr.verdict !== "BASELINE";
-    tile("tile-runs", "Daily run", num(r.clean) + " / " + num(r.of) + " clean", r.avg_seconds != null ? "avg " + mins(r.avg_seconds) : "", false, "",
+    tile("tile-runs", "Daily run", num(r.clean) + " / " + num(r.of) + " runs clean", r.avg_seconds != null ? "avg " + mins(r.avg_seconds) : "", false, "",
       (d.running || {}).as_of, DAY * 1.1, true, "Last daily run finished", now);
     tile("tile-feeds", "Data feeds", num(f.loaded) + " / " + num(f.of) + " loaded", f.day_status ? "day status " + f.day_status : "");
     tile("tile-drift", "Weekly drift", dr.verdict || "\u2014", dr.reason || "", warn, dr.verdict === "PASS" ? "ok" : warn ? "bad" : "",
