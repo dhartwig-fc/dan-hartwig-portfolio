@@ -24,7 +24,7 @@
   font-variant-numeric:tabular-nums}
 .cv-note{font-size:12px;color:var(--slate)}
 @media (max-width:760px){
-  .wrap table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tablewrap{-webkit-overflow-scrolling:touch}
   .cv-claim{flex:1 1 100%}
 }
 .cv-n{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);
@@ -44,7 +44,7 @@ border-bottom:1px solid var(--line);color:var(--navy)}.sub{color:#9db8dc;font-si
 padding:12px 16px;min-width:120px}.stat .n{font-size:22px;font-weight:700}
 .stat .l{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9db8dc}
 .badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700}
-.b-critical{background:#fee4e2;color:#b42318}.b-high{background:#fef0c7;color:#b45309}
+.b-critical{background:#fee4e2;color:#b42318}.b-high{background:#fef0c7;color:#92400e}
 .b-medium{background:#fef0c7;color:#a15c07}.b-low{background:#d1fadf;color:#027a48}
 .spot{background:#fff;border:1px solid var(--line);
 border-left:5px solid var(--red);border-radius:12px;padding:22px;box-shadow:0 1px 2px rgba(16,24,40,.05)}
@@ -52,7 +52,7 @@ border-left:5px solid var(--red);border-radius:12px;padding:22px;box-shadow:0 1p
 .chips{margin-top:14px}.chip{display:inline-block;background:#eff4fb;color:var(--sky);border:1px solid #d6e3f7;
 border-radius:7px;padding:4px 10px;margin:3px 6px 3px 0;font-size:12px;font-weight:600}
 .chip.res{background:#fdf3ec;color:var(--amber);border-color:#f2dcc9;font-family:var(--mono)}
-table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 12px;
+.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 12px;
 border-bottom:1px solid var(--line)}th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;
 color:var(--slate)}tbody tr:hover{background:#fbfdff}td.mono{font-family:var(--mono);font-size:12px;color:var(--slate)}
 .flags span{display:inline-block;background:var(--navy);color:#fff;border-radius:5px;padding:2px 7px;
@@ -82,7 +82,7 @@ background:#eff4fb;border:1px solid #d6e3f7;border-radius:5px;padding:1px 6px;ve
 .bsig{position:relative;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .bsig-k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);font-weight:700;margin-bottom:4px}
 .bsig-v{font-size:14px;color:var(--ink);line-height:1.4}
-.bsig-tag{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:9px;color:#94a3b8}
+.bsig-tag{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:9px;color:#5b6b82}
 .action{background:#fef3f2;border:1px solid #fdd6d3;border-radius:10px;padding:14px 16px;font-size:15px;line-height:1.55;color:#7a271a}
 .action-k{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#b42318;font-weight:800;margin-bottom:5px}
 </style></head><body>
@@ -96,7 +96,7 @@ background:#eff4fb;border:1px solid #d6e3f7;border-radius:5px;padding:1px 6px;ve
 </div></header>
 <div class="wrap">
 
-<section class='briefing'><div class='brief-top'><span class='verdict'>ESCALATE — PRIORITY</span><span class='agg'>Aggregate exposure <b>90</b> · Critical</span></div><h2 class='brief-h'>Case briefing</h2><p class='synthesis'>Nordwind Trading AG is one entity, resolved from 1 registry identifiers across network and screening intelligence <tag>SAN003</tag><tag>SAN004</tag><tag>SAN006</tag><tag>SAN007</tag><tag>SAN008</tag><tag>CMI010</tag>; carrying total exposure 90.0 <tag>exposure</tag>.</p><div class='brief-spine'><div class='bsig'><div class='bsig-k'>Indirect exposure</div><div class='bsig-v'>0 entities inherit exposure through connections</div><span class='bsig-tag'>derived</span></div></div><div class='action'><span class='action-k'>Priority action</span>Review the converging network signals on the focal entity. <tag>SAN003</tag><tag>SAN004</tag><tag>SAN006</tag><tag>SAN007</tag><tag>SAN008</tag><tag>CMI010</tag></div></section>
+<section class='briefing'><div class='brief-top'><span class='verdict'>ESCALATE — PRIORITY</span><span class='agg'>Aggregate exposure <b>90</b> · Critical</span></div><h2 class='brief-h'>Case briefing</h2><p class='synthesis'>Nordwind Trading AG is one entity, resolved from 1 registry identifier across network and screening intelligence <tag>SAN003</tag><tag>SAN004</tag><tag>SAN006</tag><tag>SAN007</tag><tag>SAN008</tag><tag>CMI010</tag>; carrying total exposure 90.0 <tag>derived</tag>.</p><div class='brief-spine'><div class='bsig'><div class='bsig-k'>Indirect exposure</div><div class='bsig-v'>0 entities inherit exposure through connections</div><span class='bsig-tag'>derived</span></div></div><div class='action'><span class='action-k'>Priority action</span>Review the converging network signals on the focal entity. <tag>SAN003</tag><tag>SAN004</tag><tag>SAN006</tag><tag>SAN007</tag><tag>SAN008</tag><tag>CMI010</tag></div></section>
 
 <h2>The verdict</h2>
 <section class="case-verdict"><p class="cv-q">Our customer is over-invoicing and trading through a shell-like counterparty — is that counterparty the same Transcaspian Trading Ltd that our sanctions analytics score as directly exposed, and does that place our customer one hop from a six-typology sanctions cluster?</p><div class="cv-claims"><div class="cv-claim"><div class="cv-l">Case aggregate</div><div class="cv-v"><span class="badge b-critical">Critical · 90</span></div><div class="cv-note">Fused across 9 products</div></div><div class="cv-claim"><div class="cv-l">Cross-product entities</div><div class="cv-v">3</div><div class="cv-note">of 11 entities resolved</div></div></div></section>
@@ -121,15 +121,15 @@ background:#eff4fb;border:1px solid #d6e3f7;border-radius:5px;padding:1px 6px;ve
 </div>
 
 <h2>Investigation review order</h2>
-<table><thead><tr><th>Entity</th><th>Flagged by</th><th>Risk</th><th>Resolved from</th></tr></thead>
-<tbody><tr><td><strong><a href="entities/CE-5338081c.html" style="color:var(--sky)">Nordwind Trading AG</a></strong></td><td class='flags'><span>SAN003</span><span>SAN004</span><span>SAN006</span><span>SAN007</span><span>SAN008</span><span>CMI010</span></td><td>SAN006 score 90</td><td class='mono'>CP1</td></tr><tr><td><strong><a href="entities/CE-fcf5b567.html" style="color:var(--sky)">Transcaspian Trading Ltd</a></strong></td><td class='flags'><span>SAN008</span><span>TBML002U</span><span>TBML009</span><span>TBML010</span></td><td>83</td><td class='mono'>CP001, ENT001</td></tr><tr><td><strong><a href="entities/CE-653d753f.html" style="color:var(--sky)">Orrowisp Nominees Ltd</a></strong></td><td class='flags'><span>SAN008</span><span>CMI010</span></td><td>SAN008 score 83</td><td class='mono'>OWN1</td></tr><tr><td><strong>Farid Brindlebutton</strong></td><td class='flags'><span>SAN006</span></td><td>SAN006 score 90</td><td class='mono'>CE-7705bead</td></tr><tr><td><strong>Evren Quillmote Partners</strong></td><td class='flags'><span>SAN007</span></td><td>SAN007 score 83</td><td class='mono'>CE-8303d06c</td></tr><tr><td><strong>Helix Digital OU</strong></td><td class='flags'><span>CMI010</span></td><td>83</td><td class='mono'>ENT001</td></tr><tr><td><strong>Apex Logistics FZE</strong></td><td class='flags'><span>SAN004</span></td><td>82</td><td class='mono'>CE-26154a68</td></tr><tr><td><strong>Ruslan Fernspindle</strong></td><td class='flags'><span>SAN004</span></td><td>SAN004 score 82</td><td class='mono'>CE-3881dcbc</td></tr></tbody></table>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Investigation review order"><table><thead><tr><th>Entity</th><th>Flagged by</th><th>Risk</th><th>Resolved from</th></tr></thead>
+<tbody><tr><td><strong><a href="entities/CE-5338081c.html" style="color:var(--sky)">Nordwind Trading AG</a></strong></td><td class='flags'><span>SAN003</span><span>SAN004</span><span>SAN006</span><span>SAN007</span><span>SAN008</span><span>CMI010</span></td><td>SAN006 score 90</td><td class='mono'>CP1</td></tr><tr><td><strong><a href="entities/CE-fcf5b567.html" style="color:var(--sky)">Transcaspian Trading Ltd</a></strong></td><td class='flags'><span>SAN008</span><span>TBML002U</span><span>TBML009</span><span>TBML010</span></td><td>83</td><td class='mono'>CP001, ENT001</td></tr><tr><td><strong><a href="entities/CE-653d753f.html" style="color:var(--sky)">Orrowisp Nominees Ltd</a></strong></td><td class='flags'><span>SAN008</span><span>CMI010</span></td><td>SAN008 score 83</td><td class='mono'>OWN1</td></tr><tr><td><strong>Farid Brindlebutton</strong></td><td class='flags'><span>SAN006</span></td><td>SAN006 score 90</td><td class='mono'>CE-7705bead</td></tr><tr><td><strong>Evren Quillmote Partners</strong></td><td class='flags'><span>SAN007</span></td><td>SAN007 score 83</td><td class='mono'>CE-8303d06c</td></tr><tr><td><strong>Helix Digital OU</strong></td><td class='flags'><span>CMI010</span></td><td>83</td><td class='mono'>ENT001</td></tr><tr><td><strong>Apex Logistics FZE</strong></td><td class='flags'><span>SAN004</span></td><td>82</td><td class='mono'>CE-26154a68</td></tr><tr><td><strong>Ruslan Fernspindle</strong></td><td class='flags'><span>SAN004</span></td><td>SAN004 score 82</td><td class='mono'>CE-3881dcbc</td></tr></tbody></table></div>
 
 
 
 <h2>Entity-resolution ledger</h2>
 <p style="color:var(--slate);margin-top:-4px">The canonical join: local ids from different products and source systems, resolved to one entity so the fusion lands on the entity, not the id.</p>
-<table><thead><tr><th>Canonical entity</th><th>Canonical id</th><th>Merged local ids</th></tr></thead>
-<tbody><tr><td><strong>Transcaspian Trading Ltd</strong></td><td class='mono'>CE-fcf5b567</td><td class='mono'>CP001 + ENT001</td></tr></tbody></table>
+<div class="tablewrap" tabindex="0" role="region" aria-label="Entity-resolution ledger"><table><thead><tr><th>Canonical entity</th><th>Canonical id</th><th>Merged local ids</th></tr></thead>
+<tbody><tr><td><strong>Transcaspian Trading Ltd</strong></td><td class='mono'>CE-fcf5b567</td><td class='mono'>CP001 + ENT001</td></tr></tbody></table></div>
 
 <h2>What each product contributed</h2>
 <div class='prod'><span class='badge b-critical' style='float:right'>Critical · 82</span><div class='pid'>SAN003</div><div class='hl'>Consignment A (MV Harmonwick) scored 82/100 (Critical); 1 shipment(s) over the alert threshold</div></div><div class='prod'><span class='badge b-critical' style='float:right'>Critical · 82</span><div class='pid'>SAN004</div><div class='hl'>Apex Logistics FZE scored 82/100 (Critical); 1 subject(s) over the alert threshold</div></div><div class='prod'><span class='badge b-critical' style='float:right'>Critical · 90</span><div class='pid'>SAN006</div><div class='hl'>Global Metals Ltd scored 90/100 (Critical); 1 subject(s) over the alert threshold</div></div><div class='prod'><span class='badge b-critical' style='float:right'>Critical · 83</span><div class='pid'>SAN007</div><div class='hl'>Vantor Instruments Ltd scored 83/100 (Critical); 1 subject(s) over the alert threshold</div></div><div class='prod'><span class='badge b-critical' style='float:right'>Critical · 83</span><div class='pid'>SAN008</div><div class='hl'>Transcaspian Trading Ltd scored 83/100 (Critical); 1 subject(s) over the alert threshold</div></div><div class='prod'><span class='badge b-critical' style='float:right'>Critical · 83</span><div class='pid'>CMI010</div><div class='hl'>Helix Digital OU scored 83/100 (Critical); 1 subject(s) over the alert threshold</div></div><div class='prod'><span class='badge b-high' style='float:right'>High · 74</span><div class='pid'>TBML002U</div><div class='hl'>Under-Invoicing scored 74/100 (High) on INV001; 1 alert(s) over threshold</div></div><div class='prod'><span class='badge b-high' style='float:right'>High · 77</span><div class='pid'>TBML009</div><div class='hl'>Shell Company Trading scored 77/100 (High) on TRD001; 1 alert(s) over threshold</div></div><div class='prod'><span class='badge b-critical' style='float:right'>Critical · 80</span><div class='pid'>TBML010</div><div class='hl'>Sanctions Evasion Through Trade scored 80/100 (Critical) on TRD001; 1 alert(s) over threshold</div></div>
