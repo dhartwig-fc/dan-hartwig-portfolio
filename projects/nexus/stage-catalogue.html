@@ -100,7 +100,7 @@ table.mx .neg{color:#c9b6a0}
     Latest wave: <a href="release-notes.html#release-v2-2" style="color:#fdba74">Beta v2.2 — the maritime case →</a>
     Since 19 October: <a href="#test-phase" style="color:#fdba74">the test phase →</a>
   </p>
-  <div class="updated">Updated <b>7 November 2026</b> · Beta v2.2 · 13,435 tests collected, 10,703 passed, 0 failed · CI-gated</div>
+  <div class="updated">Updated <b>15 November 2026</b> · Beta v2.2 · 15,218 tests collected, 11,782 passed, 0 failed · CI-gated</div>
 
   <section class="section">
     <h2>How each build shipped</h2>
@@ -143,7 +143,7 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">30 Aug</div><div class="bt">Estate committed whole<small>Every product re-manufactured and each run committed in full, so any published run can be rebuilt from a clean clone.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">31 Aug</div><div class="bt">Queue ↔ casework<small>Each task in the queue shows its casework in four explicit states; escalated entities without a case get a drafted manifest.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">3 Sep</div><div class="bt">Capital markets · CM003 product<small>Spoofing / layering manufactures as a governed product — the first capital-markets product family member.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">5 Sep</div><div class="bt">Foundation products &amp; 57/57 doctrine<small>The five foundation capabilities manufacture as FND001–FND005; doctrine is authored for all 57 typologies.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">5 Sep</div><div class="bt">Foundation products &amp; 57/57 doctrine<small>The five foundation capabilities manufacture as FND001–FND005; doctrine is authored for each of the 57 typologies then in the library.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">6 Sep</div><div class="bt">Copilot slice 3 · disposition support<small>A recommended, justified disposition against the governed workflow, settled on the real alert population.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">10 Sep</div><div class="bt">Governed publishing · five investigations<small>Five fused investigation cases public and linked; every public surface has a publisher and a gate that fails when the site falls behind its source.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">12 Sep</div><div class="bt">Ordered-path graphs<small>A third graph family draws ownership chains and cycles as a walk in order, closed only when the walk closes.</small></div><span class="pill built">Built</span></div>
@@ -177,9 +177,9 @@ table.mx .neg{color:#c9b6a0}
       <div class="step"><div class="n">13 Oct</div><div class="bt">Weekly drift check<small>A Sunday 06:00 job re-runs the batch, re-runs it again, then replays it at one worker, compares with the last good run and attributes any change to the inputs that moved. The first manual run set the baseline; the schedule was switched on 17 October.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">13 Oct</div><div class="bt">The living-ready platform<small>Ingestion now recognises an unchanged full snapshot as a no-change day, and the batch runner gains a living mode: successive days, operations once per day, a day-scoped report. Five interleaved days ran 7 of 7 phases with equal fingerprints.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">15 Oct</div><div class="bt">The living estate<small>A new estate advances one business day every weekday at 05:30: feeds, ingestion, batch, a daily metrics row and a trend page. Catch-up is capped at 5 days, outputs are retained for a rolling 5 business days, and a day is never ingested before the previous day's batch completes. The first real day (16 October) ran OK in 4 min 38 s; at the halfway check of its 20-day soak, all 11 runs were OK, median 4 min 42 s.</small></div><span class="pill built">Live</span></div>
-      <div class="step"><div class="n">15 Oct</div><div class="bt">Typology proposals<small>An unknown pattern from the regulatory scan becomes a governed typology proposal: spot, decide, propose, define, build, live. Built end to end; waiting for its first proposal.</small></div><span class="pill built">Built</span></div>
+      <div class="step"><div class="n">15 Oct</div><div class="bt">Typology proposals<small>An unknown pattern from the regulatory scan becomes a governed typology proposal: spot, decide, propose, define, build, live. Built end to end; its first proposal went live on 13 November as SAN010 Remote IT Worker Revenue.</small></div><span class="pill built">Built</span></div>
       <div class="step"><div class="n">17 Oct</div><div class="bt">The known-typology loop<small>A known pattern from the scan corroborates the typology it matches, queues the cases built on that typology for re-review (a supervisor closes them), and can propose a red flag that, once approved, is absorbed into the typology's doctrine under Risk Drivers. Live: the 23 October run corroborated six typologies (BA008, CMI010, SAN004, SAN005, SAN006, SAN009). No red flag has been approved yet.</small></div><span class="pill built">Built</span></div>
-      <div class="step next"><div class="n">Next</div><div class="bt">What is next<small>From 19 October new features are frozen for the <a href="#test-phase" style="color:var(--blue)">test phase</a>. The first typology proposal is still awaited.</small></div><span class="pill next">Next</span></div>
+      <div class="step next"><div class="n">Next</div><div class="bt">What is next<small>From 19 October new features are frozen for the <a href="#test-phase" style="color:var(--blue)">test phase</a>.</small></div><span class="pill next">Next</span></div>
     </div>
   </section>
 
@@ -202,14 +202,17 @@ table.mx .neg{color:#c9b6a0}
     <div class="ladder dated">
       <div class="step"><div class="n">19 Oct</div><div class="bt">Strategy and inventory<small>A risk inventory and a six-phase master test strategy, a regression pin on the 9,889-entity estate, and a defect register triaged and signed off.</small></div><span class="pill built">Done</span></div>
       <div class="step"><div class="n">21 Oct</div><div class="bt">An oracle from the doctrine<small>A realistic test estate, with 15 expected-outcome sheets written from the typology doctrine rather than the code and signed off typology by typology. Pass rule: recall of at least 0.95 on each typology's own hold-out.</small></div><span class="pill built">Built</span></div>
-      <div class="step"><div class="n">28 Oct</div><div class="bt">Every typology engine package-tested<small>All 57 typology engines tested as packages, and mutation-tested to show the tests catch planted faults.</small></div><span class="pill built">Done</span></div>
+      <div class="step"><div class="n">28 Oct</div><div class="bt">Every typology engine package-tested<small>The 57 typology engines of the time tested as packages, and mutation-tested to show the tests catch planted faults.</small></div><span class="pill built">Done</span></div>
       <div class="step"><div class="n">29 Oct</div><div class="bt">Obviously fictional demo names, signed off<small>Every person, company and vessel renamed across the platform and five toolkits, the analytics re-run, and a sign-off system test of the published demo with its fixes live.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">30 Oct</div><div class="bt">Paying a sanctioned party escalates the payer<small>Found by the alert disposition benchmark; three demo entities move to Critical.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">31 Oct</div><div class="bt">Published-surface fixes<small>From an audit of the published surfaces: one voyage story per shipping entity, operations figures that add up. No alert score, band or rank moved.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">1 Nov</div><div class="bt">Third fix package live<small>Product-page fixes landed, and the five investigation cases were republished from them on 2 November. No score, band or rank moved.</small></div><span class="pill built">Live</span></div>
       <div class="step"><div class="n">3 Nov</div><div class="bt">Nightly stability run green again<small>A week of red nightly runs traced to the test runner running out of disk, not to a failing test. The fixes landed; the 4 November run passed.</small></div><span class="pill built">Landed</span></div>
       <div class="step"><div class="n">4–6 Nov</div><div class="bt">Eight test nights landed<small>Nights 18 to 25: browser journeys on the operations pages, visual regression, persona walks, a restore drill, a publish-boundary review and mutation testing of the graph and operations code. The suite grew from 11,107 to 13,435 tests.</small></div><span class="pill built">Landed</span></div>
-      <div class="step"><div class="n">6–7 Nov</div><div class="bt">Findings triaged<small>Two triage rounds registered 74 defects (D188 to D261) and recorded a ruling for each. 100 of 261 registered defects are closed.</small></div><span class="pill built">Landed</span></div>
+      <div class="step"><div class="n">6–7 Nov</div><div class="bt">Findings triaged<small>Two triage rounds registered 74 defects (D188 to D261) and recorded a ruling for each. The register then held 261 defects, 100 of them closed.</small></div><span class="pill built">Landed</span></div>
+      <div class="step"><div class="n">8 Nov</div><div class="bt">Night 26 landed<small>A screening-threshold sweep, a replay of the SAR register, the alert table at up to 10×, a second console error sweep, a secrets review and a second mutation round.</small></div><span class="pill built">Landed</span></div>
+      <div class="step"><div class="n">12–15 Nov</div><div class="bt">Eight combined landings<small>Publishing, adapters, the batch with SAN010, the operations group, SAN010's worked walk, entity resolution, night 33 and the specification and operating-model documents. The suite grew to 15,218 tests collected, 11,782 passed, 0 failed, and 216 of 279 registered defects are closed.</small></div><span class="pill built">Landed</span></div>
+      <div class="step"><div class="n">14 Nov</div><div class="bt">SAN010, the 58th typology<small>The first typology proposal from the regulatory scan landed on main as SAN010 Remote IT Worker Revenue, and its Knowledge Centre page went public. All 58 typology engines tested as packages, and doctrine is authored for all 58 typologies.</small></div><span class="pill built">Live</span></div>
       <div class="step next"><div class="n">Next</div><div class="bt">Measured, not just tested<small>The first measurement round on the realistic estate, giving each typology a recall figure and the entity resolver an F1 score.</small></div><span class="pill next">Next</span></div>
     </div>
   </section>
@@ -241,7 +244,7 @@ table.mx .neg{color:#c9b6a0}
   </section>
 
   <div class="foot">
-    NEXUS · Stage Catalogue · delivery record + rollout gate · updated 2026-11-07 —
+    NEXUS · Stage Catalogue · delivery record + rollout gate · updated 2026-11-15 —
     <a href="release-notes.html">release notes →</a> · <a href="platform-roadmap.html">roadmap →</a> · <a href="mission-status.html">status →</a>
   </div>
 

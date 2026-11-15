@@ -97,13 +97,23 @@ table.mx .neg{color:#c9b6a0}
     all on synthetic data. The full delivery record, wave by wave, is in the
     <a href="stage-catalogue.html" style="color:var(--blue)">stage catalogue</a>.
   </p>
-  <div class="updated">Updated <b>7 November 2026</b> · Beta v2.2 · 10,703 tests passed, 0 failed, CI-gated</div>
+  <div class="updated">Updated <b>15 November 2026</b> · Beta v2.2 · 11,782 tests passed, 0 failed, CI-gated</div>
 
   <section class="section" id="since-v2-2">
     <h2>Since Beta v2.2</h2>
     <div class="ladder">
 
-      <div class="step"><div class="n">✦</div><div class="bt">Twenty-three fixes to what the public site publishes<small>One combined landing on 12 November. Every publish path now refuses a page that carries a local file path, a path into the private design records, or anything shaped like a credential, and it reads encoded links as a browser does, so a disguised link to an internal page is refused too. Every <a href="knowledge-centre/index.html" style="color:var(--blue)">Knowledge Centre</a> page declares its language and its muted text meets the 4.5:1 contrast standard. The <a href="data-dictionary/index.html" style="color:var(--blue)">data dictionary</a> and the operations MI page were republished from the change. No alert score, band or rank moved.</small></div><span class="pill built">Live</span></div>
+      <div class="step"><div class="n">✦</div><div class="bt">Investigation cases that name their own subjects<small>The five <a href="investigation/case.html" style="color:var(--blue)">investigation cases</a> and the <a href="explorer/index.html" style="color:var(--blue)">explorer</a> were republished on 15 November from the adapter and entity-resolution landings. Each product page names its own subject, and the explorer carries SAN010.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">An operations dashboard in plain words<small>The <a href="runtime-demo/ops_dashboard.html" style="color:var(--blue)">ops dashboard</a> shows reader words where it showed system values for case states, SAR stages, the reporting regime and deadline status, and its tiles and tables fit a phone. <a href="runtime-demo/ops_mi.html" style="color:var(--blue)">Operations MI</a> explains why cases opened are not products plus master cases, and each page names the dataset it shows. Both were republished on 15 November.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Ownership labelled precisely<small>On the <a href="runtime-demo/console.html" style="color:var(--blue)">console</a>, the owner shown on a case is labelled as the ultimate owner (majority control), and the copilot&rsquo;s score sentence names where its score comes from. Republished on 15 November.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">See the pattern step by step<small><a href="knowledge-centre/knowledge/SAN010.html#how-this-pattern-looks" style="color:var(--blue)">SAN010&rsquo;s page</a> carries a worked walk, &ldquo;How this pattern looks&rdquo;: each step shows the evidence, the rule applied and whether it was found, on a synthetic sample subject. It is built from the committed release run, so anyone with the repository rebuilds the same walk.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">A new typology from a live advisory<small>The <a href="knowledge-centre/index.html" style="color:var(--blue)">Knowledge Centre</a> now holds 58 typologies. The new one, <a href="knowledge-centre/knowledge/SAN010.html" style="color:var(--blue)">SAN010 Remote IT Worker Revenue</a>, started as a pattern the threat-intelligence scan found in a public advisory, was proposed, written up as doctrine, built as an engine in the sanctions toolkit and released through the same gates as every other typology. On 21 pages the numbered detection rules are now a list, one rule per line. Every page has a phone layout.</small></div><span class="pill built">Live</span></div>
+
+      <div class="step"><div class="n">✦</div><div class="bt">Fixes to what the public site publishes<small>One combined landing on 12 November. Every publish path now refuses a page that carries a local file path, a path into the private design records, or anything shaped like a credential, and it reads encoded links as a browser does, so a disguised link to an internal page is refused too. Every <a href="knowledge-centre/index.html" style="color:var(--blue)">Knowledge Centre</a> page declares its language and its muted text meets the 4.5:1 contrast standard. The <a href="data-dictionary/index.html" style="color:var(--blue)">data dictionary</a> and the operations MI page were republished from the change. No alert score, band or rank moved.</small></div><span class="pill built">Live</span></div>
 
       <div class="step"><div class="n">✦</div><div class="bt">More fixes from the nightly test runs<small>Two combined landings on 11 November, now live on the <a href="runtime-demo/console.html" style="color:var(--blue)">console</a>. Filing a SAR follows the governed workflow: the case passes QA and the nominated officer, and only the analyst assigned to a case can start it. The Pattern panel draws the walk its title names, and Deltaforge's spoofing walk shows spoofing evidence. Switching lens, or returning from an evidence record, keeps the selected case open. The audit trail is the case's real history. Silverline's card counts nine distinct typologies, not ten. The vessel card's controls work from the keyboard, and clearing every filter says so instead of showing an empty queue. Behind the scenes, daily ingestion can now heal a day blocked by a sequence gap. No alert score, band or rank moved.</small></div><span class="pill built">Live</span></div>
 
@@ -123,7 +133,7 @@ table.mx .neg{color:#c9b6a0}
 
       <div class="step"><div class="n">✦</div><div class="bt">A governed data dictionary<small>The <a href="data-dictionary/index.html" style="color:var(--blue)">data dictionary</a> is built from the governed <code>data_dictionary.yaml</code> and lists every table it governs, pillar by pillar. It is checked against the generators' real CSV headers and the ingest table map, so the page, the data and the loader cannot drift apart unnoticed.</small></div><span class="pill built">Live</span></div>
 
-      <div class="step next"><div class="n">◆</div><div class="bt">A test phase before the next features<small>From 19 October new features are frozen for about twelve weeks while the platform is tested in six phases. Agents run test packages every night against a fixed baseline, and each new test is seen to fail before it is trusted: the suite has grown from 6,377 tests to 13,435, all 57 typology engines are package-tested, and 100 of 261 registered defects are closed. The expected outcomes for the realistic test estate are written from the typology doctrine, never from the code, and signed off typology by typology. At day 20 of about 84 &mdash; <a href="testing.html" style="color:var(--blue)">status by phase</a>.</small></div><span class="pill next">In progress</span></div>
+      <div class="step next"><div class="n">◆</div><div class="bt">A test phase before the next features<small>From 19 October new features are frozen for about twelve weeks while the platform is tested in six phases. Agents run test packages every night against a fixed baseline, and each new test is seen to fail before it is trusted: the suite has grown from 6,377 tests to 15,218, all 58 typology engines are package-tested, and 216 of 279 registered defects are closed. The expected outcomes for the realistic test estate are written from the typology doctrine, never from the code, and signed off typology by typology. At day 28 of about 84 &mdash; <a href="testing.html" style="color:var(--blue)">status by phase</a>.</small></div><span class="pill next">In progress</span></div>
 
     </div>
   </section>
@@ -152,7 +162,7 @@ table.mx .neg{color:#c9b6a0}
   </section>
 
   <div class="foot">
-    NEXUS · Beta v2.2 release notes · updated 2026-11-07 —
+    NEXUS · Beta v2.2 release notes · updated 2026-11-15 —
     <a href="stage-catalogue.html">stage catalogue →</a> · <a href="platform-roadmap.html">roadmap →</a>
   </div>
 
