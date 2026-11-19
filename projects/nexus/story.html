@@ -359,7 +359,7 @@
   function renderRight(r) {
     var h = "";
     if (r === "intro") h = '<p class="panelt">Entity · case</p><p class="panels">Select an alert to see why it scored, and to work the case.</p>' +
-      '<div class="two"><div class="sc m"><div class="big">4</div><div class="lbl">worked cases</div><p>AML, sanctions and market abuse on one substrate</p></div><div class="sc v"><div class="big">1</div><div class="lbl">resolved graph</div><p>scored, explored and cased in one place</p></div></div>';
+      '<div class="two"><div class="sc m"><div class="big">5</div><div class="lbl">worked cases</div><p>AML, sanctions and market abuse on one substrate</p></div><div class="sc v"><div class="big">1</div><div class="lbl">resolved graph</div><p>scored, explored and cased in one place</p></div></div>';
     else if (r === "macro") h = '<p class="panelt">Macro triage · Crans Resources</p><p class="panels">Additive risk points across every signal, capped at 100</p>' +
       MACRO.map(function (m) {
         return '<div class="comp"><div class="cl"><span>' + esc(m[0]) + '</span><span class="cv">+' + m[1] + '</span></div><div class="bar"><i data-w="' + (m[1] / 45 * 100).toFixed(0) + '" style="background:#e9c877"></i></div></div>';
