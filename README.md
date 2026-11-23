@@ -1,185 +1,71 @@
 # Dan Hartwig
 
-# Financial Crime Intelligence Platform Portfolio
+# Financial Crime Intelligence Portfolio
 
 Emerging Threat Intelligence • Network Intelligence • Financial Crime Analytics • Artificial Intelligence
 
----
-
-## Executive Summary
-
-This portfolio demonstrates the design and implementation of an intelligence-led Financial Crime Investigation Platform.
-
-The platform integrates:
-
-- Emerging Threat Intelligence
-- Detection Strategy
-- Network Intelligence
-- Financial Crime Analytics
-- Investigation Intelligence
-- Artificial Intelligence
-- Governance & Transformation
-
-Rather than presenting isolated analytical solutions, the portfolio demonstrates how emerging threats can be transformed into operational detection capabilities, investigation workflows and AI-assisted investigator decision support.
+Live site: **https://dhartwig-fc.github.io/dan-hartwig-portfolio/**
 
 ---
 
-## Financial Crime Intelligence Platform
+## What this repository is
 
-```text
-Emerging Threat Intelligence
-        ↓
-Detection Strategy
-        ↓
-Network Intelligence
-        ↓
-Financial Crime Analytics
-        ↓
-Investigation Intelligence
-        ↓
-AI Investigator Copilot
-        ↓
-Conversational Copilot
-        ↓
-Investigator Decision Support
-```
+This repository is the source of the portfolio website, published with GitHub Pages.
 
-The objective is to transform intelligence into operational capability.
+- **The landing page (`index.html`)** is about Dan Hartwig: background, approach and featured work.
+- **NEXUS (`projects/nexus/`)** is the featured work: a Financial Crime Intelligence Platform, presented through a live demo console and its supporting pages.
+
+All data shown anywhere on the site is synthetic demonstration data.
 
 ---
 
-## Core Capability Areas
+## NEXUS: the Financial Crime Intelligence Platform
 
-| Domain | Focus Areas |
-|----------|----------|
-| Emerging Threat Intelligence | Horizon Scanning, Threat Assessment, Emerging Typologies |
-| Detection Strategy | Threat-to-Detection Mapping, Scenario Engineering |
-| Network Intelligence | Entity Resolution, Relationship Discovery, Beneficial Ownership |
-| Financial Crime Analytics | TBML, Correspondent Banking, Capital Markets, Sanctions |
-| Investigation Intelligence | Intelligence Generation, Case Intelligence, Orchestration |
-| Artificial Intelligence | Investigator Copilots, Conversational Intelligence |
-| Governance | Explainability, Controls, Oversight |
-| Transformation | Operating Models, Roadmaps, Strategy |
+NEXUS fuses detection, sanctions screening and a governed case, SAR and QA workflow on one picture of resolved entities and money flows. It has 57 governed typologies across five families: network intelligence, trade-based money laundering, sanctions, correspondent banking and capital markets. It is a reference build on synthetic data, and since 19 October 2026 it has been in a test phase with new features frozen.
 
----
+| Page | What it shows |
+|------|---------------|
+| [NEXUS home](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/) | The platform overview and the Demo Library |
+| [Investigator console](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/runtime-demo/console.html) | The live demo: the alert queue, the investigator workspace and the copilot case tours |
+| [NEXUS in 60 seconds](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/story.html) | From the queue to a filed SAR |
+| [Console walkthrough](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/walkthrough.html) | A guided tour of the console |
+| [Published investigations](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/investigation/) | Fused investigation cases, linked to one another |
+| [Entity Explorer](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/explorer/) | The resolved entity graph |
+| [Knowledge Centre](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/knowledge-centre/) | The doctrine for every typology |
+| [Data Dictionary](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/data-dictionary/) | The governed data model |
+| [Threat intelligence walkthrough](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/threat-intel/) | One advisory, from PDF to owner-approved typology links |
+| [Telemetry heartbeat](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/telemetry/) | The daily living-estate runs |
+| [Mission status](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/mission-status.html) | What is built, in flight and next |
+| [Test phase](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/testing.html) | Progress of the test phase |
+| [Platform roadmap](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/platform-roadmap.html) | The phase arc |
+| [Stage catalogue](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/stage-catalogue.html) | How each build shipped |
+| [Release notes](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/release-notes.html) | What changed in each release |
+| [Governance and assurance pack](https://dhartwig-fc.github.io/dan-hartwig-portfolio/projects/nexus/governance-pack.html) | The sign-off documents and their status |
 
-# Featured Repositories
+### How the NEXUS pages are published
 
-## Financial Crime Analytics Showcase
-
-The flagship repository demonstrating the complete Financial Crime Intelligence Platform architecture.
-
-Coverage includes:
-
-- Network Intelligence
-- TBML Analytics
-- Correspondent Banking Analytics
-- Capital Markets Analytics
-- Sanctions Exposure Analytics
-- AI Investigator Copilot
-- Investigation Intelligence Architecture
-
-Repository:
-
-https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase
+The NEXUS platform is a private repository. Most pages under `projects/nexus/` are built there and copied here by governed publishers, each checked by a staleness gate, so **do not edit those pages by hand**: the next publish overwrites them, and the gates treat a hand edit as drift. Change the platform, then republish.
 
 ---
 
-## AI Investigator Copilot
+## Repositories
 
-The operational intelligence layer that transforms analytical findings into investigator-ready intelligence products.
+Public repositories in the portfolio:
 
-Coverage includes:
+| Repository | What it holds |
+|------------|---------------|
+| [fc-01 Financial Crime Analytics Showcase](https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase) | The June 2026 capability showcase, kept as a record; NEXUS is the live showcase |
+| [fc-02 Transformation & Delivery Framework](https://github.com/dhartwig-fc/fc-02-transformation-delivery-framework) | The delivery method, and how NEXUS was delivered with it |
+| [fc-06 Correspondent Banking Analytics Toolkit](https://github.com/dhartwig-fc/fc-06-correspondent-banking-analytics-toolkit) | BA001–BA010 typology engines, doctrine and tests |
+| [fc-07 Capital Markets Analytics Toolkit](https://github.com/dhartwig-fc/fc-07-capital-markets-analytics-toolkit) | CM001–CM010 market-abuse typology engines, doctrine and tests |
+| [fc-08 Emerging Threat Intelligence](https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence) | Horizon scanning and threat intelligence that feeds NEXUS |
+| [fc-09 Detection Strategy Library](https://github.com/dhartwig-fc/fc-09-detection-strategy-library) | Threat-to-detection mapping (planned) |
+| [fc-prot01 AML Alert Triage](https://github.com/dhartwig-fc/fc-prot01-aml-alert-triage) | June 2026 alert-triage prototype |
+| [fc-prot02 AI Investigator Copilot](https://github.com/dhartwig-fc/fc-prot02-ai-investigator-copilot) | June 2026 copilot prototype; the NEXUS copilot case flow supersedes it |
+| [fc-rm01 AI Transformation Roadmap](https://github.com/dhartwig-fc/fc-rm01-ai-transformation-roadmap) | A structured AI learning roadmap |
+| [fc-rm02 Transformation AI Lab](https://github.com/dhartwig-fc/fc-rm02-transformation-ai-lab) | AI lab work with RAG, agentic AI and MCP |
 
-- Threat Intelligence Agents
-- Case Intelligence Agents
-- Orchestration Agents
-- Investigation Support Workflows
-- Conversational Copilot
-
-Repository:
-
-https://github.com/dhartwig-fc/fc-01-financial-crime-analytics-showcase/tree/main/05-ai-investigator-copilot
-
----
-
-## AI Investigator Copilot Prototype
-
-Practical implementation of AI-assisted investigator workflows.
-
-Coverage includes:
-
-- Alert Enrichment
-- Risk Explanation
-- Narrative Generation
-- Investigation Guidance
-- Conversational Intelligence
-
-Repository:
-
-https://github.com/dhartwig-fc/fc-prot02-ai-investigator-copilot
-
----
-
-## Emerging Threat Intelligence
-
-Research repository focused on horizon scanning, typology discovery and future analytical capabilities.
-
-Coverage includes:
-
-- Agentic AI
-- Digital Assets
-- Synthetic Identities
-- Shadow Fleets
-- Trade-Based Sanctions Evasion
-- Geopolitical Risk
-
-Repository:
-
-https://github.com/dhartwig-fc/fc-08-emerging-threat-intelligence
-
----
-
-## Transformation AI Lab
-
-Experimental environment for Agentic AI, MCP, RAG and orchestration frameworks.
-
-Coverage includes:
-
-- Agentic AI
-- MCP
-- RAG
-- Prompt Engineering
-- AI Architecture Patterns
-- Experimentation
-
-Repository:
-
-https://github.com/dhartwig-fc/fc-rm02-transformation-ai-lab
-
----
-
-## Recommended Reading Path
-
-For first-time readers:
-
-```text
-Financial Crime Analytics Showcase
-        ↓
-Network Intelligence
-        ↓
-Financial Crime Analytics
-        ↓
-AI Investigator Copilot
-        ↓
-Conversational Copilot
-        ↓
-AI Investigator Copilot Prototype
-        ↓
-Transformation AI Lab
-        ↓
-Emerging Threat Intelligence
-```
+The NEXUS platform itself, the network-intelligence, TBML and sanctions toolkits, and the delivery model are private repositories. Their work is shown through the NEXUS pages above.
 
 ---
 
@@ -194,27 +80,15 @@ The future operating model is:
 - AI-Augmented
 - Investigator-Centric
 
-This portfolio demonstrates how intelligence, analytics and AI can be integrated into a connected Financial Crime Investigation Platform.
-
-The objective is not simply better detection.
-
-The objective is transforming intelligence into investigator decision support.
+The objective is not simply better detection. The objective is transforming intelligence into investigator decision support.
 
 ---
 
-## Portfolio Links
+## Links
 
-### LinkedIn
-
-https://www.linkedin.com/in/dan-hartwig-financial-crime
-
-### GitHub
-
-https://github.com/dhartwig-fc
-
-### Portfolio Website
-
-https://dhartwig-fc.github.io/dan-hartwig-portfolio/
+- LinkedIn: https://www.linkedin.com/in/dan-hartwig-financial-crime
+- GitHub: https://github.com/dhartwig-fc
+- Portfolio website: https://dhartwig-fc.github.io/dan-hartwig-portfolio/
 
 ---
 
@@ -222,8 +96,8 @@ https://dhartwig-fc.github.io/dan-hartwig-portfolio/
 
 This portfolio contains educational, conceptual and demonstration materials intended to illustrate Financial Crime transformation, analytics, intelligence and AI-enabled operating models.
 
-It does not contain client information, proprietary methodologies or confidential data.
+It does not contain client information, proprietary methodologies or confidential data. All data is synthetic.
 
 ---
 
-© 2026 Dan Hartwig | Financial Crime Intelligence Platform Portfolio
+© 2026 Dan Hartwig | Financial Crime Intelligence Portfolio
