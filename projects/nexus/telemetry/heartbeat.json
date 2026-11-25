@@ -2,7 +2,7 @@
  "also_caught": [],
  "archive": {
   "latest": {
-   "day": "2026-11-23",
+   "day": "2026-11-24",
    "state": "shipped"
   },
   "not_safe": 1
@@ -10,11 +10,6 @@
  "case_of_day": null,
  "dashboard": {
   "backlog": [
-   {
-    "day": "2026-10-27",
-    "new_breaches": 35,
-    "unassigned": 2022
-   },
    {
     "day": "2026-10-28",
     "new_breaches": 5,
@@ -109,19 +104,14 @@
     "day": "2026-11-23",
     "new_breaches": 1,
     "unassigned": 631
+   },
+   {
+    "day": "2026-11-24",
+    "new_breaches": 0,
+    "unassigned": 242
    }
   ],
   "flow": [
-   {
-    "by_band": {
-     "Critical": 0,
-     "High": 0,
-     "Medium": 93
-    },
-    "day": "2026-10-27",
-    "sars": 5,
-    "state": "ok"
-   },
    {
     "by_band": {
      "Critical": 0,
@@ -311,15 +301,25 @@
     "day": "2026-11-23",
     "sars": 9,
     "state": "ok"
+   },
+   {
+    "by_band": {
+     "Critical": 8,
+     "High": 0,
+     "Medium": 3
+    },
+    "day": "2026-11-24",
+    "sars": 12,
+    "state": "ok"
    }
   ],
   "kpis": {
-   "new_breaches": 1,
-   "new_cases": 7,
+   "new_breaches": 0,
+   "new_cases": 11,
    "new_cases_opening": false,
-   "sars_to_date": 1003,
-   "unassigned": 631,
-   "unassigned_change": -393
+   "sars_to_date": 1015,
+   "unassigned": 242,
+   "unassigned_change": -389
   },
   "notes": {
    "bands": "Case severity and alert severity are separate scales.",
@@ -503,34 +503,25 @@
      "stage": "Drafted"
     },
     {
-     "count": 453,
+     "count": 332,
      "stage": "Officer review"
     },
     {
-     "count": 1,
+     "count": 0,
      "stage": "Approved"
     },
     {
-     "count": 0,
+     "count": 1,
      "stage": "Submitted"
     },
     {
-     "count": 549,
+     "count": 682,
      "stage": "Acknowledged"
     }
    ]
   }
  },
  "days": [
-  {
-   "alerts": 1500,
-   "day": "2026-10-27",
-   "decided": 5,
-   "opening_load": false,
-   "reason": null,
-   "recovered_on": null,
-   "status": "ok"
-  },
   {
    "alerts": 1500,
    "day": "2026-10-28",
@@ -701,10 +692,29 @@
    "reason": null,
    "recovered_on": null,
    "status": "ok"
+  },
+  {
+   "alerts": 1500,
+   "day": "2026-11-24",
+   "decided": 400,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "ok"
   }
  ],
  "engineering": {
   "history": [
+   {
+    "days": [
+     "2026-11-24"
+    ],
+    "outcome": "OK",
+    "reason": "",
+    "run": "2026-11-25T05-30-01",
+    "seconds": 1141.9,
+    "slowest_step": "batch"
+   },
    {
     "days": [
      "2026-11-23"
@@ -892,16 +902,6 @@
     "run": "2026-10-30T05-30-01",
     "seconds": 278.2,
     "slowest_step": "batch"
-   },
-   {
-    "days": [
-     "2026-10-28"
-    ],
-    "outcome": "OK",
-    "reason": "",
-    "run": "2026-10-29T05-30-06",
-    "seconds": 295.8,
-    "slowest_step": "batch"
    }
   ],
   "phases": [
@@ -937,17 +937,17 @@
   "pinned": [],
   "queue": {
    "backlog_trend": [
-    2415,
     2422,
     2439,
     2449,
-    2456
+    2456,
+    2467
    ],
-   "breaches_today": 1,
-   "open": 2456,
-   "qa_open": 786,
+   "breaches_today": 0,
+   "open": 2467,
+   "qa_open": 1172,
    "sanctions_open": 242,
-   "unassigned": 631
+   "unassigned": 242
   },
   "tiles": {
    "archive": {
@@ -964,7 +964,7 @@
     "of": 8
    },
    "runs": {
-    "avg_seconds": 437.7,
+    "avg_seconds": 482.2,
     "clean": 20,
     "of": 20
    }
@@ -972,8 +972,206 @@
  },
  "estate": "living-01",
  "learning": {
-  "as_of": "2026-11-20T10:00:00+00:00",
+  "as_of": "2026-11-24T12:00:00+00:00",
   "events": [
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-25 of BA007: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-27 of CM002: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-18 of CMI010: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-24 of CMI010: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-26 of PAT002: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-22 of PAT007: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-21 of SAN001: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-20 of SAN002: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-23 of SAN002: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-28 of SAN002: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-24T12:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-19 of SAN004: closed, unchanged",
+    "kind": "rereview_closed"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "National Crime Agency · Operation Machinize: NCA-coordinated crackdown across the UK as work to reclaim the high street gathers pace - National",
+    "internal": "corroborates BA007",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-25 of BA007: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "Financial Conduct Authority · Man sentenced over £154m fake takeover bid targeting UK-listed company",
+    "internal": "corroborates CM002",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-27 of CM002: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "OFAC · North Korea Designations; Democratic Republic of the Congo-related Designations",
+    "internal": "corroborates CMI010",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "Federal Bureau of Investigation · North Korea Responsible for $6 Billion+ Binance Attack — FBI",
+    "internal": "corroborates CMI010",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-18 of CMI010: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-24 of CMI010: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "National Crime Agency · Two more suspected international money launderers lose £55m to the NCA - National Crime Agency",
+    "internal": "corroborates PAT002",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-26 of PAT002: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "U.S. Department of the Treasury, Office of Foreign Assets Control (OFAC) · Cyber-related and Transnational Criminal Organizations Designations; Cuba Designations; Publication of Cuba-related Dete",
+    "internal": "corroborates PAT007",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-22 of PAT007: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "U.S. Department of the Treasury, Office of Foreign Assets Control · Settlement Agreement between the U.S. Department of the Treasury's Office of Foreign Assets Control and Extreme Networks",
+    "internal": "corroborates SAN001",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-21 of SAN001: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "U.S. Department of the Treasury, Office of Foreign Assets Control (OFAC) · Iran-related Designations; Belarus and North Korea Designations Removals; Issuance of Iran-related and Russia-related Ge",
+    "internal": "corroborates SAN002",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "U.S. Department of the Treasury, Office of Foreign Assets Control (OFAC) · Cyber-related and Transnational Criminal Organizations Designations; Cuba Designations; Publication of Cuba-related Dete",
+    "internal": "corroborates SAN002",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "Office of Foreign Assets Control (OFAC) · advisory ADV-2026-0042",
+    "internal": "corroborates SAN002",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-20 of SAN002: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-23 of SAN002: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-28 of SAN002: raised",
+    "kind": "rereview_raised"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": "OFAC · North Korea Designations; Democratic Republic of the Congo-related Designations",
+    "internal": "corroborates SAN004",
+    "kind": "corroboration"
+   },
+   {
+    "at": "2026-11-23T18:00:00+00:00",
+    "external": null,
+    "internal": "Re-review RR-19 of SAN004: raised",
+    "kind": "rereview_raised"
+   },
    {
     "at": "2026-11-20T10:00:00+00:00",
     "external": null,
@@ -1214,24 +1412,24 @@
  "no_scheme_text": "No planted scheme surfaced today",
  "provenance": {
   "authority": "LOCKED",
-  "fc10_commit": "7c5a9649a0892c0a79eb4962393a0d0597a5fe30",
-  "run_id": "2026-11-24T05-30-00",
+  "fc10_commit": "711205d12e9b3790588a154ca514119037574b61",
+  "run_id": "2026-11-25T05-30-01",
   "titles_from": "fc-08"
  },
- "published_at": "2026-11-24T05:49:23+00:00",
+ "published_at": "2026-11-25T05:51:39+00:00",
  "pulse_note": null,
  "risk": {
-  "critical": 6,
+  "critical": 8,
   "days_known": 20,
   "level": "Normal",
-  "reason": "Critical cases 6 vs a usual 8.8 · SAR referrals 9 vs a usual 48",
-  "sars": 9,
-  "usual_critical": 8.8,
-  "usual_sars": 47.95
+  "reason": "Critical cases 8 vs a usual 9.1 · SAR referrals 12 vs a usual 48.1",
+  "sars": 12,
+  "usual_critical": 9.1,
+  "usual_sars": 48.15
  },
  "running": {
-  "as_of": "2026-11-24T05:46:39+00:00",
-  "avg_seconds": 429.9,
+  "as_of": "2026-11-25T05:49:06+00:00",
+  "avg_seconds": 472.9,
   "clean": 20,
   "of": 20
  },
@@ -1245,17 +1443,17 @@
   "honesty": "A simulated bank, run every business morning at 05:30 the way a production monitoring system would be. It catches the laundering planted in it.",
   "of": 20,
   "on_time": 20,
-  "reporting_day": "2026-11-23",
-  "reporting_label": "Monday's activity, processed Tuesday 05:30 UK time",
+  "reporting_day": "2026-11-24",
+  "reporting_label": "Tuesday's activity, processed Wednesday 05:30 UK time",
   "running": true
  },
  "synthetic": true,
  "today": {
-  "critical": 6,
-  "day": "2026-11-23",
+  "critical": 8,
+  "day": "2026-11-24",
   "intake_transactions": 400,
-  "new_cases": 7,
-  "run_seconds": 995.4,
-  "sars": 9
+  "new_cases": 11,
+  "run_seconds": 1141.9,
+  "sars": 12
  }
 }
