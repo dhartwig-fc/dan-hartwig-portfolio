@@ -2,19 +2,19 @@
  "also_caught": [],
  "archive": {
   "latest": {
-   "day": "2026-11-24",
+   "day": "2026-11-25",
    "state": "shipped"
   },
   "not_safe": 1
  },
- "case_of_day": null,
+ "case_of_day": {
+  "band": "Critical",
+  "facts": "PAT001 · Critical · score 25 · 2 signals",
+  "story": "In this planted test scheme, companies that looked unrelated shared a person who directed or controlled them. Each company had ordinary filings on its own. NEXUS connected them through that shared person. The case scored 25 (Critical), and its strongest single signal was a counterparty that matched a watch list. It was referred to the nominated officer for a suspicious activity report.",
+  "title": "Hidden network"
+ },
  "dashboard": {
   "backlog": [
-   {
-    "day": "2026-10-28",
-    "new_breaches": 5,
-    "unassigned": 2095
-   },
    {
     "day": "2026-10-29",
     "new_breaches": 10,
@@ -109,19 +109,14 @@
     "day": "2026-11-24",
     "new_breaches": 0,
     "unassigned": 242
+   },
+   {
+    "day": "2026-11-25",
+    "new_breaches": 190,
+    "unassigned": 242
    }
   ],
   "flow": [
-   {
-    "by_band": {
-     "Critical": 0,
-     "High": 0,
-     "Medium": 78
-    },
-    "day": "2026-10-28",
-    "sars": 5,
-    "state": "ok"
-   },
    {
     "by_band": {
      "Critical": 0,
@@ -311,15 +306,25 @@
     "day": "2026-11-24",
     "sars": 12,
     "state": "ok"
+   },
+   {
+    "by_band": {
+     "Critical": 8,
+     "High": 0,
+     "Medium": 2
+    },
+    "day": "2026-11-25",
+    "sars": 10,
+    "state": "ok"
    }
   ],
   "kpis": {
-   "new_breaches": 0,
-   "new_cases": 11,
+   "new_breaches": 190,
+   "new_cases": 10,
    "new_cases_opening": false,
-   "sars_to_date": 1015,
+   "sars_to_date": 1025,
    "unassigned": 242,
-   "unassigned_change": -389
+   "unassigned_change": 0
   },
   "notes": {
    "bands": "Case severity and alert severity are separate scales.",
@@ -503,7 +508,7 @@
      "stage": "Drafted"
     },
     {
-     "count": 332,
+     "count": 209,
      "stage": "Officer review"
     },
     {
@@ -511,26 +516,17 @@
      "stage": "Approved"
     },
     {
-     "count": 1,
+     "count": 0,
      "stage": "Submitted"
     },
     {
-     "count": 682,
+     "count": 816,
      "stage": "Acknowledged"
     }
    ]
   }
  },
  "days": [
-  {
-   "alerts": 1500,
-   "day": "2026-10-28",
-   "decided": 5,
-   "opening_load": false,
-   "reason": null,
-   "recovered_on": null,
-   "status": "ok"
-  },
   {
    "alerts": 1500,
    "day": "2026-10-29",
@@ -701,10 +697,29 @@
    "reason": null,
    "recovered_on": null,
    "status": "ok"
+  },
+  {
+   "alerts": 1500,
+   "day": "2026-11-25",
+   "decided": 110,
+   "opening_load": false,
+   "reason": null,
+   "recovered_on": null,
+   "status": "ok"
   }
  ],
  "engineering": {
   "history": [
+   {
+    "days": [
+     "2026-11-25"
+    ],
+    "outcome": "OK",
+    "reason": "",
+    "run": "2026-11-26T05-30-00",
+    "seconds": 1010.8,
+    "slowest_step": "batch"
+   },
    {
     "days": [
      "2026-11-24"
@@ -892,16 +907,6 @@
     "run": "2026-10-30T09-22-27",
     "seconds": 2.4,
     "slowest_step": "estate_state"
-   },
-   {
-    "days": [
-     "2026-10-29"
-    ],
-    "outcome": "OK",
-    "reason": "",
-    "run": "2026-10-30T05-30-01",
-    "seconds": 278.2,
-    "slowest_step": "batch"
    }
   ],
   "phases": [
@@ -937,15 +942,15 @@
   "pinned": [],
   "queue": {
    "backlog_trend": [
-    2422,
     2439,
     2449,
     2456,
-    2467
+    2467,
+    2477
    ],
-   "breaches_today": 0,
-   "open": 2467,
-   "qa_open": 1172,
+   "breaches_today": 190,
+   "open": 2477,
+   "qa_open": 1270,
    "sanctions_open": 242,
    "unassigned": 242
   },
@@ -964,7 +969,7 @@
     "of": 8
    },
    "runs": {
-    "avg_seconds": 482.2,
+    "avg_seconds": 520.8,
     "clean": 20,
     "of": 20
    }
@@ -1409,27 +1414,27 @@
   ]
  },
  "living_since": "2026-10-15",
- "no_scheme_text": "No planted scheme surfaced today",
+ "no_scheme_text": null,
  "provenance": {
   "authority": "LOCKED",
-  "fc10_commit": "711205d12e9b3790588a154ca514119037574b61",
-  "run_id": "2026-11-25T05-30-01",
+  "fc10_commit": "831c572636eb4afd7aafbe00b21817571dc1c1ff",
+  "run_id": "2026-11-26T05-30-00",
   "titles_from": "fc-08"
  },
- "published_at": "2026-11-25T05:51:39+00:00",
+ "published_at": "2026-11-26T05:49:33+00:00",
  "pulse_note": null,
  "risk": {
   "critical": 8,
   "days_known": 20,
   "level": "Normal",
-  "reason": "Critical cases 8 vs a usual 9.1 · SAR referrals 12 vs a usual 48.1",
-  "sars": 12,
-  "usual_critical": 9.1,
-  "usual_sars": 48.15
+  "reason": "Critical cases 8 vs a usual 9.5 · SAR referrals 10 vs a usual 48.5",
+  "sars": 10,
+  "usual_critical": 9.5,
+  "usual_sars": 48.5
  },
  "running": {
-  "as_of": "2026-11-25T05:49:06+00:00",
-  "avg_seconds": 472.9,
+  "as_of": "2026-11-26T05:46:55+00:00",
+  "avg_seconds": 508.7,
   "clean": 20,
   "of": 20
  },
@@ -1443,17 +1448,17 @@
   "honesty": "A simulated bank, run every business morning at 05:30 the way a production monitoring system would be. It catches the laundering planted in it.",
   "of": 20,
   "on_time": 20,
-  "reporting_day": "2026-11-24",
-  "reporting_label": "Tuesday's activity, processed Wednesday 05:30 UK time",
+  "reporting_day": "2026-11-25",
+  "reporting_label": "Wednesday's activity, processed Thursday 05:30 UK time",
   "running": true
  },
  "synthetic": true,
  "today": {
   "critical": 8,
-  "day": "2026-11-24",
+  "day": "2026-11-25",
   "intake_transactions": 400,
-  "new_cases": 11,
-  "run_seconds": 1141.9,
-  "sars": 12
+  "new_cases": 10,
+  "run_seconds": 1010.8,
+  "sars": 10
  }
 }
